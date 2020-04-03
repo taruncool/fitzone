@@ -1,0 +1,61 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+svg { width:2rem !important; height:2rem !important;  }
+
+
+
+
+/*-- Footer */
+.foot { padding:0 ; 
+    
+    p {margin:0; font-size:1rem;color: #ccc; }
+    .row {position: relative;}
+    .col, ion-tab-button{padding: 0;}
+    .tabbox  {position: relative;padding:0 1.1rem 1.14rem 1.1rem ;
+        svg { margin:18px auto 0px auto; }
+        p {display: none;}
+    }
+
+    .tab-active { 
+        svg {fill:#80B419; margin-top: 10px;}
+        p {display: block !important;}
+    }
+
+    .btnrow {display:block;
+        button {float:right; margin: 10px 10px; height: 3.4rem;}
+    }
+}
+
+.foot:before {background: none !important; height: 0;}
+
+.ftbnts { padding:0.4rem 0.6rem ;
+    // .button-ios, .button-md {height: 3.6rem !important;}
+    .col {padding: 0 5px;}
+    svg{ margin-right: 0; margin-bottom: 2px;}
+}
+

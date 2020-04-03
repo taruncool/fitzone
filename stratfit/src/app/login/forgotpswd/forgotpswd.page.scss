@@ -1,0 +1,25 @@
+forgotpswd-popup{
+    
+    .scroll-content{padding:25px 25px 0 25px !important;}
+
+    .item-ios, .item-md{border-radius:3px !important; margin-bottom: 1.8vh;  box-shadow: none !important;
+        .item-inner{box-shadow: none !important; border: 0 !important;  line-height: 20px;}
+        .label-ios[floating], .label-md[floating] {transform:translate3d(0,  0,  0) scale(0.8); color:#000 !important;
+            svg{width:4vh; height:4vh; margin-right: 2vh; fill: #375FC6; margin-bottom: -0.6vh;}
+            span {position: relative; top: -0.2vh;}
+        }
+    }
+    .item-ios.item-label-stacked .text-input, .item-ios.item-label-floating .text-input, .item-label-stacked .text-input-md, .item-label-floating .text-input-md, .item-label-floating .select-ios, .item-label-floating .select-md {margin-top:0px;margin-left:5vh; padding-right: 2vh; padding-top: 5px; padding-bottom: 1vh;width: calc(100% - 4vh);}
+
+
+
+    .verify {
+        svg {margin:20px auto;height: 5rem;width: 5rem; fill:#707070;}
+        h2 {color: #375FC6; font-size: 2rem !important;}
+        
+
+    }
+
+
+
+}

@@ -1,0 +1,229 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Nutrition</span>History</ion-title>
+   
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class="diet sbgb">
+  
+<ion-row class="fulpad cgraph" >
+  <ion-col class="fat">
+      <!-- <circle-progress [percent]="fatGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40" [unitsFontSize]=" 30" [subtitle]="'Fat'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#999999'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+ 
+ <circle-progress [percent]="fatGmsBalancePercent" 
+      [backgroundStrokeWidth]="0"
+      [backgroundPadding]=" 0"
+      [radius]="100"  
+      [innerStrokeWidth]="10" 
+      [outerStrokeWidth]="10" 
+      [space]=" -10"
+      [outerStrokeGradient]=" true"
+      [titleFontSize]="40" 
+      [units]=" rem" 
+      [showTitle]="true"
+      [showSubtitle]="True"
+      [title]="fatGmsIntake+ ' g'"
+      [subtitle]="'Fat'"
+      [unitsFontSize]=" 30"
+      [subtitleFontSize]="20" 
+      [animation]="true"
+      [animationDuration]="1000"
+      [showUnits]="false"
+      [outerStrokeColor]= "'#999999'"
+      [innerStrokeColor]= "'#1D2534'"
+      [showBackground]="false"
+      [responsive]="true"></circle-progress>
+
+      <!-- <circle-progress [percent]="fatGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+      <!-- Fat  -->
+      <div class="reqcal">
+         <em>{{fatGms}} g</em><span>Fat</span>
+      </div>
+   </ion-col>
+
+   <ion-col class="protein">
+
+      <!-- <circle-progress [percent]="protienGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10"[space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Pro'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E33849'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+ <circle-progress [percent]="protienGmsBalancePercent" 
+      [showTitle]="true"
+      [showSubtitle]="True"
+      [title]="protienGmsIntake+ ' g'"
+      [subtitle]="'Pro'"
+      [backgroundStrokeWidth]="0"
+      [backgroundPadding]=" 0"
+      [radius]="100"  
+      [innerStrokeWidth]="10" 
+      [outerStrokeWidth]="10" 
+      [space]=" -10"
+      [outerStrokeGradient]=" true"
+      [titleFontSize]="40"
+      [unitsFontSize]=" 30"
+      [subtitleFontSize]="20" 
+      [animation]="true"
+      [animationDuration]="1000"
+      [showUnits]="false"
+      [outerStrokeColor]= "'#E33849'"
+      [innerStrokeColor]= "'#1D2534'"
+      [showBackground]="false"
+      [responsive]="true"></circle-progress>
+
+      <!-- <circle-progress [percent]="protienGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+
+       <!-- Pro  -->
+       <div class="reqcal">
+           <em>{{protienGms}} g</em><span>Protein</span>
+        </div>
+      
+   </ion-col>
+
+   <ion-col class="carbohydrate">
+      <!-- <circle-progress [percent]="carbsGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Carbs'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E6CF00'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+   
+   <circle-progress [percent]="carbsGmsBalancePercent" 
+       [showTitle]="true"
+       [showSubtitle]="True"
+       [title]="carbsGmsIntake+' g'"
+       [subtitle]="'Carbs'"
+       [backgroundStrokeWidth]="0"
+       [backgroundPadding]=" 0"
+       [radius]="100"  
+       [innerStrokeWidth]="10" 
+       [outerStrokeWidth]="10"
+       [space]=" -10"
+       [outerStrokeGradient]=" true"
+       [titleFontSize]="40"
+       [unitsFontSize]=" 30"
+       [subtitleFontSize]="20" 
+       [animation]="true"
+       [animationDuration]="1000"
+       [showUnits]="false"
+       [outerStrokeColor]= "'#E6CF00'"
+       [innerStrokeColor]= "'#1D2534'"
+       [showBackground]="false"
+       [responsive]="true"></circle-progress>
+   
+       <!-- <circle-progress [percent]="carbsGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+       <!-- Carbs  -->
+      <div class="reqcal">
+         <em>{{carbsGms}} g</em><span>Carbohydrate</span>
+      </div>
+   </ion-col>
+
+   <ion-col class="calorie">
+      <!-- <circle-progress [percent]="totalCalBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Cal'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#00BFE6'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+ <circle-progress 
+      [percent]="totalCalBalancePercent" 
+      [showTitle]="true"
+      [showSubtitle]="True"
+      [title]="calIntake"
+      [subtitle]="'Cal'"
+      [backgroundStrokeWidth]="0"
+      [backgroundPadding]=" 0"
+      [radius]="100"  
+      [innerStrokeWidth]="10" 
+      [outerStrokeWidth]="10" 
+      [space]=" -10"
+      [outerStrokeGradient]=" true"
+      [titleFontSize]="40"
+      [unitsFontSize]=" 30"
+      [subtitleFontSize]="20" 
+      [animation]="true"
+      [animationDuration]="1000"
+      [showUnits]="false"
+      [outerStrokeColor]= "'#00BFE6'"
+      [innerStrokeColor]= "'#1D2534'"
+      [showBackground]="false"
+      [responsive]="true"></circle-progress>
+
+      <!-- <circle-progress [percent]="totalCalBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+
+      <!-- Cal  -->
+      <div class="reqcal">
+         <em>{{calPerDay}}</em><span>Calories</span>
+      </div>
+   </ion-col>
+</ion-row>
+<div class=" fulpad meallist">
+    <p>Meals on {{date}}</p>
+  <ion-card class="dcard" *ngFor="let meal of finalFoodDataByDate; let i = index">
+     <ion-item>
+        <!-- <em>Breakfast</em> -->
+        <h2 >{{meal.mealName}}</h2>
+        <ion-button (click)="viewMeal(meal.id)" item-end>
+           
+           View</ion-button>
+     </ion-item>
+     <ion-row class="lgraph" >
+        <ion-col><em>{{meal.mealfat}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Fat</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealpro}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Protein</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealcarb}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" 
+              aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Carbohydrate</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealcal}} </em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" 
+              aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Calories</span>
+        </ion-col>
+     </ion-row>
+     <ion-row class="listdis">
+       <ion-scroll scrollX="true">
+          <em *ngFor="let food of meal.mealData">{{food.foodcount}} {{food.name}} </em>
+       </ion-scroll>
+      
+      <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+      <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
+      </ion-row>
+  </ion-card> 
+  </div>
+<!-- <div class="profileview">
+  <ion-card>
+      <ion-list>
+        <ion-row *ngFor="let meal of finalFoodDataByDate; let i = index"> 
+          
+          <ion-label color="primary" stacked>{{meal.mealName}}</ion-label>
+          <ion-label color="primary" stacked>{{meal.mealDate}}</ion-label>
+          <ion-label color="primary" stacked>{{meal.mealTime | date : "hh:mm"}}</ion-label>
+          <ion-label color="primary" stacked>{{meal.mealTime | date : "EEEE"}}</ion-label>
+          <ion-item *ngFor="let food of meal.mealData">
+           
+            <span>
+              <p>{{food.name}} ({{food.calories}} Cal)</p>
+              <p>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</p>
+            </span>
+            
+             <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+            <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label>
+          </ion-item>
+          <ion-label color="primary" stacked (click)="editMeal(meal.id)">Edit</ion-label>
+         
+          </ion-row>
+         
+       
+        </ion-list>
+  </ion-card>
+</div> -->
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header class=" head">
+  <ion-navbar class="hedfm">
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Settings</span>Refer the App</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="sbgrd">
+<ion-grid class="refer" padding>
+    <ion-row>
+      <div class="referimg">
+          <img class="resticon" src="assets/images/refer.png">
+      </div>
+      <h4 class="invitecnt">Invite your friends with your referral code <br><br> <strong color="primary">{{referralCode}}</strong></h4>
+      <form class="emailinput" #inviteForm="ngForm">
+        <ion-item class="sbgw">
+          <ion-label><ion-icon name="mail" icon-left></ion-icon></ion-label>
+          <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="refEmail" required #input></ion-input>
+        </ion-item>
+      </form>
+    <ion-button col-8 class="inviteBtn" (click)='sendInvite()' [disabled]="!inviteForm.form.valid || clicked">Invite</ion-button>
+    </ion-row>
+</ion-grid>
+</ion-content>

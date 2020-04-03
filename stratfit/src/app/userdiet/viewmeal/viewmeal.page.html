@@ -1,0 +1,77 @@
+<ion-header class="sbgb head"> 
+    <!-- <ion-navbar class="hedfm"> -->
+     <ion-buttons ion-start >
+       <ion-button icon-only (click)="backButtonAction()">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+             </svg>
+       </ion-button>
+       </ion-buttons> 
+       <ion-title><span>View</span>General Meal</ion-title>
+       
+    <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class="diet sbgw">
+     
+<div class="sbgw dishes">
+
+      <div class=" dishlist">
+         <ion-list class=" dishview">
+            
+            <ion-item *ngFor="let food of selectedFoodItems">
+               <ion-avatar item-start>
+                  <img src="assets/images/burger.jpg">
+               </ion-avatar>
+               <ion-row class="title">
+                  <h3>{{food.name}}</h3>
+                  <ion-row class="lgraph">
+                     <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
+                     <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>
+                     <ion-col><em>{{food.carbs}} g</em><span>Carbohydrate</span></ion-col>
+                     <ion-col><em>{{food.calories}} Cal</em><span>Calories</span></ion-col>
+                  </ion-row>
+               </ion-row>
+
+               <div class="add" item-end>
+                  <!-- <ion-icon name="remove" (click)="removeFoodItem(food)"></ion-icon> -->
+                  <em>{{food.foodcount}}</em>
+                  <!-- <ion-icon name="add" text-right (click)="addFood(food)" ></ion-icon> -->
+               </div>
+      
+            </ion-item>
+
+         </ion-list>
+           
+      </div>
+
+</div>
+
+
+<!-- <ion-list no-lines> 
+    <ion-item *ngFor="let food of temporaryFoodItemsFilter">
+      
+        <ion-checkbox slot="start" [(ngModel)]="food.isChecked" (ionChange)="checkEvent(food)"></ion-checkbox>
+    
+        <ion-label color="primary" stacked>{{food.name}} ({{food.calories}} Cal )</ion-label>
+        <ion-label color="primary" stacked>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</ion-label>
+      
+      <ion-radio checked="{{food.id==foodid}}" value="{{food.id}}"></ion-radio>
+    </ion-item>
+</ion-list>
+<ion-list no-lines>
+     
+    <ion-item *ngFor="let fooditem of selectedFoodItems">
+     
+      <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+      <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label>
+
+    </ion-item>
+ 
+</ion-list>
+
+  <button ion-button clear (click)="addFoodItem()">
+      <ion-icon name="add-circle-outline" color="primary" item-start></ion-icon>
+      <span>Add food item</span>
+</button> -->
+</ion-content> 

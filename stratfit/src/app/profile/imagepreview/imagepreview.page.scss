@@ -1,0 +1,10 @@
+imagepreview-popup{
+    .scroll-content{
+        background: #fff;
+    }
+    .bar-buttons-md[start] , .bar-buttons-ios[start]{
+        position: absolute;
+        left: 2%;
+        border: 10px solid rgba(0,0,0,0);
+    }
+}

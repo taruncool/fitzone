@@ -1,0 +1,107 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <button ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </button>
+    </ion-buttons>
+    <ion-title><span>Profile</span>Weights</ion-title>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+
+<ion-content >
+<div class="fulpad">
+  <div class="wtop">
+    <p >Tell us what weights you have in your gym and we will help you to load the bar efficiently each set</p>
+  </div>
+
+  <div class="platewt-block">
+    
+    <h4 text-center>Plate Weights</h4>
+    <p text-center>Tap on the plate to select</p>
+    <ion-list  *ngIf='displayPtWts'>
+      <ion-row class="top-cirl">
+        <ion-col col-3>
+          <div class="btn-big" (tap)="tapEvent(0)" [ngClass]='{"active":displayPtWts[0].count>0}'>
+            <span > <em>{{displayPtWts[0].count}}</em></span>
+          </div>
+          <div class="displypwt"><span>{{displayPtWts[0].weight}} {{metric}}</span></div>
+        </ion-col>
+
+        <ion-col col-3>
+          <div class="btn-mid" (tap)="tapEvent(1)" [ngClass]='{"active":displayPtWts[1].count>0}'>
+            <span > <em>{{displayPtWts[1].count}}</em></span>
+          </div>
+          <div class="displypwt"><span>{{displayPtWts[1].weight}} {{metric}}</span></div>
+        </ion-col>
+
+        <ion-col col-3>
+            <div class="btn-mid2" (tap)="tapEvent(2)" [ngClass]='{"active":displayPtWts[2].count>0}'>
+              <span > <em>{{displayPtWts[2].count}}</em></span>
+            </div>
+            <div class="displypwt"><span>{{displayPtWts[2].weight}} {{metric}}</span></div>
+        </ion-col>
+
+        <ion-col col-3>
+          <div class="btn-small" (tap)="tapEvent(3)" [ngClass]='{"active":displayPtWts[3].count>0}'>
+            <span > <em>{{displayPtWts[3].count}}</em></span>
+          </div>
+          <div class="displypwt"><span>{{displayPtWts[3].weight}} {{metric}}</span></div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="bottom-cirl">
+
+          <ion-col col-2>
+            <div class="btn-big" (tap)="tapEvent(4)" [ngClass]='{"active":displayPtWts[4].count>0}'>
+              <span > <em>{{displayPtWts[4].count}}</em></span>
+            </div>
+            <div class="displypwt"><span>{{displayPtWts[4].weight}} {{metric}}</span></div>
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="btn-mid" (tap)="tapEvent(5)" [ngClass]='{"active":displayPtWts[5].count>0}'>
+              <span > <em>{{displayPtWts[5].count}}</em></span>
+            </div>
+            <div class="displypwt"><span>{{displayPtWts[5].weight}} {{metric}}</span></div>
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="btn-mid2" (tap)="tapEvent(6)" [ngClass]='{"active":displayPtWts[6].count>0}'>
+              <span > <em>{{displayPtWts[6].count}}</em></span>
+            </div>
+            <div class="displypwt"><span>{{displayPtWts[6].weight}} {{metric}}</span></div>
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="btn-small" (tap)="tapEvent(7)" [ngClass]='{"active":displayPtWts[7].count>0}'>
+              <span > <em>{{displayPtWts[7].count}}</em></span>
+            </div>
+            <div class="displypwt"><span>{{displayPtWts[7].weight}} {{metric}}</span></div>
+          </ion-col>
+
+          <ion-col col-2>
+              <div class="btn-small" (tap)="tapEvent(8)" [ngClass]='{"active":displayPtWts[8].count>0}'>
+                <span > <em>{{displayPtWts[8].count}}</em></span>
+              </div>
+              <div class="displypwt"><span>{{displayPtWts[8].weight}} {{metric}}</span></div>
+          </ion-col>
+        
+      </ion-row>
+    </ion-list>
+  </div>
+
+</div>
+</ion-content>
+
+<ion-footer class="foot " >
+
+<ion-row class="btnrow">
+    <ion-button  (click)="savePWtVal()"> Save </ion-button>
+   
+</ion-row>
+</ion-footer>

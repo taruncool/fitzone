@@ -1,0 +1,45 @@
+<ion-content>
+
+	<div class=" fulpad countryblck">
+	
+		<div  *ngIf="isWeightShow">
+			<h5>Update Weight</h5>
+			<ion-item>
+				<ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+				<ion-label color="primary" stacked> Weight (in {{weightunit}})</ion-label>
+				<ion-input type="tel" pattern="[0-9]*"  minlength="2" maxlength="3" placeholder="Update Weight"
+				 [(ngModel)]="weight" name='weight'  required></ion-input>
+			</ion-item>
+	
+		</div>
+			<div *ngIf="isDietShow">
+					<h5>Nutrition</h5>
+						<ion-item>
+							
+              <ion-label class="subcate">Dietery Goal</ion-label>
+              <ion-select class="six8" [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeDtGoal(dietMsg)" item-end>
+                <ion-select-option value="WtL">Weight Loss</ion-select-option>
+                <ion-select-option value="WtM">Weight Maintenance</ion-select-option>
+                <ion-select-option value="WtG">Weight Gain</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+               
+							<ion-label class="subcate">Diet Type</ion-label>
+              <ion-select class="six8" [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDtType(dietType)" item-end>
+                <ion-select-option value="DtKeto">Ketogenic</ion-select-option>
+                <ion-select-option value="DtLc">Low Carb</ion-select-option>
+                <ion-select-option value="DtMlc">Moderate Low Carb</ion-select-option>
+                <ion-select-option value="DtMc">Moderate Carb</ion-select-option>
+                <ion-select-option value="DtMhc">Moderate High Carb</ion-select-option>
+                <ion-select-option value="DtHc">High Carb</ion-select-option>
+              </ion-select>
+						</ion-item>
+			</div>
+	
+			<ion-button block *ngIf="isDietShow" (click)="saveDietType()">Done</ion-button>
+			<ion-button block *ngIf="isWeightShow" (click)="updateMetrics()" [disabled]="weight<20">Update Weight</ion-button>
+					
+	</div>
+
+</ion-content>    

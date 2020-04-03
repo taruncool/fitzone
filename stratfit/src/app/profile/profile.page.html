@@ -1,0 +1,232 @@
+
+<ion-header class="head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-title><span>Profile</span>Settings</ion-title>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+
+<ion-content class="profile" >
+    <ion-row class="fulpad nopadb">
+      <ion-card class=" nobg user" >
+
+        <ion-item>
+          <ion-avatar item-start *ngIf="avatar !='' && avatar !='null' && avatar">
+              <img src={{s3Url}}{{avatar}}  />
+          </ion-avatar>
+        
+          <ion-avatar  item-start *ngIf="(avatar =='' || avatar =='null' || avatar ==undefined) && avatar">
+            <img src="assets/images/icon.png"/>
+          </ion-avatar>
+        
+          <div class="title">
+            <h2>{{firstname}} {{lastname}}</h2>
+            <em>{{email}}</em>
+          </div>
+        </ion-item>
+    </ion-card> 
+
+    </ion-row>
+
+    <ion-row class='fulpad'>
+
+        <ion-list>
+            <ion-item (click)="profileinfo()">
+              <ion-icon name="ios-person-outline" item-start></ion-icon>
+              Profile Info
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>
+                  </svg>
+              </ion-icon>
+            </ion-item>
+            <ion-item (click)="dietInfo()">
+              <ion-icon item-start>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                    <g id="cutlery" transform="translate(0 -11.586)">
+                      <rect id="Rectangle_138842" data-name="Rectangle 138842"  transform="translate(0 11.586)" fill="none"/>
+                      <path id="Path_8517" data-name="Path 8517" d="M361.3,40.785a1.437,1.437,0,0,0-2.032,0l-14.9,14.895a1.437,1.437,0,0,0,2.032,2.032l14.9-14.895A1.437,1.437,0,0,0,361.3,40.785Z" transform="translate(-290.208 -22.594)"/>
+                      <path id="Path_8518" data-name="Path 8518" d="M387.224,66.3a1.437,1.437,0,0,0-2.032,0L370.3,81.195a1.437,1.437,0,0,0,2.032,2.032l14.9-14.9A1.436,1.436,0,0,0,387.224,66.3Z" transform="translate(-312.083 -44.122)"/>
+                      <path id="Path_8519" data-name="Path 8519" d="M84,116.458l18.49-18.49a1.437,1.437,0,0,0-2.032-2.032l-18.49,18.49a7.629,7.629,0,0,1-8.667,1.488,1.436,1.436,0,0,0-1.694.343l-6.283,7.079-.008.008-.007.009L38.154,153.944l-.02.024c-.09.105-.174.2-.26.283a4.6,4.6,0,1,1-6.5-6.5c.083-.084.176-.168.282-.258l.024-.02L48.655,132.4a1.437,1.437,0,1,0-1.907-2.149L29.783,145.31c-.162.138-.307.272-.443.408A7.471,7.471,0,0,0,39.9,156.284c.138-.138.272-.283.409-.444l20.693-23.313L81.7,155.84c.137.161.271.306.408.443a7.471,7.471,0,0,0,10.567-10.565c-.137-.138-.283-.272-.443-.409L68.419,124.176l4.659-5.249A10.51,10.51,0,0,0,84,116.458Zm6.335,31.011.024.02c.105.09.2.174.283.26a4.6,4.6,0,1,1-6.5,6.5c-.085-.085-.17-.177-.259-.282l-.02-.024L62.927,130.363l3.584-4.038Z" transform="translate(-22.909 -69.127)"/>
+                      <path id="Path_8520" data-name="Path 8520" d="M66.778,14.007a1.437,1.437,0,0,0-2.032,0L46.256,32.5a10.509,10.509,0,0,0-2.47,10.921l-5.69,5.05-5.468-4.854a14.449,14.449,0,0,0-2.691-16.807c-4.456-4.456-9.617-7.592-14.533-8.829-5.132-1.292-9.531-.429-12.39,2.429S-.706,27.666.586,32.8c1.238,4.915,4.373,10.077,8.83,14.532a14.448,14.448,0,0,0,16.807,2.691l5.415,6.1a1.437,1.437,0,0,0,2.028.121L46.458,44.889A1.437,1.437,0,0,0,46.8,43.2a7.627,7.627,0,0,1,1.488-8.667l18.49-18.49A1.437,1.437,0,0,0,66.778,14.007ZM32.833,53.141,27.6,47.249a1.436,1.436,0,0,0-1.828-.269A11.59,11.59,0,0,1,11.446,45.3C7.352,41.2,4.484,36.516,3.371,32.1c-1.035-4.112-.44-7.542,1.675-9.657s5.545-2.71,9.656-1.674c4.42,1.113,9.109,3.98,13.2,8.075a11.59,11.59,0,0,1,1.682,14.329A1.437,1.437,0,0,0,29.856,45l6.076,5.393Z" transform="translate(0)"/>
+                    </g>
+                  </svg>
+                  
+
+              </ion-icon>
+              Nutrition
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#375fc6"/>
+                  </svg>
+              </ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="ios-person-outline" item-start></ion-icon>
+              <ion-label class="subcate" >Active physical job</ion-label>
+            <ion-select class="six8" [interfaceOptions]="selectOptions3" [(ngModel)]="noOfWorkDays" name="weightunit" (ngModelChange)="onChangeWorkDays(noOfWorkDays)" item-end>
+              
+              <ion-select-option value="1">1 day per week</ion-select-option>
+              <ion-select-option value="2">2 days per week</ion-select-option>
+              <ion-select-option value="3">3 days per week</ion-select-option>
+              <ion-select-option value="4">4 days per week </ion-select-option>
+              <ion-select-option value="5">5 days per week</ion-select-option>
+              <ion-select-option value="6">6 days per week</ion-select-option>
+              <ion-select-option value="7">7 days per week</ion-select-option> 
+              <ion-select-option value="0">None</ion-select-option>             
+            </ion-select>
+           </ion-item>
+
+            <ion-item>
+                <ion-icon name="ios-person-outline" item-start></ion-icon>
+                <ion-label class="subcate" >Dietary Goal</ion-label>
+              <ion-select class="six8" [interfaceOptions]="selectOptions" [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeDtGoal(dietMsg)" item-end>
+                <ion-select-option value="WtL">Weight Loss</ion-select-option>
+                <ion-select-option value="WtM">Weight Maintenance</ion-select-option>
+                <ion-select-option value="WtG">Weight Gain</ion-select-option>
+                
+              </ion-select>
+             </ion-item>
+            <ion-item>
+                <ion-icon name="ios-person-outline" item-start></ion-icon>
+                <ion-label class="subcate"> Diet Type</ion-label>
+              <ion-select class="six8"  [interfaceOptions]="selectOptions2" [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDtType(dietType)" item-end>
+                <ion-select-option value="DtKeto">Ketogenic</ion-select-option>
+                <ion-select-option value="DtLc">Low Carb</ion-select-option>
+                <ion-select-option value="DtMlc">Moderate Low Carb</ion-select-option>
+                <ion-select-option value="DtMc">Moderate Carb</ion-select-option>
+                <ion-select-option value="DtMhc">Moderate High Carb</ion-select-option>
+                <ion-select-option value="DtHc">High Carb</ion-select-option>
+              </ion-select>
+            </ion-item>
+          
+            <ion-item (click)="chngepassword()">
+              <ion-icon name="ios-lock-outline" item-start></ion-icon>
+              Password
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>               
+                </ion-icon>
+            </ion-item>
+
+            <ion-item (click)="traininglevel()">
+              <ion-icon name="ios-man-outline"  item-start></ion-icon>
+              Training Level
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>               
+                </ion-icon>
+            </ion-item>
+      
+            <ion-item (click)="openTmax()">
+              <ion-icon name="ios-clipboard-outline"  item-start></ion-icon>
+              Training Maxes
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>               
+                </ion-icon>
+            </ion-item>
+      
+            <ion-item (click)="mysubscription()" *ngIf="plancheck">
+              <ion-icon name="ios-card-outline"  item-start></ion-icon>
+              Subscription
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>               
+                </ion-icon>
+            </ion-item>
+      
+            <ion-item (click)="openPlateWts()">
+              <ion-icon name="ios-disc-outline" item-start></ion-icon>
+              Set Weights
+              <ion-icon item-end>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>               
+                </ion-icon>
+            </ion-item> 
+
+              <ion-item>
+                <ion-icon name="ios-speedometer-outline"  item-start></ion-icon>
+                <ion-label class="subcate">Set Weight Units</ion-label>
+                <ion-select [(ngModel)]="weightunit" name="weightunit" (ngModelChange)="onChangeWtUnits(weightunit)" item-end>
+                  <ion-select-option value="kgs">Kg</ion-select-option>
+                  <ion-select-option value="lbs">Lb</ion-select-option>
+                </ion-select>
+              </ion-item>
+        
+              <ion-item>
+                <ion-icon name="ios-cash-outline" item-start></ion-icon>
+                <ion-label class="subcate">Set Currency Type</ion-label>
+                <ion-select [(ngModel)]="currencyType" name="currencyType" (ngModelChange)="onChngCtype(currencyType)" item-end>
+                  <ion-select-option value="INR">INR</ion-select-option>
+                  <ion-select-option value="USD">USD</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item (click)="changeSoundSettings()">
+                  <ion-icon name="ios-volume-up-outline" item-start></ion-icon>
+                <ion-label>{{soundText}}</ion-label>
+                <ion-toggle [ngModel]="isSoundOn" (ngModelChange)="changeSound($event)"></ion-toggle>
+              </ion-item>
+          
+              <ion-item (click)="changeVibrateSettings()">
+                  <ion-icon name="ios-phone-portrait-outline" item-start></ion-icon>
+                <ion-label>{{vibrateText}}</ion-label>
+                <ion-toggle [ngModel]="isVibrateOn" (ngModelChange)="changeVibrate($event)"></ion-toggle>
+              </ion-item>
+              <ion-item (click)="openInviteFriend()">
+                  <ion-icon name="ios-calendar-outline" item-start></ion-icon>
+                  Refer the App
+                  <ion-icon item-end>
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                      <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                    </svg>               
+                  </ion-icon>
+                </ion-item>
+          
+                <ion-item (click)="openfeedback()">
+                  <ion-icon name="ios-paper-plane-outline" item-start></ion-icon>
+                  Feedback
+                  <ion-icon item-end>
+                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                      </svg>               
+                    </ion-icon>
+                </ion-item>
+          
+                <ion-item (click)="openfaqs()">
+                  <ion-icon name="ios-help-circle-outline"  item-start></ion-icon>
+                  FAQs
+                  <ion-icon item-end>
+                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                      </svg>               
+                    </ion-icon>
+                </ion-item>
+          
+                <ion-item (click)="openAbout()">
+                  <ion-icon name="ios-information-circle-outline" item-start></ion-icon>
+                  About
+                  <ion-icon item-end>
+                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                      </svg>               
+                    </ion-icon>
+                </ion-item>
+
+                <ion-item (click)="logout()">
+                    <ion-icon name="ios-log-out-outline"  item-start></ion-icon>
+                    Logout
+                </ion-item>
+
+          </ion-list>
+        
+    </ion-row>
+
+</ion-content>
+

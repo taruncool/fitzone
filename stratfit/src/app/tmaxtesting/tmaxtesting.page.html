@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar #ionNav color="dark">
+    <ion-title>
+      Training Maximum
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<ion-card>
+  <ion-card-content>
+      <ion-list>
+        <ion-item no-padding *ngIf='testprogram.id'>
+            <ion-avatar>
+              <img *ngIf='testprogram.accessLevel==0' class="exerciseicon" src="http://stratfit.net/newExThumb/{{testprogram.id}}.jpg">
+              <img *ngIf='testprogram.accessLevel==1' class="exerciseicon" src="{{s3url}}/exerciseicons/{{testprogram.id}}.png">
+            </ion-avatar>
+
+            <h1 text-center>{{testprogram.exerciseName}}</h1>
+        </ion-item>
+      </ion-list>
+      <ion-row *ngIf='tmaxStatus=="yes" && testprogram.accessLevel==1'>
+        <h2 margin text-center>{{testprogram.tamxContent}}</h2>
+      </ion-row>
+      <ion-row *ngIf='tmaxValues!==""' text-center>
+        <div class='tmax-values' [innerHTML]='tmaxValues'></div>
+      </ion-row>
+      <ion-list class="actionBtn" *ngIf='tmaxStatus=="yes"'>
+          <ion-grid>
+            <ion-row *ngIf='testprogram.accessLevel==1'>
+              <ion-col col-5 align-self-center>
+                <h5>Enter {{tmaxParameter}}</h5>
+              </ion-col>
+              <ion-col col-4>
+                <ion-item class="valueentry">
+                  <ion-input placeholder="" type="number" name="knownWorkWeight" [(ngModel)]="knownWorkWeight"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col col-3 align-self-center>
+                <h5>{{wMetric}}</h5>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf='testprogram.accessLevel==0'>
+              <ion-col col-3>
+              </ion-col>
+              <ion-col col-4>
+                <ion-item class="valueentry">
+                  <ion-input placeholder="Enter Value" type="number" name="knownWorkWeight" [(ngModel)]="knownWorkWeight"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col col-3 align-self-center>
+                <h5>{{wMetric}}</h5>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <div>
+            <ion-button class="testBtn" (click)="submitWW(testprogram,knownWorkWeight)" [disabled]="!knownWorkWeight || (knownWorkWeight && knownWorkWeight<1)">Continue</ion-button>
+          </div>
+      </ion-list>
+  </ion-card-content>
+
+</ion-card>
+
+</ion-content>

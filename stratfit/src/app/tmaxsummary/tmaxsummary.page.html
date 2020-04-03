@@ -1,0 +1,59 @@
+<ion-header class=" head">
+  <ion-navbar class="hedfm">
+    <ion-buttons ion-start >
+      <ion-button ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Profile</span>Training Maxes </ion-title>
+    <!-- <ion-buttons end>
+        <button ion-button clear class="outline" (click)='gotoHome()'><ion-icon name="body"></ion-icon>Start Workout</button> 
+        <button ion-button clear (click)='editTmax()' [disabled]="!tmaxForm.form.valid">Save</button>
+      </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div  class="fulpad">
+
+      <strong *ngIf='skipStatus'>values based on your Fitness Profile</strong>
+      <form #tmaxForm="ngForm">
+
+      <ion-list class="summary">
+        <ion-card class="nobg"  *ngFor='let extra of allExercises; let i = index;'>
+          <ion-item >
+            <h2>{{extra.exerciseName}}</h2>
+            <div item-end>
+                <div class="count" id='ex{{extra.id}}'>
+                  <span>{{extra.tmax}}</span> <em>{{extra.wMetric}}</em>
+                </div>
+                <ion-icon name="create" (click)='tmaxShowPreview(extra,extra.exerciseName,extra.tmax,extra.wMetric)'></ion-icon>
+            </div>
+          </ion-item>
+        </ion-card>
+        
+      </ion-list>
+  
+</form>
+
+  </div>
+
+
+<div *ngIf='firstTime && !tmaxretest'>
+  <div class='resttime'>
+    <h4 text-center text-wrap>After the Tmax Test 72 Hours rest time is recommended</h4>
+    <h4 text-center text-wrap>Do you want to change the start date?</h4>
+  </div>
+  <ion-row item-center>
+    <ion-col col-6>
+      <ion-button ion-button class="yesnoBtn" block (click)='changeSDate()'>Yes</ion-button>
+    </ion-col>
+    <ion-col col-6>
+      <ion-button ion-button class="yesnoBtn" block  (click)='gotoHome()'>No</ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+
+</ion-content>

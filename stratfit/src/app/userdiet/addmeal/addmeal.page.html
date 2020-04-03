@@ -1,0 +1,149 @@
+<ion-header class="sbgb head"> 
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+            </svg>
+      </ion-button>
+    </ion-buttons> 
+    <ion-title><span>Nutrition</span>General Meal</ion-title>
+    <ion-buttons end>
+      <ion-button clear (click)="saveEditMeal()">
+        <span *ngIf="isEdit">Save</span>
+        <span *ngIf="!isEdit">Done</span>
+      </ion-button>
+    </ion-buttons>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class="diet sbgw">
+   
+  <ion-row class="sbgb fulpad lgraph">
+     <ion-col class="fat"><progress-bar [progress]="fatDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{fatDayBalGms}} g</em><span>Fat</span></div></ion-col>
+     <ion-col class="protein"><progress-bar [progress]="proDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{proDayBalGms}} g</em><span>Protein</span></div></ion-col>
+     <ion-col class="carbohydrate"><progress-bar [progress]="carbsDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{carbsDayBalGms}} g</em><span>Carbohydrate</span></div></ion-col>
+     <ion-col class="calorie"><progress-bar [progress]="calDayBalPercent"></progress-bar><div class="reqcal"><em>{{calDayBal}} </em><span>Calorie</span></div></ion-col>
+  </ion-row>
+           
+  <ion-row class="sbgb fulpad adlist">
+     <h4>Add Dishes <span>{{selectedFoodItems.length}} Items</span></h4>
+     <ion-row class="aditems">
+       <div class="nodata" *ngIf="selectedFoodItems.length==0">
+        <p >Please add food items</p>
+      </div>
+        <ion-scroll scrollX="true">
+       
+           <!-- <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
+             <img src="assets/images/burger.jpg">  
+              <ion-icon (click)="removeFullFoodItem(fooditem)">
+                 <svg id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                    <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" />
+                    <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" />
+                    <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)"/>
+              </svg>
+            </ion-icon>
+           </ion-avatar> -->
+
+            <em *ngFor="let food of selectedFoodItems">{{food.foodcount}} {{food.name}} </em>
+             
+             
+             <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+             <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
+             
+         
+        </ion-scroll>
+     </ion-row>
+
+     <ion-row class="lgraph">
+        <ion-col><div class="reqcal"><em>{{mealFatGmss}} g</em><span>Fat</span></div></ion-col>
+        <ion-col><div class="reqcal"><em>{{mealProGmss}} g</em><span>Protein</span></div></ion-col>
+        <ion-col><div class="reqcal"><em>{{mealCarbsGmss}} g</em><span>Carbohydrate</span></div></ion-col>
+        <ion-col><div class="reqcal"><em>{{mealCals}}</em><span>Calories</span></div></ion-col>
+     </ion-row>
+
+  </ion-row>
+
+  <!-- <ion-row class="fulpad sbgg search">
+     <ion-item>
+        <ion-input type="text" placeholder="Search Dishes" name="dishes" required></ion-input>
+        <ion-icon item-end>
+           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
+              <path id="Search" d="M93.971,89.034,73.777,68.84a35.371,35.371,0,1,0-4.954,4.954L89.017,93.971a3.5,3.5,0,0,0,4.954-4.937ZM46.4,74.754A28.363,28.363,0,1,1,74.771,46.4,28.39,28.39,0,0,1,46.4,74.754Z" transform="translate(-11 -11)" fill="#80b419"/>
+           </svg>
+                 
+        </ion-icon>
+     </ion-item>
+        
+  </ion-row> -->
+  <ion-searchbar class="fulpad sbgg search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)"></ion-searchbar>
+       
+  <div class="sbgw dishes">
+    <!-- <ion-toolbar class="sfmenu">
+           <ion-segment class="segment-activated" >
+              <ion-segment-button value="breakfast">Breakfast </ion-segment-button>
+              <ion-segment-button value="lunch">Lunch </ion-segment-button>
+              <ion-segment-button value="dinner">Dinner </ion-segment-button>
+              <ion-segment-button value="snack">Snack </ion-segment-button>
+           </ion-segment>
+        </ion-toolbar> -->
+  
+      <div class=" dishlist">
+          <ion-list class=" dishview">
+            <p *ngIf="alertmsg">{{alertmsg}}</p>
+            <ion-item *ngFor="let food of temporaryFoodItemsFilter">
+                <ion-avatar item-start>
+                  <img src="assets/images/burger.jpg">
+                </ion-avatar>
+                <ion-row class="title">
+                  <h3>{{food.name}}</h3>
+                  <ion-row class="lgraph">
+                      <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
+                      <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>
+                      <ion-col><em>{{food.carbs}} g</em><span>Carbohydrate</span></ion-col>
+                      <ion-col><em>{{food.calories}} Cal</em><span>Calories</span></ion-col>
+                  </ion-row>
+                </ion-row>
+
+                <div class="add" item-end>
+                  <ion-icon name="remove" (click)="removeFoodItem(food)"></ion-icon>
+                  <em>{{food.foodcount}}</em>
+                  <ion-icon name="add" text-right (click)="addFood(food)" ></ion-icon>
+                </div>
+      
+            </ion-item>
+
+          </ion-list>
+            
+      </div>
+
+  </div>
+
+ 
+  <!-- <ion-list no-lines> 
+      <ion-item *ngFor="let food of temporaryFoodItemsFilter">
+        
+          <ion-checkbox slot="start" [(ngModel)]="food.isChecked" (ionChange)="checkEvent(food)"></ion-checkbox>
+      
+          <ion-label color="primary" stacked>{{food.name}} ({{food.calories}} Cal )</ion-label>
+          <ion-label color="primary" stacked>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</ion-label>
+        
+        <ion-radio checked="{{food.id==foodid}}" value="{{food.id}}"></ion-radio>
+      </ion-item>
+  </ion-list>
+  <ion-list no-lines>
+       
+      <ion-item *ngFor="let fooditem of selectedFoodItems">
+       
+        <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+        <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label>
+
+      </ion-item>
+   
+  </ion-list>
+
+    <button ion-button clear (click)="addFoodItem()">
+        <ion-icon name="add-circle-outline" color="primary" item-start></ion-icon>
+        <span>Add food item</span>
+  </button> -->
+</ion-content> 

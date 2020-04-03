@@ -1,0 +1,7 @@
+{
+  "name": "stratfit",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

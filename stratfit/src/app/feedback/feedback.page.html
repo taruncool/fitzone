@@ -1,0 +1,26 @@
+<ion-header class=" head">
+  <ion-navbar class="hedfm">
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Settings</span>Feedback</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class=" sbgrd">
+<div class="fulpad">
+<form #feedbackForm="ngForm">
+  <ion-list>
+    <ion-item class="fbtext">
+      <ion-textarea placeholder="Feedback" name="feedback" [(ngModel)]="feedback" required></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button col-8 offset-2 type="submit" (click)="submitFb(feedback)" [disabled]="!feedbackForm.form.valid">Submit</ion-button>
+</form>
+</div>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="dark">
+  <ion-title text-center >
+      {{instData.exName}}
+  </ion-title>
+  <ion-buttons start>
+    <ion-button ion-button (click)="backButtonAction()">
+      <span ion-text color="primary" showWhen="ios">Cancel</span>
+      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [innerHTML]='instData.exerciseDesc'>
+  </ion-list>
+</ion-content>
+<ion-footer text-center><ion-button ion-button col-8 (click)='backButtonAction()'>Ok</ion-button></ion-footer>

@@ -1,0 +1,40 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Settings</span>FAQs</ion-title>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+
+<ion-content class="faqs" >
+
+<div class="fulpad nopadt">
+  <ion-card *ngFor="let d of data" (click)="toggleDetails(d)">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-11>
+          <h3><b>{{d.title}}</b></h3>
+        </ion-col>
+        <ion-col col-1 class="adrop">
+          <!-- <ion-icon color="primary" item-right [name]="d.icon" class="dropicon"></ion-icon> -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
+            <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" fill="#fff"/>
+          </svg>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <div class="ansview" *ngIf="d.showDetails" [innerHTML]="d.details"></div>
+
+  </ion-card>
+</div>
+
+</ion-content>
+

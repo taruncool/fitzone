@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar color="toolbg" hideBackButton='true'>
+    <ion-title text-center>Know Your Training Maximum</ion-title>
+  </ion-navbar>
+    
+</ion-header>
+<ion-content>
+  <ion-item class="tmaxheading">
+    <h2><strong>WHAT IS Training Maximum &nbsp;?</strong></h2>
+    <p>Training Maximum for the exercise (one repetition maximum)</p>
+  </ion-item>
+
+  <ion-card *ngFor='let ex of tmaxdata; let i = index'>
+    
+  <ion-card-header class="item item-divider">
+     <h2> {{ex.exerciseName}}</h2>
+    
+  </ion-card-header>
+
+  <ion-card-content>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+                <ion-list>
+                    <ion-item>
+                        <ion-avatar>
+                         <img *ngIf='ex.accessLevel==0' src="http://stratfit.net/newExThumb/{{ex.id}}.jpg">
+                         <img *ngIf='ex.accessLevel==1' src="{{s3url}}/exerciseicons/{{ex.id}}.png">
+                        </ion-avatar> 
+                    </ion-item>
+                </ion-list>
+              </ion-col>
+              
+            <ion-col col-6 class="stattmax">
+                <div *ngIf='ex.tmax!=0' >Test Status : <ion-icon padding name='md-checkmark-circle'></ion-icon></div>
+                <div *ngIf='ex.tmax!=0' >Training Maximum Value : {{ex.updatetmax}} {{ex.metrics}}</div>
+                <div *ngIf='ex.updatetmax==0 && ex.defaultTmax!=0'><p>Training Maximum Value : <strong>{{ex.defaultTmax}} {{ex.metrics}} </strong><sup>*</sup></p> <p><small>*(Calculated Based on your Fitness Details)</small></p></div> 
+                <ion-button *ngIf='ex.tmax==0' ion-button  (click)='startTest(ex.id)'>EXACT</ion-button>
+            </ion-col>
+          </ion-row>
+          
+    </ion-grid>
+      
+    
+  </ion-card-content>
+
+</ion-card>
+    <div class="automargin" >
+      <!-- <button ion-button col-5 *ngIf='!continueClick' [disabled]='btnDisable' class="submitBtn" (click)='skipBtn()'>Skip</button> -->
+      <ion-button ion-button col-5 *ngIf='continueClick' class="submitBtn" (click)='continueBtn()'>Continue</ion-button>
+    </div>
+</ion-content>
+
+  
+
+  
+

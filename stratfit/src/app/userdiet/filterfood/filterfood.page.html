@@ -1,0 +1,36 @@
+<ion-content>
+
+	<div class="countryblck">
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+		<div class="datablck">
+			<p *ngIf="alertmsg">{{alertmsg}}</p>
+			<ion-list no-lines> 
+				<ion-item *ngFor="let food of foodItems">
+					
+						<ion-checkbox slot="start" [(ngModel)]="food.isChecked" (ionChange)="checkEvent(food)"></ion-checkbox>
+				
+						<ion-label color="primary" stacked>{{food.name}} ({{food.calories}} Cal )</ion-label>
+						<ion-label color="primary" stacked>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</ion-label>
+					
+					<!-- <ion-radio checked="{{food.id==foodid}}" value="{{food.id}}"></ion-radio> -->
+				
+				  </ion-item>
+			</ion-list>
+		</div>
+		
+		<div class="btncls">
+			<ion-grid>
+				<ion-row  text-center>
+					<ion-col col-6 text-center>
+						<ion-button ion-button block (click)="dismiss()">Cancel</ion-button>
+					</ion-col>
+					<ion-col col-6 text-center>
+						<ion-button ion-button block (click)="submit()">Ok</ion-button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div>
+
+</ion-content>    

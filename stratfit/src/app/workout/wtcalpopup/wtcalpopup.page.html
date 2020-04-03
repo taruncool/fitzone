@@ -1,0 +1,72 @@
+<ion-content class="platemathmodal">
+
+  <ion-grid no-padding class="cgrid-cls">
+      <div class="middlebarbel">
+          <h4> {{workweight}} {{metrics}} </h4>
+          <h6 no-margin>Work Weight</h6>
+      </div>
+      
+      <div class="kglb" *ngIf='!hidepanel'>
+          <div class='barbelweights'>
+               <ion-row *ngIf='barbellwt'>
+                   <ion-col col-4>
+                       <ion-button (click)="changeWeight(barbellwt[0])" [disabled]="workweight<barbellwt[0]" [ngClass]="{'activeBarbel': (barbelwgt==barbellwt[0])}">{{barbellwt[0]}} {{metrics}}</ion-button>
+                   </ion-col>
+                   <ion-col col-4>
+                       <ion-button (click)="changeWeight(barbellwt[1])" [disabled]="workweight<barbellwt[1]" [ngClass]="{'activeBarbel': (barbelwgt==barbellwt[1])}">{{barbellwt[1]}} {{metrics}}</ion-button>
+                   </ion-col>
+                   <ion-col col-4>
+                       <ion-button (click)="changeWeight(barbellwt[2])" [disabled]="workweight<barbellwt[2]" [ngClass]="{'activeBarbel': (barbelwgt==barbellwt[2])}">{{barbellwt[2]}} {{metrics}}</ion-button>
+                   </ion-col>
+               </ion-row>
+           </div>
+          <span class="barwt" *ngIf='barbelwgt'>{{barbelwgt}} {{metrics}} Bar</span>
+          <div class="barimg">
+              <img src="assets/images/barbelplate.png">
+          </div>
+
+          <h4 *ngIf='nearestWtMsg' text-center>{{nearestwt}}</h4>
+          <h4 *ngIf='nobarbelWtMsg' text-center>{{nobarbelwt}}</h4>
+
+          <ion-row class="dispwts" *ngIf='!nearestWtMsg && !nobarbelWtMsg'>
+              <ion-col col-4>
+                  <ion-item-group text-center *ngFor='let wtVal of displayWtValues'>
+                      <ion-list>{{wtVal.count}} x {{wtVal.weight}} {{metrics}}</ion-list>
+                  </ion-item-group> 
+              </ion-col>
+
+              <ion-col col-4>
+              </ion-col>
+
+              <ion-col col-4>
+                  <ion-item-group text-center *ngFor='let wtVal of displayWtValues'>
+                      <ion-list>{{wtVal.count}} x {{wtVal.weight}} {{metrics}}</ion-list>
+                  </ion-item-group> 
+              </ion-col>
+          </ion-row>
+
+          <h6 *ngIf='displayclampswt && remainingwrkwt !==NaN && remainingwrkwt<=1' class="errmsg">You may use clamps to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
+          <h6 *ngIf='displayclampswt && remainingwrkwt !==NaN && remainingwrkwt>1' class="errmsg">You need more weight plates to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
+          <h6 *ngIf='errbarbelmsg' class="errmsg">{{errmsg}}</h6>
+
+          <ion-row class="clickBtnrow">
+               <ion-col col-10 class="fcont" text-center> If you want to change the plate weight </ion-col>
+               <ion-col col-6 class="fcont"> <ion-button (click)="chngePtWts()">Click Here</ion-button></ion-col>
+           </ion-row>
+      </div>
+
+      <div class="kglb" *ngIf='hidepanel'>
+          <h6 class="errormsg">No barbels found</h6>
+          <ion-row class="clickBtnrow">
+               <ion-col col-10 class="fcont" text-center> If you want to change the plate weight </ion-col>
+               <ion-col col-6 class="fcont"> <ion-button (click)="chngePtWts()">Click Here</ion-button></ion-col>
+           </ion-row>
+      </div>
+
+  </ion-grid>
+
+  <ion-fab right bottom>
+       <ion-button ion-fab mini (click)='backButtonAction()'><ion-icon name="close"></ion-icon></ion-button>
+   </ion-fab>
+
+</ion-content>

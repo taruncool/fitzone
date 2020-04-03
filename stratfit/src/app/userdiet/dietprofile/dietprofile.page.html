@@ -1,0 +1,439 @@
+<ion-header class="sbgb head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Your</span>Nutrition</ion-title>
+    <ion-buttons end>
+      <ion-button (click)="displayCalendar()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+             <g id="history" transform="translate(0 -0.315)">
+               <rect id="Rectangle_138845" data-name="Rectangle 138845"  transform="translate(0 0.315)" fill="none"/>
+               <path id="Path_8534" data-name="Path 8534" d="M43.193,3.315A35.89,35.89,0,0,0,7.319,39.088,41.528,41.528,0,0,0,8.607,50.221L3.774,47.4A2.51,2.51,0,1,0,1.245,51.74l11.325,6.6c.024.012.047.016.07.027a2.481,2.481,0,0,0,.375.157,2.68,2.68,0,0,0,.263.085,2.594,2.594,0,0,0,.326.041c.077.007.154.031.232.031.044,0,.085-.015.129-.017s.078.009.121,0c.062-.006.118-.032.179-.042a2.575,2.575,0,0,0,.351-.085,2.461,2.461,0,0,0,.286-.116,2.375,2.375,0,0,0,.3-.169,2.293,2.293,0,0,0,.5-.43,2.294,2.294,0,0,0,.2-.255c.034-.05.078-.086.108-.137s.022-.083.041-.122c.034-.068.086-.128.116-.2l4.505-11.154a2.509,2.509,0,1,0-4.652-1.88L13.7,49.806A37.183,37.183,0,0,1,12.34,39.191,30.854,30.854,0,1,1,43.194,70.044a2.51,2.51,0,1,0,0,5.021,35.875,35.875,0,1,0,0-71.75Z" transform="translate(0 0.735)" />
+               <path id="Path_8535" data-name="Path 8535" d="M37.088,40.039a2.484,2.484,0,0,0,.789.161c.056,0,.111.034.167.034a2.485,2.485,0,0,0,.852-.167,2.209,2.209,0,0,0,.22-.1,2.508,2.508,0,0,0,.577-.382c.039-.034.09-.046.128-.085L55.494,23.823a2.51,2.51,0,0,0-3.55-3.55L37.46,34.756l-13-5.444a2.511,2.511,0,0,0-1.942,4.631l14.554,6.094.015,0Z" transform="translate(5.144 4.713)" />
+             </g>
+           </svg>
+           
+           
+      </ion-button>
+      <ion-button (click)="openMessanger()">Help</ion-button>
+    </ion-buttons>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class="diet sbgb">
+
+<!-- <ion-list no-lines>
+     
+      <ion-item>
+        <ion-icon name="ios-contacts-outline"  color="primary" item-start></ion-icon>
+        <p>Gender</p>
+        {{gender}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+        <p>Age</p>
+        {{userAge}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+        <p>Weight</p>
+        {{weight}} {{weightunit}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+        <p>Height</p>
+        {{heightfeet}}' &nbsp; {{heightinc}}"  &nbsp; ({{height}} Cm)
+      </ion-item>
+      <h1>Diet Program</h1>
+     
+      <ion-item>
+          <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+       <p>Your BMI</p>
+       {{bmi}} Kg/m2
+      </ion-item>
+      <p>BMI less than 18.5 - Underweight</p>
+      <p>BMI 18.5 to 25 - Normal</p>
+      <p>BMI 25 to 30 - Overweight</p>
+      <p>BMI more than 30 - Obese</p>
+      <p><b>{{bmiMsg}}</b></p>
+      <ion-item>
+        <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+       
+        <ion-select [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeWtUnits(dietMsg)" >
+          <ion-option value="WtL">Weight Loss</ion-option>
+          <ion-option value="WtM">Weight Maintenance</ion-option>
+          <ion-option value="WtG">Weight Gain</ion-option>
+          
+        </ion-select>
+       </ion-item>
+       <p>Total Load: <b>{{totalLoad}}</b></p>
+       <p>RMR: <b>{{rmrD}}</b></p>
+       <p>Activity Factor: <b>{{activityFactor}}</b></p>
+       <p>Actual Calories Expended: <b>{{actualCalExp}}</b></p>
+
+       <p>Calories Per Day for diet goal: <b>{{calPerDay}}</b></p>
+    </ion-list> 
+  
+    <p>Actual Calories Expended: <b>{{actualCalExp}}</b></p>
+
+    <p>Calories Per Day for diet goal: <b>{{calPerDay}}</b></p>
+  
+    <p><b>Daily food intake percentage:</b></p>
+    <p>Fat: <b>{{fatPercent * 100}}</b> %</p>
+    <p>Protien: <b>{{protienPercent * 100}}</b> %</p>
+    <p>Carbs: <b>{{carbsPercent * 100}}</b> %</p>
+    <p></p>
+    <p><b>Daily food intake in calories:</b></p>
+    <p>Fat: <b>{{fatCal}}</b> Cal</p>
+    <p>Protien: <b>{{protienCal}}</b>Cal</p>
+    <p>Carbs: <b>{{carbsCal}}</b>Cal</p>
+    <p></p>
+    <p><b>Daily food intake in grams:</b></p>
+    <p>Fat: <b>{{fatGms}}</b>Gms</p>
+    <p>Protien: <b>{{protienGms}}</b>Gms</p>
+    <p>Carbs: <b>{{carbsGms}}</b>Gms</p>
+    <p></p>
+    <p><b>Day Balance:</b></p>
+    <p>Fat: <b>{{fatGmsBalance}}</b> Gms</p>
+    <p>Protien: <b>{{protienGmsBalance}}</b> Gms</p>
+    <p>Carbs: <b>{{carbsGmsBalance}}</b> Gms</p>
+    <p></p>
+    <p>Fat: <b>{{fatCalBalance}}</b> Cal</p>
+    <p>Protien: <b>{{protienCalBalance}}</b> Cal</p>
+    <p>Carbs: <b>{{carbsCalBalance}}</b> Cal</p>
+    <p></p>
+  <ion-item>
+      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+      <p>Add Meal</p>
+      <button ion-button clear (click)="addMeal()">
+        <span>Add</span>
+      </button>
+    
+   </ion-item>
+    <p>{{defFood}}</p>
+      <ion-list>
+        <ion-row *ngFor="let meal of finalFoodDataByDate; let i = index"> 
+          
+          <ion-label color="primary" stacked>{{meal.mealName}}</ion-label>
+          <ion-label color="primary" stacked>{{meal.mealDate}}</ion-label>
+          <ion-label color="primary" stacked>{{meal.mealTime | date : "hh:mm"}}</ion-label>
+          <ion-item *ngFor="let food of meal.mealData">
+           
+            <span>
+              <p>{{food.name}} ({{food.calories}} Cal)</p>
+              <p>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</p>
+            </span>
+            
+             <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+            <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> 
+          </ion-item>
+          <ion-label color="primary" stacked (click)="editMeal(meal.id)">Edit</ion-label>
+         
+        </ion-row>
+         
+       
+      </ion-list>
+  -->
+ 
+ <ion-row class="fulpad cgraph" >
+   
+  <h3>Day Balance</h3>
+    <ion-col class="fat">
+       <!-- <circle-progress [percent]="fatGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40" [unitsFontSize]=" 30" [subtitle]="'Fat'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#999999'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+  
+  <circle-progress [percent]="fatGmsBalancePercent" 
+       [backgroundStrokeWidth]="0"
+       [backgroundPadding]=" 0"
+       [radius]="100"  
+       [innerStrokeWidth]="10" 
+       [outerStrokeWidth]="10" 
+       [space]=" -10"
+       [outerStrokeGradient]=" true"
+       [titleFontSize]="40" 
+       [units]=" rem" 
+       [showTitle]="true"
+       [showSubtitle]="True"
+       [title]="fatGmsIntake+ ' g'"
+       [subtitle]="'Fat'"
+       [unitsFontSize]=" 30"
+       [subtitleFontSize]="20" 
+       [animation]="true"
+       [animationDuration]="1000"
+       [showUnits]="false"
+       [outerStrokeColor]= "'#999999'"
+       [innerStrokeColor]= "'#1D2534'"
+       [showBackground]="false"
+       [responsive]="true"></circle-progress>
+
+       <!-- <circle-progress [percent]="fatGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+       <!-- Fat  -->
+       <div class="reqcal">
+          <em>{{fatGms}} g</em><span>Fat</span>
+       </div>
+    </ion-col>
+
+    <ion-col class="protein">
+
+       <!-- <circle-progress [percent]="protienGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10"[space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Pro'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E33849'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+  <circle-progress [percent]="protienGmsBalancePercent" 
+       [showTitle]="true"
+       [showSubtitle]="True"
+       [title]="protienGmsIntake+ ' g'"
+       [subtitle]="'Pro'"
+       [backgroundStrokeWidth]="0"
+       [backgroundPadding]=" 0"
+       [radius]="100"  
+       [innerStrokeWidth]="10" 
+       [outerStrokeWidth]="10" 
+       [space]=" -10"
+       [outerStrokeGradient]=" true"
+       [titleFontSize]="40"
+       [unitsFontSize]=" 30"
+       [subtitleFontSize]="20" 
+       [animation]="true"
+       [animationDuration]="1000"
+       [showUnits]="false"
+       [outerStrokeColor]= "'#E33849'"
+       [innerStrokeColor]= "'#1D2534'"
+       [showBackground]="false"
+       [responsive]="true"></circle-progress>
+
+       <!-- <circle-progress [percent]="protienGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+
+        <!-- Pro  -->
+        <div class="reqcal">
+            <em>{{protienGms}} g</em><span>Protein</span>
+         </div>
+       
+    </ion-col>
+
+    <ion-col class="carbohydrate">
+       <!-- <circle-progress [percent]="carbsGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Carbs'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E6CF00'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+    
+    <circle-progress [percent]="carbsGmsBalancePercent" 
+        [showTitle]="true"
+        [showSubtitle]="True"
+        [title]="carbsGmsIntake+' g'"
+        [subtitle]="'Carbs'"
+        [backgroundStrokeWidth]="0"
+        [backgroundPadding]=" 0"
+        [radius]="100"  
+        [innerStrokeWidth]="10" 
+        [outerStrokeWidth]="10"
+        [space]=" -10"
+        [outerStrokeGradient]=" true"
+        [titleFontSize]="40"
+        [unitsFontSize]=" 30"
+        [subtitleFontSize]="20" 
+        [animation]="true"
+        [animationDuration]="1000"
+        [showUnits]="false"
+        [outerStrokeColor]= "'#E6CF00'"
+        [innerStrokeColor]= "'#1D2534'"
+        [showBackground]="false"
+        [responsive]="true"></circle-progress>
+    
+        <!-- <circle-progress [percent]="carbsGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+        <!-- Carbs  -->
+       <div class="reqcal">
+          <em>{{carbsGms}} g</em><span>Carbohydrate</span>
+       </div>
+    </ion-col>
+
+    <ion-col class="calorie">
+       <!-- <circle-progress [percent]="totalCalBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Cal'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#00BFE6'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
+  <circle-progress 
+       [percent]="totalCalBalancePercent" 
+       [showTitle]="true"
+       [showSubtitle]="True"
+       [title]="calIntake"
+       [subtitle]="'Cal'"
+       [backgroundStrokeWidth]="0"
+       [backgroundPadding]=" 0"
+       [radius]="100"  
+       [innerStrokeWidth]="10" 
+       [outerStrokeWidth]="10" 
+       [space]=" -10"
+       [outerStrokeGradient]=" true"
+       [titleFontSize]="40"
+       [unitsFontSize]=" 30"
+       [subtitleFontSize]="20" 
+       [animation]="true"
+       [animationDuration]="1000"
+       [showUnits]="false"
+       [outerStrokeColor]= "'#00BFE6'"
+       [innerStrokeColor]= "'#1D2534'"
+       [showBackground]="false"
+       [responsive]="true"></circle-progress>
+
+       <!-- <circle-progress [percent]="totalCalBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+
+       <!-- Cal  -->
+       <div class="reqcal">
+          <em>{{calPerDay}}</em><span>Calories</span>
+       </div>
+    </ion-col>
+ </ion-row>
+<!-- <ion-row class=" fulpad week">
+  <button ion-button> Mon </button>
+  <button ion-button> Tue </button>
+  <button ion-button> Wen </button>
+  <button ion-button class="active"> Thu </button>
+  <button ion-button> Fri </button>
+  <button ion-button> Sat </button>
+  <button ion-button> Sun </button>
+  
+  <em>25 July, 2019</em>
+</ion-row> -->
+
+<div class=" fulpad meallist">
+  <div class="nodata" *ngIf="finalFoodDataByDate.length==0">
+       <p >{{mealMsg}}</p>
+  </div>
+  
+  <ion-card class="dcard" *ngFor="let meal of finalFoodDataByDate; let i = index">
+     <ion-item>
+        <!-- <em>Breakfast</em> -->
+        <h2 >{{meal.mealName}}</h2>
+        <ion-button (click)="editMeal(meal.id)" item-end>
+           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
+              <g id="add" transform="translate(-654.5 -785.5)">
+                 <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+                 <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+              </g>
+           </svg>
+           Edit</ion-button>
+     </ion-item>
+     <ion-row class="lgraph" >
+        <ion-col><em>{{meal.mealfat}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Fat</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealpro}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Protein</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealcarb}} g</em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Carbohydrate</span>
+        </ion-col>
+        <ion-col><em>{{meal.mealcal}} </em>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <span>Calories</span>
+        </ion-col>
+     </ion-row>
+     <ion-row class="listdis">
+       <ion-scroll scrollX="true">
+          <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em>
+       </ion-scroll>
+      
+      <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
+      <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
+      </ion-row>
+  </ion-card> 
+
+  <!-- <ion-card class="dcard ocard">
+    <ion-item>
+       <em>Todays</em>
+       <h2 >New Meal</h2>
+       <button ion-button item-end (click)="addMeal()">
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
+             <g id="add" transform="translate(-654.5 -785.5)">
+                <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+                <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+             </g>
+          </svg>
+          Add Meal</button>
+    </ion-item>
+    <ion-row class="lgraph" >
+       <ion-col><em>0 g</em>
+          <div class="progress">
+             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span>Fat</span>
+       </ion-col>
+       <ion-col><em>0 g</em>
+          <div class="progress">
+             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span>Protein</span>
+       </ion-col>
+       <ion-col><em>0 g</em>
+          <div class="progress">
+             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span>Carbohydrate</span>
+       </ion-col>
+       <ion-col><em>0 g</em>
+          <div class="progress">
+             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <span>Calorie</span>
+       </ion-col>
+    </ion-row>
+ </ion-card>  -->
+
+</div>
+
+  
+    <!-- <ion-item>
+      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+     
+      <ion-select [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeWtUnits(dietMsg)" >
+        <ion-option value="WtL">Weight Loss</ion-option>
+        <ion-option value="WtM">Weight Maintenance</ion-option>
+        <ion-option value="WtG">Weight Gain</ion-option>
+        
+      </ion-select>
+     </ion-item>
+    <p>Select your diet type</p>
+    <ion-item>
+      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+    <ion-select [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDietType(dietType)">
+      <ion-option value="DtKeto">Ketogenic</ion-option>
+      <ion-option value="DtLc">Low Carb</ion-option>
+      <ion-option value="DtMlc">Moderate Low Carb</ion-option>
+      <ion-option value="DtMc">Moderate Carb</ion-option>
+      <ion-option value="DtMhc">Moderate High Carb</ion-option>
+      <ion-option value="DtHc">High Carb</ion-option>
+    </ion-select>
+    </ion-item> -->
+    
+   <!-- <ion-item>
+    <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+    
+    <button ion-button clear (click)="viewHistory()">
+      <span>History</span>
+    </button>
+  
+  </ion-item> -->
+  
+
+</ion-content>
+
+<ion-footer class="foot" text-right>
+ <ion-row class="btnrow">
+    <ion-button item-end (click)="addMeal()" class=" addmeal">
+       <!-- <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
+          <g id="add" transform="translate(-654.5 -785.5)">
+             <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+             <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
+          </g>
+       </svg> -->
+       Add Meal
+    </ion-button>
+ </ion-row>
+ </ion-footer>

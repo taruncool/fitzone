@@ -1,0 +1,268 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-title><span>Fitness</span>Analytics</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button block *ngIf='!noplan' (click)='openGchart()'> 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79.425 79.995">
+            <g id="Progress-Fill" transform="translate(0 0)">
+              <path id="Union_15" data-name="Union 15" d="M0,5.547V2.437H13.992V5.547ZM0-.671V-3.781H20.211V-.671ZM0-6.89V-10H20.211V-6.89Z" transform="translate(0.154 17.01)" />
+              <path id="Union_16" data-name="Union 16" d="M0,63.041a78.244,78.244,0,0,0,67.07-52.03L69.39,4.393l-8.5,4.252a1.468,1.468,0,0,1-1.313-2.626L71.31.155a1.467,1.467,0,0,1,1.967.654v0l5.867,11.732a1.465,1.465,0,0,1-.665,1.962,1.492,1.492,0,0,1-.648.151,1.467,1.467,0,0,1-1.322-.812L72.2,5.231l-2.366,6.746A81.175,81.175,0,0,1,.25,65.972Z" transform="translate(0 0) " fill="#707070"/>
+              <path id="Union_14" data-name="Union 14" d="M0,47.061V37.733H10.883v9.328Zm68.389,0V0H79.271V47.06Zm-34.2,0V25.294H45.076V47.06Zm-17.1,0V33.068H27.979V47.06Zm34.2,0V14.412H62.175V47.06Z" transform="translate(0.154 32.934)" />
+            </g>
+          </svg>
+            
+      </button>
+    </ion-buttons> -->
+    <!-- <ion-buttons end>
+      <button ion-button icon-only >
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" viewBox="0 0 16933.32 16933.32"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g>
+            
+            <path id="Path_84" class="fil1" d="M16715.84 15718.35l-4070.52 -4070.56c1043.1,-1273.75 1614.1,-2871.01 1614.1,-4517.88 0,-3936.96 -3192.75,-7129.74 -7129.72,-7129.74 -3936.94,0 -7129.71,3192.78 -7129.71,7129.74 0,3936.98 3192.77,7129.74 7129.71,7129.74 1646.87,0 3244.12,-571.01 4517.57,-1613.78l4069.92 4067.51c133.05,140.22 317.95,219.72 511.3,219.72 389.17,0 704.78,-315.6 704.78,-704.78 0,-192.65 -78.9,-377.05 -218.28,-510l0.85 0.03zm-9588.71 -2561.81c-3156.15,-0.7 -6033.1,-2746.1 -6033.1,-6034.66 0,-3553.83 2877.65,-6034.61 6034.6,-6034.61 3156.94,0 6034.62,2877.66 6034.62,6034.61 0,0.71 0,2.15 0,2.8 -4.16,3155.93 -2880.15,6031.86 -6035.87,6031.86l-0.25 0z"
+              data-name="Path 84" />
+          </g>
+        </svg>
+      </button>
+      
+      <button ion-button (click)="profile()">
+          <ion-avatar class="huser">
+            <img src="assets/images/user.jpg" >
+          </ion-avatar>
+      </button>
+    </ion-buttons> -->
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class=" analytic">
+
+
+  <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()">
+    <ion-row class="pcover">
+      <img src="http://stratfit.net/ProgramImages/program{{planInfo.id}}.png">
+    </ion-row>
+    <ion-item class="poverlay" text-wrap>
+      <em>{{planInfo.durationWeeks}} Weeks</em>
+        <h2 text-wrap>{{planInfo.planName}}</h2>
+        <h6>{{planInfo.coachName}}</h6>
+        
+    </ion-item>
+  </ion-card> <!--END Choosen Program Cart-->
+
+
+
+  <ion-row class="fulpad ">
+
+    <ion-item class=" nobg nodata" *ngIf='noplan'>
+      <!-- <img src="assets/images/no-data.png"> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="161.863"  viewBox="0 0 161.863 134.736">
+        <g id="Group_347" data-name="Group 347" transform="translate(-87.75 -97.85)">
+          <path id="Path_14" data-name="Path 14" d="M162.548,139.8H17.832V22.216A5.654,5.654,0,0,0,12.116,16.5,5.654,5.654,0,0,0,6.4,22.216v123.3a5.654,5.654,0,0,0,5.716,5.716H162.548a5.716,5.716,0,0,0,0-11.432Z" transform="translate(81.35 81.35)" />
+          <path id="Path_15" data-name="Path 15" d="M57.532,112V70.318a5.716,5.716,0,0,0-11.432,0V112a5.716,5.716,0,0,0,11.432,0Z" transform="translate(96.999 87.124)" />
+          <path id="Path_16" data-name="Path 16" d="M37.732,106.365V84.617a5.716,5.716,0,0,0-11.432,0v21.748a5.716,5.716,0,0,0,11.432,0Z" transform="translate(89.194 92.761)" />
+          <path id="Path_17" data-name="Path 17" d="M97.132,117.76V55.707a5.716,5.716,0,1,0-11.432,0V117.76a5.716,5.716,0,1,0,11.432,0Z" transform="translate(112.608 81.365)" />
+          <path id="Path_18" data-name="Path 18" d="M116.932,114.339V64.388a5.716,5.716,0,0,0-11.432,0v49.951a5.716,5.716,0,0,0,11.432,0Z" transform="translate(120.413 84.787)" />
+          <path id="Path_19" data-name="Path 19" d="M77.332,110.255V74.749a5.716,5.716,0,0,0-11.432,0v35.506a5.716,5.716,0,0,0,11.432,0Z" transform="translate(104.804 88.871)" />
+          <path id="Path_227" data-name="Path 227" d="M30.285,84.1S42.451,61.245,57.19,61.245s14.168,9.027,27.343,9.027S98.4,42.33,112.247,42.33s15.984,11.993,24.693,12.511S152.9,42.33,152.9,42.33" transform="translate(90.589 74.92)" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+        </g>
+      </svg>
+      <!--h4 text-center>You Dont have enough data to show</h4-->
+      <p>Analytics can be displayed post workout sessions only. Complete atleast one exercise to see your workout data.</p>
+    </ion-item> <!-- End Analytics with out any data -->
+
+
+
+
+      <div class="contin" *ngIf='!noplan'>
+        <ion-row class="periods">
+            <ion-col  >
+              <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod-{{i+1}}">
+                <ion-select-option aria-selected="active" *ngFor="let period of currentPeriodss; let i = index" [value]="period.period_id">{{period.periodName}}-{{i+1}}</ion-select-option>
+                  
+              </ion-select>
+            </ion-col>
+            <ion-col>
+              <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
+                  <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
+                  >MicroCycle-{{k+1}}</ion-select-option>
+              </ion-select>
+          </ion-col>
+            <ion-col>
+                <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle-{{j+1}}">
+                  <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
+                    >MesoCycle-{{j+1}}</ion-select-option>
+
+                </ion-select>
+            </ion-col>
+        </ion-row> <!--End Period *** General, In-seasion & Specific -->
+
+
+        <div class="days">
+          <ion-button *ngFor="let day of tempDayData; let i = index" [ngClass]="{'active': day.day_id == currentDisplayDay ,'done': day.status == 1,'skip':day.status== 2}" [disabled]="day.num_of_sessions==0" (click)="getSessData(day.day_id,day.date)"> {{day.day_name}}</ion-button>
+          <ion-button disabled class="skip" >Off</ion-button>
+          <em>{{today}}</em>
+        </div> <!-- End Days Block-->
+
+        <div class="session">
+          <ion-item class="nobg">
+            <ion-scroll scrollX="true">
+            <ion-button id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
+          
+            </ion-scroll>
+          </ion-item>
+        </div><!-- End Session Block-->
+
+        <div [ngSwitch]="programstype">
+            
+          <div class="exe">
+            <ion-col>
+            <ion-avatar *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
+                <span>A{{i+1 }}</span>
+            </ion-avatar>
+           
+            </ion-col>
+           
+          </div> <!-- End Activity Block-->
+
+          <div class="exetab" *ngIf="activityType == 'simple'">
+            <div class="workview" *ngFor="let exe of tempExeData; let i = index">
+            <ion-list class="exelist">
+              
+                <h2>{{exe.exerciseName}}</h2>
+                  <ion-row  *ngFor="let action of tempAction; let i = index">
+                      <!-- <div *ngIf="round.round_id== action.round_id"></div> -->
+                    <ion-col *ngIf="!workweight">
+                      <span>{{action.workweight}}{{metrics}}</span>
+                      <em>Weight</em>
+                    </ion-col>
+                    <ion-col>
+                        <span>{{action.intensity}}% of</span>
+                        <em>Tmax</em>
+                    </ion-col>
+                    <ion-col *ngIf='action.status == 1'>
+                        <span>{{action.repsdone}}</span>
+                        <em>Reps</em>
+                    </ion-col>
+                    <ion-col *ngIf='action.status == 0'>
+                      <span>{{action.prescribed_reps}}</span>
+                      <em>Reps</em>
+                  </ion-col>
+                    <ion-col *ngIf='action.status == 1'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                          <path id="Active-2" data-name="Active" d="M120.063,45.644a4.9,4.9,0,0,0-6.527,0L67.4,88.243,49.278,71.555a4.9,4.9,0,0,0-6.527,0,4.02,4.02,0,0,0,0,6.011L64.02,97.156A4.71,4.71,0,0,0,67.284,98.4a4.914,4.914,0,0,0,3.264-1.244l49.4-45.5A3.941,3.941,0,0,0,120.063,45.644Z" transform="translate(-41.401 -31.4)" fill="#fff"/>
+                        </svg>
+                      <em>Done</em>  
+                    </ion-col>
+                   <ion-col  col-3 *ngIf='action.status==0'>
+                      <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                        <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
+                      </svg>
+    
+                      <em>Not Done</em>
+                      </ion-col>
+                  <ion-col  col-3 *ngIf='action.status==2'>
+                <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                  <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
+                    <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                    <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                </svg>                   
+              <em>Skipped</em>  
+            </ion-col>
+             </ion-row> 
+                
+              </ion-list>
+            </div>
+          </div><!-- End Simple Block-->
+
+          <div *ngIf="activityType != 'simple'">
+            <div class="exetab" *ngFor="let round of tempRound; let i = index">
+             
+               <!-- <h1 (onchange)="getRound(round.round_id)">Round {{i+1}}  --> 
+
+                <h1>{{round.round_name}} 
+                  <!-- <svg class="icr" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>  -->
+
+                </h1>
+              <div class="workview" *ngFor="let exe of round.exes; let i = index">
+                <ion-list class="exelist" *ngIf="exe.round_id == round.round_id">
+                  <h2>{{exe.exerciseName}}</h2>
+                  <div *ngFor="let action of tempAction; let i = index">
+                      <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
+                        <ion-col *ngIf="!workweight">
+                          <span>{{action.workweight}}{{metrics}}</span>
+                          <em>Weight</em>
+                        </ion-col>
+                        <ion-col>
+                            <span>{{action.intensity}}% of</span>
+                            <em>Tmax</em>
+                        </ion-col>
+                        <ion-col *ngIf='action.status == 1'>
+                            <span>{{action.repsdone}}</span>
+                            <em>Reps</em>
+                        </ion-col>
+                        <ion-col *ngIf='action.status == 0'>
+                          <span>{{action.prescribed_reps}}</span>
+                          <em>Reps</em>
+                        </ion-col>
+                        <ion-col *ngIf='action.status == 1'>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                              <path id="Active-2" data-name="Active" d="M120.063,45.644a4.9,4.9,0,0,0-6.527,0L67.4,88.243,49.278,71.555a4.9,4.9,0,0,0-6.527,0,4.02,4.02,0,0,0,0,6.011L64.02,97.156A4.71,4.71,0,0,0,67.284,98.4a4.914,4.914,0,0,0,3.264-1.244l49.4-45.5A3.941,3.941,0,0,0,120.063,45.644Z" transform="translate(-41.401 -31.4)" fill="#fff"/>
+                            </svg>
+                          <em>Done</em>  
+                        </ion-col>
+                        <ion-col  col-3 *ngIf='action.status==0'>
+                          <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                            <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
+                          </svg>
+        
+                          <em>Not Done</em>
+                        </ion-col>
+                        <ion-col  col-3 *ngIf='action.status==2'>
+                          <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                            <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
+                              <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                              <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                          </svg>                   
+                          <em>Skipped</em>  
+                        </ion-col>
+                
+                      </ion-row> 
+                    </div>
+                
+                </ion-list>
+              
+             </div> 
+            </div>
+          </div><!-- End Complex Block-->
+
+          <div class="exesumry" *ngIf="!Show">
+            <h6>Summary</h6>
+            <ion-row>
+              <ion-col col-4>
+                  <span>{{totalreps}}<em>Total Reps</em>  </span>
+              </ion-col>
+              <ion-col col-4 *ngIf="!Showtmax">
+                  <span>{{Tmax}}<em>Est. Tmax </em>  </span>
+              </ion-col>
+              <ion-col col-4>
+                  <span>{{totalweight}}<em>Avg Weight </em>  </span>
+              </ion-col>
+              <ion-col col-4>
+                  <span>{{Tonnage}}<em>Tonnage (Tons)</em>  </span>
+              </ion-col>
+              <ion-col col-4>
+                  <span>{{Work}}<em>Work (Joules)</em>  </span>
+              </ion-col>
+              <ion-col col-4>
+                  <span>{{cal}}<em>Calories (Cal)</em>  </span>
+              </ion-col>
+            </ion-row>
+  
+          </div><!-- End Summary Block-->
+        </div>
+
+</div>
+</ion-row>
+</ion-content>

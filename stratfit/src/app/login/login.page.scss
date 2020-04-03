@@ -1,0 +1,27 @@
+page-login {
+
+    .scroll-content{padding:25px 25px 0 25px !important;}
+
+    .slog img {width: 30% ; margin: auto; margin-top: 5vh;margin-bottom: 5vh; ;}
+    
+    .item-ios, .item-md{  margin-bottom: 10px !important;
+        .item-inner{ line-height: 20px;}
+        .label-ios[floating], .label-md[floating] {transform:translate3d(0,  0,  0) scale(0.8); color:#000 !important;
+            svg{width:4vh; height:4vh; margin-right: 2vh; margin-bottom: -0.6vh;}
+            span {position: relative; top: -0.2vh; color: #59800D !important;}
+        }
+    }
+     .item-ios.item-label-stacked .text-input, .item-ios.item-label-floating .text-input, .item-label-stacked .text-input-md, .item-label-floating .text-input-md, .item-label-floating .select-ios, .item-label-floating .select-md {margin-top:0px;margin-left:5vh; padding-right: 2vh; padding-top: 3px; padding-bottom: 10px; margin-bottom:0 !important;width: calc(100% - 6vh); font-size: 1.4rem;}
+     .inputs ion-card ion-input, .inputs ion-card ion-textarea, .inputs ion-card ion-select, .inputs ion-item ion-input, .inputs ion-item ion-textarea, .inputs ion-item ion-select { margin-top: -2px !important;}
+
+
+    
+    .social {margin-top:10vh;
+        button {background:none !important;padding: 0;  font-size: 2.5em;height:44px !important; width: 44px !important; border-radius: 50%; border-color: #3b5998 !important;
+            svg, .cls-1 { fill:#fff !important; /* fill: #3b5998 !important;*/}
+            
+        }
+        button.gogl{ border-color:#fc2424 !important;}
+        button:hover {background:none !important;}
+    }
+}

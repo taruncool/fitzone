@@ -1,0 +1,43 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+    <ion-buttons ion-start >
+      <ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><span>Profile</span>Training level</ion-title>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+
+<ion-content class="tlevel">
+
+  <h6 text-center padding>
+    Estimate your strength training level and we will estimate your training maxes.
+  </h6>
+  <ion-list class="levels" margin>
+    <div class="levelopt" [ngClass]="{'active': selectedLevel== (i+1)}" ion-item detail-none  *ngFor='let item of items;let i=index'>
+      <div name="fitlevel" (click)="selectFLevel(item)">
+        <div [ngClass]="{'activeOpt': selectedLevel== (i+1)}"><ion-icon name="ios-radio-button-on" (click)="selectFLevel(item)" item-left class="selectiondot"  ></ion-icon>
+        </div>
+        <h2>{{item.title}}</h2>
+      </div>
+      <!-- <ion-icon name="ios-information-circle-outline" item-right></ion-icon> -->
+      <expandable [expandHeight]='itemExpandHeight' [expanded]='item.expanded'>
+        <p>{{item.desc}}</p>
+      </expandable>
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer class="foot " >
+
+<ion-row class="btnrow" >
+  <ion-button (click)="continueBtn()" [disabled]='!selectedLevel'>Save</ion-button>
+   
+</ion-row>
+</ion-footer>
+

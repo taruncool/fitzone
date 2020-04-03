@@ -1,0 +1,84 @@
+<ion-header class=" head">
+  <!-- <ion-navbar class="hedfm"> -->
+   <!--  <ion-buttons ion-start >
+      <button ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </button>
+    </ion-buttons> -->
+    <ion-title><span>Your</span>Training Maxes </ion-title>
+    <ion-buttons end>
+        <!-- <button ion-button clear class="outline" (click)='gotoHome()'><ion-icon name="body"></ion-icon>Start Workout</button> -->
+        <ion-button ion-button  (click)='closeTmax()'>Next</ion-button>
+        <ion-button ion-button  [hidden]="isEditDisable"  (click)='editTmax()'>Save</ion-button>
+      </ion-buttons>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content class="sbgrd exeinfo tmax">
+  <div class="fulpad ">
+
+      <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
+      <p>Stratfit has approx estimated your training maxes based on your biometric data and training level.</p>
+      <p>Stratfit will auto correct your training maxed during training or you can maually change their at any time.</p>
+     
+      <!-- <p > Tmax is a training maximum of your exercise. </p>
+      <p > You can change the Tmax of one or many exercises. Please do not change the Tmax value if you are not confident.</p>
+      <p > You can change your Tmax once you subscribe to a program.</p> -->
+      
+</div>
+  <div  class="fulpad">
+
+      <strong *ngIf='skipStatus'>Values based on your Fitness Profile</strong>
+
+   <ion-grid class="summary">
+      <ion-row  *ngFor='let extra of allExercises'>
+
+        <ion-col col-8 align-self-center>
+          <h5>{{extra.exerciseName}}</h5>
+        </ion-col>
+
+        <ion-col align-self-center>
+            <!-- (ionInput)='validatenumber(extra.updatetmax)'-->
+          <ion-input type="number" id='ex{{extra.id}}'
+           [disabled]="isEditDisable"
+           [(ngModel)]='extra.tmax' required></ion-input> 
+         
+          <h5>{{wMetric}}</h5>
+           
+        </ion-col>
+
+        <!--ion-col col-1 align-self-center (click)='editTmax()'>
+            <span> <ion-icon name="checkmark"></ion-icon></span> 
+        </ion-col-->
+
+      </ion-row>
+
+
+    </ion-grid>
+
+
+  </div>
+<div *ngIf='firstTime && !tmaxretest'>
+  <div class='resttime'>
+    <h4 text-center text-wrap>After the Tmax Test 72 Hours rest time is recommended</h4>
+    <h4 text-center text-wrap>Do you want to change the start date?</h4>
+  </div>
+  <ion-row item-center>
+    <ion-col col-6>
+      <ion-button ion-button class="yesnoBtn" block (click)='changeSDate()'>Yes</ion-button>
+    </ion-col>
+    <ion-col col-6>
+      <ion-button ion-button class="yesnoBtn" block  (click)='gotoHome()'>No</ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+<!--ion-grid *ngIf='!firstTime'>
+  <ion-row item-center>
+    <ion-col col-12 class='workoutbtn'>
+      <button col-8 ion-button (click)='gotoHome()'>Start Workout</button>
+    </ion-col>
+  </ion-row>
+</ion-grid-->
+</ion-content>
