@@ -7,6 +7,8 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+import { PlanrenewalPage } from '../planrenewal/planrenewal.page';
+import { SessionsummaryPage } from '../todayworkout/sessionsummary/sessionsummary.page';
 // import { async } from '@angular/core/testing';
 @Component({
   selector: 'app-dashboard',
@@ -163,67 +165,69 @@ export class DashboardPage implements OnInit {
   //   });
   // }
   
-  // public closeAppAction() {
-  //   if (this.alertApp) {
-  //     this.alertApp.dismiss();
-  //     this.alertApp = null;
-  //   } else {
+  public closeAppAction() {
+    if (this.alertApp) {
+      this.alertApp.dismiss();
+      this.alertApp = null;
+    } else {
 
-  //     this.showAppAlert();
+      this.showAppAlert();
 
-  //   }
-  // }
+    }
+  }
 
-  // public planRenew() {
-  //   let modal = this.modalCtrl.create(PlanrenewalPage, { planComplete: this.planComplete });
-  //   modal.present();
-  // }
+  async planRenew() {
+    let modal = await this.modalCtrl.create({component:PlanrenewalPage,
+      componentProps: { planComplete: this.planComplete }
+    });
+    modal.present();
+  }
 
-  // showAppAlert() {
-  //   this.alertApp = this.alertCtrl.create({
-  //     title: 'Exit?',
-  //     message: 'Do you want to exit the app?',
-  //     buttons: [
-  //       {
-  //         text: 'Cancel',
-  //         role: 'cancel',
-  //         handler: () => {
-  //           this.alertApp = null;
-  //         }
-  //       },
-  //       {
-  //         text: 'Exit',
-  //         handler: () => {
-  //           this.platform.exitApp();
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   this.alertApp.present();
-  // }
-  // noProgramsAlert(){
-  //   this.prompt = this.alertCtrl.create({
-  //     title: 'No Subscription yet!',
-  //     message:'Subscribe to Stratfit program from the store to start workout.',
-  //     buttons: [
-  //       // {
-  //       //   text: 'Create your Workout',
-  //       //   handler: workout => {
+  showAppAlert() {
+    this.alertApp = this.alertCtrl.create({
+      // message: 'Exit?',
+      message: 'Do you want to exit the app?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            this.alertApp = null;
+          }
+        },
+        {
+          text: 'Exit',
+          handler: () => {
+            // this.platform.exitApp();
+          }
+        }
+      ]
+    });
+    this.alertApp.present();
+  }
+  noProgramsAlert(){
+    this.prompt = this.alertCtrl.create({
+      message: 'No Subscription yet!',
+      // message:'Subscribe to Stratfit program from the store to start workout.',
+      buttons: [
+        // {
+        //   text: 'Create your Workout',
+        //   handler: workout => {
             
-  //       //     this.navCtrl.push(UserActivityPage);
-  //       //   }
-  //       // },
-  //       {
-  //         text: 'Choose Program',
-  //         handler: workout => {
+        //     this.navCtrl.push(UserActivityPage);
+        //   }
+        // },
+        {
+          text: 'Choose Program',
+          handler: workout => {
             
-  //           this.navCtrl.navigateForward(this.router.url + '/store/');
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   this.prompt.present();
-  // }
+            this.navCtrl.navigateForward(this.router.url + '/store/');
+          }
+        }
+      ]
+    });
+    this.prompt.present();
+  }
 
   ngOnInit(){
     
@@ -277,16 +281,16 @@ export class DashboardPage implements OnInit {
     this.noplan = false;
     this.platform.ready().then(() => {
       this.getTodayInfo();
-      // setTimeout(() => {
-      // if(this.totalreps == '' || this.totalweight == '' || this.Tonnage == '' || this.cal== '' || this.Work== ''){
-      //   this.getAnalyticsData();
-      //   }else{
-      //     this.dayChange();
-      //   }
-      // },1000);
+      setTimeout(() => {
+      if(this.totalreps == '' || this.totalweight == '' || this.Tonnage == '' || this.cal== '' || this.Work== ''){
+        this.getAnalyticsData();
+        }else{
+          this.dayChange();
+        }
+      },1000);
     });
       
-    // this.initializeNutrition();
+    this.initializeNutrition();
   }
 
   initializeNutrition(){
@@ -591,97 +595,98 @@ export class DashboardPage implements OnInit {
       //   .subscribe(response => {
       this.apiService.getmeal(this.tokken,mealDateJson).subscribe((response)=>{
         console.log("get meal plan response",response);
-        
-      //     if(response.json().success){
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+          if(res.success){
              
-      //           console.log(response.json().meals);
+                console.log(res.meals);
               
-      //          if(response.json().meals.length!==0){
+               if(res.meals.length!==0){
 
-      //           console.log(response.json().meals[0].mealJson);
-      //           localStorage.setItem('nutritionDate',String(date));
-      //           // if(isHistory){
+                console.log(res.meals[0].mealJson);
+                localStorage.setItem('nutritionDate',String(date));
+                // if(isHistory){
 
-      //           //   let dietHistoryModal = this.modalCtrl.create(DietHistoryPage,
-      //           //     {"json":response.json().meals,
-      //           //     "date":date,
-      //           //     "fatCal":this.fatCal,
-      //           //     "fatGms":this.fatGms,
-      //           //     "protienCal":this.protienCal,
-      //           //     "protienGms":this.protienGms,
-      //           //     "carbsCal":this.carbsCal,
-      //           //     "carbsGms":this.carbsGms,
-      //           //     "calPerDay":this.calPerDay,
-      //           //     "fatPercent":this.fatPercent,
-      //           //     "protienPercent":this.protienPercent,
-      //           //     "carbsPercent":this.carbsPercent});               
+                //   let dietHistoryModal = this.modalCtrl.create(DietHistoryPage,
+                //     {"json":response.json().meals,
+                //     "date":date,
+                //     "fatCal":this.fatCal,
+                //     "fatGms":this.fatGms,
+                //     "protienCal":this.protienCal,
+                //     "protienGms":this.protienGms,
+                //     "carbsCal":this.carbsCal,
+                //     "carbsGms":this.carbsGms,
+                //     "calPerDay":this.calPerDay,
+                //     "fatPercent":this.fatPercent,
+                //     "protienPercent":this.protienPercent,
+                //     "carbsPercent":this.carbsPercent});               
 
-      //           //     dietHistoryModal.present();
+                //     dietHistoryModal.present();
 
-      //           //  }else{
-      //             this.finalFoodDataByDate = [];
-      //             for(let k =0;k<response.json().meals.length;k++){
+                //  }else{
+                  this.finalFoodDataByDate = [];
+                  for(let k =0;k<res.meals.length;k++){
   
-      //               var foodList = JSON.parse(response.json().meals[k].mealJson);
+                    var foodList = JSON.parse(res.meals[k].mealJson);
                       
-      //               this.finalFoodDataByDate.push(
-      //                 {id:response.json().meals[k].id,
-      //                 mealName:foodList.mealName,
-      //                 mealDate:foodList.mealDate,
-      //                 mealTime:foodList.mealTime,
-      //                 mealcal:foodList.mealcal,
-      //                 mealfat:foodList.mealfat,
-      //                 mealpro:foodList.mealpro,
-      //                 mealcarb:foodList.mealcarb,
-      //                 mealData:foodList.mealData});
+                    this.finalFoodDataByDate.push(
+                      {id:res.meals[k].id,
+                      mealName:foodList.mealName,
+                      mealDate:foodList.mealDate,
+                      mealTime:foodList.mealTime,
+                      mealcal:foodList.mealcal,
+                      mealfat:foodList.mealfat,
+                      mealpro:foodList.mealpro,
+                      mealcarb:foodList.mealcarb,
+                      mealData:foodList.mealData});
                    
-      //             }
-      //             console.log("meal date",this.finalFoodDataByDate[0].mealDate);
-      //               console.log("final food data by date",this.finalFoodDataByDate);
-      //               // let toast = this.toastCtrl.create({
-      //               //   message: "Retrieved data successfully",
-      //               //   duration: 3000
-      //               // });
-      //               // toast.present();
+                  }
+                  console.log("meal date",this.finalFoodDataByDate[0].mealDate);
+                    console.log("final food data by date",this.finalFoodDataByDate);
+                    // let toast = this.toastCtrl.create({
+                    //   message: "Retrieved data successfully",
+                    //   duration: 3000
+                    // });
+                    // toast.present();
     
-      //               // setTimeout(() => {
-      //               //   this.getTotalLoad();
-      //               //  },1000);
-      //           //  }
+                    // setTimeout(() => {
+                    //   this.getTotalLoad();
+                    //  },1000);
+                //  }
 
-      //         //  }else{
+              //  }else{
 
-      //           // if(isHistory){
+                // if(isHistory){
                  
-      //           //   this.loadData.stopLoading();
-      //           //   // let toast = this.toastCtrl.create({
-      //           //   //   message: "No meals added on "+date,
-      //           //   //   duration: 3000
-      //           //   // });
-      //           //   // toast.present();
-      //           //   this.noMealsAlert(date);
+                //   this.loadData.stopLoading();
+                //   // let toast = this.toastCtrl.create({
+                //   //   message: "No meals added on "+date,
+                //   //   duration: 3000
+                //   // });
+                //   // toast.present();
+                //   this.noMealsAlert(date);
 
-      //           // }else{
-      //           //   this.mealMsg = "Please add meal for today"
-      //           //   this.loadData.stopLoading();
-      //           //   let toast = this.toastCtrl.create({
-      //           //     message: "No meals added for today",
-      //           //     duration: 3000
-      //           //   });
-      //           //   toast.present();
+                // }else{
+                //   this.mealMsg = "Please add meal for today"
+                //   this.loadData.stopLoading();
+                //   let toast = this.toastCtrl.create({
+                //     message: "No meals added for today",
+                //     duration: 3000
+                //   });
+                //   toast.present();
 
-      //           //   setTimeout(() => {
-      //           //     this.getTotalLoad();
-      //           //    },1000);
-      //           // }
+                //   setTimeout(() => {
+                //     this.getTotalLoad();
+                //    },1000);
+                // }
 
-      //           setTimeout(() => {
-      //             this.getTotalLoad();
-      //            },1000);
+                setTimeout(() => {
+                  this.getTotalLoad();
+                 },1000);
 
-      //           }
+                }
                    
-      // }
+      }
     })
 }else{
   this.loadData.stopLoading();
@@ -829,13 +834,15 @@ export class DashboardPage implements OnInit {
   }
 }
 
-  // opensessionPopup(sessionId,currentdayID){
+  async opensessionPopup(sessionId,currentdayID){
 
-  //   let modal = this.modalCtrl.create(SessionsummarydetailsPage,{fromPage:"dashboard",day_id:this.currentdayID,session_id:sessionId});
+    let modal = await this.modalCtrl.create({component:SessionsummaryPage,
+      componentProps:{fromPage:"dashboard",day_id:this.currentdayID,session_id:sessionId}
+    });
 
-  //   modal.present();
+    modal.present();
 
-  // }
+  }
 
   getAnalyticsData(){
     this.day_id =localStorage.getItem('todayDayId');
@@ -1426,32 +1433,34 @@ export class DashboardPage implements OnInit {
 			//  this.http.post(global.baseURL + 'userprogram/activateuserplan/', data, { headers: headers }).subscribe(response => {
        this.apiService.activatePlan(this.tokken,data).subscribe((response)=>{
          console.log("activate plan response",response);
-				// if(response.json().success){
-        //   localStorage.setItem('subplanid',this.planInfo.id);
-        //   localStorage.removeItem('futureplanid');
-        //   var startDate = this.loadData.changeDateFormat(response.json().startDate,'db');
-        //   var nextrenewDate = this.loadData.changeDateFormat(response.json().nextRenewalDate,'db');
-        //   var dayOff = response.json().dayOff;
-        //   this.sqlStorageNew.query("UPDATE userplan SET status=1,startdate = '" + startDate + "',nextrenewaldate = '" + nextrenewDate + "', dayOff = '" + dayOff +"' WHERE status=3").then(data=>{
-        //     this.loadData.stopLoading();
-        //     localStorage.setItem('generalwarmupcmpl','false');
-        //     this.navCtrl.navigateForward(this.router.url + '/dashboard/');
-        //     //this.initLoad();
-        //   }).catch(err => {
-        //     console.error('--12--'+JSON.stringify(err));
-        //   });
-				// }else{
-        //   this.loadData.stopLoading();
-        //   this.toastmsg("Unable to process your request. Please try after some time");
-        //   // let toast = await this.toastCtrl.create({
-        //   //   message: "Unable to process your request. Please try after some time",
-        //   //   duration: 3000
-        //   // });
-        //   // toast.present();
-        // }
-        // this.toastmsg(response.json().message);
+         const userStr = JSON.stringify(response);
+         let res = JSON.parse(userStr);
+				if(res.success){
+          localStorage.setItem('subplanid',this.planInfo.id);
+          localStorage.removeItem('futureplanid');
+          var startDate = this.loadData.changeDateFormat(res.startDate,'db');
+          var nextrenewDate = this.loadData.changeDateFormat(res.nextRenewalDate,'db');
+          var dayOff = res.dayOff;
+          this.sqlStorageNew.query("UPDATE userplan SET status=1,startdate = '" + startDate + "',nextrenewaldate = '" + nextrenewDate + "', dayOff = '" + dayOff +"' WHERE status=3").then(data=>{
+            this.loadData.stopLoading();
+            localStorage.setItem('generalwarmupcmpl','false');
+            this.navCtrl.navigateForward(this.router.url + '/dashboard/');
+            //this.initLoad();
+          }).catch(err => {
+            console.error('--12--'+JSON.stringify(err));
+          });
+				}else{
+          this.loadData.stopLoading();
+          this.toastmsg("Unable to process your request. Please try after some time");
+          // let toast = await this.toastCtrl.create({
+          //   message: "Unable to process your request. Please try after some time",
+          //   duration: 3000
+          // });
+          // toast.present();
+        }
+        this.toastmsg(res.message);
 				// let toast = await this.toastCtrl.create({
-				// 	message: response.json().message,
+				// 	message: res.message,
 				// 	duration: 3000
 				// });
 				// toast.present();
