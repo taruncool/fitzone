@@ -28,11 +28,6 @@ export class InvitePage implements OnInit {
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
       this.tokken = localStorage.getItem('usertoken');
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.tokken);
-      // this.http.get(global.baseURL + 'campaign/getreferralcode/', { headers: headers })
-      //   .subscribe(response => {
       this.apiService.getreferralcode(this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
@@ -102,11 +97,6 @@ export class InvitePage implements OnInit {
               if(res.success){
                 this.modalCtrl.dismiss();
                 this.toastmsg(res.message);
-                // let toast = await this.toastCtrl.create({
-                //   message: res.message,
-                //   duration: 3000
-                // });
-                // toast.present();
               }else{
                 console.log(res);
               }

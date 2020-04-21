@@ -130,8 +130,8 @@ async sociallogin(socialtype, accessToken, clientid, code) {
           if (res.success) {
             this.loadData.loginSuccess(res);
             if (res.isProfileSet) {
-              //let exerciseList = res.json().Exercises;
-              //this.exerciseInsert(exerciseList);
+              // let exerciseList = res.Exercises;
+              // this.exerciseInsert(exerciseList);
               
               if (res.isPlanSet) {
                 this.loadData.clearDataBaseNew();
@@ -215,8 +215,8 @@ async doGoogleLogin(){
 async login(user) {
   console.log("login page.....");
   this.clearData();
-  //  if (localStorage.getItem('internet') === 'online'){
-    // this.loadData.startLoading();
+   if (localStorage.getItem('internet') === 'online'){
+    this.loadData.startLoading();
     // var headers = new Headers();
      var creds = { email: user.email, password: user.password, deviceType:this.devicetype };
     // var creds = { email: "siriprathapreddy@gmail.com", password: "123456", deviceType:"android" };
@@ -287,13 +287,13 @@ async login(user) {
           this.errorMsg();
          });
       // });
-  // }else{
-  //   let toast = await this.toastCtrl.create({
-  //     message: "Please check your internet connectivity and try again",
-  //     duration: 3000
-  //   });
-  //   toast.present();
-  // }
+  }else{
+    let toast = await this.toastCtrl.create({
+      message: "Please check your internet connectivity and try again",
+      duration: 3000
+    });
+    toast.present();
+  }
 }
 
 async toastmsg(msg) {

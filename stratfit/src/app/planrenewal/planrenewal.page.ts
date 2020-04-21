@@ -9,6 +9,7 @@ import { ApiService } from '../../app/api.service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
 import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
+import { StartdatePage } from '../startdate/startdate.page';
 
 @Component({
   selector: 'app-planrenewal',
@@ -367,10 +368,10 @@ export class PlanrenewalPage implements OnInit {
   }
 
   public chngStartDate(){
-    // this.navCtrl.push({
-    //   component: StartdatePage,
-    //   componentProps:{'uplandata':this.plandetails,'progress':true}
-    // });
+    this.modalCtrl.create({
+      component: StartdatePage,
+      componentProps:{'uplandata':this.plandetails,'progress':true}
+    });
   }
 
 

@@ -101,7 +101,7 @@ export class MysubscriptionPage implements OnInit {
                 this.loadData.stopLoading();
                 if(err.status === 403){
                     this.loadData.forbidden();
-                    // this.app.getRootNav().navigateForward('/login');
+                    this.navCtrl.navigateForward('/login');
                 }
               });
             } else {
@@ -365,7 +365,9 @@ export class MysubscriptionPage implements OnInit {
   }
 
   public chngStartDate(){
-    // this.navCtrl.push(StartdatePage,{'uplandata':this.plandetails,'progress':true});
+    this.modalCtrl.create ({ component:StartdatePage,
+      componentProps:{'uplandata':this.plandetails,'progress':true}
+    });
   }
 
 }

@@ -7,6 +7,7 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+import { ProgressloginPage } from '../login/progresslogin/progresslogin.page';
 
 @Component({
   selector: 'app-signup',
@@ -123,7 +124,7 @@ export class SignupPage implements OnInit {
     
   
     async signup(user) {
-      // if(localStorage.getItem('internet')==='online'){
+      if(localStorage.getItem('internet')==='online'){
         this.validateEmail(user.email);
       
         if(this.validemail === true){
@@ -178,17 +179,18 @@ export class SignupPage implements OnInit {
           }
         } */
       }
-      // }else{
-      //   let toast = this.toastCtrl.create({
-      //     message: "Please check your internet connectivity and try again",
-      //     duration: 3000
-      //   });
-      //   toast.present();
-      // }
+      }else{
+        let toast = await this.toastCtrl.create({
+          message: "Please check your internet connectivity and try again",
+          duration: 3000
+        });
+        toast.present();
+      }
     }
     
     async login(user) {
       this.clearData();
+      if(localStorage.getItem('internet') === 'online') {
         var creds = { email: user.email, password: user.password };
           this.apiService.loginnew(creds).subscribe((response)=>{
                 console.log("loginnew response",response);
@@ -222,13 +224,13 @@ export class SignupPage implements OnInit {
               this.errorMsg();
             });
         // });
-    //   } else {
-    //     let toast = await this.toastCtrl.create({
-    //       message: "Please check your internet connectivity and try again",
-    //       duration: 3000
-    //     });
-    //     toast.present();
-    //   }
+      } else {
+        let toast = await this.toastCtrl.create({
+          message: "Please check your internet connectivity and try again",
+          duration: 3000
+        });
+        toast.present();
+      }
      }
      async toastmsg(msg) {
       let toast = await this.toastCtrl.create({
@@ -355,7 +357,7 @@ export class SignupPage implements OnInit {
                 
                   if (res.isPlanSet) {
                     localStorage.setItem('planSet','true');
-                    this.tMaxData = res.json().tmax;
+                    this.tMaxData = res.tmax;
                     // this.checkQueryHit(res) ;
                   } else {
                     this.loadData.stopLoading();
@@ -389,23 +391,21 @@ export class SignupPage implements OnInit {
       // }
     }
   
-    // public checkQueryHit(res){
+    // async checkQueryHit(res){
   
     //   this.loadData.checkjson(res.plans[0].plan_id);
     //   this.loadData.stopLoading();
-    //   // let loginProgressModal = this.modalCtrl.create('/progresslogin',{"resvalue":res});
-    // //   if(!this.showVideo){
-    // //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' +this.activeExerciseId);
-    // //   this.myVideo.muted=true;
-    // //   this.myVideo.pause();
-    // // }
-    //   // loginProgressModal.present();
-    //   // loginProgressModal.onDidDismiss(data=>{
+    //   let loginProgressModal = await this.modalCtrl.create({component:ProgressloginPage,
+    //     componentProps:{"resvalue":res}
+    //   });
+    
+    //   loginProgressModal.present();
+      // loginProgressModal.onDidDismiss(data=>{
         
-    //   // });
-    //   //this.loadData.checkQuery(this.tMaxData,false,true).then(data=>{
+      // });
+      //this.loadData.checkQuery(this.tMaxData,false,true).then(data=>{
         
-    //   //});
+      //});
       
     // }
   

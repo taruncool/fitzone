@@ -36,14 +36,9 @@ export class ForgotpswdPage implements OnInit {
   }
 
   async forgot(){
-    // if(localStorage.getItem('internet')==='online'){
-      // this.loadData.startLoading();
-      // var headers = new Headers();
+    if(localStorage.getItem('internet')==='online'){
+      this.loadData.startLoading();
       var creds = {email:this.email};
-      // headers.append('Content-Type', 'application/json');
-      // return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'subscriber/forgotPwd/', creds, { headers: headers })
-        // .subscribe(res => {
        this.apiService.forgotpswd(creds).subscribe((response)=>{
          console.log("response",response);
           const userStr = JSON.stringify(response);
@@ -69,13 +64,13 @@ export class ForgotpswdPage implements OnInit {
             // toast.present();
           });
       // })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
 }
 async toastmsg(msg) {
   let toast = await this.toastCtrl.create({
@@ -102,14 +97,14 @@ showConfirmPassword(){
 }
 //Validate otp
 async otpvalidate(otp){
-    // if(localStorage.getItem('internet')==='online'){
-      // this.loadData.startLoading();
+    if(localStorage.getItem('internet')==='online'){
+      this.loadData.startLoading();
       var data = {"email":this.email,"code":otp};
       return new Promise((resolve) => {
         this.apiService.otpvalidate(data).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           if(res.success){
               this.otpresp = false;
               this.pswdchng = true;
@@ -131,18 +126,18 @@ async otpvalidate(otp){
           // toast.present();
          });
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
 }
 
 //Change password
 async changepswd(){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       if(this.password === this.confirmpassword){
           var creds = {"password":this.password,"email":this.email};
             this.apiService.resetpswd(creds).subscribe((response)=>{
@@ -190,13 +185,13 @@ async changepswd(){
         });
         this.prompt.present();
       }
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
 }
 
 public backButtonAction(){
