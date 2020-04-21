@@ -469,7 +469,7 @@ heightArrCms= {
   }
 
   async savefitdata() {
-    if (localStorage.getItem('internet') === 'online') {
+    // if (localStorage.getItem('internet') === 'online') {
       if (this.heightMetric === 'ftin') {
         this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
       }
@@ -520,13 +520,13 @@ heightArrCms= {
             //this.app.getRootNav().setRoot(LoginPage);
           }
         })
-    } else {
-      let toast = await this.toastCtrl.create({
-        message: "Unable to process your request. Please try after some time",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // } else {
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Unable to process your request. Please try after some time",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   async toastmsg(msg) {

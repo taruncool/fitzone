@@ -139,7 +139,7 @@ export class ProgramdetailsPage implements OnInit {
   }
 
   async userplanChecking(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -165,17 +165,17 @@ export class ProgramdetailsPage implements OnInit {
             //this.app.getRootNav().setRoot(LoginPage);
         }
       });
-    }else{
-      let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+    // }
   }
 
   async viwPlanStructure(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
       var creds = {"plan_id":this.planinfo.encodedurl};
       // var headers = new Headers();
@@ -211,13 +211,13 @@ export class ProgramdetailsPage implements OnInit {
           }
         // });
     })
-   }else{
-     let toast = await this.toastCtrl.create({
-       message: "Please check your internet connectivity and try again",
-       duration: 3000
-     });
-     toast.present();
-   }
+  //  }else{
+  //    let toast = await this.toastCtrl.create({
+  //      message: "Please check your internet connectivity and try again",
+  //      duration: 3000
+  //    });
+  //    toast.present();
+  //  }
   }
 
   putMicroData(){
@@ -408,7 +408,7 @@ export class ProgramdetailsPage implements OnInit {
   }
 
 	async createUserPlan(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			var data = {'plan_id':this.subplandet.id, 'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
@@ -493,14 +493,14 @@ export class ProgramdetailsPage implements OnInit {
               }
           });
       })
-    }else{
-      this.loadData.stopLoading();
-      let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-    }
+    // }else{
+    //   this.loadData.stopLoading();
+    //   let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+    // }
   }
 
   async customAlert(){
@@ -557,7 +557,7 @@ export class ProgramdetailsPage implements OnInit {
 
   async freePlanSubscription(){
      this.loadData.startLoading();
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -644,14 +644,14 @@ export class ProgramdetailsPage implements OnInit {
                 }
             });
       })
-    }else{
-      this.loadData.stopLoading();
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   this.loadData.stopLoading();
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   //redirecting to coachprofile page

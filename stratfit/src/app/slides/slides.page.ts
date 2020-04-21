@@ -174,7 +174,7 @@ export class SlidesPage implements OnInit {
 
   afterInternetCheck(){
     if(this.token !='' && this.token !=null && this.token !=undefined){
-      if(localStorage.getItem('internet')==='online'){
+      // if(localStorage.getItem('internet')==='online'){
         this.loadData.startLoading();
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -219,20 +219,20 @@ export class SlidesPage implements OnInit {
           this.loadData.stopLoading();
           console.log("Unable to process your request. Please try after some time");
         });
-      }else{
-        if(localStorage.getItem('profileSet')==='true'){
-          if(localStorage.getItem('planSet')==='true'){
+      // }else{
+      //   if(localStorage.getItem('profileSet')==='true'){
+      //     if(localStorage.getItem('planSet')==='true'){
           
     
-            this.navCtrl.navigateForward('/dashboard');
-          }else{
-            localStorage.setItem('redirectPage','store');
-            this.navCtrl.navigateForward('/store');
-          }
-        }else{
-          this.navCtrl.navigateForward('/fitnessinput');
-        }
-      }
+      //       this.navCtrl.navigateForward('/dashboard');
+      //     }else{
+      //       localStorage.setItem('redirectPage','store');
+      //       this.navCtrl.navigateForward('/store');
+      //     }
+      //   }else{
+      //     this.navCtrl.navigateForward('/fitnessinput');
+      //   }
+      // }
     }
   }
 

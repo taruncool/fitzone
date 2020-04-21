@@ -39,7 +39,7 @@ public uploadImage(){
 }
 
 async saveImagePath(imgname){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
         this.loadData.uploadLoader();
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -80,13 +80,13 @@ async saveImagePath(imgname){
             //this.app.getRootNav().setRoot(LoginPage);
         }
         });
-    }else{
-        let toast = await this.toastCtrl.create({
-          message: "Please check your internet connectivity and try again",
-          duration: 3000
-        });
-        toast.present();
-    }
+    // }else{
+    //     let toast = await this.toastCtrl.create({
+    //       message: "Please check your internet connectivity and try again",
+    //       duration: 3000
+    //     });
+    //     toast.present();
+    // }
 }
 async toastmsg(msg) {
   let toast = await this.toastCtrl.create({

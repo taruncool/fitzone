@@ -581,7 +581,7 @@ export class DashboardPage implements OnInit {
 
   async getMealDataServer(date){
     console.log("date of nutrition.........",date);
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
 
       // var headers = new Headers();
    
@@ -688,14 +688,14 @@ export class DashboardPage implements OnInit {
                    
       }
     })
-}else{
-  this.loadData.stopLoading();
-  let toast = await this.toastCtrl.create({
-    message: "Please check your internet connectivity and try again",
-    duration: 3000
-  });
-  toast.present();
-}
+// }else{
+//   this.loadData.stopLoading();
+//   let toast = await this.toastCtrl.create({
+//     message: "Please check your internet connectivity and try again",
+//     duration: 3000
+//   });
+//   toast.present();
+// }
 }
   public macrosCalGms(){
   this.fatCalBalance = 0;
@@ -1422,7 +1422,7 @@ export class DashboardPage implements OnInit {
   }
   async activatePlan(){
 
-		if(localStorage.getItem('internet')==='online'){
+		// if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			this.loadData.startLoading();
@@ -1470,13 +1470,13 @@ export class DashboardPage implements OnInit {
           // this.navCtrl.navigateForward(LoginPage);
         }
       });
-		}else{
-			let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-		}
+		// }else{
+		// 	let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+		// }
 		
   }
   

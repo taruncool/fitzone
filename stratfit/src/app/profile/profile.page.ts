@@ -394,7 +394,7 @@ export class ProfilePage implements OnInit {
 
   //update weight && wtunits
   async updateMetrics(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
 
       var headers = new Headers();
       var userInfo = {"id":parseInt(this.userId),"userInf":{"weightM":this.weightunit,"weight":this.weight}}
@@ -416,14 +416,14 @@ export class ProfilePage implements OnInit {
           //this.app.getRootNav().setRoot(LoginPage);
         }
       })
-    }else{
+    // }else{
 
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   //onchange currencyType
@@ -441,7 +441,7 @@ export class ProfilePage implements OnInit {
 
   //update currencyType
   async updateCurrencyType(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var headers = new Headers();
       var userInfo = {"id":parseInt(this.userId),"userInf":{"currencytype":this.currencyType}}
       // headers.append('Content-Type', 'application/json');
@@ -459,13 +459,13 @@ export class ProfilePage implements OnInit {
             //this.app.getRootNav().setRoot(LoginPage);
         }
       })
-    }else{
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   //file upload
@@ -510,7 +510,7 @@ export class ProfilePage implements OnInit {
 
    /*--- user logout ---*/
    async logout(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var headers = new Headers();
       //navigator.vibrate(0);
       //this.timer.pauseTimer();
@@ -543,13 +543,13 @@ export class ProfilePage implements OnInit {
         ]
     });
     this.prompt.present();
-    }else{
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   openWhatsApp(){

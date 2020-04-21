@@ -176,7 +176,7 @@ export class MysubscriptionPage implements OnInit {
   }
 
   async existingUserRating(activePlanId){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', this.token);
@@ -199,17 +199,17 @@ export class MysubscriptionPage implements OnInit {
           }
         });
       })
-    }else{
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   async planRating(rate){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var creds =  {"user_id":this.loginuserid, "plan_id":this.activeplanid, "rating":rate};
       // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
@@ -246,17 +246,17 @@ export class MysubscriptionPage implements OnInit {
         });
 
       })
-    }else{
-      let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+    // }
   }
 
   async viwPlanStructure(cplan_id){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
@@ -292,13 +292,13 @@ export class MysubscriptionPage implements OnInit {
           }
         });
     })
-   }else{
-     let toast = await this.toastCtrl.create({
-       message: "Please check your internet connectivity and try again",
-       duration: 3000
-     });
-     toast.present();
-   }
+  //  }else{
+  //    let toast = await this.toastCtrl.create({
+  //      message: "Please check your internet connectivity and try again",
+  //      duration: 3000
+  //    });
+  //    toast.present();
+  //  }
  }
 
   getInitLevel(){

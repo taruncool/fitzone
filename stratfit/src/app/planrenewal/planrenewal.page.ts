@@ -506,7 +506,7 @@ export class PlanrenewalPage implements OnInit {
   }
 
   async planrenewal(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var date = new Date();
       this.todayDate = date.getFullYear() + '-' + ('0' +((date.getMonth() + 1))).slice(-2) + '-' +  ('0' +(date.getDate())).slice(-2);
       var data = {"planid":this.planData.id,"startdate":this.todayDate+' 00:00:00','plancomplete':this.planComplete,"deviceDate":this.todayDate+' 00:00:00','transactionId':this.transactionid};
@@ -553,13 +553,13 @@ export class PlanrenewalPage implements OnInit {
             }
         });
       })
-    }else{
-      let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+    // }
   }
   
   async checkQueryHit(resvalue){

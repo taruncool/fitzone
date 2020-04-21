@@ -66,7 +66,7 @@ export class PlateweightsPage implements OnInit {
       this.displayPtWts = this.plateKgsArr;
     }
 
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
       this.token = localStorage.getItem('usertoken');
       // var headers = new Headers();
@@ -126,13 +126,13 @@ export class PlateweightsPage implements OnInit {
           this.navCtrl.navigateForward('/login');
         }
       });
-    }else{
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
   tapEvent(ind) {
     if(this.displayPtWts[ind].count===10){
@@ -151,7 +151,7 @@ export class PlateweightsPage implements OnInit {
     toast.present();
   }
   async savePWtVal(){
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       var dbweights = false;
       var pweights = 0;
       for(var bind= 0;bind<this.displayBarbelWts.length;bind++){
@@ -212,13 +212,13 @@ export class PlateweightsPage implements OnInit {
         this.prompt.present();
       }
         
-    }else{
-      let toast = await this.toastCtrl.create({
-        message: "Please check your internet connectivity and try again",
-        duration: 3000
-      });
-      toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+    //     message: "Please check your internet connectivity and try again",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
   }
 
   public backButtonAction(){
