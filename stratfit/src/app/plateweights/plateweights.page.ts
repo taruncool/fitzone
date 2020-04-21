@@ -68,7 +68,8 @@ export class PlateweightsPage implements OnInit {
 
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      var headers = new Headers();
+      this.token = localStorage.getItem('usertoken');
+      // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', this.token);
       // this.http.get(global.baseURL + 'subscriber/getplateweights/', { headers: headers })

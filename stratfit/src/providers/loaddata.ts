@@ -131,17 +131,20 @@ export class LoadData {
       // this.http.post(global.baseURL + 'subscriber/accountValidateotp/', otpdata, {headers: headers})
       // .toPromise().then(response => {
       this.apiService.validateotp(otpdata).subscribe((response)=>{
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
         console.log("validate otp",response);
-      //   localStorage.setItem('usertoken', response.json().sessiontoken);
-      //   this.sqlStorageNew.query("select plan_id from userplan where status = 1").then(
-      //     userPlanData => {
-      //       if(userPlanData.res.rows.length>0){
-      //         this.planId = userPlanData.res.rows.item(0).plan_id;
-      //         //this.getSetDetails();
-      //       }else{
-      //         this.userlogout();
-      //       }
-      //   });
+        localStorage.setItem('usertoken', res.sessiontoken);
+        console.log("Auth code...." ,res.sessiontoken);
+        this.sqlStorageNew.query("select plan_id from userplan where status = 1").then(
+          userPlanData => {
+            if(userPlanData.res.rows.length>0){
+              this.planId = userPlanData.res.rows.item(0).plan_id;
+              //this.getSetDetails();
+            }else{
+              this.userlogout();
+            }
+        });
        });
     }
     
@@ -154,11 +157,12 @@ export class LoadData {
     // this.http.get(global.baseURL + 'subscriber/logout/', {headers: headers})
     this.apiService.userlogout().subscribe((response)=>{
       // .toPromise().then(response => {
-      //     localStorage.clear();
-      //     localStorage.setItem('internet','online');
+          localStorage.clear();
+          localStorage.setItem('internet','online');
          
-      //     this.clearDataBaseNew();
+          this.clearDataBaseNew();
        });
+  // })
   }
 
   public deletejson(){
@@ -204,7 +208,9 @@ export class LoadData {
     // .subscribe(response => {
     this.apiService.plandetails(this.token,planInfo).subscribe((response)=>{
       console.log("json response",response);
-      // this.planpdcresponse = response.json();
+      const userStr = JSON.stringify(response);
+      let res = JSON.parse(userStr);
+      this.planpdcresponse = res;
       console.log("ckeck plandetails....",this.planpdcresponse.planStructure);
       console.log("ckeck completed plandetails....",this.planpdcresponse.planCompleted);
               
@@ -507,37 +513,39 @@ public getExercisesNew(){
       // this.http.get(global.baseURL + 'userprogram/getUpdatedTmax/', { headers: headers })
       // .subscribe(tmaxResponse => {
       this.apiService.getupdatedTmax().subscribe((response)=>{
-      //  let tmaxResponseJson = tmaxResponse.json();
-      //   if(!tmaxResponseJson.success) {
-      //     this.sqlStorageNew.query("DELETE FROM exercises").then(
-      //       deleteData => {
-      //         this.getExercises();
-      //       }
-      //     );
-      //   } else {
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+       let tmaxResponseJson = res;
+        if(!tmaxResponseJson.success) {
+          this.sqlStorageNew.query("DELETE FROM exercises").then(
+            deleteData => {
+              this.getExercises();
+            }
+          );
+        } else {
 
-      //     if(this.responseExercises.defaultExArr.length > tmaxResponseJson.details.length) {
-      //       this.getExercises();
-      //     } else {
-      //       for(let i = 0; i<this.responseExercises.defaultExArr.length; i++){      
-      //         var exTmax = Math.round(this.bpTmax);          
-      //         this.sqlStorageNew.query("INSERT INTO exercises (id,exerciseName,exerciseStatus,exerciseDesc,videos,stressFactor,exCoefficient,exIcon,exGroup,exMainGroup,flowType,preExInstruction,postExInstruction,accessLevel,weightExists,distanceExists,timeExists,repsExists,setInstruction,speedExists,tmax,updatetmax) VALUES ('"+this.responseExercises.defaultExArr[i].id+"','"+this.responseExercises.defaultExArr[i].exName+"','0','"+this.responseExercises.defaultExArr[i].exDesc+"','','"+this.responseExercises.defaultExArr[i].stressFactor+"','"+this.responseExercises.defaultExArr[i].exCoeffiecient+"','','"+this.responseExercises.defaultExArr[i].exGroup+"','"+this.responseExercises.defaultExArr[i].exMainGroup+"','"+this.responseExercises.defaultExArr[i].flowType+"','"+this.responseExercises.defaultExArr[i].preExInstructions+"','"+this.responseExercises.defaultExArr[i].postExInstructions+"','"+this.responseExercises.defaultExArr[i].accessLevel+"','"+this.responseExercises.defaultExArr[i].weightExists+"','"+this.responseExercises.defaultExArr[i].distanceExists+"','"+this.responseExercises.defaultExArr[i].timeExists+"','"+this.responseExercises.defaultExArr[i].repsExists+"','"+this.responseExercises.defaultExArr[i].setInstructions+"','"+this.responseExercises.defaultExArr[i].speedExists+"','0','0')");
-      //       }
-      //       for(let j = 0; j < tmaxResponseJson.details.length; j++) {
-      //         this.sqlStorageNew.query("update exercises set tmax = " + tmaxResponseJson.details[j].updateTmax + ", updatetmax = " + tmaxResponseJson.details[j].updateTmax + " where id = " + tmaxResponseJson.details[j].exerciseId_id).then(
-      //           updateExc => {
-      //             let programDownloadPercentTmp4 = ((j/tmaxResponseJson.details.length)*15);
-      //             let setPrcntDn4 = this.programDownloadPercent + programDownloadPercentTmp4;
-      //             localStorage.setItem('getpercent',setPrcntDn4);
-      //             if(j === (tmaxResponseJson.details.length - 1)) {
-      //               this.programDownloadPercent = 100;
-      //               localStorage.setItem('getpercent',this.programDownloadPercent);
-      //             }
-      //           }
-      //         );
-      //       }
-      //     }
-      //   }
+          if(this.responseExercises.defaultExArr.length > tmaxResponseJson.details.length) {
+            this.getExercises();
+          } else {
+            for(let i = 0; i<this.responseExercises.defaultExArr.length; i++){      
+              var exTmax = Math.round(this.bpTmax);          
+              this.sqlStorageNew.query("INSERT INTO exercises (id,exerciseName,exerciseStatus,exerciseDesc,videos,stressFactor,exCoefficient,exIcon,exGroup,exMainGroup,flowType,preExInstruction,postExInstruction,accessLevel,weightExists,distanceExists,timeExists,repsExists,setInstruction,speedExists,tmax,updatetmax) VALUES ('"+this.responseExercises.defaultExArr[i].id+"','"+this.responseExercises.defaultExArr[i].exName+"','0','"+this.responseExercises.defaultExArr[i].exDesc+"','','"+this.responseExercises.defaultExArr[i].stressFactor+"','"+this.responseExercises.defaultExArr[i].exCoeffiecient+"','','"+this.responseExercises.defaultExArr[i].exGroup+"','"+this.responseExercises.defaultExArr[i].exMainGroup+"','"+this.responseExercises.defaultExArr[i].flowType+"','"+this.responseExercises.defaultExArr[i].preExInstructions+"','"+this.responseExercises.defaultExArr[i].postExInstructions+"','"+this.responseExercises.defaultExArr[i].accessLevel+"','"+this.responseExercises.defaultExArr[i].weightExists+"','"+this.responseExercises.defaultExArr[i].distanceExists+"','"+this.responseExercises.defaultExArr[i].timeExists+"','"+this.responseExercises.defaultExArr[i].repsExists+"','"+this.responseExercises.defaultExArr[i].setInstructions+"','"+this.responseExercises.defaultExArr[i].speedExists+"','0','0')");
+            }
+            for(let j = 0; j < tmaxResponseJson.details.length; j++) {
+              this.sqlStorageNew.query("update exercises set tmax = " + tmaxResponseJson.details[j].updateTmax + ", updatetmax = " + tmaxResponseJson.details[j].updateTmax + " where id = " + tmaxResponseJson.details[j].exerciseId_id).then(
+                updateExc => {
+                  let programDownloadPercentTmp4 = ((j/tmaxResponseJson.details.length)*15);
+                  let setPrcntDn4 = this.programDownloadPercent + programDownloadPercentTmp4;
+                  localStorage.setItem('getpercent',setPrcntDn4);
+                  if(j === (tmaxResponseJson.details.length - 1)) {
+                    this.programDownloadPercent = 100;
+                    localStorage.setItem('getpercent',this.programDownloadPercent);
+                  }
+                }
+              );
+            }
+          }
+        }
       });
       
     
@@ -546,49 +554,51 @@ public getExercisesNew(){
 });
 }
 
-// async updateTmaxServer(exercises){
-//     if(localStorage.getItem('internet')==='online'){
-//       this.startLoading();
-//       var headers = new Headers();
-//       headers.append('Content-Type', 'application/json');
-//       let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
-//       var tmaxdata = {tmaxData:exercises};
-//       // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
-//       //   .subscribe(response => {
-//       this.apiService.getmeal(usertoken,tmaxdata).subscribe((response)=>{
-//             this.stopLoading();
-//             if(response.json().success){
-//               this.toastmsg("Tmax updated successfully");
-//               // let toast = await this.toastCtrl.create({
-//               //   message: "Tmax updated successfully",
-//               //   duration: 3000
-//               // });
-//               // toast.present();
-//             }else{
-//             }
-//         },(err) => {
-//           this.toastmsg(err);
-//           // let toast = await  this.toastCtrl.create({
-//           //   message: err,
-//           //   duration: 3000
-//           // });
-//           // toast.present();
-//           if(err.status === 403){
-//             this.forbidden();
-//             //this.nav.setRoot(LoginPage);
-//             //this.app.getRootNav().setRoot(LoginPage);
-//           }
-//           this.stopLoading();
-//         });
-//     }else{
-//       let toast = await this.toastCtrl.create({
-//         message: "Please check your internet connectivity and try again",
-//         duration: 3000
-//       });
-//       toast.present();
-//       this.stopLoading();
-//     }
-//   }
+async updateTmaxServer(exercises){
+    if(localStorage.getItem('internet')==='online'){
+      this.startLoading();
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      var tmaxdata = {tmaxData:exercises};
+      // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
+      //   .subscribe(response => {
+      this.apiService.getmeal(usertoken,tmaxdata).subscribe((response)=>{
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+            this.stopLoading();
+            if(res.success){
+              this.toastmsg("Tmax updated successfully");
+              // let toast = await this.toastCtrl.create({
+              //   message: "Tmax updated successfully",
+              //   duration: 3000
+              // });
+              // toast.present();
+            }else{
+            }
+        },(err) => {
+          this.toastmsg(err);
+          // let toast = await  this.toastCtrl.create({
+          //   message: err,
+          //   duration: 3000
+          // });
+          // toast.present();
+          if(err.status === 403){
+            this.forbidden();
+            //this.nav.setRoot(LoginPage);
+            //this.app.getRootNav().setRoot(LoginPage);
+          }
+          this.stopLoading();
+        });
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+      this.stopLoading();
+    }
+  }
 
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({
@@ -729,100 +739,103 @@ public getExercisesNew(){
   public insertPlateWeights(){
 	  var headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      var token = headers.append('Authorization', localStorage.getItem('usertoken'));
+      this.token = localStorage.getItem('usertoken');
+      // var token = headers.append('Authorization', localStorage.getItem('usertoken'));
       // this.http.get(global.baseURL + 'subscriber/getplateweights/', { headers: headers })
       // .subscribe(response => {
-      this.apiService.getplateweights(token).subscribe((response)=>{
-      //     if(response.json().success){
-			// this.barbelData = response.json();
-			// if(this.barbelData.barbelWts.length===0){
-			// 	this.barbelData.barbelWts = [{'weight':10,'count':1,'checked':true,'barbell':1,'index':0,'status':1},{'weight':15,'count':1,'checked':true,'barbell':1,'index':1,'status':1},{'weight':20,'count':1,'checked':true,'barbell':1,'index':2,'status':1}];
+      this.apiService.getplateweights(this.token).subscribe((response)=>{
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+          if(res.success){
+			this.barbelData = res;
+			if(this.barbelData.barbelWts.length===0){
+				this.barbelData.barbelWts = [{'weight':10,'count':1,'checked':true,'barbell':1,'index':0,'status':1},{'weight':15,'count':1,'checked':true,'barbell':1,'index':1,'status':1},{'weight':20,'count':1,'checked':true,'barbell':1,'index':2,'status':1}];
 
-			// 	this.barbelData.plateWts = [{'weight':50,'count':4,'checked':true,'barbell':0,'index':0,'status':1},{'weight':30,'count':4,'checked':true,'barbell':0,'index':1,'status':1},{'weight':20,'count':4,'checked':true,'barbell':0,'index':2,'status':1},{'weight':15,'count':4,'checked':true,'barbell':0,'index':3,'status':1},{'weight':10,'count':4,'checked':true,'barbell':0,'index':4,'status':1},{'weight':7.5,'count':4,'checked':true,'barbell':0,'index':5,'status':1},{'weight':5,'count':4,'checked':true,'barbell':0,'index':6,'status':1},{'weight':2.5,'count':4,'checked':true,'barbell':0,'index':7,'status':1},{'weight':1,'count':4,'checked':true,'barbell':0,'index':8,'status':1}];
-			// }
-			// for(var n=0; n<this.barbelData.barbelWts.length; n++){
-      //         this.sqlStorageNew.query("INSERT INTO `plateweights` (`weight`, `count`, `barbell`, `status`, `index`) VALUES ('"+this.barbelData.barbelWts[n].weight+"','"+this.barbelData.barbelWts[n].count+"','"+this.barbelData.barbelWts[n].barbell+"','"+this.barbelData.barbelWts[n].status+"','"+this.barbelData.barbelWts[n].index+"')")
-      //         .catch(err => {
-      //           console.error('---------barbelweights-----------');
-      //         });
-      //       }
-      //       for(var m=0; m<this.barbelData.plateWts.length; m++){
-      //         this.sqlStorageNew.query("INSERT INTO `plateweights` (`weight`, `count`, `barbell`, `status`, `index`) VALUES ('"+this.barbelData.plateWts[m].weight+"','"+this.barbelData.plateWts[m].count+"','"+this.barbelData.plateWts[m].barbell+"','"+this.barbelData.plateWts[m].status+"','"+this.barbelData.plateWts[m].index+"')")
-      //         .catch(err => {
-      //           console.error('---------plateweights-----------');
-      //         });
-      //       }
-		  // }
+				this.barbelData.plateWts = [{'weight':50,'count':4,'checked':true,'barbell':0,'index':0,'status':1},{'weight':30,'count':4,'checked':true,'barbell':0,'index':1,'status':1},{'weight':20,'count':4,'checked':true,'barbell':0,'index':2,'status':1},{'weight':15,'count':4,'checked':true,'barbell':0,'index':3,'status':1},{'weight':10,'count':4,'checked':true,'barbell':0,'index':4,'status':1},{'weight':7.5,'count':4,'checked':true,'barbell':0,'index':5,'status':1},{'weight':5,'count':4,'checked':true,'barbell':0,'index':6,'status':1},{'weight':2.5,'count':4,'checked':true,'barbell':0,'index':7,'status':1},{'weight':1,'count':4,'checked':true,'barbell':0,'index':8,'status':1}];
+			}
+			for(var n=0; n<this.barbelData.barbelWts.length; n++){
+              this.sqlStorageNew.query("INSERT INTO `plateweights` (`weight`, `count`, `barbell`, `status`, `index`) VALUES ('"+this.barbelData.barbelWts[n].weight+"','"+this.barbelData.barbelWts[n].count+"','"+this.barbelData.barbelWts[n].barbell+"','"+this.barbelData.barbelWts[n].status+"','"+this.barbelData.barbelWts[n].index+"')")
+              .catch(err => {
+                console.error('---------barbelweights-----------');
+              });
+            }
+            for(var m=0; m<this.barbelData.plateWts.length; m++){
+              this.sqlStorageNew.query("INSERT INTO `plateweights` (`weight`, `count`, `barbell`, `status`, `index`) VALUES ('"+this.barbelData.plateWts[m].weight+"','"+this.barbelData.plateWts[m].count+"','"+this.barbelData.plateWts[m].barbell+"','"+this.barbelData.plateWts[m].status+"','"+this.barbelData.plateWts[m].index+"')")
+              .catch(err => {
+                console.error('---------plateweights-----------');
+              });
+            }
+		  }
 	 })
 
   }
-  loginSuccess(response){
+  loginSuccess(res){
     localStorage.setItem('isLogged', 'true');
-    localStorage.setItem('usertoken', response.sessiontoken);
-    localStorage.setItem('userId', response.user_id);
-    localStorage.setItem('loggedAs', response.username);
-    localStorage.setItem('email', response.userDetails);
-    localStorage.setItem('firstname', response.fname);
-    localStorage.setItem('lastname', response.lname);
-    localStorage.setItem('avatar', response.avatar);
-    localStorage.setItem('coverImage', response.coverImage);
-    localStorage.setItem('orgId', response.orgId);
-    localStorage.setItem('gender', response.profile.gender);
-    localStorage.setItem('dob', response.profile.dob1);
-    localStorage.setItem('weight', response.profile.weight);
-    localStorage.setItem('height', response.profile.height);
-    localStorage.setItem('heightunit', response.profile.heightUnit);
-    localStorage.setItem('weightunit', response.profile.weightUnit);
-    localStorage.setItem('profileSet', response.isProfileSet);
-    localStorage.setItem('planSet', response.isPlanSet);
-    localStorage.setItem('tmaxSet', response.isTmaxSet);
-    localStorage.setItem('currencyType', response.currencyType);
-    localStorage.setItem('phone', response.phone);
-    localStorage.setItem('phonecode', response.phonecode);
-    localStorage.setItem('otp', response.otp);
-    localStorage.setItem('userType', response.userType);
+    localStorage.setItem('usertoken', res.sessiontoken);
+    localStorage.setItem('userId', res.user_id);
+    localStorage.setItem('loggedAs', res.username);
+    localStorage.setItem('email', res.userDetails);
+    localStorage.setItem('firstname', res.fname);
+    localStorage.setItem('lastname', res.lname);
+    localStorage.setItem('avatar', res.avatar);
+    localStorage.setItem('coverImage', res.coverImage);
+    localStorage.setItem('orgId', res.orgId);
+    localStorage.setItem('gender', res.profile.gender);
+    localStorage.setItem('dob', res.profile.dob1);
+    localStorage.setItem('weight', res.profile.weight);
+    localStorage.setItem('height', res.profile.height);
+    localStorage.setItem('heightunit', res.profile.heightUnit);
+    localStorage.setItem('weightunit', res.profile.weightUnit);
+    localStorage.setItem('profileSet', res.isProfileSet);
+    localStorage.setItem('planSet', res.isPlanSet);
+    localStorage.setItem('tmaxSet', res.isTmaxSet);
+    localStorage.setItem('currencyType', res.currencyType);
+    localStorage.setItem('phone', res.phone);
+    localStorage.setItem('phonecode', res.phonecode);
+    localStorage.setItem('otp', res.otp);
+    localStorage.setItem('userType', res.userType);
     localStorage.setItem('isSoundOn', "false");
     localStorage.setItem('isVibrateOn', "false");
     localStorage.setItem('micropopupon','0');
-    if(response.userType===8){
-      localStorage.setItem('privacyAccess', response.privacy);
+    if(res.userType===8){
+      localStorage.setItem('privacyAccess', res.privacy);
     }
-    localStorage.setItem('traininglevel', response.profile.trainingLevel);
+    localStorage.setItem('traininglevel', res.profile.trainingLevel);
     localStorage.setItem('categorylevel', 'true');
     if (this.platform.is('ios')) {
-      localStorage.setItem('appVersion', response.iosVersion);
+      localStorage.setItem('appVersion', res.iosVersion);
     }else if(this.platform.is('android')){
-      localStorage.setItem('appVersion', response.androidVersion);
+      localStorage.setItem('appVersion', res.androidVersion);
     }
     
     this.insertPlateWeights();
-    if(response.plans.length !== 0){
-      //localStorage.setItem('subplanid',response.plans[0].plan_id);
-      for(var k=0; k<response.plans.length; k++){
-        if(response.plans[k].status===1){
-          var activePlanId = response.plans[k].plan_id;
+    if(res.plans.length !== 0){
+      // localStorage.setItem('subplanid',response.plans[0].plan_id);
+      for(var k=0; k<res.plans.length; k++){
+        if(res.plans[k].status===1){
+          var activePlanId = res.plans[k].plan_id;
           localStorage.setItem('subplanid',activePlanId);
         }
-        else if(response.plans[k].status===3){
-          var futureplanId = response.plans[k].plan_id;
+        else if(res.plans[k].status===3){
+          var futureplanId = res.plans[k].plan_id;
           localStorage.setItem('futureplanid',futureplanId);
         }
         else{
-          var previousplanId = response.plans[k].plan_id;
+          var previousplanId = res.plans[k].plan_id;
           localStorage.setItem('previousplanid',previousplanId);
         }
 
       }	
     }
-    for(var gw = 0; gw < response.generalWarmup.length; gw++) {
-      this.genwarmup = response.generalWarmup[gw];
+    for(var gw = 0; gw < res.generalWarmup.length; gw++) {
+      this.genwarmup = res.generalWarmup[gw];
       console.log("INSERT INTO `genwarmup` (`direction`, `equipment`, `extime`, `name`, `reps`) VALUES ('"+this.genwarmup.Direction+"', '"+this.genwarmup.Equipment+"', '"+this.genwarmup.ExTime+"', '"+this.genwarmup.Name+"', '"+this.genwarmup.Reps+"')");
       this.sqlStorageNew.query("INSERT INTO `genwarmup` (`direction`, `equipment`, `extime`, `name`, `reps`) VALUES ('"+this.genwarmup.Direction+"', '"+this.genwarmup.Equipment+"', '"+this.genwarmup.ExTime+"', '"+this.genwarmup.Name+"', '"+this.genwarmup.Reps+"')").catch(err => {
         console.error('Unable to create initial storage tables planprotocol = '+this.genwarmup.name, err.tx, err.err);
       });
     }
-    for(var cd = 0; cd < response.Cooldown.length; cd++) {
-      this.cooldown = response.Cooldown[cd];
+    for(var cd = 0; cd < res.Cooldown.length; cd++) {
+      this.cooldown = res.Cooldown[cd];
       console.log("INSERT INTO `cooldown` (`name`) VALUES ('"+this.cooldown.name+"')");
       this.sqlStorageNew.query("INSERT INTO `cooldown` (`name`) VALUES ('"+this.cooldown.name+"')").catch(err => {
         console.error('Unable to create initial storage tables cooldown = '+this.cooldown.name, err.tx, err.err);

@@ -9,6 +9,7 @@ import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
 
 
 @Component({
@@ -690,21 +691,21 @@ export class ProgramdetailsPage implements OnInit {
 
       
     },800);
-    // let modal = await this.modalCtrl.create({
-    //   component:ExcpreviewPopup,
-    //   componentProps:{ExcDetails:Exc}
-    // });
-    // modal.present();
+    let modal = await this.modalCtrl.create({
+      component:ExcpreviewPage,
+      componentProps:{ExcDetails:Exc}
+    });
+    modal.present();
     // modal.onDidDismiss(data=>{
       
-    //   // setTimeout(() => {
+      // setTimeout(() => {
      
-    //   //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-'+this.planinfo.id);
-    //   //   this.myVideo.muted=true;
-    //   //   this.myVideo.play();
-    //   //   this.myVideo.loop = true;
+      //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-'+this.planinfo.id);
+      //   this.myVideo.muted=true;
+      //   this.myVideo.play();
+      //   this.myVideo.loop = true;
           
-    //   //   },800);
+      //   },800);
       
     
     // });
@@ -753,7 +754,7 @@ export class ProgramdetailsPage implements OnInit {
 
   async showPlanInfo() {
     
-    // let modal = this.modalCtrl.create(ExercisePage);
+    // let modal = await this.modalCtrl.create(ExercisePage);
     // modal.present();
     setTimeout(() => {
             

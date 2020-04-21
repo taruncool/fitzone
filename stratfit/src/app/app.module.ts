@@ -28,10 +28,11 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
 import { ApiService } from '../app/api.service';
+import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,ProgressloginPage],
+  entryComponents: [ProgressloginPage],
   imports: [BrowserModule,HttpClientModule,FormsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],
