@@ -512,7 +512,8 @@ public getExercisesNew(){
 
       // this.http.get(global.baseURL + 'userprogram/getUpdatedTmax/', { headers: headers })
       // .subscribe(tmaxResponse => {
-      this.apiService.getupdatedTmax().subscribe((response)=>{
+      this.token = localStorage.getItem('usertoken');
+      this.apiService.getupdatedTmax(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
        let tmaxResponseJson = res;

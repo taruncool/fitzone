@@ -222,10 +222,11 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public getupdatedTmax(){
-    return this.http.post(global.baseURL + 'userprogram/getUpdatedTmax/', {
+  public getupdatedTmax(token){
+    return this.http.post(global.baseURL + 'userprogram/getUpdatedTmax/', {}, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',
+       'Authorization': token
          })
          }).pipe (data =>
            data);
@@ -240,7 +241,7 @@ export class ApiService {
            data);
   }
   public getplateweights(token){
-    return this.http.post(global.baseURL + 'subscriber/getplateweights/', {
+    return this.http.post(global.baseURL + 'subscriber/getplateweights/', {}, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': token
