@@ -31,7 +31,7 @@ export class PasswordPage implements OnInit {
     this.userId = localStorage.getItem('userId');
   }
   async updatePwd(pwddata) {
-    if(localStorage.getItem('internet')==='online'){
+    // if(localStorage.getItem('internet')==='online'){
       if(pwddata.newpswd === pwddata.confirmpswd){
           console.log('password match');
           var headers = new Headers();
@@ -77,13 +77,13 @@ export class PasswordPage implements OnInit {
         });
         toast.present();
       }
-    }else{
-      let toast = await this.toastCtrl.create({
-				message: "Please check your internet connectivity and try again",
-				duration: 3000
-			});
-			toast.present();
-    }
+    // }else{
+    //   let toast = await this.toastCtrl.create({
+		// 		message: "Please check your internet connectivity and try again",
+		// 		duration: 3000
+		// 	});
+		// 	toast.present();
+    // }
   }
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({

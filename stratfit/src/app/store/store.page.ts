@@ -8,6 +8,7 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 
 @Component({
   selector: 'app-store',
@@ -163,8 +164,11 @@ goalclick(){
 //redirecting to coachprofile page
 async viewCoachPrf(coachdata){
 // this.ga.trackEvent('CoachProfileView',coachdata.coachName,localStorage.getItem('email'));
-// let modal = await this.modalCtrl.create(CoachprofilePage,{coachInfo:coachdata});
-// modal.present();
+let modal = await this.modalCtrl.create({component:CoachprofilePage,
+  componentProps:{coachInfo:coachdata}
+});
+modal.present();
+
 //this.navCtrl.push(CoachprofilePage,{coachInfo:coachdata});
 }
 
