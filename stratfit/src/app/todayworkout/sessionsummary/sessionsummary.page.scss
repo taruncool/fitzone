@@ -1,0 +1,83 @@
+page-sessionsummarydetails{
+
+    .pcview .poverlay {padding-top: 15px !important;}
+.pctitle { margin-bottom:4rem !important;
+    svg { width: 6rem !important; height:6rem !important;}  
+    h1 {margin-bottom: 2rem;}
+    h2 {color:#fff !important;}
+
+}
+
+
+.exelist { position: relative;
+  .complxname { margin:10px -10px 0 -10px !important; 
+  ion-scroll[scrollX]{min-height:36px !important;
+    span {padding:0  15px 10px 15px; position: relative;}
+    span:first-child {margin-left: 15px;}
+    span::before { content: ""; position:absolute !important;left:8px;top:40%;transform:translate(-50%, -50%); width: 5px; height: 5px; background: #80B419; border-radius: 50%;} 
+  }
+}
+  
+}
+
+.session {margin:0 -10px 0 -10px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 3.6rem;
+    ion-item, ion-scroll[scrollX]{min-height:36px !important; padding: 0 !important;}
+    ion-label { position: relative !important; }
+    ion-label { margin: 0 !important; }
+    ion-scroll[scrollX] .button {margin-bottom:-2px !important; width: 30%;}
+    .scroll-zoom-wrapper {text-align: center;}
+
+}
+
+.sumary {margin-bottom: 1rem;}
+.pcview .poverlay .sumary .exe {padding-bottom: 0 !important;}
+.item-block {align-items: normal !important; min-height: 3.4rem !important;}
+
+
+ion-avatar{ border: 0 !important;}
+ion-avatar.active{ border: 1px solid #80B419 !important ;}
+ion-label{margin: 0 !important; }
+
+
+.nextdat { background: #1D2534; padding: 16px; margin: 0 -16px; margin-bottom: 15px;  display: block;
+    span {display: block; font-size: 2rem; color: #fff !important;}
+}
+
+// .foot .btnrow button{margin-left: 0 !important; width: 45.5%;}
+
+// .store .poverlay .label{margin: 0 !important; position: relative !important; top: 0 !important;}
+
+
+
+
+.checkmark__circle {stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width: 2;stroke-miterlimit: 10;stroke: #fff;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
+
+.checkmark {border-radius: 50%;display: block;stroke-width: 2;stroke: #80B419;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;}
+
+.checkmark__check {transform-origin: 50% 50%;stroke-dasharray: 48;stroke-dashoffset: 48;animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.4, 1.4, 1);
+  }
+}
+
+
+
+.nutrition{ text-align: left;
+    h1 {color:#fff; font-size:1.8rem; margin-top: 0; margin-bottom: 1.4rem; 
+        span {float:right; font-size:1.4rem;}
+        a {float:right; font-size:1.4rem;}
+    }
+    .nicon svg {width: 7rem; height: 5rem;float: right;}
+}
+
+}

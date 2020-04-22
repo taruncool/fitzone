@@ -1,0 +1,271 @@
+// page-todayworkout {
+
+//     // .head .hedfm .title {max-width: 100% !important;}
+//     .head .info { padding-right: 0 !important;
+//         svg{ width: 20px !important; height: 20px !important;}
+//     }
+//     .workout .titl h3 {margin-top: 0 !important;}
+
+//     .restday{ margin-bottom: 3rem;
+//         img {width: 30%;margin:0 auto 2rem auto;}
+//         h2 {margin-bottom: 1rem;}
+//     }
+//     .genwamup {
+//       ion-card {border-radius: 0 !important;  margin: 0 !important; width: calc(100% - 0px) !important; margin-bottom:10px !important; border-bottom: 1px solid #1D2534;
+//         ion-item{ padding: 0 !important; background: none !important; font-size: 1.4rem; border-radius: 0 !important; }
+//         ion-item.genset { 
+//             .label {margin: 0 !important; color: #999;}
+//             ion-avatar {border-radius: 0 !important; width: 80px !important; height: 50px; float: left; border: 0 !important; background: #fff;
+//               img {width: 100% !important; height: 50px !important; border-radius: 0 !important; object-fit: cover;}
+//             }
+//             .gentitl {float: left; 
+//               h3, span {display: block; }
+//               h3 {color: #fff !important;}
+//               span {font-size: 1.2rem; font-weight: normal;}
+//             }
+//             .genreps {color: #fff; margin-right: 0 !important;}
+//         }
+//         .genview {display: none; margin:0 !important; background: #1D2534; border-top: 1px solid #1D2534;
+//           .label {margin: 0 !important;}
+//           video {width: 100% !important; vertical-align:bottom !important;}
+//         }
+//       }
+//       ion-card.active {
+//         .genview {display: block !important;} 
+//       }
+//         p {margin-bottom: 30px !important;
+//             hr {background-color:#1D2534 !important;}
+//         }
+//     }
+
+//     .activecover{ text-align: center;
+//         h2{font-size: x-large;margin-bottom: 20px;}
+//         h3 { font-size: 1.6rem !important; margin-top: 30px;
+//             span {display:block !important; color: #59800D !important; padding:10px; font-size: 2rem;}
+//         }
+//         .datecard{margin-top: 50px;
+//            p{font-size: large;}
+//         }
+//     }
+   
+//     .exetab {padding-bottom: 4rem;}
+
+    
+//     //.foot {
+//         // .tab-active{  padding-top:0;
+//         //     .circl {border-radius: 50%; width: 4rem; height: 4rem; background: #375FC6; margin: auto; padding: 8px; position: relative; top: -4px;
+//         //         svg {fill: #fff; margin: 0 auto; }   
+//         //     }
+//         //     p{color: #375FC6 !important;}
+//         // }
+//     //}
+
+   
+
+//     .alert-ios .alert-button {min-width: 0 !important;}
+//     ion-scroll[scrollX] {min-height: 44px !important;}
+
+    
+    
+   
+//     /* temporary classes for all scenarios */
+   
+//     .tmaxtest{
+//         background: transparent;
+//         box-shadow: none;
+//         text-align: center;
+//     }
+//     .roundTab { width: 9rem !important;}
+//     .inprogresscls{
+//         position: relative;
+//         [col-12]:nth-child(1) .item-md{
+//             background: #f1f1f1;
+//             border: .5px solid;
+//             border-color: color($colors, primary);
+            
+//         }
+    
+//     }
+//     .inprogresscard{
+//         background: linear-gradient(to bottom,  #141e30, #243b55) !important;
+        
+//     }
+//     .sessioncomplete{
+//         .swiper-pagination-bullet{
+//             height: 4px;
+//             width: 4px;
+//         }
+//         .swiper-container{
+//             overflow: visible;
+//         }
+//         .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+//             bottom:-25px;
+//         }
+//     }
+//     .completedcard{
+//         background: linear-gradient(to bottom,#2980b9, #2c3e50) !important;
+//         height: 200px;
+        
+//         h5{
+//             color: #fff;
+//         }
+//         .compsess{
+//             width: auto !important;
+//             height: 80px;
+//             margin: auto;
+//         }
+
+//     }
+//     .completedcls{
+//         position: relative;
+//         .item-md{
+//             background: #f1f1f1;
+//             border: .5px solid;
+//             border-color: color($colors, primary);
+            
+//         } 
+//     }
+
+//     /** subscription ended*/
+   
+
+//     /* temporary classes for all scenarios */
+
+//     .programcover{
+//         width: 100%;
+//         //height: 190px;
+//         background: #f6f6f6;
+//         box-shadow: none;
+//     }
+//     .coverimg{
+//         position: relative;
+//     }
+  
+//     .coverimg::after {
+//         display: block;
+//         position: relative;
+//         background-image: linear-gradient(to bottom, transparent 0%, #000000 100%);
+//         margin-top: -105px;
+//         height: 105px;
+//         width: 100%;
+//         content: '';
+//     }
+//     .programname{
+//         position: absolute;
+//         right: 0;
+//         left: 0;
+//         bottom: 0;
+//         margin: auto;
+//         text-align: center;
+//         color: color($colors,light);
+//         padding: 10px;
+//         text-transform: uppercase;
+//         z-index: 1;
+//         //background: rgba(0,0,0,.6);
+//     }
+  
+//     .progress{
+//         //position: absolute;
+//         width: 100%;
+//         text-align: center;
+//         margin: auto;
+//         position: relative;
+//         //background: rgba(0,0,0,.6);
+//         background:#59800D;
+//         height: 45px;
+//         h6{
+//             color: color($colors,dark);
+//             padding: 8px;
+//         }
+//         .bar1 , .bar2{
+//             position: absolute;
+//             bottom: 5px;
+//             height: 5px;
+//             left: 10%;
+//             width: 80%;
+//             margin: auto;
+//             text-align: center;
+//             background: #fff;
+//         }
+//         .bar2{
+//             width: 10%;
+//             left: 10%;
+//             background: color($colors,primary);
+//         }
+//     }
+   
+  
+    
+//     .item-md.item-block .item-inner{
+//         padding-right: 0 !important;
+//     }    
+  
+//     .card-md .item-md.item-block .item-inner{
+//         margin: 0 !important;
+//     }
+
+//     .renewal{
+//         top: 35% !important;
+//         height: 250px;
+//         background:linear-gradient(to bottom, #141e30, #243b55) !important;
+//     }
+
+    
+
+//     /* tmax */
+//     .tmax{
+//         width: 100%;
+//         margin: auto;
+//         text-align: center;
+//         box-shadow: none;
+//         margin-bottom: 52px;
+//         position: relative;
+
+//         h2{
+//             font-size: large;
+//             font-weight: 500;
+            
+//         }
+//         ion-item{
+//             background: transparent;
+//             padding: 0;
+//         }
+//         .label-md, .label-ios{
+//             margin: 0;
+//         }
+//         .item-md ion-thumbnail {
+//             min-width: auto;
+//             min-height: auto;
+//         }
+//         .item-md ion-thumbnail ion-img, .item-md ion-thumbnail img ,.item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img{
+//             width: 45px;
+//             height: 45px; 
+//             background: color($colors, light);
+//             padding: 5px;
+//             border-radius: 8px;
+//             margin-right: 4px;
+//         }
+//         .item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start]{
+//             margin: 0 0 0 10px;
+//         }
+//         .swiper-pagination-bullet{
+//             height: 4px;
+//             width: 4px;
+//         }
+//         .swiper-container{
+//             overflow: visible;
+//         }
+//         .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+//             bottom:-25px;
+//         }
+//         .tmaxbtncol{
+//             .tmaxbtn{
+//                 text-align: center;
+//                 margin-bottom: 20px;
+//             }
+//         }
+//     }
+
+    
+    
+// }

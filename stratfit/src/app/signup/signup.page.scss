@@ -1,0 +1,38 @@
+page-signup {
+
+    .scroll-content{padding:40px 20px 0 20px !important;}
+
+
+    .item-ios, .item-md{ margin-bottom: 10px  !important;
+        .item-inner{line-height: 20px;}
+        .label-ios[floating], .label-md[floating] {transform:translate3d(0,  0,  0) scale(0.8); color:inherit !important;
+            svg{width:4vh; height:4vh; margin-right: 2vh;  margin-bottom: -0.6vh;}
+            span {position: relative; top: -0.2vh; color: #59800D !important;}
+        }
+    }
+    .item-ios.item-label-stacked .text-input, .item-ios.item-label-floating .text-input, .item-label-stacked .text-input-md, .item-label-floating .text-input-md, .item-label-floating .select-ios, .item-label-floating .select-md {margin-top:0px;margin-left:5vh; padding-right: 2vh; padding-top: 3px; padding-bottom: 10px; margin-bottom:0 !important;width: calc(100% - 6vh); font-size: 1.4rem;}
+    .inputs ion-card ion-input, .inputs ion-card ion-textarea, .inputs ion-card ion-select, .inputs ion-item ion-input, .inputs ion-item ion-textarea, .inputs ion-item ion-select { margin-top: -2px !important;}
+    
+
+    .chetxt { font-size: 1.3rem; padding: 0;}
+    .chetxt ion-label{white-space:normal; margin-bottom: 0 !important; margin-top: 0;}
+    .item.item-ios .checkbox-ios,  .item.item-md .checkbox-md {margin-top: -8px !important; margin-right: 20px;}
+    .checkbox-ios .checkbox-icon {border-radius: 0.5vh;}
+    ion-checkbox .checkbox-icon {display:inline-block; background:none !important; border-color:#59800D !important;}
+    ion-checkbox .item-cover {width: auto;}
+    .checkbox-checked {  background:#59800D !important; }
+    .checkbox-md .checkbox-icon {width:18px !important; height:18px !important;}
+    .checkbox-md .checkbox-checked .checkbox-inner {left:5px; top:1px;}
+
+    
+
+    
+    .social {margin-top:6vh;
+        button {background:none !important;padding: 0;  font-size: 2.5em;height:44px !important; width: 44px !important; border-radius: 50%; border-color: #3b5998 !important;
+            svg, .cls-1 { fill:#fff !important; /* fill: #3b5998 !important;*/}
+            
+        }
+        button.gogl{ border-color:#fc2424 !important;}
+        button:hover {background:none !important;}
+    }
+}

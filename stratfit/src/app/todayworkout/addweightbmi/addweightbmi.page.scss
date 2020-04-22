@@ -1,0 +1,37 @@
+addweightbmi-popup{
+
+	.scroll-content {
+		background: #080C14 !important;
+	}
+
+
+	.countryblck {
+		position: absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%;
+	
+		h3 {margin-bottom: 15px;}
+		ion-item{margin-bottom: 15px;}
+	}
+	ion-select.six8 {max-width:68% !important;}
+	
+	// .datablck{
+	// 	max-height: 300px;
+	// 	overflow: auto;
+		
+	// }
+	p{
+		margin-top:20px;
+	
+	}
+	
+
+	
+
+	 /* tab responsive */
+	 @media screen and (min-device-width: 767px) and (max-device-width: 1024px){
+		.countryblck{
+			width: 60%;
+			margin: auto;
+		}
+	 }
+
+}

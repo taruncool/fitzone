@@ -1,0 +1,83 @@
+page-tmax {
+    .item-md, .item-ios{
+        background-color: transparent;
+        border: none !important;
+    }
+    ion-card-header{
+        text-align: center;
+        background-color: rgba(182, 182, 182, 0.5);
+        position: relative;
+        
+    }
+    .item-md ion-avatar img, .item-ios ion-avatar img{
+        background: #f7f7f7;
+        width: 68px;
+        height: 68px;
+        border: 1px solid #ddd; 
+        border-radius: 50%;
+        padding: 5px; 
+        overflow: hidden;
+    }
+    .card-header-md, .card-header-ios {
+        padding: 3%;
+        color: #000;
+    }
+    ion-avatar, ion-thumbnail{
+        margin: auto;
+        text-align: center;
+        max-width: 70px;
+    }
+    .stattmax{
+        margin: auto;
+        text-align: left;
+    }
+    .tmaxheading{
+        text-align: center;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 6%;
+        p{
+            white-space: initial;
+        }
+    }
+    .item-md.item-block .item-inner , .item-ios.item-block .item-inner{
+        padding: 0;
+        border: none;
+    }
+    .card-content-md, .card-content-ios{
+        padding: 0;
+    }
+    .automargin{
+        margin-bottom: 5%;
+        text-align: center;
+    }
+    .submitBtn{
+        margin-top: 3%;
+        margin: auto;
+        text-align: center;
+    }
+
+    /* tab responsive */
+    @media screen and (min-device-width: 767px) and (max-device-width: 1024px){
+        .card-header-ios{
+            padding: 1%;
+        }
+        p , h2, h3 {
+            font-size: initial !important;
+        }
+        ion-avatar, ion-thumbnail{
+            max-height: 110px;
+            max-width: 110px;
+            text-align: center;
+            margin: auto;
+        }
+        .item-md ion-avatar img,.item-ios ion-avatar img{
+            height: 110px;
+            width: 110px;
+        }
+        .card-ios {
+            margin: 30px auto;
+            width: calc(100% - 30%);
+        }
+    }
+}

@@ -1,0 +1,62 @@
+page-tmaxeditpopup {
+    
+    .grid {padding: 0;}
+    // .summary  {  
+    //     .row {border-bottom: 1px solid #1D2534; 
+    //         h5 {margin:0 !important; font-size: 1.6rem;     display: inline-block; }
+    //         ion-input { background: #1D2534;     width: 60px;
+    //             display: inline-block;
+    //             text-align: center;}
+    //         .text-input-md {text-align: center;}
+    //     }
+    //     .col:first-child {flex:0 0 66.33333% !important; max-width:66.33333% !important;}
+    //     .item-input:last-child {border: 1px solid #59800D; width: 6rem;}
+    // }
+
+    .summary  { 
+        ion-card {border-radius: 0 !important;  margin: 0 !important; width: calc(100% - 0px) !important;  border-bottom: 1px solid #1D2534;
+            ion-item{ padding: 0 !important; background: none !important; color: #fff; font-size: 1.4rem; border-radius: 0 !important;
+              .label {margin: 0 !important;}
+                  h2 {color: #fff !important; font-size: 1.4rem !important;}
+                  .count { display: inline-block;  color: #fff !important;
+                    span {color:#fff !important;}
+                    em {font-size: 1.2rem; }
+                  }
+                  ion-icon {color: #59800D;}
+            
+                
+            }
+         
+          }
+
+
+
+        .row {border-bottom: 1px solid #1D2534; 
+            h5 {margin:0 !important; font-size: 1.6rem;      display: inline-block; }
+            ion-input { background: #1D2534; width: 60px;display: inline-block;text-align: center;}
+            .text-input-md {text-align: center;}
+            span {padding-right: 10px; display: inline-block;}
+            em {font-size: 1.2rem;}
+        }
+        .col:first-child {flex:0 0 66.33333% !important; max-width:66.33333% !important;}
+        .item-input:last-child {border: 1px solid #59800D; width: 6rem;}
+    }
+
+    
+
+    
+    
+    .resttime{
+        margin-top:5%;
+    }
+    
+   
+    .yesnoBtn{
+        width: 70%;
+        margin: auto;
+        text-align: center;
+    }
+
+    p {color: #fff !important;}
+    .text-input[disabled] {opacity: 1 !important;}
+}

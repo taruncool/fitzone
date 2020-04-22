@@ -1,0 +1,122 @@
+page-tmaxtesting {
+    
+    
+    .testBtn{
+        text-align: center;
+        width: 50%;
+    }
+
+    .actionBtn{
+        margin-top: 8%;
+        text-align: center;
+    }
+
+    .item-md,  .item-ios{
+        background-color: #fff;
+        
+        padding: 0;
+          
+    }
+
+    .tmvalue{
+        position: relative
+    }
+
+    .metriclable .list-md .item-input:last-child{
+        border: 0;
+    }
+    
+    
+ 
+    .exerciseicon{
+        display: block;
+        margin: auto;
+    }
+    
+    .item-md ion-avatar ion-img, .item-md ion-avatar img , .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+        background:  #f7f7f7;
+        width: 85px;
+        height: 85px;
+        border: 1px solid #ddd; 
+        border-radius: 50%;
+        padding: 5px; 
+        overflow: hidden;
+    }
+ 
+    
+    .item-radio-checked.item-md ion-label{
+        color: #000;
+    }
+    .radio-md .radio-checked{
+        
+        border-color: #00b4ff;
+        color: #00b4ff;
+    }
+
+    .label-md{
+        margin: 0;
+    }
+    .item-md.item-block .item-inner{
+        padding: 0;
+    }
+   
+    h2{
+        white-space: initial;
+    }
+    .valueentry{
+        border: 1px solid #999;
+        border-radius: 5px;
+    }
+    
+    .text-input-md{
+        text-align: center;
+        padding: 2%;
+        
+    }
+
+    .yesBtn, .noBtn{
+        width: 70%;
+    color: #0b0b0b;
+    background: none;
+    height: 4rem !important;
+        }
+    .optionBtn{
+        text-align: center;
+    }
+    .active{
+        color: #fff;
+        background: #00b4ff;
+    }
+    
+    .text-input-ios{
+   text-align: center;
+    }
+    .tmax-values{
+        width: 100%;
+    }
+    @media screen and (min-device-width: 767px) and (max-device-width: 1024px){
+        .card-header-ios{
+            padding: 1%;
+        }
+        ion-avatar, ion-thumbnail{
+            max-height: 110px;
+            max-width: 110px;
+            margin: 10px auto;
+
+        }
+        .item-md ion-avatar img,.item-ios ion-avatar img{
+            height: 110px;
+            width: 110px;
+            margin: 10px auto;
+        }
+        .card-ios {
+            margin: 30px auto;
+            border-radius: 5px;
+            width: calc(100% - 30%);
+        }
+        .optionBtn{
+            margin: 10%;
+        }
+    }
+   
+}

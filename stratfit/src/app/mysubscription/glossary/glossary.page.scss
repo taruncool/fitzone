@@ -1,0 +1,14 @@
+page-glossary {
+    .bar-buttons-md[start] , .bar-buttons-ios[start]{
+        position: absolute;
+        left: 2%;
+        border: 10px solid rgba(0,0,0,0);
+    }
+    .toolbar-title-md , .toolbar-title-ios{
+        font-weight: 400 !important;
+    }
+    ol {padding-left: 15px;}
+    ol li ol {padding-top:15px;}
+    li {padding-bottom:15px; }
+    li:last-child {padding-bottom:0;}
+}

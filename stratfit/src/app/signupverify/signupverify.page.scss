@@ -1,0 +1,15 @@
+page-signupverify {
+
+    .verify {
+        svg {margin:20px auto;height: 5rem;width: 5rem; fill:#707070;}
+        h2 {color: #59800D;}
+        h5 {font-size: 1.4rem;}
+        .row {width:80%; margin:auto;}
+        ion-input { padding:10px 5px; margin-left: 1rem;display: inline-block; width:5rem; border-radius: 3px; background: #fff !important; color:#000 !important; 
+            .text-input {margin: 5px !important; padding: 0 !important;text-align: center !important; }
+        } 
+        ion-input:first-child {margin-left: 0;}
+
+    }
+
+}

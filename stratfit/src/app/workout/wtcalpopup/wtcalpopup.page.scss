@@ -1,0 +1,126 @@
+wtcal-popup{
+	.platemathmodal {
+        background-color: rgba(0,0,0,0.75);
+        //color: white;
+        margin: auto !important;
+    }
+
+	.scroll-content{
+	    background: transparent;
+	}
+
+	.cgrid-cls{
+		padding: 0;
+	    margin-top: 10% !important;
+	    width: 90% !important;
+	    height:90%
+    }
+    .barbelweights{
+        margin-top:8%;
+    }
+   
+   .card-header-md, .card-header-ios{
+       padding: 5px;
+       font-size: 1.2rem;
+       color: #000;
+       background: #ddd;
+   }
+   
+   .card-md , .card-ios{
+       margin: auto;
+       margin-top: 8%;
+       width: 95%;
+       box-shadow: none;
+       border: 2px solid #ddd;
+   }
+
+   .list-ios{
+       margin: 0;
+       margin-top: 10px;
+   }
+
+   ion-card-header{
+       overflow: visible;
+   }
+   
+   .card-content-md , .card-content-ios{
+       font-size: 2.5rem;
+       line-height: 2.2;
+   }
+   
+   .item-md , .item-ios{
+       background: #fff;
+       padding: 0;
+   }
+   .item-md.item-block .item-inner , .item-ios.item-block .item-inner{
+       padding: 0;
+       border: 0;
+   }
+   .middlebarbel{
+       position: absolute;
+       width: 120px;
+       height: 120px;
+       left: 0;
+       right: 0;
+       margin: auto;
+       background: #fff;
+       border: 10px solid #fff;
+       border-radius: 50%;
+       text-align: center;
+   }
+   .barwt{
+       position: absolute;
+       left: 0;
+       right: 0;
+       text-align: center;
+       margin-top: 3%;
+   }
+   .barimg{
+       margin-top: 5%;
+   }
+
+   .barbelweights .button-md{
+       height: 3.4rem !important;
+   }
+   .barbelweights button{
+       background-color: #808080;
+   }
+   .barbelweights button.activeBarbel{
+       background-color: #00b4ff;
+   }
+   
+   .kglb{
+       margin-top: 65px;
+       background: #fff;
+       border-radius: 6px;
+       //height:100%;
+   }
+   .errormsg{
+       margin-top: 30%;
+       text-align: center;
+   }
+
+   .list-md{
+        margin:9px 0 15px 0;
+   }
+   
+   .rightalign{
+       text-align: right;
+   }
+   .clickBtnrow{
+        margin-top:10%;
+        .fcont{
+            margin: auto;
+        }
+   }
+   .errmsg{
+        text-align: center;
+        width: 95%;
+        margin: auto;
+   }
+
+   .button-ios ,.button-md{
+        width:96%;
+   }
+
+}

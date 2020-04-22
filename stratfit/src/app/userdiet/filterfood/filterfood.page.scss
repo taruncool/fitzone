@@ -1,0 +1,58 @@
+// filterfood-popup{
+
+// 	.scroll-content {
+// 		background: rgba(0,0,0,.8) !important;
+// 	}
+
+// 	.card-content-md , .card-content-ios{
+// 		padding: 5px;
+// 	}
+// 	.countryblck {
+// 		position: absolute !important;
+// 		top:14%; 
+// 		left: 10%;
+// 		right: 10%;
+// 	}
+// 	.datablck{
+// 		height: 300px;
+// 		overflow: auto;
+// 		background: color($colors, fwhite);
+// 	}
+// 	p{
+// 		margin-top:20px;
+// 		text-align :center;
+// 	}
+// 	.btncls{
+// 		background: color($colors, fwhite);
+// 		border-top: 1px solid color($colors, hash);
+// 		margin: auto;
+// 		text-align: center;
+		
+// 		.button-md{
+// 			width:100% !important;
+// 		}
+// 	}
+// 	.item-md, .item-ios{
+// 		background-color: color($colors, fwhite) !important;
+// 	}
+// 	.searchbar-md, .searchbar-ios{
+// 		background: color($colors, hash);
+// 	}
+// 	.searchbar-md .searchbar-input, .searchbar-ios .searchbar-input{
+// 		border-radius:4px !important;
+// 		border: 1.5px solid color($colors, hash);
+// 		box-shadow: none;
+// 	}
+// 	.searchbar-has-value.searchbar-has-focus .searchbar-clear-icon{
+// 		display: none !important;
+// 	}
+
+// 	 /* tab responsive */
+// 	 @media screen and (min-device-width: 767px) and (max-device-width: 1024px){
+// 		.countryblck{
+// 			width: 60%;
+// 			margin: auto;
+// 		}
+// 	 }
+
+// }
