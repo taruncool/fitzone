@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
 import { trigger, style, animate, transition, group, query, animateChild, state } from '@angular/animations';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
@@ -9,6 +9,7 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+// import { Slides } from '@ionic/angular';
 
 declare var navigator: any; 
 declare var Connection: any;
@@ -89,6 +90,8 @@ declare var Connection: any;
   ]
 })
 export class SlidesPage implements OnInit {
+  // @ViewChild(Slides) slides: Slides;
+  // @ViewChild (Navbar) navBar : Navbar; // add this line
   skipMsg: string = "NEXT";
   state: string = 'x';
   showSplash = true;
