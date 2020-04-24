@@ -22,9 +22,7 @@ import { CalendarModule ,CalendarComponentOptions, DayConfig, CalendarResult, Ca
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
-
-
-
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
 import { ApiService } from '../app/api.service';
@@ -33,7 +31,7 @@ import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 @NgModule({
   declarations: [AppComponent,ProgressloginPage],
   entryComponents: [ProgressloginPage],
-  imports: [BrowserModule,HttpClientModule,FormsModule, IonicModule.forRoot(),
+  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],
   providers: [
