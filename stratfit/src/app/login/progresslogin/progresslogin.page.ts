@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController,NavParams, AlertController,ModalController, ToastController} from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController,NavParams, AlertController,ModalController,IonContent, ToastController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import {SqlStorageNew} from '../../../providers/sql-storage-new';
@@ -20,7 +20,7 @@ export class ProgressloginPage implements OnInit {
   prompt;
   disbaleBackNav=true;
 
-  // @ViewChild(Content) content: Content;
+  @ViewChild('Content',{static:false}) content:IonContent;
   token:any;
   userplandata:any;
   pStartDate;
@@ -132,7 +132,7 @@ export class ProgressloginPage implements OnInit {
     this.hideloader = true;
   }
   callFunction(){
-    // setTimeout(()=>{this.content.scrollToBottom();},100);
+    setTimeout(()=>{this.content.scrollToBottom();},100);
   }
 
 }

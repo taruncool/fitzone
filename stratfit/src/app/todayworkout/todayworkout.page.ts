@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild, NgZone, Input } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,NavParams,Platform,NavController,IonSlides,IonContent, IonSegment} from '@ionic/angular';
 import { global } from "../../app/global";
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { LoadData } from '../../providers/loaddata';
@@ -35,13 +35,13 @@ import { InstpopupPage } from '../workout/instpopup/instpopup.page';
   styleUrls: ['./todayworkout.page.scss'],
 })
 export class TodayworkoutPage implements OnInit {
-//@ViewChild(Slides) slider: Slides;
-// @ViewChild(Content) content: Content;
+// @ViewChild('Slides', {static:false}) slider: IonSlides;
+@ViewChild('Content', {static:false}) content: IonContent;
  @Input("settabs") segmenttabs;
-// @ViewChild('pageTopWorkout') pageTop: Content;
-// slidesOptions = { initialSlide: 0 }
+@ViewChild('pageTopWorkout',{static:false}) pageTop: IonContent;
+slidesOptions = { initialSlide: 0 }
 
-//  @ViewChild("segments") segments;
+ @ViewChild("segments",{static:false}) segments: IonSegment;
 
 public myVideo: HTMLVideoElement;
 public showVideo: any = true;
@@ -2231,7 +2231,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
   }
 
   callFunction() {
-    // setTimeout(() => { this.content.scrollToBottom(); }, 100);
+    setTimeout(() => { this.content.scrollToBottom(); }, 100);
   }
 
   // public displayCalendar() {

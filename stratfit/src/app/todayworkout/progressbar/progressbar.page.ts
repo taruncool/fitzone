@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {AlertController,ModalController,ToastController,NavParams,IonContent,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
@@ -23,7 +23,7 @@ export class ProgressbarPage implements OnInit {
   prompt;
   disbaleBackNav=true;
 
-  // @ViewChild(Content) content: Content;
+  @ViewChild('Content',{static:false}) content: IonContent;
   token:any;
   userplandata:any;
   pStartDate;
@@ -87,7 +87,7 @@ export class ProgressbarPage implements OnInit {
     //this.hideloader = true;
   }
   callFunction(){
-    // setTimeout(()=>{this.content.scrollToBottom();},100);
+    setTimeout(()=>{this.content.scrollToBottom();},100);
   }
 
   // public displayCalendar(){

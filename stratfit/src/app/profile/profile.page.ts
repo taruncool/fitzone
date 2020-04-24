@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController, NavParams, ModalController, AlertController, ToastController,IonContent, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -87,7 +87,7 @@ export class ProfilePage implements OnInit {
   bpTmax; 
   bpStressFactor;
   
-  // @ViewChild(Content) content: Content;
+  @ViewChild('Content',{static:false}) content: IonContent;
 
   constructor(public navCtrl: NavController, private googlePlus: GooglePlus,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew) {
   

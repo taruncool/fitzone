@@ -18,8 +18,8 @@ import { ProgressloginPage } from './progresslogin/progresslogin.page';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  // @ViewChild (Navbar) navBar : Navbar;
-  // @ViewChild('input') myInput ;
+  @ViewChild ('Navbar',{static: false}) navBar : NavController;
+  @ViewChild('input',{static: false}) myInput ;
   user:any=[];
   prompt;
   internetConn;

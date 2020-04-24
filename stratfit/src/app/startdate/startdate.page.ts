@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,NavParams,IonContent,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -16,7 +16,7 @@ import { CalendarModule ,CalendarComponentOptions, DayConfig, CalendarResult} fr
   styleUrls: ['./startdate.page.scss'],
 })
 export class StartdatePage implements OnInit {
-  // @ViewChild(Content) content: Content;
+  @ViewChild('Content',{static:false}) content: IonContent;
   token:any;
   userplandata:any;
   pStartDate;
@@ -45,7 +45,7 @@ export class StartdatePage implements OnInit {
   ngOnInit() {
   }
   callFunction(){
-     // setTimeout(()=>{this.content.scrollToBottom();},100);
+     setTimeout(()=>{this.content.scrollToBottom();},100);
   }
 
   // public displayCalendar(){

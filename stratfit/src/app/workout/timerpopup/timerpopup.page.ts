@@ -12,7 +12,7 @@ import {TimerPage } from '../timer/timer.page';
   styleUrls: ['./timerpopup.page.scss'],
 })
 export class TimerpopupPage implements OnInit {
-  // @ViewChild(TimerPage) timer: TimerPage;
+  @ViewChild('TimerPage', {static:false}) timer: TimerPage;
   myVariableNameHere:any;
   setName:any;
   exerciseName:any;
@@ -65,8 +65,19 @@ export class TimerpopupPage implements OnInit {
   }
   ngOnInit() {
     setTimeout(() => {
-      // this.timer.startTimer();
+      this.timer.startTimer();
     }, 100)
   }
-
+  backButtonAction() {
+    if(localStorage.getItem('isSoundOn')==="true"){
+    this.nativeAudio.stop('uniqueId2');
+    this.nativeAudio.unload('uniqueId2');
+    }
+    if(localStorage.getItem('isVibrateOn')==="true"){
+    navigator.vibrate(0);
+    }
+    this.insomnia.allowSleepAgain();
+    this.timer.pauseTimer();
+    this.modalCtrl.dismiss();
+  }
 }

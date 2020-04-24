@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild ,Renderer,ElementRef} from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,NavParams,IonInput,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -14,8 +14,8 @@ import { TmaxPage } from '../tmax/tmax.page';
   styleUrls: ['./tmaxeditpopup.page.scss'],
 })
 export class TmaxeditpopupPage implements OnInit {
-  // @ViewChild('input') myInput ;
-  // @ViewChild('navbar') navBar: Navbar;
+  @ViewChild('input',{static:false}) myInput : IonInput;
+  @ViewChild('navbar',{static:false}) navBar: NavController;
 
   read_only;
   allExercises:any[]=[];
@@ -256,7 +256,7 @@ export class TmaxeditpopupPage implements OnInit {
         this.navCtrl.navigateForward('/todayworkout');
       }
       retest(){
-        // this.navCtrl.push(TmaxPage);
+        this.navCtrl.navigateForward('/tmax');
       }
 
   }

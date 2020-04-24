@@ -1,5 +1,5 @@
-import { Component, OnInit,ElementRef,Renderer } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import { Component, OnInit,ElementRef,Renderer, ViewChild } from '@angular/core';
+import {AlertController,ModalController,ToastController,NavParams,Platform,IonInput,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -8,6 +8,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { WheelSelector } from '@ionic-native/wheel-selector/ngx';
 import { TmaxPage } from '../tmax/tmax.page';
+import { TmaxpreviewPage } from '../todayworkout/tmaxpreview/tmaxpreview.page';
 
 @Component({
   selector: 'app-tmaxsummary',
@@ -15,8 +16,8 @@ import { TmaxPage } from '../tmax/tmax.page';
   styleUrls: ['./tmaxsummary.page.scss'],
 })
 export class TmaxsummaryPage implements OnInit {
-  // @ViewChild('input') myInput ;
-  // @ViewChild('navbar') navBar: Navbar;
+  @ViewChild('input',{ static:false}) myInput: IonInput ;
+  @ViewChild('navbar',{static:false}) navBar: NavController;
 
   read_only;
   allExercises:any[]=[];
@@ -175,13 +176,13 @@ export class TmaxsummaryPage implements OnInit {
     }
     }
   async  tmaxShowPreview(exObj,excercise,tmax,metric){
-      // console.log(exObj);
+      console.log(exObj);
     
-      // let modal = await this.modalCtrl.create({
-      //   component:TmaxViewPopup,
-      //   componentProps:{ExObj:exObj,ExerciseName:excercise,Tmax:tmax,Metric:metric,FromPage:"summary"}
-      // });
-      // modal.present();
+      let modal = await this.modalCtrl.create({
+        component:TmaxpreviewPage,
+        componentProps:{ExObj:exObj,ExerciseName:excercise,Tmax:tmax,Metric:metric,FromPage:"summary"}
+      });
+      modal.present();
       // modal.onDidDismiss(data=>{
       //   //this.getSetData();
       //   this.initialData();
