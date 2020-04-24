@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController,IonSlides } from '@ionic/angular';
 import { trigger, style, animate, transition, group, query, animateChild, state } from '@angular/animations';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,7 +9,9 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
-// import { Slides } from '@ionic/angular';
+
+import { timer } from 'rxjs/observable/timer';
+
 
 declare var navigator: any; 
 declare var Connection: any;
@@ -90,12 +92,17 @@ declare var Connection: any;
   ]
 })
 export class SlidesPage implements OnInit {
-  // @ViewChild(Slides) slides: Slides;
-  // @ViewChild (Navbar) navBar : Navbar; // add this line
+   @ViewChild('slides', {static: false}) slides: IonSlides;
+   @ViewChild ('Navbar', {static: false}) navBar : NavController; // add this line
   skipMsg: string = "NEXT";
   state: string = 'x';
   showSplash = true;
   showSlide = false;
+
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
   token;
   prompt;
@@ -126,8 +133,8 @@ export class SlidesPage implements OnInit {
 
      }
     
-    // localStorage.setItem('excercisewarmupcmpl','false');
-    // localStorage.setItem('excercisewarmupcmplcount',"0");
+    //localStorage.setItem('excercisewarmupcmpl','false');
+    //localStorage.setItem('excercisewarmupcmplcount',"0");
   }
 
   ngOnInit() {
@@ -164,10 +171,10 @@ export class SlidesPage implements OnInit {
       //this.displayNetworkUpdate(data.type);
     }, error => console.error(error));
 
-    // timer(6000).subscribe(() => {
-    //   this.showSplash = false;
-    //   this.showSlide = true;
-    // });
+    timer(6000).subscribe(() => {
+      this.showSplash = false;
+      this.showSlide = true;
+    });
 
   }
 
