@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { NavController, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Headers } from '@angular/http';
@@ -28,8 +28,12 @@ export class SignupverifyPage implements OnInit {
   carbsGmsBalancePercent = 0;
   totalCalBalancePercent = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController, private apiService:ApiService, private loadData: LoadData, private http:HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, public sqlStorageNew: SqlStorageNew) {
-    this.user = navParams.get("user");
+  constructor(public navCtrl: NavController,private router: Router,private route:ActivatedRoute,public modalCtrl:ModalController, private apiService:ApiService, private loadData: LoadData, private http:HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, public sqlStorageNew: SqlStorageNew) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.user= this.router.getCurrentNavigation().extras.state.user;
+      }
+    });
   }
 
   // nextInput(ele,inputNumber){

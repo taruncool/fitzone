@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
@@ -32,7 +32,7 @@ export class SignupPage implements OnInit {
 	isTermsChecked = false;
 	Terms_and_Conditions ="terms";
 
-  constructor(private navCtrl: NavController,private apiService:ApiService, private http: HttpClient,public modalCtrl:ModalController, private alertCtrl: AlertController, public toastCtrl: ToastController, private loadData: LoadData, private platform: Platform, private loadingCtrl: LoadingController, public sqlStorageNew: SqlStorageNew) {}
+  constructor(private navCtrl: NavController,private apiService:ApiService, private http: HttpClient,public modalCtrl:ModalController, private alertCtrl: AlertController,private router: Router, public toastCtrl: ToastController, private loadData: LoadData, private platform: Platform, private loadingCtrl: LoadingController, public sqlStorageNew: SqlStorageNew) {}
 
   ngOnInit() {
     if(localStorage.getItem('internet')==='online'){
@@ -113,11 +113,13 @@ export class SignupPage implements OnInit {
     selectCheckbox(ev) {
       if(ev.value) {
           
-        this.isTermsChecked = true;
+        this.isTermsChecked = false;
+        console.log("checked true");
   
       }else{
   
-        this.isTermsChecked = false;
+        this.isTermsChecked = true;
+        console.log("checked false..");
   
       }
     }
@@ -131,9 +133,9 @@ export class SignupPage implements OnInit {
           this.validatePassword(user.password);
           if(this.validpassword){
             if(this.isTermsChecked === true){
-          this.loadData.startLoading();
-          var headers = new Headers();
-          headers.append('Content-Type', 'application/json');
+          // this.loadData.startLoading();
+          // var headers = new Headers();
+          // headers.append('Content-Type', 'application/json');
           var data = {fname:user.firstname,email:user.email,password:user.password,currencytype:this.currencytype, deviceType:this.devicetype};
           return new Promise((resolve) =>{
             // this.http.post(global.baseURL + 'subscriber/register/', data, {headers: headers})
@@ -142,11 +144,13 @@ export class SignupPage implements OnInit {
                   const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
                   if(res.success){
-                  this.loadData.stopLoading();
-                  this.navCtrl.navigateForward('/signupverify');
+                  // this.loadData.stopLoading();
+                  // this.router.navigate(['/signupverify',user]);
+                  let navigationExtras: NavigationExtras = { state: { user: user } };
+                  this.router.navigate(['/signupverify'], navigationExtras);
                   // this.login(user);
                 }else{
-                  this.loadData.stopLoading();
+                  // this.loadData.stopLoading();
                   this.toastmsg(res.message);
                   // this.prompt = await this.alertCtrl.create({
                   //   message:res.message,

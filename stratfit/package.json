@@ -45,6 +45,7 @@
     "cordova-plugin-insomnia": "^4.3.0",
     "cordova-plugin-nativeaudio": "^3.0.9",
     "cordova-plugin-network-information": "^2.0.2",
+    "cordova-plugin-stetho-android": "0.0.1",
     "cordova-sqlite-storage": "^4.0.0",
     "cordova-wheel-selector-plugin": "^1.1.7",
     "core-js": "^2.5.4",
@@ -111,7 +112,8 @@
       "cordova-plugin-file": {},
       "cordova-wheel-selector-plugin": {},
       "cordova-plugin-insomnia": {},
-      "cordova-plugin-nativeaudio": {}
+      "cordova-plugin-nativeaudio": {},
+      "com.outsystems.mobile.stetho": {}
     },
     "platforms": [
       "android"
