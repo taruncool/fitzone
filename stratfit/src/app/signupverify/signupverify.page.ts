@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, AlertController, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController, ModalController, AlertController, ToastController, Platform,IonInput, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Headers } from '@angular/http';
@@ -14,6 +14,9 @@ import { ApiService } from '../../app/api.service';
   styleUrls: ['./signupverify.page.scss'],
 })
 export class SignupverifyPage implements OnInit {
+  @ViewChild('input1',{static:false}) Input1 :IonInput;
+  @ViewChild('input2',{static:false}) Input2 :IonInput;
+  @ViewChild('input3',{static:false}) Input3 :IonInput;
   firstN;
   secondN;
   thirdN;
@@ -36,23 +39,26 @@ export class SignupverifyPage implements OnInit {
     });
   }
 
-  // nextInput(ele,inputNumber){
-  //   if(ele===1 && this.secondN === undefined){
-  //     this.Input1.setFocus();
-  //   }else if(ele===2 && this.thirdN === undefined){
-  //     this.Input2.setFocus();
-  //   }else if(ele===3 && this.fourthN === undefined){
-  //     this.Input3.setFocus();
-  //   }
-  //   this.getOTP();
-  // }
+  nextInput(ele,inputNumber){
+    if(ele===1 && this.secondN === undefined){
+      this.Input1.setFocus();
+    }else if(ele===2 && this.thirdN === undefined){
+      this.Input2.setFocus();
+    }else if(ele===3 && this.fourthN === undefined){
+      this.Input3.setFocus();
+    }
+    this.getOTP();
+  }
 
   getOTP(){
     this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+    console.log("otp fourthN",this.fourthN);
+    console.log("otp firstN",this.firstN);
+    console.log("otp inputs",this.finalOTP);
   }
   async suotpvalidate(){
     // if(localStorage.getItem('internet')==='online'){
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       var headers = new Headers();
       var data ={otp:this.finalOTP,email:this.user.email};
       headers.append('Content-Type', 'application/json');
@@ -63,11 +69,11 @@ export class SignupverifyPage implements OnInit {
               if(res.success){
                 this.login(this.user);
               }else{
-                this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                 this.toastmsg(res.message);
               }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
          });
       })
@@ -114,16 +120,16 @@ export class SignupverifyPage implements OnInit {
 									this.tMaxData = res.tmax;
 									this.checkQueryHit(res);
 								}else{
-									this.loadData.stopLoading();
+									// this.loadData.stopLoading();
 									this.navCtrl.navigateForward('/store');
 								}
 							}else{
-                this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                
 								this.navCtrl.navigateForward('/fitnessinput');
 							}
 						}else{
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               this.toastmsg(res.message);
 							// this.prompt = await this.alertCtrl.create({
 							// 	// message: 'Login Failed',
@@ -133,7 +139,7 @@ export class SignupverifyPage implements OnInit {
 							// this.prompt.present();
 						}
 					}, (err) => {
-						this.loadData.stopLoading();
+						// this.loadData.stopLoading();
 						this.errorMsg();
 					 });
 			});
@@ -166,7 +172,7 @@ export class SignupverifyPage implements OnInit {
   
   async reqNewOpt(){
     // if(localStorage.getItem('internet')==='online'){
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       var headers = new Headers();
       var data = {"email":this.user.email};
       headers.append('Content-Type', 'application/json');
@@ -176,7 +182,7 @@ export class SignupverifyPage implements OnInit {
           this.apiService.resendotp(data).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               if(res.success){
                 this.toastmsg(res.message);
                   // let toast = await this.toastCtrl.create({
@@ -193,7 +199,7 @@ export class SignupverifyPage implements OnInit {
                 // toast.present();
               }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           this.errorMsg();
          });
       })
