@@ -100,9 +100,9 @@
                       <ion-col>
                           <ion-item> 
 
-                              <ion-select interface="popover" role="combobox"  placeholder="FT">
-                                  <ion-select-option value="ftin" selected="true" (ionSelect)='changeMetric("ftin")'>FEET</ion-select-option>
-                                  <ion-select-option value="cms"  (ionSelect)='changeMetric("cms")'>CM</ion-select-option>
+                              <ion-select interface="popover" [interfaceOptions]="changeMetric('$event')" role="combobox"  placeholder="FT">
+                                  <ion-select-option  selected="true" value="ftin" >FEET</ion-select-option>
+                                  <ion-select-option value="cms">CM</ion-select-option>
                               </ion-select>
                             
                           </ion-item>
@@ -145,9 +145,9 @@
                 
                   <ion-item> 
 
-                      <ion-select interface="popover" role="combobox"  placeholder="KG">
-                          <ion-select-option value="kgs" selected="true" (ionSelect)='chngWtMetric("kgs")'>Kg</ion-select-option>
-                          <ion-select-option value="lbs"  (ionSelect)='chngWtMetric("lbs")'>Lbs</ion-select-option>
+                      <ion-select interface="popover"[interfaceOptions]="chngWtMetric($event)" role="combobox"  placeholder="KG">
+                          <ion-select-option  selected="true" value="kgs">Kg</ion-select-option>
+                          <ion-select-option value="lbs">Lbs</ion-select-option>
                       </ion-select>
                     
                   </ion-item>

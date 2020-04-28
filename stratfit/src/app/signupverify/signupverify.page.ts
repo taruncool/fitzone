@@ -148,7 +148,7 @@ export class SignupverifyPage implements OnInit {
   
   async login(user) {
 		this.clearData();
-		// if(localStorage.getItem('internet') === 'online') {
+		if(localStorage.getItem('internet') === 'online') {
 			var headers = new Headers();
 			var creds = { email: user.email, password: user.password };
 			headers.append('Content-Type', 'application/json');
@@ -186,13 +186,13 @@ export class SignupverifyPage implements OnInit {
 						this.errorMsg();
 					 });
 			});
-		// } else {
-		// 	let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-		// }
+		} else {
+			let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+		}
   }
 
   public checkQueryHit(res){
@@ -214,7 +214,7 @@ export class SignupverifyPage implements OnInit {
   }
   
   async reqNewOpt(){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       // this.loadData.startLoading();
       var headers = new Headers();
       var data = {"email":this.user.email};
@@ -246,13 +246,13 @@ export class SignupverifyPage implements OnInit {
           this.errorMsg();
          });
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
 	}
 
   async errorMsg() {

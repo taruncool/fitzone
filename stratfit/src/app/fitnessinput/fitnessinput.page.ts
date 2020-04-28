@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -131,7 +131,7 @@ heightArrCms= {
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
   value;
   tmaxPopupModal;
-  constructor(public navCtrl: NavController,private apiService: ApiService, public navParams: NavParams, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew) {
+  constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew) {
     this.items = [
       { title: "Untrained", desc: "I haven't done any resistance training in over 6 months and have a non-physical job.", expanded: false, value: 1 },
       { title: "Beginner", desc: "I have been consistently doing resistance training for less than 6 months, or I don't train but have a physical job.", expanded: false, value: 2 },
@@ -469,7 +469,7 @@ heightArrCms= {
   }
 
   async savefitdata() {
-    // if (localStorage.getItem('internet') === 'online') {
+    if (localStorage.getItem('internet') === 'online') {
       if (this.heightMetric === 'ftin') {
         this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
       }
@@ -520,13 +520,13 @@ heightArrCms= {
             //this.app.getRootNav().setRoot(LoginPage);
           }
         })
-    // } else {
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Unable to process your request. Please try after some time",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    } else {
+      let toast = await this.toastCtrl.create({
+        message: "Unable to process your request. Please try after some time",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   async toastmsg(msg) {
