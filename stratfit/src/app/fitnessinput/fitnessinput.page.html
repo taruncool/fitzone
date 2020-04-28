@@ -101,8 +101,8 @@
                           <ion-item> 
 
                               <ion-select interface="popover" role="combobox"  placeholder="FT">
-                                  <ion-option value="ftin" [selected]="true" (ionSelect)='changeMetric("ftin")'>FEET</ion-option>
-                                  <ion-option value="cms"  (ionSelect)='changeMetric("cms")'>CM</ion-option>
+                                  <ion-select-option value="ftin" selected="true" (ionSelect)='changeMetric("ftin")'>FEET</ion-select-option>
+                                  <ion-select-option value="cms"  (ionSelect)='changeMetric("cms")'>CM</ion-select-option>
                               </ion-select>
                             
                           </ion-item>
@@ -146,8 +146,8 @@
                   <ion-item> 
 
                       <ion-select interface="popover" role="combobox"  placeholder="KG">
-                          <ion-option value="kgs" [selected]="true" (ionSelect)='chngWtMetric("kgs")'>Kg</ion-option>
-                          <ion-option value="lbs"  (ionSelect)='chngWtMetric("lbs")'>Lbs</ion-option>
+                          <ion-select-option value="kgs" selected="true" (ionSelect)='chngWtMetric("kgs")'>Kg</ion-select-option>
+                          <ion-select-option value="lbs"  (ionSelect)='chngWtMetric("lbs")'>Lbs</ion-select-option>
                       </ion-select>
                     
                   </ion-item>
@@ -194,7 +194,7 @@
             <h2 (click)="selectFLevel(item)">{{item.title}}</h2>
         
           <!-- <ion-icon name="ios-information-circle-outline" item-right (click)="expandItem(item)"></ion-icon> -->
-          <expandable [expandHeight]='itemExpandHeight' [expanded]='item.expanded'>
+          <expandable expandHeight='itemExpandHeight' expanded='item.expanded'>
             <p>{{item.desc}}</p>
           </expandable>
         </div>

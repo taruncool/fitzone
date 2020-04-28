@@ -27,11 +27,12 @@ import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
 import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [AppComponent,ProgressloginPage],
   entryComponents: [ProgressloginPage],
-  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,NoopAnimationsModule, IonicModule.forRoot(),
+  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],
   providers: [

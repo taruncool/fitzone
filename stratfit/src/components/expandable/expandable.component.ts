@@ -6,7 +6,7 @@ import { Component, OnInit, Renderer,ViewChild,ElementRef, Input } from '@angula
   styleUrls: ['./expandable.component.scss'],
 })
 export class ExpandableComponent implements OnInit {
-  // @ViewChild('expandWrapper', {read: ElementRef}) expandWrapper:ElementRef;
+  @ViewChild('expandWrapper', {read: ElementRef,static: false }) expandWrapper;
   @Input('expanded') expanded;
   @Input('expandHeight') expandHeight;
 
@@ -15,7 +15,7 @@ export class ExpandableComponent implements OnInit {
 
   }
   ngAfterViewInit(){
-    // this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', 'auto');   
+    this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', 'auto');   
   }
   ngOnInit() {}
 

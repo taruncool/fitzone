@@ -14,6 +14,7 @@ import { ApiService } from '../../app/api.service';
   styleUrls: ['./signupverify.page.scss'],
 })
 export class SignupverifyPage implements OnInit {
+  @ViewChild('input0',{static:false}) Input0 :IonInput;
   @ViewChild('input1',{static:false}) Input1 :IonInput;
   @ViewChild('input2',{static:false}) Input2 :IonInput;
   @ViewChild('input3',{static:false}) Input3 :IonInput;
@@ -46,9 +47,49 @@ export class SignupverifyPage implements OnInit {
       this.Input2.setFocus();
     }else if(ele===3 && this.fourthN === undefined){
       this.Input3.setFocus();
+    }else if(ele===4 && this.fourthN === undefined){
+      this.Input3.setFocus();
     }
     this.getOTP();
   }
+
+  otpController(event,next,prev){
+    if(event.target.value.length < 1 && prev){
+      prev.setFocus();
+     
+    }
+    else if(next && event.target.value.length>0){
+      next.setFocus();
+      
+    }
+    else {
+     return 0;
+    } 
+   // if(event.target.value.length>0){
+      if(prev==='' && next === this.Input1){
+        this.firstN = event.target.value;
+        this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+      }else if(next===this.Input2 && prev === this.Input0){
+        this.secondN = event.target.value;
+        this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+      }else if(prev===this.Input1 && next === this.Input3){
+        this.thirdN = event.target.value;
+        this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+      }else if(next==='' && prev === this.Input2){
+        this.fourthN = event.target.value;
+        this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+      }
+   // }
+
+   if(event.target==this.Input3){
+    this.fourthN = event.target.value;
+    this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+  }
+  
+   this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+    //this.getOTP();
+    console.log("otp inputs",this.finalOTP);
+ }
 
   getOTP(){
     this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
@@ -57,8 +98,10 @@ export class SignupverifyPage implements OnInit {
     console.log("otp inputs",this.finalOTP);
   }
   async suotpvalidate(){
-    // if(localStorage.getItem('internet')==='online'){
-      // this.loadData.startLoading();
+     if(localStorage.getItem('internet')==='online'){
+       //this.loadData.startLoading();
+      this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
+      console.log("otp inputs",this.finalOTP);
       var headers = new Headers();
       var data ={otp:this.finalOTP,email:this.user.email};
       headers.append('Content-Type', 'application/json');
@@ -69,21 +112,21 @@ export class SignupverifyPage implements OnInit {
               if(res.success){
                 this.login(this.user);
               }else{
-                // this.loadData.stopLoading();
+                 //this.loadData.stopLoading();
                 this.toastmsg(res.message);
               }
         },(err) => {
-          // this.loadData.stopLoading();
+           //this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
          });
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({

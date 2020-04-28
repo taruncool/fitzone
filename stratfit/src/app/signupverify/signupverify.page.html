@@ -43,10 +43,10 @@
             
             <ion-col col-12 text-center>
                
-                <ion-input [(ngModel)]='firstN' type="tel" maxlength="1" placeholder="x" (input)='nextInput(1,firstN)'></ion-input>
-                <ion-input #input1 [(ngModel)]='secondN' type="tel" maxlength="1" (input)='nextInput(2,secondN)' placeholder="x"></ion-input>
-                <ion-input #input2 [(ngModel)]='thirdN' type="tel" maxlength="1" (input)='nextInput(3,thirdN)' placeholder="x"></ion-input>
-                <ion-input #input3 [(ngModel)]='fourthN' type="tel" maxlength="1" (input)='nextInput(4,fourthN)' placeholder="x"></ion-input>
+                <ion-input #input0 [(ngModel)]='firstN' type="tel" maxlength="1" placeholder="x" (keyup)="otpController($event,input1,'')"></ion-input>
+                <ion-input #input1 [(ngModel)]='secondN' type="tel" maxlength="1" (keyup)="otpController($event,input2,input0)" placeholder="x"></ion-input>
+                <ion-input #input2 [(ngModel)]='thirdN' type="tel" maxlength="1" (keyup)="otpController($event,input3,input1)" placeholder="x"></ion-input>
+                <ion-input #input3 [(ngModel)]='fourthN' type="tel" maxlength="1" (keyup)="otpController($event,'',input2)" (change)="otpController($event,'',input2)" placeholder="x"></ion-input>
               
             </ion-col>
             
