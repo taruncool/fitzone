@@ -107,7 +107,7 @@ export class SlidesPage implements OnInit {
   token;
   prompt;
   public displayAchievement: boolean = false;
-  constructor(public navCtrl: NavController,private apiService:ApiService, private http: HttpClient, private network: Network, private loadData: LoadData, public sqlStorageNew: SqlStorageNew, private alertCtrl: AlertController) {
+  constructor(public platform: Platform, public navCtrl: NavController,private apiService:ApiService, private http: HttpClient, private network: Network, private loadData: LoadData, public sqlStorageNew: SqlStorageNew, private alertCtrl: AlertController) {
     this.token = localStorage.getItem('usertoken');
      localStorage.setItem('generalwarmupcmpl','false');
 
@@ -138,8 +138,7 @@ export class SlidesPage implements OnInit {
   }
 
   ngOnInit() {
-  }
-  ionViewWillEnter(){
+  
     this.token = localStorage.getItem('usertoken');
 
     var networkState = navigator.connection.type;

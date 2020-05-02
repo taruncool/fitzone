@@ -59,8 +59,6 @@ export class ProgressloginPage implements OnInit {
   
   }
   ngOnInit() {
-  }
-  ionViewDidLoad() {
     this.firstname=localStorage.getItem('firstname');
     this.getPercentage();
   }
