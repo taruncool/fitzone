@@ -108,7 +108,7 @@ export class ProgressloginPage implements OnInit {
             localStorage.setItem('work','');
             localStorage.setItem('cal','');
             setTimeout(() => {
-            this.nav.navigateForward('/dashboard');
+            this.nav.navigateForward('/tabs');
             }, 300);
             this.percent = 100;
             localStorage.setItem('getpercent','0');

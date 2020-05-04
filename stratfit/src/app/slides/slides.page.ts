@@ -175,16 +175,18 @@ export class SlidesPage implements OnInit {
       this.showSlide = true;
     });
 
+    this.afterInternetCheck();
+
   }
 
   ionViewDidLoad() {
-    this.afterInternetCheck();
+   
   }
 
   afterInternetCheck(){
     if(this.token !='' && this.token !=null && this.token !=undefined){
       // if(localStorage.getItem('internet')==='online'){
-        this.loadData.startLoading();
+        //this.loadData.startLoading();
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -207,21 +209,21 @@ export class SlidesPage implements OnInit {
                       localStorage.setItem('previousplanid',res.plans[k].plan_id);
                     }
                   }
-                  this.loadData.stopLoading();
+                 // this.loadData.stopLoading();
                   localStorage.setItem('planSet','true');
     
-                  this.navCtrl.navigateForward('/dashboard');
+                  this.navCtrl.navigateForward('/tabs');
                 }else{
-                  this.loadData.stopLoading();
-                  this.navCtrl.navigateForward('/store');
+                  //this.loadData.stopLoading();
+                  this.navCtrl.navigateForward('/tabs');
                 }
               }else{
-                this.loadData.stopLoading();
+                //this.loadData.stopLoading();
                 this.navCtrl.navigateForward('/fitnessinput');
               }
               //this.navCtrl.setRoot(StorePage);
             }else{
-              this.loadData.stopLoading();
+              //this.loadData.stopLoading();
               console.log(res);
             }
         },(err) => {

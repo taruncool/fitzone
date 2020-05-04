@@ -245,7 +245,7 @@ async login(user) {
               }else{
                 this.loadData.getExercisesNew();
                 this.loadData.stopLoading();
-                this.nav.navigateForward('/store');
+                this.nav.navigateForward('/tabs');
               }
             }else{
               this.loadData.stopLoading();

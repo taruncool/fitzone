@@ -7,79 +7,46 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      {
-        path: 'slides',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../slides/slides.module').then(m => m.SlidesPageModule)
-          }
-        ]
-      },
+     
       {
         path: 'store',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../store/store.module').then(m => m.StorePageModule)
-          }
-        ]
+        loadChildren: () =>
+          import('../store/store.module').then(m => m.StorePageModule)
       },
       {
-        path: 'coachprofile',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../coachprofile/coachprofile.module').then(m => m.CoachprofilePageModule)
-          }
-        ]
+        path: 'community',
+        loadChildren: () =>
+          import('../community/community.module').then(m => m.CommunityPageModule)
       },
       {
         path: 'dashboard',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
-          }
-        ]
+        loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
       {
         path: 'analytics',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../analytics/analytics.module').then(m => m.AnalyticsPageModule)
-          }
-        ]
+        loadChildren: () =>
+          import('../analytics/analytics.module').then(m => m.AnalyticsPageModule)
       },
       {
         path: 'profile',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../profile/profile.module').then(m => m.ProfilePageModule)
-          }
-        ]
+        loadChildren: () =>
+          import('../profile/profile.module').then(m => m.ProfilePageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/slides',
+        redirectTo: '/tabs/tabs/store',
         pathMatch: 'full'
       }
+     
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/slides',
+    redirectTo: '/tabs/tabs/store',
     pathMatch: 'full'
   }
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
