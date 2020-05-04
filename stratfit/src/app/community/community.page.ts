@@ -72,7 +72,7 @@ export class CommunityPage implements OnInit {
   }
   //coach lists
   public getCoachelists(){
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -90,7 +90,7 @@ export class CommunityPage implements OnInit {
       }
       this.getGymlists();
     },(err) => {
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
       if(err.status === 403){
           this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');
@@ -110,14 +110,14 @@ export class CommunityPage implements OnInit {
       const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         var priceMap = res.details;
-        this.loadData.stopLoading();
+        // this.loadData.stopLoading();
         if(res.success){
           this.gymlists = res.gymValues;
         }else{
           this.errorMsg();
         }
     },(err) => {
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
       if(err.status === 403){
           this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');

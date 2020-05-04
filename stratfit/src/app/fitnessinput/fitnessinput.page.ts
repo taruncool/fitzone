@@ -155,39 +155,8 @@ heightArrCms= {
    var year = this.todayDate.getFullYear();
    this.maxyear = (year - 16);
    console.log(this.maxyear);
-  }
-  changeLevel(changeEvent){
 
-    //this.sheet.textContent = this.getTrackStyle(document.getElementById('rangediv'));
-    this.selectedLevel = this.value;
-  }
-  ngAfterContentInit() {
-    this.value = 1;
-    // const element = <HTMLInputElement>document.getElementById("ranger");
-    // this.value = 200;
-    // element.onchange = changeEvent => {
-    //   this.value = parseInt(element.value);
-    // };
-  }
-
-  getTrackStyle(el) {  
-    var curVal = el.value,
-        val = (curVal - 1) * 16.666666667,
-        style = '';
-    
-    // Set active label
-
-    
-    // Change background gradient
-    for (var i = 0; i < this.prefs.length; i++) {
-      style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #fff ' + val + '%, #fff 100%)}';
-      style += '.range input::-' + this.prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';
-    }
-  
-    return style;
-  }
-  ionViewDidLoad() {
-    this.initStepArry = [
+   this.initStepArry = [
     // { prop: 'static', value: '', question: "SF programs tailor to you based on your maximum for the exercises, we will estimate them from your answers." }, 
     { prop: 'gender', value: '', question: "Gender" }, 
     { prop: 'htmetric', height: true, value: '', question: "Your height" }, 
@@ -253,6 +222,36 @@ heightArrCms= {
     this.progressWidth = ((this.stepIndex + 1) / this.initStepArry.length) * 100 + '%';
 
     this.getItemFromLevel(this.selectedLevel);
+  }
+  changeLevel(changeEvent){
+
+    //this.sheet.textContent = this.getTrackStyle(document.getElementById('rangediv'));
+    this.selectedLevel = this.value;
+  }
+  ngAfterContentInit() {
+    this.value = 1;
+    // const element = <HTMLInputElement>document.getElementById("ranger");
+    // this.value = 200;
+    // element.onchange = changeEvent => {
+    //   this.value = parseInt(element.value);
+    // };
+  }
+
+  getTrackStyle(el) {  
+    var curVal = el.value,
+        val = (curVal - 1) * 16.666666667,
+        style = '';
+    
+    // Set active label
+
+    
+    // Change background gradient
+    for (var i = 0; i < this.prefs.length; i++) {
+      style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #fff ' + val + '%, #fff 100%)}';
+      style += '.range input::-' + this.prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';
+    }
+  
+    return style;
   }
 
   selectWeightKgs() {

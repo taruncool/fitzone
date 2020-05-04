@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild, NgZone, Input } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController,IonSlides,IonContent, IonSegment} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController,IonSlides,IonContent, IonSegment} from '@ionic/angular';
 import { global } from "../../app/global";
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { LoadData } from '../../providers/loaddata';
@@ -302,7 +302,7 @@ restTime = 0;
 
 isWheelSelectorShow = false;
 
-constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, public navParams: NavParams, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone) {
+constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone) {
 
     this.tokken = localStorage.getItem('usertoken');
     localStorage.setItem('workoutLoad', '1');
@@ -412,19 +412,18 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         calendarPopup.present();
       }
 
-      ionViewWillEnter() {
+      // ionViewWillEnter() {
         // this.platform.registerBackButtonAction(() => {
         // this.closeAppAction();
         // });
-      }
+      // }
 
   ngOnInit() {
-  }
-  ionViewDidLoad() {
-
     this.newCode();
-
   }
+  // ionViewDidLoad() {
+
+  // }
 
   newCode() {
 
@@ -490,7 +489,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
   getPlanInfoNew() {
       
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       this.zone.run(() => {
       this.internetConn = (localStorage.getItem('internet') === 'online') ? true : false;
       this.initialState = false;
@@ -808,7 +807,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                           this.isActivitySimple = false;
                           this.loadComplexData();
                         }
-                        this.loadData.stopLoading();
+                        // this.loadData.stopLoading();
                       }
                     );
                   });
@@ -999,7 +998,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           } else {
             this.isActivitySimple = false;
             this.loadComplexData();
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
           }
         }
       }
@@ -1019,12 +1018,12 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
     console.log("current round index", this.currentRoundIndex + " " + this.planRounds.length);
     if (this.currentRoundIndex == this.planRounds.length) {
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
       this.getActivityData();          
       this.isDoneDisabled = false;
 
     } else {
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       this.currentRoundId = this.planRounds[this.currentRoundIndex].round_id;
       console.log("current action", this.currentRoundId);
       this.restTime = this.planRounds[this.currentRoundIndex].rest_time;
@@ -1157,16 +1156,16 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               console.log("------wor details", workweight);
               console.log("------simple actions", this.simpleActions);
               this.isDoneDisabled = false;
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
             }, 400);
           });
           
-        this.loadData.stopLoading();
+        // this.loadData.stopLoading();
       }, 1000);
 
     }
     setTimeout(() => {
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
     }, 1000);
 
   }
@@ -1482,7 +1481,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           if(this.complexActions.length > 0) {
             this.isDoneDisabled = false;
           }
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           console.log("plan actions complex array", this.complexActions);
         }
       });
@@ -2223,12 +2222,12 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     });
   }
 
-  ionViewWillUnload() {
+  // ionViewWillUnload() {
 
     //this.platform.pause.unsubscribe();
     //this.platform.resume.unsubscribe();
 
-  }
+  // }
 
   callFunction() {
     setTimeout(() => { this.content.scrollToBottom(); }, 100);
@@ -2458,7 +2457,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               text: 'No',
               handler: workout => {
 
-                this.loadData.startLoading();
+                // this.loadData.startLoading();
                 this.exerciseTmax = this.loadData.convertWeight(parseInt(result[0].description, 10), "db");
                 if (localStorage.getItem('internet') === 'online') {
                   this.updateTmaxData();
@@ -2485,7 +2484,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     var index = 0;
     var wMetric = (localStorage.getItem('weightunit') === 'lbs') ? " Lb" : " Kg";
     var firstTime = (localStorage.getItem('tmaxfirstTime') === 'true') ? true : false;
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     this.sqlStorageNew.query("SELECT * FROM exercises ORDER BY exOrder ASC").then(
       sdata => {
         for (var i = 0; i < sdata.res.rows.length; i++) {
@@ -2612,7 +2611,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
  async updateTmax(exercises) {
     if (localStorage.getItem('internet') === 'online') {
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.tokken);
@@ -2624,7 +2623,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           if(res.success){
             this.toastmsg("Tmax updated successfully");
             // let toast = await this.toastCtrl.create({
@@ -2822,11 +2821,11 @@ backButtonAction() {
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
         setTimeout(() => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
         }, 2000);
       }, (err) => {
         setTimeout(() => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
         }, 2000);
         if (err.status === 403) {
           //this.restModal.dismiss();

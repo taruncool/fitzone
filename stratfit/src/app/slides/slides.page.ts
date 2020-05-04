@@ -179,10 +179,6 @@ export class SlidesPage implements OnInit {
 
   }
 
-  ionViewDidLoad() {
-   
-  }
-
   afterInternetCheck(){
     if(this.token !='' && this.token !=null && this.token !=undefined){
       // if(localStorage.getItem('internet')==='online'){

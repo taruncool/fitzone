@@ -32,7 +32,7 @@
        <div class="nodata" *ngIf="selectedFoodItems.length==0">
         <p >Please add food items</p>
       </div>
-        <ion-scroll scrollX="true">
+        <div scrollX="true">
        
            <!-- <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
              <img src="assets/images/burger.jpg">  
@@ -52,7 +52,7 @@
              <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
              
          
-        </ion-scroll>
+             </div>
      </ion-row>
 
      <ion-row class="lgraph">

@@ -325,7 +325,7 @@ this.Work = totalwork ;
 this.cal = calories;
 }
 console.log("calories",this.cal);
-this.loadData.stopLoading(); 
+// this.loadData.stopLoading(); 
 localStorage.setItem('totalreps','');
 localStorage.setItem('totalweight','');
 localStorage.setItem('tonnage','');

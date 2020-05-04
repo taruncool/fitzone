@@ -59,11 +59,11 @@
 
   <div class=" goalori">
     <ion-item class="nobg">
-      <ion-scroll scrollX="true">
+      <div scrollX="true">
         <button ion-button id="goal0" (click)="filterPurposePrograms(0)" [ngClass]="{'active':activepurposeid==0}">All </button>
         <button ion-button id="goal{{purpose.id}}" (click)="filterPurposePrograms(purpose.id)" [ngClass]="{'active':activepurposeid==purpose.id}" *ngFor="let purpose of purposeslist; let i = index"  >{{purpose.name}}</button>
      
-      </ion-scroll>
+      </div>
     </ion-item>
 </div>
 </ion-header>

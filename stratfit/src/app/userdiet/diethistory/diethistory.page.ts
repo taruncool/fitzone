@@ -121,7 +121,7 @@ export class DiethistoryPage implements OnInit {
   getFoodData(){
 
     var foodjson = localStorage.getItem('nutritionData');
-    console.log("nutrition data ionview did enter",this.finalFoodData);
+    // console.log("nutrition data ionview did enter",this.finalFoodData);
     if(foodjson !== ""){
 
       this.finalFoodData = JSON.parse(foodjson);

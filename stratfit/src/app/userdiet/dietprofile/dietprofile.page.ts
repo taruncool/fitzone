@@ -305,7 +305,7 @@ export class DietprofilePage implements OnInit {
 
       console.log(todayMealDate);
       console.log(mealtime);
-      console.log("Nutrition data ionview did enter",this.finalFoodData);
+      // console.log("Nutrition data ionview did enter",this.finalFoodData);
 
       // for(let k =0;k<this.finalFoodData.length;k++){
 

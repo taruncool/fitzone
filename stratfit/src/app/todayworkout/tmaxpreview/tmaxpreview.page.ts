@@ -158,7 +158,7 @@ export class TmaxpreviewPage implements OnInit {
     var wMetric = (localStorage.getItem('weightunit')==='lbs')?" Lb":" Kg";
     console.log("metric",wMetric);
     var firstTime = (localStorage.getItem('tmaxfirstTime')==='true')?true:false;
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     let derivedTmax = 0;
     this.sqlStorageNew.query("SELECT * FROM exercises WHERE id = " + ex_id).then(
       selectedExData => {
@@ -191,7 +191,7 @@ export class TmaxpreviewPage implements OnInit {
       updateTmax: this.loadData.convertWeight(this.exerciseTmax, "db"),
       updateType: ''
     };
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     var headers = new Headers();
     // headers.append('Content-Type', 'application/json');
     let usertoken =  headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -224,11 +224,11 @@ export class TmaxpreviewPage implements OnInit {
         }
 
         //setTimeout(() => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
         //},2000);
       }, (err) => {
        
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
        
         if (err.status === 403) {
           //this.restModal.dismiss();
@@ -247,7 +247,7 @@ export class TmaxpreviewPage implements OnInit {
 
  async updateTmax(exercises){
     if(localStorage.getItem('internet')==='online'){
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       // var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', this.token);
@@ -259,7 +259,7 @@ export class TmaxpreviewPage implements OnInit {
         this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
             if(res.success){
               this.toastmsg("Tmax updated successfully");
               // let toast = await this.toastCtrl.create({
@@ -282,7 +282,7 @@ export class TmaxpreviewPage implements OnInit {
               // toast.present();
             }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           this.toastmsg(err);
           // let toast = await this.toastCtrl.create({
           //   message: err,
@@ -296,7 +296,7 @@ export class TmaxpreviewPage implements OnInit {
           }
         });
     }else{
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
       let toast = await this.toastCtrl.create({
         message: "Please check your internet connectivity and try again",
         duration: 1000

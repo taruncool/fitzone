@@ -53,7 +53,7 @@ async saveImagePath(imgname){
         // this.http.post(global.baseURL + 'subscriber/uploadpic/', data, {headers: headers})
         // .subscribe(response => {
           this.apiService.uploadpic(data).subscribe((response)=>{
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
             if(res.success){
@@ -73,7 +73,7 @@ async saveImagePath(imgname){
                 // toast.present();
             }
         },(err) => {
-        this.loadData.stopLoading();
+        // this.loadData.stopLoading();
         if(err.status === 403){
             this.loadData.forbidden();
             this.navCtrl.navigateForward('/login');

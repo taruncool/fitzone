@@ -471,7 +471,7 @@ export class ProfilePage implements OnInit {
   //file upload
   public uploadAvtar(imgtype){
     this.uploadType = imgtype;
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     var options = {
       quality: 75,
       sourceType: 0,
@@ -487,7 +487,7 @@ export class ProfilePage implements OnInit {
       var base64Image = 'data:image/png;base64,' + imageData;
       this.loadModal(base64Image);
     }, (err) => {
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
       //alert('Error while selecting image.');
     });
   }
@@ -497,7 +497,7 @@ export class ProfilePage implements OnInit {
     }else{
       var uploadCover =false;
     }
-    this.loadData.stopLoading();
+    // this.loadData.stopLoading();
     this.uploadModal = this.modalCtrl.create({
       component:ImagepreviewPage,
       componentProps:{'base64img':base64Image,'uploadtype':uploadCover}

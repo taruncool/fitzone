@@ -64,7 +64,10 @@ export class ProgressbarPage implements OnInit {
   
   }
 
-  ionViewDidLoad() {
+  // ionViewDidLoad() {
+    
+  // }
+  ngOnInit() {
     this.firstname=localStorage.getItem('firstname');
     this.getPercentage();
   }
@@ -173,7 +176,7 @@ export class ProgressbarPage implements OnInit {
 		if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
-			this.loadData.startLoading();
+			// this.loadData.startLoading();
 			var headers = new Headers();
 			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
 			// headers.append('Content-Type', 'application/json');
@@ -183,7 +186,7 @@ export class ProgressbarPage implements OnInit {
       this.apiService.activateuserplan(data,usertoken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
-        this.loadData.stopLoading();
+        // this.loadData.stopLoading();
         if(res.success){
           localStorage.setItem('subplanid',this.uplandata.plan_id);
           localStorage.removeItem('futureplanid');
@@ -191,7 +194,7 @@ export class ProgressbarPage implements OnInit {
           var nextrenewDate = this.loadData.changeDateFormat(res.nextRenewalDate,'db');
           var dayOff = res.dayOff;
           this.sqlStorageNew.query("UPDATE userplan SET status=1,startdate = '" + startDate + "',nextrenewaldate = '" + nextrenewDate + "', dayOff = '" + dayOff +"' WHERE status=3").then(data=>{
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
             localStorage.setItem('generalwarmupcmpl','false');
             localStorage.setItem('totalreps','');
             //localStorage.setItem('tmax','');
@@ -205,7 +208,7 @@ export class ProgressbarPage implements OnInit {
             console.error('--12--'+JSON.stringify(err));
           });
 				}else{
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
           // let toast = await this.toastCtrl.create({
           //   message: "Unable to process your request. Please try after some time",
@@ -238,7 +241,4 @@ export class ProgressbarPage implements OnInit {
   /*tmaxtest(){
     this.nav.setRoot(TmaxPage);
   }*/
-  ngOnInit() {
-  }
-
 }

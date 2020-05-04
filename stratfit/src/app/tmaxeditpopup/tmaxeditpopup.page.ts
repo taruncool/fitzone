@@ -79,18 +79,18 @@ export class TmaxeditpopupPage implements OnInit {
    
   // }
 
-  ionViewDidLoad() {
+  // ionViewDidLoad() {
 
     //this.platform.backButton.subscribe(async () => {
     
      // todo something
      // this.backButtonClick();
    // });
-  }
-  ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
-   // this.backButtonClick();
-  }
+  // }
+  // ionViewWillLeave() {
+  //   console.log("Looks like I'm about to leave :(");
+  //  // this.backButtonClick();
+  // }
   closeTmax(){
 
     this.modalCtrl.dismiss();

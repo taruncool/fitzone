@@ -180,7 +180,14 @@ export class PrivacypolicyPage implements OnInit {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams ) {}
 
-  ionViewDidLoad() {
+//   ionViewDidLoad() {
+    
+//   }
+  backButtonAction() {
+    this.modalCtrl.dismiss();
+  }
+
+  ngOnInit() {
     console.log("heading......",this.heading);
     let headingmsg = this.navParams.get('heading');
     //  let headingmsg = this.navParams.data.heading;
@@ -203,12 +210,6 @@ export class PrivacypolicyPage implements OnInit {
     }else{
         this.heading = "Privacy Policy"
     }
-  }
-  backButtonAction() {
-    this.modalCtrl.dismiss();
-  }
-
-  ngOnInit() {
   }
 
 }

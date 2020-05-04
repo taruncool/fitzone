@@ -58,9 +58,9 @@
           <h2 >{{aExerciseName}}</h2> -->
           <div class="session">
             <ion-item class="nobg">
-              <ion-scroll scrollX="true">
+              <div scrollX="true">
               <ion-button id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
-              </ion-scroll>
+              </div>
             </ion-item>
           </div>
 
@@ -76,9 +76,9 @@
           <ion-list class="exelist">
             <ion-item class="nobg complxname">
                 <!-- <span>{{exe.exerciseName}}</span> -->
-                <ion-scroll scrollX="true">
+                <div scrollX="true">
                   <span *ngFor="let exe of tempExeData; let i = index">{{exe.exerciseName}}</span>              
-                </ion-scroll>
+                </div>
             </ion-item>
             
           </ion-list>

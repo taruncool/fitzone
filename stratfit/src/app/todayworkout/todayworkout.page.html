@@ -94,11 +94,11 @@
             <h2 text-center *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h2>
             <h2 text-center *ngIf="actionType == 'MainSet'">Workout  </h2>
             
-            <ion-scroll scrollX="true">
+            <div scrollX="true">
                 <ul>
                   <li id="roundid{{round.round_id}}" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> <span>Set {{i+1}}</span></li>     
                 </ul>
-            </ion-scroll>
+              </div>
           </ion-row>  
 
           <div class="workview">
@@ -186,11 +186,11 @@
         <ion-row class="worktab">
           <h2 text-center *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h2>
           <h2 text-center *ngIf="actionType == 'MainSet'">Workout  </h2>
-          <ion-scroll scrollX="true">
+          <div scrollX="true">
             <ul>
               <li class="roundTab" id="roundid{{round.round_id}}" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> <span>Round {{i+1}}</span></li>     
             </ul>
-          </ion-scroll>
+          </div>
           <!-- <ion-scroll scrollX="true">
               <ul>
                 <li [ngClass]="{'active': action.id == currentActionId}" *ngFor="let action of planActions; let i = index"> <span>Action {{i+1}}</span></li>     

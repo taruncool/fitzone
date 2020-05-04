@@ -9,7 +9,6 @@ import { FitnessinputPageRoutingModule } from './fitnessinput-routing.module';
 import { FitnessinputPage } from './fitnessinput.page';
 import { ComponentsModule } from '../../components/components.module';
 
-
 @NgModule({
   imports: [
     CommonModule,

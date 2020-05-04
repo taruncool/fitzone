@@ -75,7 +75,7 @@ export class CoachprofilePage implements OnInit {
             let res = JSON.parse(userStr);
             var priceMap = res.details;
             console.log("individualuser plan",response);
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               if(res.success){
                 this.plansdata = res.details;
                 this.aboutCoach = res.details[0].aboutTrainer;
@@ -91,7 +91,7 @@ export class CoachprofilePage implements OnInit {
                 this.prompt.present();
               }
           },(err) => {
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
             if(err.status === 403){
                 this.loadData.forbidden();
                 this.nav.navigateForward('/login');
@@ -101,7 +101,7 @@ export class CoachprofilePage implements OnInit {
 
         })
       }else{
-        this.loadData.stopLoading();
+        // this.loadData.stopLoading();
         this.toastmsg("Please check your internet connectivity and try again");
         // let toast = await this.toastCtrl.create({
         //   message: "Please check your internet connectivity and try again",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { global } from "../../app/global";
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { LoadData } from '../../providers/loaddata';
@@ -84,7 +84,7 @@ export class AnalyticsPage implements OnInit {
   lastmesoID = 0;
   lastperiodID = 0;
 
-  constructor(public navCtrl: NavController,public platform: Platform, public navParams: NavParams, public modalCtrl: ModalController,public sqlStorageNew : SqlStorageNew,public loadData: LoadData) {
+  constructor(public navCtrl: NavController,public platform: Platform, public modalCtrl: ModalController,public sqlStorageNew : SqlStorageNew,public loadData: LoadData) {
     this.planInfo = { "id": 0, "planPhoto": "", "planName": "" };
     // this.userInfo = { "startDate": ""};
   }
@@ -95,12 +95,10 @@ export class AnalyticsPage implements OnInit {
     // modal.present();
   }
 
-  ionViewDidLoad() {
-     
-  }
+ 
 
   ngOnInit() {
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     this.s3url=global.s3URL;
     this.currentFullPath="0-0-0-0-0"
 
@@ -128,7 +126,7 @@ export class AnalyticsPage implements OnInit {
           console.log(this.planInfo);
         }else{
           this.noplan = true;
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
         }
       }
     ).catch(err => {
@@ -646,7 +644,7 @@ export class AnalyticsPage implements OnInit {
       this.Show = true;
     }
   
-    this.loadData.stopLoading();
+    // this.loadData.stopLoading();
     return this.tempExeData;
   }
   
@@ -717,7 +715,7 @@ export class AnalyticsPage implements OnInit {
     if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
       this.Show = true;
     }
-    this.loadData.stopLoading();
+    // this.loadData.stopLoading();
     return this.tempExeData;
   }
 }

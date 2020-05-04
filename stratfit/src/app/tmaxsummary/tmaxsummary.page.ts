@@ -68,23 +68,15 @@ export class TmaxsummaryPage implements OnInit {
     }
    
   }
+  // ionViewDidLoad() {
 
-  ionViewDidLoad() {
-
-    this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
-    //this.platform.backButton.subscribe(async () => {
     
-     // todo something
-     // this.backButtonClick();
-   // });
-
-    this.initialData();
-  }
+  // }
   
-  ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
-   // this.backButtonClick();
-  }
+  // ionViewWillLeave() {
+  //   console.log("Looks like I'm about to leave :(");
+  //  // this.backButtonClick();
+  // }
 
   changeTmax(index,ex_id) {
    
@@ -355,6 +347,14 @@ editAllTmax(index,ex_id,ex_tmax){
     
   }
   ngOnInit() {
+    this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
+    //this.platform.backButton.subscribe(async () => {
+    
+     // todo something
+     // this.backButtonClick();
+   // });
+
+    this.initialData();
   }
   initialData(){
 
