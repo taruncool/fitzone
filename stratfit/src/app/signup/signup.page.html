@@ -89,9 +89,8 @@
             </ion-label>
           <ion-input type="{{type}}" minlength="5" maxlength="15" placeholder="Enter Password *" name="password" [(ngModel)]="user.password" required></ion-input>
             
-            <ion-icon *ngIf="!showPass" name="md-eye" (click)="showPassword()" item-right></ion-icon>
-            <ion-icon *ngIf="showPass" name="md-eye-off" (click)="showPassword()" item-right></ion-icon>
-          
+            <ion-icon *ngIf="!showPass" name="eye-outline" (click)="showPassword()" item-right></ion-icon>
+            <ion-icon *ngIf="showPass" name="eye-off-outline" (click)="showPassword()" item-right></ion-icon>
         </ion-item>
 
       <ion-item class="nobg chetxt">
