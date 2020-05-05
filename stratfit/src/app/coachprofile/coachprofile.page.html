@@ -29,7 +29,7 @@
           </ion-avatar>
         
           <ion-avatar  item-start *ngIf="coachData1.avatar =='' || coachData1.avatar ==null">
-            <img src="assets/images/male.png"/>
+            <img src="assets/images/icon.png"/>
           </ion-avatar>
         
           <div class="title">
@@ -74,7 +74,7 @@
       
       <ion-slide class="fulcard " *ngFor="let plan of plansdata; let i = index" (click)="viewplaninfo(plan)">
         <div *ngIf="plan.planType=='Intermediate'"></div>
-            <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
        
           <div class="container">

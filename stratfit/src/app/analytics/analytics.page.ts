@@ -95,6 +95,10 @@ export class AnalyticsPage implements OnInit {
     // modal.present();
   }
 
+  onImageError(plan){
+    this.planInfo.planPhoto = "assets/images/plan_2.png";
+    console.log("plan photo...");
+  }
  
 
   ngOnInit() {

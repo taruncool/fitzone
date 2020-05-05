@@ -258,7 +258,7 @@ export class ApiService {
          }).pipe (data =>
            data);
   }
-  public getcoachs(usertoken,data){
+  public getcoachs(data,usertoken,){
     return this.http.post(global.baseURL + 'program/getcoachs/',data, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -384,7 +384,7 @@ export class ApiService {
           data);
   }
   public individualuserplans(creds,token){
-    return this.http.post(global.baseURL + 'campaign/userReferral/',creds, {
+    return this.http.post(global.baseURL + 'program/individualuserplansv2/',creds, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
        'Authorization': token

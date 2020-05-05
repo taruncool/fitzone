@@ -70,7 +70,7 @@
   <!-- </ion-navbar> -->
   
   <ion-toolbar class="sfmenu">
-    <ion-segment class="segment-activated" [(ngModel)]="programstype" >
+    <ion-segment class="segment-activated" (ionChange)="segmentChanged($event)" [(ngModel)]="programstype" >
       <ion-segment-button value="recommended" >
         Recommended <em>{{recommendedData.length}}</em>
       </ion-segment-button>
@@ -145,7 +145,7 @@
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="beginnerdata.length !=0" >
         <ion-slide class="fulcard " *ngFor="let plan of beginnerdata; let i = index"  (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Beginner'">
-            <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
             <div class="container">
@@ -186,7 +186,7 @@
       
         <ion-slide class="fulcard " *ngFor="let plan of intermediatedata; let i = index"  (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Intermediate'">
-              <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+              <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
               <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
          
             <div class="container">
@@ -224,8 +224,9 @@
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="advancedata.length !=0"> 
         <ion-slide class="fulcard"  *ngFor="let plan of advancedata; let i = index" (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Advanced'">
-            <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+
 
             <div class="container">
               <div class="cdbody">
@@ -266,8 +267,8 @@
   
       <ion-col col-6 *ngFor="let plan of recommendedData; let i = index">
         <div class="fulcard nobg" (click)="planDetails(plan)">
-          <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-          <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+            <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
           <div class="container">
             <div class="cdbody">
@@ -302,7 +303,7 @@
   
       <ion-col col-6 *ngFor="let plan of beginnerdata; let i = index">
         <div class="fulcard nobg" *ngIf="plan.planType=='Beginner'" (click)="planDetails(plan)">
-          <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
           <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
           
           <div class="container">
@@ -339,7 +340,7 @@
   
       <ion-col col-6 *ngFor="let plan of intermediatedata; let i = index">
         <div class="fulcard nobg" *ngIf="plan.planType=='Intermediate'" (click)="planDetails(plan)">
-          <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
           <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
           <div class="container">
@@ -376,7 +377,7 @@
       
       <ion-col col-6 *ngFor="let plan of advancedata; let i = index">
         <div class="fulcard nobg" *ngIf="plan.planType=='Advanced'" (click)="planDetails(plan)">
-          <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
           <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
           <div class="container">

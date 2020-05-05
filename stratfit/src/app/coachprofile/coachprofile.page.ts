@@ -120,6 +120,14 @@ export class CoachprofilePage implements OnInit {
     toast.present();
   }
 
+  onImageError(plan){
+    plan.programPhoto = "assets/images/pcview.jpg";
+  }
+
+  onAvatarError(){
+    this.coachData1.avatar = "assets/images/icon.png";
+  }
+  
   public programdetails(plansdata,userCType){
     if(userCType==="INR"){
       this.currencyCode = '&#x20B9;'

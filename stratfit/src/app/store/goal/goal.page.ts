@@ -65,7 +65,7 @@ activepurposeid = 0;
         this.beginnerdata=[];
         this.intermediatedata=[];
         this.advancedata =[];
-        this.loadData.startLoading();
+        // this.loadData.startLoading();
         this.filters.deviceType = this.devicetype;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -144,7 +144,7 @@ activepurposeid = 0;
             }else{
               this.errorMsg();
             }
-             this.loadData.stopLoading();
+            //  this.loadData.stopLoading();
         },(err) => {
           // this.loadData.stopLoading();
           if(err.status === 403){

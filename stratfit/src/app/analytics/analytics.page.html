@@ -39,7 +39,7 @@
 
   <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()">
     <ion-row class="pcover">
-      <img src="http://stratfit.net/ProgramImages/program{{planInfo.id}}.png">
+      <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
     </ion-row>
     <ion-item class="poverlay" text-wrap>
       <em>{{planInfo.durationWeeks}} Weeks</em>

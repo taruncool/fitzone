@@ -65,6 +65,9 @@ export class StorePage implements OnInit {
 
   }
 }
+segmentChanged(ev: any) {
+  console.log('Segment changed', ev);
+}
  changeGridView(){
 
    if(this.isGrid){
@@ -130,7 +133,7 @@ export class StorePage implements OnInit {
   },1000);
 }
 goalclick(){
-  this.navCtrl.navigateForward('/goal');
+  this.navCtrl.navigateForward('store/goal');
 }
 
   //coach lists
@@ -142,7 +145,7 @@ goalclick(){
     var data = {deviceType:this.devicetype};
     // this.http.post(global.baseURL + 'program/getcoachs/', data, { headers: headers })
     // .subscribe(response => {
-    this.apiService.getcoachs(usertoken,data).subscribe((response)=>{
+    this.apiService.getcoachs(data,usertoken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
       if(res.success){
@@ -266,6 +269,11 @@ public loadPrograms(){
   // toast.present();
   this.activationalert();
 }
+}
+onImageError(plan){
+
+  plan.programPhoto = "assets/images/pcview.jpg";
+
 }
 async activationalert() {
   this.prompt = await this.alertCtrl.create({
