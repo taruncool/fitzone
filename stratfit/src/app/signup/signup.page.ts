@@ -54,9 +54,10 @@ export class SignupPage implements OnInit {
 		}else if(this.platform.is('android')){
 			this.devicetype = "android";
     }
-		// this.navBar.backButtonClick = (e:UIEvent) => {   /// add this event
-			 this.navCtrl.pop();
-  };
+	// 	 this.navBar.backButtonClick = (e:UIEvent) => {   /// add this event
+	// 		 this.navCtrl.pop();
+  // };
+}
   
     public validateEmail(email){
       var x = email;

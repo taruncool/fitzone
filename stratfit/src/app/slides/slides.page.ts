@@ -136,8 +136,9 @@ export class SlidesPage implements OnInit {
     //localStorage.setItem('excercisewarmupcmpl','false');
     //localStorage.setItem('excercisewarmupcmplcount',"0");
   }
-
   ngOnInit() {
+  }
+  ionViewDidEnter () {
   
     this.token = localStorage.getItem('usertoken');
 

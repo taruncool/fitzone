@@ -81,7 +81,7 @@
                                 <path id="Union_1" data-name="Union 1" d="M-3844.011,16173.666V16171h2.667v2.667Zm-5.33,0V16171h2.667v2.667Zm-5.33,0V16171H-3852v2.667Zm-5.33,0V16171h2.667v2.667Z" transform="translate(3910.053 -16099.043)" />
                               </svg>                              
                           </ion-label>
-                          <ion-input type="number" name='cent' placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' disabled></ion-input>
+                          <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' disabled></ion-input>
                         </ion-item>
                         <ion-item  *ngIf='heightMetric=="ftin"' (click)='selectHeightFeet()'>
                             <ion-label >
@@ -100,11 +100,12 @@
                       <ion-col>
                           <ion-item> 
 
-                              <ion-select interface="popover" [interfaceOptions]="changeMetric()" role="combobox"  placeholder="FT">
-                                  <ion-select-option  selected="true" value="ftin" >FEET</ion-select-option>
-                                  <ion-select-option value="cms">CM</ion-select-option>
-                              </ion-select>
-                            
+                            <ion-select interface="popover" role="combobox" [(ngModel)]="heightMetric" [value]="heightMetric" (ionChange)='changeMetric(heightMetric)' placeholder="FT">
+                              <ion-select-option value="ftin" >FEET</ion-select-option>
+                              <ion-select-option value="cms" >CM</ion-select-option>
+                            </ion-select>
+                          
+                             
                           </ion-item>
                       </ion-col>
             </ion-row>
@@ -144,11 +145,11 @@
               <ion-col>
                 
                   <ion-item> 
-
-                      <ion-select interface="popover"[interfaceOptions]="chngWtMetric($event)" role="combobox"  placeholder="KG">
-                          <ion-select-option  selected="true" value="kgs">Kg</ion-select-option>
-                          <ion-select-option value="lbs">Lbs</ion-select-option>
-                      </ion-select>
+                    <ion-select interface="popover" role="combobox" [(ngModel)]="weightMetric" [value]="weightMetric" (ionChange)='chngWtMetric(weightMetric)' placeholder="KG">
+                      <ion-select-option value="kgs">Kg</ion-select-option>
+                      <ion-select-option value="lbs">Lbs</ion-select-option>
+                    </ion-select>
+                     
                     
                   </ion-item>
               </ion-col>
@@ -194,7 +195,7 @@
             <h2 (click)="selectFLevel(item)">{{item.title}}</h2>
         
           <!-- <ion-icon name="ios-information-circle-outline" item-right (click)="expandItem(item)"></ion-icon> -->
-          <expandable expandHeight='itemExpandHeight' expanded='item.expanded'>
+          <expandable [expandHeight]='itemExpandHeight' [expanded]='item.expanded'>
             <p>{{item.desc}}</p>
           </expandable>
         </div>
