@@ -190,7 +190,7 @@ export class SlidesPage implements OnInit {
         var data ={"utokken":this.token}
         // this.http.post(global.baseURL + 'subscriber/ionicloginchecking/', data, { headers: headers })
         //   .subscribe(response => {
-        this.apiService.loginchecking(data).subscribe((response)=>{
+        this.apiService.loginchecking(data,this.token).subscribe((response)=>{
             console.log("loginnew response",response);
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -209,10 +209,10 @@ export class SlidesPage implements OnInit {
                  // this.loadData.stopLoading();
                   localStorage.setItem('planSet','true');
     
-                  this.navCtrl.navigateForward('/tabs');
+                  this.navCtrl.navigateForward('/tabs/tabs/dashboard');
                 }else{
                   //this.loadData.stopLoading();
-                  this.navCtrl.navigateForward('/tabs');
+                  this.navCtrl.navigateForward('/tabs/tabs/store');
                 }
               }else{
                 //this.loadData.stopLoading();

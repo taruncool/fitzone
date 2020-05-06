@@ -148,10 +148,11 @@ export class ApiService {
          }).pipe (data =>
            data);
   }
-  public loginchecking(data){
+  public loginchecking(data,token){
     return this.http.post(global.baseURL + 'subscriber/ionicloginchecking/', data, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);
