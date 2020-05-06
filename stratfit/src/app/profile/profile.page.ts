@@ -10,6 +10,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ImagepreviewPage } from './imagepreview/imagepreview.page';
+// import { ImageProvider } from '../../../providers/image/image';
 
 
 
@@ -86,6 +87,8 @@ export class ProfilePage implements OnInit {
 
   bpTmax; 
   bpStressFactor;
+  imgPreview;
+  imageSet = false;
   
   @ViewChild('Content',{static:false}) content: IonContent;
 
@@ -469,28 +472,28 @@ export class ProfilePage implements OnInit {
   }
 
   //file upload
-  public uploadAvtar(imgtype){
-    this.uploadType = imgtype;
-    // this.loadData.startLoading();
-    var options = {
-      quality: 75,
-      sourceType: 0,
-      destinationType: 0,
-      encodingType:1,
-      saveToPhotoAlbum: false,
-      correctOrientation: true,
-      targetWidth:815,
-      targetHeight:320
-    };
+  // public uploadAvtar(imgtype){
+  //   this.uploadType = imgtype;
+  //   // this.loadData.startLoading();
+  //   var options = {
+  //     quality: 75,
+  //     sourceType: 0,
+  //     destinationType: 0,
+  //     encodingType:1,
+  //     saveToPhotoAlbum: false,
+  //     correctOrientation: true,
+  //     targetWidth:815,
+  //     targetHeight:320
+  //   };
 
-    this.camera.getPicture(options).then((imageData) => {
-      var base64Image = 'data:image/png;base64,' + imageData;
-      this.loadModal(base64Image);
-    }, (err) => {
-      // this.loadData.stopLoading();
-      //alert('Error while selecting image.');
-    });
-  }
+  //   this.camera.getPicture(options).then((imageData) => {
+  //     var base64Image = 'data:image/png;base64,' + imageData;
+  //     this.loadModal(base64Image);
+  //   }, (err) => {
+  //     // this.loadData.stopLoading();
+  //     //alert('Error while selecting image.');
+  //   });
+  // }
   public loadModal(base64Image){
     if(this.uploadType =='cover'){
       var uploadCover =true;
@@ -516,7 +519,7 @@ export class ProfilePage implements OnInit {
       //this.timer.pauseTimer();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.token);
-      this.prompt = await this.alertCtrl.create({
+      this.prompt = this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
         buttons: [
           {
@@ -609,6 +612,48 @@ export class ProfilePage implements OnInit {
     this.changeVibrateSettings();
   
   }
+  // async getPhoto() {
+  //  await this.alertCtrl.create({
+  //     // message: 'Upload Picture',
+  //     message: 'From where do you want to choose your item pic?',
+  //     buttons: [
+  //       // {
+  //       //   text: 'Cancel',
+  //       //   handler: data => { }
+  //       // },
+  //       {
+  //         text: 'Camera ',
+  //         handler: () => {
+  //           // Call imageProvider to process, upload, and update user photo.
+  //           this.ImageProvider.setProfilePhoto('', this.camera.PictureSourceType.CAMERA).then(data => {
+  //             this.imgPreview = data;
+             
+  //             this.loadModal(data);
+  //             this.imageSet = true;
+  //           });
+  //         }
+  //       },
+  //       {
+  //         text: 'Choose your photo',
+  //         handler: () => {
+  //           // Call imageProvider to process, upload, and update user photo.
+  //           this.ImageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
+  //             this.imgPreview = data;
+              
+  //             this.loadModal(data);
+  //             this.imageSet = true;
+  //           });
+  //         }
+  //       }
+        
+  //     ]
+  //   }).present();
+  // }
+
+  onAvatarError(){
+    this.avatar = "assets/images/icon.png";
+  }
+
 
   noProgramsAlert(){
     this.prompt = this.alertCtrl.create({

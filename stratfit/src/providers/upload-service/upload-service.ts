@@ -13,6 +13,7 @@ import { global } from '../../app/global';
 export class UploadServiceProvider {
   sizeIssue:boolean;
   apiUrl = global.rootUrl+'/s3Details/s3signature.php';
+  FOLDER = 'stratfitmedia/';
   constructor(public http: HttpClient, private transfer: FileTransfer, private file: File, public loadingController:LoadingController, public ngZone: NgZone, public toastCtrl: ToastController, private sanitizer: DomSanitizer) {
    }
 
@@ -61,6 +62,64 @@ export class UploadServiceProvider {
     let html: string =  '<div text-center><span style="text-align: center">Uploading...'+ Math.round(percent)+'%</span><br><progress value="' + percent + '" max="100"></progress><br>('+loaded+' MB/'+totlaSize+' MB)</div>';
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
+  uploadFile(file) {
+  //   const contentType = file.type;
+   
+  //   const bucket = new S3(
+  //         {
+  //             accessKeyId: 'AKIAIQZO4VY764NTBCEQ',
+  //             secretAccessKey: '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',
+  //             region: 'us-east-1'
+  //         }
+  //     );
+  //     const params = {
+  //         Bucket: 'stratfitmedia',
+  //         Key: this.FOLDER + file.name,
+  //         Body: file,
+  //         ACL: 'public-read',
+  //         ContentType: contentType
+  //     };
+  //     bucket.upload(params, function (err, data) {
+  //         if (err) {
+  //             console.log('There was an error uploading your file: ', err);
+  //             return false;
+  //         }
+  //         console.log('Successfully uploaded file.', data);
+  //        return true;
+  //     });
+    //for upload progress   
+    /*bucket.upload(params).on('httpUploadProgress', function (evt) {
+              console.log(evt.loaded + ' of ' + evt.total + ' Bytes');
+          }).send(function (err, data) {
+              if (err) {
+                  console.log('There was an error uploading your file: ', err);
+                  return false;
+              }
+              console.log('Successfully uploaded file.', data);
+              return true;
+          });*/
+          
+           
+  }
+  //upload(){
+      
+    //     const file: File=new File([this.dataURItoBlob(this.croppedImage)],this.userId+''+ 'userLogo' +''+this.selectedFiles+".jpg");
+      
+    //      this.token = localStorage.getItem("token");
+    //     this.response=  this.uploadService.uploadFile(file);
+    //         console.log("response",this.response);
+    //      this.params={"image":this.imageupload,"gym": "false"};
+    //      this.userdataService.uploadprofilcepic(this.token, this.params).subscribe(res => { 
+    //         console.log(res);
+            
+    //         var element = JSON.stringify(res);
+    //         let imageinfo = JSON.parse(element);
+    //         console.log("imageinfo",imageinfo);
+    //         this.proavatar=imageinfo.avatar;
+    //         localStorage.setItem("avatar",this.proavatar);
+    //         window.location.reload();
+    //      });
+    //    }
   // Upload Image to s3
   async upload(file,format,avatar): Promise<any>{
    //  let loading = await this.loadingController.create({content : "Preparing for Upload. Please Wait...",spinner: 'hide',});

@@ -194,11 +194,11 @@ export class TmaxpreviewPage implements OnInit {
     // this.loadData.startLoading();
     var headers = new Headers();
     // headers.append('Content-Type', 'application/json');
-    let usertoken =  headers.append('Authorization', localStorage.getItem('usertoken'));
+    // let usertoken =  headers.append('Authorization', localStorage.getItem('usertoken'));
     // this.http.post(global.baseURL + 'userprogram/updateTmaxData/', data, { headers: headers })
     //   .subscribe(response => {
     //     if(response.json().success){
-    this.apiService.updateTmaxData(data,usertoken).subscribe((response)=>{
+    this.apiService.updateTmaxData(data,this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         if(res.success){
