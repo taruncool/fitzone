@@ -516,7 +516,7 @@ export class ProfilePage implements OnInit {
       //this.timer.pauseTimer();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.token);
-      this.prompt = this.alertCtrl.create({
+      this.prompt = await this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
         buttons: [
           {
