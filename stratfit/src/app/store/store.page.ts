@@ -141,7 +141,8 @@ goalclick(){
     // this.loadData.startLoading();
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    var usertoken = localStorage.getItem('usertoken');
     var data = {deviceType:this.devicetype};
     // this.http.post(global.baseURL + 'program/getcoachs/', data, { headers: headers })
     // .subscribe(response => {
@@ -187,7 +188,8 @@ public loadPrograms(){
     this.filters.deviceType = this.devicetype;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    var usertoken =  localStorage.getItem('usertoken');
     // this.http.post(global.baseURL + 'program/filterSql/',this.filters, { headers: headers })
     //     .subscribe(response => {
     this.apiService.filtersql(usertoken,this.filters).subscribe((response)=>{

@@ -145,7 +145,7 @@ export class ProgramdetailsPage implements OnInit {
       // headers.append('Authorization', localStorage.getItem('usertoken'));
       // this.http.get(global.baseURL + 'userprogram/userplancheck/', { headers: headers })
       //   .subscribe(response => {
-      this.apiService.userplancheck().subscribe((response)=>{
+      this.apiService.userplancheck(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         if(res.success){
@@ -418,7 +418,7 @@ export class ProgramdetailsPage implements OnInit {
       return new Promise((resolve) =>{
         // this.http.post(global.baseURL + 'userprogram/createuserplan/', data, {headers: headers})
         //   .subscribe(response => {
-        this.apiService.createuserplan(data).subscribe((response)=>{
+        this.apiService.createuserplan(data,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
             if(res.success){

@@ -75,11 +75,11 @@ export class CommunityPage implements OnInit {
     // this.loadData.startLoading();
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    // var usertoken = localStorage.getItem('usertoken');
     var data = {deviceType:this.devicetype};
     // this.http.post(global.baseURL + 'program/getcoachs/', data, { headers: headers })
     // .subscribe(response => {
-    this.apiService.getcoachs(data,usertoken).subscribe((response)=>{
+    this.apiService.getcoachs(data,this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
       var priceMap = res.details;
@@ -103,10 +103,10 @@ export class CommunityPage implements OnInit {
   async getGymlists(){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    // let usertoken = localStorage.getItem('usertoken');
     // this.http.get(global.baseURL + 'startorg/gymLists/', { headers: headers })
     //     .subscribe(response => {
-    this.apiService.gymLists(usertoken).subscribe((response)=>{
+    this.apiService.gymLists(this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         var priceMap = res.details;

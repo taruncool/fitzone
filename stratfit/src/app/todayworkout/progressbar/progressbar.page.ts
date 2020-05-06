@@ -180,7 +180,7 @@ export class ProgressbarPage implements OnInit {
 			var headers = new Headers();
 			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
 			// headers.append('Content-Type', 'application/json');
-			let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+			let usertoken = localStorage.getItem('usertoken');
 			// this.http.post(global.baseURL + 'userprogram/activateuserplan/', data, { headers: headers }).subscribe(response => {
 			// 	if(response.json().success){
       this.apiService.activateuserplan(data,usertoken).subscribe((response)=>{

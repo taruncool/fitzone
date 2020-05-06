@@ -37,11 +37,11 @@ export class PasswordPage implements OnInit {
           var headers = new Headers();
           var creds = {oldPassword:pwddata.oldpswd,newPassword:pwddata.newpswd,userId:this.userId};
           headers.append('Content-Type', 'application/json');
-          headers.append('Authorization', localStorage.getItem('usertoken'));
+          // headers.append('Authorization', localStorage.getItem('usertoken'));
           return new Promise((resolve) => {
               // this.http.post(global.baseURL + 'subscriber/changePassword/', creds, { headers: headers })
               // .subscribe(response => {
-              this.apiService.changePassword(creds).subscribe((response)=>{
+              this.apiService.changePassword(creds,this.token).subscribe((response)=>{
                 console.log("response",response);
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);

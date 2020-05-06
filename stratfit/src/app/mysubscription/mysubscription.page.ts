@@ -261,7 +261,7 @@ export class MysubscriptionPage implements OnInit {
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
-      var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
       return new Promise((resolve) => {
         // this.http.post(global.baseURL + 'program/viewplan/', creds, { headers: headers })
         // .subscribe(response => {

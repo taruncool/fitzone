@@ -265,13 +265,13 @@ export class PlanrenewalPage implements OnInit {
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
-      var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
       return new Promise((resolve) => {
         // this.http.post(global.baseURL + 'program/viewplan/', creds, { headers: headers })
         // .subscribe(response => {
         //     this.loadData.stopLoading();
         //     if(response.json()){
-        this.apiService.viewplan(creds,usertoken).subscribe((response)=>{
+        this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
               let res = JSON.parse(userStr);
               if(res.success){

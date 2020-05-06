@@ -469,10 +469,10 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
       // this.http.post(global.baseURL + 'userprogram/updateTmaxData/', data, { headers: headers })
       //   .subscribe(response => {
-      this.apiService.updateTmaxData(data,usertoken).subscribe((response)=>{
+      this.apiService.updateTmaxData(data,this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
           console.log("Updated Tmax", res);
@@ -1249,11 +1249,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
             if (localStorage.getItem('internet') === 'online') {
               var headers = new Headers();
               headers.append('Content-Type', 'application/json');
-              let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+              // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
               var data = { "set_details": this.completedSetArr };
               // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
               //   .subscribe(response => {
-              this.apiService.createsetdetails(data,usertoken).subscribe((response)=>{
+              this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
                   for (var st = 0; st < completedSetData.res.rows.length; st++) {
@@ -1717,11 +1717,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                 if (localStorage.getItem('internet') === 'online') {
                   var headers = new Headers();
                   // headers.append('Content-Type', 'application/json');
-                  let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+                  // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
                   var data = { "set_details": this.completedSetArr };
                   // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
                   //   .subscribe(response => {
-                  this.apiService.createsetdetails(data,usertoken).subscribe((response)=>{
+                  this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                     const userStr = JSON.stringify(response);
                     let res = JSON.parse(userStr);
                       for (var st = 0; st < completedSetData.res.rows.length; st++) {
@@ -1801,11 +1801,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                 if (localStorage.getItem('internet') === 'online') {
                   var headers = new Headers();
                   // headers.append('Content-Type', 'application/json');
-                  let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+                  // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
                   var data = { "set_details": this.completedSetArr };
                   // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
                   //   .subscribe(response => {
-                  this.apiService.createsetdetails(data,usertoken).subscribe((response)=>{
+                  this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                     const userStr = JSON.stringify(response);
                     let res = JSON.parse(userStr);
                       for (var st = 0; st < completedSetData.res.rows.length; st++) {
@@ -2814,10 +2814,10 @@ backButtonAction() {
     };
     var headers = new Headers();
     // headers.append('Content-Type', 'application/json');
-    let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+    // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
     // this.http.post(global.baseURL + 'userprogram/updateTmaxData/', data, { headers: headers })
     //   .subscribe(response => {
-    this.apiService.updateTmaxData(data,usertoken).subscribe((response)=>{
+    this.apiService.updateTmaxData(data,this.tokken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
         setTimeout(() => {

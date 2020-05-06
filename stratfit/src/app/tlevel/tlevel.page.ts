@@ -77,7 +77,7 @@ export class TlevelPage implements OnInit {
       let userInfo = {"id":parseInt(this.userId),"trainingLevel":this.selectedLevel};
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      let usertoken = localStorage.getItem('usertoken');
       // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', {"id":parseInt(this.userId),"userInf":{"trainingLevel":this.selectedLevel}}, { headers: headers })
       //   .subscribe(response => {
       //     if(response.json().success){

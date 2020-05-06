@@ -476,10 +476,10 @@ heightArrCms= {
       var headers = new Headers();
       var userInfo = { "id": parseInt(this.userId), "userInf": { "dob": this.dob, "gender": this.genderinfo, "height": this.cent, "heightM": "cms", "weightM": this.weightMetric, "weight": this.weigth, "trainingLevel": this.selectedLevel } }
       // headers.append('Content-Type', 'application/json');
-      let token = headers.append('Authorization', localStorage.getItem('usertoken'));
+      // let token = localStorage.getItem('usertoken');
       // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
       //   .subscribe(response => {
-      this.apiService.fitnessprofile(userInfo,token).subscribe((response)=>{
+      this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
           var priceMap = res.details;

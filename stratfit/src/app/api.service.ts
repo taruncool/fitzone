@@ -165,10 +165,11 @@ export class ApiService {
          }).pipe (data =>
            data);
   }
-  public userplancheck(){
+  public userplancheck(token){
     return this.http.post(global.baseURL + 'userprogram/userplancheck/', {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);
@@ -181,10 +182,11 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public createuserplan(data){
+  public createuserplan(data,token){
     return this.http.post(global.baseURL + 'userprogram/createuserplan/',data, {
       headers: new HttpHeaders({
-       'Content-Type':  'application/json'
+       'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);
@@ -206,10 +208,11 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public changePassword(creds){
+  public changePassword(creds,token){
     return this.http.post(global.baseURL + 'subscriber/changePassword/',creds, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);
