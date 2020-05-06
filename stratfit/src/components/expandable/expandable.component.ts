@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer,ViewChild,ElementRef, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-expandable',
+  selector: 'expandable',
   templateUrl: './expandable.component.html',
   styleUrls: ['./expandable.component.scss'],
 })
