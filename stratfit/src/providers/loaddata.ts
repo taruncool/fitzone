@@ -153,9 +153,8 @@ export class LoadData {
   public userlogout(){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', localStorage.getItem('usertoken'));
-    // this.http.get(global.baseURL + 'subscriber/logout/', {headers: headers})
-    this.apiService.userlogout().subscribe((response)=>{
+    this.token = localStorage.getItem('usertoken');
+    this.apiService.userlogout(this.token).subscribe((response)=>{
       // .toPromise().then(response => {
           localStorage.clear();
           localStorage.setItem('internet','online');
@@ -495,7 +494,7 @@ public getExercisesNew(){
   var planInfo = {"id": 1}
 
   headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', localStorage.getItem('usertoken'));
+  // headers.append('Authorization', localStorage.getItem('usertoken'));
   // headers.append('Authorization', this.token);
   // this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', { headers: headers })
   // .subscribe(response => {
@@ -560,7 +559,7 @@ async updateTmaxServer(exercises){
       this.startLoading();
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+      let usertoken = localStorage.getItem('usertoken');
       var tmaxdata = {tmaxData:exercises};
       // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
       //   .subscribe(response => {
@@ -612,7 +611,7 @@ async updateTmaxServer(exercises){
   public getTmax(){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    let token = headers.append('Authorization', localStorage.getItem('usertoken'));
+    let token = localStorage.getItem('usertoken');
     // return this.http.get(global.baseURL + 'userprogram/userTestExercise/', { headers: headers })
     //   .toPromise().then(response => {
     this.apiService.usertestExercise(token).subscribe((response)=>{
