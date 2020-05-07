@@ -176,10 +176,11 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public viewplan_byId(creds){
+  public viewplan_byId(creds,token){
     return this.http.post(global.baseURL + 'program/viewPlan_by_id/', {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);

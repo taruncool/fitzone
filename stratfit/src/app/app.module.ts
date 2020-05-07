@@ -22,6 +22,9 @@ import { CalendarModule ,CalendarComponentOptions, DayConfig, CalendarResult, Ca
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
+// import { Crop } from '@ionic-native/crop/ngx';
+// import { Base64 } from '@ionic-native/base64/ngx';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
@@ -54,6 +57,10 @@ import { ProgramdetailsPage } from './programdetails/programdetails.page';
     Insomnia,
     NativeAudio,
     Facebook,
+    // crop,
+    // base64,
+    StreamingMedia,
+    // StreamingVideoOptions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -88,7 +88,7 @@ export class CommunityPage implements OnInit {
       }else{
         this.errorMsg();
       }
-      this.getGymlists();
+      // this.getGymlists();
     },(err) => {
       // this.loadData.stopLoading();
       if(err.status === 403){

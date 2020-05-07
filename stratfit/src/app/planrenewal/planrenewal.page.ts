@@ -131,10 +131,6 @@ export class PlanrenewalPage implements OnInit {
             if(localStorage.getItem('internet')==='online'){
             if (this.platform.is('ios') && this.plandetails.price !="Free") {
               var headers = new Headers();
-              // headers.append('Content-Type', 'application/json');
-              // headers.append('Authorization', this.token);
-              // this.http.get(global.baseURL + 'utility/getpriceMap/', { headers: headers })
-              //   .subscribe(response => {
               this.apiService.getpriceMap(this.token).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
@@ -147,7 +143,7 @@ export class PlanrenewalPage implements OnInit {
                       this.plandetails.price = this.currencyCode+roundPrice;
                   }
               },(err) => {
-                this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                 if(err.status === 403){
                     this.loadData.forbidden();
                     // this.app.getRootNav().navigateForward('/login');
@@ -233,9 +229,6 @@ export class PlanrenewalPage implements OnInit {
       headers.append('Authorization', this.token);
       var creds =  {"user_id":this.loginuserid, "plan_id":activePlanId,"get_rating":1};
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'program/createPlanRating/', creds, { headers: headers })
-        // .subscribe(response => {
-        //     if(response.json().success){
         this.apiService.createPlanRating(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
               let res = JSON.parse(userStr);
@@ -261,7 +254,7 @@ export class PlanrenewalPage implements OnInit {
 
   async viwPlanStructure(cplan_id){
     if(localStorage.getItem('internet')==='online'){
-      this.loadData.startLoading();
+      // this.loadData.startLoading();
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
@@ -287,7 +280,7 @@ export class PlanrenewalPage implements OnInit {
               // toast.present();
             }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
             this.navCtrl.navigateForward('login');
@@ -417,7 +410,7 @@ export class PlanrenewalPage implements OnInit {
               self.displayAmnt = planData.convertingprice;
             }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           if(err.status === 403){
               this.loadData.forbidden();
               this.navCtrl.navigateForward('/login');
@@ -437,7 +430,7 @@ export class PlanrenewalPage implements OnInit {
     if(localStorage.getItem('internet')==='online'){
       this.buttonclick = true;
       if(this.platform.is('ios')) {
-        this.loadData.startLoading();
+        // this.loadData.startLoading();
       }
       var headers = new Headers();
       // headers.append('Content-Type', 'application/json');
@@ -457,7 +450,7 @@ export class PlanrenewalPage implements OnInit {
             }
           },(err) => {
             if(err.status === 403){
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               this.loadData.forbidden();
               this.navCtrl.navigateForward('/login');
               //this.app.getRootNav().setRoot(LoginPage);
@@ -476,7 +469,7 @@ export class PlanrenewalPage implements OnInit {
 
   public createTransaction(transactionid){
     this.buttonclick = true;
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     this.transactionid = transactionid;
     var creds = {transactionId:transactionid, plan_id:this.planData.id, amount:this.planData.planprice,deviceType:this.devicetype};
     var headers = new Headers();
@@ -491,7 +484,7 @@ export class PlanrenewalPage implements OnInit {
         this.planrenewal();
       },(err) => {
         if(err.status === 403){
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');
           //this.app.getRootNav().setRoot(LoginPage);
@@ -501,7 +494,7 @@ export class PlanrenewalPage implements OnInit {
   }
 
   public zeroPlanSubscription(){
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     this.planrenewal();
   }
 
@@ -538,7 +531,7 @@ export class PlanrenewalPage implements OnInit {
             }else{
               planresponse.data.nextRenewalDate = this.loadData.changeDateFormat(planresponse.data.nextRenewalDate,'db');
               this.sqlStorageNew.query("UPDATE userplan SET nextrenewaldate ='" + planresponse.data.nextRenewalDate + "'  WHERE plan_id = " + this.planData.id).then(data=>{
-                this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                 //this.navCtrl.push(TodayworkoutPage);
                 this.modalCtrl.dismiss();
                 this.navCtrl.navigateForward('/todayworkout');
@@ -615,7 +608,7 @@ export class PlanrenewalPage implements OnInit {
         this.loadData.checkjson(resvalue.data.plans[0].plan_id);
 
         //this.loadData.checkQuery(false,false,false).then(data=>{
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           let planprogressModal = await this.modalCtrl.create({
             component: ProgressbarPage,
             componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':exercisesList}}

@@ -10,6 +10,8 @@ import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page'
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
 import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
+import { ProgressbarPage } from '../todayworkout/Progressbar/progressbar.page';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 
 
 @Component({
@@ -80,6 +82,9 @@ export class ProgramdetailsPage implements OnInit {
   cplan_startdate;
 
   token:any;
+  altCover;
+  altAvatar;
+  isShowIcon = true;
 
   subplaninfo:any;
   fplan:any;
@@ -87,17 +92,28 @@ export class ProgramdetailsPage implements OnInit {
 
   public myVideo: HTMLVideoElement;
 
-  constructor(public navCtrl: NavController,private apiService : ApiService, public navParams: NavParams,private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private alertCtrl: AlertController,private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew){
+  constructor(public navCtrl: NavController,private apiService : ApiService,private streamingMedia: StreamingMedia, public navParams: NavParams,private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private alertCtrl: AlertController,private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew){
     this.planinfo = navParams.get("plandetails");
     // let videoArr = [62,63,64,65,70,72,73,79,80,81,82,107,108,109];
     // let rand = videoArr[Math.floor(Math.random() * videoArr.length)];
     // this.planinfo.vid = rand;
+    for(let i=0;i<this.planinfo.exercises.length;i++){
 
+      this.planinfo.exercises[i].newExImage = this.planinfo.exercises[i].exercise_id__cover_image;//"http://stratfit.net/newEx/"+this.planinfo.exercises[i].exercise_id+".jpg";
+
+    }
+
+    if(this.planinfo.videos ===" " || this.planinfo.videos ==="" || this.planinfo.videos === null){
+
+      this.isShowIcon = false;
+
+    }
     console.log("PlanInfo -------------------",this.planinfo);
     //this.uplanstate = navParams.get("upstate");
   }
 
   ngOnInit() {
+    this.token = localStorage.getItem('usertoken');
     this.s3Url = global.s3URL;
     this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
     this.futureplanid = localStorage.getItem('futureplanid');
@@ -116,7 +132,7 @@ export class ProgramdetailsPage implements OnInit {
     this.userplanChecking();
 
     if(this.planinfo !='' && this.planinfo !=null && this.planinfo !='undefined'){
-      this.viwPlanStructure();
+      // this.viwPlanStructure();
     }else{
       this.toastmsg("Unable to process your request. Please try after some time");
       // let toast = await this.toastCtrl.create({
@@ -125,7 +141,37 @@ export class ProgramdetailsPage implements OnInit {
       // });
       // toast.present();
     }
+    let videoid = "exc-video-"+this.planinfo.id;
+    var videoElement =  document.getElementById(videoid);
+
+    this.altCover = "assets/images/plan_2.png";
+    this.planinfo.plancover = this.planinfo.planPhoto; //"http://stratfit.net/ProgramImages/program"+this.planinfo.id+".png"
+    this.altAvatar = "assets/images/icon.png";
+    //videoElement.addEventListener('webkitfullscreenchange', this.onFullScreen)
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      //shouldAutoClose: true,
+      //controls: false
+    };
   }
+  
+  onAvatarError(){
+    this.planinfo.createdBy_id__avatar = this.altAvatar;
+  }
+
+  onExImageError(newEx){
+
+    newEx.newExImage = "assets/images/plan_2.png";
+  }
+
+  onImageError(){
+
+    this.planinfo.plancover = this.altCover;
+
+  }
+
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({
       message: msg,
@@ -133,18 +179,50 @@ export class ProgramdetailsPage implements OnInit {
     });
     toast.present();
   }
+
+  //  onFullScreen(){
+    
+  //   console.log("full screen called---------------");
+  //     // var isFullScreen = document.webkitIsFullScreen;
+  
+  //     // if (isFullScreen) {
+  //     //   let options: StreamingVideoOptions = {
+  //     //     successCallback: () => { console.log('Video played') },
+  //     //     errorCallback: (e) => { console.log('Error streaming') },
+  //     //     orientation: 'landscape',
+  //     //     //shouldAutoClose: true,
+  //     //     //controls: false
+  //     //   };
+        
+  //       this.streamingMedia.playVideo(this.planinfo.videos, options);
+        
+  //         console.log("full screen called--------------is full screen-");
+  //         //alert("registered entered fullscreen and unlocked the orientation");
+  
+  //     } else {
+  //       console.log("full screen called--------------no full screen-");
+  //           // set to landscape
+          
+  //         //alert("registered exit fullscreen and locked the orientation to portrait again");
+
+  //     }
+
+  // }
+
   playVideo(idplan){
     
-
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      //shouldAutoClose: true,
+      //controls: false
+    };
+    this.streamingMedia.playVideo(this.planinfo.videos, options);//'http://stratfit.net/ProgramVideos/'+this.planinfo.id+'-preview.mp4'
   }
 
   async userplanChecking(){
-    // if(localStorage.getItem('internet')==='online'){
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', localStorage.getItem('usertoken'));
-      // this.http.get(global.baseURL + 'userprogram/userplancheck/', { headers: headers })
-      //   .subscribe(response => {
+    if(localStorage.getItem('internet')==='online'){
       this.apiService.userplancheck(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -165,30 +243,24 @@ export class ProgramdetailsPage implements OnInit {
             //this.app.getRootNav().setRoot(LoginPage);
         }
       });
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
   }
 
   async viwPlanStructure(){
-    // if(localStorage.getItem('internet')==='online'){
-      this.loadData.startLoading();
+     if(localStorage.getItem('internet')==='online'){
+      // this.loadData.startLoading();
       var creds = {"plan_id":this.planinfo.encodedurl};
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', localStorage.getItem('usertoken'));
-      // return new Promise((resolve) => {
-      //   this.http.post(global.baseURL + 'program/viewPlan_by_id/', creds, { headers: headers })
-      //   .subscribe(response => {
-        this.apiService.viewplan_byId(creds).subscribe((response)=>{
+        this.apiService.viewplan_byId(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
           console.log("planinfo",response);
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
             if(res){
               this.PeriodData = JSON.parse(res.plan.PlanJson).PeriodDetails;
              
@@ -203,7 +275,7 @@ export class ProgramdetailsPage implements OnInit {
               // toast.present();
             }
         },(err) => {
-          this.loadData.stopLoading();
+          // this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
             this.navCtrl.navigateForward('/login');
@@ -211,13 +283,13 @@ export class ProgramdetailsPage implements OnInit {
           }
         // });
     })
-  //  }else{
-  //    let toast = await this.toastCtrl.create({
-  //      message: "Please check your internet connectivity and try again",
-  //      duration: 3000
-  //    });
-  //    toast.present();
-  //  }
+   }else{
+     let toast = await this.toastCtrl.create({
+       message: "Please check your internet connectivity and try again",
+       duration: 3000
+     });
+     toast.present();
+   }
   }
 
   putMicroData(){
@@ -294,12 +366,12 @@ export class ProgramdetailsPage implements OnInit {
     this.Lpath = path.split('-');
     this.activeSession = path;
     this.ExerciseData = this.SessionData[this.Lpath[3]].exerciseDetails;
-  };
+  }
   public getSetData(path){
     this.Lpath = path.split('-');
     this.activeExercise = path;
     this.ExerciseData = this.SessionData[this.Lpath[3]].exerciseDetails;
-  };
+  }
 
 
   public activationalert() {
@@ -342,18 +414,18 @@ export class ProgramdetailsPage implements OnInit {
   }
   public planSubscription(){
     if(!this.firstPlan){
-      setTimeout(() => {
+      // setTimeout(() => {
             
-        this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
-        //this.myVideo.muted=true;
-        if(!this.myVideo.paused){
+      //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
+      //   //this.myVideo.muted=true;
+      //   if(!this.myVideo.paused){
 
-        this.myVideo.pause();
-        }
+      //   this.myVideo.pause();
+      //   }
        // this.myVideo.loop = true;
   
         
-      },80);
+      // },80);
       if(localStorage.getItem("planSet") === "true"){
 
         this.activationalert();
@@ -408,13 +480,10 @@ export class ProgramdetailsPage implements OnInit {
   }
 
 	async createUserPlan(){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			var data = {'plan_id':this.subplandet.id, 'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', localStorage.getItem('usertoken'));
       return new Promise((resolve) =>{
         // this.http.post(global.baseURL + 'userprogram/createuserplan/', data, {headers: headers})
         //   .subscribe(response => {
@@ -469,11 +538,11 @@ export class ProgramdetailsPage implements OnInit {
                     this.loadData.checkjson(resvalue.data.planId);
                     
                     //this.loadData.checkQuery(false,false,false).then(data=>{
-                      this.loadData.stopLoading();
-                      // this.navCtrl.push({
-                      //   component:ProgressbarPopup,
-                      //   componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}}
-                      //   });
+                      // this.loadData.stopLoading();
+                      this.modalCtrl.create({
+                        component:ProgressbarPage,
+                        componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}}
+                        });
                       
                       // let planprogressModal = this.modalCtrl.create(ProgressbarPopup,{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}});
                       //planprogressModal.present();
@@ -485,7 +554,7 @@ export class ProgramdetailsPage implements OnInit {
               this.customAlert();
             }
           }, (err) => {
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               if(err.status === 403){
                 this.loadData.forbidden();
                 this.navCtrl.navigateForward('/login');
@@ -493,14 +562,14 @@ export class ProgramdetailsPage implements OnInit {
               }
           });
       })
-    // }else{
-    //   this.loadData.stopLoading();
-    //   let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-    // }
+    }else{
+      this.loadData.stopLoading();
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
   }
 
   async customAlert(){
@@ -533,7 +602,7 @@ export class ProgramdetailsPage implements OnInit {
                     .catch(err => {
                       console.error('plan error');
                     });
-                    this.loadData.stopLoading();
+                    // this.loadData.stopLoading();
                     setTimeout(() => {
               
                       this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
@@ -551,16 +620,13 @@ export class ProgramdetailsPage implements OnInit {
                     // let planprogressModal = this.modalCtrl.create(ProgressbarPopup,{'uplandata':{'plan_id':this.planinfo.id,'planName':this.planinfo.planName,'planPhoto':this.planinfo.planPhoto,'startdate':deviceDate,'defaultOffDay':6,'firstplan':this.fplan,'exercises':this.planinfo.exercises}});
                     // planprogressModal.present();              
 
-                    this.loadData.stopLoading();
+                    // this.loadData.stopLoading();
         },500);
   }
 
   async freePlanSubscription(){
-     this.loadData.startLoading();
-    // if(localStorage.getItem('internet')==='online'){
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', localStorage.getItem('usertoken'));
+    //  this.loadData.startLoading();
+    if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
       var data = {'plan_id':this.subplaninfo.id,'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
@@ -604,7 +670,7 @@ export class ProgramdetailsPage implements OnInit {
                     .catch(err => {
                       console.error('plan error');
                     });
-                    this.loadData.stopLoading();
+                    // this.loadData.stopLoading();
                     setTimeout(() => {
               
                       this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
@@ -619,15 +685,15 @@ export class ProgramdetailsPage implements OnInit {
                       
                     },80);
                     console.log(this.cplan_startdate);
-                    // let planprogressModal = await this.modalCtrl.create({
-                    // component:ProgressbarPopup,
-                    // componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
-                    // });
+                    this.modalCtrl.create({
+                    component:ProgressbarPage,
+                    componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
+                    });
                     // planprogressModal.present();
                   //});
                 }
             }else{
-              this.loadData.stopLoading();
+              // this.loadData.stopLoading();
               this.toastmsg(res.message);
                 // this.prompt = await this.alertCtrl.create({
                 //     message: response.json().message,
@@ -636,7 +702,7 @@ export class ProgramdetailsPage implements OnInit {
                 // this.prompt.present();
             }
           },(err) => {
-                this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                 if(err.status === 403){
                   this.loadData.forbidden();
                   this.navCtrl.navigateForward('/login');
@@ -644,14 +710,14 @@ export class ProgramdetailsPage implements OnInit {
                 }
             });
       })
-    // }else{
-    //   this.loadData.stopLoading();
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      this.loadData.stopLoading();
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   //redirecting to coachprofile page
@@ -746,11 +812,11 @@ export class ProgramdetailsPage implements OnInit {
 
   isGroupShown(data) {
       return this.preData === data;
-  };
+  }
 
   isSessShown(ss) {
       return this.preData1 === ss;
-  };
+  }
 
   async showPlanInfo() {
     

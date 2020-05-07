@@ -33,14 +33,14 @@
           <!-- <img src={{planinfo.planPhoto}} class="planimg" *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" (click)="playVideo(planinfo.id)">
           <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" (click)="playVideo(planinfo.id)">
           <img src="assets/images/plan_2.png" (click)="playVideo(planinfo.id)"> -->
-          <video id="exc-video-{{planinfo.id}}" webkit-playsinline playsinline controls controlsList="nodownload"
-          src="http://stratfit.net/ProgramVideos/{{planinfo.id}}-preview.mp4"
-          poster="assets/images/plan_2.png" *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null">
-          </video>
-          <video id="exc-video-{{planinfo.id}}" webkit-playsinline playsinline controls controlsList="nodownload"
-          src="http://stratfit.net/ProgramVideos/{{planinfo.id}}-preview.mp4"
-          poster="assets/images/plan_2.png" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null">
-          </video>
+           <img src="{{planinfo.plancover}}" class="planimg" (error)="onImageError()"  *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" >
+            <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" >
+             <div class="play" *ngIf="isShowIcon" (click)="playVideo(planinfo.id)">
+                <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+                    <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+                </svg>                                          
+              </div>
           
       </ion-row>
       <ion-item class="poverlay nobg">
@@ -50,7 +50,7 @@
               <ion-col> 
                   <em>{{planinfo.duration_weeks}} Weeks - {{planinfo.planType}}</em>
                   <ion-avatar class="sbgw" > 
-                      <img src="{{s3Url}}{{planinfo.createdBy_id__avatar}}" />
+                      <img src="{{planinfo.createdBy_id__avatar}}" (error)="onAvatarError()" />
                   </ion-avatar>
                   <h6>{{planinfo.createdBy_id__first_name}}</h6>
               </ion-col>
@@ -107,7 +107,7 @@
                       <ion-col col-6  *ngFor="let Exs of planinfo.exercises;  let j = index" (click)="openExercise(Exs)">
                           <div class="sbgw exeblk" >
                               <ion-avatar  >
-                                  <img src="http://stratfit.net/newEx/{{Exs.exercise_id}}.jpg"> 
+                                  <img src="{{Exs.newExImage}}" (error)="onExImageError(Exs)"> 
                               </ion-avatar>
                               <em>{{Exs.exercise_id__exerciseName}}</em>
                               <div class="posabs">
