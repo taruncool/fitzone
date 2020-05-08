@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
+
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -32,11 +33,13 @@ import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
 import { ProgramdetailsPage } from './programdetails/programdetails.page';
-import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
+import { IonicRatingModule } from 'ionic4-rating';
+import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
+import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 
 @NgModule({
-  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage],
-  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage],
+  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,EditprofilePage,FiltercountryPage],
+  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,EditprofilePage,FiltercountryPage],
   imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],

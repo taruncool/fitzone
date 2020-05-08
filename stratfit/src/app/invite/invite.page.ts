@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -19,7 +19,7 @@ export class InvitePage implements OnInit {
   clicked;
   validemail;
 
-  constructor(public navCtrl: NavController,private apiService: ApiService, public navParams: NavParams,public http: HttpClient, public toastCtrl: ToastController,private loadData: LoadData,private ga: GoogleAnalytics, public modalCtrl: ModalController ) {}
+  constructor(public navCtrl: NavController,private apiService: ApiService,public http: HttpClient, public toastCtrl: ToastController,private loadData: LoadData,private ga: GoogleAnalytics, public modalCtrl: ModalController ) {}
 
 
  async ngOnInit() {

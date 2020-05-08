@@ -79,7 +79,7 @@ export class MysubscriptionPage implements OnInit {
     }
     console.log("Future Plan Id",this.futureplanid)
    
-    // this.loadData.startLoading();
+   this.loadData.startLoading();
 
     this.sqlStorageNew.query("select p.id, p.planName, p.createdBy,p.createdByImg, p.price, p.planPhoto, p.planDescription, p.ability, p.goals, p.duration_weeks, p.totalsubscribers ,u.startdate, u.nextrenewaldate, u.plan_id, u.dayOff, u.seasonDate from userplan u left join plan p on u.plan_id = p.id")
     .then(response => {
@@ -108,7 +108,7 @@ export class MysubscriptionPage implements OnInit {
                       this.plandetails.price = this.currencyCode+roundPrice;
                   }
               },(err) => {
-                // this.loadData.stopLoading();
+               this.loadData.stopLoading();
                 if(err.status === 403){
                     this.loadData.forbidden();
                     this.navCtrl.navigateForward('/login');
@@ -168,11 +168,11 @@ export class MysubscriptionPage implements OnInit {
               this.activeseason = false;
             }
 
-            // this.loadData.stopLoading();
+           this.loadData.stopLoading();
       
           }
       }else{
-        // this.loadData.stopLoading();
+       this.loadData.stopLoading();
       }
     });
   }
@@ -265,7 +265,7 @@ export class MysubscriptionPage implements OnInit {
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
-            // this.loadData.stopLoading();
+            this.loadData.stopLoading();
               if(res.success){
               this.PeriodData = res.plan.PeriodDetails;
               this.getInitLevel();

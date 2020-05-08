@@ -1,0 +1,89 @@
+<ion-header class=" head">
+  <ion-toolbar class="hedfm">
+    <ion-buttons ion-start >
+      <button ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </button>
+    </ion-buttons>
+    <ion-title><span>Profile</span>Manage</ion-title>
+    <ion-buttons end>
+        <button ion-button clear (click)="updateProfile()" [disabled]="!registerForm.form.valid">
+          <span>Save</span>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="profview">
+
+    <div class="fulpad">
+    <ion-list no-lines>
+        <form #registerForm="ngForm">
+      <ion-item>
+        <ion-icon name="ios-person-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>First Name</ion-label>
+        <ion-input type="text" placeholder="Update First Name" pattern=".{3,}" [(ngModel)]="firstname" name='firstname' required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-person-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Last Name</ion-label>
+        <ion-input type="text" placeholder="Update Last Name" pattern=".{1,}" [(ngModel)]="lastname" name='lastname'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-mail-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name='email' disabled></ion-input>
+      </ion-item>
+      <ion-item (click)="openContry()">
+        <ion-icon name="ios-pin-outline" color="primary" item-start></ion-icon>
+        <span class="defcntry">{{DefCountry}}</span>
+        <ion-icon name="md-arrow-dropdown" class="deficon"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-call-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Mobile</ion-label>
+        <ion-input type="tel" placeholder="Update Phone Number"
+         minlength="10" maxlength="10" pattern="[1-9][0-9]{9}" [(ngModel)]="phone" name='phone'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="ios-contacts-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Gender</ion-label>
+          <ion-select [(ngModel)]="gender" name="gender" (ngModelChange)="onChngGender(gender)" item-right>
+            <ion-select-option value="1">Male</ion-select-option>
+            <ion-select-option value="2">Female</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-calendar-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Date of Birth</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" max="{{maxyear}}"  [(ngModel)]="dob" name="dob"  required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+        <ion-label color="primary" stacked>Weight (in {{weightunit}})</ion-label>
+        <ion-input type="tel" pattern="[0-9]*"  minlength="2" maxlength="3" placeholder="Update Weight" [(ngModel)]="weight" name='weight'  required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-item col-2>
+          <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+        </ion-item>
+        <ion-item col-5>
+          <ion-label color="primary" stacked>Height( Ft ) </ion-label>
+          <ion-input type="tel" pattern="[0-9]*" minlength="1" maxlength="1" placeholder="ft" [(ngModel)]="htfeet" name='ft' required></ion-input>
+        </ion-item>
+        <ion-item col-5>
+          <ion-label color="primary" stacked>Height( In ) </ion-label>
+          <ion-input type="tel" pattern="[0-9]*" minlength="1" maxlength="2"placeholder="ins" [(ngModel)]="ftinch" name='ins' required></ion-input>
+        </ion-item>
+      </ion-row>
+    </form>
+  </ion-list>
+
+</div>
+  
+</ion-content>

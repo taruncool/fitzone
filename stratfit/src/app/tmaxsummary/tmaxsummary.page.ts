@@ -52,7 +52,7 @@ export class TmaxsummaryPage implements OnInit {
   }
   backButtonAction() {
     this.modalCtrl.dismiss();
-    this.navCtrl.navigateForward('/profile');
+    this.navCtrl.navigateBack('tabs/tabs/profile');
   }
   backButtonClick() {
     console.log('// Back button function')
@@ -63,7 +63,7 @@ export class TmaxsummaryPage implements OnInit {
     // }else if(this.page_id==2){
 
       //this.navCtrl.push(ProfilePage);
-      this.navCtrl.navigateForward('/profile');
+      this.navCtrl.navigateBack('tabs/tabs//profile');
       
     //}
    

@@ -1,0 +1,29 @@
+<ion-content>
+
+	<div class="countryblck">
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+		<div class="datablck">
+			<p *ngIf="alertmsg">{{alertmsg}}</p>
+			<ion-list radio-group [(ngModel)]="phcode">
+			    <ion-item *ngFor="let country of countrydata">
+              <!-- checked="{{country.dialCode==phcode}}" -->
+				<ion-radio  value="{{country.dialCode}}"></ion-radio>
+				  <ion-label>{{country.name}}({{country.dialCode}} )</ion-label>
+				  
+				</ion-item>
+			</ion-list>
+		</div>
+		
+			<ion-row class="btncls" text-center>
+				<ion-col col-6 text-center>
+					<button ion-button block (click)="dismiss()">Cancel</button>
+				</ion-col>
+				<ion-col col-6 text-center>
+					<button ion-button block (click)="submit()">Ok</button>
+				</ion-col>
+			</ion-row>
+		
+	</div>
+
+</ion-content>    

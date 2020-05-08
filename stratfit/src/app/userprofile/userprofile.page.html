@@ -1,0 +1,60 @@
+<ion-header class=" head">
+  <ion-toolbar class="hedfm">
+    <ion-buttons ion-start >
+      <button ion-button icon-only (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </button>
+    </ion-buttons>
+    <ion-title><span>Manage</span>Profile</ion-title>
+    <ion-buttons end>
+        <button ion-button clear (click)="editProfile()">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profview">
+
+<div class="fulpad">
+    <ion-list no-lines>
+        <ion-item>
+          <ion-icon name="ios-person-outline"  color="primary" item-start></ion-icon>
+          <p>Name</p>
+          {{firstname}} {{lastname}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-mail-outline"  color="primary" item-start></ion-icon>
+          <p>Email</p>
+          {{email}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-call-outline"  color="primary" item-start></ion-icon>
+          <p>Mobile</p>
+          {{phone}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-contacts-outline"  color="primary" item-start></ion-icon>
+          <p>Gender</p>
+          {{gender}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
+          <p>DOB</p>
+          {{dob}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+          <p>Weight</p>
+          {{weight}} {{weightunit}}
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
+          <p>Height</p>
+          {{heightfeet}}' &nbsp; {{heightinc}}"
+        </ion-item>
+      </ion-list>
+</div>
+</ion-content>

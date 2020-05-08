@@ -4,7 +4,7 @@ import { global } from "../../../app/global";
 import { LoadData } from '../../../providers/loaddata';
 import { HttpClient } from '@angular/common/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { DietprofilePage } from '../dietprofile/dietprofile.page';
+import { DietprofilePage } from '../dietprofile.page';
 import { ApiService } from 'src/app/api.service';
 import { FilterfoodPage } from '../filterfood/filterfood.page';
 

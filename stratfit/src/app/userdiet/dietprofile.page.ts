@@ -1,14 +1,14 @@
 import { Component, OnInit, resolveForwardRef } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
-import { global } from "../../../app/global";
-import { LoadData } from '../../../providers/loaddata';
-import { ApiService } from '../../../app/api.service';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
+import { global } from '../global';
+import { LoadData } from '../../providers/loaddata';
+import { ApiService } from '../api.service';
 import { HttpClient } from '@angular/common/http';
-import {SqlStorageNew} from '../../../providers/sql-storage-new';
-import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { CalendarModule } from 'ion2-calendar';
-import { DiethistoryPage } from '../diethistory/diethistory.page';
-import { AddmealPage } from '../addmeal/addmeal.page';
+import {SqlStorageNew} from '../../providers/sql-storage-new';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+//import { CalendarModule } from 'ion4-calendar';
+import { DiethistoryPage } from './diethistory/diethistory.page';
+import { AddmealPage } from './addmeal/addmeal.page';
 
 @Component({
   selector: 'app-dietprofile',
@@ -122,7 +122,7 @@ export class DietprofilePage implements OnInit {
 
   constructor(public platform: Platform, 
      public nav: NavController,
-     public navParams: NavParams,
+    
      public sqlStorageNew: SqlStorageNew,   
      public toastCtrl: ToastController,
      private loadData: LoadData,
@@ -131,7 +131,7 @@ export class DietprofilePage implements OnInit {
      public http: HttpClient,
      public apiService: ApiService,
      public alertCtrl:AlertController, 
-     public calendarCtrl: CalendarModule) {
+     ) {//public calendarCtrl: CalendarModule
   }
 
   ngOnInit() {
@@ -185,7 +185,7 @@ export class DietprofilePage implements OnInit {
     if(this.lastname ==='null' || this.lastname ==='' || this.lastname ==='undefined'){
       this.lastname='';
     }
-    this.backNav = this.navParams.get("page");
+    //this.backNav = this.navParams.get("page");
     // if(this.dob ==='null' || this.dob ==='' || this.dob ==='undefined'){
     //   this.dob='N/A';
     // }else{
@@ -248,7 +248,7 @@ export class DietprofilePage implements OnInit {
     if(localStorage.getItem('dietGoal') === "" || localStorage.getItem('dietGoal') === null){
       
       this.dietMsg="WtM";
-     // localStorage.setItem('dietGoal',this.dietMsg);
+      localStorage.setItem('dietGoal',this.dietMsg);
 
     }else{
       

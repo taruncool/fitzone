@@ -878,7 +878,7 @@ export class DashboardPage implements OnInit {
         
         setTimeout(() => {
            this.getActivity(this.day_id);
-          //  this.loadData.stopLoading();
+            this.loadData.stopLoading();
          }, 500);
   
      }
@@ -903,7 +903,7 @@ export class DashboardPage implements OnInit {
         }         
       }
     );
-    // this.loadData.stopLoading(); 
+    this.loadData.stopLoading(); 
   }
 
   getTodayInfo() {
@@ -929,9 +929,9 @@ export class DashboardPage implements OnInit {
               var nextDay = new Date(todayDate1.getTime() + 1*24*60*60*1000);
               this.nextWorkoutDateStr = ('0' +(nextDay.getDate())).slice(-2) + '-' + ('0' +(nextDay.getMonth()+1)).slice(-2) + '-' +nextDay.getFullYear() 
               //this.showNextWorkoutDateRestDay();
-              //this.loadData.stopLoading();  
+              this.loadData.stopLoading();  
             } else {                  
-              // this.loadData.startLoading();         
+               this.loadData.startLoading();         
               this.sqlStorageNew.query("select * from plandays where status = 1 order by day_id desc").then(
                 planCompletedDay => {
                   if(planCompletedDay.res.rows.length > 0) {
@@ -962,14 +962,14 @@ export class DashboardPage implements OnInit {
                               this.todaySessionComplete = true;
                               localStorage.setItem('todayDayId',todayDayId);
                               this.showNextWorkoutDate(todayDayId);
-                              // this.loadData.stopLoading();
+                               this.loadData.stopLoading();
                             } else {
                               localStorage.setItem('todayDayId',todayDayId);
-                              // this.loadData.stopLoading();
+                               this.loadData.stopLoading();
                             }
                           });
   
-                          // this.loadData.stopLoading();
+                           this.loadData.stopLoading();
                       });
                       
                     } else {
@@ -983,7 +983,7 @@ export class DashboardPage implements OnInit {
                           this.todaySessionComplete = true;
                           localStorage.setItem('todayDayId',planCompletedDay.res.rows.item(k).day_id);
                           this.showNextWorkoutDate(planCompletedDay.res.rows.item(k).day_id);
-                          // this.loadData.stopLoading();
+                           this.loadData.stopLoading();
                         }
                       }                    
                       setTimeout(() => {
@@ -1007,7 +1007,7 @@ export class DashboardPage implements OnInit {
                                         this.showNextWOBtn = false;
                                         this.currentMicroID = planCompletedDay.res.rows.item(0).micro_id;
                                         this.showNextWorkoutDateRestDay();
-                                        // this.loadData.stopLoading();                              
+                                         this.loadData.stopLoading();                              
                                       } else {
                                         let workoutLeftDays = workoutLeftObj.res.rows.item(0).totalWDays;
                                         if(daysLeft >= workoutLeftDays ){
@@ -1020,11 +1020,11 @@ export class DashboardPage implements OnInit {
                                                 this.nextSessioId = laodWDataObj.res.rows.item(0).day_id;
                                                 this.currentMicroID = planCompletedDay.res.rows.item(0).micro_id;
                                                 this.showNextWorkoutDateRestDay();
-                                                // this.loadData.stopLoading();
+                                                 this.loadData.stopLoading();
                                               } else {
                                                 let todayDayId = laodWDataObj.res.rows.item(0).day_id;
                                                 localStorage.setItem('todayDayId',todayDayId);
-                                                // this.loadData.stopLoading();
+                                                 this.loadData.stopLoading();
                                               }
                                           });
                                         } else {
@@ -1036,7 +1036,7 @@ export class DashboardPage implements OnInit {
                                               console.log(workoutIndex);
                                               let todayDayId = laodWData1Obj.res.rows.item(workoutIndex).day_id;
                                               localStorage.setItem('todayDayId',todayDayId);
-                                              // this.loadData.stopLoading();
+                                               this.loadData.stopLoading();
                                             }
                                           );
                                         }
@@ -1049,7 +1049,7 @@ export class DashboardPage implements OnInit {
                                     nextMicrodata => {
                                       if(nextMicrodata.res.rows.length === 0) {
                                         this.planComplete = true;
-                                        // this.loadData.stopLoading();
+                                         this.loadData.stopLoading();
                                       } else {
                                         let nextMicroID = nextMicrodata.res.rows.item(0).micro_id;
                                       
@@ -1061,7 +1061,7 @@ export class DashboardPage implements OnInit {
                                               this.showNextWOBtn = false;
                                               this.currentMicroID = nextMicroID;
                                               this.showNextWorkoutDateRestDay();
-                                              // this.loadData.stopLoading();                              
+                                               this.loadData.stopLoading();                              
                                             } else {
                                               let workoutLeftDays = workoutLeftObj.res.rows.item(0).totalWDays;
                                               if(daysLeft >= workoutLeftDays ){
@@ -1074,11 +1074,11 @@ export class DashboardPage implements OnInit {
                                                       this.nextSessioId = laodWDataObj.res.rows.item(0).day_id;
                                                       this.currentMicroID = nextMicroID;
                                                       this.showNextWorkoutDateRestDay();
-                                                      // this.loadData.stopLoading();
+                                                       this.loadData.stopLoading();
                                                     } else {
                                                       let todayDayId = laodWDataObj.res.rows.item(0).day_id;
                                                       localStorage.setItem('todayDayId',todayDayId);
-                                                      // this.loadData.stopLoading();
+                                                       this.loadData.stopLoading();
                                                     }
                                                 });
                                               } else {
@@ -1090,7 +1090,7 @@ export class DashboardPage implements OnInit {
                                                     console.log(workoutIndex);
                                                     let todayDayId = laodWData1Obj.res.rows.item(workoutIndex).day_id;
                                                     localStorage.setItem('todayDayId',todayDayId);
-                                                    // this.loadData.stopLoading();
+                                                    this.loadData.stopLoading();
                                                   }
                                                 );
                                               }
@@ -1127,13 +1127,13 @@ export class DashboardPage implements OnInit {
                                             //this.noplan = true;
                                             //this.sqlStorageNew.query("update plandays set status = 1 where day_id = " + todayDayId)
                                           }
-                                          // this.loadData.stopLoading();
+                                           this.loadData.stopLoading();
                                       });
                                     } else {
                                       this.planComplete = true;
-                                      // this.loadData.stopLoading();
+                                       this.loadData.stopLoading();
                                     }
-                                    // this.loadData.stopLoading();
+                                    this.loadData.stopLoading();
                                 });
                               }
                           }
@@ -1145,7 +1145,7 @@ export class DashboardPage implements OnInit {
                       
                         let todayDayId = planFirstDay.res.rows.item(0).day_id;
                         localStorage.setItem('todayDayId',todayDayId);
-                        // this.loadData.stopLoading();
+                        this.loadData.stopLoading();
                     });
                     
                   }
@@ -1162,7 +1162,7 @@ export class DashboardPage implements OnInit {
             }
           
             setTimeout(() => {
-            // this.loadData.stopLoading();
+             this.loadData.stopLoading();
             }, 300);
             
             this.barValue = this.percentageDays/100;
@@ -1171,7 +1171,7 @@ export class DashboardPage implements OnInit {
             console.log(this.planInfo);
             this.platform.ready().then(() => {
             setTimeout(() => {
-              // this.loadData.startLoading(); 
+               this.loadData.startLoading(); 
               if(this.totalreps == '' || this.totalweight == '' || this.Tonnage == '' || this.cal== '' || this.Work== ''){
                 this.getAnalyticsData();
                 }else{
@@ -1202,12 +1202,12 @@ export class DashboardPage implements OnInit {
               });
             
             
-            // this.loadData.stopLoading();
+             this.loadData.stopLoading();
           }
         }
       ).catch(err => {
         console.error('--2--'+JSON.stringify(err));
-        // this.loadData.stopLoading();
+         this.loadData.stopLoading();
       });
      
     }, 500);
@@ -1425,7 +1425,7 @@ export class DashboardPage implements OnInit {
 		// if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
-			// this.loadData.startLoading();
+			 this.loadData.startLoading();
 			// var headers = new Headers();
 			var data = { 'plan_id':  this.planInfo.id,'firstPlan': "false" ,'deviceDate':deviceDate+' 00:00:00'};
 			// headers.append('Content-Type', 'application/json');
@@ -1442,7 +1442,7 @@ export class DashboardPage implements OnInit {
           var nextrenewDate = this.loadData.changeDateFormat(res.nextRenewalDate,'db');
           var dayOff = res.dayOff;
           this.sqlStorageNew.query("UPDATE userplan SET status=1,startdate = '" + startDate + "',nextrenewaldate = '" + nextrenewDate + "', dayOff = '" + dayOff +"' WHERE status=3").then(data=>{
-            // this.loadData.stopLoading();
+             this.loadData.stopLoading();
             localStorage.setItem('generalwarmupcmpl','false');
             this.navCtrl.navigateForward(this.router.url + '/dashboard/');
             //this.initLoad();
@@ -1450,7 +1450,7 @@ export class DashboardPage implements OnInit {
             console.error('--12--'+JSON.stringify(err));
           });
 				}else{
-          // this.loadData.stopLoading();
+           this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
           // let toast = await this.toastCtrl.create({
           //   message: "Unable to process your request. Please try after some time",
@@ -1629,7 +1629,7 @@ public getExercise(exercise_id){
     // if(this.totalweight == NaN || this.Tonnage == NaN || this.Work == NaN || this.cal == NaN){
     if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
       this.notActive = true;
-      // this.loadData.stopLoading();
+       this.loadData.stopLoading();
     }else{
     localStorage.setItem('totalreps',this.totalreps);
     // localStorage.setItem('tmax',this.Tmax);
@@ -1639,7 +1639,7 @@ public getExercise(exercise_id){
     localStorage.setItem('cal',this.cal);
     this.notActive = false;
     }
-    // this.loadData.stopLoading();
+     this.loadData.stopLoading();
 }
 openTab(page){
   if(page==='store'){

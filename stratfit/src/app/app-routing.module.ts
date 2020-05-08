@@ -148,7 +148,7 @@ const routes: Routes = [
   },
   {
     path: 'dietprofile',
-    loadChildren: () => import('./userdiet/dietprofile/dietprofile.module').then( m => m.DietprofilePageModule)
+    loadChildren: () => import('./userdiet/dietprofile.module').then( m => m.DietprofilePageModule)
   },
   {
     path: 'filterfood',
@@ -162,6 +162,11 @@ const routes: Routes = [
     path: 'password',
     loadChildren: () => import('./profile/password/password.module').then( m => m.PasswordPageModule)
   },
+  {
+    path: 'userprofile',
+    loadChildren: () => import('./userprofile/userprofile.module').then( m => m.UserprofilePageModule)
+  },
+
 ];
 @NgModule({
   imports: [

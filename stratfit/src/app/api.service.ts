@@ -435,7 +435,17 @@ export class ApiService {
           data);
   }
   public addmeal(mealInfoJson,token){
-    return this.http.post(global.baseURL + '/userplan/addmeal/',mealInfoJson, {
+    return this.http.post(global.baseURL + 'userplan/addmeal/',mealInfoJson, {
+      headers: new HttpHeaders({
+       'Content-Type':  'application/json',
+       'Authorization': token
+        })
+        }).pipe (data =>
+          data);
+  }
+
+  public getCountryData(token){
+    return this.http.post(global.baseURL + 'utility/getcountrydata/', {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
        'Authorization': token
