@@ -257,13 +257,7 @@ export class PlanrenewalPage implements OnInit {
       // this.loadData.startLoading();
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'program/viewplan/', creds, { headers: headers })
-        // .subscribe(response => {
-        //     this.loadData.stopLoading();
-        //     if(response.json()){
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
               let res = JSON.parse(userStr);
@@ -273,17 +267,12 @@ export class PlanrenewalPage implements OnInit {
               this.getInitLevel();
             }else{
               this.toastmsg("Please check your internet connectivity and try again");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
             }
         },(err) => {
           // this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
-            this.navCtrl.navigateForward('login');
+            this.navCtrl.navigateForward('/login');
             //this.app.getRootNav().setRoot(LoginPage);
           }
         });
@@ -433,12 +422,7 @@ export class PlanrenewalPage implements OnInit {
         // this.loadData.startLoading();
       }
       var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
 			return new Promise((resolve) => {
-				// this.http.get(global.baseURL + 'subscriber/sessionCheck/', { headers: headers })
-				// 	.subscribe(res => {
-        //     if(res.json().success){
         this.apiService.sessionCheck(this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -499,16 +483,12 @@ export class PlanrenewalPage implements OnInit {
   }
 
   async planrenewal(){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       var date = new Date();
       this.todayDate = date.getFullYear() + '-' + ('0' +((date.getMonth() + 1))).slice(-2) + '-' +  ('0' +(date.getDate())).slice(-2);
       var data = {"planid":this.planData.id,"startdate":this.todayDate+' 00:00:00','plancomplete':this.planComplete,"deviceDate":this.todayDate+' 00:00:00','transactionId':this.transactionid};
       var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
       return new Promise((resolve) =>{
-        // this.http.post(global.baseURL + 'userprogram/updaterenewaldate/', data, {headers: headers})
-        //   .subscribe(response => {
         this.apiService.updaterenewaldate(data,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -546,27 +526,16 @@ export class PlanrenewalPage implements OnInit {
             }
         });
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
   }
   
   async checkQueryHit(resvalue){
-		/*this.loadData.checkQuery(res.tmax,false,false).then(data=>{
-			this.loadData.stopLoading();
-			for (let i=0; i<res.plans.length; i++) {
-				var startDateArr = this.loadData.changeDateFormat(res.plans[i].startDate,'db');
-				var renewDateArr = this.loadData.changeDateFormat(res.plans[i].nextRenewalDate,'db');
-				this.sqlStorage.query("INSERT INTO userplan (id,startDate, nextrenewaldate, plan_id, user_id, status,dayOff,seasonDate) VALUES ('"+res.plans[i].id+"','"+startDateArr+"', '"+renewDateArr+"', '"+res.plans[i].plan_id+"', '"+res.plans[i].user_id+"', '"+res.plans[i].status+"', '"+res.plans[i].dayOff+"', '"+res.plans[i].seasonDate+"')");
-			}
-			this.loadData.insertPlan(res.plans);
-      //this.navCtrl.push(MysubscriptionPage);
-      this.navCtrl.setRoot(TodayworkoutPage);
-		});*/
     for(var j=0;j<resvalue.data.plans.length;j++){
       var planprice;
       if(this.platform.is('ios')) {
@@ -617,6 +586,14 @@ export class PlanrenewalPage implements OnInit {
         //});
       }
     }
+  }
+
+  onPlanImageError(){
+    this.plandetails.planPhoto ="assets/images/plan_2.png";
+  }
+
+  onAvatarError(){
+    this.plandetails.coachPhoto = "assets/images/icon.png";
   }
   
   public backButtonAction(){

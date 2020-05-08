@@ -116,7 +116,7 @@ public nativeFbLogin(){
 async sociallogin(socialtype, accessToken, clientid, code) {
   this.clearData();
   // if (localStorage.getItem('internet') === 'online') {
-     this.loadData.startLoading();
+    // this.loadData.startLoading();
     var fbServerUrl = global.baseURL.replace('/services/services/stratservices/','');
     // var headers = new Headers();
      var creds = { backend: socialtype, clientId: clientid, redirectUri: fbServerUrl, access_token: accessToken, code: code, currencytype:this.currencytype, deviceType:this.devicetype };
@@ -216,7 +216,7 @@ async login(user) {
   console.log("login page.....");
   this.clearData();
   //  if (localStorage.getItem('internet') === 'online'){
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     // var headers = new Headers();
      var creds = { email: user.email, password: user.password, deviceType:this.devicetype };
     // var creds = { email: "siriprathapreddy@gmail.com", password: "123456", deviceType:"android" };

@@ -43,7 +43,7 @@ export class CoachprofilePage implements OnInit {
 
   ngOnInit() {
     this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
-      this.ga.trackView('coachprofile');
+      // this.ga.trackView('coachprofile');
 
       if (this.platform.is('ios')) {
         this.devicetype = "ios";

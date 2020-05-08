@@ -11,7 +11,7 @@ export class PlanpreviewPage implements OnInit {
   planinfo:any;
   planname:any;
 
-  constructor(public navCtrl: NavController, public params: NavParams, public modalCtrl: ModalController, public navParams: NavParams){
+  constructor(public navCtrl: NavController,public modalCtrl: ModalController, public navParams: NavParams){
     this.planinfo = navParams.get("PlanDetails");
     this.planname = navParams.get("PlanName");
     console.log(this.planinfo);

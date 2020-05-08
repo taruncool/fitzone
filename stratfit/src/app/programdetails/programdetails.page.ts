@@ -374,8 +374,8 @@ export class ProgramdetailsPage implements OnInit {
   }
 
 
-  public activationalert() {
-    this.prompt = this.alertCtrl.create({
+  async activationalert() {
+    this.prompt =  await this.alertCtrl.create({
       message: 'You have an active workout program. Are you sure you want to activate this program?',
       buttons: [
         {
@@ -695,11 +695,6 @@ export class ProgramdetailsPage implements OnInit {
             }else{
               // this.loadData.stopLoading();
               this.toastmsg(res.message);
-                // this.prompt = await this.alertCtrl.create({
-                //     message: response.json().message,
-                //     buttons: ['OK']
-                // });
-                // this.prompt.present();
             }
           },(err) => {
                 // this.loadData.stopLoading();

@@ -66,15 +66,8 @@ export class PlateweightsPage implements OnInit {
       this.displayPtWts = this.plateKgsArr;
     }
 
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      // this.token = localStorage.getItem('usertoken');
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
-      // this.http.get(global.baseURL + 'subscriber/getplateweights/', { headers: headers })
-      //     .subscribe(response => {
-      //     if(response.json().success){
       this.apiService.getplateweights(this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -113,11 +106,6 @@ export class PlateweightsPage implements OnInit {
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Unable to process your request. Please try after some time",
-            //   duration: 3000
-            // });
-            // toast.present();
           }
       },(err) => {
         this.loadData.stopLoading();
@@ -126,13 +114,13 @@ export class PlateweightsPage implements OnInit {
           this.navCtrl.navigateForward('/login');
         }
       });
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
   tapEvent(ind) {
     if(this.displayPtWts[ind].count===10){
@@ -151,7 +139,7 @@ export class PlateweightsPage implements OnInit {
     toast.present();
   }
   async savePWtVal(){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       var dbweights = false;
       var pweights = 0;
       for(var bind= 0;bind<this.displayBarbelWts.length;bind++){
@@ -167,13 +155,7 @@ export class PlateweightsPage implements OnInit {
       if(dbweights && (pweights>1)){
         var data ={'wtinfo':this.displayBarbelWts.concat(this.displayPtWts)};
         var headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Authorization', this.token);
         return new Promise((resolve) =>{
-          // this.http.post(global.baseURL + 'subscriber/createplatewts/', data, { headers: headers })
-          // .subscribe(response => {
-          //   //console.log(response.json().message);
-          //   this.plateWtsres= response.json().plateWts;
           this.apiService.createplatewts(data,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -189,11 +171,6 @@ export class PlateweightsPage implements OnInit {
             });
             this.modalCtrl.dismiss();
             this.toastmsg(res.message);
-            // let toast = await this.toastCtrl.create({
-            //   message: response.json().message,
-            //   duration: 3000
-            // });
-            // toast.present();
           },(err) => {
             console.log("Something wrong please try again later...");
           });
@@ -212,13 +189,13 @@ export class PlateweightsPage implements OnInit {
         this.prompt.present();
       }
         
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   public backButtonAction(){

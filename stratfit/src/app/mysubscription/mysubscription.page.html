@@ -15,18 +15,21 @@
 <ion-content class="store sview">
   <ion-card class="nobg " >
       <ion-row class="pcover rmcov">
-          
-          <video webkit-playsinline playsinline controls controlsList="nodownload"
-          src="http://stratfit.net/ProgramVideos/{{plandetails.id}}-preview.mp4" poster="assets/images/plan_2.png" >
-          </video>
+        <img src="{{plandetails.planPhoto}}" (error)="onImageError(plandetails)">
+        <div class="play" (click)="playVideo(plandetails.id)">
+           <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+               <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+               <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+           </svg>
+        </div>
       </ion-row>
 
       <ion-item class="poverlay nobg" >
-          <em>{{plandetails.duration_weeks}} Weeks</em>
+          <em *ngIf="isDuration">{{plandetails.duration_weeks}} Weeks</em>
           <h2>{{plandetails.planName}}</h2>
           <ion-row class="prow">
               <ion-avatar item-start > 
-                  <img src="{{plandetails.coachPhoto}}" />
+                  <img src="{{plandetails.coachPhoto}}" (error)="onAvatarError()" />
               </ion-avatar>
               <ion-col> <h6>{{plandetails.createdBy}}</h6></ion-col>
           </ion-row>

@@ -211,5 +211,15 @@ export class PrivacypolicyPage implements OnInit {
         this.heading = "Privacy Policy"
     }
   }
-
+  toggleDetails(data) {
+    if(this.preData!==''){
+      this.preData.showDetails = false;
+    }
+    if (data.showDetails) {
+        data.showDetails = false;
+    } else {
+        data.showDetails = true;
+    }
+    this.preData = data;
+  }
 }

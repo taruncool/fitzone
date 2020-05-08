@@ -7,6 +7,7 @@ import { ApiService } from '../../app/api.service';
 import { LoadData } from '../../providers/loaddata';
 import {StartdatePage} from '../startdate/startdate.page';
 import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 
 @Component({
   selector: 'app-mysubscription',
@@ -44,11 +45,21 @@ export class MysubscriptionPage implements OnInit {
   rate;
   futureplanid;
   planState;
+  isDuration = true;
 
-  constructor(public navCtrl: NavController,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
+  constructor(public navCtrl: NavController,public navParams: NavParams,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
   }
   backButtonAction() {
     this.modalCtrl.dismiss();
+  }
+
+  onImageError(plan){
+    plan.planPhoto = "assets/images/plan_2.png";
+    console.log("plan photo...");
+  }
+
+  onAvatarError(){
+    this.plandetails.coachPhoto = "assets/images/logo.png";
   }
  async ngOnInit() {
     //this.ga.trackView('mysubscription');
@@ -68,7 +79,7 @@ export class MysubscriptionPage implements OnInit {
     }
     console.log("Future Plan Id",this.futureplanid)
    
-   this.loadData.startLoading();
+    // this.loadData.startLoading();
 
     this.sqlStorageNew.query("select p.id, p.planName, p.createdBy,p.createdByImg, p.price, p.planPhoto, p.planDescription, p.ability, p.goals, p.duration_weeks, p.totalsubscribers ,u.startdate, u.nextrenewaldate, u.plan_id, u.dayOff, u.seasonDate from userplan u left join plan p on u.plan_id = p.id")
     .then(response => {
@@ -78,14 +89,13 @@ export class MysubscriptionPage implements OnInit {
             this.plandetails = response.res.rows.item(0);
             console.log(this.plandetails);
             this.activeplanid = this.plandetails.id;
-           // this.viwPlanStructure(this.activeplanid);
+            this.plandetails.coachPhoto = this.plandetails.createdByImg;//this.s3url+""
+            this.plandetails.planPhoto =this.plandetails.planPhoto;// this.s3url+""+
+            if(this.plandetails.duration_weeks === "null"){
+              this.isDuration = false;
+            }
             this.existingUserRating(this.activeplanid);
             if (this.platform.is('ios') && this.plandetails.price !="Free") {
-              // var headers = new Headers();
-              // headers.append('Content-Type', 'application/json');
-              // headers.append('Authorization', this.token);
-              // this.http.get(global.baseURL + 'utility/getpriceMap/', { headers: headers })
-              //   .subscribe(response => {
               this.apiService.getpriceMap(this.token).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
@@ -98,7 +108,7 @@ export class MysubscriptionPage implements OnInit {
                       this.plandetails.price = this.currencyCode+roundPrice;
                   }
               },(err) => {
-               this.loadData.stopLoading();
+                // this.loadData.stopLoading();
                 if(err.status === 403){
                     this.loadData.forbidden();
                     this.navCtrl.navigateForward('/login');
@@ -158,11 +168,11 @@ export class MysubscriptionPage implements OnInit {
               this.activeseason = false;
             }
 
-           this.loadData.stopLoading();
+            // this.loadData.stopLoading();
       
           }
       }else{
-       this.loadData.stopLoading();
+        // this.loadData.stopLoading();
       }
     });
   }
@@ -176,15 +186,9 @@ export class MysubscriptionPage implements OnInit {
   }
 
   async existingUserRating(activePlanId){
-    // if(localStorage.getItem('internet')==='online'){
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
+    if(localStorage.getItem('internet')==='online'){
       var creds =  {"user_id":this.loginuserid, "plan_id":activePlanId,"get_rating":1};
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'program/createPlanRating/', creds, { headers: headers })
-        // .subscribe(response => {
-        //     if(response.json().success){
         this.apiService.createPlanRating(creds,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -199,43 +203,40 @@ export class MysubscriptionPage implements OnInit {
           }
         });
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
+  }
+  playVideo(idplan){
+    
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      //shouldAutoClose: true,
+      //controls: false
+    };
+    
+    this.streamingMedia.playVideo('http://stratfit.net/ProgramVideos/'+this.plandetails.id+'-preview.mp4', options);    
+
   }
 
   async planRating(rate){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       var creds =  {"user_id":this.loginuserid, "plan_id":this.activeplanid, "rating":rate};
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'program/createPlanRating/', creds, { headers: headers })
-        // .subscribe(response => {
-        //     if(response.json()){
         this.apiService.createPlanRating(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
             if(res.success){
               this.rate = rate;
               this.toastmsg(res.message);
-              // let toast = await this.toastCtrl.create({
-              //   message: res.message,
-              //   duration: 3000
-              // });
-              // toast.present();
             }else{
               this.toastmsg("Unable to process your request. Please try after some time");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
             }
         },(err) => {
           if(err.status === 403){
@@ -246,42 +247,30 @@ export class MysubscriptionPage implements OnInit {
         });
 
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
   }
 
   async viwPlanStructure(cplan_id){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       
       var creds = {"plan_id":cplan_id};
       var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'program/viewplan/', creds, { headers: headers })
-        // .subscribe(response => {
-        //     this.loadData.stopLoading();
-        //     if(response.json()){
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
-            this.loadData.stopLoading();
+            // this.loadData.stopLoading();
               if(res.success){
               this.PeriodData = res.plan.PeriodDetails;
-              //this.PeriodData = JSON.parse(response.json().plan.PlanJson).PeriodDetails;
               this.getInitLevel();
             }else{
               this.toastmsg("Please check your internet connectivity and try again");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
             }
         },(err) => {
           this.loadData.stopLoading();
@@ -292,13 +281,13 @@ export class MysubscriptionPage implements OnInit {
           }
         });
     })
-  //  }else{
-  //    let toast = await this.toastCtrl.create({
-  //      message: "Please check your internet connectivity and try again",
-  //      duration: 3000
-  //    });
-  //    toast.present();
-  //  }
+   }else{
+     let toast = await this.toastCtrl.create({
+       message: "Please check your internet connectivity and try again",
+       duration: 3000
+     });
+     toast.present();
+   }
  }
 
   getInitLevel(){
