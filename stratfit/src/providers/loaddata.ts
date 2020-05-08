@@ -90,19 +90,50 @@ export class LoadData {
     });
     this.loading.present();
   }
+  async startLoading() {
+    this.loadCount=true;
+    return await this.loadingCtrl.create({
+      // duration: 5000,
+    }).then(a => {
 
- async startLoading(){
+      a.present();
+
+        a.onDidDismiss().then((dis) => {
+          console.log('Loading dismissed! after 2 Seconds');
+        });
+      // a.present().then(() => {
+      //   console.log('presented');
+      //   if (!this.isLoading) {
+      //     a.dismiss().then(() => console.log('abort presenting'));
+      //   }
+      // });
+    });
+  }
+
+  async stopLoading() {
+    setTimeout(() => {
+      this.loadingCtrl.dismiss();
+      this.isLoading = false;
+    }, 1000);
+    //await this.loadingCtrl.dismiss().then(() => console.log('dismissed'));
+  }
+ async startLoadingOld(){
     this.loadCount=true;
     this.loading = await this.loadingCtrl.create({
       spinner: 'circles',
       message: 'Loading please wait',
     });
-    this.loading.present();
+    await this.loading.present();
   }
-  stopLoading(){
+  async stopLoadingOld(){
     if(this.loadCount){
-      this.loading.dismissAll();
-      this.loadCount=false;
+      await this.loading.dismiss()
+      .then(()=>{
+        this.loading = null;
+      })
+      .catch(e => console.log(e));
+      //this.loading.dismiss();
+      //this.loadCount=false;
     }
   }
   getProgressBar(percent) {

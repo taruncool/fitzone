@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import { ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -15,7 +15,7 @@ export class FeedbackPage implements OnInit {
   firstname;
   feedback=[];
 
-  constructor(public navCtrl: NavController,private apiService: ApiService, public navParams: NavParams, public modalCtrl: ModalController, public http:HttpClient, public toastCtrl: ToastController, private loadData: LoadData) {
+  constructor(public navCtrl: NavController,private apiService: ApiService, public modalCtrl: ModalController, public http:HttpClient, public toastCtrl: ToastController, private loadData: LoadData) {
     this.email = localStorage.getItem('email');
     this.firstname = localStorage.getItem('firstname');
   }

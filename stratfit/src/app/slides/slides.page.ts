@@ -232,13 +232,13 @@ export class SlidesPage implements OnInit {
           if(localStorage.getItem('planSet')==='true'){
           
     
-            this.navCtrl.navigateForward('/dashboard');
+            this.navCtrl.navigateForward('/tabs/tabs/dashboard');
           }else{
             localStorage.setItem('redirectPage','store');
             this.navCtrl.navigateForward('tabs/tabs/store');
           }
         }else{
-          this.navCtrl.navigateForward('tabs/tabs/store/fitnessinput');
+          this.navCtrl.navigateForward('/fitnessinput');
         }
       }
     }

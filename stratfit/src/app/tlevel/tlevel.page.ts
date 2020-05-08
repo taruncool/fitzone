@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -16,7 +16,7 @@ export class TlevelPage implements OnInit {
   selectedLevel;
   userId;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,private apiService: ApiService, private loadData: LoadData, public http: HttpClient, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public http: HttpClient, public toastCtrl: ToastController, public modalCtrl: ModalController) {
 
     this.items = [
       {title:"Untrained",desc:"I haven't done any resistance training in over 6 months and have a non-physical job.",expanded: false,value:1},

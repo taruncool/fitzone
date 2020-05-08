@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController,NavParams } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-faqs',
@@ -111,7 +111,7 @@ export class FaqsPage implements OnInit {
                 };
   data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
   }
 
   ngOnInit() {

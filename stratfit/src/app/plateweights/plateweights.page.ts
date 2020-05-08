@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -38,8 +38,8 @@ export class PlateweightsPage implements OnInit {
   weightcalpage;
   prompt;
   
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController,private apiService: ApiService, public navParams: NavParams, private http: HttpClient, public sqlStorageNew: SqlStorageNew,public toastCtrl: ToastController,public loadData:LoadData, public modalCtrl: ModalController) {
-    this.weightcalpage = navParams.get("wtcalpopuppage");
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController,private apiService: ApiService, private http: HttpClient, public sqlStorageNew: SqlStorageNew,public toastCtrl: ToastController,public loadData:LoadData, public modalCtrl: ModalController) {
+   // this.weightcalpage = navParams.get("wtcalpopuppage");
   }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
@@ -45,7 +45,7 @@ export class MysubscriptionPage implements OnInit {
   futureplanid;
   planState;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
+  constructor(public navCtrl: NavController,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
   }
   backButtonAction() {
     this.modalCtrl.dismiss();
@@ -68,7 +68,7 @@ export class MysubscriptionPage implements OnInit {
     }
     console.log("Future Plan Id",this.futureplanid)
    
-    // this.loadData.startLoading();
+   this.loadData.startLoading();
 
     this.sqlStorageNew.query("select p.id, p.planName, p.createdBy,p.createdByImg, p.price, p.planPhoto, p.planDescription, p.ability, p.goals, p.duration_weeks, p.totalsubscribers ,u.startdate, u.nextrenewaldate, u.plan_id, u.dayOff, u.seasonDate from userplan u left join plan p on u.plan_id = p.id")
     .then(response => {
@@ -98,7 +98,7 @@ export class MysubscriptionPage implements OnInit {
                       this.plandetails.price = this.currencyCode+roundPrice;
                   }
               },(err) => {
-                // this.loadData.stopLoading();
+               this.loadData.stopLoading();
                 if(err.status === 403){
                     this.loadData.forbidden();
                     this.navCtrl.navigateForward('/login');
@@ -158,11 +158,11 @@ export class MysubscriptionPage implements OnInit {
               this.activeseason = false;
             }
 
-            // this.loadData.stopLoading();
+           this.loadData.stopLoading();
       
           }
       }else{
-        // this.loadData.stopLoading();
+       this.loadData.stopLoading();
       }
     });
   }
@@ -270,7 +270,7 @@ export class MysubscriptionPage implements OnInit {
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
-            // this.loadData.stopLoading();
+            this.loadData.stopLoading();
               if(res.success){
               this.PeriodData = res.plan.PeriodDetails;
               //this.PeriodData = JSON.parse(response.json().plan.PlanJson).PeriodDetails;

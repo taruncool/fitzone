@@ -158,6 +158,10 @@ const routes: Routes = [
     path: 'viewmeal',
     loadChildren: () => import('./userdiet/viewmeal/viewmeal.module').then( m => m.ViewmealPageModule)
   },
+  {
+    path: 'password',
+    loadChildren: () => import('./profile/password/password.module').then( m => m.PasswordPageModule)
+  },
 ];
 @NgModule({
   imports: [

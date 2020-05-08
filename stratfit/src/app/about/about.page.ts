@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController,ModalController, NavParams } from '@ionic/angular';
+import { NavController,ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +8,7 @@ import { NavController,ModalController, NavParams } from '@ionic/angular';
 })
 export class AboutPage implements OnInit {
   appVersion;
-  constructor(public navCtrl: NavController,public modalCtrl: ModalController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController,public modalCtrl: ModalController) {}
 
   ngOnInit() {
     this.appVersion = localStorage.getItem('appVersion');

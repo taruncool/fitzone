@@ -32,11 +32,12 @@ import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
 import { ProgramdetailsPage } from './programdetails/programdetails.page';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage],
   entryComponents: [ProgressloginPage,ProgramdetailsPage],
-  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
+  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule,IonicRatingModule, NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],
   providers: [

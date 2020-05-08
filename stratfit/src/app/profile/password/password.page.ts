@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController, ModalController,ToastController,NavParams, Platform, LoadingController } from '@ionic/angular';
+import { NavController, AlertController, ModalController,ToastController, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Headers } from '@angular/http';
@@ -23,7 +23,7 @@ export class PasswordPage implements OnInit {
   public showNewPass = false;
   public showConfirmPass = false;
 
-  constructor(public navCtrl: NavController, public params: NavParams,private apiService:ApiService, public modalCtrl: ModalController, public toastCtrl: ToastController, private http:HttpClient, private loadData: LoadData){
+  constructor(public navCtrl: NavController,private apiService:ApiService, public modalCtrl: ModalController, public toastCtrl: ToastController, private http:HttpClient, private loadData: LoadData){
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit,ElementRef,Renderer, ViewChild } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,IonInput,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,IonInput,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
@@ -45,10 +45,10 @@ export class TmaxsummaryPage implements OnInit {
   };
   prompt;
 
-  constructor(public platform: Platform,private apiService: ApiService, public navCtrl: NavController,private selector: WheelSelector, private alertCtrl: AlertController,public modalCtrl: ModalController,private selectorWheel: WheelSelector, public navParams: NavParams,public toastCtrl: ToastController, private http:HttpClient,private loadData:LoadData,private renderer: Renderer, private elementRef: ElementRef, private ga: GoogleAnalytics,public sqlStorageNew: SqlStorageNew) {
+  constructor(public platform: Platform,private apiService: ApiService, public navCtrl: NavController,private selector: WheelSelector, private alertCtrl: AlertController,public modalCtrl: ModalController,private selectorWheel: WheelSelector, public toastCtrl: ToastController, private http:HttpClient,private loadData:LoadData,private renderer: Renderer, private elementRef: ElementRef, private ga: GoogleAnalytics,public sqlStorageNew: SqlStorageNew) {
     this.token = localStorage.getItem('usertoken');
     //this.platform.registerBackButtonAction(() => this.backButtonClick)
-    this.page_id = navParams.get('page');
+    //this.page_id = navParams.get('page');
   }
   backButtonAction() {
     this.modalCtrl.dismiss();
@@ -56,16 +56,16 @@ export class TmaxsummaryPage implements OnInit {
   }
   backButtonClick() {
     console.log('// Back button function')
-    if(this.page_id==1){
+    // if(this.page_id==1){
 
-      this.navCtrl.navigateForward('/todayworkout');
+    //   this.navCtrl.navigateForward('/todayworkout');
 
-    }else if(this.page_id==2){
+    // }else if(this.page_id==2){
 
       //this.navCtrl.push(ProfilePage);
       this.navCtrl.navigateForward('/profile');
       
-    }
+    //}
    
   }
   // ionViewDidLoad() {
@@ -348,11 +348,11 @@ editAllTmax(index,ex_id,ex_tmax){
   }
   ngOnInit() {
     this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
-    //this.platform.backButton.subscribe(async () => {
+    this.platform.backButton.subscribe(async () => {
     
-     // todo something
-     // this.backButtonClick();
-   // });
+     //todo something
+     this.backButtonClick();
+   });
 
     this.initialData();
   }
