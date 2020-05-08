@@ -1,7 +1,7 @@
 <ion-header class=" head">
-  <!-- <ion-navbar class="hedfm"> -->
-    <ion-buttons ion-start >
-      <ion-button  icon-only (click)="backtowelcome()">
+ <div class="hedfm"> 
+    <ion-buttons  slot="start" >
+      <ion-button slot="icon-only" (click)="backtowelcome()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
@@ -14,15 +14,17 @@
     <ion-buttons end>
       <button ion-button (click)="updateProfile()">Update </button>
     </ion-buttons>-->
-  <!-- </ion-navbar> -->
+  </div> 
+
 </ion-header>
 
 
 <ion-content>
+  <div class="fulpad">
   <ion-list class="inputs">
     <form #registerForm="ngForm">
     <ion-item class="sbgw"> 
-      <ion-label floating>
+      <ion-label position="floating">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 654.348 654.348" xml:space="preserve">
           <g>
               <path d="M466.121,401.586c52.287-41.184,85.985-104.92,85.985-176.654C552.106,100.708,451.398,0,327.174,0
@@ -40,7 +42,7 @@
     </ion-item>
 
     <ion-item class="sbgw" >
-        <ion-label floating>
+        <ion-label position="floating">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 31.012 31.012"  xml:space="preserve">
             <g>
@@ -65,46 +67,47 @@
         </ion-label>
         <ion-input  type="email" placeholder="Enter Email Address *" name="email" [(ngModel)]="user.email" required></ion-input>
       </ion-item>
+
       <ion-item class="sbgw"> 
-          <ion-label floating>
+          <ion-label position="floating">
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 512 512" xml:space="preserve">
                   <g>
-                      <path d="M230.792,354.313l-6.729,60.51c-0.333,3.01,0.635,6.031,2.656,8.292c2.021,2.26,4.917,3.552,7.948,3.552h42.667
-                          c3.031,0,5.927-1.292,7.948-3.552c2.021-2.26,2.99-5.281,2.656-8.292l-6.729-60.51c10.927-7.948,17.458-20.521,17.458-34.313
-                          c0-23.531-19.135-42.667-42.667-42.667S213.333,296.469,213.333,320C213.333,333.792,219.865,346.365,230.792,354.313z
-                          M256,298.667c11.76,0,21.333,9.573,21.333,21.333c0,8.177-4.646,15.5-12.125,19.125c-4.073,1.979-6.458,6.292-5.958,10.781
-                          l6.167,55.427h-18.833l6.167-55.427c0.5-4.49-1.885-8.802-5.958-10.781c-7.479-3.625-12.125-10.948-12.125-19.125
-                          C234.667,308.24,244.24,298.667,256,298.667z"/>
-                      <path d="M437.333,192h-32v-42.667C405.333,66.99,338.344,0,256,0S106.667,66.99,106.667,149.333V192h-32
-                          C68.771,192,64,196.771,64,202.667v266.667C64,492.865,83.135,512,106.667,512h298.667C428.865,512,448,492.865,448,469.333
-                          V202.667C448,196.771,443.229,192,437.333,192z M128,149.333c0-70.583,57.417-128,128-128s128,57.417,128,128V192h-21.333
-                          v-42.667c0-58.813-47.854-106.667-106.667-106.667S149.333,90.521,149.333,149.333V192H128V149.333z M341.333,149.333V192
-                          H170.667v-42.667C170.667,102.281,208.948,64,256,64S341.333,102.281,341.333,149.333z M426.667,469.333
-                          c0,11.76-9.573,21.333-21.333,21.333H106.667c-11.76,0-21.333-9.573-21.333-21.333v-256h341.333V469.333z"/>
-                      </g>
+                    <path d="M230.792,354.313l-6.729,60.51c-0.333,3.01,0.635,6.031,2.656,8.292c2.021,2.26,4.917,3.552,7.948,3.552h42.667
+                        c3.031,0,5.927-1.292,7.948-3.552c2.021-2.26,2.99-5.281,2.656-8.292l-6.729-60.51c10.927-7.948,17.458-20.521,17.458-34.313
+                        c0-23.531-19.135-42.667-42.667-42.667S213.333,296.469,213.333,320C213.333,333.792,219.865,346.365,230.792,354.313z
+                        M256,298.667c11.76,0,21.333,9.573,21.333,21.333c0,8.177-4.646,15.5-12.125,19.125c-4.073,1.979-6.458,6.292-5.958,10.781
+                        l6.167,55.427h-18.833l6.167-55.427c0.5-4.49-1.885-8.802-5.958-10.781c-7.479-3.625-12.125-10.948-12.125-19.125
+                        C234.667,308.24,244.24,298.667,256,298.667z"/>
+                    <path d="M437.333,192h-32v-42.667C405.333,66.99,338.344,0,256,0S106.667,66.99,106.667,149.333V192h-32
+                        C68.771,192,64,196.771,64,202.667v266.667C64,492.865,83.135,512,106.667,512h298.667C428.865,512,448,492.865,448,469.333
+                        V202.667C448,196.771,443.229,192,437.333,192z M128,149.333c0-70.583,57.417-128,128-128s128,57.417,128,128V192h-21.333
+                        v-42.667c0-58.813-47.854-106.667-106.667-106.667S149.333,90.521,149.333,149.333V192H128V149.333z M341.333,149.333V192
+                        H170.667v-42.667C170.667,102.281,208.948,64,256,64S341.333,102.281,341.333,149.333z M426.667,469.333
+                        c0,11.76-9.573,21.333-21.333,21.333H106.667c-11.76,0-21.333-9.573-21.333-21.333v-256h341.333V469.333z"/>
+                    </g>
                   
-                  </svg> 
-              <span>Password</span>
-            </ion-label>
+                </svg> 
+            <span>Password</span>
+          </ion-label>
           <ion-input type="{{type}}" minlength="5" maxlength="15" placeholder="Enter Password *" name="password" [(ngModel)]="user.password" required></ion-input>
             
-            <ion-icon *ngIf="!showPass" name="eye-outline" (click)="showPassword()" item-right></ion-icon>
-            <ion-icon *ngIf="showPass" name="eye-off-outline" (click)="showPassword()" item-right></ion-icon>
+            <ion-icon *ngIf="!showPass" name="eye-outline" (click)="showPassword()" slot="end"></ion-icon>
+            <ion-icon *ngIf="showPass" name="eye-off-outline" (click)="showPassword()" slot="end"></ion-icon>
         </ion-item>
 
       <ion-item class="nobg chetxt">
+          <ion-checkbox type="checkbox" checked="false" (ionChange)="selectCheckbox($event)"> </ion-checkbox>
           <ion-label>I have read and accepted the StratFit <a (click)="Privacyid('terms')">Terms and Conditions</a></ion-label>
-          <ion-checkbox color="dark" type="checkbox" checked="false" (ionChange)="selectCheckbox($event)"> </ion-checkbox>
       </ion-item>
       
 
-  <ion-button block  [disabled]="!registerForm.form.valid" (click)="signup(user)">SIGN UP</ion-button>
+  <ion-button expand="full" [disabled]="!registerForm.form.valid" (click)="signup(user)">SIGN UP</ion-button>
 
     </form>
 
 
-  <div class="social" text-center>
+  <div class="social text-center" >
     <ion-button (click)="nativeFbLogin()">
       <svg id="facebook-logo-in-circular-button-outlined-social-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 145">
 
@@ -133,9 +136,10 @@
         </g>
       </svg>
     </ion-button>
-    <p >Already you have an account? <a (click)="gotologin()">Sign in</a> </p>
-    <p><a (click)="disclaimerid()">Disclaimer</a> and <a (click)="Privacyid('privacy')">Privacy Policy</a></p>
+    <p class="text-center" >Already you have an account? <a (click)="gotologin()">Sign in</a> </p>
+    <p class="text-center" ><a (click)="disclaimerid()">Disclaimer</a> and <a (click)="Privacyid('privacy')">Privacy Policy</a></p>
   </div>
 </ion-list>
+</div>
 
 </ion-content>

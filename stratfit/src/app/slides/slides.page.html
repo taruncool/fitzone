@@ -1,5 +1,5 @@
 <ion-content>
-  <div *ngIf="showSplash" class="intro">
+  <div *ngIf="showSplash" class="intro text-center">
       <img src="assets/images/StratfitZoomLogoBlack.gif" >
   </div>
   
@@ -7,7 +7,7 @@
       <ion-slide>
               
           <div class="diag">
-                  <video playsinline autoplay muted loop preload="auto" controlsList="nodownload" style="height: 100%;width: 100%; object-fit: cover;" src="assets/images/welcome.mp4">
+                  <video playsinline autoplay muted loop preload="auto" controlsList="nodownload"  src="assets/images/welcome.mp4">
                   </video>
               <div class="woverlay" [@container]='state' (@container.done)="animationDone()">
                   <div class="logo-small" text-right>
