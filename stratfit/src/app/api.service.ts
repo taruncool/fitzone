@@ -398,6 +398,15 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
+  public getcountrydata(token){
+    return this.http.post(global.baseURL + 'utility/getcountrydata/', {
+      headers: new HttpHeaders({
+       'Content-Type':  'application/json',
+       'Authorization': token
+        })
+        }).pipe (data =>
+          data);
+  }
   public updateBulkTmaxData(tmaxdata,token){
     return this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, {
       headers: new HttpHeaders({

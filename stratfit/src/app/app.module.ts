@@ -32,7 +32,7 @@ import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
 import { ProgramdetailsPage } from './programdetails/programdetails.page';
-import { IonicRatingModule } from 'ionic4-rating';
+// import { IonicRatingModule } from 'ionic4-rating';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
