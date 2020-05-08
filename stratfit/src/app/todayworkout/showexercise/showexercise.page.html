@@ -20,22 +20,32 @@
 <ion-content class="exeinfo sbgrd">
   <ion-card >
       <ion-row class="pcover rmcov" >
-          <!-- <img src={{planinfo.planPhoto}} class="planimg" *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null">
-          <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null"> -->
-          
-          <video webkit-playsinline playsinline autoplay loop controlsList="nodownload" src="http://stratfit.net/newExVideo/{{exinfo.id}}.mp4" 
-          controls="controls" poster="assets/images/plan_2.png">
-          </video>
+        <img src="{{exinfo.newExImage}}" (error)="onExImageError()" (click)="playVideo(exinfo.id)" class="planimg"> 
+        <div class="play" (click)="playVideo(exinfo.id)">
+              <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                  <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+                  <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+              </svg>                                          
+        </div>
           
       </ion-row>
   </ion-card>
-  <div padding>
-          <!-- <p>Reps: <strong>{{exinfo.num_of_reps}}</strong> Sets: <strong>{{exinfo.num_of_sets}} </strong></p> -->
-          <p><strong>Ability : </strong>{{exinfo.ability}}</p>
-          <p [innerHTML]="exinfo.exerciseDesc"></p>
-          <p [innerHTML]="exinfo.equipment"></p>
-          <p><strong>Specific Instruction: </strong>{{exinfo.specificInstrunction}}</p>
-  </div>
+
+  <ion-item class="nobg title" >
+    <ion-avatar item-start>
+          <img src="{{exinfo.newExThumbImage}}" (error)="onExThumbImageError()">
+    </ion-avatar>
+
+    <h2>{{exinfo.exerciseName}}</h2>
+    <!-- <h6>Back</h6> -->
+  </ion-item>
+
+  <div class="fulpad programview" >
+        <h3>Description: </h3>
+        <p [innerHTML]="exinfo.instructions"></p>
+        <p [innerHTML]="exinfo.exerciseDesc"></p>
+        <!-- <p [innerHTML]="exinfo.exercise_id__equipment"></p> -->
+    </div>
   
 </ion-content>
 

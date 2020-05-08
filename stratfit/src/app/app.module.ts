@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -36,10 +35,16 @@ import { ProgramdetailsPage } from './programdetails/programdetails.page';
 import { IonicRatingModule } from 'ionic4-rating';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
+import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
+import { CoachprofilePage } from './coachprofile/coachprofile.page';
+import { TimerpopupPage } from './workout/timerpopup/timerpopup.page';
+import { MorerepsPage } from './todayworkout/morereps/morereps.page';
+import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
+import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
 
 @NgModule({
-  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,EditprofilePage,FiltercountryPage],
-  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,EditprofilePage,FiltercountryPage],
+  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage],
+  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage],
   imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],

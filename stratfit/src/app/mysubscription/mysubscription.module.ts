@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { MysubscriptionPageRoutingModule } from './mysubscription-routing.module';
 
 import { MysubscriptionPage } from './mysubscription.page';
-import { IonicRatingModule } from 'ionic4-rating';
+// import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IonicRatingModule,
+    // IonicRatingModule,
     MysubscriptionPageRoutingModule
   ],
   declarations: [MysubscriptionPage],

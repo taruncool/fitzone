@@ -35,7 +35,7 @@
       <p>Exercises</p>
       <div class="pcexe">
           <ion-avatar  *ngFor="let Exs of uplandata.exercises;  let j = index">
-              <ion-img src="http://stratfit.net/newExThumb/{{Exs.exercise_id}}.jpg"> </ion-img>
+            <img src="{{Exs.newExImage}}" (error)="onExImageError(Exs)">
           </ion-avatar>
           
       </div>

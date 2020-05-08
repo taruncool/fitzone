@@ -137,11 +137,8 @@ export class SlidesPage implements OnInit {
     //localStorage.setItem('excercisewarmupcmplcount',"0");
   }
   ngOnInit() {
-  }
-  ionViewDidEnter () {
-  
     this.token = localStorage.getItem('usertoken');
-
+    this.platform.ready().then(() => {
     var networkState = navigator.connection.type;
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -175,7 +172,8 @@ export class SlidesPage implements OnInit {
       this.showSplash = false;
       this.showSlide = true;
     });
-
+  });
+  
     this.afterInternetCheck();
 
   }

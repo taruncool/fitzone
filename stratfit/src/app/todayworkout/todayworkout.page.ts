@@ -412,12 +412,6 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         calendarPopup.present();
       }
 
-      // ionViewWillEnter() {
-        // this.platform.registerBackButtonAction(() => {
-        // this.closeAppAction();
-        // });
-      // }
-
   ngOnInit() {
     this.newCode();
   }
@@ -824,6 +818,13 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     }, 4000);
   }
 
+  onExImageError(exDetails){
+    exDetails.exImgNew = 'assets/images/plan_2.png';
+  }
+
+  onComplexExImageError(action){
+    action.ExerciseThumbImage = 'assets/images/plan_2.png';
+  }
   openMoreReps(reps, tmax, intensity, workweight) {
 
       console.log("ex details", this.exDetails);
@@ -2168,7 +2169,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
   }
 
-  actionrestpop(restTime, actionData) {
+ async actionrestpop(restTime, actionData) {
 
     if (restTime.toString().indexOf('.') !== -1) {
       var tempRTM = Math.floor(restTime);
@@ -2186,7 +2187,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     console.log("action ex name", actionData.exerciseName);
     console.log("action data ex id", actionData.exId);
 
-    this.warmupRestModal = this.modalCtrl.create({
+    this.warmupRestModal =await this.modalCtrl.create({
       component:TimerpopupPage,
       componentProps: {
       'rest': restTime, 'setname': "Action " + actionData.exId,

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ViewChild, ElementRef } from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
@@ -18,7 +18,8 @@ export interface ITimer {
   styleUrls: ['./timer.page.scss'],
 })
 export class TimerPage implements OnInit {
-  @Input() timeInSeconds: number;
+  //@ViewChild('timers', {read: ElementRef,static: false }) timers;
+  @Input('timeInSeconds') timeInSeconds;
   public timer: ITimer;
 
   constructor(public modalCtrl: ModalController, public platform: Platform,private nativeAudio: NativeAudio,public insomnia: Insomnia) {

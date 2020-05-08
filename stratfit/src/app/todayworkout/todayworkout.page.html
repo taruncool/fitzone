@@ -106,7 +106,7 @@
                 <ion-item-sliding>
                   <ion-item class="nobg">
                     <ion-avatar item-start (click)="openExercise(exDetails)">
-                        <img src="http://stratfit.net/newExThumb/{{exDetails.id}}.jpg">
+                      <img src="{{exDetails.exImgNew}}" (error)="onExImageError(exDetails)">
                         <div class="posabs">  
                             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 109 109" >
                                 <g id="Play" transform="translate(3 3)">
@@ -140,29 +140,11 @@
                           </svg>
                           
                         </ion-item>
-                        <!--<ion-item (click)="openMoreReps()"> 
-                          <span>More</span>
-                        </ion-item>-->
                       </ion-col>
                     </ion-row>
                       
                   </ion-item>
-                  <!-- <ion-item-options side="left">
-                    <button ion-button color="primary">
-                      <ion-icon name="text"></ion-icon>
-                      Skip
-                    </button>
-                    <button ion-button color="secondary">
-                      <ion-icon name="call"></ion-icon>
-                      Call
-                    </button>
-                  </ion-item-options>
-                  <ion-item-options side="right">
-                      <button ion-button color="primary">
-                      <ion-icon name="Tick"></ion-icon>
-                      Done
-                      </button>
-                  </ion-item-options> -->
+                  
                 </ion-item-sliding>
 
               </ion-list>
@@ -202,7 +184,7 @@
               <ion-item-sliding *ngFor="let action of complexActions; let i = index">
                 <ion-item class="nobg" >
                   <ion-avatar item-start (click)="openExercise(exDetailsComplex[i])">
-                      <img src="http://stratfit.net/newExThumb/{{action.exId}}.jpg">
+                    <img src="{{action.ExerciseThumbImage}}" (error)="onComplexExImageError(action)">
                       <div class="posabs">  
                           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 109 109" >
                               <g id="Play" transform="translate(3 3)">
@@ -243,22 +225,7 @@
                   </ion-row>
                     
                 </ion-item>
-                <!-- <ion-item-options side="left">
-                  <button ion-button color="primary">
-                    <ion-icon name="text"></ion-icon>
-                    Skip
-                  </button>
-                  <button ion-button color="secondary">
-                    <ion-icon name="call"></ion-icon>
-                    Call
-                  </button>
-                </ion-item-options>
-                <ion-item-options side="right">
-                    <button ion-button color="primary">
-                    <ion-icon name="Tick"></ion-icon>
-                    Done
-                    </button>
-                </ion-item-options> -->
+                
               </ion-item-sliding>
 
             </ion-list>

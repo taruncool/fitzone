@@ -64,9 +64,10 @@ export class ProgressbarPage implements OnInit {
   
   }
 
-  // ionViewDidLoad() {
-    
-  // }
+  onExImageError(newEx){
+    newEx.newExImage = "assets/images/icon.png";
+  }
+  
   ngOnInit() {
     this.firstname=localStorage.getItem('firstname');
     this.getPercentage();
@@ -152,24 +153,6 @@ export class ProgressbarPage implements OnInit {
   public pactivateConfirm(){
 
     this.activatePlan();
-    // if(this.uplandata.exercises==null || this.uplandata.exercises == undefined){
-
-    //   this.activatePlan();
-
-    // }else{
-
-
-    //   this.planprogressModal = this.modalCtrl.create(TmaxEditPopup,{'exercises':this.uplandata.exercises});
-    //   this.planprogressModal.present();
-    //   this.planprogressModal.onDidDismiss(data=>{
-        
-    //     this.activatePlan();
-       
-    //   });
-    
-    // }
-   
-    
   }
 
   async activatePlan(){
@@ -179,10 +162,7 @@ export class ProgressbarPage implements OnInit {
 			// this.loadData.startLoading();
 			var headers = new Headers();
 			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
-			// headers.append('Content-Type', 'application/json');
 			let usertoken = localStorage.getItem('usertoken');
-			// this.http.post(global.baseURL + 'userprogram/activateuserplan/', data, { headers: headers }).subscribe(response => {
-			// 	if(response.json().success){
       this.apiService.activateuserplan(data,usertoken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -210,18 +190,8 @@ export class ProgressbarPage implements OnInit {
 				}else{
           // this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
-          // let toast = await this.toastCtrl.create({
-          //   message: "Unable to process your request. Please try after some time",
-          //   duration: 3000
-          // });
-          // toast.present();
         }
         this.toastmsg(res.message);
-				// let toast = await this.toastCtrl.create({
-				// 	message: response.json().message,
-				// 	duration: 3000
-				// });
-				// toast.present();
 			},(err)=>{
         if(err.status === 403){
           this.loadData.forbidden();
