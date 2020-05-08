@@ -47,7 +47,7 @@ export class MysubscriptionPage implements OnInit {
   planState;
   isDuration = true;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
+  constructor(public navCtrl: NavController,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
   }
   backButtonAction() {
     this.modalCtrl.dismiss();

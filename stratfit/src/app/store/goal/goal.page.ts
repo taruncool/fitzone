@@ -55,7 +55,10 @@ activepurposeid = 0;
       this.loadPrograms();
   }
   
-
+  onImageError(plan){
+    plan.programPhoto = "assets/images/pcview.jpg";
+  }
+  
   public loadPrograms(){
       console.log("load program");
       if(localStorage.getItem('internet')==='online'){
