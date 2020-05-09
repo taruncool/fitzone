@@ -207,14 +207,14 @@ export class SlidesPage implements OnInit {
                  // this.loadData.stopLoading();
                   localStorage.setItem('planSet','true');
     
-                  this.navCtrl.navigateForward('/tabs/tabs/dashboard');
+                  this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
                 }else{
                   //this.loadData.stopLoading();
-                  this.navCtrl.navigateForward('/tabs/tabs/store');
+                  this.navCtrl.navigateRoot('/tabs/tabs/store');
                 }
               }else{
                 //this.loadData.stopLoading();
-                this.navCtrl.navigateForward('/fitnessinput');
+                this.navCtrl.navigateRoot('/fitnessinput');
               }
               //this.navCtrl.setRoot(StorePage);
             }else{
@@ -230,13 +230,13 @@ export class SlidesPage implements OnInit {
           if(localStorage.getItem('planSet')==='true'){
           
     
-            this.navCtrl.navigateForward('/tabs/tabs/dashboard');
+            this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
           }else{
             localStorage.setItem('redirectPage','store');
-            this.navCtrl.navigateForward('tabs/tabs/store');
+            this.navCtrl.navigateRoot('tabs/tabs/store');
           }
         }else{
-          this.navCtrl.navigateForward('/fitnessinput');
+          this.navCtrl.navigateRoot('/fitnessinput');
         }
       }
     }

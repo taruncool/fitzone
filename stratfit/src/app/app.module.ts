@@ -41,10 +41,11 @@ import { TimerpopupPage } from './workout/timerpopup/timerpopup.page';
 import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
 import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
+import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
 
 @NgModule({
-  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage],
-  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage],
+  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage,TmaxeditpopupPage],
+  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage,TmaxeditpopupPage],
   imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],

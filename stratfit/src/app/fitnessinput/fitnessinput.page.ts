@@ -494,11 +494,7 @@ heightArrCms= {
             localStorage.setItem('traininglevel', JSON.stringify(this.selectedLevel));
             localStorage.setItem('nworkdays', this.noOfWorkDays.toString());
             this.toastmsg(res.message);
-            // let toast = await this.toastCtrl.create({
-            //   message: response.json().message,
-            //   duration: 3000
-            // });
-            // toast.present();
+           
             setTimeout(() => {
               this.loadData.getExercises();
               setTimeout(() => {
@@ -707,21 +703,23 @@ heightArrCms= {
     }
   } 
 
-  public showTmaxpopup() {
-
-      this.tmaxPopupModal = this.modalCtrl.create({
-        component:TmaxeditpopupPage,
-        componentProps:{'exercises':[{id:0,equipment:"No data"
-      ,exerciseDesc:"No Data",exerciseName:"No data"}]}
-    });
-      this.tmaxPopupModal.present();
-      this.tmaxPopupModal.onDidDismiss(data=>{
-        
-       this.navCtrl.navigateForward('/store');
+  async showTmaxpopup() {
+    const tmaxmodal: HTMLIonModalElement =
+    await this.modalCtrl.create({
+       component: TmaxeditpopupPage,
+       componentProps: {'exercises':[{id:0,equipment:"No data"
+       ,exerciseDesc:"No Data",exerciseName:"No data"}]}
+ });
+    
+     
+    tmaxmodal.onDidDismiss().then((data: any) => {
        
-      });
+          console.log('The result: model closed');
+          this.navCtrl.navigateForward('/tabs/tabs/store');
+        
+     });
 
-
+     await tmaxmodal.present();
   }
   async errorMsg() {
     let toast = await this.toastCtrl.create({

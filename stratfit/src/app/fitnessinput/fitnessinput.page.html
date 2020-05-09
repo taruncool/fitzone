@@ -72,7 +72,7 @@
               <ion-row>
                 
                   <ion-col>
-                        <ion-item  *ngIf='heightMetric=="cms"' (click)='selectHeightCms()'>
+                        <div *ngIf='heightMetric=="cms"' (click)='selectHeightCms()'>
                           <ion-label >
                               <svg id="Icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68.709 74.623">
                                 <path id="Path_259" data-name="Path 259" d="M198.274,68.183h-.72a8,8,0,1,0-11.886,0h-.72a6.67,6.67,0,0,0-6.663,6.663V93.5a1.332,1.332,0,0,0,1.333,1.333h4v25.318a1.332,1.332,0,0,0,1.333,1.333h8a6.67,6.67,0,0,0,6.663-6.663V94.834h4a1.332,1.332,0,0,0,1.333-1.333V74.846A6.67,6.67,0,0,0,198.274,68.183Zm-6.663-10.66a5.33,5.33,0,1,1-5.33,5.33A5.335,5.335,0,0,1,191.611,57.523Zm.817,13.325-.817,2.449-.817-2.449Zm9.843,21.321h-2.665V74.846h-2.665v39.976a4,4,0,0,1-4,4V94.834h-2.665V118.82h-4V74.846h-2.665V92.169h-2.665V74.846a4,4,0,0,1,4-4h3.038l2.361,7.084a1.331,1.331,0,0,0,2.526,0l2.361-7.084h3.038a4,4,0,0,1,4,4V92.169Z" transform="translate(-153.801 -46.863)" />
@@ -82,8 +82,9 @@
                               </svg>                              
                           </ion-label>
                           <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' disabled></ion-input>
-                        </ion-item>
-                        <ion-item  *ngIf='heightMetric=="ftin"' (click)='selectHeightFeet()'>
+                         
+                        </div>
+                        <div *ngIf='heightMetric=="ftin"' (click)='selectHeightFeet()'>
                             <ion-label >
                                 <svg id="Icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68.709 74.623">
                                   <path id="Path_259" data-name="Path 259" d="M198.274,68.183h-.72a8,8,0,1,0-11.886,0h-.72a6.67,6.67,0,0,0-6.663,6.663V93.5a1.332,1.332,0,0,0,1.333,1.333h4v25.318a1.332,1.332,0,0,0,1.333,1.333h8a6.67,6.67,0,0,0,6.663-6.663V94.834h4a1.332,1.332,0,0,0,1.333-1.333V74.846A6.67,6.67,0,0,0,198.274,68.183Zm-6.663-10.66a5.33,5.33,0,1,1-5.33,5.33A5.335,5.335,0,0,1,191.611,57.523Zm.817,13.325-.817,2.449-.817-2.449Zm9.843,21.321h-2.665V74.846h-2.665v39.976a4,4,0,0,1-4,4V94.834h-2.665V118.82h-4V74.846h-2.665V92.169h-2.665V74.846a4,4,0,0,1,4-4h3.038l2.361,7.084a1.331,1.331,0,0,0,2.526,0l2.361-7.084h3.038a4,4,0,0,1,4,4V92.169Z" transform="translate(-153.801 -46.863)" />
@@ -95,7 +96,8 @@
                             </ion-label>
                           <ion-input type="number" name='feet' [(ngModel)]='feet' placeholder="Feet" (input)='getInputData("feet")' disabled></ion-input>
                           <ion-input class="last" type="number" name='inch' [(ngModel)]='inch' placeholder="Inches" (input)='getInputData("inch")' disabled></ion-input>
-                        </ion-item>
+                       
+                          </div>
                       </ion-col>
                       <ion-col>
                           <ion-item> 
@@ -114,10 +116,12 @@
           <div class="infild animated fadeIn">
             <h6>Weight</h6>
             <div class="error" *ngIf="validinput">Please enter a valid input</div>
-            <ion-row>
             
+            <ion-row>
+           
               <ion-col>
-                    <ion-item *ngIf='weightMetric=="kgs"' (click)='selectWeightKgs()'>
+                    <div *ngIf='weightMetric=="kgs"' (click)='selectWeightKgs()' >
+                      
                         <ion-label >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.086 64.247">
                               <g id="weighing-scale" transform="translate(-50.305 -39.598)">
@@ -128,9 +132,10 @@
                             
                         </ion-label>
                         <ion-input type="number" name='kgs' [(ngModel)]='weigth' (input)='getInputData("kgs")'  placeholder="weight in kgs" disabled></ion-input>                        
-                    </ion-item>
-                    <ion-item *ngIf='weightMetric=="lbs"' (click)='selectWeightLbs()'>
-                        <ion-label >
+                      </div>
+                    <div button *ngIf='weightMetric=="lbs"' (click)='selectWeightLbs()'>
+                         
+                          <ion-label >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.086 64.247">
                               <g id="weighing-scale" transform="translate(-50.305 -39.598)">
                                 <path id="Path_262" data-name="Path 262" d="M113.15,39.6h-59.6A3.241,3.241,0,0,0,50.3,42.839V100.6a3.241,3.241,0,0,0,3.241,3.241h59.6a3.241,3.241,0,0,0,3.241-3.241V42.839A3.241,3.241,0,0,0,113.15,39.6ZM82.456,101.684H53.546a1.08,1.08,0,0,1-1.08-1.08V90.244H82.456Zm31.774-1.08a1.08,1.08,0,0,1-1.08,1.08H84.617V90.274h29.6Zm0-12.49H52.465V42.839a1.081,1.081,0,0,1,1.08-1.08h59.6a1.081,1.081,0,0,1,1.08,1.08Zm0,0" />
@@ -140,7 +145,7 @@
                             
                         </ion-label>
                         <ion-input type="number" name='lbs' [(ngModel)]='weigth' (input)='getInputData("lbs")' placeholder="weight in lbs" disabled></ion-input>
-                    </ion-item>
+                      </div>
               </ion-col>
               <ion-col>
                 

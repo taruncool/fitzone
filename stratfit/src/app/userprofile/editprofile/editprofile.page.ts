@@ -83,7 +83,7 @@ export class EditprofilePage implements OnInit {
       // headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', this.tokken);
       // this.http.get(global.baseURL + 'utility/getcountrydata/', { headers: headers })
-      this.apiService.getCountryData(this.tokken).subscribe((response)=>{
+      this.apiService.getcountrydata(this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
           this.loadData.stopLoading();

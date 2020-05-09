@@ -513,13 +513,13 @@ export class ProfilePage implements OnInit {
 
    /*--- user logout ---*/
    async logout(){
-    // if(localStorage.getItem('internet')==='online'){
+     if(localStorage.getItem('internet')==='online'){
       var headers = new Headers();
       //navigator.vibrate(0);
       //this.timer.pauseTimer();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.token);
-      this.prompt = this.alertCtrl.create({
+      this.prompt = await this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
         buttons: [
           {
@@ -534,7 +534,7 @@ export class ProfilePage implements OnInit {
                 }, err => {
                   console.log(err);
                 });
-                this.navCtrl.navigateForward('/login');
+                this.navCtrl.navigateRoot('/login');
                 //this.app.getRootNavs()[0].setRoot(LoginPage);
               }
             },
@@ -545,14 +545,14 @@ export class ProfilePage implements OnInit {
             }
         ]
     });
-    this.prompt.present();
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    await this.prompt.present();
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   openWhatsApp(){
