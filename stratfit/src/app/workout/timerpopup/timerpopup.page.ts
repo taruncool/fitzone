@@ -28,7 +28,8 @@ export class TimerpopupPage implements OnInit {
   wMetric;
   planId;
   s3url;
-
+  exThumbImg;
+  
   constructor(public navCtrl: NavController,public platform: Platform, public loadData: LoadData, public params: NavParams,public insomnia: Insomnia, public modalCtrl: ModalController,private nativeAudio: NativeAudio){
 
     this.s3urlPop=global.s3URL;
@@ -62,6 +63,10 @@ export class TimerpopupPage implements OnInit {
       
       
     }   
+  }
+
+  onExImageError(){
+    this.exThumbImg = 'assets/images/icon.png';
   }
   ngOnInit() {
     setTimeout(() => {

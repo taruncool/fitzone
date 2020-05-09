@@ -825,7 +825,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
   onComplexExImageError(action){
     action.ExerciseThumbImage = 'assets/images/plan_2.png';
   }
-  openMoreReps(reps, tmax, intensity, workweight) {
+  async openMoreReps(reps, tmax, intensity, workweight) {
 
       console.log("ex details", this.exDetails);
       console.log("simple actions", this.simpleActions);
@@ -842,7 +842,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       var tmax = this.simpleActions.tmax;
       var maxreps = this.simpleActions.maxreps;
 
-      this.moreRepsModal = this.modalCtrl.create({
+      this.moreRepsModal = await this.modalCtrl.create({
         component:MorerepsPage,
         componentProps: {
         'rest': 0,

@@ -1,0 +1,86 @@
+<ion-content>
+  <ion-button class='close-btn' (click)="backButtonAction()">
+      <span ion-text color="primary" showWhen="ios">Cancel</span>
+      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+  </ion-button>
+  <ion-item text-center class="exeimg">
+      <ion-avatar item-center class="exerciseimg">
+          <img src="{{s3url}}/exerciseicons/{{exData.exerciseId}}.png">
+      </ion-avatar>
+      <h2 text-center class="username">
+          <span>{{exData.exName}}</span>
+      </h2>
+  </ion-item>
+  <ion-card padding text-center>
+          <form #advInput="ngForm">
+      <ion-card class="valueinput" *ngIf='weightExists'>
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advweight.png'>
+              </ion-avatar>
+              <ion-label>
+                  Weight(<small>{{metrics}}</small>)
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxWeight==1' [(ngModel)] = "exData.workweight" name='weight' required></ion-input>
+          </ion-item>
+      </ion-card>
+
+      <ion-card class="valueinput" *ngIf='distanceExists'>
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advdistance.png'>
+              </ion-avatar>
+              <ion-label>
+                  Distance(<small>Meters</small>)
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxDistance==1' [(ngModel)] = "exData.advDistance" name='distance' required></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card class="valueinput">
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advtime.png'>
+              </ion-avatar>
+              <ion-label>
+                  Time(<small>Min</small>)
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxTime==1' [(ngModel)] = "exData.advTime" name='time' required></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card class="valueinput" *ngIf='repsExists'>
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advreps.png'>
+              </ion-avatar>
+              <ion-label>
+                  Reps
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxReps==1' [(ngModel)] = "exData.advReps" name='reps' required></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card class="valueinput" *ngIf='speedExists'>
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advspeed.png'>
+              </ion-avatar>
+              <ion-label>
+                  Speed(<small>Kmph</small>)
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxSpeed==1' [(ngModel)] = "exData.advSpeed" name='speed' required></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-card class="valueinput" *ngIf='heightExists'>
+          <ion-item>
+              <ion-avatar item-left class="useravatar">
+                  <img src='assets/images/advheight.png'>
+              </ion-avatar>
+              <ion-label>
+                  Height(<small>Cms</small>)
+              </ion-label>
+              <ion-input type="number" [disabled]='exData.tmaxHeight==1' [(ngModel)] = "exData.advHeight" name='height' required></ion-input>
+          </ion-item>
+      </ion-card>
+      <ion-button class="doneBtn" col-6 [disabled]="!advInput.form.valid" (click)='doneBtn()'> Done </ion-button>
+  </form>
+  </ion-card>
+</ion-content>

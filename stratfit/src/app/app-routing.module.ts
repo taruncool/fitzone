@@ -166,6 +166,10 @@ const routes: Routes = [
     path: 'userprofile',
     loadChildren: () => import('./userprofile/userprofile.module').then( m => m.UserprofilePageModule)
   },
+  {
+    path: 'advexpopup',
+    loadChildren: () => import('./workout/advexpopup/advexpopup.module').then( m => m.AdvexpopupPageModule)
+  },
 
 ];
 @NgModule({
