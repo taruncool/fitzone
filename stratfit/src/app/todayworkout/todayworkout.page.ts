@@ -857,7 +857,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       });
 
       this.moreRepsModal.present();
-      this.moreRepsModal.onDidDismiss(data => {
+      this.moreRepsModal.onDidDismiss.then((data) => {
 
       console.log(data);
       let morerepsdone = 0;
@@ -1346,11 +1346,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                       this.getCoolDownEx();
 
                     }, 1000);
-                    // let toast = this.toastCtrl.create({
-                    //   message: "Session is complete",
-                    //   duration: 3000
-                    // });
-                    // toast.present();        
+                          
                   } else {
                     this.actionrestpop(1, this.simpleActions);
                   }
@@ -1516,7 +1512,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'complexActions': complexActions }  
       });
         this.moreRepsModal.present();
-        this.moreRepsModal.onDidDismiss(data => {
+        this.moreRepsModal.onDidDismiss.then((data) => {
         this.isDoneDisabled = false;
         console.log(data);
         var complexActionsFrmPop: any[] = [];
@@ -1878,11 +1874,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                           this.cooldownCompleted = "false";
                           this.getCoolDownEx();
                         }, 1000);
-                        // let toast = this.toastCtrl.create({
-                        //   message: "Session is complete",
-                        //   duration: 3000
-                        // });
-                        // toast.present();        
+                               
                       } else {
                         var resttime = 1;
                         if (this.restTime == 0) {
@@ -1941,7 +1933,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     //   this.myVideo.pause();
     // }
     this.warmupRestModal.present();
-    this.warmupRestModal.onDidDismiss(data => {
+    this.warmupRestModal.onDidDismiss.then((data) => {
       
 
       this.loadComplexData();
@@ -2202,7 +2194,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     //   this.myVideo.pause();
     // }
     this.warmupRestModal.present();
-    this.warmupRestModal.onDidDismiss(data => {
+    this.warmupRestModal.onDidDismiss.then((data) => {
 
       this.getActionData(false);
 
@@ -2336,8 +2328,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
        });
   }
 
-  showAlert() {
-    this.alert = this.alertCtrl.create({
+  async showAlert() {
+    this.alert = await this.alertCtrl.create({
       // title: 'Exit?',
       message: 'Do you want to exit the app?',
       buttons: [
@@ -2402,7 +2394,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     });
 
     modal.present();
-    modal.onDidDismiss().then(data => {
+    modal.onDidDismiss().then((data) => {
       //this.getSetData();
       this.generalWarmupCompleted = "true";
       localStorage.setItem('generalwarmupcmpl', 'true');
@@ -2429,7 +2421,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
   }
 
-  changeTmax() {
+ async changeTmax() {
     this.selector.show({
       title: "Tmax Change",
       items: [
@@ -2471,7 +2463,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
             }
           ]
         });
-        this.prompt.present();
+       this.prompt.present();
 
       },
       err => console.log('Error: ', err)
@@ -2627,20 +2619,10 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           // this.loadData.stopLoading();
           if(res.success){
             this.toastmsg("Tmax updated successfully");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Tmax updated successfully",
-            //   duration: 3000
-            // });
-            // toast.present();
           } else {
           }
         }, (err) => {
           this.toastmsg(err);
-          // let toast = await this.toastCtrl.create({
-          //   message: err,
-          //   duration: 3000
-          // });
-          // toast.present();
           if (err.status === 403) {
             this.loadData.forbidden();
             this.nav.navigateForward('/login');
@@ -2732,7 +2714,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     //   this.myVideo.pause();
     // }
     this.restModal.present();
-    this.restModal.onDidDismiss(data => {
+    this.restModal.onDidDismiss.then((data) => {
       // if(!this.showVideo){
       // setTimeout(() => {
 
@@ -2784,8 +2766,8 @@ backButtonAction() {
     }
   }
 
-  showAppAlert() {
-    this.alertApp = this.alertCtrl.create({
+ async showAppAlert() {
+    this.alertApp = await this.alertCtrl.create({
       // title: 'Exit?',
       message: 'Do you want to exit the app?',
       buttons: [
@@ -2814,10 +2796,6 @@ backButtonAction() {
       updateType: ''
     };
     var headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
-    // this.http.post(global.baseURL + 'userprogram/updateTmaxData/', data, { headers: headers })
-    //   .subscribe(response => {
     this.apiService.updateTmaxData(data,this.tokken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);

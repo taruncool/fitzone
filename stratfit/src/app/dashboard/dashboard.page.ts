@@ -138,6 +138,9 @@ export class DashboardPage implements OnInit {
   covertheight;
   heightfeet;
   heightinc;
+  upavatar;
+  avatar;
+  s3Url;
   // coverImage;
 
   // if(localStorage.getItem('internet')==='online'){
@@ -158,7 +161,9 @@ export class DashboardPage implements OnInit {
   gotoStore(){
     this.navCtrl.navigateForward('/store');
   }
-
+  onAvatarError(){
+    this.upavatar = "assets/images/icon.png";
+  }
   // ionViewWillEnter() {
   //   this.platform.registerBackButtonAction(() => {
   //   this.closeAppAction();
@@ -183,8 +188,8 @@ export class DashboardPage implements OnInit {
     modal.present();
   }
 
-  showAppAlert() {
-    this.alertApp = this.alertCtrl.create({
+  async showAppAlert() {
+    this.alertApp = await this.alertCtrl.create({
       // message: 'Exit?',
       message: 'Do you want to exit the app?',
       buttons: [
@@ -205,8 +210,8 @@ export class DashboardPage implements OnInit {
     });
     this.alertApp.present();
   }
-  noProgramsAlert(){
-    this.prompt = this.alertCtrl.create({
+  async noProgramsAlert(){
+    this.prompt = await this.alertCtrl.create({
       message: 'No Subscription yet!',
       // message:'Subscribe to Stratfit program from the store to start workout.',
       buttons: [
@@ -252,6 +257,10 @@ export class DashboardPage implements OnInit {
     this.Tonnage = localStorage.getItem('tonnage');
     this.Work = localStorage.getItem('work');
     this.cal = localStorage.getItem('cal');
+
+    this.upavatar = localStorage.getItem('avatar');
+    this.avatar = localStorage.getItem('avatar');
+    this.s3Url = global.s3URL;
    
     console.log("fat name",localStorage.getItem('fatpercent'));
     console.log("protien name",localStorage.getItem('carbspercent'));

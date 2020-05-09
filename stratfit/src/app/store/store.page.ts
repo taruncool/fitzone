@@ -122,11 +122,6 @@ segmentChanged(ev: any) {
     if(this.isNetAlert){
 
       this.activationalert();
-      // let toast = this.toastCtrl.create({
-      //   message: "Please check your internet connectivity and try again",
-      //   duration: 3000
-      // });
-      // toast.present();
     }
    
   }
@@ -138,7 +133,7 @@ goalclick(){
 
   //coach lists
   public getCoachelists(){
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
@@ -149,6 +144,7 @@ goalclick(){
     this.apiService.getcoachs(data,usertoken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
+      this.loadData.stopLoading();
       if(res.success){
         this.coachlist = res.coachesList;
       }else{
@@ -184,7 +180,7 @@ public loadPrograms(){
     this.beginnerdata=[];
     this.intermediatedata=[];
     this.advancedata =[];
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     this.filters.deviceType = this.devicetype;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -196,6 +192,7 @@ public loadPrograms(){
       // console.log(response);
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
+      this.loadData.stopLoading();
         if(res.success){
           this.plansdata = res.filterValues;
           this.userCurType = res.luctype;
@@ -256,7 +253,7 @@ public loadPrograms(){
         }
         this.loadData.stopLoading();
     },(err) => {
-      // this.loadData.stopLoading();
+      this.loadData.stopLoading();
       if(err.status === 403){
           // this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');
@@ -264,11 +261,7 @@ public loadPrograms(){
       }
     });
 }else{
-  // let toast = this.toastCtrl.create({
-  //   message: "Please check your internet connectivity and try again",
-  //   duration: 3000
-  // });
-  // toast.present();
+  
   this.activationalert();
 }
 }
