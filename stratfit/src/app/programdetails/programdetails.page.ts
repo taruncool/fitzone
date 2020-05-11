@@ -239,7 +239,7 @@ export class ProgramdetailsPage implements OnInit {
         },(err) => {
         if(err.status === 403){
             this.loadData.forbidden();
-            this.navCtrl.navigateForward('/login');
+            this.navCtrl.navigateRoot('/login');
             //this.app.getRootNav().setRoot(LoginPage);
         }
       });
@@ -278,7 +278,7 @@ export class ProgramdetailsPage implements OnInit {
           // this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
-            this.navCtrl.navigateForward('/login');
+            this.navCtrl.navigateRoot('/login');
             //this.app.getRootNav().setRoot(LoginPage);
           }
         // });
@@ -539,14 +539,8 @@ export class ProgramdetailsPage implements OnInit {
                     
                     //this.loadData.checkQuery(false,false,false).then(data=>{
                       // this.loadData.stopLoading();
-                      this.modalCtrl.create({
-                        component:ProgressbarPage,
-                        componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}}
-                        });
-                      
-                      // let planprogressModal = this.modalCtrl.create(ProgressbarPopup,{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}});
-                      //planprogressModal.present();
-                    //});
+                      this.showprogresspopup(resvalue);
+
                   }
                 }
                 //this.navCtrl.setRoot(TodayworkoutPage);
@@ -557,7 +551,7 @@ export class ProgramdetailsPage implements OnInit {
               // this.loadData.stopLoading();
               if(err.status === 403){
                 this.loadData.forbidden();
-                this.navCtrl.navigateForward('/login');
+                this.navCtrl.navigateRoot('/login');
                 //this.app.getRootNav().setRoot(LoginPage);
               }
           });
@@ -570,6 +564,25 @@ export class ProgramdetailsPage implements OnInit {
 			});
 			toast.present();
     }
+  }
+
+  async showprogresspopup(resvalue) {
+    const progressmodal: HTMLIonModalElement =
+    await this.modalCtrl.create({
+      component:ProgressbarPage,
+      componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}}
+                       
+ });
+    
+     
+    progressmodal.onDidDismiss().then((data: any) => {
+       
+          console.log('The result: model closed');
+       
+        
+     });
+
+     await progressmodal.present();
   }
 
   async customAlert(){

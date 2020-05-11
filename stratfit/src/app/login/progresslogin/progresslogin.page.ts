@@ -7,6 +7,7 @@ import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import { global } from "../../../app/global";
 import { ApiService } from '../../../app/api.service';
+import { TmaxPage } from '../../tmax/tmax.page';
 
 @Component({
   selector: 'app-progresslogin',
@@ -50,7 +51,7 @@ export class ProgressloginPage implements OnInit {
     this.percent = 0;
     this.hideloader = false;
     this.resValue = this.params.get('resvalue');
-
+      console.log(this.resValue);
     /*const momentDate = Moment(dateCon.toISOString());*/
     
     //var sessDate = Moment(dateCon).format("DD-MM-YYYY");
@@ -89,30 +90,34 @@ export class ProgressloginPage implements OnInit {
 					//this.loadData.stopLoading();
 					if(sdata.res.rows.length>0){
 						//this.loadData.stopLoading();
-            this.nav.navigateForward('/tmax');
+           
             this.percent = 100;
             //localStorage.setItem('getpercent','0');
             this.hideloader = true;
-
+            this.modalCtrl.dismiss();
+            this.nav.navigateRoot('/tmax');
 					}else{
 						localStorage.setItem('generalwarmupcmpl','false');
-            this.loadData.stopLoading();
+            //this.loadData.stopLoading();
             localStorage.setItem('fatGmsIntake','');
             localStorage.setItem('carbsGmsIntake','');
             localStorage.setItem('protienGmsIntake','');
             localStorage.setItem('calIntake','');
             localStorage.setItem('totalreps','');
-            localStorage.setItem('tmax','');
+            // localStorage.setItem('tmax','');
             localStorage.setItem('totalweight','');
             localStorage.setItem('tonnage','');
             localStorage.setItem('work','');
             localStorage.setItem('cal','');
-            setTimeout(() => {
-            this.nav.navigateForward('/tabs');
-            }, 300);
+           
             this.percent = 100;
             localStorage.setItem('getpercent','0');
             this.hideloader = true;
+           
+            setTimeout(() => {
+              this.modalCtrl.dismiss();
+              this.nav.navigateRoot('/tabs/tabs/dashboard');
+              }, 300);
 					}
 				}
 			).catch(err => {
@@ -121,9 +126,10 @@ export class ProgressloginPage implements OnInit {
         localStorage.setItem('getpercent','0');
         this.hideloader = true;
         this.percent = 100;
+        this.modalCtrl.dismiss();
       });
       
-      this.modalCtrl.dismiss();
+      
     }
     this.percent = 70;
     localStorage.setItem('getpercent','100');
