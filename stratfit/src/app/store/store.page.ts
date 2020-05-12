@@ -134,13 +134,8 @@ goalclick(){
   //coach lists
   public getCoachelists(){
     this.loadData.startLoading();
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
     var usertoken = localStorage.getItem('usertoken');
     var data = {deviceType:this.devicetype};
-    // this.http.post(global.baseURL + 'program/getcoachs/', data, { headers: headers })
-    // .subscribe(response => {
     this.apiService.getcoachs(data,usertoken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
@@ -182,12 +177,7 @@ public loadPrograms(){
     this.advancedata =[];
     this.loadData.startLoading();
     this.filters.deviceType = this.devicetype;
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // var usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
     var usertoken =  localStorage.getItem('usertoken');
-    // this.http.post(global.baseURL + 'program/filterSql/',this.filters, { headers: headers })
-    //     .subscribe(response => {
     this.apiService.filtersql(usertoken,this.filters).subscribe((response)=>{
       // console.log(response);
       const userStr = JSON.stringify(response);

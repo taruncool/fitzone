@@ -75,39 +75,25 @@ export class TlevelPage implements OnInit {
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
       let userInfo = {"id":parseInt(this.userId),"trainingLevel":this.selectedLevel};
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
       let usertoken = localStorage.getItem('usertoken');
-      // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', {"id":parseInt(this.userId),"userInf":{"trainingLevel":this.selectedLevel}}, { headers: headers })
-      //   .subscribe(response => {
-      //     if(response.json().success){
       this.apiService.fitnessprofile(userInfo,usertoken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
           this.loadData.stopLoading();
           if(res.success){
             this.toastmsg(res.message);
-            // let toast = await this.toastCtrl.create({
-            //   message: res.message,
-            //   duration: 3000
-            // });
-            // toast.present();
             localStorage.setItem('traininglevel',this.selectedLevel);
             this.modalCtrl.dismiss();
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Unable to process your request. Please try after some time",
-            //   duration: 3000
-            // });
-            // toast.present();
+           
           }
         },(err) =>{
           this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
-            this.navCtrl.navigateForward('/login');
+            this.navCtrl.navigateRoot('/login');
             //this.app.getRootNav().setRoot(LoginPage);
           }
         })

@@ -460,12 +460,6 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
  async updateTmaxServer(data) {
 
     if (localStorage.getItem('internet') === 'online') {
-      
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
-      // this.http.post(global.baseURL + 'userprogram/updateTmaxData/', data, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.updateTmaxData(data,this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -1248,12 +1242,9 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               this.completedSetArr.push({ "intensity": String(completedSetData.res.rows.item(index).intensity), "plan_id": String(completedSetData.res.rows.item(index).plan_id), "setCompletedDate": completedSetData.res.rows.item(index).date, "setId": completedSetData.res.rows.item(index).action_id, "totalReps": completedSetData.res.rows.item(index).repsdone, "workweight": completedSetData.res.rows.item(index).workweight, "tmax": completedSetData.res.rows.item(index).tmax, "exId": completedSetData.res.rows.item(index).exercise_id });
             }
             if (localStorage.getItem('internet') === 'online') {
-              var headers = new Headers();
-              headers.append('Content-Type', 'application/json');
-              // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+             
               var data = { "set_details": this.completedSetArr };
-              // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
-              //   .subscribe(response => {
+             
               this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
@@ -1712,12 +1703,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                   this.completedSetArr.push({ "intensity": String(completedSetData.res.rows.item(index).intensity), "plan_id": String(completedSetData.res.rows.item(index).plan_id), "setCompletedDate": completedSetData.res.rows.item(index).date, "setId": completedSetData.res.rows.item(index).action_id, "totalReps": completedSetData.res.rows.item(index).repsdone, "workweight": completedSetData.res.rows.item(index).workweight, "tmax": completedSetData.res.rows.item(index).tmax, "exId": completedSetData.res.rows.item(index).exercise_id });
                 }
                 if (localStorage.getItem('internet') === 'online') {
-                  var headers = new Headers();
-                  // headers.append('Content-Type', 'application/json');
-                  // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+                 
                   var data = { "set_details": this.completedSetArr };
-                  // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
-                  //   .subscribe(response => {
                   this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                     const userStr = JSON.stringify(response);
                     let res = JSON.parse(userStr);
@@ -1796,12 +1783,9 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                   this.completedSetArr.push({ "intensity": String(completedSetData.res.rows.item(index).intensity), "plan_id": String(completedSetData.res.rows.item(index).plan_id), "setCompletedDate": completedSetData.res.rows.item(index).date, "setId": completedSetData.res.rows.item(index).action_id, "totalReps": completedSetData.res.rows.item(index).repsdone, "workweight": completedSetData.res.rows.item(index).workweight, "tmax": completedSetData.res.rows.item(index).tmax, "exId": completedSetData.res.rows.item(index).exercise_id });
                 }
                 if (localStorage.getItem('internet') === 'online') {
-                  var headers = new Headers();
-                  // headers.append('Content-Type', 'application/json');
-                  // let usertoken = headers.append('Authorization', localStorage.getItem('usertoken'));
+                 
                   var data = { "set_details": this.completedSetArr };
-                  // this.http.post(global.baseURL + 'userprogram/createsetdetails/', data, { headers: headers })
-                  //   .subscribe(response => {
+                 
                   this.apiService.createsetdetails(data,this.tokken).subscribe((response)=>{
                     const userStr = JSON.stringify(response);
                     let res = JSON.parse(userStr);
@@ -2605,14 +2589,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
  async updateTmax(exercises) {
     if (localStorage.getItem('internet') === 'online') {
       // this.loadData.startLoading();
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', this.tokken);
+     
       var tmaxdata = { tmaxData: exercises };
-      // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/', tmaxdata, { headers: headers })
-      //   .subscribe(response => {
-      //     this.loadData.stopLoading();
-      //     if (response.json().success) {
       this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
@@ -2795,7 +2773,6 @@ backButtonAction() {
       updateTmax: this.loadData.convertWeight(this.exerciseTmax, "db"),
       updateType: ''
     };
-    var headers = new Headers();
     this.apiService.updateTmaxData(data,this.tokken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);

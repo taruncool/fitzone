@@ -85,14 +85,7 @@ export class StartdatePage implements OnInit {
   async checkSeason(){
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      // var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
       var creds = {"planid":this.userplandata.plan_id};
-      // this.http.post(global.baseURL + 'program/checkinseason/', creds, { headers: headers })
-      // .subscribe(response => {
-      //     this.loadData.stopLoading();
-      //     if(response.json().success){
       this.apiService.checkinseason(creds,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
@@ -158,18 +151,11 @@ export class StartdatePage implements OnInit {
   async updateStartDate(){
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      var headers = new Headers();
       var self = this;
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', self.token);
       this.loadData.stopLoading();
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
       var userInfo = {"startdate":self.loadData.changeDateFormat(self.pStartDate,'db'),"planid":self.userplandata.plan_id,"dayoff":self.getOffDay, "seasonDate":self.selectedSeasonDate,'deviceDate':deviceDate+' 00:00:00'};
-      // self.http.post(global.baseURL + 'userprogram/updatestartdate/', userInfo, { headers: headers })
-      // .subscribe(response => {
-      //   this.loadData.stopLoading();
-      //   if(response.json().success){
       this.apiService.updatestartdate(userInfo,self.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);

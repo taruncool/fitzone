@@ -590,18 +590,11 @@ export class DashboardPage implements OnInit {
 
   async getMealDataServer(date){
     console.log("date of nutrition.........",date);
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
 
-      // var headers = new Headers();
-   
-      // headers.append('Content-Type', 'application/json');
-      //  var usertoken = headers.append('Authorization', this.tokken);
       var mealDateJson = {mealDate:date};
 
       console.log(mealDateJson);
-
-      // this.http.post(global.baseURL + '/userplan/getmeal/', mealDateJson, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.getmeal(this.tokken,mealDateJson).subscribe((response)=>{
         console.log("get meal plan response",response);
         const userStr = JSON.stringify(response);
@@ -697,14 +690,14 @@ export class DashboardPage implements OnInit {
                    
       }
     })
-// }else{
-//   this.loadData.stopLoading();
-//   let toast = await this.toastCtrl.create({
-//     message: "Please check your internet connectivity and try again",
-//     duration: 3000
-//   });
-//   toast.present();
-// }
+}else{
+  this.loadData.stopLoading();
+  let toast = await this.toastCtrl.create({
+    message: "Please check your internet connectivity and try again",
+    duration: 3000
+  });
+  toast.present();
+}
 }
   public macrosCalGms(){
   this.fatCalBalance = 0;
@@ -938,7 +931,7 @@ export class DashboardPage implements OnInit {
               var nextDay = new Date(todayDate1.getTime() + 1*24*60*60*1000);
               this.nextWorkoutDateStr = ('0' +(nextDay.getDate())).slice(-2) + '-' + ('0' +(nextDay.getMonth()+1)).slice(-2) + '-' +nextDay.getFullYear() 
               //this.showNextWorkoutDateRestDay();
-              this.loadData.stopLoading();  
+              // this.loadData.stopLoading();  
             } else {                  
                this.loadData.startLoading();         
               this.sqlStorageNew.query("select * from plandays where status = 1 order by day_id desc").then(
@@ -1431,15 +1424,12 @@ export class DashboardPage implements OnInit {
   }
   async activatePlan(){
 
-		// if(localStorage.getItem('internet')==='online'){
+		if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			 this.loadData.startLoading();
-			// var headers = new Headers();
+			
 			var data = { 'plan_id':  this.planInfo.id,'firstPlan': "false" ,'deviceDate':deviceDate+' 00:00:00'};
-			// headers.append('Content-Type', 'application/json');
-      // var usertoken =	headers.append('Authorization', localStorage.getItem('usertoken'));
-			//  this.http.post(global.baseURL + 'userprogram/activateuserplan/', data, { headers: headers }).subscribe(response => {
        this.apiService.activatePlan(this.tokken,data).subscribe((response)=>{
          console.log("activate plan response",response);
          const userStr = JSON.stringify(response);
@@ -1461,31 +1451,23 @@ export class DashboardPage implements OnInit {
 				}else{
            this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
-          // let toast = await this.toastCtrl.create({
-          //   message: "Unable to process your request. Please try after some time",
-          //   duration: 3000
-          // });
-          // toast.present();
+        
         }
         this.toastmsg(res.message);
-				// let toast = await this.toastCtrl.create({
-				// 	message: res.message,
-				// 	duration: 3000
-				// });
-				// toast.present();
+				
 			},(err)=>{
         if(err.status === 403){
           this.loadData.forbidden();
           // this.navCtrl.navigateForward(LoginPage);
         }
       });
-		// }else{
-		// 	let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-		// }
+		}else{
+			let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+		}
 		
   }
   

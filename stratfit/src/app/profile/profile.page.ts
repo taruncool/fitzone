@@ -397,14 +397,8 @@ export class ProfilePage implements OnInit {
 
   //update weight && wtunits
   async updateMetrics(){
-    // if(localStorage.getItem('internet')==='online'){
-
-      var headers = new Headers();
+    if(localStorage.getItem('internet')==='online'){
       var userInfo = {"id":parseInt(this.userId),"userInf":{"weightM":this.weightunit,"weight":this.weight}}
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
-      // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
-      // .subscribe(response => {
       this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -419,14 +413,14 @@ export class ProfilePage implements OnInit {
           //this.app.getRootNav().setRoot(LoginPage);
         }
       })
-    // }else{
+    }else{
 
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   //onchange currencyType

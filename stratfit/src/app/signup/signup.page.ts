@@ -59,12 +59,12 @@ export class SignupPage implements OnInit {
   // };
 }
   
-    public validateEmail(email){
+    async validateEmail(email){
       var x = email;
       var atpos = x.indexOf("@");
       var dotpos = x.lastIndexOf(".");
       if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-        this.prompt = this.alertCtrl.create({
+        this.prompt = await this.alertCtrl.create({
           message: 'Invalid Email Format ',
           buttons: ['OK']
         });
@@ -75,11 +75,11 @@ export class SignupPage implements OnInit {
       }
     }
     
-    public validatePassword(password){
+    async validatePassword(password){
       var x = password;
       
       if (x.length<5 || x.length>15) {
-        this.prompt = this.alertCtrl.create({
+        this.prompt = await this.alertCtrl.create({
           message: 'Password must be more than 5 and less than 15 letters.',
           buttons: ['OK']
         });
@@ -132,12 +132,8 @@ export class SignupPage implements OnInit {
           if(this.validpassword){
             if(this.isTermsChecked === true){
           // this.loadData.startLoading();
-          // var headers = new Headers();
-          // headers.append('Content-Type', 'application/json');
           var data = {fname:user.firstname,email:user.email,password:user.password,currencytype:this.currencytype, deviceType:this.devicetype};
           return new Promise((resolve) =>{
-            // this.http.post(global.baseURL + 'subscriber/register/', data, {headers: headers})
-            //   .subscribe(response => {
             this.apiService.regiser(data).subscribe((response)=>{
                   const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
@@ -300,12 +296,8 @@ export class SignupPage implements OnInit {
       if (localStorage.getItem('internet') === 'online') {
         this.loadData.startLoading();
         var fbServerUrl = global.baseURL.replace('/services/services/stratservices/','');
-        var headers = new Headers();
         var creds = { backend: socialtype, clientId: clientid, redirectUri: fbServerUrl, access_token: accessToken, code: code, currencytype:this.currencytype, deviceType:this.devicetype};
-        headers.append('Content-Type', 'application/json');
         return new Promise((resolve) => {
-          // this.http.post(global.baseURL + 'subscriber/socialloginnew/', creds, { headers: headers })
-          //   .subscribe(res => {
           this.apiService.sociallogin(creds).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
@@ -372,25 +364,19 @@ export class SignupPage implements OnInit {
               } else {
                 this.loadData.stopLoading();
                 this.toastmsg(res.message);
-                // this.prompt = await this.alertCtrl.create({
-                //   // message: 'Login Failed',
-                //   message: res.message,
-                //   buttons: ['OK']
-                // });
-                // this.prompt.present();
               }
             }, (err) => {
               this.loadData.stopLoading();
               this.errorMsg();
              });
         })
-      // } else {
-      //   let toast = await this.toastCtrl.create({
-      //     message: "Please check your internet connectivity and try again",
-      //     duration: 3000
-      //   });
-      //   toast.present();
-      // }
+      } else {
+        let toast = await this.toastCtrl.create({
+          message: "Please check your internet connectivity and try again",
+          duration: 3000
+        });
+        toast.present();
+      }
     }
   
     // async checkQueryHit(res){
@@ -426,7 +412,7 @@ export class SignupPage implements OnInit {
     // 		this.navCtrl.setRoot(DashboardPage);
     // 	//});
     // }
-    }
+    // }
     async errorMsg(){
       let toast = await this.toastCtrl.create({
         message: "Unable to process your request. Please try after some time",

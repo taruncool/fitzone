@@ -130,7 +130,6 @@ export class PlanrenewalPage implements OnInit {
             this.existingUserRating(this.activeplanid);
             if(localStorage.getItem('internet')==='online'){
             if (this.platform.is('ios') && this.plandetails.price !="Free") {
-              var headers = new Headers();
               this.apiService.getpriceMap(this.token).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
@@ -224,9 +223,6 @@ export class PlanrenewalPage implements OnInit {
 
   async existingUserRating(activePlanId){
     if(localStorage.getItem('internet')==='online'){
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', this.token);
       var creds =  {"user_id":this.loginuserid, "plan_id":activePlanId,"get_rating":1};
       return new Promise((resolve) => {
         this.apiService.createPlanRating(creds,this.token).subscribe((response)=>{
@@ -256,7 +252,6 @@ export class PlanrenewalPage implements OnInit {
     if(localStorage.getItem('internet')==='online'){
       // this.loadData.startLoading();
       var creds = {"plan_id":cplan_id};
-      var headers = new Headers();
       return new Promise((resolve) => {
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
@@ -373,11 +368,6 @@ export class PlanrenewalPage implements OnInit {
     }
     if(localStorage.getItem('internet')==='online'){
       if (this.platform.is('ios') && planData.price !="Free") {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', this.token);
-        // this.http.get(global.baseURL + 'utility/getpriceMap/', { headers: headers })
-        //   .subscribe(response => {
         this.apiService.getpriceMap(this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -421,7 +411,6 @@ export class PlanrenewalPage implements OnInit {
       if(this.platform.is('ios')) {
         // this.loadData.startLoading();
       }
-      var headers = new Headers();
 			return new Promise((resolve) => {
         this.apiService.sessionCheck(this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
@@ -456,12 +445,7 @@ export class PlanrenewalPage implements OnInit {
     // this.loadData.startLoading();
     this.transactionid = transactionid;
     var creds = {transactionId:transactionid, plan_id:this.planData.id, amount:this.planData.planprice,deviceType:this.devicetype};
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', this.token);
     return new Promise((resolve) => {
-      // this.http.post(global.baseURL + 'payment/ionicSaveTransactions/', creds, { headers: headers })
-      // .subscribe(response => {
       this.apiService.ionicSaveTransactions(creds,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -487,7 +471,6 @@ export class PlanrenewalPage implements OnInit {
       var date = new Date();
       this.todayDate = date.getFullYear() + '-' + ('0' +((date.getMonth() + 1))).slice(-2) + '-' +  ('0' +(date.getDate())).slice(-2);
       var data = {"planid":this.planData.id,"startdate":this.todayDate+' 00:00:00','plancomplete':this.planComplete,"deviceDate":this.todayDate+' 00:00:00','transactionId':this.transactionid};
-      var headers = new Headers();
       return new Promise((resolve) =>{
         this.apiService.updaterenewaldate(data,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);

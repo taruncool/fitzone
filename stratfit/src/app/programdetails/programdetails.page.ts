@@ -135,12 +135,7 @@ export class ProgramdetailsPage implements OnInit {
       // this.viwPlanStructure();
     }else{
       this.toastmsg("Unable to process your request. Please try after some time");
-      // let toast = await this.toastCtrl.create({
-      //   message: "Unable to process your request. Please try after some time",
-      //   duration: 3000
-      // });
-      // toast.present();
-    }
+         }
     let videoid = "exc-video-"+this.planinfo.id;
     var videoElement =  document.getElementById(videoid);
 
@@ -485,8 +480,7 @@ export class ProgramdetailsPage implements OnInit {
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			var data = {'plan_id':this.subplandet.id, 'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
       return new Promise((resolve) =>{
-        // this.http.post(global.baseURL + 'userprogram/createuserplan/', data, {headers: headers})
-        //   .subscribe(response => {
+        
         this.apiService.createuserplan(data,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -644,8 +638,7 @@ export class ProgramdetailsPage implements OnInit {
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
       var data = {'plan_id':this.subplaninfo.id,'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
       return new Promise((resolve) =>{
-        // this.http.post(global.baseURL + 'userprogram/createuserplan/', data, {headers: headers})
-        //   .subscribe(response => {
+        
         this.apiService.createuserplan(data,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);

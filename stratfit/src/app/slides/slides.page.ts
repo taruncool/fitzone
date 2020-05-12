@@ -182,12 +182,7 @@ export class SlidesPage implements OnInit {
     if(this.token !='' && this.token !=null && this.token !=undefined){
       if(localStorage.getItem('internet')==='online'){
         //this.loadData.startLoading();
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', localStorage.getItem('usertoken'));
         var data ={"utokken":this.token}
-        // this.http.post(global.baseURL + 'subscriber/ionicloginchecking/', data, { headers: headers })
-        //   .subscribe(response => {
         this.apiService.loginchecking(data,this.token).subscribe((response)=>{
             console.log("loginnew response",response);
             const userStr = JSON.stringify(response);

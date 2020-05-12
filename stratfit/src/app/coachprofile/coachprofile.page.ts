@@ -64,12 +64,7 @@ export class CoachprofilePage implements OnInit {
         }else if(this.coachdata.planId !==undefined){
           this.creds = {planid:this.coachdata.planId,deviceType:this.devicetype};
         }
-        // var headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Authorization', this.token);
         return new Promise((resolve) => {
-          // this.http.post(global.baseURL + 'program/individualuserplans/', this.creds, { headers: headers })
-          // .subscribe(response => {
           this.apiService.individualuserplans(this.creds,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);

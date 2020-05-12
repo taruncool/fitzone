@@ -154,7 +154,6 @@ export class PlateweightsPage implements OnInit {
       }
       if(dbweights && (pweights>1)){
         var data ={'wtinfo':this.displayBarbelWts.concat(this.displayPtWts)};
-        var headers = new Headers();
         return new Promise((resolve) =>{
           this.apiService.createplatewts(data,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);

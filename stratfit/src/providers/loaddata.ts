@@ -157,11 +157,9 @@ export class LoadData {
             }
         });
     }else{
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+      
       var otpdata = {"code":localStorage.getItem('otp'),'email':localStorage.getItem('email')}; 
-      // this.http.post(global.baseURL + 'subscriber/accountValidateotp/', otpdata, {headers: headers})
-      // .toPromise().then(response => {
+      
       this.apiService.validateotp(otpdata).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -183,8 +181,6 @@ export class LoadData {
   }
  
   public userlogout(){
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
     this.token = localStorage.getItem('usertoken');
     this.apiService.userlogout(this.token).subscribe((response)=>{
       // .toPromise().then(response => {
@@ -223,7 +219,7 @@ export class LoadData {
     this.programDownloadPercent = 0;
     localStorage.setItem('getpercent',this.programDownloadPercent);
     //this.startLoading();
-    var headers = new Headers();
+    // var headers = new Headers();
     var planInfo = {"id": id};
     this.token = localStorage.getItem('usertoken');
     this.weight = localStorage.getItem('weight');
@@ -233,10 +229,6 @@ export class LoadData {
 
     this.trainingLevelcode = localStorage.getItem('traininglevel');
 
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', this.token);
-    // this.http.post(global.baseURL + 'program/plandetails/', planInfo, { headers: headers })
-    // .subscribe(response => {
     this.apiService.plandetails(this.token,planInfo).subscribe((response)=>{
       console.log("json response",response);
       const userStr = JSON.stringify(response);
@@ -386,16 +378,12 @@ export class LoadData {
 
 public getExercises(){
   //this.startLoading();
-  var headers = new Headers();
+  // var headers = new Headers();
   var planInfo = {"id": 1}
   this.weight = parseInt(localStorage.getItem('weight'));
   this.gender = localStorage.getItem('gender');
   this.trainingLevelcode = localStorage.getItem('traininglevel');
 
-  headers.append('Content-Type', 'application/json');
-  // headers.append('Authorization', this.token);
-  // this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', { headers: headers })
-  // .subscribe(response => {
   this.apiService.newextypedetailspdc(this.token).subscribe((response)=>{
     console.log("ex data-----load data", response);
     var trainingCoeff;
@@ -522,14 +510,8 @@ public getExercises(){
 
 public getExercisesNew(){
   //this.startLoading();
-  var headers = new Headers();
+  // var headers = new Headers();
   var planInfo = {"id": 1}
-
-  headers.append('Content-Type', 'application/json');
-  // headers.append('Authorization', localStorage.getItem('usertoken'));
-  // headers.append('Authorization', this.token);
-  // this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', { headers: headers })
-  // .subscribe(response => {
   this.apiService.newextypedetailspdc(this.token).subscribe((response)=>{
     console.log("ex data-----load data", response);
     var trainingCoeff;
@@ -541,8 +523,6 @@ public getExercisesNew(){
 
       this.plan_exercises =[];
 
-      // this.http.get(global.baseURL + 'userprogram/getUpdatedTmax/', { headers: headers })
-      // .subscribe(tmaxResponse => {
       this.token = localStorage.getItem('usertoken');
       this.apiService.getupdatedTmax(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
@@ -589,32 +569,18 @@ public getExercisesNew(){
 async updateTmaxServer(exercises){
     if(localStorage.getItem('internet')==='online'){
       this.startLoading();
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
       let usertoken = localStorage.getItem('usertoken');
       var tmaxdata = {tmaxData:exercises};
-      // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.getmeal(usertoken,tmaxdata).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
             this.stopLoading();
             if(res.success){
               this.toastmsg("Tmax updated successfully");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Tmax updated successfully",
-              //   duration: 3000
-              // });
-              // toast.present();
             }else{
             }
         },(err) => {
           this.toastmsg(err);
-          // let toast = await  this.toastCtrl.create({
-          //   message: err,
-          //   duration: 3000
-          // });
-          // toast.present();
           if(err.status === 403){
             this.forbidden();
             //this.nav.setRoot(LoginPage);
@@ -641,11 +607,9 @@ async updateTmaxServer(exercises){
   }
 
   public getTmax(){
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    
     let token = localStorage.getItem('usertoken');
-    // return this.http.get(global.baseURL + 'userprogram/userTestExercise/', { headers: headers })
-    //   .toPromise().then(response => {
+    
     this.apiService.usertestExercise(token).subscribe((response)=>{
         //  var respon = response.json();
         // this.updateTmax(respon.tmaxDetails);
@@ -771,12 +735,7 @@ async updateTmaxServer(exercises){
   }
 
   public insertPlateWeights(){
-	  var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
       this.token = localStorage.getItem('usertoken');
-      // var token = headers.append('Authorization', localStorage.getItem('usertoken'));
-      // this.http.get(global.baseURL + 'subscriber/getplateweights/', { headers: headers })
-      // .subscribe(response => {
       this.apiService.getplateweights(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);

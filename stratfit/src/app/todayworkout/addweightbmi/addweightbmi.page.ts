@@ -262,12 +262,8 @@ async updateMetrics(){
 
   if(localStorage.getItem('internet')==='online'){
 
-    var headers = new Headers();
+   
     var userInfo = {"id":parseInt(this.userId),"userInf":{"weightM":this.weightunit,"weight":this.weight}}
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', this.token);
-    // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
-    // .subscribe(response => {
     this.apiService.updateTmaxData(userInfo,this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);

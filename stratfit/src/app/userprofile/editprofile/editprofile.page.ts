@@ -79,10 +79,6 @@ export class EditprofilePage implements OnInit {
 
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      var headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.tokken);
-      // this.http.get(global.baseURL + 'utility/getcountrydata/', { headers: headers })
       this.apiService.getcountrydata(this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -218,16 +214,11 @@ export class EditprofilePage implements OnInit {
      this.validationAlerts(this.alertmessage);
    }else{
      
-   
-    
     this.converthtcms = ((parseInt(this.htfeet,10)*12)+parseInt(this.ftinch,10))*2.54;
     if(localStorage.getItem('internet')==='online'){
     this.loadData.startLoading();
-    var headers = new Headers();
+   
     var userInfo = {"id":parseInt(this.userId),"userInf":{"first_name":this.firstname,"last_name":this.lastname,"weight":this.weight,"height":this.converthtcms,"heightM":"cms","weightM":this.weightunit,"gender":this.gender,"phone":this.phone,"dob":this.dob, "countrycode":this.phcode}}
-    // headers.append('Content-Type', 'application/json');
-    // headers.append('Authorization', this.tokken);
-   // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
    this.apiService.fitnessprofile(userInfo,this.tokken).subscribe((response)=>{ 
     const userStr = JSON.stringify(response);
     let res = JSON.parse(userStr);

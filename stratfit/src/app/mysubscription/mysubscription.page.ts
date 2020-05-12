@@ -260,7 +260,6 @@ export class MysubscriptionPage implements OnInit {
     if(localStorage.getItem('internet')==='online'){
       
       var creds = {"plan_id":cplan_id};
-      var headers = new Headers();
       return new Promise((resolve) => {
         this.apiService.viewplan(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
