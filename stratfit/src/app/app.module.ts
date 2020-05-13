@@ -42,6 +42,7 @@ import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
 import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
 import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
+import { TimerComponent } from './workout/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
     SessionsummaryPage,
     EditprofilePage,
     FiltercountryPage,
-    TmaxeditpopupPage
+    TmaxeditpopupPage,
+    TimerComponent
   ],
   entryComponents: [
     ProgressloginPage,
@@ -67,7 +69,8 @@ import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
     SessionsummaryPage,
     EditprofilePage,
     FiltercountryPage,
-    TmaxeditpopupPage
+    TmaxeditpopupPage,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

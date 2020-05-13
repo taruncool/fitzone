@@ -836,7 +836,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       var tmax = this.simpleActions.tmax;
       var maxreps = this.simpleActions.maxreps;
 
-      this.moreRepsModal = await this.modalCtrl.create({
+      const morerepsmodal: HTMLIonModalElement =  await this.modalCtrl.create({
         component:MorerepsPage,
         componentProps: {
         'rest': 0,
@@ -850,8 +850,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'maxreps': maxreps }
       });
 
-      this.moreRepsModal.present();
-      this.moreRepsModal.onDidDismiss.then((data) => {
+     
+      morerepsmodal.onDidDismiss().then((data) => {
 
       console.log(data);
       let morerepsdone = 0;
@@ -921,6 +921,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       // this.backButtonAction();
       // }
     });
+
+    await morerepsmodal.present();
 
   }
 
@@ -1475,7 +1477,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       });
   }
 
-  openMoreRepsComplex(complexActions) {
+  async openMoreRepsComplex(complexActions) {
 
     let showMRW = localStorage.getItem('showMoreRepsWindow');
 
@@ -1494,7 +1496,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       // var tmax = this.simpleActions.tmax;
       // var maxreps = this.simpleActions.maxreps;
 
-      this.moreRepsModal = this.modalCtrl.create({
+      const morerepsmodal: HTMLIonModalElement = await this.modalCtrl.create({
         component:MorerepscomplexPage,
         componentProps: {
         'rest': 0,
@@ -1502,8 +1504,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'excercisedetails': complexActions,
         'complexActions': complexActions }  
       });
-        this.moreRepsModal.present();
-        this.moreRepsModal.onDidDismiss.then((data) => {
+        
+      morerepsmodal.onDidDismiss().then((data: any) => {
         this.isDoneDisabled = false;
         console.log(data);
         var complexActionsFrmPop: any[] = [];
@@ -1566,6 +1568,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         }
 
       });
+
+      await morerepsmodal.present();
 
     } else {
 
@@ -1882,7 +1886,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
   }
 
-  actionrestpopComplex(restTime, actionData) {
+  async actionrestpopComplex(restTime, actionData) {
 
     // if (restTime.toString().indexOf('.') !== -1) {
     //   var tempRTM = Math.floor(restTime);
@@ -1901,42 +1905,27 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
     console.log("action ex name", actionData.exerciseName);
     console.log("action data ex id", actionData.exId);
-
-    this.warmupRestModal = this.modalCtrl.create({
-      component:TimerpopupPage,
-      componentProps: {
-      'rest': restTime, 'setname': "Action " + actionData.exId,
-      'excercisename': actionData.exerciseName,
-      'excerciseid': actionData.exId,
-      'setworkweight': actionData.workweight,
-      'repsdone': this.repscount, "calories": 0, "exFinished": false }
-    });
-    //   if(!this.showVideo){
-    //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' +this.activeExerciseId);
-    //   this.myVideo.muted=true;
-    //   this.myVideo.pause();
-    // }
-    this.warmupRestModal.present();
-    this.warmupRestModal.onDidDismiss.then((data) => {
+  
+      const timermodal: HTMLIonModalElement =
+      await this.modalCtrl.create({
+        component:TimerpopupPage,
+        componentProps: {
+        'rest': restTime, 'setname': "Action " + actionData.exId,
+        'excercisename': actionData.exerciseName,
+        'excerciseid': actionData.exId,
+        'setworkweight': actionData.workweight,
+        'repsdone': this.repscount, "calories": 0, "exFinished": false }
+      });
       
-
-      this.loadComplexData();
-
-
-      // if(!this.showVideo){
-      // setTimeout(() => {
-
-      //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-'+this.activeExerciseId);
-      //   this.myVideo.muted=true;
-      //   this.myVideo.play();
-      //   this.myVideo.loop = true;
-
-      //   },1000);
-      // }
-      // if(this.warmupArr.length===0){
-      //     this.backButtonAction();
-      // }
-    });
+       
+      timermodal.onDidDismiss().then((data: any) => {
+         
+            console.log('The result: model closed');
+            this.loadComplexData();
+         
+       });
+  
+       await timermodal.present();
   }
 
   selectANumberComplex(action) {
@@ -2163,7 +2152,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     console.log("action ex name", actionData.exerciseName);
     console.log("action data ex id", actionData.exId);
 
-    this.warmupRestModal =await this.modalCtrl.create({
+    const timermodal: HTMLIonModalElement =
+    await this.modalCtrl.create({
       component:TimerpopupPage,
       componentProps: {
       'rest': restTime, 'setname': "Action " + actionData.exId,
@@ -2172,31 +2162,16 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       'setworkweight': actionData.workweight,
       'repsdone': this.repscount, "calories": 0, "exFinished": false }
     });
-    //   if(!this.showVideo){
-    //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' +this.activeExerciseId);
-    //   this.myVideo.muted=true;
-    //   this.myVideo.pause();
-    // }
-    this.warmupRestModal.present();
-    this.warmupRestModal.onDidDismiss.then((data) => {
+    
+     
+    timermodal.onDidDismiss().then((data: any) => {
+       
+          console.log('The result: model closed');
+          this.getActionData(false);
+       
+     });
 
-      this.getActionData(false);
-
-
-      // if(!this.showVideo){
-      // setTimeout(() => {
-
-      //   this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-'+this.activeExerciseId);
-      //   this.myVideo.muted=true;
-      //   this.myVideo.play();
-      //   this.myVideo.loop = true;
-
-      //   },1000);
-      // }
-      // if(this.warmupArr.length===0){
-      //     this.backButtonAction();
-      // }
-    });
+     await timermodal.present();
   }
 
   // ionViewWillUnload() {

@@ -4,7 +4,8 @@ import { global } from "../../../app/global";
 import { LoadData } from '../../../providers/loaddata';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
-import {TimerPage } from '../timer/timer.page';
+import { TimerComponent } from '../timer/timer.component';
+
 
 @Component({
   selector: 'app-timerpopup',
@@ -12,7 +13,7 @@ import {TimerPage } from '../timer/timer.page';
   styleUrls: ['./timerpopup.page.scss'],
 })
 export class TimerpopupPage implements OnInit {
-  @ViewChild('TimerPage', {static:false}) timer: TimerPage;
+  @ViewChild('timer',{static:false}) timer: TimerComponent;
   myVariableNameHere:any;
   setName:any;
   exerciseName:any;

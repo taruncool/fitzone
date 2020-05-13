@@ -106,6 +106,8 @@ export class ProgramdetailsPage implements OnInit {
     // let videoArr = [62,63,64,65,70,72,73,79,80,81,82,107,108,109];
     // let rand = videoArr[Math.floor(Math.random() * videoArr.length)];
     // this.planinfo.vid = rand;
+    this.token = localStorage.getItem('usertoken');
+    this.userid =localStorage.getItem('userId');
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.planinfo = this.router.getCurrentNavigation().extras.state.plandetails;
@@ -123,41 +125,42 @@ export class ProgramdetailsPage implements OnInit {
         }
         console.log("PlanInfo -------------------",this.planinfo);
         //this.uplanstate = navParams.get("upstate");
+       
+        this.s3Url = global.s3URL;
+        this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
+        this.futureplanid = localStorage.getItem('futureplanid');
+        if(this.planSet && this.planinfo.price.indexOf("strike")!==-1){
+          this.planinfo.price = this.planinfo.price.replace("<strike>","");
+          this.planinfo.price = this.planinfo.price.replace("</strike>","");
+        }else if(!this.planSet && this.planinfo.price !=='Free'){
+          if(!this.planSet && this.planinfo.price.indexOf("strike")==-1){
+            this.planinfo.price = '<strike>'+this.planinfo.price+'</strike>';
+          }
+        }
+    
+      
+    
+        //this.uplanStatusCheck();
+        this.userplanChecking();
+    
+        if(this.planinfo !='' && this.planinfo !=null && this.planinfo !='undefined'){
+          // this.viwPlanStructure();
+        }else{
+          this.toastmsg("Unable to process your request. Please try after some time");
+             }
+        let videoid = "exc-video-"+this.planinfo.id;
+        var videoElement =  document.getElementById(videoid);
+    
+        this.altCover = "assets/images/plan_2.png";
+        this.planinfo.plancover = this.planinfo.planPhoto; //"http://stratfit.net/ProgramImages/program"+this.planinfo.id+".png"
+        this.altAvatar = "assets/images/icon.png";
       }
     });
     
   }
 
   ngOnInit() {
-    this.token = localStorage.getItem('usertoken');
-    this.s3Url = global.s3URL;
-    this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
-    this.futureplanid = localStorage.getItem('futureplanid');
-    if(this.planSet && this.planinfo.price.indexOf("strike")!==-1){
-      this.planinfo.price = this.planinfo.price.replace("<strike>","");
-      this.planinfo.price = this.planinfo.price.replace("</strike>","");
-    }else if(!this.planSet && this.planinfo.price !=='Free'){
-      if(!this.planSet && this.planinfo.price.indexOf("strike")==-1){
-        this.planinfo.price = '<strike>'+this.planinfo.price+'</strike>';
-      }
-    }
-
-    this.userid =localStorage.getItem('userId');
-
-    //this.uplanStatusCheck();
-    this.userplanChecking();
-
-    if(this.planinfo !='' && this.planinfo !=null && this.planinfo !='undefined'){
-      // this.viwPlanStructure();
-    }else{
-      this.toastmsg("Unable to process your request. Please try after some time");
-         }
-    let videoid = "exc-video-"+this.planinfo.id;
-    var videoElement =  document.getElementById(videoid);
-
-    this.altCover = "assets/images/plan_2.png";
-    this.planinfo.plancover = this.planinfo.planPhoto; //"http://stratfit.net/ProgramImages/program"+this.planinfo.id+".png"
-    this.altAvatar = "assets/images/icon.png";
+   
     //videoElement.addEventListener('webkitfullscreenchange', this.onFullScreen)
     let options: StreamingVideoOptions = {
       successCallback: () => { console.log('Video played') },
@@ -234,6 +237,7 @@ export class ProgramdetailsPage implements OnInit {
 
   async userplanChecking(){
     if(localStorage.getItem('internet')==='online'){
+
       this.apiService.userplancheck(this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);

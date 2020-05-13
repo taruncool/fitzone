@@ -127,10 +127,6 @@ const routes: Routes = [
     loadChildren: () => import('./workout/timerpopup/timerpopup.module').then( m => m.TimerpopupPageModule)
   },
   {
-    path: 'timer',
-    loadChildren: () => import('./workout/timer/timer.module').then( m => m.TimerPageModule)
-  },
-  {
     path: 'wtcalpopup',
     loadChildren: () => import('./workout/wtcalpopup/wtcalpopup.module').then( m => m.WtcalpopupPageModule)
   },
