@@ -577,22 +577,13 @@ export class ProgramdetailsPage implements OnInit {
   }
 
   async showprogresspopup(resvalue) {
-    const progressmodal: HTMLIonModalElement =
-    await this.modalCtrl.create({
-      component:ProgressbarPage,
-      componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}}
-                       
- });
-    
-     
-    progressmodal.onDidDismiss().then((data: any) => {
-       
-          console.log('The result: model closed');
-       
-        
-     });
-
-     await progressmodal.present();
+   
+     let navigationExtras: NavigationExtras = {
+      state: {
+        'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}
+      }
+    };
+    this.router.navigate(['progressbar'], navigationExtras);
   }
 
   async customAlert(){
@@ -707,10 +698,7 @@ export class ProgramdetailsPage implements OnInit {
                       
                     },80);
                     console.log(this.cplan_startdate);
-                    this.modalCtrl.create({
-                    component:ProgressbarPage,
-                    componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
-                    });
+                    this.showprogresspopup(resvalue)
                     // planprogressModal.present();
                   //});
                 }
