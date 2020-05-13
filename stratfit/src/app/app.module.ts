@@ -44,9 +44,39 @@ import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary
 import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
 
 @NgModule({
-  declarations: [AppComponent,ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage,TmaxeditpopupPage],
-  entryComponents: [ProgressloginPage,ProgramdetailsPage,PlanpreviewPage,CoachprofilePage,TimerpopupPage,MorerepsPage,MorerepscomplexPage,SessionsummaryPage,EditprofilePage,FiltercountryPage,TmaxeditpopupPage],
-  imports: [BrowserModule,HttpClientModule,FormsModule,BrowserAnimationsModule,ComponentsModule, NoopAnimationsModule, IonicModule.forRoot(),
+  declarations: [
+    AppComponent,
+    ProgressloginPage,
+    PlanpreviewPage,
+    CoachprofilePage,
+    TimerpopupPage,
+    MorerepsPage,
+    MorerepscomplexPage,
+    SessionsummaryPage,
+    EditprofilePage,
+    FiltercountryPage,
+    TmaxeditpopupPage
+  ],
+  entryComponents: [
+    ProgressloginPage,
+    PlanpreviewPage,
+    CoachprofilePage,
+    TimerpopupPage,
+    MorerepsPage,
+    MorerepscomplexPage,
+    SessionsummaryPage,
+    EditprofilePage,
+    FiltercountryPage,
+    TmaxeditpopupPage
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ComponentsModule,
+    NoopAnimationsModule,
+    IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
     }), AppRoutingModule],
   providers: [

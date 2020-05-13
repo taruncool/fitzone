@@ -170,6 +170,10 @@ const routes: Routes = [
     path: 'advexpopup',
     loadChildren: () => import('./workout/advexpopup/advexpopup.module').then( m => m.AdvexpopupPageModule)
   },
+  {
+    path: 'progressbar',
+    loadChildren: () => import('./todayworkout/progressbar/progressbar.module').then( m => m.ProgressbarPageModule)
+  },
 
 ];
 @NgModule({

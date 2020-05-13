@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ProgramdetailsPage } from '../../../app/programdetails/programdetails.page';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import {SqlStorageNew} from '../../../providers/sql-storage-new';
@@ -36,7 +36,7 @@ isNetAlert = false;
 isGoalsExist = true;
 activepurposeid = 0;
 
-  constructor(public platform: Platform,public modalCtrl:ModalController,private apiService:ApiService, public navCtrl: NavController, private alertCtrl: AlertController,public toastCtrl: ToastController,private loadData: LoadData,private http: HttpClient){}
+  constructor(public platform: Platform,public modalCtrl:ModalController,public router: Router,private apiService:ApiService, public navCtrl: NavController, private alertCtrl: AlertController,public toastCtrl: ToastController,private loadData: LoadData,private http: HttpClient){}
 
   ngOnInit(){
       console.log("ion view did enter");
@@ -191,16 +191,14 @@ activepurposeid = 0;
       this.isNetAlert = true;
       }
       async planDetails(plan){
-          // this.navCtrl.push(ProgramdetailsPage,{"plandetails":plan});
-          let modal = await this.modalCtrl.create({
-            component: ProgramdetailsPage,
-            componentProps:{
-              "plandetails":plan
-            }
-           });
+
+        let navigationExtras: NavigationExtras = {
+          state: {
+            "plandetails":plan
+          }
+        };
+        this.router.navigate(['programdetails'], navigationExtras);
           
-           //let modal = this.modalCtrl.create(ProgramdetailsPage,{"plandetails":plan,"upstate":this.uplanstate});
-          modal.present();
          }
   public filterPurposePrograms(purposeid){
       this.activepurposeid = purposeid;

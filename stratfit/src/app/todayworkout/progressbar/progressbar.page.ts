@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,IonContent,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,IonContent,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
@@ -7,9 +7,10 @@ import { ApiService } from '../../../app/api.service';
 import { global } from "../../../app/global";
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import {SqlStorageNew} from '../../../providers/sql-storage-new';
-import { CalendarModule } from 'ion2-calendar';
+
 // import Moment from 'moment';
 import { StartdatePage } from '../../startdate/startdate.page';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-progressbar',
@@ -43,24 +44,36 @@ export class ProgressbarPage implements OnInit {
 
   planprogressModal;
   constructor(public nav:NavController, 
-    public navParams: NavParams, 
+    private route: ActivatedRoute, private router: Router,
     public modalCtrl: ModalController, 
     private loadData: LoadData,private apiService: ApiService,
-    public calendarCtrl: CalendarModule, public alertCtrl: AlertController, public toastCtrl: ToastController, private http: HttpClient, public sqlStorageNew: SqlStorageNew){
+    public alertCtrl: AlertController, public toastCtrl: ToastController, private http: HttpClient, public sqlStorageNew: SqlStorageNew){
       
     this.disbaleBackNav=true;
     this.percent = 0;
     this.hideloader = false;
-    this.uplandata = this.navParams.get("uplandata");
+   
 
-    this.pStartDate = this.uplandata.startdate;
-    const dateCon = new Date(this.pStartDate);
-    localStorage.setItem('exercise_info_plan',JSON.stringify(this.uplandata.exercises));
-    /*const momentDate = Moment(dateCon.toISOString());*/
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.uplandata = this.router.getCurrentNavigation().extras.state.uplandata;
+        console.log("---plan data---",this.uplandata);
+        console.log("---plan data---",this.uplandata.exercises);
+        this.pStartDate = this.uplandata.startdate;
+        const dateCon = new Date(this.pStartDate);
+        for(let i=0;i<this.uplandata.exercises.length;i++){
+  
+          this.uplandata.exercises[i].newExImage = this.uplandata.exercises[i].exercise_id__thumb_image;//"http://stratfit.net/newEx/"+this.planinfo.exercises[i].exercise_id+".jpg";
     
-    //var sessDate = Moment(dateCon).format("DD-MM-YYYY");
-    var sessDate = this.pStartDate;
-    this.pStartDate = sessDate;
+        }
+        localStorage.setItem('exercise_info_plan',JSON.stringify(this.uplandata.exercises));
+        /*const momentDate = Moment(dateCon.toISOString());*/
+        
+        //var sessDate = Moment(dateCon).format("DD-MM-YYYY");
+        var sessDate = this.pStartDate;
+        this.pStartDate = sessDate;
+      }
+    });
   
   }
 
@@ -70,6 +83,7 @@ export class ProgressbarPage implements OnInit {
   
   ngOnInit() {
     this.firstname=localStorage.getItem('firstname');
+   
     this.getPercentage();
   }
 
@@ -94,54 +108,7 @@ export class ProgressbarPage implements OnInit {
     setTimeout(()=>{this.content.scrollToBottom();},100);
   }
 
-  // public displayCalendar(){
-  //   var fromDate;
-  //   fromDate = new Date();
-  //   this.calendarCtrl.openCalendar({
-  //     from:fromDate,
-  //     weekdays:["S","M", "T", "W", "T", "F", "S"]
-  //   })
-  //   .then( (res:any) => { 
-  //     var date = new Date(res.string);
-  //     this.pStartDate = this.loadData.changeDateFormat(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +  date.getDate(),'view');
-  //     console.log(this.pStartDate);
-  //     const dateCon = new Date(this.pStartDate);
-  //     /*const momentDate = Moment(dateCon.toISOString());*/
-      
-  //     var sessDate = Moment(dateCon).format("DD-MM-YYYY");
-  //     var dt =new Date(this.pStartDate);
-  //     this.showStartDate = this.loadData.dateFormat(dt);
-  //     dt.setDate(dt.getDate() +6);
-  //     var dt =new Date(this.pStartDate);
-  //     this.showStartDate = this.loadData.dateFormat(dt);
-  //     dt.setDate(dt.getDate() +6);
-  //     this.getOffDay = dt.getDay();
-      
-  //     if (this.getOffDay === 0){
-  //       this.offday = "Sunday";
-  //     }else if(this.getOffDay === 1){
-  //       this.offday = "Monday";
-  //     }else if(this.getOffDay === 2){
-  //       this.offday = "Tuesday";
-  //     }else if(this.getOffDay === 3){
-  //       this.offday = "Wednesday";
-  //     }else if(this.getOffDay === 4){
-  //       this.offday = "Thursday";
-  //     }else if(this.getOffDay === 5){
-  //       this.offday = "Friday";
-  //     }else if(this.getOffDay === 6){
-  //       this.offday = "Saturday";
-  //     }
-  //     this.callFunction();
-  //     this.pStartDate = sessDate;
-  //    })
-  // }
-  changePSDate(){
-    this.modalCtrl.create({
-      component:StartdatePage,
-      componentProps:{'uplandata':this.uplandata,'progress':true}
-    });
-  }
+  
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({
       message: msg,

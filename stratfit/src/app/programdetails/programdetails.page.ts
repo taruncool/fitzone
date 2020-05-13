@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,Platform,NavController,NavParams} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { Headers } from '@angular/http';
@@ -12,6 +12,7 @@ import { ApiService } from '../../app/api.service';
 import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
 import { ProgressbarPage } from '../todayworkout/Progressbar/progressbar.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -92,24 +93,39 @@ export class ProgramdetailsPage implements OnInit {
 
   public myVideo: HTMLVideoElement;
 
-  constructor(public navCtrl: NavController,private apiService : ApiService,private streamingMedia: StreamingMedia, public navParams: NavParams,private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private alertCtrl: AlertController,private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew){
-    this.planinfo = navParams.get("plandetails");
+  constructor(public navCtrl: NavController,private apiService : ApiService,
+    private streamingMedia: StreamingMedia, 
+    private platform: Platform, 
+    private http: HttpClient, private loadData: LoadData, 
+    public toastCtrl: ToastController, private alertCtrl: AlertController,
+    private ga: GoogleAnalytics, public modalCtrl: ModalController,
+    public sqlStorageNew: SqlStorageNew,
+    private route: ActivatedRoute, private router: Router){
+    
+    // this.planinfo = navParams.get("plandetails");
     // let videoArr = [62,63,64,65,70,72,73,79,80,81,82,107,108,109];
     // let rand = videoArr[Math.floor(Math.random() * videoArr.length)];
     // this.planinfo.vid = rand;
-    for(let i=0;i<this.planinfo.exercises.length;i++){
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.planinfo = this.router.getCurrentNavigation().extras.state.plandetails;
 
-      this.planinfo.exercises[i].newExImage = this.planinfo.exercises[i].exercise_id__cover_image;//"http://stratfit.net/newEx/"+this.planinfo.exercises[i].exercise_id+".jpg";
+        for(let i=0;i<this.planinfo.exercises.length;i++){
 
-    }
-
-    if(this.planinfo.videos ===" " || this.planinfo.videos ==="" || this.planinfo.videos === null){
-
-      this.isShowIcon = false;
-
-    }
-    console.log("PlanInfo -------------------",this.planinfo);
-    //this.uplanstate = navParams.get("upstate");
+          this.planinfo.exercises[i].newExImage = this.planinfo.exercises[i].exercise_id__cover_image;//"http://stratfit.net/newEx/"+this.planinfo.exercises[i].exercise_id+".jpg";
+    
+        }
+    
+        if(this.planinfo.videos ===" " || this.planinfo.videos ==="" || this.planinfo.videos === null){
+    
+          this.isShowIcon = false;
+    
+        }
+        console.log("PlanInfo -------------------",this.planinfo);
+        //this.uplanstate = navParams.get("upstate");
+      }
+    });
+    
   }
 
   ngOnInit() {

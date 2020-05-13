@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ProgramdetailsPage } from '../../app/programdetails/programdetails.page';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
@@ -291,15 +291,13 @@ async errorMsg(){
 
 async planDetails(plan){
  // this.navCtrl.push(ProgramdetailsPage,{"plandetails":plan});
- let modal = await this.modalCtrl.create({
-   component: ProgramdetailsPage,
-   componentProps:{
-     "plandetails":plan
-   }
-  });
- 
-//   //let modal = this.modalCtrl.create(ProgramdetailsPage,{"plandetails":plan,"upstate":this.uplanstate});
-  modal.present();
+ let navigationExtras: NavigationExtras = {
+  state: {
+    "plandetails":plan
+  }
+};
+this.router.navigate(['programdetails'], navigationExtras);
+
 }
 public filterPurposePrograms(purposeid){
   this.activepurposeid = purposeid;
