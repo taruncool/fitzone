@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController, AlertController,ModalController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import { global } from "../../../app/global";
 import { ApiService } from '../../../app/api.service';

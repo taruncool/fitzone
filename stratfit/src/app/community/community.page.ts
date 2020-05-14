@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { ApiService } from '../../app/api.service';
 import { LoadData } from '../../providers/loaddata';
@@ -73,12 +72,7 @@ export class CommunityPage implements OnInit {
   //coach lists
   public getCoachelists(){
     // this.loadData.startLoading();
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // var usertoken = localStorage.getItem('usertoken');
     var data = {deviceType:this.devicetype};
-    // this.http.post(global.baseURL + 'program/getcoachs/', data, { headers: headers })
-    // .subscribe(response => {
     this.apiService.getcoachs(data,this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
@@ -101,11 +95,6 @@ export class CommunityPage implements OnInit {
 
   //gym lists
   async getGymlists(){
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // let usertoken = localStorage.getItem('usertoken');
-    // this.http.get(global.baseURL + 'startorg/gymLists/', { headers: headers })
-    //     .subscribe(response => {
     this.apiService.gymLists(this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);

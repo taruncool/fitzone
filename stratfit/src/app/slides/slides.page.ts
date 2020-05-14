@@ -3,7 +3,6 @@ import { NavController, NavParams, ModalController, AlertController, ToastContro
 import { trigger, style, animate, transition, group, query, animateChild, state } from '@angular/animations';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { Network } from '@ionic-native/network/ngx';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';

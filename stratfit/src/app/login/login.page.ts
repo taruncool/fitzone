@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, AlertController, ModalController,ToastController, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
@@ -115,15 +114,11 @@ public nativeFbLogin(){
 
 async sociallogin(socialtype, accessToken, clientid, code) {
   this.clearData();
-  // if (localStorage.getItem('internet') === 'online') {
+  if (localStorage.getItem('internet') === 'online') {
      this.loadData.startLoading();
     var fbServerUrl = global.baseURL.replace('/services/services/stratservices/','');
-    // var headers = new Headers();
      var creds = { backend: socialtype, clientId: clientid, redirectUri: fbServerUrl, access_token: accessToken, code: code, currencytype:this.currencytype, deviceType:this.devicetype };
-    // headers.append('Content-Type', 'application/json');
     return new Promise((resolve) => {
-      // this.http.post(global.baseURL + 'subscriber/socialloginnew/', creds, { headers: headers })
-      //   .subscribe(res => {
       this.apiService.sociallogin(creds).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
@@ -160,13 +155,13 @@ async sociallogin(socialtype, accessToken, clientid, code) {
           this.errorMsg();
          });
       })
-  // } else {
-  //   let toast =await this.toastCtrl.create({
-  //     message: "Please check your internet connectivity and try again",
-  //     duration: 3000
-  //   });
-  //   toast.present();
-  // }
+  } else {
+    let toast =await this.toastCtrl.create({
+      message: "Please check your internet connectivity and try again",
+      duration: 3000
+    });
+    toast.present();
+  }
 }
 
 async doGoogleLogin(){
@@ -215,17 +210,10 @@ async doGoogleLogin(){
 async login(user) {
   console.log("login page.....");
   this.clearData();
-  //  if (localStorage.getItem('internet') === 'online'){
+   if (localStorage.getItem('internet') === 'online'){
     this.loadData.startLoading();
-    // var headers = new Headers();
      var creds = { email: user.email, password: user.password, deviceType:this.devicetype };
-    // var creds = { email: "siriprathapreddy@gmail.com", password: "123456", deviceType:"android" };
-    
-    // headers.append('Content-Type', 'application/json');
-    // return new Promise((resolve) => {
-      // this.http.post(global.baseURL + 'subscriber/logInnew/', creds, { headers: headers })
-      //   .subscribe(res => {
-        console.log("login....",creds);
+        // console.log("login....",creds);
       this.apiService.loginnew(creds).subscribe((response)=>{
         console.log("loginnew response",response);
         const userStr = JSON.stringify(response);
@@ -287,6 +275,13 @@ async login(user) {
           this.errorMsg();
          });
       // });
+    } else {
+      let toast =await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
 }
 
 async toastmsg(msg) {

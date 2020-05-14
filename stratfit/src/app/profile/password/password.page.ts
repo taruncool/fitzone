@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController, ModalController,ToastController, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import { global } from "../../../app/global";
 import { ApiService } from 'src/app/api.service';
@@ -31,16 +30,11 @@ export class PasswordPage implements OnInit {
     this.userId = localStorage.getItem('userId');
   }
   async updatePwd(pwddata) {
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
       if(pwddata.newpswd === pwddata.confirmpswd){
           console.log('password match');
-          var headers = new Headers();
           var creds = {oldPassword:pwddata.oldpswd,newPassword:pwddata.newpswd,userId:this.userId};
-          headers.append('Content-Type', 'application/json');
-          // headers.append('Authorization', localStorage.getItem('usertoken'));
           return new Promise((resolve) => {
-              // this.http.post(global.baseURL + 'subscriber/changePassword/', creds, { headers: headers })
-              // .subscribe(response => {
               this.apiService.changePassword(creds,this.token).subscribe((response)=>{
                 console.log("response",response);
                 const userStr = JSON.stringify(response);
@@ -48,19 +42,9 @@ export class PasswordPage implements OnInit {
                 if(res.success){
                     pwddata ='';
                     this.toastmsg(res.message);
-                    // let toast = await this.toastCtrl.create({
-                    //   message: res.message,
-                    //   duration: 3000
-                    // });
-                    // toast.present();
                     this.modalCtrl.dismiss();
                 }else{
                   this.toastmsg(res.message);
-                    // let toast = await this.toastCtrl.create({
-                    //   message: res.message,
-                    //   duration: 3000
-                    // });
-                    // toast.present();
                 }
             },(err) => {
                 if(err.status === 403){
@@ -77,13 +61,13 @@ export class PasswordPage implements OnInit {
         });
         toast.present();
       }
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-		// 		message: "Please check your internet connectivity and try again",
-		// 		duration: 3000
-		// 	});
-		// 	toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
   }
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({

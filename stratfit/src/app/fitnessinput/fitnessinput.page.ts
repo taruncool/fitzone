@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
@@ -473,12 +472,7 @@ heightArrCms= {
         this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
       }
       //this.loadData.startLoading();
-      var headers = new Headers();
       var userInfo = { "id": parseInt(this.userId), "userInf": { "dob": this.dob, "gender": this.genderinfo, "height": this.cent, "heightM": "cms", "weightM": this.weightMetric, "weight": this.weigth, "trainingLevel": this.selectedLevel } }
-      // headers.append('Content-Type', 'application/json');
-      // let token = localStorage.getItem('usertoken');
-      // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
@@ -551,12 +545,6 @@ heightArrCms= {
 
     this.userAge = Difference_In_Days / 365;
     this.loadData.startLoading();
-    var headers = new Headers();
-
-    headers.append('Content-Type', 'application/json');
-    // headers.append('Authorization', this.token);
-    // this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', { headers: headers })
-    // .subscribe(response => {
     this.apiService.newextypedetailspdc(this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);

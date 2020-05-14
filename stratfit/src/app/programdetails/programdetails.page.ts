@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 import {SqlStorageNew} from '../../providers/sql-storage-new';

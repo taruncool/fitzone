@@ -220,10 +220,11 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public uploadpic(data){
+  public uploadpic(data,token){
     return this.http.post(global.baseURL + 'subscriber/uploadpic/',data, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
+       'Authorization': token
         })
         }).pipe (data =>
           data);

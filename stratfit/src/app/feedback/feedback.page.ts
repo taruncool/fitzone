@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import { ApiService } from '../api.service';
 
@@ -24,13 +23,8 @@ export class FeedbackPage implements OnInit {
   }
   async submitFb(feedback) {
     if(localStorage.getItem('internet')==='online'){
-      var headers = new Headers();
       var creds = {"name":this.firstname,"email":this.email,"feedback":feedback};
-      // headers.append('Content-Type', 'application/json');
       return new Promise((resolve) => {
-        // this.http.post(global.baseURL + 'campaign/feedback/', creds, { headers: headers })
-        // .subscribe(response => {
-        //   if(response.json().success){
         this.apiService.feedback(creds).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -38,19 +32,9 @@ export class FeedbackPage implements OnInit {
               if(res.success){
               this.feedback =[];
               this.toastmsg(res.message);
-              // let toast = await this.toastCtrl.create({
-              //   message: res.message,
-              //   duration: 3000
-              // });
-              // toast.present();
               this.navCtrl.pop();
           }else{
             this.toastmsg("Unable to process your request. Please try after some time");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Unable to process your request. Please try after some time",
-            //   duration: 3000
-            // });
-            // toast.present();
           } 
         },(err) => {
           if(err.status === 403){

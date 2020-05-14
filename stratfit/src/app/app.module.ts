@@ -42,6 +42,7 @@ import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
 import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
 import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
+import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
 import { TimerComponent } from './workout/timer/timer.component';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { TimerComponent } from './workout/timer/timer.component';
     EditprofilePage,
     FiltercountryPage,
     TmaxeditpopupPage,
+    ProgressbarPage,
     TimerComponent
   ],
   entryComponents: [
@@ -70,6 +72,7 @@ import { TimerComponent } from './workout/timer/timer.component';
     EditprofilePage,
     FiltercountryPage,
     TmaxeditpopupPage,
+    ProgressbarPage,
     TimerComponent
   ],
   imports: [
@@ -81,7 +84,10 @@ import { TimerComponent } from './workout/timer/timer.component';
     NoopAnimationsModule,
     IonicModule.forRoot(),
     NgCircleProgressModule.forRoot({
-    }), AppRoutingModule],
+     
+    }),
+     AppRoutingModule
+    ],
   providers: [
     StatusBar,
     SplashScreen,

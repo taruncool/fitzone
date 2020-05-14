@@ -373,12 +373,6 @@ export class ViewmealPage implements OnInit {
 
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      // var headers = new Headers();
-   
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.tokken);
-      // this.http.post(global.baseURL + '/userplan/addmeal/', mealInfoJson, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.addmeal(mealInfoJson,this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -386,11 +380,6 @@ export class ViewmealPage implements OnInit {
              
                 this.loadData.stopLoading();
                 this.toastmsg(res.message);
-                // let toast = await this.toastCtrl.create({
-                //   message: response.json().message,
-                //   duration: 3000
-                // });
-                // toast.present();
 
                 // let currentIndex = this.navCtrl.getActive().index;
                 this.modalCtrl.create({component:DietprofilePage}).then(() => {
@@ -401,11 +390,6 @@ export class ViewmealPage implements OnInit {
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
           }
         },(err) =>{
           this.loadData.stopLoading();

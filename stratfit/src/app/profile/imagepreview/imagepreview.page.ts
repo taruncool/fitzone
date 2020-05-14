@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController, ModalController,ToastController,NavParams, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import {SqlStorageNew} from '../../../providers/sql-storage-new';
 import { global } from "../../../app/global";
@@ -87,20 +86,15 @@ public uploadImage(){
 }
 
 async saveImagePath(imgname){
-    // if(localStorage.getItem('internet')==='online'){
+    if(localStorage.getItem('internet')==='online'){
         this.loadData.uploadLoader();
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', this.token);
         var data;
         if(this.uploadtype ==true){
           data = {cover:'https://stratfitmedia.s3.amazonaws.com/stratfitmedia/'+imgname};
         }else{
           data = {image:'https://stratfitmedia.s3.amazonaws.com/stratfitmedia/'+imgname};
         }
-        // this.http.post(global.baseURL + 'subscriber/uploadpic/', data, {headers: headers})
-        // .subscribe(response => {
-          this.apiService.uploadpic(data).subscribe((response)=>{
+          this.apiService.uploadpic(data,this.token).subscribe((response)=>{
             // this.loadData.stopLoading();
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -114,11 +108,7 @@ async saveImagePath(imgname){
                 // this.viewCtrl.dismiss('');
             }else{
               this.toastmsg("Unable to process your request. Please try after some time");
-                // let toast = await this.toastCtrl.create({
-                //     message: "Unable to process your request. Please try after some time",
-                //     duration: 3000
-                // });
-                // toast.present();
+                
             }
         },(err) => {
         // this.loadData.stopLoading();
@@ -128,13 +118,13 @@ async saveImagePath(imgname){
             //this.app.getRootNav().setRoot(LoginPage);
         }
         });
-    // }else{
-    //     let toast = await this.toastCtrl.create({
-    //       message: "Please check your internet connectivity and try again",
-    //       duration: 3000
-    //     });
-    //     toast.present();
-    // }
+    }else{
+        let toast = await this.toastCtrl.create({
+          message: "Please check your internet connectivity and try again",
+          duration: 3000
+        });
+        toast.present();
+    }
 }
 async toastmsg(msg) {
   let toast = await this.toastCtrl.create({

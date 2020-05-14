@@ -3,7 +3,6 @@ import {AlertController,ModalController,ToastController,Platform,NavController} 
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ProgramdetailsPage } from '../../app/programdetails/programdetails.page';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
@@ -251,7 +250,7 @@ public loadPrograms(){
       }
     });
 }else{
-  
+  this.loadData.stopLoading();
   this.activationalert();
 }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
@@ -79,14 +78,8 @@ export class InvitePage implements OnInit {
       this.validateEmail(this.refEmail);
       if(this.validemail === true){
         this.loadData.startLoading();
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', this.tokken);
         var data = { refemail: this.refEmail};
-        headers.append('Content-Type', 'application/json');
         return new Promise((resolve) => {
-          // this.http.post(global.baseURL + 'campaign/userReferral/', data, { headers: headers })
-          //   .subscribe(res => {
           this.apiService.userReferral(data,this.tokken).subscribe((response)=>{
             const userStr = JSON.stringify(response);
               let res = JSON.parse(userStr);

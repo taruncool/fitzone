@@ -401,12 +401,6 @@ export class AddmealPage implements OnInit {
 
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      // var headers = new Headers();
-   
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.tokken);
-      // this.http.post(global.baseURL + '/userplan/addmeal/', mealInfoJson, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.updateTmaxData(mealInfoJson,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -414,11 +408,6 @@ export class AddmealPage implements OnInit {
             
                 this.loadData.stopLoading();
                 this.toastmsg(res.message);
-                // let toast = await this.toastCtrl.create({
-                //   message: response.json().message,
-                //   duration: 3000
-                // });
-                // toast.present();
                 // this.toastmsg("Something went wrong! Please try again");
                 // let currentIndex = this.navCtrl.getActive().index;
                 this.navCtrl.navigateForward('/dietprofile').then(() => {
@@ -429,11 +418,6 @@ export class AddmealPage implements OnInit {
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
           }
         },(err) =>{
           this.loadData.stopLoading();

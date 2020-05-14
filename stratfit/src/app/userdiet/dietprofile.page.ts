@@ -324,17 +324,8 @@ export class DietprofilePage implements OnInit {
   async getMealDataServer(date,isHistory){
     console.log("date of nutrition.........",date);
     if(localStorage.getItem('internet')==='online'){
-
-      var headers = new Headers();
-   
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', this.tokken);
       var mealDateJson = {mealDate:date};
-
       console.log(mealDateJson);
-
-      // this.http.post(global.baseURL + '/userplan/getmeal/', mealDateJson, { headers: headers })
-      //   .subscribe(response => {
       this.apiService.getmeal(mealDateJson,this.tokken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -385,12 +376,6 @@ export class DietprofilePage implements OnInit {
                    
                   }
                     console.log("final food data by date",this.finalFoodDataByDate);
-                    // let toast = this.toastCtrl.create({
-                    //   message: "Retrieved data successfully",
-                    //   duration: 3000
-                    // });
-                    // toast.present();
-    
                     setTimeout(() => {
                       this.getTotalLoad();
                      },1000);
@@ -401,23 +386,12 @@ export class DietprofilePage implements OnInit {
                 if(isHistory){
                  
                   this.loadData.stopLoading();
-                  // let toast = this.toastCtrl.create({
-                  //   message: "No meals added on "+date,
-                  //   duration: 3000
-                  // });
-                  // toast.present();
                   this.noMealsAlert(date);
 
                 }else{
                   this.mealMsg = "Please add meal for today"
                   this.loadData.stopLoading();
                   this.toastmsg("No meals added for today");
-                  // let toast = await this.toastCtrl.create({
-                  //   message: "No meals added for today",
-                  //   duration: 3000
-                  // });
-                  // toast.present();
-
                   setTimeout(() => {
                     this.getTotalLoad();
                    },1000);
@@ -429,11 +403,6 @@ export class DietprofilePage implements OnInit {
             
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try again");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try again",
-              //   duration: 3000
-              // });
-              // toast.present();
           }
         },(err) =>{
           this.loadData.stopLoading();
@@ -442,11 +411,6 @@ export class DietprofilePage implements OnInit {
             this.getTotalLoad();
            },1000);
            this.toastmsg("Unable to process your request. Please try again");
-          //  let toast = await this.toastCtrl.create({
-          //   message: "Unable to process your request. Please try again",
-          //   duration: 3000
-          // });
-          // toast.present();
           if(err.status === 403){
               this.loadData.forbidden();
               this.nav.navigateForward('/login');

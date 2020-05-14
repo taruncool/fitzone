@@ -193,42 +193,19 @@ export class TmaxeditpopupPage implements OnInit {
       }
     async  updateTmax(exercises){
         if(localStorage.getItem('internet')==='online'){
-          // var headers = new Headers();
-          // headers.append('Content-Type', 'application/json');
-          // headers.append('Authorization', this.token);
           var tmaxdata = {tmaxData:exercises};
-            // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
-            // .subscribe(response => {
-            //     this.loadData.stopLoading();
-            //     if(response.json().success){
             this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
               const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
                 this.loadData.stopLoading();
                 if(res.success){
                   this.toastmsg("Tmax updated successfully");
-                  // let toast = await this.toastCtrl.create({
-                  //   message: "Tmax updated successfully",
-                  //   duration: 3000
-                  // });
-                  // toast.present();
                   this.modalCtrl.dismiss();
                 }else{
                   this.toastmsg("Unable to process your request. Please try again");
-                  // let toast = await this.toastCtrl.create({
-                  //   message: "Unable to process your request. Please try again",
-                  //   duration: 3000
-                  // });
-                  // toast.present();
-    
                 }
             },(err) => {
               this.toastmsg(err);
-              // let toast = await this.toastCtrl.create({
-              //   message: err,
-              //   duration: 3000
-              // });
-              // toast.present();
               if(err.status === 403){
                 this.loadData.forbidden();
                 this.navCtrl.navigateForward('/login');

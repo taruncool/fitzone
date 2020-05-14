@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, ModalController, AlertController, ToastController, Platform,IonInput, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
@@ -102,9 +101,7 @@ export class SignupverifyPage implements OnInit {
        //this.loadData.startLoading();
       this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
       console.log("otp inputs",this.finalOTP);
-      var headers = new Headers();
       var data ={otp:this.finalOTP,email:this.user.email};
-      headers.append('Content-Type', 'application/json');
       return new Promise((resolve) => {
           this.apiService.validateOTP(data).subscribe((response)=>{
               const userStr = JSON.stringify(response);
@@ -149,9 +146,7 @@ export class SignupverifyPage implements OnInit {
   async login(user) {
 		this.clearData();
 		if(localStorage.getItem('internet') === 'online') {
-			var headers = new Headers();
 			var creds = { email: user.email, password: user.password };
-			headers.append('Content-Type', 'application/json');
 			return new Promise((resolve) => {
         this.apiService.loginnew(creds).subscribe((response)=>{
             const userStr = JSON.stringify(response);
@@ -216,30 +211,16 @@ export class SignupverifyPage implements OnInit {
   async reqNewOpt(){
     if(localStorage.getItem('internet')==='online'){
       // this.loadData.startLoading();
-      var headers = new Headers();
       var data = {"email":this.user.email};
-      headers.append('Content-Type', 'application/json');
       return new Promise((resolve) => {
-          // this.http.post(global.baseURL + 'subscriber/resendotp/', data, { headers: headers })
-          // .subscribe(response => {
           this.apiService.resendotp(data).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
               // this.loadData.stopLoading();
               if(res.success){
                 this.toastmsg(res.message);
-                  // let toast = await this.toastCtrl.create({
-                  //   message: res.message,
-                  //   duration: 4000
-                  // });
-                  // toast.present();
               }else{
                 this.toastmsg(res.message);
-                // let toast = await this.toastCtrl.create({
-                //   message: res.message,
-                //   duration: 3000
-                // });
-                // toast.present();
               }
         },(err) => {
           // this.loadData.stopLoading();

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { global } from "../../app/global";
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadData } from '../../providers/loaddata';
@@ -148,14 +147,8 @@ export class TmaxPage implements OnInit {
   }
 async updateInServer(){
     if(localStorage.getItem('internet')==='online'){
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', this.token);
       var tmaxdata = {tmaxData:this.AllExercises};
       return new Promise((resolve) => {
-          // this.http.post(global.baseURL + 'userprogram/updateBulkTmaxData/',tmaxdata, { headers: headers })
-          // .subscribe(response => {
-          // if(response.json().success){
           this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
@@ -165,11 +158,6 @@ async updateInServer(){
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Unable to process your request. Please try after some time",
-            //   duration: 3000
-            // });
-            // toast.present();
           }
         },(err) => {
           console.log(err);

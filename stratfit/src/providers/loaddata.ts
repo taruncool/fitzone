@@ -1,6 +1,5 @@
 import { ToastController,Platform, LoadingController } from '@ionic/angular';
 import { Injectable,NgZone } from "@angular/core";
-import { Headers } from '@angular/http';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, of, throwError } from 'rxjs';
@@ -219,7 +218,6 @@ export class LoadData {
     this.programDownloadPercent = 0;
     localStorage.setItem('getpercent',this.programDownloadPercent);
     //this.startLoading();
-    // var headers = new Headers();
     var planInfo = {"id": id};
     this.token = localStorage.getItem('usertoken');
     this.weight = localStorage.getItem('weight');
@@ -378,7 +376,6 @@ export class LoadData {
 
 public getExercises(){
   //this.startLoading();
-  // var headers = new Headers();
   var planInfo = {"id": 1}
   this.weight = parseInt(localStorage.getItem('weight'));
   this.gender = localStorage.getItem('gender');
@@ -510,7 +507,6 @@ public getExercises(){
 
 public getExercisesNew(){
   //this.startLoading();
-  // var headers = new Headers();
   var planInfo = {"id": 1}
   this.apiService.newextypedetailspdc(this.token).subscribe((response)=>{
     console.log("ex data-----load data", response);

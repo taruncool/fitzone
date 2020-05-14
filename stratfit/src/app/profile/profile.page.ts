@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController, ToastController,IonContent, Platform, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
@@ -438,13 +437,8 @@ export class ProfilePage implements OnInit {
 
   //update currencyType
   async updateCurrencyType(){
-    // if(localStorage.getItem('internet')==='online'){
-      var headers = new Headers();
+    if(localStorage.getItem('internet')==='online'){
       var userInfo = {"id":parseInt(this.userId),"userInf":{"currencytype":this.currencyType}}
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', this.token);
-      // this.http.post(global.baseURL + 'subscriber/fitnessprofile/', userInfo, { headers: headers })
-      // .subscribe(response => {
       this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
@@ -456,13 +450,13 @@ export class ProfilePage implements OnInit {
             //this.app.getRootNav().setRoot(LoginPage);
         }
       })
-    // }else{
-    //   let toast = await this.toastCtrl.create({
-    //     message: "Please check your internet connectivity and try again",
-    //     duration: 3000
-    //   });
-    //   toast.present();
-    // }
+    }else{
+      let toast = await this.toastCtrl.create({
+        message: "Please check your internet connectivity and try again",
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   //file upload
@@ -508,11 +502,8 @@ export class ProfilePage implements OnInit {
    /*--- user logout ---*/
    async logout(){
      if(localStorage.getItem('internet')==='online'){
-      var headers = new Headers();
       //navigator.vibrate(0);
       //this.timer.pauseTimer();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', this.token);
       this.prompt = await this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
         buttons: [
