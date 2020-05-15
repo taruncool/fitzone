@@ -268,13 +268,13 @@ export class ProgramdetailsPage implements OnInit {
 
   async viwPlanStructure(){
      if(localStorage.getItem('internet')==='online'){
-      // this.loadData.startLoading();
+      this.loadData.startLoading();
       var creds = {"plan_id":this.planinfo.encodedurl};
         this.apiService.viewplan_byId(creds,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
           console.log("planinfo",response);
-            // this.loadData.stopLoading();
+            this.loadData.stopLoading();
             if(res){
               this.PeriodData = JSON.parse(res.plan.PlanJson).PeriodDetails;
              
@@ -282,14 +282,9 @@ export class ProgramdetailsPage implements OnInit {
               //this.putMicroData();
             }else{
               this.toastmsg("Unable to process your request. Please try after some time");
-              // let toast = await this.toastCtrl.create({
-              //   message: "Unable to process your request. Please try after some time",
-              //   duration: 3000
-              // });
-              // toast.present();
             }
         },(err) => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           if(err.status === 403){
             this.loadData.forbidden();
             this.navCtrl.navigateRoot('/login');
@@ -488,7 +483,7 @@ export class ProgramdetailsPage implements OnInit {
   }
 
   public zeroPlanSubscription(){
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     this.createUserPlan();
     //this.newpdcplanSubscribe();
   }
@@ -551,7 +546,7 @@ export class ProgramdetailsPage implements OnInit {
                     this.loadData.checkjson(resvalue.data.planId);
                     
                     //this.loadData.checkQuery(false,false,false).then(data=>{
-                      // this.loadData.stopLoading();
+                      this.loadData.stopLoading();
                       this.showprogresspopup(resvalue);
 
                   }
@@ -561,7 +556,7 @@ export class ProgramdetailsPage implements OnInit {
               this.customAlert();
             }
           }, (err) => {
-              // this.loadData.stopLoading();
+              this.loadData.stopLoading();
               if(err.status === 403){
                 this.loadData.forbidden();
                 this.navCtrl.navigateRoot('/login');
@@ -619,7 +614,7 @@ export class ProgramdetailsPage implements OnInit {
                     .catch(err => {
                       console.error('plan error');
                     });
-                    // this.loadData.stopLoading();
+                    this.loadData.stopLoading();
                     setTimeout(() => {
               
                       this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
@@ -637,12 +632,12 @@ export class ProgramdetailsPage implements OnInit {
                     // let planprogressModal = this.modalCtrl.create(ProgressbarPopup,{'uplandata':{'plan_id':this.planinfo.id,'planName':this.planinfo.planName,'planPhoto':this.planinfo.planPhoto,'startdate':deviceDate,'defaultOffDay':6,'firstplan':this.fplan,'exercises':this.planinfo.exercises}});
                     // planprogressModal.present();              
 
-                    // this.loadData.stopLoading();
+                    this.loadData.stopLoading();
         },500);
   }
 
   async freePlanSubscription(){
-    //  this.loadData.startLoading();
+     this.loadData.startLoading();
     if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
@@ -686,7 +681,7 @@ export class ProgramdetailsPage implements OnInit {
                     .catch(err => {
                       console.error('plan error');
                     });
-                    // this.loadData.stopLoading();
+                    this.loadData.stopLoading();
                     setTimeout(() => {
               
                       this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
@@ -706,11 +701,11 @@ export class ProgramdetailsPage implements OnInit {
                   //});
                 }
             }else{
-              // this.loadData.stopLoading();
+              this.loadData.stopLoading();
               this.toastmsg(res.message);
             }
           },(err) => {
-                // this.loadData.stopLoading();
+                this.loadData.stopLoading();
                 if(err.status === 403){
                   this.loadData.forbidden();
                   this.navCtrl.navigateForward('/login');

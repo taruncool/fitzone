@@ -71,12 +71,13 @@ export class CommunityPage implements OnInit {
   }
   //coach lists
   public getCoachelists(){
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     var data = {deviceType:this.devicetype};
     this.apiService.getcoachs(data,this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
       var priceMap = res.details;
+      this.loadData.stopLoading();
       if(res.success){
         this.coachlist = res.coachesList;
       }else{
@@ -84,7 +85,7 @@ export class CommunityPage implements OnInit {
       }
       // this.getGymlists();
     },(err) => {
-      // this.loadData.stopLoading();
+      this.loadData.stopLoading();
       if(err.status === 403){
           this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');
@@ -95,18 +96,19 @@ export class CommunityPage implements OnInit {
 
   //gym lists
   async getGymlists(){
+    this.loadData.startLoading();
     this.apiService.gymLists(this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         var priceMap = res.details;
-        // this.loadData.stopLoading();
+        this.loadData.stopLoading();
         if(res.success){
           this.gymlists = res.gymValues;
         }else{
           this.errorMsg();
         }
     },(err) => {
-      // this.loadData.stopLoading();
+      this.loadData.stopLoading();
       if(err.status === 403){
           this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');

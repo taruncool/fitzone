@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {AlertController,ModalController,ToastController,IonContent,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../../providers/loaddata';
 import { ApiService } from '../../../app/api.service';
 import { global } from "../../../app/global";
@@ -127,7 +126,6 @@ export class ProgressbarPage implements OnInit {
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			// this.loadData.startLoading();
-			var headers = new Headers();
 			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
 			let usertoken = localStorage.getItem('usertoken');
       this.apiService.activateuserplan(data,usertoken).subscribe((response)=>{

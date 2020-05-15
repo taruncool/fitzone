@@ -130,20 +130,20 @@ export class SignupPage implements OnInit {
           this.validatePassword(user.password);
           if(this.validpassword){
             if(this.isTermsChecked === true){
-          // this.loadData.startLoading();
+          this.loadData.startLoading();
           var data = {fname:user.firstname,email:user.email,password:user.password,currencytype:this.currencytype, deviceType:this.devicetype};
           return new Promise((resolve) =>{
             this.apiService.regiser(data).subscribe((response)=>{
                   const userStr = JSON.stringify(response);
                   let res = JSON.parse(userStr);
                   if(res.success){
-                  // this.loadData.stopLoading();
+                  this.loadData.stopLoading();
                   // this.router.navigate(['/signupverify',user]);
                   let navigationExtras: NavigationExtras = { state: { user: user } };
                   this.router.navigate(['/signupverify'], navigationExtras);
                   // this.login(user);
                 }else{
-                  // this.loadData.stopLoading();
+                  this.loadData.stopLoading();
                   this.toastmsg(res.message);
                   // this.prompt = await this.alertCtrl.create({
                   //   message:res.message,
@@ -188,6 +188,7 @@ export class SignupPage implements OnInit {
     async login(user) {
       this.clearData();
       if(localStorage.getItem('internet') === 'online') {
+        this.loadData.startLoading();
         var creds = { email: user.email, password: user.password };
           this.apiService.loginnew(creds).subscribe((response)=>{
                 console.log("loginnew response",response);

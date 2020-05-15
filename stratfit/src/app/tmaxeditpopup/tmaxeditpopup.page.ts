@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild ,Renderer,ElementRef} from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,IonInput,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Headers } from '@angular/http';
 import { LoadData } from '../../providers/loaddata';
 import { ApiService } from '../../app/api.service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';

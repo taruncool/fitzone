@@ -98,7 +98,7 @@ export class SignupverifyPage implements OnInit {
   }
   async suotpvalidate(){
      if(localStorage.getItem('internet')==='online'){
-       //this.loadData.startLoading();
+       this.loadData.startLoading();
       this.finalOTP = this.firstN+this.secondN+this.thirdN+this.fourthN;
       console.log("otp inputs",this.finalOTP);
       var data ={otp:this.finalOTP,email:this.user.email};
@@ -109,11 +109,11 @@ export class SignupverifyPage implements OnInit {
               if(res.success){
                 this.login(this.user);
               }else{
-                 //this.loadData.stopLoading();
+                 this.loadData.stopLoading();
                 this.toastmsg(res.message);
               }
         },(err) => {
-           //this.loadData.stopLoading();
+           this.loadData.stopLoading();
           this.toastmsg("Unable to process your request. Please try after some time");
          });
       })
@@ -146,28 +146,30 @@ export class SignupverifyPage implements OnInit {
   async login(user) {
 		this.clearData();
 		if(localStorage.getItem('internet') === 'online') {
+      this.loadData.startLoading();
 			var creds = { email: user.email, password: user.password };
 			return new Promise((resolve) => {
         this.apiService.loginnew(creds).subscribe((response)=>{
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
 						if (res.success) {
-							this.loadData.loginSuccess(res);
+              this.loadData.loginSuccess(res);
+              this.loadData.stopLoading();
 							if(res.isProfileSet){
 								if(res.isPlanSet){
 									this.tMaxData = res.tmax;
 									this.checkQueryHit(res);
 								}else{
-									// this.loadData.stopLoading();
+									this.loadData.stopLoading();
 									this.navCtrl.navigateForward('/store');
 								}
 							}else{
-                // this.loadData.stopLoading();
+                this.loadData.stopLoading();
                
 								this.navCtrl.navigateForward('/fitnessinput');
 							}
 						}else{
-              // this.loadData.stopLoading();
+              this.loadData.stopLoading();
               this.toastmsg(res.message);
 							// this.prompt = await this.alertCtrl.create({
 							// 	// message: 'Login Failed',
@@ -177,7 +179,7 @@ export class SignupverifyPage implements OnInit {
 							// this.prompt.present();
 						}
 					}, (err) => {
-						// this.loadData.stopLoading();
+						this.loadData.stopLoading();
 						this.errorMsg();
 					 });
 			});
@@ -210,20 +212,20 @@ export class SignupverifyPage implements OnInit {
   
   async reqNewOpt(){
     if(localStorage.getItem('internet')==='online'){
-      // this.loadData.startLoading();
+      this.loadData.startLoading();
       var data = {"email":this.user.email};
       return new Promise((resolve) => {
           this.apiService.resendotp(data).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
-              // this.loadData.stopLoading();
+              this.loadData.stopLoading();
               if(res.success){
                 this.toastmsg(res.message);
               }else{
                 this.toastmsg(res.message);
               }
         },(err) => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           this.errorMsg();
          });
       })

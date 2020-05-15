@@ -67,7 +67,7 @@ activepurposeid = 0;
         this.beginnerdata=[];
         this.intermediatedata=[];
         this.advancedata =[];
-        // this.loadData.startLoading();
+        this.loadData.startLoading();
         this.filters.deviceType = this.devicetype;
         
         var usertoken = localStorage.getItem('usertoken');
@@ -143,9 +143,9 @@ activepurposeid = 0;
             }else{
               this.errorMsg();
             }
-            //  this.loadData.stopLoading();
+             this.loadData.stopLoading();
         },(err) => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           if(err.status === 403){
               // this.loadData.forbidden();
               this.navCtrl.navigateForward('/login');
