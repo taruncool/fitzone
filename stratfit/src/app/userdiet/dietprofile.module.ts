@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 import { DietprofilePageRoutingModule } from './dietprofile-routing.module';
 
 import { DietprofilePage } from './dietprofile.page';
@@ -13,6 +15,9 @@ import { DietprofilePage } from './dietprofile.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    NgCircleProgressModule.forRoot({
+     
+     }),
     
     DietprofilePageRoutingModule
   ],

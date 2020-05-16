@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgCircleProgressModule } from 'ng-circle-progress';
+// import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, FormBuilder } from '@angular/forms';
@@ -83,9 +83,9 @@ import { TimerComponent } from './workout/timer/timer.component';
     ComponentsModule,
     NoopAnimationsModule,
     IonicModule.forRoot(),
-    NgCircleProgressModule.forRoot({
+    // NgCircleProgressModule.forRoot({
      
-    }),
+    // }),
      AppRoutingModule
     ],
   providers: [

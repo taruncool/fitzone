@@ -13,7 +13,8 @@ import { DiethistoryPage } from './diethistory.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DiethistoryPageRoutingModule
+    DiethistoryPageRoutingModule,
+    
   ],
   declarations: [DiethistoryPage]
 })

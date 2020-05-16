@@ -132,7 +132,7 @@ goalclick(){
 
   //coach lists
   public getCoachelists(){
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     var usertoken = localStorage.getItem('usertoken');
     var data = {deviceType:this.devicetype};
     this.apiService.getcoachs(data,usertoken).subscribe((response)=>{
@@ -181,7 +181,7 @@ public loadPrograms(){
       // console.log(response);
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
-      this.loadData.stopLoading();
+      // this.loadData.stopLoading();
         if(res.success){
           this.plansdata = res.filterValues;
           this.userCurType = res.luctype;
