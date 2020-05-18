@@ -4,7 +4,7 @@ import { global } from "../../../app/global";
 import { LoadData } from '../../../providers/loaddata';
 import { ApiService } from '../../../app/api.service';
 import { HttpClient } from '@angular/common/http';
-import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ViewmealPage } from '../viewmeal/viewmeal.page';
 
 

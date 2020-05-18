@@ -5,7 +5,7 @@ import {SqlStorageNew} from '../../../providers/sql-storage-new';
 import { LoadData } from '../../../providers/loaddata';
 import { ApiService } from '../../../app/api.service';
 import { HttpClient } from '@angular/common/http';
-import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { FilterfoodPage } from '../filterfood/filterfood.page';
 
 @Component({
@@ -75,8 +75,8 @@ export class AddmealPage implements OnInit {
   mealCarbsGmss=0;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService: ApiService, public http: HttpClient, 
-    public toastCtrl: ToastController, private loadData: LoadData,  
-    private ga:GoogleAnalytics, public alertCtrl:AlertController, public modalCtrl: ModalController, 
+    public toastCtrl: ToastController, private loadData: LoadData, public modalCtrl: ModalController, 
+    private ga:GoogleAnalytics, public alertCtrl:AlertController  
   ) {
 
       this.token = localStorage.getItem('usertoken');
@@ -410,7 +410,7 @@ export class AddmealPage implements OnInit {
                 this.toastmsg(res.message);
                 // this.toastmsg("Something went wrong! Please try again");
                 // let currentIndex = this.navCtrl.getActive().index;
-                this.navCtrl.navigateForward('/dietprofile').then(() => {
+                this.navCtrl.navigateBack('/dietprofile').then(() => {
                   // this.navCtrl.remove(currentIndex);
                 });
                 this.modalCtrl.dismiss();

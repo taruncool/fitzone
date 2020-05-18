@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AddmealPageRoutingModule } from './addmeal-routing.module';
 
 import { AddmealPage } from './addmeal.page';
+import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     AddmealPageRoutingModule
   ],
   declarations: [AddmealPage]
