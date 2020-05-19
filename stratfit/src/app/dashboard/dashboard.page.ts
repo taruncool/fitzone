@@ -232,8 +232,10 @@ export class DashboardPage implements OnInit {
     });
     this.prompt.present();
   }
-
-  ngOnInit(){
+ngOnInit(){
+  
+}
+  ionViewDidEnter(){
     
    
     this.today = Date.now();

@@ -102,6 +102,8 @@ export class AnalyticsPage implements OnInit {
  
 
   ngOnInit() {
+  }
+  ionViewDidEnter(){
     // this.loadData.startLoading();
     this.s3url=global.s3URL;
     this.currentFullPath="0-0-0-0-0"
