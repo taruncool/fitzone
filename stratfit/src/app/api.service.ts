@@ -257,7 +257,7 @@ export class ApiService {
            data);
   }
   public filtersql(usertoken,filter){
-    return this.http.post(global.baseURL + 'program/filterSql/',filter, {
+    return this.http.post(global.baseURL + 'program/filterSqlv2/',filter, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': usertoken

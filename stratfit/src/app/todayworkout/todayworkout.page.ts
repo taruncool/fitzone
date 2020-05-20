@@ -2286,7 +2286,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       componentProps: { page: 1 }
        });
   }
-
+  openTab(page){
+    if(page==='store'){
+      this.nav.navigateRoot('store');
+    }
+  }
   async showAlert() {
     this.alert = await this.alertCtrl.create({
       // title: 'Exit?',
@@ -2704,7 +2708,7 @@ backButtonAction() {
     localStorage.setItem('work', '');
     localStorage.setItem('cal', '');
     setTimeout(() => {
-      this.nav.navigateForward('/dashboard');
+      this.nav.navigateRoot('tabs/tabs/dashboard');
     }, 200);
   }
 

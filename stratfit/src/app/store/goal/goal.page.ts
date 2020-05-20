@@ -251,7 +251,7 @@ activepurposeid = 0;
 
   backButtonAction() {
     setTimeout(() => { 
-    this.navCtrl.navigateForward('/store');
+    this.navCtrl.navigateBack('tabs/tabs/store');
     },200);
     //this.navCtrl.setRoot(StorePage);
   }

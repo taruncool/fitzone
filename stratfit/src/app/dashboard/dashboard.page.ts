@@ -1635,17 +1635,17 @@ public getExercise(exercise_id){
 }
 openTab(page){
   if(page==='store'){
-    this.navCtrl.navigateForward('store');
+    this.navCtrl.navigateRoot('store');
   }else if(page==='community'){
-    this.navCtrl.navigateForward('community');
+    this.navCtrl.navigateRoot('community');
   }else if(page==='workout'){
     this.navCtrl.navigateForward('todayworkout');
   }else if(page==='settings'){
-    this.navCtrl.navigateForward('profile');
+    this.navCtrl.navigateRoot('profile');
   }else if(page==='analytics'){
     if(this.planSetStatus){
 
-      this.navCtrl.navigateForward('analytics');
+      this.navCtrl.navigateRoot('analytics');
 
     }else{
 

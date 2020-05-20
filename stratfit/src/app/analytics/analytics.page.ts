@@ -84,7 +84,9 @@ export class AnalyticsPage implements OnInit {
   lastmesoID = 0;
   lastperiodID = 0;
 
-  constructor(public navCtrl: NavController,public platform: Platform, public modalCtrl: ModalController,public sqlStorageNew : SqlStorageNew,public loadData: LoadData) {
+  isDuration = true;
+
+  constructor(public navCtrl: NavController,public platform: Platform , public modalCtrl: ModalController,public sqlStorageNew : SqlStorageNew,public loadData: LoadData) {
     this.planInfo = { "id": 0, "planPhoto": "", "planName": "" };
     // this.userInfo = { "startDate": ""};
   }
@@ -95,14 +97,14 @@ export class AnalyticsPage implements OnInit {
     // modal.present();
   }
 
+  ngOnInit(){
+
+  }
   onImageError(plan){
     this.planInfo.planPhoto = "assets/images/plan_2.png";
     console.log("plan photo...");
   }
  
-
-  ngOnInit() {
-  }
   ionViewDidEnter(){
     // this.loadData.startLoading();
     this.s3url=global.s3URL;
@@ -120,6 +122,9 @@ export class AnalyticsPage implements OnInit {
     this.noplan = false;
     this.sqlStorageNew.query("select p.* from userplan u left join plan p on u.plan_id = p.id where u.status = 1").then(
       data => {
+        if(data.res.rows.item(0).duration_weeks==="null"){
+          this.isDuration = false;
+        }
         // console.log(data);
         if(data.res.rows.length > 0){
           this.planInfo = { "id": data.res.rows.item(0).id, 
