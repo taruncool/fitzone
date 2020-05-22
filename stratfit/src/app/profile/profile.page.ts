@@ -9,7 +9,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ImagepreviewPage } from './imagepreview/imagepreview.page';
-// import { ImageProvider } from '../../../providers/image/image';
+import { ImageProvider } from '../../providers/image/image';
 
 
 
@@ -91,7 +91,7 @@ export class ProfilePage implements OnInit {
   
   @ViewChild('Content',{static:false}) content: IonContent;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew) {
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew) {
   
     // this.platform.backButton.subscribe(() => {
       
@@ -597,51 +597,52 @@ export class ProfilePage implements OnInit {
     this.changeVibrateSettings();
   
   }
-  // async getPhoto() {
-  //  await this.alertCtrl.create({
-  //     // message: 'Upload Picture',
-  //     message: 'From where do you want to choose your item pic?',
-  //     buttons: [
-  //       // {
-  //       //   text: 'Cancel',
-  //       //   handler: data => { }
-  //       // },
-  //       {
-  //         text: 'Camera ',
-  //         handler: () => {
-  //           // Call imageProvider to process, upload, and update user photo.
-  //           this.ImageProvider.setProfilePhoto('', this.camera.PictureSourceType.CAMERA).then(data => {
-  //             this.imgPreview = data;
+  async getPhoto() {
+    let prompt = await this.alertCtrl.create({
+      // message: 'Upload Picture',
+      message: 'From where do you want to choose your item pic?',
+      buttons: [
+        // {
+        //   text: 'Cancel',
+        //   handler: data => { }
+        // },
+        {
+          text: 'Camera ',
+          handler: () => {
+            // Call imageProvider to process, upload, and update user photo.
+            this.imageProvider.setProfilePhoto('', this.camera.PictureSourceType.CAMERA).then(data => {
+              this.imgPreview = data;
              
-  //             this.loadModal(data);
-  //             this.imageSet = true;
-  //           });
-  //         }
-  //       },
-  //       {
-  //         text: 'Choose your photo',
-  //         handler: () => {
-  //           // Call imageProvider to process, upload, and update user photo.
-  //           this.ImageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
-  //             this.imgPreview = data;
+              this.loadModal(data);
+              this.imageSet = true;
+            });
+          }
+        },
+        {
+          text: 'Choose your photo',
+          handler: () => {
+            // Call imageProvider to process, upload, and update user photo.
+            this.imageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
+              this.imgPreview = data;
               
-  //             this.loadModal(data);
-  //             this.imageSet = true;
-  //           });
-  //         }
-  //       }
+              this.loadModal(data);
+              this.imageSet = true;
+            });
+          }
+        }
         
-  //     ]
-  //   }).present();
-  // }
+      ]
+    });
+    prompt.present();
+  }
 
   onAvatarError(){
     this.avatar = "assets/images/icon.png";
   }
 
 
-  noProgramsAlert(){
-    this.prompt = this.alertCtrl.create({
+ async noProgramsAlert(){
+    this.prompt = await this.alertCtrl.create({
       // title: 'No Subscription yet!',
       message:'Subscribe to Stratfit program from the store to start workout.',
       buttons: [
@@ -656,7 +657,7 @@ export class ProfilePage implements OnInit {
           text: 'Choose Program',
           handler: workout => {
             
-            this.navCtrl.navigateForward('/store');
+            this.navCtrl.navigateRoot('tabs/tabs/store');
           }
         }
       ]

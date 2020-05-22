@@ -158,7 +158,7 @@ export class DashboardPage implements OnInit {
   }
 
   gotoStore(){
-    this.navCtrl.navigateForward('/store');
+    this.navCtrl.navigateRoot('tabs/tabs/store');
   }
   onAvatarError(){
     this.upavatar = "assets/images/icon.png";

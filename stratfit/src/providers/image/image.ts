@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-// import * as AWS from 'aws-sdk';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import * as AWS from 'aws-sdk';
 declare const Buffer;
 /*
   Generated class for the ImageProvider provider.
@@ -58,11 +58,11 @@ export class ImageProvider {
 
   s3Putimage(file, key, encoding){
     return new Promise((resolve, reject) => {
-      // AWS.config.accessKeyId = 'AKIAIQZO4VY764NTBCEQ';
-      // AWS.config.secretAccessKey = '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';
-      // AWS.config.region = 'us-east-1';
-      // AWS.config.signatureVersion = 'v4';
-      // let s3 = new AWS.S3();
+      AWS.config.accessKeyId = 'AKIAIQZO4VY764NTBCEQ';
+      AWS.config.secretAccessKey = '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';
+      AWS.config.region = 'us-east-1';
+      AWS.config.signatureVersion = 'v4';
+      let s3 = new AWS.S3();
       
       const params = {
         Bucket: 'stratfitmedia',
@@ -71,17 +71,17 @@ export class ImageProvider {
         ACL: 'public-read',
         ContentType: 'image/png'
     };
-    //   s3.upload(params, function (err, data) {
-    //     if (err) {
-    //         console.log('There was an error uploading your file: ', err);
-    //         reject(err);
-    //     }else{
+      s3.upload(params, function (err, data) {
+        if (err) {
+            console.log('There was an error uploading your file: ', err);
+            reject(err);
+        }else{
 
-    //       console.log('Successfully uploaded file.', data);
-    //       resolve(key);
-    //     }
+          console.log('Successfully uploaded file.', data);
+          resolve(key);
+        }
         
-    // });
+    });
     
     })
   }

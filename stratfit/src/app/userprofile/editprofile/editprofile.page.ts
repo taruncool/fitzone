@@ -67,7 +67,6 @@ export class EditprofilePage implements OnInit {
   
   ngOnInit() {
 
-
     this.tokken = localStorage.getItem('usertoken');
     this.tempcntrychange =false;
     //this.ga.trackView('editprofile');
@@ -293,7 +292,7 @@ export class EditprofilePage implements OnInit {
       }  
     });
    await this.countryModal.present();
-    await this.countryModal.onDidDismiss(data=>{
+    await this.countryModal.onDidDismiss.then((data)=>{
       if(data !==undefined){
         this.phcode = data;
         for(var tc=0;tc<this.countrycodes.length;tc++){
