@@ -1,59 +1,63 @@
 <ion-header class=" head">
-  <!-- <ion-navbar class="hedfm"> -->
-    <ion-buttons ion-start >
-      <ion-button icon-only (click)="backButtonAction()">
+
+  <ion-toolbar class="hedfm"> 
+    <ion-buttons  slot="start" >
+      <ion-button slot="icon-only" (click)="backButtonAction()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
       </ion-button>
     </ion-buttons>
-    <ion-title style="padding-top:10px;">Coach Details</ion-title>
-  <!-- </ion-navbar> -->
+
+    <ion-title>Coach Details</ion-title>
+
+    
+  </ion-toolbar> 
 </ion-header>
 
 
 <ion-content class=" coach coachview ">
   
-<ion-row class="fulpad nopadb">
-
   <ion-card class="nobg user " >
-        <!-- <div class="coverimg">
-          <img  src={{s3Url}}{{coachData1.coachThumbnail}} *ngIf="coachData1.coachThumbnail !='' && coachData1.coachThumbnail !=null" />
-          <img  src="assets/images/plan_2.png"  *ngIf="coachData1.coachThumbnail =='' || coachData1.coachThumbnail ==null"/>
-          <button ion-button small class="knowbtn" (click)="opencoachurl(coachdata.coachId)">Know More</button>
-        </div> -->
+    <!-- <div class="coverimg">
+      <img  src={{s3Url}}{{coachData1.coachThumbnail}} *ngIf="coachData1.coachThumbnail !='' && coachData1.coachThumbnail !=null" />
+      <img  src="assets/images/plan_2.png"  *ngIf="coachData1.coachThumbnail =='' || coachData1.coachThumbnail ==null"/>
+      <button ion-button small class="knowbtn" (click)="opencoachurl(coachdata.coachId)">Know More</button>
+    </div> -->
 
-        <ion-item >
-          <ion-avatar item-start *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
-            <img src={{s3Url}}{{coachData1.avatar}} >
-          </ion-avatar>
-        
-          <ion-avatar  item-start *ngIf="coachData1.avatar =='' || coachData1.avatar ==null">
-            <img src="assets/images/icon.png"/>
-          </ion-avatar>
-        
-          <div class="title">
-            <h2 >{{coachData1.coachName}}</h2>
-            <em>Fitness Strength Coach</em>
-            <div class="rate">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.519 33.012">
-                <path id="star" d="M18.927,2.083,22.82,9.972a1.858,1.858,0,0,0,1.4,1.017l8.706,1.265a1.859,1.859,0,0,1,1.03,3.17l-6.3,6.141a1.859,1.859,0,0,0-.534,1.645l1.487,8.671a1.859,1.859,0,0,1-2.7,1.96l-7.787-4.093a1.861,1.861,0,0,0-1.73,0L8.608,33.841a1.859,1.859,0,0,1-2.7-1.96L7.4,23.21a1.859,1.859,0,0,0-.534-1.645l-6.3-6.141a1.859,1.859,0,0,1,1.03-3.17L10.3,10.989a1.858,1.858,0,0,0,1.4-1.017l3.893-7.889A1.858,1.858,0,0,1,18.927,2.083Z" transform="translate(0 -1.047)" fill="#707070"/>
+    <ion-item >
+      <ion-avatar  slot="start" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
+        <img src={{s3Url}}{{coachData1.avatar}} >
+      </ion-avatar>
+    
+      <ion-avatar  slot="start" *ngIf="coachData1.avatar =='' || coachData1.avatar ==null">
+        <img src="assets/images/icon.png"/>
+      </ion-avatar>
+    
+      <div class="title">
+        <h2 >{{coachData1.coachName}}</h2>
+        <em>Fitness Strength Coach</em>
+        <ion-row>
+          <ion-col class="rate">
+            <em>
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36.472 34.953">
+                <path id="Path_8058" data-name="Path 8058" d="M65.224,19.749a2.719,2.719,0,0,0-1.507-4.638L54.694,13.8a.544.544,0,0,1-.409-.3L50.249,5.326a2.719,2.719,0,0,0-4.877,0L41.337,13.5a.544.544,0,0,1-.41.3L31.9,15.11A2.719,2.719,0,0,0,30.4,19.749l6.529,6.364a.544.544,0,0,1,.156.481L35.542,35.58a2.72,2.72,0,0,0,3.946,2.867l8.07-4.243a.544.544,0,0,1,.506,0l8.07,4.243a2.719,2.719,0,0,0,3.945-2.867l-1.541-8.986a.544.544,0,0,1,.156-.481Zm-8.829,7.213,1.541,8.986a.544.544,0,0,1-.789.573l-8.07-4.243a2.719,2.719,0,0,0-2.531,0l-8.07,4.243a.544.544,0,0,1-.789-.573l1.541-8.986a2.719,2.719,0,0,0-.782-2.407l-6.529-6.364a.544.544,0,0,1,.3-.928l9.022-1.311a2.719,2.719,0,0,0,2.048-1.488l4.035-8.176a.544.544,0,0,1,.975,0h0l4.035,8.176a2.719,2.719,0,0,0,2.047,1.488L63.4,17.263a.544.544,0,0,1,.3.928l-6.529,6.364A2.719,2.719,0,0,0,56.394,26.962Z" transform="translate(-29.575 -3.81)" />
               </svg>
-              <!-- <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34.519 33.072">
-                <path id="Star-outline" d="M33.77,16.035A2.476,2.476,0,0,0,32.4,11.813L24.039,10.6a1.092,1.092,0,0,1-.823-.6L19.48,2.427a2.476,2.476,0,0,0-4.44,0L11.3,10a1.093,1.093,0,0,1-.823.6L2.121,11.813A2.475,2.475,0,0,0,.749,16.035L6.8,21.93a1.094,1.094,0,0,1,.315.968L5.685,31.222a2.475,2.475,0,0,0,3.592,2.609l7.475-3.93a1.094,1.094,0,0,1,1.017,0l7.475,3.93a2.475,2.475,0,0,0,3.592-2.609L27.407,22.9a1.094,1.094,0,0,1,.315-.968Zm-7.724,7.1,1.427,8.324a1.093,1.093,0,0,1-1.586,1.153l-7.475-3.931a2.476,2.476,0,0,0-2.3,0l-7.474,3.93a1.094,1.094,0,0,1-1.586-1.153l1.427-8.324a2.476,2.476,0,0,0-.712-2.191l-6.048-5.9a1.094,1.094,0,0,1,.606-1.865l8.357-1.214a2.472,2.472,0,0,0,1.864-1.354l3.737-7.574a1.094,1.094,0,0,1,1.961,0l3.737,7.574a2.471,2.471,0,0,0,1.864,1.354L32.2,13.181a1.094,1.094,0,0,1,.605,1.865L26.757,20.94A2.475,2.475,0,0,0,26.046,23.132Z" transform="translate(0 -1.047)" fill="#707070"/>
-              </svg> -->
-              <em>4.7</em>
-            </div>
-            <!-- <div class="social">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20.096 37.589">
-                <path id="Path_34" data-name="Path 34" d="M235.287,167.445v-18.82H242.4l1.124-6.237h-8.237v-3.127c0-1.627.611-3.181,3.287-3.181h5.347v-6.225H236.33c-6.383,0-8.125,3.67-8.125,8.756v3.773h-4.38v6.239h4.38v18.82Z" transform="translate(-223.825 -129.856)" fill="#3c5a98"/>
-              </svg>
-                
-            </div> -->
-          </div>
-        </ion-item>
-  </ion-card>  
-</ion-row>
+            
+              4.7
+            </em>
+          </ion-col>
+          <!-- <ion-col class="social">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20.096 37.589">
+              <path id="Path_34" data-name="Path 34" d="M235.287,167.445v-18.82H242.4l1.124-6.237h-8.237v-3.127c0-1.627.611-3.181,3.287-3.181h5.347v-6.225H236.33c-6.383,0-8.125,3.67-8.125,8.756v3.773h-4.38v6.239h4.38v18.82Z" transform="translate(-223.825 -129.856)" fill="#3c5a98"/>
+            </svg>
+          </ion-col> -->
+        </ion-row>
+      
+      </div>
+    </ion-item>
+</ion-card>  
+
 
 
 <ion-toolbar no-border-top no-border-bottom class="sfmenu">
@@ -104,9 +108,9 @@
 
   </ion-list>
 
-  <ion-list class='fulpad ' *ngSwitchCase="'about'">
+  <div class='fulpad ' *ngSwitchCase="'about'">
       <p class=" coachdisc" [innerHTML]="aboutCoach"></p>
-  </ion-list>
+  </div>
 
 </div>
 

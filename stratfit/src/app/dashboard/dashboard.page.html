@@ -1,33 +1,35 @@
 <ion-header class=" head">
-    <ion-title><span>Your Fitness</span>Dashboard</ion-title>
+    <ion-toolbar class="hedfm">
+        <ion-title><span>Your Fitness</span>Dashboard</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="db" >
 
-<div class="fulpad nopadb profile" (click)="openTab('settings')">
-  <ion-card class=" nobg user" >
-      <ion-item>
-        <ion-avatar item-start *ngIf="avatar !='' && avatar !='null' && avatar">
-            <img src={{upavatar}} (error)="onAvatarError()" />
-        </ion-avatar>
-        <ion-avatar  item-start *ngIf="(avatar =='' || avatar =='null' || avatar ==undefined) && avatar">
-            <img src="assets/images/icon.png"/>
-        </ion-avatar>
-      
-          <div class="title">
-          <h2>{{firstname}} {{lastname}}</h2>
-          <em>{{email}}</em>
+    <div class="fulpad nopadb profile" (click)="openTab('settings')">
+        <ion-card class=" nobg user" >
+            <ion-item>
+                <ion-avatar  slot="start" *ngIf="avatar !='' && avatar !='null' && avatar">
+                    <img src={{upavatar}} (error)="onAvatarError()" />
+                </ion-avatar>
+                <ion-avatar  slot="start" *ngIf="(avatar =='' || avatar =='null' || avatar ==undefined) && avatar">
+                    <img src="assets/images/icon.png"/>
+                </ion-avatar>
+            
+                <div class="title">
+                    <h2>{{firstname}} {{lastname}}</h2>
+                    <em>{{email}}</em>
 
-          </div>
-      </ion-item>
-  </ion-card> 
+                </div>
+            </ion-item>
+        </ion-card> 
 
-</div> <!-- End Profile-->
+    </div> <!-- End Profile-->
 
 <div class="fulpad nopadb workout">
   <h1>My Workout <span>{{today | date}}</span></h1>
 
-  <ion-card class="sbgbt nomarg "  *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+  <ion-card class="noflex" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
       <ion-item class="nobg">
           <h2 >{{planInfo.planName}}</h2>
          
@@ -58,7 +60,7 @@
   </ion-card>
 
 
-  <ion-card class="sbgbt nomarg valid"  *ngIf='noplan'>
+  <ion-card class="noflex valid"  *ngIf='noplan'>
       <ion-item class="nobg">
           <h2>You are not subscribed to any plan...</h2>
 
@@ -77,7 +79,7 @@
       </ion-item>
   </ion-card>
 
-  <ion-card class="sbgbt nomarg valid"  *ngIf='planComplete'>
+  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='planComplete'>
       <ion-item class="nobg">
           <h2 margin-top>Program has been completed.</h2>
           <p> Please subscribe again or choose new program</p>
@@ -103,7 +105,7 @@
       </ion-item>
   </ion-card>
 
-  <ion-card class="sbgbt nomarg valid"  *ngIf='todaySessionComplete'>
+  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='todaySessionComplete'>
       <ion-item class="nobg">
           <h2 margin-top>Session has been completed.</h2>
           <h2 margin-top>Next Workout on {{nextWorkoutDateStr}}</h2>
@@ -121,7 +123,8 @@
           </div>
       </ion-item>
   </ion-card>
-  <ion-card class="sbgbt nomarg valid"  *ngIf='noPlanActive'>
+  
+  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='noPlanActive'>
       <ion-item class="nobg">
           <h2 >{{planInfo.planName}}</h2>
           <div class="wrkbtm">
@@ -139,7 +142,7 @@
       </ion-item>
   </ion-card>
 
-  <ion-card class="sbgbt nomarg valid"  *ngIf='todayRestDay'>
+  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='todayRestDay'>
       <ion-item class="nobg">
           <h2>Rest Day</h2>
           <p>You can do some warmup</p>  

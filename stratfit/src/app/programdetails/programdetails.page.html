@@ -1,15 +1,18 @@
-<ion-header class=" head ">
-  <!-- <ion-navbar class="hedfm"> -->
-      <ion-buttons ion-start >
-      <ion-button icon-only (click)="backButtonAction()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+<ion-header class=" head">
+    <ion-toolbar class="hedfm"> 
+      <ion-buttons  slot="start" >
+        <ion-button slot="icon-only" (click)="backtowelcome()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
               <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
-          </svg>
-      </ion-button>
+            </svg>
+        </ion-button>
       </ion-buttons>
-      <ion-buttons end>
-          <ion-button icon-only class="info" (click)="showPlanInfo()">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60.001" >
+
+      <ion-title>{{planinfo.planName}}</ion-title>
+
+      <ion-buttons  slot="end"  >
+        <ion-button slot="icon-only" class="info" (click)="showPlanInfo()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60.001" >
                   <g id="Information" transform="translate(-961.535 -2448.597)">
                       <g id="Path_256" data-name="Path 256" transform="translate(958.135 2444.998)" fill="none">
                       <path d="M33.423,60.6A27,27,0,1,0,6.4,33.6,27.008,27.008,0,0,0,33.423,60.6Z" stroke="none"/>
@@ -18,13 +21,13 @@
                       <path id="Union_4" data-name="Union 4" d="M-4979.315,16966.324a1.738,1.738,0,0,1-1.758-1.76,1.737,1.737,0,0,1,1.758-1.758h4.028v-13.725h-4.028a1.737,1.737,0,0,1-1.758-1.758,1.737,1.737,0,0,1,1.758-1.758h5.744a1.737,1.737,0,0,1,1.758,1.758v15.482h4.033a1.737,1.737,0,0,1,1.758,1.758,1.738,1.738,0,0,1-1.758,1.76Zm.558-26.508a2.825,2.825,0,0,1,2.828-2.826,3.45,3.45,0,0,1,.753.1,2.747,2.747,0,0,1,2.078,2.729,2.83,2.83,0,0,1-2.832,2.832A2.826,2.826,0,0,1-4978.758,16939.816Z" transform="translate(5966.159 -14473.979)" />
                   </g>
               </svg>
-                    
-          </ion-button>
-        </ion-buttons>
-      <ion-title style="padding-top:10px;">{{planinfo.planName}}</ion-title>
-      
-  <!-- </ion-navbar> -->
-</ion-header>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar> 
+  
+  </ion-header>
+
+
 
 <ion-content class="store sview" >
 

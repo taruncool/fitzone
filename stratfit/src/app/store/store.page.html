@@ -1,5 +1,5 @@
 <ion-header class=" head">
-  <div class="hedfm"> 
+  <ion-toolbar class="hedfm"> 
     <ion-title><span>Store</span>Programs</ion-title>
      <ion-buttons  slot="end" >
       <ion-button  slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()">
@@ -44,13 +44,8 @@
       </ion-button>
      </ion-buttons>
      
-     <!--<ion-buttons end>
-       <button ion-button block (click)="editProfile()">Edit</button>
-     </ion-buttons>
-     <ion-buttons end>
-       <button ion-button (click)="updateProfile()">Update </button>
-     </ion-buttons>-->
-  </div> 
+  
+  </ion-toolbar> 
   <div class="sfmenu">
     <ion-segment  (ionChange)="segmentChanged($event)" [(ngModel)]="programstype" >
       <ion-segment-button value="recommended" >

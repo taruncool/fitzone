@@ -1,40 +1,20 @@
 <ion-header class="head">
-  <!-- <ion-navbar class="hedfm"> -->
-    <ion-title><span>Fitness</span>Coach</ion-title>
-
-    <!-- <ion-buttons end>
-      <button ion-button icon-only >
-        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" viewBox="0 0 16933.32 16933.32"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g>
-            
-            <path id="Path_84" class="fil1" d="M16715.84 15718.35l-4070.52 -4070.56c1043.1,-1273.75 1614.1,-2871.01 1614.1,-4517.88 0,-3936.96 -3192.75,-7129.74 -7129.72,-7129.74 -3936.94,0 -7129.71,3192.78 -7129.71,7129.74 0,3936.98 3192.77,7129.74 7129.71,7129.74 1646.87,0 3244.12,-571.01 4517.57,-1613.78l4069.92 4067.51c133.05,140.22 317.95,219.72 511.3,219.72 389.17,0 704.78,-315.6 704.78,-704.78 0,-192.65 -78.9,-377.05 -218.28,-510l0.85 0.03zm-9588.71 -2561.81c-3156.15,-0.7 -6033.1,-2746.1 -6033.1,-6034.66 0,-3553.83 2877.65,-6034.61 6034.6,-6034.61 3156.94,0 6034.62,2877.66 6034.62,6034.61 0,0.71 0,2.15 0,2.8 -4.16,3155.93 -2880.15,6031.86 -6035.87,6031.86l-0.25 0z"
-              data-name="Path 84" />
-          </g>
-        </svg>
-      </button>
-      
-      <button ion-button (click)="profile()">
-          <ion-avatar class="huser">
-            <img src="assets/images/user.jpg" >
-          </ion-avatar>
-      </button>
-    </ion-buttons> -->
-  <!-- </ion-navbar> -->
+  <ion-toolbar class="hedfm">
+    <ion-title><span>Fitness</span>Coaches</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content class=" coach">
 
-  <ion-row class="fulpad nopadt" >
 
       <div class="nodata" *ngIf="coachlist.length==0">
         <p>No coaches to display</p>
       </div>
   
-      <ion-card class="nobg user stcard " *ngFor="let clist of coachlist" (click)="viewCoachPrf(clist)">
+      <ion-card class="nobg user " *ngFor="let clist of coachlist" (click)="viewCoachPrf(clist)">
         <ion-item>
-            <ion-avatar item-start>
+            <ion-avatar slot="start">
               <img src={{clist.createdBy_id__avatar1}}>
             </ion-avatar>
             <div class="title"  >
@@ -42,7 +22,7 @@
               <em>Fitness Strength Coach</em>
               <ion-row>
                 <ion-col> <h6>{{clist.noOfPlans}} Programs</h6></ion-col>
-                <ion-col text-right>
+                <ion-col class="text-right">
                   <em>
                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36.472 34.953">
                       <path id="Path_8058" data-name="Path 8058" d="M65.224,19.749a2.719,2.719,0,0,0-1.507-4.638L54.694,13.8a.544.544,0,0,1-.409-.3L50.249,5.326a2.719,2.719,0,0,0-4.877,0L41.337,13.5a.544.544,0,0,1-.41.3L31.9,15.11A2.719,2.719,0,0,0,30.4,19.749l6.529,6.364a.544.544,0,0,1,.156.481L35.542,35.58a2.72,2.72,0,0,0,3.946,2.867l8.07-4.243a.544.544,0,0,1,.506,0l8.07,4.243a2.719,2.719,0,0,0,3.945-2.867l-1.541-8.986a.544.544,0,0,1,.156-.481Zm-8.829,7.213,1.541,8.986a.544.544,0,0,1-.789.573l-8.07-4.243a2.719,2.719,0,0,0-2.531,0l-8.07,4.243a.544.544,0,0,1-.789-.573l1.541-8.986a2.719,2.719,0,0,0-.782-2.407l-6.529-6.364a.544.544,0,0,1,.3-.928l9.022-1.311a2.719,2.719,0,0,0,2.048-1.488l4.035-8.176a.544.544,0,0,1,.975,0h0l4.035,8.176a2.719,2.719,0,0,0,2.047,1.488L63.4,17.263a.544.544,0,0,1,.3.928l-6.529,6.364A2.719,2.719,0,0,0,56.394,26.962Z" transform="translate(-29.575 -3.81)" />
@@ -63,7 +43,7 @@
         </ion-item>
       </ion-card>
   
-    </ion-row>
+
     
 
   <!-- <div [ngSwitch]="community">

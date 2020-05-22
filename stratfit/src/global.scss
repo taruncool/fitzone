@@ -37,6 +37,7 @@ body, ion-app.md, ion-app.ios, .content-ios, .content-md{font-family: 'Noto Sans
 ion-app.md, ion-app.ios {--ion-background-color: none !important;}
 
 
+
 // .content.timing  {background: #000 !important;}
 
 /* --- Theme CSS ---*/
@@ -47,9 +48,8 @@ body.sfwgren, body.sfwred  {
 
 }
 body.sfbgren {
-  .ion-page{--ion-background-color: #080C14 !important; --ion-color:#fff !important}
-  ion-header {background-color: #080C14 !important;}
-
+  .ion-page{--ion-background-color: #080C14 !important; --ion-color:#fff !important; background-color: #080C14 !important;}
+  // ion-header {background-color: #080C14 !important;}
 
   // :host, :host(.title-md), :host(.title-ios) {--background: #080C14 !important;}
 }
@@ -81,7 +81,7 @@ body.sfbred  {
 
   a, .head .hedfm ion-title, .bar-button-md, .bar-button-ios, .icon-md-primary, .toolbar-title, .sbtm-btn .priv, .execis h2, .programview h2, .pcview .poverlay h1 span, .pcview .poverlay h3, .inputs .label span, .db .card .probar .progress-outer .progress-inner, .db .workout .probar .progress-outer .progress-inner, .bmeasur .bmleft .infild h6, .gender .active, .gender .h3 span, .bmeasur h3 span,  .tlevel h3 span, .verify h2, .item-radio-checked.item-md ion-label, .summary ion-icon, .tlevel .activeOpt ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{color:#80B419 !important;}
 
-  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title span, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p  {color: #fff !important;}
+  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title span, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay h1  {color: #fff !important; --color:#fff !important}
   
   .checkmark, .meallist .dcard .button svg path {stroke: #80B419 !important;}
  .foot .tab-active svg, .profile .user ion-avatar svg {fill:#80B419 !important;}
@@ -104,15 +104,15 @@ body.sfbred  {
  .exetab .workview .setlist .infild .item .label svg, .inputs svg  {fill: #080C14 !important;}
 
 
- .head .hedfm .title .toolbar-title span, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db .workout, .db .card .wrkbtm .button span, .db .workout .wrkbtm .button span, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .summary ion-card ion-item h2{color: #fff !important;}
+ .head .hedfm .title .toolbar-title span, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db h1, .db .card .wrkbtm .button span, .db .workout .wrkbtm .button span, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .summary ion-card ion-item h2{color: #fff !important;}
 
  ion-segment ion-segment-button {opacity: 0.4 !important; color: #fff !important; --indicator-color: none !important;}
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
- .sview .ion-card, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exetab .workview .setlist ion-item-sliding, .sview ion-card, .profile .list .item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
+ .coach .user,      .sview .ion-card, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exetab .workview .setlist ion-item-sliding, .sview ion-card, .profile .list .item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
 
- .execis .exeblk em {color:#000 !important}
+ .loader .progress-outer, .execis .exeblk em {color:#000 !important; --color:#fff !important}
 
  .db .profile .user, .profile .list .item, .faqs .card, .diet .dishes .dishlist .dishview ion-item { background: none !important;}  
  .alert-ios ion-backdrop, .alert-md ion-backdrop, .picker-md ion-backdrop, .db .workout .probar .progress-outer, .exe ion-avatar.active, page-dietprofile .sbgw, page-addmeal .sbgw{background: #080C14 !important;}
@@ -204,7 +204,7 @@ body.sfbred  {
 // .button-ios, .button-md, .button-ios.brn, .button-md.brn,  { }
 
 
-.button, .button.brn, ion-scroll[scrollX] button.active  {color: #fff;border-width: 1px !important; border-style: solid !important; border-radius: 3px; text-transform: uppercase; height: 2.6rem; margin-top:0.5rem; margin-bottom: 0.5rem; box-shadow: none; 
+.button, .button.brn, ion-scroll[scrollX] button.active  {color: #fff;border-width: 1px !important; border-style: solid !important; border-radius: 3px; text-transform: uppercase; height: 2.4rem; margin-top:0.5rem; margin-bottom: 0.5rem; box-shadow: none; 
   svg {fill: #fff;}
   span {color:#fff !important;}
 }
@@ -212,9 +212,6 @@ body.sfbred  {
 
 .button-iso.small, .button-md.small {/*height: 3.8rem !important; */font-size:1.6rem !important;}
 .bar-button-md, .bar-button-ios {font-weight: 300; }
-
-
-// .button-ios.gry, .button-md.gry{background:#eee !important; border-color: #ECECF4 !important;}
 
 
 
@@ -227,13 +224,8 @@ body.sfbred  {
 
 .sblb{border-bottom: 0;}
 
-svg{width:4rem; height:4rem;fill: #000; 
-  // .cls-1  {fill: #d60404 ;} 
-}
+svg{width:4rem; height:4rem;fill: #000; }
 .sbshd{box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important;}
-
-.snob{border:0 !important;}
-.sadbb{border-bottom: 1px solid #eee ;}
 
 .fulpad {padding: 10px !important;}
 .nopad {padding: 0 !important;}
@@ -244,7 +236,6 @@ svg{width:4rem; height:4rem;fill: #000;
 
 .adpadt {padding-top: 10px !important;}
 
-.nobg {--background: none !important; box-shadow: none !important;}
 .nobor {border: 0 !important;}
 
 .fulmarg {margin: 10px !important;}
@@ -261,13 +252,16 @@ svg{width:4rem; height:4rem;fill: #000;
 h1, h2, h3, h4, h5, h6, .toolbar-title-md, .toolbar-title-ios, p, em{font-weight: 300 !important;}
 ul{margin:0; padding: 0;}
 p{ line-height: 1.6 !important;}
+
+.text-left{text-align: left !important;}
 .text-center{text-align: center !important;}
+.text-right{text-align: right !important;}
 
 em {font-style: normal;}
 .none {display: none !important;}
 
-.list  {margin-top: 0 !important;}
-.list:last-child  {margin-bottom: 0 !important;}
+ion-list  {margin-top: 0 !important;}
+ion-list:last-child  {margin-bottom: 0 !important;}
 input:-internal-autofill-selected {background-color:none !important;}
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {box-shadow:0 0 0px 1000px #f2f2f2 inset !important; transition: background-color 5000s ease-in-out 0s !important;}
 
@@ -360,6 +354,8 @@ ion-scroll[scrollX] { white-space: nowrap;min-height: 60px;overflow: overlay; po
 // }
 
 
+.slide-zoom, .swiper-slide{text-align: inherit !important;} 
+
 ion-modal{
     // .calendar-page  {background: #000 !important;}
   ion-calendar-modal {
@@ -384,7 +380,7 @@ ion-loading {
 .loader {position: relative; padding: 0 12px 12px 12px;
   h3 { margin-bottom: 2rem !important; text-align: center;}
   .progress-outer {width: 100%;text-align: right; background: #eee; border-radius: 10px;}
-  .progress-inner {white-space: nowrap;overflow: hidden;border-radius: 10px;font-size: 1rem; padding-right:1rem;}
+  .progress-inner {white-space: nowrap;overflow: hidden;border-radius: 10px;font-size: 10px; padding-right:10px;}
 }
 @keyframes loading {
     to {width:100%; }
@@ -397,18 +393,15 @@ ion-loading {
     .toolbar {min-height: 54px; padding:0 10px;}
     .toolbar-title-ios {padding-top: 10px !important;}
     
-    .hedfm { padding: 10px;     display: flex; justify-content: space-between;
-      // .bar-buttons-md, .bar-buttons-ios {display:block; float:left;}
-      
-      ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%;  font-size: 16px;  font-weight: bold; padding-left: 10px;
-          span {font-size: 13px; display: block; font-weight: 300 !important; }
+    .hedfm {
+      ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%; font-weight: bold; padding-left: 10px;
+          span {font-size: 14px; display: block; font-weight: 300 !important; }
       }
      
-      ion-buttons {display: inline-block !important;
-        .button{ margin-right: 0; float: left;}
-      }
+      // ion-buttons {display: inline-block !important;
+      //   .button{ margin-right: 0; float: left;}
+      // }
       
-      // .bar-buttons-md[end] button{font-weight:normal;}
       .ebtn {padding:0 1.2rem !important; font-weight:normal; background:linear-gradient(90deg, #7ab507 0%, #d60404 100%); border-radius: 50px;  font-size: 1rem;}
       /*--.ebtn{background:linear-gradient(90deg, #7ab507 0%, #d60404 100%) !important; color:#000 !important; border-radius:15px; height:2.6rem; font-size:1.4rem; padding:0 1rem !important;}--*/
     }
@@ -416,18 +409,13 @@ ion-loading {
     .huser {width:2rem; height: 2rem;border: 1px solid #d60404; overflow: hidden; border-radius:50%; 
       img{width:3rem;}
     }
-
-    // .hlogo {position: absolute;left: 0; right: 0; width:5rem;margin:3px auto; display:inline-block;text-align: center;}
-    // .hlogo img {width:100%; vertical-align: middle;}
+    
     svg {width: 1.2rem;height: 1.2rem;}
     // svg .fil2, svg .cls-1  {fill: #d60404;}
      
 }
 // .head ion-buttons[ion-start] svg{ fill: #000 !important;}
 .head .info svg {border-width: 1px; border-style:solid; border-radius: 50%;}
-// .bhead {
-//     svg{fill: #000;}
-// }
 
 .header-md::after {background: none !important; height: 0 !important;}
 // .nohb{border-bottom:0 !important;}
@@ -456,7 +444,6 @@ ion-loading {
         button {float:right; margin: 10px 10px; height: 3.4rem;}
     }
 }
-
 .foot:before {background: none !important; height: 0;}
 
 .ftbnts { padding:0.4rem 0.6rem ;
@@ -467,7 +454,6 @@ ion-loading {
 
 
 /* ActionSheet */
-
 .action-sheet-group{text-align: center;}
 .action-sheet-md .action-sheet-title, .action-sheet-ios .action-sheet-title{text-align: center;}
 .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button{border-radius: 50px;text-transform: uppercase;border-width:1px ; border-style:solid;margin-bottom: 6px;width: 90%;padding: 0 88px;}
@@ -531,7 +517,7 @@ ion-loading {
     .item-inner {line-height: normal;padding-left: 0; padding-right: 0 10px !important;}
 }
 
-.social {margin-top:6vh;
+.social {margin-top:10vh;
   .button {padding: 0;  font-size: 0;height:44px !important; width: 44px !important; border-radius: 50%; 
     // svg .cls-1 { fill: #3b5998 !important;}   
     svg {fill: #fff !important;}
@@ -544,28 +530,30 @@ ion-loading {
 
 
 
+
+
 /*-------- Card ----------*/
-.slide-zoom, .swiper-slide{text-align: inherit !important;}
-ion-card.nobg, ion-item.nobg {background: none !important; box-shadow: none !important; padding:0 !important;}
+.nobg, ion-card.nobg, ion-item.nobg, .nobg ion-item, .noflex ion-card, .noflex ion-item {--background: none !important; background: none !important; box-shadow: none !important; }
+.nobg ion-item, .noflex ion-item {--padding-start:0 !important;--padding-end:0 !important; --inner-padding-end:0 !important; }
 
+.noflex ion-card, .noflex ion-item {display: inherit !important; justify-content: inherit !important; flex: inherit !important;
+  .item-native, .item-inner, .input-wrapper{display: inherit !important; }
+}
+
+ion-card {background: #1D2534 !important;}
 ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bottom:0; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important; 
-    ion-item {box-shadow: none !important;  padding:0 10px 0 10px !important;}
-    .item-inner{padding:0 !important; border:0 !important;}
-    // ion-label {
-    //     span {color:#ccc;}
-    // }
-    
-    ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:50px !important;min-height:50px !important;border-radius: 50%;border-width:1px; border-style:  solid; border-color:  #7A7C84; background:none !important; padding: 0;overflow: hidden; display: inline-block;
-        ion-img {width:44px !important; height: 44px !important; border:0 !important;border-radius: 50%; background: #000 !important; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
-        img {width:44px !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
-    }
-    
+  ion-item {--padding-start: 10px !important; --padding-end:10px !important;}
 
-    .pcover {position: relative; left: 0; right: 0; top: 0; bottom: 0; display: block;
-        img {width:100%; object-fit: cover;}
-        video {width: 100%; height: auto;min-height: 200px; margin-bottom: -3px; vertical-align:bottom !important;}
-        //video[poster] { object-fit:cover;}
-    }
+  ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:50px !important;min-height:50px !important;border-radius: 50%;border-width:1px; border-style:  solid; border-color:  #7A7C84; background:none !important; padding: 0;overflow: hidden; display: inline-block;
+      ion-img {width:44px !important; height: 44px !important; border:0 !important;border-radius: 50%; background: #000 !important; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
+      img {width:44px !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
+  }
+
+  .pcover {position: relative; left: 0; right: 0; top: 0; bottom: 0; display: block;
+      img {width:100%; object-fit: cover;}
+      video {width: 100%; height: auto;min-height: 200px; margin-bottom: -3px; vertical-align:bottom !important;}
+      //video[poster] { object-fit:cover;}
+  }
     .pcover:after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)) !important; }
     .rmcov:after { content:""; position: relative !important; }
    
@@ -625,6 +613,7 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
     
 } 
 
+
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {box-shadow: none !important; border: 0 !important;}
 
 
@@ -653,10 +642,9 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
   }
   
 
-.faqs .card {border-bottom-width: 1px; border-bottom-style: solid;
-  ul {color: inherit !important; opacity: 0.6;}
-}
-
+  .faqs .card {border-bottom-width: 1px; border-bottom-style: solid;
+    ul {color: inherit !important; opacity: 0.6;}
+  }
 
 
 
@@ -690,55 +678,10 @@ ion-app.ios {
 
 
 /*-- Store & Coach--*/
-.store, .coach, .coachview, .analytic {
+.store, .coach, .coachview, .analytic { 
 
   ion-list  { padding: 0 !important;}
-    .stcard { width: calc(100% - 0px);min-width:100vw;margin: 0; position: relative; height: 80vh; border-radius: 0 !important; 
-      ion-item {padding: 0 10px !important; background: none !important; } 
-      .poverlay .prow ion-avatar {margin-right:5px !important;}
-           
-      .pcover img{min-height: 220px; height:80vh; width: 100%; object-fit: cover;}
-      .pcover::after{background: linear-gradient(90deg,  rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.25) 100%) !important;}
-      
-    }
-    // .fulpad.adpb { padding-bottom: 6px !important;}
-  //   .poverlay { background: none !important; position: absolute;left:0; right: 0; bottom: 0; top: 0; 
-  //     .label {margin: 20px 10px 30px 10px ; position: absolute; left: 0; right: 0; top: 2rem; overflow: visible !important; font-size: 1.4rem !important;
-  //       h2 {font-weight: bold !important; font-size: 3rem !important;}
-  //       em, h6 {font-size: 1.6rem !important;}
-  //     }
-  //     .watch  { color: #000; margin-top: 4rem; font-size: 1.2rem !important;
-  //       span {display: inline-block; padding-right:2rem; width:100%;}
-  //       svg {width:4rem; height:4rem; border-radius: 50%;border: 1px solid #000 ; position: relative; top:2rem; }
-  //     }
-  // }
-
-    // .activePlan{position: absolute;top: 0; right:0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; padding:3px 6px; border-radius: 0 0 0 70% !important;
-    //   svg {width:1.4rem !important; height: 1.4rem !important;}
-    // }
-    
-
-
-    /*--- Grid view ---*/
-    .gridview { 
-      ion-col {padding: 0 7px 7px 7px !important;}
-      ion-col:nth-child(2n+1) {padding-right: 0 !important;}
-      // ion-col:first-child{ padding-left: 0 !important;}
-      
-      .stcard { height: 22rem !important; margin-bottom: 0 !important; min-width: 100% !important;
-        ion-item {padding-left: 0 !important;}
-        .poverlay  { padding: 0 !important;
-            .label  {margin: 10px 10px 10px 10px !important; top: auto !important; bottom:0 !important;
-            h2 {font-size: 2rem !important;}
-            }
-        }
-        .pcover:after {background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;}
-        .pcover img{min-height: 22rem !important; height: auto !important;}
-      }
-      
-  }
-
-
+   
   /*--- Full Card scroll---*/
 
   ion-slides {height: 78vh !important;}
@@ -749,10 +692,10 @@ ion-app.ios {
 
       .swiper-wrapper, .slide-zoom {height: 78rem !important;}
 
-      .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding: 1.6rem 1.4rem;
+      .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding: 1.4rem 1.2rem;
         .cdbody {color: #000;
           span, em, p { font-weight: 300; display: block; }
-          h1 {font-weight: bold !important; font-size: 2.2rem; margin: 0 !important;}
+          h1 {font-weight: bold !important; font-size: 1.8rem; line-height: 2.2rem; margin: 0 !important; margin-bottom:10px !important;} 
           p{ margin-bottom: 6rem; }
           svg {width:2rem; height:2rem; border-radius: 50%;border: 1px solid #fff ;   transition: all 0.6s ease-in-out;  position: relative; top:1rem;  }
         }
@@ -798,6 +741,7 @@ ion-app.ios {
     }
 
 
+    /*--- Grid view ---*/
     .gridview { 
       .fulcard {height: 22rem !important; max-height: 22rem !important; min-height: 22rem !important;
         img {height: 22rem !important; opacity: 1 !important;}
@@ -812,6 +756,24 @@ ion-app.ios {
         }
       }
       .fulcard:before {background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;}
+
+
+      ion-col {padding: 0 7px 7px 7px !important;}
+      ion-col:nth-child(2n+1) {padding-right: 0 !important;}
+      // ion-col:first-child{ padding-left: 0 !important;}
+      
+      .stcard { height: 22rem !important; margin-bottom: 0 !important; min-width: 100% !important;
+        ion-item {padding-left: 0 !important;}
+        .poverlay  { padding: 0 !important;
+            .label  {margin: 10px 10px 10px 10px !important; top: auto !important; bottom:0 !important;
+            h2 {font-size: 2rem !important;}
+            }
+        }
+        .pcover:after {background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;}
+        .pcover img{min-height: 22rem !important; height: auto !important;}
+      }
+
+
     }
 
 
@@ -819,6 +781,19 @@ ion-app.ios {
     // .fulcard:hover {transition: all 0.5s ease-in-out; transform: scale(1,1); z-index: 997;}
     // .fulcard:hover .cdbody svg {transition: all 0.5s ease-in-out; margin-left:30px; width: 3rem; height: 3rem;}
   /*---End Full Card scroll---*/
+
+
+
+  // .stcard { min-width:100vw;margin: 0; position: relative; height: 80vh; border-radius: 0 !important; 
+  //   ion-item {padding: 0 10px !important; background: none !important; } 
+  //   .poverlay .prow ion-avatar {margin-right:5px !important;}
+         
+  //   .pcover img{min-height: 220px; height:80vh; width: 100%; object-fit: cover;}
+  //   .pcover::after{background: linear-gradient(90deg,  rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.25) 100%) !important;}
+    
+  // }
+
+  
 
 }
 
@@ -856,50 +831,53 @@ ion-app.ios {
 
 .coach, .profile, .coachview {
 
-    .user { width:calc(100% - 0px) !important; padding-bottom: 0 !important; 
-      ion-item {padding: 0 !important; background: none !important;  }
-      ion-avatar{width: 8rem !important;height: 8rem !important; border-radius: 3px !important; margin: inherit !important;  border: 0; position:relative;
-          img {width:8rem !important; max-height: 8rem; border-radius: 3px !important; border: 0 !important}
+    .user { /*width:calc(100% - 0px) !important;*/ padding-bottom: 10px !important;  margin-top: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+      // ion-item {padding: 0 !important; background: none !important;  }
+      ion-avatar{width: 5rem !important;height: 5rem !important; border-radius: 3px !important; margin: inherit !important;  border: 0; position:relative;
+          img {width:5rem !important; max-height: 5rem; border-radius: 3px !important; border: 0 !important}
           svg {position: absolute; right: 0; bottom: 0; width:2.4rem; height: 2.4rem; }
       }
       // .label { margin: 8px 8px 8px 0 !important;}
-      .title {padding-left: 14px; 
+      
+      .title {padding-left: 14px; width: 100%;
         h2{ font-weight: normal !important; color: inherit !important;}
-        .rate, .social {display: block;
-          svg { width: 1.2rem; height: 1.2rem;}
-        }
         em {display: inline-block !important; margin-bottom: 5px; opacity: 0.6;}
+        // .rate, .social {display: block;}
       }
 
     }
-      h2, em, h6 {margin: 0;}
-      em, h6 {font-size: 1.4rem !important; } 
-      
-      .col{padding: 0; position: relative;
-         h6{line-height: 2.2rem; color: #fff !important; opacity: 0.6;}
+    h2, em, h6 {margin: 0; }
+    h2, em, h6 { font-size: initial !important} 
+    
+    ion-col{padding: 0; position: relative;
+        h6{ opacity: 0.6;}
+        em {padding-left: 10px; opacity: 1 !important;
+        svg {margin-right: 5px; width: 16px; height:16px; opacity: 0.6 !important;  }
       }
-      .col:last-child {
-         em {padding-left: 10px;
-            svg {margin-right: 5px; width: 1.2rem; height: 1.2rem;  }
-         }
-      }
+    }
+     
 
 }
 
-.profile {
-  .user {margin-top: 0 !important; margin-bottom: 0 !important; box-shadow: none !important}
-  .label  {margin-top: 0 !important; margin-bottom: 0 !important; margin-left: 0 !important; }
+.coachview {
+  .segment {box-shadow: none !important;}
+  .sfmenu.toolbar-ios ion-segment-button {line-height:10px !important;}
+  p {margin-top: 0 !important;}
+}
 
+.profile {
+  .user { margin-bottom: 0 !important; }
+ 
   .list {width: 100%;         
-    .item{ font-size: 1.4rem;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid;
+    .item{ font-size: inherit;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid;
        
         // svg.stroke { stroke: #000 !important;}
-        svg {width:1.6rem; height: 1.6rem;
+        svg {width:inherit; height: inherit;
           path {/*fill: #999 !important;*/ }
         }
         ion-icon{margin-right: 0 !important; }
         ion-icon[item-start]{
-          svg {width:2rem !important; height:2rem !important;}
+          // svg {width:2rem !important; height:2rem !important;}
         }
         ion-select {margin-top:0 !important; margin-bottom: 0 !important; margin-right: 0 !important;}
         ion-select.six8 {max-width:68% !important;}
@@ -912,63 +890,46 @@ ion-app.ios {
     .item-inner {margin-left:1rem !important;}
     .toggle-md .toggle-inner, .toggle-ios .toggle-inner {background:#999 !important; border: 2px solid #fff;}
     
-
-    
   }
 
 }
 
-.coachview {
-  .user { margin-top: 0 !important; margin-bottom: 0 !important; box-shadow: none !important; background:none !important;}
-  .label  {margin-top: 0 !important; margin-bottom: 0 !important; margin-left: 0 !important; }
-  .segment {box-shadow: none !important;}
-  .sfmenu.toolbar-ios ion-segment-button {line-height:10px !important;}
-  p {margin-top: 0 !important;}
-}
 
 
 
 /*-- Program View **** Login(Download) **** Session Summary ****  Program Bar --*/
-.sview, .pcview{ 
-  .content-md{
-      .scroll-content {margin-top:0 !important; }
-  }
-
-}
-
 .sview{
 
-  .card {margin: 0 !important;  width: calc(100% - 0px); position: relative; border-radius: 0 !important;}
+  ion-card {margin: 0 !important;   position: relative; border-radius: 0 !important; border:0;border-bottom-width: 1px !important; border-style: solid; border-color: #ddd;}
     .pcover { min-height: 200px; content: inherit !important;
         img {min-height: 200px;}
     }
     
     
-    ion-card {border:0;border-bottom-width: 1px !important; border-style: solid; border-color: #ddd; }
     ion-card .pcover:after, ion-item .pcover:after {content: inherit !important;}
     ion-card .poverlay, ion-item .poverlay {position: relative !important; }
 
   .poverlay{
-    em {font-size: 1.2rem !important;}
+    // em {font-size: 1.2rem !important;}
     .prow{
-      ion-avatar {margin: 0 !important; display: inline-block; max-width: 26px !important; max-height:26px !important; min-width: 26px !important;min-height:26px !important; border: 0 !important;
-        ion-img {width:26px !important; height: 26px !important;}
-        img {width: 26px !important; background:#eee !important;}
+      ion-avatar {margin: 0 !important; display: inline-block; max-width: 3rem !important; max-height:3rem !important; min-width: 3rem !important;min-height:3rem !important; border: 0 !important;
+        ion-img {width:3rem !important; height: 3rem !important;}
+        img {width: 3rem !important; background:#eee !important;}
       }
     }
   }
   .poverlay.nobg { padding: 10px 10px !important; box-shadow: none !important;
-    .label {position: relative !important; margin: 0 !important; top:0 !important; }
-    .label h2{color: inherit !important; }
-    .label .prow {margin-top: 0 !important;}
-    .label .prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999;} 
-    .label .prow h6 {display: inline !important; font-size: 1.4rem !important;}
-    .col em{ margin-bottom: 10px; display: block; font-size: 1.4rem !important;}
-    .col:last-child {bottom:0 !important; position: relative !important; 
+
+    h2{color: inherit !important; }
+    .prow {margin-top: 0 !important;}
+    .prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999;} 
+    .prow h6 {display: inline !important; font-size: 1rem !important;}
+    .prow ion-col em{ margin-bottom: 10px; display: block; font-size: 1.4rem !important;}
+    .prow ion-col:last-child {bottom:0 !important; position: relative !important; 
         em {display: inline-block !important; margin-bottom: 0 !important; margin-left: 10px;
-          svg {width:1.6rem !important; height: 1.6rem !important;}
+          svg {width:1rem !important; height: 1rem !important;}
         }
-        span {display:block; font-size: 1.6rem !important;  margin-top: -4px; font-weight: bold; }
+        span {display:block; font-size: 1rem !important;  margin-top: -4px; font-weight: bold; }
     }
   }
 
@@ -976,10 +937,9 @@ ion-app.ios {
 
 }
 
-
 .programview{  position: relative; left: 0; right: 0;  box-shadow: none !important;
   
-    h2,h3, h4{display: block; margin-top: 0; margin-bottom: 10px; font-size: 1.6rem;  
+    h2,h3, h4{display: block; margin-top: 0; margin-bottom: 10px; font-size: 1.2rem;  
       // em {color: #000 !important;}
     }
     // h2 {color: #d60404 !important;}
@@ -1044,23 +1004,24 @@ ion-app.ios {
     
 }  /*--End Program View **** Login(Download) **** Session Summary ****  Program Bar  --*/
 
+
 /*-- Dashboard --*/
 .db {
-  h1 { font-size:1.8rem; margin-top: 0; margin-bottom: 1.4rem; 
-    span {float:right; font-size:1.4rem;}
-    a {float:right; font-size:1.4rem;}
+  h1 { font-size:1.2rem; margin-top: 0; 
+    span {float:right; font-size:14px;}
+    a {float:right; font-size:14px;}
   }
   ion-scroll {position: relative !important;
     .scroll-zoom-wrapper {display: flex;}
   }
-  .user .label {margin-left: 0 !important;}
+  // .user .label {margin-left: 0 !important;}
   
 
-  .card, .workout {margin-top:0; width:calc(100% - 0px);
-    .label {margin-left:8px;
+  ion-card, .workout {margin: 0 !important;
+    
       h2, p {color:inherit !important; margin-bottom: 1rem; margin-top:0;}
       span {color: inherit !important;}
-    }
+    
     .pcover::after {content: none !important;}
     .probar {padding: 0 !important;
       span {display: block; font-size: 1.4rem;
@@ -1165,8 +1126,6 @@ ion-app.ios {
 
 
 
-
-
 /*-- Todays Workout --*/ 
 .workout {  
   .titl { text-align: center; margin-bottom:10px;
@@ -1227,7 +1186,7 @@ ion-app.ios {
 }
 
 /*--****** Analytics ***** General , Meso,Micro, Session & Exercise --*****--- STORE - Program Details,  */
-.contin {overflow:visible;transition: all .5s ease-out;width: calc(100% - 0px);
+.contin {overflow:visible;transition: all .5s ease-out;
     
     .days { text-align: center; background:#fff; padding-top: 10px;  margin:0 -10px 15px -10px !important; position: relative;
       .button {border-radius:50%; background: none !important; width: 4rem; height: 4rem !important; padding: 6px !important; margin:0 2px !important; background: none !important;  border-width: 1px !important; border-color: #666 !important; border-style: solid !important; font-size:1.1rem !important;}
@@ -1252,7 +1211,7 @@ ion-app.ios {
 }
 
 
-.exe {margin: 0; width: calc(100% - 0px); padding: 0 0 10px 0; text-align: center;
+.exe {margin: 0;  padding: 0 0 10px 0; text-align: center;
     ion-avatar{margin: 0 !important;position: relative;min-width:3.4rem !important;min-height:3.4rem !important;border-radius: 50%;background: #fff !important; padding: 0;overflow: hidden; display: inline-block; margin-left: 6px !important;
       ion-img {width:2.8rem  !important; height: 2.8rem  !important; border:0 !important;border-radius: 50%; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
       img {width:2.8rem !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
@@ -1267,7 +1226,7 @@ ion-app.ios {
   }/*--- END Workout & Analytics Tabs Css --- Never changes any thing here*/
 
   /*--- Workout Tabs View Css --- Never changes any thing here*/
-.exetab {width: calc(100% - 0px);margin: 0;
+.exetab {margin: 0;
 
     .workflow { 
       h2 { margin-top:0 !important; margin-bottom: 15px; font-size: 1.4rem !important;
@@ -1451,7 +1410,7 @@ ion-app.ios {
 
   .meallist { position: relative;}
 
-  .dcard, .ocard { width: calc(100% - 0px);margin: 0 0 10px 0; position: relative;
+  .dcard, .ocard { margin: 0 0 10px 0; position: relative;
     ion-item, .lgraph, .listdis {padding: 0 15px !important; background: none !important; 
       .label { margin:0 !important;}
       .button{margin-right:-6px !important; margin-top:-6px !important;
