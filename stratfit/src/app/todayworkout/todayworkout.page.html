@@ -1,6 +1,6 @@
 <ion-header class=" head" *ngIf='!(planComplete || renewPlan)' >
   <!-- <ion-navbar class="hedfm"> -->
-    <ion-title><span>{{planInfo.durationWeeks}} Weeks - {{planInfo.planType}}</span>{{planInfo.planName}}</ion-title>
+    <ion-title><span><em *ngIf="!(planInfo.durationWeeks==='null')">{{planInfo.durationWeeks}} Weeks -</em> {{planInfo.planType}}</span>{{planInfo.planName}}</ion-title>
    
     <ion-buttons ion-start >
       <ion-button icon-only (click)='backButtonAction()'>

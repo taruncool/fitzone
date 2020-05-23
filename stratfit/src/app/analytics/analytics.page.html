@@ -42,7 +42,7 @@
       <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
     </ion-row>
     <ion-item class="poverlay" text-wrap>
-      <em>{{planInfo.durationWeeks}} Weeks</em>
+      <em *ngIf="isDuration">{{planInfo.durationWeeks}} Weeks</em>
         <h2 text-wrap>{{planInfo.planName}}</h2>
         <h6>{{planInfo.coachName}}</h6>
         
