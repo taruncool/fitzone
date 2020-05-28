@@ -6,8 +6,9 @@ import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { ApiService } from '../../app/api.service';
 import { LoadData } from '../../providers/loaddata';
 import { global } from "../../app/global";
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
-import { ProgramdetailsPage } from '../programdetails/programdetails.page';
+// import { ProgramdetailsPage } from '../programdetails/programdetails.page';
 
 @Component({
   selector: 'app-coachprofile',
@@ -33,7 +34,7 @@ export class CoachprofilePage implements OnInit {
   prompt;
   planSet;
 
-  constructor(public platform: Platform, public nav: NavController,private apiService: ApiService, private alertCtrl: AlertController, public navParams: NavParams, private http:HttpClient, private loadData: LoadData,public toastCtrl: ToastController, public modalCtrl: ModalController, private ga:GoogleAnalytics) {
+  constructor(public platform: Platform, public nav: NavController,private apiService: ApiService, private alertCtrl: AlertController, public navParams: NavParams, private http:HttpClient, private loadData: LoadData,public toastCtrl: ToastController, public modalCtrl: ModalController, private ga:GoogleAnalytics,public router: Router) {
     this.coachdata = navParams.get("coachInfo");
     this.s3Url = global.s3URL;
     this.rootUrl = global.rootUrl;
@@ -163,11 +164,18 @@ export class CoachprofilePage implements OnInit {
 
   async viewplaninfo(plan){
     //this.nav.push(ProgramdetailsPage,{plandetails:plan});
-    let modal = await this.modalCtrl.create({
-      component:ProgramdetailsPage,
-      componentProps: {"plandetails":plan}
-    });
-    modal.present();
+    // let modal = await this.modalCtrl.create({
+    //   component:ProgramdetailsPage,
+    //   componentProps: {"plandetails":plan}
+    // });
+    // modal.present();
+    console.log("plan....",plan);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        "plandetails":plan
+      }
+    };
+    this.router.navigate(['programdetails'], navigationExtras);
   }
 
   backButtonAction() {

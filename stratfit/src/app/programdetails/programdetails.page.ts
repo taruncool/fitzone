@@ -629,12 +629,23 @@ export class ProgramdetailsPage implements OnInit {
                       
                     },80);
                     console.log(this.cplan_startdate);
-                    // let planprogressModal = this.modalCtrl.create(ProgressbarPopup,{'uplandata':{'plan_id':this.planinfo.id,'planName':this.planinfo.planName,'planPhoto':this.planinfo.planPhoto,'startdate':deviceDate,'defaultOffDay':6,'firstplan':this.fplan,'exercises':this.planinfo.exercises}});
+                    // let planprogressModal = this.modalCtrl.create({
+                    //   Component:ProgressbarPopup,
+                    //   componentProps:{'uplandata':{'plan_id':this.planinfo.id,'planName':this.planinfo.planName,'planPhoto':this.planinfo.planPhoto,'startdate':deviceDate,'defaultOffDay':6,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
+                    // });
                     // planprogressModal.present();              
-
+                    this.planProgessModal(deviceDate,event);
                     this.loadData.stopLoading();
         },500);
   }
+
+async planProgessModal(deviceDate,dayoff){
+   let planprogressModal = await this.modalCtrl.create({
+  component: ProgressbarPage,
+  componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
+});
+planprogressModal.present(); 
+}
 
   async freePlanSubscription(){
      this.loadData.startLoading();
@@ -657,7 +668,7 @@ export class ProgramdetailsPage implements OnInit {
                   }else if(this.platform.is('android')){
                     planprice = resvalue.data.plans[j].info.price;
                   }
-                  
+                  let dayoff = resvalue.data.dayoff;
                   resvalue.data.startDate = this.loadData.changeDateFormat(resvalue.data.startDate,'db');
                   let stDate = new Date(resvalue.data.plans[j].startDate);
                   this.cplan_startdate = this.loadData.dateFormat(stDate);
@@ -696,7 +707,11 @@ export class ProgramdetailsPage implements OnInit {
                       
                     },80);
                     console.log(this.cplan_startdate);
-                    this.showprogresspopup(resvalue)
+                    this.planProgessModal(deviceDate,dayoff)
+                    // let planprogressModal = await this.modalCtrl.create({
+                    //   component:ProgressbarPage,
+                    //   componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
+                    // });
                     // planprogressModal.present();
                   //});
                 }
@@ -734,8 +749,8 @@ export class ProgramdetailsPage implements OnInit {
   }
 
   backButtonAction() {
-    this.modalCtrl.dismiss();
-    //this.navCtrl.setRoot(StorePage);
+    // this.navCtrl.dismiss();
+    this.navCtrl.navigateRoot('/tabs/tabs/store');
   }
   dashboardpage(){
 

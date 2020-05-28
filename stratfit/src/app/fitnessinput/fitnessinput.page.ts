@@ -471,7 +471,7 @@ heightArrCms= {
       if (this.heightMetric === 'ftin') {
         this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
       }
-      //this.loadData.startLoading();
+      this.loadData.startLoading();
       var userInfo = { "id": parseInt(this.userId), "userInf": { "dob": this.dob, "gender": this.genderinfo, "height": this.cent, "heightM": "cms", "weightM": this.weightMetric, "weight": this.weigth, "trainingLevel": this.selectedLevel } }
       this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
@@ -498,11 +498,11 @@ heightArrCms= {
               
               //this.navCtrl.setRoot(StorePage);
           } else {
-           // this.loadData.stopLoading();
+           this.loadData.stopLoading();
             this.errorMsg();
           }
         }, (err) => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           if (err.status === 403) {
             this.loadData.forbidden();
             this.navCtrl.navigateForward('/login');
@@ -544,7 +544,7 @@ heightArrCms= {
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
     this.userAge = Difference_In_Days / 365;
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     this.apiService.newextypedetailspdc(this.token).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
