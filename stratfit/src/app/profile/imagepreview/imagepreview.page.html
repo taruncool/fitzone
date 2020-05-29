@@ -1,26 +1,26 @@
 <ion-header>
-  <!-- <ion-navbar color="toolbg"> -->
-      <ion-buttons start>
-          <ion-button icon-only start (click)="backButtonAction()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </ion-button>
-      </ion-buttons> 
-      <ion-title text-center>Media preview</ion-title>
-  <!-- </ion-navbar> -->
+    <ion-toolbar color="toolbg">
+        <ion-buttons start>
+            <button ion-button icon-only start (click)="backButtonAction()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons> 
+        <ion-title text-center>Media preview</ion-title>
+    </ion-toolbar>
 </ion-header>
-      
+        
 <ion-content>
 
-  <ion-card *ngIf='base64img'>
-      <img [src]='base64img'/>
-  </ion-card>
+    <ion-card *ngIf='displayImage'>
+        <img [src]='displayImage'/>
+    </ion-card>
 
 </ion-content>
 
 <ion-footer color="primary" text-center>
-  <ion-button block icon-right (click)="uploadImage()">Upload
-      <ion-icon name="cloud-upload"></ion-icon>
-  </ion-button>
+    <button ion-button block icon-right (click)="submitForm()">Upload
+        <ion-icon name="cloud-upload"></ion-icon>
+    </button>
 </ion-footer>
-  
-      
+    
+        

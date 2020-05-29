@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import * as AWS from 'aws-sdk';
@@ -13,7 +12,7 @@ declare const Buffer;
 @Injectable()
 export class ImageProvider {
 
-  constructor(public http: Http,private camera: Camera) {
+  constructor(private camera: Camera) {
     console.log('Hello ImageProvider Provider');
   }
 

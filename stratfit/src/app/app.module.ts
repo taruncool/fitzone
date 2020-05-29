@@ -36,7 +36,7 @@ import { ProgramdetailsPage } from './programdetails/programdetails.page';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
-import { CoachprofilePage } from './coachprofile/coachprofile.page';
+// import { CoachprofilePage } from './coachprofile/coachprofile.page';
 import { TimerpopupPage } from './workout/timerpopup/timerpopup.page';
 import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
@@ -45,6 +45,10 @@ import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
 import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
 import { TimerComponent } from './workout/timer/timer.component';
 import { AddmealPage } from './userdiet/addmeal/addmeal.page';
+import { ImageProvider } from 'src/providers/image/image';
+import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';
+import { Crop } from '@ionic-native/crop/ngx';
+import { Base64 } from '@ionic-native/base64/ngx';
 // import { DiethistoryPage } from './userdiet/diethistory/diethistory.page';
 
 @NgModule({
@@ -52,7 +56,7 @@ import { AddmealPage } from './userdiet/addmeal/addmeal.page';
     AppComponent,
     ProgressloginPage,
     PlanpreviewPage,
-    CoachprofilePage,
+    // CoachprofilePage,
     TimerpopupPage,
     MorerepsPage,
     MorerepscomplexPage,
@@ -63,12 +67,14 @@ import { AddmealPage } from './userdiet/addmeal/addmeal.page';
     ProgressbarPage,
     TimerComponent,
     AddmealPage,
+    ImagepreviewPage,
+    // ImageProvider
     // DiethistoryPage
   ],
   entryComponents: [
     ProgressloginPage,
     PlanpreviewPage,
-    CoachprofilePage,
+    // CoachprofilePage,
     TimerpopupPage,
     MorerepsPage,
     MorerepscomplexPage,
@@ -79,6 +85,8 @@ import { AddmealPage } from './userdiet/addmeal/addmeal.page';
     ProgressbarPage,
     TimerComponent,
     AddmealPage,
+    ImagepreviewPage,
+    // ImageProvider,
     // DiethistoryPage
   ],
   imports: [
@@ -112,8 +120,9 @@ import { AddmealPage } from './userdiet/addmeal/addmeal.page';
     Insomnia,
     NativeAudio,
     Facebook,
-    // crop,
-    // base64,
+    ImageProvider,
+    Crop,
+    Base64,
     StreamingMedia,
     // StreamingVideoOptions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

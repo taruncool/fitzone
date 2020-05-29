@@ -40,7 +40,8 @@
     "@ionic-native/vibration": "^5.25.0",
     "@ionic-native/wheel-selector": "^5.22.0",
     "@ionic/angular": "^5.0.7",	
-    "aws-sdk": "^2.6.5",
+    "aws-sdk": "^2.686.0",
+    "com-badrit-base64": "^0.2.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-crop": "^0.4.0",
@@ -126,7 +127,8 @@
       "com.outsystems.mobile.stetho": {},
       "cordova-plugin-crop": {},
       "cordova-plugin-streaming-media": {},
-      "cordova-plugin-vibration": {}
+      "cordova-plugin-vibration": {},
+      "com-badrit-base64": {}
     },
     "platforms": [
       "android"

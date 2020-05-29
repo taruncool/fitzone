@@ -482,21 +482,31 @@ export class ProfilePage implements OnInit {
   //     //alert('Error while selecting image.');
   //   });
   // }
-  public loadModal(base64Image){
+  public async loadModal(base64Image){
     if(this.uploadType =='cover'){
       var uploadCover =true;
     }else{
       var uploadCover =false;
     }
     // this.loadData.stopLoading();
-    this.uploadModal = this.modalCtrl.create({
+    this.uploadModal = await this.modalCtrl.create({
       component:ImagepreviewPage,
       componentProps:{'base64img':base64Image,'uploadtype':uploadCover}
+    }).then(a => {
+
+      a.present();
+
+        a.onDidDismiss().then((dis) => {
+          console.log('modal dismissed!');
+          this.ngOnInit();
+        });
+      
     });
-    this.uploadModal.present();
-    this.uploadModal.onDidDismiss(data=>{
-        this.ngOnInit();
-    });
+   
+    // this.uploadModal.onDidDismiss(data=>{
+    //     this.ionViewDidEnter();
+    // });
+    // await this.uploadModal.present();
   }
 
    /*--- user logout ---*/

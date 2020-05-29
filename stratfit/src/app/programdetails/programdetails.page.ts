@@ -89,7 +89,7 @@ export class ProgramdetailsPage implements OnInit {
   subplaninfo:any;
   fplan:any;
   userid;
-
+  pageType;
   public myVideo: HTMLVideoElement;
 
   constructor(public navCtrl: NavController,private apiService : ApiService,
@@ -110,6 +110,7 @@ export class ProgramdetailsPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.planinfo = this.router.getCurrentNavigation().extras.state.plandetails;
+        this.pageType = this.router.getCurrentNavigation().extras.state.frompage;
 
         for(let i=0;i<this.planinfo.exercises.length;i++){
 
@@ -749,14 +750,20 @@ planprogressModal.present();
   }
 
   backButtonAction() {
-    // this.navCtrl.dismiss();
-    this.navCtrl.navigateRoot('/tabs/tabs/store');
+      console.log("page type",this.pageType);
+     if( this.pageType=='1'){
+      this.navCtrl.navigateBack('/coachprofile');
+     }else if( this.pageType=='2'){
+        this.navCtrl.navigateBack('store/goal');
+      }else if( this.pageType=='3'){
+      this.navCtrl.navigateRoot('/tabs/tabs/store');
+     }
   }
-  dashboardpage(){
 
-    this.navCtrl.navigateForward('/dashboard');
-    
+  dashboardpage(){
+    this.navCtrl.navigateForward('/tabs/tabs/dashboard');
   }
+
   async openExercise(Exc){
 
     // let modal = this.modalCtrl.create(ExercisePage);

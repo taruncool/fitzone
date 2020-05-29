@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadData } from '../../../providers/loaddata';
 import {SqlStorageNew} from '../../../providers/sql-storage-new';
 import { global } from "../../../app/global";
-import { UploadServiceProvider } from '../../../providers/upload-service/upload-service';
+
 import { ApiService } from 'src/app/api.service';
 import { ImageProvider } from '../../../providers/image/image';
 import { Crop } from '@ionic-native/crop/ngx';
@@ -18,11 +18,13 @@ import { Base64 } from '@ionic-native/base64/ngx';
 })
 export class ImagepreviewPage implements OnInit {
   base64img;
+  displayImage;
   uploadtype;
   token;
   pictureData;
+  private win: any = window;
 
-  constructor(public navCtrl: NavController, public params: NavParams,private crop: Crop,private base64: Base64,private apiService:ApiService, private loadData: LoadData, public http: HttpClient,public modalCtrl:ModalController, public uploadService:UploadServiceProvider,  public toastCtrl: ToastController){
+  constructor(public navCtrl: NavController, public params: NavParams,public imageProvider: ImageProvider,private crop: Crop,private base64: Base64,private apiService:ApiService, private loadData: LoadData, public http: HttpClient,public modalCtrl:ModalController, public toastCtrl: ToastController){
       this.base64img = this.params.get('base64img');
       this.uploadtype = this.params.get('uploadtype');
   }
@@ -34,6 +36,8 @@ export class ImagepreviewPage implements OnInit {
       .then(
         newImage => {
          this.base64img=newImage;
+        
+    this.displayImage = this.win.Ionic.WebView.convertFileSrc(this.base64img);
           console.log('new image path is: ' + newImage);
           let filePath: string = this.base64img;
             this.base64.encodeFile(filePath).then((base64File: string) => {
@@ -65,29 +69,24 @@ submitForm(){
   let imageName = 'ProfileImage';
   let date =  Date.now();
   const key = imageName + date;
-  // this.imageProvider.uploadImage( this.pictureData, imageName).then((res) => {
-  //   console.log("Response", res);
-  //   //this.itemPicturesStoreURL = res;
-  //   this.saveImagePath(res);
-  // }).catch((err) => {
-  //   console.log("Error is", err)
-  // })
-  this.crop.crop(this.pictureData,{quality: 75})
-  .then(
-    newImage => console.log('new image path is: ' + newImage),
-    error => console.error('Error cropping image', error)
-  );
+  this.imageProvider.uploadImage( this.pictureData, imageName).then((res) => {
+    console.log("Response", res);
+    //this.itemPicturesStoreURL = res;
+    this.saveImagePath(res);
+  }).catch((err) => {
+    console.log("Error is", err)
+  })
 
 }
-public uploadImage(){
-    this.uploadService.upload(this.base64img,'jpg',true).then(data=>{
-        this.saveImagePath(data);
-    });
-}
+// public uploadImage(){
+//     this.uploadService.upload(this.base64img,'jpg',true).then(data=>{
+//         this.saveImagePath(data);
+//     });
+// }
 
 async saveImagePath(imgname){
     if(localStorage.getItem('internet')==='online'){
-        this.loadData.uploadLoader();
+        this.loadData.startLoading();
         var data;
         if(this.uploadtype ==true){
           data = {cover:'https://stratfitmedia.s3.amazonaws.com/stratfitmedia/'+imgname};
@@ -95,7 +94,7 @@ async saveImagePath(imgname){
           data = {image:'https://stratfitmedia.s3.amazonaws.com/stratfitmedia/'+imgname};
         }
           this.apiService.uploadpic(data,this.token).subscribe((response)=>{
-            // this.loadData.stopLoading();
+             this.loadData.stopLoading();
             const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
             if(res.success){
@@ -105,13 +104,13 @@ async saveImagePath(imgname){
               }else{
                   localStorage.setItem('avatar', upavatar);
               }
-                // this.viewCtrl.dismiss('');
+              this.modalCtrl.dismiss(); 
             }else{
               this.toastmsg("Unable to process your request. Please try after some time");
                 
             }
         },(err) => {
-        // this.loadData.stopLoading();
+         this.loadData.stopLoading();
         if(err.status === 403){
             this.loadData.forbidden();
             this.navCtrl.navigateForward('/login');

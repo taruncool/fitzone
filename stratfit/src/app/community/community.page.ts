@@ -5,6 +5,7 @@ import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { ApiService } from '../../app/api.service';
 import { LoadData } from '../../providers/loaddata';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 
 @Component({
@@ -22,11 +23,9 @@ export class CommunityPage implements OnInit {
   prompt;
   planSet;
 
-  constructor(public navCtrl: NavController,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public platform: Platform, public toastCtrl: ToastController, public alertCtrl: AlertController, private ga: GoogleAnalytics, public modalCtrl:ModalController) {
+  constructor(public navCtrl: NavController,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public platform: Platform, public toastCtrl: ToastController, public alertCtrl: AlertController, private ga: GoogleAnalytics, public modalCtrl:ModalController,public router: Router) {
     this.community = "coachelists";
-  }
-
-  ngOnInit() {
+  
     this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
    
     if(this.platform.is('ios')){
@@ -36,6 +35,8 @@ export class CommunityPage implements OnInit {
     }
     this.currentUserId = localStorage.getItem('userId');
     this.token = localStorage.getItem('usertoken');
+  }
+  ngOnInit() {
     
     if(localStorage.getItem('internet')==='online'){
       this.getCoachelists();
@@ -127,14 +128,21 @@ export class CommunityPage implements OnInit {
   
   //redirecting to coachprofile page
   async viewCoachPrf(coachdata){
-    this.ga.trackEvent('CoachProfileView',coachdata.coachName,localStorage.getItem('email'));
-    let modal = await this.modalCtrl.create({
-      component:CoachprofilePage,
-      componentProps:{coachInfo:coachdata}
-    });
-    modal.present();
-    //this.navCtrl.push(CoachprofilePage,{coachInfo:coachdata});
+  //   this.ga.trackEvent('CoachProfileView',coachdata.coachName,localStorage.getItem('email'));
+  //   let modal = await this.modalCtrl.create({
+  //     component:CoachprofilePage,
+  //     componentProps:{coachInfo:coachdata}
+  //   });
+  //   modal.present();
+    let navigationExtras: NavigationExtras = {
+      state: {
+        "coachInfo":coachdata
+      }
+    };
+    this.router.navigate(['coachprofile'], navigationExtras);
   }
+    //this.navCtrl.push(CoachprofilePage,{coachInfo:coachdata});
+  // }
 
   //redirecting to gym view page
   // public viewGymPrf(gymdata){

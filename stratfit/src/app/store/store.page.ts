@@ -292,7 +292,7 @@ async planDetails(plan){
  // this.navCtrl.push(ProgramdetailsPage,{"plandetails":plan});
  let navigationExtras: NavigationExtras = {
   state: {
-    "plandetails":plan
+    "plandetails":plan,"frompage":3,
   }
 };
 this.router.navigate(['programdetails'], navigationExtras);

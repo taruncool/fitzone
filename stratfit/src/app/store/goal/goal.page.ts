@@ -193,7 +193,7 @@ activepurposeid = 0;
 
         let navigationExtras: NavigationExtras = {
           state: {
-            "plandetails":plan
+            "plandetails":plan,"frompage":2,
           }
         };
         this.router.navigate(['programdetails'], navigationExtras);

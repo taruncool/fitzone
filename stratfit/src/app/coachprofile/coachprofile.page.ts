@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
+import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Headers } from '@angular/http';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
@@ -34,11 +34,17 @@ export class CoachprofilePage implements OnInit {
   prompt;
   planSet;
 
-  constructor(public platform: Platform, public nav: NavController,private apiService: ApiService, private alertCtrl: AlertController, public navParams: NavParams, private http:HttpClient, private loadData: LoadData,public toastCtrl: ToastController, public modalCtrl: ModalController, private ga:GoogleAnalytics,public router: Router) {
-    this.coachdata = navParams.get("coachInfo");
+  constructor(public platform: Platform, public nav: NavController,private apiService: ApiService, private alertCtrl: AlertController, private http:HttpClient, private loadData: LoadData,public toastCtrl: ToastController, public modalCtrl: ModalController, private ga:GoogleAnalytics,public router: Router,private route: ActivatedRoute) {
+    // this.coachdata = navParams.get("coachInfo");
     this.s3Url = global.s3URL;
     this.rootUrl = global.rootUrl;
     this.coachProfile = "programs";
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.coachdata = this.router.getCurrentNavigation().extras.state.coachInfo;
+      }
+      });
+
   }
 
 
@@ -172,13 +178,13 @@ export class CoachprofilePage implements OnInit {
     console.log("plan....",plan);
     let navigationExtras: NavigationExtras = {
       state: {
-        "plandetails":plan
+        "plandetails":plan,"frompage":1,
       }
     };
     this.router.navigate(['programdetails'], navigationExtras);
   }
 
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    this.nav.navigateBack('tabs/tabs/community');
   }
 }
