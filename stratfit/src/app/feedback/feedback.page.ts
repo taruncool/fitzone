@@ -19,7 +19,7 @@ export class FeedbackPage implements OnInit {
     this.firstname = localStorage.getItem('firstname');
   }
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
   async submitFb(feedback) {
     if(localStorage.getItem('internet')==='online'){

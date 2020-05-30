@@ -127,7 +127,7 @@ export class FaqsPage implements OnInit {
       }
   }
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
   toggleDetails(data) {
     if(this.preData!==''){

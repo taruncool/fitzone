@@ -184,7 +184,8 @@ export class PrivacypolicyPage implements OnInit {
     
 //   }
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    // this.modalCtrl.dismiss();
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
 
   ngOnInit() {

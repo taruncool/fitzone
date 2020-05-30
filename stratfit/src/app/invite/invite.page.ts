@@ -122,7 +122,8 @@ export class InvitePage implements OnInit {
   }
   
   public backButtonAction(){
-    this.modalCtrl.dismiss(); 
+    // this.modalCtrl.dismiss(); 
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
 
 }
