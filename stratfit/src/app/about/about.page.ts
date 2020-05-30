@@ -14,7 +14,7 @@ export class AboutPage implements OnInit {
     this.appVersion = localStorage.getItem('appVersion');
   }
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
 
 }

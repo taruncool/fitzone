@@ -49,7 +49,7 @@ export class MysubscriptionPage implements OnInit {
   constructor(public navCtrl: NavController,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
   }
   backButtonAction() {
-    this.modalCtrl.dismiss();
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
 
   onImageError(plan){

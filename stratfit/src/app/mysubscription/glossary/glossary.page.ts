@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavParams,ModalController} from '@ionic/angular';
+import {NavParams,ModalController,NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-glossary',
@@ -7,10 +7,10 @@ import {NavParams,ModalController} from '@ionic/angular';
   styleUrls: ['./glossary.page.scss'],
 })
 export class GlossaryPage implements OnInit {
-  constructor( public modalCtrl: ModalController) {}
+  constructor( public modalCtrl: ModalController,public navCtrl: NavController) {}
 
   public backButtonAction(){
-    this.modalCtrl.dismiss(); 
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
   ngOnInit() {
   }

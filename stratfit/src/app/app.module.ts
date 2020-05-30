@@ -30,7 +30,7 @@ import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
 import { ProgramdetailsPage } from './programdetails/programdetails.page';
-// import { IonicRatingModule } from 'ionic4-rating';
+import { IonicRatingModule } from 'ionic4-rating';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
@@ -86,6 +86,7 @@ import { Base64 } from '@ionic-native/base64/ngx';
     BrowserAnimationsModule,
     ComponentsModule,
     NoopAnimationsModule,
+    IonicRatingModule,
     IonicModule.forRoot(),
     // NgCircleProgressModule.forRoot({
      
