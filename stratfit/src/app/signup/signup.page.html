@@ -18,7 +18,7 @@
   <ion-list class="inputs">
     <form #registerForm="ngForm">
     <ion-item class="sbgw"> 
-      <ion-label position="floating">
+      <ion-label >
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 654.348 654.348" xml:space="preserve">
           <g>
               <path d="M466.121,401.586c52.287-41.184,85.985-104.92,85.985-176.654C552.106,100.708,451.398,0,327.174,0
@@ -30,13 +30,16 @@
             </g>
         
         </svg> 
-        <span>First Name</span>
+        
       </ion-label>
-      <ion-input type="text" placeholder="Enter First Name *" pattern=".{3,}" name="firstname" [(ngModel)]="user.firstname" required></ion-input>
+      <ion-row class="hed" >
+        <span>First Name</span>
+        <ion-input type="text" placeholder="Enter First Name *" pattern=".{3,}" name="firstname" [(ngModel)]="user.firstname" required></ion-input>
+      </ion-row>
     </ion-item>
 
     <ion-item class="sbgw" >
-        <ion-label position="floating">
+        <ion-label >
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 31.012 31.012"  xml:space="preserve">
             <g>
@@ -57,13 +60,16 @@
             </g>
           
           </svg>
-          <span>Email</span>
+          
         </ion-label>
-        <ion-input  type="email" placeholder="Enter Email Address *" name="email" [(ngModel)]="user.email" required></ion-input>
+        <ion-row class="hed" >
+          <span>Email</span>
+          <ion-input  type="email" placeholder="Enter Email Address *" name="email" [(ngModel)]="user.email" required></ion-input>
+        </ion-row>
       </ion-item>
 
       <ion-item class="sbgw"> 
-          <ion-label position="floating">
+          <ion-label >
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 512 512" xml:space="preserve">
                   <g>
@@ -82,21 +88,23 @@
                     </g>
                   
                 </svg> 
-            <span>Password</span>
-          </ion-label>
-          <ion-input type="{{type}}" minlength="5" maxlength="15" placeholder="Enter Password *" name="password" [(ngModel)]="user.password" required></ion-input>
             
+          </ion-label>
+          <ion-row class="hed" >
+            <span>Password</span>
+            <ion-input type="{{type}}" minlength="5" maxlength="15" placeholder="Enter Password *" name="password" [(ngModel)]="user.password" required></ion-input>
+          </ion-row>
             <ion-icon *ngIf="!showPass" name="eye-outline" (click)="showPassword()" slot="end"></ion-icon>
             <ion-icon *ngIf="showPass" name="eye-off-outline" (click)="showPassword()" slot="end"></ion-icon>
         </ion-item>
 
       <ion-item class="nobg chetxt">
-          <ion-checkbox type="checkbox" checked="false" (ionChange)="selectCheckbox($event)"> </ion-checkbox>
-          <ion-label>I have read and accepted the StratFit <a (click)="Privacyid('terms')">Terms and Conditions</a></ion-label>
+        <ion-checkbox type="checkbox" checked="false" (ionChange)="selectCheckbox($event)"> </ion-checkbox>
+        <ion-label>I have read and accepted the StratFit <a (click)="Privacyid('terms')">Terms and Conditions</a></ion-label>
       </ion-item>
       
 
-  <ion-button expand="full" [disabled]="!registerForm.form.valid" (click)="signup(user)">SIGN UP</ion-button>
+      <ion-button expand="full" [disabled]="!registerForm.form.valid" (click)="signup(user)">SIGN UP</ion-button>
 
     </form>
 

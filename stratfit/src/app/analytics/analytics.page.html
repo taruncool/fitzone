@@ -1,5 +1,5 @@
-<ion-header class=" head">
-  <!-- <ion-navbar class="hedfm"> -->
+<ion-header class="head">
+  <ion-toolbar class="hedfm">
     <ion-title><span>Fitness</span>Analytics</ion-title>
     <!-- <ion-buttons end>
       <button ion-button block *ngIf='!noplan' (click)='openGchart()'> 
@@ -31,13 +31,28 @@
           </ion-avatar>
       </button>
     </ion-buttons> -->
-  <!-- </ion-navbar> -->
+  </ion-toolbar>
 </ion-header>
+
 
 <ion-content class=" analytic">
 
 
-  <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()">
+  <ion-row class="fulcard " *ngIf='!noplan' (click)="programView()">
+    <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
+  
+  <div class="container">
+    <div class="cdbody">
+      <span *ngIf="isDuration">{{planInfo.durationWeeks}} Weeks</span>
+      <h1 text-wrap>{{planInfo.planName}}</h1>
+      <p>{{planInfo.coachName}}</p>
+  
+    </div>
+  </div>
+</ion-row>
+
+
+  <!-- <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()">
     <ion-row class="pcover">
       <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
     </ion-row>
@@ -47,7 +62,8 @@
         <h6>{{planInfo.coachName}}</h6>
         
     </ion-item>
-  </ion-card> <!--END Choosen Program Cart-->
+  </ion-card>  -->
+  <!--END Choosen Program Cart-->
 
 
 
@@ -75,19 +91,19 @@
 
       <div class="contin" *ngIf='!noplan'>
         <ion-row class="periods">
-            <ion-col  >
+            <ion-col size="6"  >
               <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod-{{i+1}}">
                 <ion-select-option aria-selected="active" *ngFor="let period of currentPeriodss; let i = index" [value]="period.period_id">{{period.periodName}}-{{i+1}}</ion-select-option>
                   
               </ion-select>
             </ion-col>
-            <ion-col>
+            <ion-col size="3">
               <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
                   <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
                   >MicroCycle-{{k+1}}</ion-select-option>
               </ion-select>
           </ion-col>
-            <ion-col>
+            <ion-col size="3">
                 <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle-{{j+1}}">
                   <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
                     >MesoCycle-{{j+1}}</ion-select-option>

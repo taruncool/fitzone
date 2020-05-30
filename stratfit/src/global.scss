@@ -48,7 +48,7 @@ body.sfwgren, body.sfwred  {
 
 }
 body.sfbgren {
-  .ion-page{--ion-background-color: #080C14 !important; --ion-color:#fff !important; background-color: #080C14 !important;}
+  .ion-page{--ion-background-color: #080C14 !important; --ion-color:#fff !important; --color:#fff !important; color: #fff !important; background-color: #080C14 !important;}
   // ion-header {background-color: #080C14 !important;}
 
   // :host, :host(.title-md), :host(.title-ios) {--background: #080C14 !important;}
@@ -59,16 +59,17 @@ body.sfbred  {
 
 /*-- Green Theme - White / Black Background ------------------------------------------------------*/
 .sfwgren, .sfbgren {
-  .button, .button.brn, .button.bgw, .button.active, .button.activated, .button:hover:not(.disable-hover), .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .fabicon ion-fab-button, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before, .checkbox-checked, .db .card .wrkbtm .button svg, .db .workout .wrkbtm .button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon{ --background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important;}
+  .button, .button.brn, .button.bgw, .button.active, .button.activated, .button:hover:not(.disable-hover), .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .fabicon ion-fab-button, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .tlevel .levelopt.active:before,  .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before, .db .card .wrkbtm .button svg, .db .workout .wrkbtm .button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon{ --background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important; background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important;}
 
   .button, .button.brn, .button.bgw, .button.active, .button.activated, .button:hover:not(.disable-hover){
     span {color: #fff !important;}
   }
   
-  .button.outline, .button.nobg, .social .button, .social .button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button, .head .hedfm .button { --background: none !important;}  
+  .button.outline, .button.nobg, .social .button, .social .button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button, .head .hedfm .button,  .checkbox-checked { --background: none !important; background: none !important; --background-checked:none !important;}  
 
+  .fabicon ion-fab-button {background: transparent !important;}
   
-  .button, .button.brn, .button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon, .tlevel .levels .levelopt.active{border-color: #80B419 !important;}
+  .button, .button.brn, .button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .tlevel .levelopt.active:after,    .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon{border-color: #80B419 !important;}
   
 
   .swiper-pagination-bullet-active {background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important;}
@@ -79,9 +80,11 @@ body.sfbred  {
   .head .hedfm .button {border: 0 !important;}
   
 
-  a, .head .hedfm ion-title, .bar-button-md, .bar-button-ios, .icon-md-primary, .toolbar-title, .sbtm-btn .priv, .execis h2, .programview h2, .pcview .poverlay h1 span, .pcview .poverlay h3, .inputs .label span, .db .card .probar .progress-outer .progress-inner, .db .workout .probar .progress-outer .progress-inner, .bmeasur .bmleft .infild h6, .gender .active, .gender .h3 span, .bmeasur h3 span,  .tlevel h3 span, .verify h2, .item-radio-checked.item-md ion-label, .summary ion-icon, .tlevel .activeOpt ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{color:#80B419 !important;}
+  a, .head .hedfm ion-title, .bar-button-md, .bar-button-ios, .icon-md-primary, .toolbar-title, .sbtm-btn .priv, .execis h2, .programview h2, .pcview .poverlay h2 span, .pcview .poverlay h3, .inputs .label span, .db .card .probar .progress-outer .progress-inner, .db .workout .probar .progress-outer .progress-inner, .bmeasur .bmleft .infild h4, .gender .active, .gender .h3 span, .bmeasur h3 span,  .tlevel h3 span, .stmax h3 span, .verify h2, .picker-opt-selected, .item-radio-checked.item-md ion-label, .summary ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{color:#80B419 !important;}
+  
+  ion-select-popover ion-item ion-radio{--color-checked:#80B419 !important;}
 
-  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title span, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay h1  {color: #fff !important; --color:#fff !important}
+  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title span, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay  {color: #fff !important; --color:#fff !important}
   
   .checkmark, .meallist .dcard .button svg path {stroke: #80B419 !important;}
  .foot .tab-active svg, .profile .user ion-avatar svg {fill:#80B419 !important;}
@@ -104,18 +107,18 @@ body.sfbred  {
  .exetab .workview .setlist .infild .item .label svg, .inputs svg  {fill: #080C14 !important;}
 
 
- .head .hedfm .title .toolbar-title span, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db h1, .db .card .wrkbtm .button span, .db .workout .wrkbtm .button span, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .summary ion-card ion-item h2{color: #fff !important;}
+ .head .hedfm .title .toolbar-title span, .fitness .gender, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db h1, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .summary ion-card ion-item h2, ion-segment ion-segment-button{color: #fff !important;}
 
- ion-segment ion-segment-button {opacity: 0.4 !important; color: #fff !important; --indicator-color: none !important;}
+ ion-segment ion-segment-button {opacity: 0.4 !important; --indicator-color: none !important;}
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
- .coach .user,      .sview .ion-card, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exetab .workview .setlist ion-item-sliding, .sview ion-card, .profile .list .item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
+ .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .sfbgren .exe ion-avatar, .exetab .workview .setlist ion-item-sliding, .sview ion-card, .profile .list .item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
 
- .loader .progress-outer, .execis .exeblk em {color:#000 !important; --color:#fff !important}
+.execis .exeblk em {color:#000 !important;}
 
  .db .profile .user, .profile .list .item, .faqs .card, .diet .dishes .dishlist .dishview ion-item { background: none !important;}  
- .alert-ios ion-backdrop, .alert-md ion-backdrop, .picker-md ion-backdrop, .db .workout .probar .progress-outer, .exe ion-avatar.active, page-dietprofile .sbgw, page-addmeal .sbgw{background: #080C14 !important;}
+ .alert-ios ion-backdrop, .alert-md ion-backdrop, .db .workout .probar .progress-outer, .exe ion-avatar.active, page-dietprofile .sbgw, page-addmeal .sbgw{background: #080C14 !important;}
 
 
 
@@ -140,22 +143,22 @@ body.sfbred  {
 /*-- Red Theme - White Background ------------------------------------------------------*/
 .sfwred {
 
-  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .button-ios.bgw, .button-md.bgw, .button-ios.active, .button-md.active, .button.active, .button-ios.activated, .button-md.activated, .button-md:hover:not(.disable-hover), .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before, .checkbox-checked, .db .card .wrkbtm .button svg, .db .workout .wrkbtm .button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon { background-color: #d60404 !important;}
+  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .button-ios.bgw, .button-md.bgw, .button-ios.active, .button-md.active, .button.active, .button-ios.activated, .button-md.activated, .button-md:hover:not(.disable-hover), .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before,  .db .card .wrkbtm .button svg, .db .workout .wrkbtm .button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon { background-color: #d60404 !important;}
 
   .button-ios, .button-md, .button-ios.brn, .button-md.brn, .button-ios.bgw, .button-md.bgw, .button-ios.active, .button-md.active, .button.active, .button-ios.activated, .button-md.activated, .button-md:hover:not(.disable-hover){
     span {color: #fff !important;}
   }
-  .button-ios.outline, .button-md.outline, .button-ios.nobg, .button-md.nobg, .social button, .social button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button { background: none !important;} 
+  .button-ios.outline, .button-md.outline, .button-ios.nobg, .button-md.nobg, .social button, .social button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button,  .checkbox-checked { background: none !important;} 
 
   
-  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon, .tlevel .levels .levelopt.active, .summary ion-icon, .tlevel .activeOpt ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{border-color: #d60404 !important;}
+  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon,  .summary ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{border-color: #d60404 !important;}
 
   .faqs .card, .profile .list .item{border: none !important;}
 
   .exetab .workflow .worktab ion-scroll[scrollX] li.active:after{border-top: 8px solid #d60404 !important;}
   
 
-  a, .bar-button-md, .bar-button-ios, .icon-md-primary, .toolbar-title, .sbtm-btn .priv, .execis h2, .programview h2, .pcview .poverlay h1 span, .pcview .poverlay h3, .inputs .label span, .db .card .probar .progress-outer .progress-inner, .db .workout .probar .progress-outer .progress-inner,  .bmeasur .bmleft .infild h6, .gender .active, .gender .h3 span, .bmeasur h3 span,  .tlevel h3 span, .verify h2, .item-radio-checked.item-md ion-label, .diet .dishes .dishlist .dishview ion-item .title .lgraph em {color:#d60404 !important;}
+  a, .bar-button-md, .bar-button-ios, .icon-md-primary, .toolbar-title, .sbtm-btn .priv, .execis h2, .programview h2, .pcview .poverlay h1 span, .pcview .poverlay h3, .inputs .label span, .db .card .probar .progress-outer .progress-inner, .db .workout .probar .progress-outer .progress-inner,  .bmeasur .bmleft .infild h4, .gender .active, .gender .h3 span, .bmeasur h3 span,  .tlevel h3 span, .verify h2, .item-radio-checked.item-md ion-label, .diet .dishes .dishlist .dishview ion-item .title .lgraph em {color:#d60404 !important;}
 
   .fabicon, .loader .progress-outer, .loader h3 {color: #fff !important;}
 
@@ -204,13 +207,13 @@ body.sfbred  {
 // .button-ios, .button-md, .button-ios.brn, .button-md.brn,  { }
 
 
-.button, .button.brn, ion-scroll[scrollX] button.active  {color: #fff;border-width: 1px !important; border-style: solid !important; border-radius: 3px; text-transform: uppercase; height: 2.4rem; margin-top:0.5rem; margin-bottom: 0.5rem; box-shadow: none; 
+.button, .button.brn, ion-scroll[scrollX] button.active  {border-width: 1px !important; border-style: solid !important; border-radius: 3px; text-transform: uppercase; height: 2.4rem; margin-top:0.5rem; margin-bottom: 0.5rem; box-shadow: none; font-size: small; 
   svg {fill: #fff;}
   span {color:#fff !important;}
 }
-.button.nobg{border: 0 !important;}
+.button.nobg{border: 0 !important; --box-shadow: none !important;}
 
-.button-iso.small, .button-md.small {/*height: 3.8rem !important; */font-size:1.6rem !important;}
+.button-iso.small, .button-md.small {/*height: 3.8rem !important; */font-size:small !important;}
 .bar-button-md, .bar-button-ios {font-weight: 300; }
 
 
@@ -218,13 +221,13 @@ body.sfbred  {
 
 /* Styles Guide */
 .sbgb, .sbdrk  {--background: #000  !important; }
-.sbgw, ion-modal, .fulcard {--background: #fff  !important; }
+.sbgw, ion-modal, .fulcard {--background: #fff  !important; background: #fff; }
 // .sbgbt {background: #f2f2f2 !important;}
 // .sbgg { background: #ECECEC !important;}
 
 .sblb{border-bottom: 0;}
 
-svg{width:4rem; height:4rem;fill: #000; }
+svg{width:2rem; height:2rem;fill: #000; }
 .sbshd{box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important;}
 
 .fulpad {padding: 10px !important;}
@@ -262,11 +265,11 @@ em {font-style: normal;}
 
 ion-list  {margin-top: 0 !important;}
 ion-list:last-child  {margin-bottom: 0 !important;}
-input:-internal-autofill-selected {background-color:none !important;}
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {box-shadow:0 0 0px 1000px #f2f2f2 inset !important; transition: background-color 5000s ease-in-out 0s !important;}
+// input:-internal-autofill-selected {background-color:none !important;}
+// input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {box-shadow:0 0 0px 1000px #f2f2f2 inset !important; transition: background-color 5000s ease-in-out 0s !important;}
 
-ion-input.text-input {font-size: 1.4rem; }
-ion-label, .details {margin:10px 8px 10px 0; }
+// ion-input.text-input {font-size: 1.4rem; }
+// ion-label, .details {margin:10px 8px 10px 0; }
 ion-searchbar {
   input{box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1) !important;}
   button {display: none !important;}
@@ -276,18 +279,34 @@ ion-searchbar {
 
 
 
+
 .inputs {
-  ion-card, ion-item {border-radius: 3px !important; /*background:  #111  !important;*/ margin-bottom: 10px!important;
-      .item-inner {border-bottom: 0 !important; box-shadow: none !important;}
+  ion-card, ion-item {border-radius: 3px !important; /*background:  #111  !important;*/ margin-bottom: 10px!important; --padding-start: 10px !important; --padding-end:10px !important; --highlight-background:none !important;
+      .item-inner {border-bottom: 0 !important; box-shadow: none !important; --padding-end:0px !important;}
       .select-icon {position: absolute; right:2rem;}
-      ion-input {margin-left: 27px; color: #000 !important;}
-      ion-label span {color:#80B419;}
+      ion-label{overflow: inherit !important; margin-top: -15px;
+        svg {width:1.2rem !important; height: 1.2rem !important;}
+      }
+      ion-input { color: #000 !important;
+        .native-input {box-shadow: none !important; padding-top: 4px; padding-left: 0;}
+      }
+      // ion-label span {color:#80B419;}
+      ion-row.hed {display: block; width: 100%; padding-top:10px; padding-left: 10px; }
+      ion-row.hed span{display: block; color:#80B419; font-size: small;}
       // .label-floating{transform-origin:inherit !important}
       // .item-label-floating) .item-native {}
       // ion-input, ion-textarea, ion-select {color:#000 !important;}
       
   }
+  ion-item.chetxt  {font-size: small !important;
+    ion-checkbox {margin-right: 15px !important;}
+  }
+  
+  
 }
+
+.item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs), .item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h, .native-input[disabled].sc-ion-input-md {opacity: 1 !important;}
+
 .error {text-align: center; color:#EA4F5F; padding:10px 10px; display: block;}
 .nodata {text-align: center; padding: 0;
   ion-label{ white-space: normal !important; margin: 10px !important;}
@@ -307,7 +326,7 @@ ion-searchbar {
 .play:before {content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));}
 
 .play.min {
-  svg {width:4rem !important; height: 4rem !important; }
+  svg {width:40px !important; height: 40px !important; }
 }
 .play.min:before {background: none !important;}
 
@@ -377,8 +396,9 @@ ion-loading {
   }
 }
 
-.loader {position: relative; padding: 0 12px 12px 12px;
-  h3 { margin-bottom: 2rem !important; text-align: center;}
+.loader {position: relative; padding: 0 12px 12px 12px;text-align: center;
+  h3 { margin-bottom: 2rem !important; }
+  h4 {margin-bottom: 10px;}
   .progress-outer {width: 100%;text-align: right; background: #eee; border-radius: 10px;}
   .progress-inner {white-space: nowrap;overflow: hidden;border-radius: 10px;font-size: 10px; padding-right:10px;}
 }
@@ -394,8 +414,8 @@ ion-loading {
     .toolbar-title-ios {padding-top: 10px !important;}
     
     .hedfm {
-      ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%; font-weight: bold; padding-left: 10px;
-          span {font-size: 14px; display: block; font-weight: 300 !important; }
+      ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%; font-weight: bold; padding-left: 10px; font-size: inherit;
+          span {font-size: small; display: block; font-weight: 300 !important; }
       }
      
       // ion-buttons {display: inline-block !important;
@@ -453,6 +473,17 @@ ion-loading {
 }
 
 
+
+
+// -- Start Selection Popup Css -----//
+
+ion-select-popover{
+ion-item ion-radio {}
+ion-item ion-radio.radio-checked {}
+}
+
+
+
 /* ActionSheet */
 .action-sheet-group{text-align: center;}
 .action-sheet-md .action-sheet-title, .action-sheet-ios .action-sheet-title{text-align: center;}
@@ -470,16 +501,16 @@ ion-loading {
         // h2:after{position: absolute; content: ""; width: 40%; height: 1px; background:linear-gradient(90deg, #7ab507 0%, #d60404 100%); left: 0;right: 0; bottom:-2rem; margin: auto;}
     }
     .alert-message{text-align: center;color: #fff;  padding-bottom: 2rem;}
-    
-    .alert-wrapper, .picker-wrapper{ background: none !important; box-shadow: none !important; border-radius: 0 !important; min-width: 80%; border: 0;}
-    .picker-wrapper { height: 300px !important; 
+    // ------------------------------------------------
+    .alert-wrapper, .picker-wrapper{ background: #fff !important; box-shadow: none !important; border-radius: 0 !important; min-width: 80%; border: 0;}
+    .picker-wrapper { height: 210px !important; 
         /*------ */
-        .picker-toolbar {background: none !important; justify-content:space-around; 
+        .picker-toolbar {background: none !important; justify-content:space-around;  border-bottom: 1px solid #eee;
             .picker-button, .picker-button.activated {color: #000; padding-left: 3rem; padding-right: 3rem;}
         }
-        .picker-columns {padding: 4rem 0 2rem 0;
-            .picker-opt {color:#000; opacity:0.4;}
-            .picker-opt-selected {color: #d60404;  opacity:1;}
+        .picker-columns {padding-bottom:1rem; height: 160px !important;
+            .picker-opt {color:#000; opacity:0.4; height:32px !important;}
+            .picker-opt-selected { opacity:1;}
         }
         /*------ */
     }
@@ -510,6 +541,7 @@ ion-loading {
     /*end for alert msg*/
     
   }
+// ---- End all Selection Popup css --//
 
  
 /*-- Login / Signup--*/
@@ -517,7 +549,7 @@ ion-loading {
     .item-inner {line-height: normal;padding-left: 0; padding-right: 0 10px !important;}
 }
 
-.social {margin-top:10vh;
+.social {margin-top:6vh;
   .button {padding: 0;  font-size: 0;height:44px !important; width: 44px !important; border-radius: 50%; 
     // svg .cls-1 { fill: #3b5998 !important;}   
     svg {fill: #fff !important;}
@@ -534,18 +566,19 @@ ion-loading {
 
 /*-------- Card ----------*/
 .nobg, ion-card.nobg, ion-item.nobg, .nobg ion-item, .noflex ion-card, .noflex ion-item {--background: none !important; background: none !important; box-shadow: none !important; }
-.nobg ion-item, .noflex ion-item {--padding-start:0 !important;--padding-end:0 !important; --inner-padding-end:0 !important; }
+.nobg ion-item, ion-item.nobg, .noflex ion-item {--padding-start:0 !important;--padding-end:0 !important; }
 
 .noflex ion-card, .noflex ion-item {display: inherit !important; justify-content: inherit !important; flex: inherit !important;
   .item-native, .item-inner, .input-wrapper{display: inherit !important; }
 }
 
-ion-card {background: #1D2534 !important;}
-ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bottom:0; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important; 
-  ion-item {--padding-start: 10px !important; --padding-end:10px !important;}
 
-  ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:50px !important;min-height:50px !important;border-radius: 50%;border-width:1px; border-style:  solid; border-color:  #7A7C84; background:none !important; padding: 0;overflow: hidden; display: inline-block;
-      ion-img {width:44px !important; height: 44px !important; border:0 !important;border-radius: 50%; background: #000 !important; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
+ion-card {background: #1D2534 !important;}
+ion-item {--padding-start: 10px !important; --padding-end:10px !important; --inner-padding-end:0 !important;}
+ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bottom:0; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important; 
+
+  ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:48px !important;min-height:48px !important;border-radius: 50%;border-width:1px; border-style:  solid; border-color:  #7A7C84; background:none !important; padding: 0;overflow: hidden; display: inline-block;
+      ion-img {width:44px !important; height: 44px !important; border:0 !important;border-radius: 50%; background: #1D2534 !important; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
       img {width:44px !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
   }
 
@@ -586,7 +619,7 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
     h2 { font-size: 1.6rem !important;  white-space: nowrap; text-overflow: ellipsis; }
     h3, h4, h5, h6, p {color: inherit !important;}
 
-    button {background: none !important; border: 0 !important; margin: 0 !important;
+    button {background: none !important; border: 0 !important; margin: 0 !important; color: inherit;
       svg {width:1.6rem; 
           .cls-1 {fill: transparent}
           .cls-2, svg .cls-3 {stroke: #000;}
@@ -614,7 +647,7 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
 } 
 
 
-.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {box-shadow: none !important; border: 0 !important;}
+// .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {box-shadow: none !important; border: 0 !important;}
 
 
 /*-- Componds --*/
@@ -694,7 +727,7 @@ ion-app.ios {
 
       .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding: 1.4rem 1.2rem;
         .cdbody {color: #000;
-          span, em, p { font-weight: 300; display: block; }
+          span, em, p { font-weight: 300; display: block; font-size: small; }
           h1 {font-weight: bold !important; font-size: 1.8rem; line-height: 2.2rem; margin: 0 !important; margin-bottom:10px !important;} 
           p{ margin-bottom: 6rem; }
           svg {width:2rem; height:2rem; border-radius: 50%;border: 1px solid #fff ;   transition: all 0.6s ease-in-out;  position: relative; top:1rem;  }
@@ -762,16 +795,16 @@ ion-app.ios {
       ion-col:nth-child(2n+1) {padding-right: 0 !important;}
       // ion-col:first-child{ padding-left: 0 !important;}
       
-      .stcard { height: 22rem !important; margin-bottom: 0 !important; min-width: 100% !important;
-        ion-item {padding-left: 0 !important;}
-        .poverlay  { padding: 0 !important;
-            .label  {margin: 10px 10px 10px 10px !important; top: auto !important; bottom:0 !important;
-            h2 {font-size: 2rem !important;}
-            }
-        }
-        .pcover:after {background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;}
-        .pcover img{min-height: 22rem !important; height: auto !important;}
-      }
+      // .stcard { height: 22rem !important; margin-bottom: 0 !important; min-width: 100% !important;
+      //   ion-item {padding-left: 0 !important;}
+      //   .poverlay  { padding: 0 !important;
+      //       .label  {margin: 10px 10px 10px 10px !important; top: auto !important; bottom:0 !important;
+      //       h2 {font-size: 2rem !important;}
+      //       }
+      //   }
+      //   .pcover:after {background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;}
+      //   .pcover img{min-height: 22rem !important; height: auto !important;}
+      // }
 
 
     }
@@ -818,11 +851,11 @@ ion-app.ios {
   }
     .col {padding-bottom:5px !important;}
     .exeblk {  overflow: hidden; position: relative;  border-radius: 3px;
-        ion-avatar { width:100% !important; border-radius: 0 !important; border: 0 !important;  
-            img { width:100% !important; min-height:150px; object-fit: cover; /*filter: grayscale(100%);*/ }
+        ion-avatar { width:100% !important; border-radius: 0 !important; border: 0 !important; min-height: 160px;  
+            img { width:100% !important; min-height:160px; border-radius: 0 !important; object-fit: cover; /*filter: grayscale(100%);*/ }
         }
-        em {display: block; font-size: 1.2rem; font-weight: normal !important;  background: #fff; padding: 6px; left:0; right: 0; bottom: 0; position: absolute; z-index:1; }
-        
+        em {display: block; font-size: small; font-weight: normal !important;  background: #fff; padding: 6px; left:0; right: 0; bottom: 0; position: absolute; z-index:1; }
+      .play {top:-30px !important;}
     }
     
 }
@@ -912,19 +945,21 @@ ion-app.ios {
   .poverlay{
     // em {font-size: 1.2rem !important;}
     .prow{
-      ion-avatar {margin: 0 !important; display: inline-block; max-width: 3rem !important; max-height:3rem !important; min-width: 3rem !important;min-height:3rem !important; border: 0 !important;
+      ion-avatar { display: inline-block; max-width: 3rem !important; max-height:3rem !important; min-width: 3rem !important;min-height:3rem !important; border: 0 !important;
         ion-img {width:3rem !important; height: 3rem !important;}
         img {width: 3rem !important; background:#eee !important;}
       }
     }
   }
+  // Program view
   .poverlay.nobg { padding: 10px 10px !important; box-shadow: none !important;
 
     h2{color: inherit !important; }
-    .prow {margin-top: 0 !important;}
-    .prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999;} 
+    h4 {font-size: small;}
+    .prow {margin-top: 0 !important; width: 100%;}
+    .prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999; min-height:24px !important; max-height: 24px !important; min-width: 24px !important; max-width: 24px !important;} 
     .prow h6 {display: inline !important; font-size: 1rem !important;}
-    .prow ion-col em{ margin-bottom: 10px; display: block; font-size: 1.4rem !important;}
+    .prow ion-col em{ margin-bottom: 10px; display: block; }
     .prow ion-col:last-child {bottom:0 !important; position: relative !important; 
         em {display: inline-block !important; margin-bottom: 0 !important; margin-left: 10px;
           svg {width:1rem !important; height: 1rem !important;}
@@ -939,7 +974,7 @@ ion-app.ios {
 
 .programview{  position: relative; left: 0; right: 0;  box-shadow: none !important;
   
-    h2,h3, h4{display: block; margin-top: 0; margin-bottom: 10px; font-size: 1.2rem;  
+    h2,h3, h4{display: block; margin-top: 0; margin-bottom: 10px; font-size:inherit;  
       // em {color: #000 !important;}
     }
     // h2 {color: #d60404 !important;}
@@ -951,18 +986,21 @@ ion-app.ios {
 }
 
 .pcview{
+  .fulcard {background: none !important;}
     .pcover {position: fixed; top:0; bottom: 0; left:0; right: 0; }
     .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: rgba(0, 0, 0, 0.95) !important; height: 100vh; }
     .poverlay  {position: relative !important; padding: 30px 15px !important; text-align: center;   border-radius: 0 !important;
       
       .pcsuces { margin-bottom: 2rem;
-        h1, h3, h4, h5 {display: block; font-size: 2rem; color: #fff;}
-        h3, h4{ font-size: 1.6rem !important;}
+        h1, h3, h4, h5 {display: block;  color: #fff !important
+          ;}
+        h3{ font-size: 1.6rem !important;}
+       
         // h1 {  
         //   span{color: #d60404;}
         // }
-        h2 {font-size: 2rem !important;
-          span{display: block;}
+        h2 {
+          // span{display: block;}
         }
         // h3 {color: #d60404;}
         .pctitle { margin-bottom: 2rem !important;
@@ -1041,7 +1079,7 @@ ion-app.ios {
     }
     .wrkbtm { padding: 10px 0; overflow: hidden;
       em {font-size: 1.2rem;}
-      .button {float: right; background:none !important; border: 0 !important; box-shadow: none !important; font-size: 1.4rem !important;
+      ion-button {float: right; background:none !important; border: 0 !important; box-shadow: none !important;
         span {color: #000 !important;}
         svg {width:2rem; height: 2rem;border-radius: 50%; margin-left: 5px;}
       }
@@ -1058,7 +1096,7 @@ ion-app.ios {
 
   }
   
-  .workout .label {margin-bottom: 0 !important;}
+
 
   .profile h2{margin-bottom: 0 !important;}
 
@@ -1127,7 +1165,7 @@ ion-app.ios {
 
 
 /*-- Todays Workout --*/ 
-.workout {  
+.workout {  --color: inherit !important; font-size: inherit;
   .titl { text-align: center; margin-bottom:10px;
     span {color:#ccc !important;
       em {font-style: normal;}
@@ -1136,7 +1174,7 @@ ion-app.ios {
 }
 
 .exeinfo {
-  .card {margin: 0 !important; width: calc(100% - 0px) !important; border-radius: 0 !important;
+  .card {margin: 0 !important; border-radius: 0 !important;
     video {width: 100% !important; vertical-align:bottom !important;}
   }
   .title {border-bottom: 1px solid #ddd; padding:8px 10px !important;
@@ -1170,24 +1208,28 @@ ion-app.ios {
 }
 
 /*--****** Periods (Date - Days - Session) *****/
-.periods { padding:0 0 10px 0; margin-bottom: 1rem; border-bottom-width: 1px; border-bottom-style: solid; display: block !important; overflow: hidden;
-  .col {padding: 0; width:auto !important; float: right;
+.periods { padding:0 0 10px 0; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; display: block !important; overflow: hidden;
+  .col {padding: 0; width:auto !important; 
     span { text-align: right; padding-right: 15px; display: block; line-height: 30px; }
-    svg {top:8px; right:0; width: 1.4rem; height: 1.4rem;}
+    svg {top:8px; right:0; width: 1rem !important; height: 1rem !important;}
   }
-  .col:first-child{float: left;
+  .col:first-child{
   	.select {padding-left: 0 !important;}
    }
   
-  .select  {max-width:100% !important; padding: 5px; font-weight: 300; color: #000;}
-  .item-radio{
-    ion-label{ color: #000 !important;}
-  }
+  .select  {max-width:100% !important; padding: 5px; font-weight: 300; }
+  // .item-radio{
+  //   ion-label{ color: #000 !important;}
+  // }
 }
 
 /*--****** Analytics ***** General , Meso,Micro, Session & Exercise --*****--- STORE - Program Details,  */
-.contin {overflow:visible;transition: all .5s ease-out;
-    
+.contin {overflow:visible;transition: all .5s ease-out; padding: 0;
+  ion-row.periods {border-bottom: 0 !important; margin-bottom: 0 !important;}
+  ion-row.periods ion-select {padding-left: 0 !important; display: inline-block; font-size: small;}  
+
+
+
     .days { text-align: center; background:#fff; padding-top: 10px;  margin:0 -10px 15px -10px !important; position: relative;
       .button {border-radius:50%; background: none !important; width: 4rem; height: 4rem !important; padding: 6px !important; margin:0 2px !important; background: none !important;  border-width: 1px !important; border-color: #666 !important; border-style: solid !important; font-size:1.1rem !important;}
       .button span{ word-break: break-all; color: #000 !important;}
@@ -1212,14 +1254,13 @@ ion-app.ios {
 
 
 .exe {margin: 0;  padding: 0 0 10px 0; text-align: center;
-    ion-avatar{margin: 0 !important;position: relative;min-width:3.4rem !important;min-height:3.4rem !important;border-radius: 50%;background: #fff !important; padding: 0;overflow: hidden; display: inline-block; margin-left: 6px !important;
+    ion-avatar{margin: 0 !important;position: relative;width:2.4rem !important;height:2.4rem !important;border-radius: 50%;background: #fff !important; padding: 0;overflow: hidden; display: inline-block; margin-left: 6px !important;
       ion-img {width:2.8rem  !important; height: 2.8rem  !important; border:0 !important;border-radius: 50%; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
       img {width:2.8rem !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
-
       span{ position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); opacity: 0.6;}
     }
-    ion-avatar.active { border-width:1px !important; border-style: solid !important;  min-width:4rem !important;min-height:4rem !important;
-      span { opacity: 1 !important; font-size: 2.2rem;}
+    ion-avatar.active { border-width:1px !important; border-style: solid !important;  width:2.6rem !important;height:2.6rem !important;
+      span { opacity: 1 !important; font-size:1.2rem;}
     }
     ion-avatar:first-child {margin-left:0 !important;}
 

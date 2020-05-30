@@ -1,7 +1,21 @@
-  <ion-content  class="verify">
-    <ion-icon class="backNav" name="arrow-back" (click)="backButtonAction()"></ion-icon>
-    <div class="fulpad" text-center>
-        <ion-card-header text-center>
+<ion-header class=" head" >
+  <ion-toolbar class="hedfm"> 
+    <ion-buttons  slot="start" >
+      <ion-button slot="icon-only" (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar> 
+
+</ion-header>  
+  
+  <ion-content  class="verify  text-center">
+    
+    <div class="fulpad" >
+        <ion-card-header >
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 511.974 511.974"  xml:space="preserve">
 
@@ -35,26 +49,21 @@
 
           </svg>
           
-            <h2 margin> Verify Your Email </h2>
+            <h2 > Verify Your Email </h2>
             <h5>We've sent the verification code to your email.</h5>
             <h5>Please check your inbox.</h5>
         </ion-card-header>
-        <ion-row text-center>
-            
-            <ion-col col-12 text-center>
+        <ion-row>
                
-                <ion-input #input0 [(ngModel)]='firstN' type="tel" maxlength="1" placeholder="x" (keyup)="otpController($event,input1,'')"></ion-input>
-                <ion-input #input1 [(ngModel)]='secondN' type="tel" maxlength="1" (keyup)="otpController($event,input2,input0)" placeholder="x"></ion-input>
-                <ion-input #input2 [(ngModel)]='thirdN' type="tel" maxlength="1" (keyup)="otpController($event,input3,input1)" placeholder="x"></ion-input>
-                <ion-input #input3 [(ngModel)]='fourthN' type="tel" maxlength="1" (keyup)="otpController($event,'',input2)" (change)="otpController($event,'',input2)" placeholder="x"></ion-input>
-              
-            </ion-col>
-            
-            
-            <ion-col col-12 text-right margin-top (click)="reqNewOpt()"> Resend OTP</ion-col>
-        </ion-row>
+          <ion-input #input0 [(ngModel)]='firstN' type="tel" maxlength="1" placeholder="x" (keyup)="otpController($event,input1,'')"></ion-input>
+          <ion-input #input1 [(ngModel)]='secondN' type="tel" maxlength="1" (keyup)="otpController($event,input2,input0)" placeholder="x"></ion-input>
+          <ion-input #input2 [(ngModel)]='thirdN' type="tel" maxlength="1" (keyup)="otpController($event,input3,input1)" placeholder="x"></ion-input>
+          <ion-input #input3 [(ngModel)]='fourthN' type="tel" maxlength="1" (keyup)="otpController($event,'',input2)" (change)="otpController($event,'',input2)" placeholder="x"></ion-input>
 
-        <ion-button *ngIf='firstN && secondN && thirdN && fourthN' class="otpsubmitBtn" (click)="suotpvalidate()">Continue</ion-button>
+        </ion-row>
+        <div class="fulpad"  (click)="reqNewOpt()"> Resend OTP</div>
+
+        <ion-button expand="full" *ngIf='firstN && secondN && thirdN && fourthN' class="otpsubmitBtn" (click)="suotpvalidate()">Continue</ion-button>
     </div>
 
     

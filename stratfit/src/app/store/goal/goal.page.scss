@@ -1,6 +1,11 @@
 goalpage-pop {
 
 
+   
+    
+    }
+
+
     .goalori {
         ion-item, ion-scroll[scrollX]{min-height:36px !important;}
         ion-label { margin: 0 !important; position: static;}
@@ -16,6 +21,4 @@ goalpage-pop {
         .fulcard {border-radius: 0 !important;
             .swiper-wrapper, .slide-zoom, img {height: 85vh !important;}
         }
-    }
-    
     }

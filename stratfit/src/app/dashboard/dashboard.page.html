@@ -29,23 +29,23 @@
 <div class="fulpad nopadb workout">
   <h1>My Workout <span>{{today | date}}</span></h1>
 
-  <ion-card class="noflex" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
-      <ion-item class="nobg">
+  <ion-row class="fulpad noflex" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+      <ion-col class="nobg">
           <h2 >{{planInfo.planName}}</h2>
          
           <span> {{percentageDays}}%</span>
           <div class="loader probar" >
   
-                  <div class="progress-outer">
-                      <div class="progress-inner" [style.width]="percentageDays + '%'">
-                          {{percentageDays}}%
-                      </div>
-                  </div>
-              </div>
+                <div class="progress-outer">
+                    <div class="progress-inner" [style.width]="percentageDays + '%'">
+                        {{percentageDays}}%
+                    </div>
+                </div>
+            </div>
 
           <div class="wrkbtm">
               <em>{{planInfo.coachName}}</em>
-              <button ion-button (click)="openTab('workout')">
+              <ion-button slot="end" (click)="openTab('workout')">
                   Start 
                   <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
                       <g id="start" transform="translate(-966 -1035)">
@@ -54,10 +54,10 @@
                       </g>
                   </svg>
                     
-              </button>
+              </ion-button>
           </div>
-      </ion-item>
-  </ion-card>
+      </ion-col>
+  </ion-row>
 
 
   <ion-card class="noflex valid"  *ngIf='noplan'>

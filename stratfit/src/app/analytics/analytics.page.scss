@@ -1,82 +1,91 @@
 page-Analytics {
-    .head {
-        svg {width:2rem !important; height: 2rem !important;}
-    }
-    .segment-button {text-align: center !important;}
-    .stcard {  max-height: 94px !important;
-        .poverlay {
-            .label {margin: 0 !important; position: relative !important; top:0 !important;
-                em, h6 {font-size: 1.4rem !important; color: #fff !important;}
-                h2{font-size: 2rem !important; color: #fff !important; } 
-            }
-        }
-    }
-    .contin{padding: 0;
-        .periods {border-bottom: 0 !important; margin-bottom: 0 !important;}
-    }
-    .item-radio.item ion-label {font-weight: 300 !important;}
-    .item-radio-checked.item-md ion-label {color:#59800D !important;}
-    .list-md .item-block .item-inner {border-bottom: 0 !important;}
-
-    .tab-active{
-        svg #Path_227 { stroke: #fff;}
-        
-    }
-
-    ion-app.ios{
-        .popover-content{left: unset !important; right: 0 !important;}
-    }
-    
    
 
-    .exetab{
-        h1 {margin-top: 0 !important; font-size: 2rem !important; color: #80B419 !important;}
-        // .accord { background: #19800D;margin: 30px auto; overflow: hidden;padding: 10px; 
-        // div {overflow:hidden; cursor: pointer; background: rgba($dark,.5); margin-bottom:15px; width: 100%; 
-        //     p {display: none;}
-        //     h2 {margin:0;}
-        //     h2 a {padding: 8px 10px;display: block;color: rgba(white,1); text-decoration: none;}
-        // }
-        
-        
-        // div:target {background: white; padding: 10px; width:100%;  height: auto; 
-        //     h2 {width: 100%;}
-        //     h2 a {padding: 0;}
-        //     p {display: block;}
-        // }
+}
 
-        // }
-          
-        
 
-    }
+.segment-button {text-align: center !important;}
+.fulcard {  height: 94px !important; max-height: 94px !important;
+    img {height: 94px !important;}
+}
+.fulcard .container {padding: 14px !important;}
+.fulcard .container .cdbody p {margin: 0 !important;}
+.fulcard .container .cdbody h1 {font-size: 1.2rem !important; line-height: normal !important; margin-bottom: 0 !important;}
+
+
+
+
+.contin{}
+
+.item-radio.item ion-label {font-weight: 300 !important;}
+.item-radio-checked.item-md ion-label {color:#59800D !important;}
+.list-md .item-block .item-inner {border-bottom: 0 !important;}
+
+.tab-active{
+    svg #Path_227 { stroke: #fff;}
+    
+}
+
+ion-app.ios{
+    .popover-content{left: unset !important; right: 0 !important;}
+}
+
+
+
+.exetab{
+    h1 {margin-top: 0 !important; font-size: 2rem !important; color: #80B419 !important;}
+    // .accord { background: #19800D;margin: 30px auto; overflow: hidden;padding: 10px; 
+    // div {overflow:hidden; cursor: pointer; background: rgba($dark,.5); margin-bottom:15px; width: 100%; 
+    //     p {display: none;}
+    //     h2 {margin:0;}
+    //     h2 a {padding: 8px 10px;display: block;color: rgba(white,1); text-decoration: none;}
+    // }
+    
+    
+    // div:target {background: white; padding: 10px; width:100%;  height: auto; 
+    //     h2 {width: 100%;}
+    //     h2 a {padding: 0;}
+    //     p {display: block;}
+    // }
+
+    // }
+      
     
 
-     
-
-    .pcover img{height: 12rem;object-fit: cover; width: 100%;}
-    .exe {padding-bottom: 5px !important;}
-        
-    // .adrop{
-    //     position: relative;
-    // }
-    // .dropicon{
-    //     position: absolute;
-    //     right:0;
-    //     font-size: 2.4rem;
-    // }
-
-    .icr {width:1.4rem !important; height:1.4rem !important; float: right;}
-
-
-    .session {margin:0 -10px 15px -10px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 3.6rem;
-        ion-item, ion-scroll[scrollX]{min-height:36px !important;}
-        ion-label { margin: 0 !important; }
-        ion-scroll[scrollX] .button {margin-bottom:-2px !important; width: 30%;}
-        .scroll-zoom-wrapper {text-align: center;}
-    }
-
 }
+
+
+ 
+
+.pcover img{height: 6rem;object-fit: cover; width: 100%;}
+.exe {padding-bottom: 5px !important;}
+    
+// .adrop{
+//     position: relative;
+// }
+// .dropicon{
+//     position: absolute;
+//     right:0;
+//     font-size: 2.4rem;
+// }
+
+.icr {width:1.4rem !important; height:1.4rem !important; float: right;}
+
+
+.session {margin:0 -10px 15px -10px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 3.6rem;
+    ion-item, ion-scroll[scrollX]{min-height:36px !important;}
+    ion-label { margin: 0 !important; }
+    ion-scroll[scrollX] .button {margin-bottom:-2px !important; width: 30%;}
+    .scroll-zoom-wrapper {text-align: center;}
+}
+
+
+
+
+
+
+
+// -----------------
 .popover-viewport{
     .label-md, .details {
        
