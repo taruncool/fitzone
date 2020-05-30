@@ -29,9 +29,9 @@
 <div class="fulpad nopadb workout">
   <h1>My Workout <span>{{today | date}}</span></h1>
 
-  <ion-row class="fulpad noflex" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
-      <ion-col class="nobg">
-          <h2 >{{planInfo.planName}}</h2>
+  <ion-row class="fulpad dcard" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+      
+          <h3 >{{planInfo.planName}}</h3>
          
           <span> {{percentageDays}}%</span>
           <div class="loader probar" >
@@ -56,12 +56,12 @@
                     
               </ion-button>
           </div>
-      </ion-col>
+      
   </ion-row>
 
 
-  <ion-card class="noflex valid"  *ngIf='noplan'>
-      <ion-item class="nobg">
+  <ion-row class="fulpad dcard valid"  *ngIf='noplan'>
+    
           <h2>You are not subscribed to any plan...</h2>
 
           <div class="wrkbtm">
@@ -76,10 +76,10 @@
                     
               </button>
           </div>
-      </ion-item>
-  </ion-card>
+    
+  </ion-row>
 
-  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='planComplete'>
+  <ion-card class="fulpad dcard valid"  *ngIf='planComplete'>
       <ion-item class="nobg">
           <h2 margin-top>Program has been completed.</h2>
           <p> Please subscribe again or choose new program</p>
@@ -105,7 +105,7 @@
       </ion-item>
   </ion-card>
 
-  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='todaySessionComplete'>
+  <ion-card class="fulpad dcard valid"  *ngIf='todaySessionComplete'>
       <ion-item class="nobg">
           <h2 margin-top>Session has been completed.</h2>
           <h2 margin-top>Next Workout on {{nextWorkoutDateStr}}</h2>
@@ -124,7 +124,7 @@
       </ion-item>
   </ion-card>
   
-  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='noPlanActive'>
+  <ion-card class="fulpad dcard valid"  *ngIf='noPlanActive'>
       <ion-item class="nobg">
           <h2 >{{planInfo.planName}}</h2>
           <div class="wrkbtm">
@@ -142,7 +142,7 @@
       </ion-item>
   </ion-card>
 
-  <ion-card class="noflex sbgbt nomarg valid"  *ngIf='todayRestDay'>
+  <ion-card class="fulpad dcard valid"  *ngIf='todayRestDay'>
       <ion-item class="nobg">
           <h2>Rest Day</h2>
           <p>You can do some warmup</p>  
