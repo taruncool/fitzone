@@ -18,8 +18,8 @@
   </ion-fab> -->
 
   <div class="fulpad ">
-    <h1 text-center text-wrap>Recommended Resting Time<br>StratFit automatically recommends resting time between exercises to let your body adapt to the stress. You can choose to skip the resting.</h1>
-    <timer #timer [timeInSeconds]="myVariableNameHere"></timer>
+    <h2 class="text-center" text-wrap>Recommended Resting Time<br>StratFit automatically recommends resting time between exercises to let your body adapt to the stress. You can choose to skip the resting.</h2>
+    <timer class="timer" #timer [timeInSeconds]="myVariableNameHere"></timer>
     
 
     <div class="setsumry" >
@@ -27,102 +27,102 @@
         <ion-row class="setcal">
             <ion-col>
                 <ion-avatar item-start > 
-                        <img src="{{exThumbImg}}" (error)="onExImageError()">
+                    <img src="{{exThumbImg}}" (error)="onExImageError()">
                         
                     <!-- <img src="{{s3urlPop}}/exerciseicons/{{excerciseId}}.png"> -->
                 </ion-avatar>
                 <span>{{exerciseName}}</span>
             </ion-col>
-            <ion-col>
+            <ion-col  size="6">
                 <span>{{setWorkWeight}}</span>
                 <em>Work Weight</em>
             </ion-col>
-            <ion-col>
+            <ion-col  size="6">
                 <span>{{repsDone}}</span>
                 <em>Reps Done</em>
             </ion-col>
 
-            <ion-col *ngIf="isCalories">
-                    <span>{{calories}}</span>
-                    <em>Calories Burned</em>
-                </ion-col>
+            <ion-col  size="6" *ngIf="isCalories">
+                <span>{{calories}}</span>
+                <em>Calories Burned</em>
+            </ion-col>
             
         </ion-row>
         
           
-          <ion-button (click)='backButtonAction()'>Skip</ion-button> 
+        <ion-button (click)='backButtonAction()'>Skip</ion-button> 
           
       </div>
 
-      <span  *ngIf="exFinished" >
+      <div  *ngIf="exFinished" >
       <div class="exesumry" *ngFor="let ex of exDetails; let i=index" >
-              <h3>Excercise Summary</h3>
-              <ion-row >
-              <ion-col col-4>
-                  <span>{{ex.amrap}} <em>Total Reps</em>  </span>
-              </ion-col>
-              <ion-col col-4>
-                  <span>{{ex.orm}} <em>Est. Tmax ({{wMetric}})</em>  </span>
-              </ion-col>
-              <ion-col col-4>
-                  <span>{{ex.avgWeight}} <em>Avg Weight ({{wMetric}})</em>  </span>
-              </ion-col>
-              <ion-col col-4>
-                  <span>{{ex.totalTonnage}}<em>Tonnage (Ton)</em>  </span>
-              </ion-col>
-              <ion-col col-4>
-                  <span>{{ex.totalwork}}<em>Work (Joules)</em>  </span>
-              </ion-col>
-              <ion-col col-4>
-                  <span>{{ex.cal}} <em>Calories (Cal)</em>  </span>
-              </ion-col>
-              </ion-row>
+            <h3>Excercise Summary</h3>
+            <ion-row >
+                <ion-col size="4">
+                    <span>{{ex.amrap}} <em>Total Reps</em>  </span>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{ex.orm}} <em>Est. Tmax ({{wMetric}})</em>  </span>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{ex.avgWeight}} <em>Avg Weight ({{wMetric}})</em>  </span>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{ex.totalTonnage}}<em>Tonnage (Ton)</em>  </span>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{ex.totalwork}}<em>Work (Joules)</em>  </span>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{ex.cal}} <em>Calories (Cal)</em>  </span>
+                </ion-col>
+            </ion-row>
 
-              <ion-row class="exerow" *ngIf='ex.exType==1'>
-                          <ion-col col-4></ion-col>
-                          <ion-col col-2>Min</ion-col>
-                          <ion-col col-2>Max</ion-col>
-                          <ion-col col-2>Avg</ion-col>
-                          <ion-col col-2>Total</ion-col>
-                      <ion-col col-4 *ngIf='ex.exDistance!=="null"'><h5>Distance(Kms)</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exDistance!=="null"'><h5>{{ex.minDistance}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exDistance!=="null"'><h5>{{ex.maxDistance}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exDistance!=="null"'><h5>{{ex.avgDistance}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exDistance!=="null"'><h5>{{ex.totalDistance}}</h5></ion-col>
-                      <ion-col col-4 *ngIf='ex.exTime!=="null"'><h5>Time(Min)</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exTime!=="null"'><h5>{{ex.minTime}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exTime!=="null"'><h5>{{ex.maxTime}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exTime!=="null"'><h5>{{ex.avgTime}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exTime!=="null"'><h5>{{ex.totalTime}}</h5></ion-col>
-                      <ion-col col-4 *ngIf='ex.exWeight!=="null"'><h5>Weight({{wMetric}})</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exWeight!=="null"'><h5>{{ex.minWeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exWeight!=="null"'><h5>{{ex.maxWeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exWeight!=="null"'><h5>{{ex.avgWeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exWeight!=="null"'><h5>-</h5></ion-col>
-                      <ion-col col-4 *ngIf='ex.amrap!==0'><h5>Reps</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.amrap!==0'><h5>{{ex.minReps}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.amrap!==0'><h5>{{ex.maxReps}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.amrap!==0'><h5>{{ex.avgReps}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.amrap!==0'><h5>{{ex.amrap}}</h5></ion-col>
-                      <ion-col col-4 *ngIf='ex.exSpeed!=="null"'><h5>Speed(Kmph)</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exSpeed!=="null"'><h5>{{ex.minSpeed}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exSpeed!=="null"'><h5>{{ex.maxSpeed}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exSpeed!=="null"'><h5>{{ex.avgSpeed}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exSpeed!=="null"'><h5>-</h5></ion-col>
-                      <ion-col col-4 *ngIf='ex.exHeight!=="null"'><h5>Height(Cms)</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exHeight!=="null"'><h5>{{ex.minHeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exHeight!=="null"'><h5>{{ex.maxHeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exHeight!=="null"'><h5>{{ex.avgHeight}}</h5></ion-col>
-                          <ion-col col-2 *ngIf='ex.exHeight!=="null"'><h5>-</h5></ion-col>
-                      <ion-col col-4><h5>Calories (cal)</h5></ion-col>
-                          <ion-col col-2><h5>-</h5></ion-col>
-                          <ion-col col-2><h5>-</h5></ion-col>
-                          <ion-col col-2><h5>-</h5></ion-col>
-                          <ion-col col-2><h5>{{ex.cal}}</h5></ion-col>
-                  </ion-row>
+            <ion-row class="exerow" *ngIf='ex.exType==1'>
+                <ion-col size="4"></ion-col>
+                    <ion-col size="2">Min</ion-col>
+                    <ion-col size="2">Max</ion-col>
+                    <ion-col size="2">Avg</ion-col>
+                    <ion-col size="2">Total</ion-col>
+                <ion-col size="4" *ngIf='ex.exDistance!=="null"'><h5>Distance(Kms)</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exDistance!=="null"'><h5>{{ex.minDistance}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exDistance!=="null"'><h5>{{ex.maxDistance}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exDistance!=="null"'><h5>{{ex.avgDistance}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exDistance!=="null"'><h5>{{ex.totalDistance}}</h5></ion-col>
+                <ion-col size="4" *ngIf='ex.exTime!=="null"'><h5>Time(Min)</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exTime!=="null"'><h5>{{ex.minTime}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exTime!=="null"'><h5>{{ex.maxTime}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exTime!=="null"'><h5>{{ex.avgTime}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exTime!=="null"'><h5>{{ex.totalTime}}</h5></ion-col>
+                <ion-col size="4" *ngIf='ex.exWeight!=="null"'><h5>Weight({{wMetric}})</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exWeight!=="null"'><h5>{{ex.minWeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exWeight!=="null"'><h5>{{ex.maxWeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exWeight!=="null"'><h5>{{ex.avgWeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exWeight!=="null"'><h5>-</h5></ion-col>
+                <ion-col size="4" *ngIf='ex.amrap!==0'><h5>Reps</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.amrap!==0'><h5>{{ex.minReps}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.amrap!==0'><h5>{{ex.maxReps}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.amrap!==0'><h5>{{ex.avgReps}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.amrap!==0'><h5>{{ex.amrap}}</h5></ion-col>
+                <ion-col size="4" *ngIf='ex.exSpeed!=="null"'><h5>Speed(Kmph)</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exSpeed!=="null"'><h5>{{ex.minSpeed}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exSpeed!=="null"'><h5>{{ex.maxSpeed}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exSpeed!=="null"'><h5>{{ex.avgSpeed}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exSpeed!=="null"'><h5>-</h5></ion-col>
+                <ion-col size="4" *ngIf='ex.exHeight!=="null"'><h5>Height(Cms)</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exHeight!=="null"'><h5>{{ex.minHeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exHeight!=="null"'><h5>{{ex.maxHeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exHeight!=="null"'><h5>{{ex.avgHeight}}</h5></ion-col>
+                    <ion-col size="2" *ngIf='ex.exHeight!=="null"'><h5>-</h5></ion-col>
+                <ion-col size="4"><h5>Calories (cal)</h5></ion-col>
+                    <ion-col size="2"><h5>-</h5></ion-col>
+                    <ion-col size="2"><h5>-</h5></ion-col>
+                    <ion-col size="2"><h5>-</h5></ion-col>
+                    <ion-col size="2"><h5>{{ex.cal}}</h5></ion-col>
+            </ion-row>
       
       </div>
-  </span>
+    </div>
   </div>
   
 </ion-content>

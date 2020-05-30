@@ -1,17 +1,17 @@
 timer-pop {
-
+}
     .skip {position: absolute; right: 0; top: 0;
         .button {border: 0 !important; background: none !important; padding: 20px !important;
             svg {fill:#fff; width: 1.6rem; height:1.6rem;}
         }
     }
     
-    h1{margin:4rem 0 0 0; color: #fff !important ; font-size: 1.4rem;}
-    .timing {color: white; margin-bottom: 2rem; 
-        .timer-div {margin: auto;margin-bottom: 2rem !important;text-align: center; width: 18rem;height:10rem; position: relative; margin-top:4rem;
+    h2{margin:2rem 0 0 0; color: #fff !important ; font-size: medium; }
+    .timer {color: white; margin-bottom: 1rem; 
+        .timer-div {margin: auto;margin-bottom: 1rem !important;text-align: center; width: 18rem;height:10rem; position: relative; margin-top:2rem;
             .item-md, .item-ios {background:none !important;padding-left: 0;}
-            .timer-button {font-size: 3rem !important;height:10rem !important;text-align: center !important;width: 16rem; margin: auto;position: absolute;left: 0;right: 0;bottom: 0;top: 0; 
-                .label {color: #fff !important; font-size: 6rem;}
+            .timer-button {font-size: 2rem !important;height:10rem !important;text-align: center !important;width: 16rem; margin: auto;position: absolute;left: 0;right: 0;bottom: 0;top: 0; 
+                // .label {color: #fff !important; font-size: 6rem;}
                 }
         
             }
@@ -21,36 +21,30 @@ timer-pop {
     .exesumry h3 {text-align: center;}
         
     .setsumry { text-align: center;padding-top: 2rem;
-        h3 {margin-bottom: 2rem; margin-top: 0; color: #fff; font-size: 1.6rem;}
-        .setcal { margin-bottom: 2rem;
-            .col { text-align: center;
-                span {display: block; color: #fff; font-size: 2.4rem;}
-                em {display: block; color: #fff; font-size: 1.2rem;}
+        h3 {margin-bottom: 1rem; margin-top: 0; color: #fff; }
+        ion-row.setcal { margin-bottom: 2rem;
+            ion-col { text-align: center;
+                span {display: block; color: #fff; }
+                em {display: block; color: #fff; }
             }
-            .col:first-child { min-width: 100%; margin-bottom: 2rem;
-                ion-avatar{border-radius:50%;border:1px solid #fff !important;background:#fff;overflow:hidden;width:5rem !important;height:5rem !important;position:relative; padding:2px; margin:auto;margin-bottom: 1rem; 
+            ion-col:first-child { min-width: 100%; margin-bottom: 1rem;
+                ion-avatar{border-radius:50%;border:1px solid #fff !important;background:#fff;overflow:hidden;width:40px !important;height:40px !important;position:relative; padding:2px; margin:auto;margin-bottom: 1rem; 
                     // img {border-radius:0 !important;width:3.6rem !important;height:auto !important;object-fit:cover;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
                     img {border-radius:0 !important;width:100% !important;height:auto !important;object-fit:cover;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}  
                 }
-                span { font-size: 1.6rem !important;}
+                // span { font-size: 1.6rem !important;}
             }
         }
-        button {background: none !important; width:5rem !important; height: 5rem !important; border-radius: 50%; padding:0 !important;}
+        ion-button {--background: none !important; width:40px !important; height: 40px !important; border-radius: 50%; padding:0 !important; --padding-start:0 !important; --padding-end:0 !important;}
     }
    
 
 
 
 
-.item-md.item-block .item-inner , .item-ios.item-block .item-inner{
-  padding-right: 0;
-  border: none;
-}
 
 
-.label-md , .label-ios{
-    margin: auto;
-}
+
     ion-fab {left:auto !important;right: 0 !important; top: 1rem !important;
         .fab[mini]{width: 60px;}
     }
@@ -59,4 +53,4 @@ timer-pop {
         box-shadow: none; background: none !important;
     
     }
-}
+

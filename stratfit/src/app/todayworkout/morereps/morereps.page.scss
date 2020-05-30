@@ -1,25 +1,28 @@
 morereps-pop {
 
-    .skip {position: absolute; right: 0; top: 0;
-        .button {border: 0 !important; background: none !important; padding: 20px !important;
-            svg {fill:#fff; width: 1.6rem; height:1.6rem;}
-        }
+  
+}
+
+.skip {position: absolute; right: 0; top: 0;
+    .button {border: 0 !important; background: none !important; padding: 20px !important;
+        svg {fill:#fff; width: 1.6rem; height:1.6rem;}
     }
-    
-    h1{margin:4rem 0 0 0; color: #fff !important ; font-size: 1.4rem;}
+}
+
+h1{margin:4rem 0 0 0; color: #fff !important ; font-size: 1.4rem;}
 
 
- 
 
- .inpgrp {
-     h4, ion-item {margin-bottom: 2rem !important;}
-     ion-item {margin-left:1rem; margin-right: 1rem; width: auto !important;}
+
+.inpgrp {
+ h4, ion-item {margin-bottom: 2rem !important;}
+ ion-item {margin-left:1rem; margin-right: 1rem; width: auto !important;}
 .sbgbt {
-   
-    ion-label{
-        span{ color: #fff !important;}
-    }
-    
+
+ion-label{
+    span{ color: #fff !important;}
+}
+
 }
 
 .button{ margin: auto; width: auto !important;}
@@ -27,4 +30,3 @@ morereps-pop {
 }
 
 .tmax .inpgrp ion-item ion-input .text-input {text-align: center !important;}
-}

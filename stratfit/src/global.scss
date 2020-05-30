@@ -59,9 +59,9 @@ body.sfbred  {
 
 /*-- Green Theme - White / Black Background ------------------------------------------------------*/
 .sfwgren, .sfbgren {
-  .button, .button.brn, .button.bgw, .button.active, .button.activated, .button:hover:not(.disable-hover), .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .fabicon ion-fab-button, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .tlevel .levelopt.active:before,  .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before, .db .workout .wrkbtm ion-button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon{ --background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important; background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important;}
+  .button, .button.brn, .button.bgw, .button.active, .button.activated,  .swiper-pagination-bullet-active, .alert-md .alert-radio-inner, .fabicon, .fabicon ion-fab-button, .play svg, ion-segment-button.activated:after, ion-segment-button.segment-button-checked:after, .loader .progress-inner, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .sbtm-btn .priv::before, .sbtm-btn .priv::after, .fulcard .tick, .tlevel .levelopt.active:before,  .toggle-md.toggle-checked .toggle-icon, .toggle-md.toggle-checked .toggle-inner, .toggle-ios.toggle-checked .toggle-icon, .toggle-ios.toggle-checked .toggle-inner, .complxname ion-scroll[scrollX] span::before, .db .workout .wrkbtm ion-button svg, .contin .days .button.active, .alert-ios .alert-button-group .alert-button.activated, .alert-md .alert-button-group .alert-button.activated, .picker-md .alert-button-group .alert-button.activated, .exetab .workview .setlist .infild .item .label svg #Path_256, ion-calendar-week .week-title.primary, .radio-md .radio-inner, .alert-md [aria-checked=true] .alert-checkbox-icon{ --background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important; background:linear-gradient(90deg, #7ab507 0%, #80B419 100%) !important;}
 
-  .button, .button.brn, .button.bgw, .button.active, .button.activated, .button:hover:not(.disable-hover){
+  .button, .button.brn, .button.bgw, .button.active, .button.activated{
     span {color: #fff !important;}
   }
   
@@ -128,7 +128,7 @@ body.sfbred  {
  progressbar-popup .checkmark__circle, .icostr, .diet .cgraph circle-progress svg circle {stroke: #fff !important}
 .diet .cgraph circle-progress svg circle {stroke: #1D2534 !important}
   
- progressbar-popup ion-footer, .db .card, .exetab .workflow .worktab div[scrollX] li, .exetab .workflow .worktab div[scrollX] li.active,  .exetab .workview .setlist .infild .item, .exe ion-avatar, .exe ion-avatar circle, .diet .dcard {background: #1D2534 !important;}
+ progressbar-popup ion-footer, .db .card, .exetab .workflow .worktab div[scrollX] li, .exetab .workflow .worktab div[scrollX] li.active,  .exetab .workview .setlist .infild .item, .exe ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .diet .dcard {background: #1D2534 !important;}
 
  .diet .dcard .listdis, .diet .ocard .listdis {background: #0E1523 !important;}
  
@@ -619,10 +619,10 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
   // }
   
 
-    h2 { font-size: 1.6rem !important;  white-space: nowrap; text-overflow: ellipsis; }
+    h2 { white-space: nowrap; text-overflow: ellipsis; }
     h3, h4, h5, h6, p {color: inherit !important;}
 
-    button {background: none !important; border: 0 !important; margin: 0 !important; color: inherit;
+    ion-button {background: none !important; border: 0 !important; margin: 0 !important; color: inherit;
       svg {width:1.6rem; 
           .cls-1 {fill: transparent}
           .cls-2, svg .cls-3 {stroke: #000;}
@@ -1049,7 +1049,7 @@ ion-app.ios {
 /*-- Dashboard --*/
 .db {
   h1 { font-size:1.2rem; margin-top: 0; 
-    span {float:right; font-size:14px;}
+    span {float:right; font-size:14px; width: auto !important;}
     a {float:right; font-size:14px;}
   }
   ion-scroll {position: relative !important;
@@ -1059,14 +1059,15 @@ ion-app.ios {
   
 
   ion-card, .workout {margin: 0 !important;
-    
-    h3 {margin-bottom: 10px; width: 100%;}
-      h3, p {color:inherit !important; margin-top:0;}
-      span {color: inherit !important;}
+    h2, h3, p {margin-top: 0 !important;}
+    h3 {margin-bottom: 10px;}
+    h3, p, span {color:inherit !important; }
+    h2, h3, p, span {width: 100%; display: block;}
     
     .pcover::after {content: none !important;}
+
     .loader.probar {padding: 0 !important; width: 100%; margin-bottom: 10px;
-      span {display: block; font-size: 1.4rem;
+      span { font-size: 1.4rem;
         em {float: right; font-size:1.2rem;}
       }
       .progress-outer{ background: #ddd !important;
@@ -1075,25 +1076,24 @@ ion-app.ios {
     }
     .exevalue {color:#000; margin-bottom: 1rem; border-bottom: 1px solid #03060C; min-height:56px !important;
       .col {text-align: center;
-        span{display: block; font-weight:600;
+        span{ font-weight:600;
           em {font-size: 1.2rem; }
         }
-        p {display: block; font-size: 1.3rem; margin-bottom: 0; color: #aaa; }
+        p {font-size: 1.3rem; margin-bottom: 0; color: #aaa; }
       }
     }
     .wrkbtm { overflow: hidden; width: 100%;
       // em {font-size: 1.2rem;}
-      ion-button {float: right; background:none !important; border: 0 !important; --box-shadow: none !important; margin: 0 !important; --padding-end: 0 !important; height: 32px !important;
+      ion-button {float: right; background:none !important; border: 0 !important; --box-shadow: none !important; margin: 0 !important; --padding-start:0 !important;--padding-end: 0 !important; height: 32px !important;
         svg {width:20px; height: 20px;border-radius: 50%; margin-left: 5px;}
       }
     }
     
 
       /*-- Validation Todays Workout css --*/
-      .valid {text-align: center;
+      .valid {
         .wrkbtm {
-          .button {font-size:2rem; float: none !important; }
-          .button:first-child {padding-left: 0 !important; }
+          ion-button { float: none !important; }
         }
       }
 
@@ -1284,7 +1284,7 @@ ion-app.ios {
         
         div[scrollX] {white-space: nowrap;text-align: left !important;  
           // .scroll-content {border: 0; position: relative !important; min-height: 40px;}
-          ul{list-style: none; overflow-x:scroll ; min-height: 44px; }
+          ul{list-style: none; overflow-x:scroll ; min-height: 44px; text-align: center; }
           li {display:inline-block; padding: 5px 16px; margin-right:4px;opacity: 0.6;  border-radius:3px; position: relative;}
           li.active { border-width:1px !important; border-style:solid !important; opacity: 1;}
           li.active:after { content:""; position: absolute; left:0; right:0; bottom: -8px; width: 0; height: 0; border-left: 8px solid transparent;border-right: 8px solid transparent; border-top-width: 8px; border-top-style: solid; margin: auto;}
