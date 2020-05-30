@@ -23,11 +23,11 @@ export class PasswordPage implements OnInit {
   public showConfirmPass = false;
 
   constructor(public navCtrl: NavController,private apiService:ApiService, public modalCtrl: ModalController, public toastCtrl: ToastController, private http:HttpClient, private loadData: LoadData){
+    this.token = localStorage.getItem('usertoken');
+    this.userId = localStorage.getItem('userId');
   }
 
   ngOnInit() {
-    this.token = localStorage.getItem('usertoken');
-    this.userId = localStorage.getItem('userId');
   }
   async updatePwd(pwddata) {
     if(localStorage.getItem('internet')==='online'){
@@ -101,7 +101,8 @@ export class PasswordPage implements OnInit {
     }
   }
   public backButtonAction(){
-      this.modalCtrl.dismiss(); 
+      // this.modalCtrl.dismiss();
+      this.navCtrl.navigateBack('/tabs/tabs/profile'); 
   }
 
 }

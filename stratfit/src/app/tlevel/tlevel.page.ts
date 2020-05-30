@@ -113,6 +113,7 @@ export class TlevelPage implements OnInit {
   }
 
   public backButtonAction(){
-    this.modalCtrl.dismiss(); 
+    // this.modalCtrl.dismiss();
+    this.navCtrl.navigateRoot('/tabs/tabs/profile'); 
   }
 }

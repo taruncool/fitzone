@@ -22,8 +22,6 @@ import { CalendarModule ,CalendarComponentOptions, DayConfig, CalendarResult, Ca
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
-// import { Crop } from '@ionic-native/crop/ngx';
-// import { Base64 } from '@ionic-native/base64/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadData } from "../providers/loaddata";
@@ -36,7 +34,6 @@ import { ProgramdetailsPage } from './programdetails/programdetails.page';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
-// import { CoachprofilePage } from './coachprofile/coachprofile.page';
 import { TimerpopupPage } from './workout/timerpopup/timerpopup.page';
 import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
@@ -49,14 +46,12 @@ import { ImageProvider } from 'src/providers/image/image';
 import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';
 import { Crop } from '@ionic-native/crop/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
-// import { DiethistoryPage } from './userdiet/diethistory/diethistory.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressloginPage,
     PlanpreviewPage,
-    // CoachprofilePage,
     TimerpopupPage,
     MorerepsPage,
     MorerepscomplexPage,
@@ -68,13 +63,10 @@ import { Base64 } from '@ionic-native/base64/ngx';
     TimerComponent,
     AddmealPage,
     ImagepreviewPage,
-    // ImageProvider
-    // DiethistoryPage
   ],
   entryComponents: [
     ProgressloginPage,
     PlanpreviewPage,
-    // CoachprofilePage,
     TimerpopupPage,
     MorerepsPage,
     MorerepscomplexPage,
@@ -86,8 +78,6 @@ import { Base64 } from '@ionic-native/base64/ngx';
     TimerComponent,
     AddmealPage,
     ImagepreviewPage,
-    // ImageProvider,
-    // DiethistoryPage
   ],
   imports: [
     BrowserModule,
