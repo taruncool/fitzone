@@ -1,30 +1,49 @@
-
 <ion-header class="head">
-  <!-- <ion-navbar class="hedfm"> -->
+  <ion-toolbar class="hedfm">
     <ion-title><span>Profile</span>Settings</ion-title>
-  <!-- </ion-navbar> -->
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="profile" >
-    <ion-row class="fulpad nopadb">
+  
+    <ion-card class=" nobg user" >
+        <ion-item>
+            <ion-avatar  slot="start" *ngIf="avatar !='' && avatar !='null' && avatar" (click)="getPhoto()">
+                <img src={{avatar}}  (error)="onAvatarError()" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                  <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)"/>
+                  <path id="icons8-edit" d="M28.827,2a3.169,3.169,0,0,0-2.242.937l-.53.53,4.485,4.484.53-.53A3.179,3.179,0,0,0,28.827,2ZM25.056,4.629a.656.656,0,0,0-.387.2L3.508,26.008a.665.665,0,0,0-.183.285l-1.3,4.891a.653.653,0,0,0,.8.795l4.893-1.3a.665.665,0,0,0,.285-.183L29.173,9.337a.656.656,0,1,0-.917-.937L7.2,29.452,4.548,26.8,25.606,5.75a.652.652,0,0,0-.489-1.121Z" transform="translate(15.001 15.001)" fill="#fff"/>
+                </svg>
+            </ion-avatar>
+            <ion-avatar  slot="start" *ngIf="(avatar =='' || avatar =='null' || avatar ==undefined) && avatar" (click)="getPhoto()">
+                <img src="assets/images/icon.png"/>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                  <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)"/>
+                  <path id="icons8-edit" d="M28.827,2a3.169,3.169,0,0,0-2.242.937l-.53.53,4.485,4.484.53-.53A3.179,3.179,0,0,0,28.827,2ZM25.056,4.629a.656.656,0,0,0-.387.2L3.508,26.008a.665.665,0,0,0-.183.285l-1.3,4.891a.653.653,0,0,0,.8.795l4.893-1.3a.665.665,0,0,0,.285-.183L29.173,9.337a.656.656,0,1,0-.917-.937L7.2,29.452,4.548,26.8,25.606,5.75a.652.652,0,0,0-.489-1.121Z" transform="translate(15.001 15.001)" fill="#fff"/>
+                </svg>
+            </ion-avatar>
+        
+            <div class="title">
+                <h2>{{firstname}} {{lastname}}</h2>
+                <em>{{email}}</em>
+
+            </div>
+        </ion-item>
+    </ion-card> 
+ <!-- End Profile-->
+
+    <!-- <ion-row class="fulpad nopadb">
       <ion-card class=" nobg user" >
 
-        <ion-item>
-          <ion-avatar item-start *ngIf="avatar !='' && avatar !='null' && avatar" (click)="getPhoto()" >
-              <img src={{avatar}}  (error)="onAvatarError()"/>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)"/>
-                <path id="icons8-edit" d="M28.827,2a3.169,3.169,0,0,0-2.242.937l-.53.53,4.485,4.484.53-.53A3.179,3.179,0,0,0,28.827,2ZM25.056,4.629a.656.656,0,0,0-.387.2L3.508,26.008a.665.665,0,0,0-.183.285l-1.3,4.891a.653.653,0,0,0,.8.795l4.893-1.3a.665.665,0,0,0,.285-.183L29.173,9.337a.656.656,0,1,0-.917-.937L7.2,29.452,4.548,26.8,25.606,5.75a.652.652,0,0,0-.489-1.121Z" transform="translate(15.001 15.001)" fill="#fff"/>
-              </svg>
+        <ion-item >
+          <ion-avatar item-start  >
+              <img />
+              
           </ion-avatar>
         
-          <ion-avatar  item-start *ngIf="(avatar =='' || avatar =='null' || avatar ==undefined) && avatar" (click)="getPhoto()">
+          <ion-avatar  item-start >
             <img src="assets/images/icon.png"/>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-              <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)"/>
-              <path id="icons8-edit" d="M28.827,2a3.169,3.169,0,0,0-2.242.937l-.53.53,4.485,4.484.53-.53A3.179,3.179,0,0,0,28.827,2ZM25.056,4.629a.656.656,0,0,0-.387.2L3.508,26.008a.665.665,0,0,0-.183.285l-1.3,4.891a.653.653,0,0,0,.8.795l4.893-1.3a.665.665,0,0,0,.285-.183L29.173,9.337a.656.656,0,1,0-.917-.937L7.2,29.452,4.548,26.8,25.606,5.75a.652.652,0,0,0-.489-1.121Z" transform="translate(15.001 15.001)" fill="#fff"/>
-            </svg>
+            
           </ion-avatar>
           <div class="title">
             <h2>{{firstname}} {{lastname}}</h2>
@@ -33,207 +52,466 @@
         </ion-item>
     </ion-card> 
 
-    </ion-row>
+    </ion-row> -->
 
-    <ion-row class='fulpad'>
-
-        <ion-list>
-            <ion-item (click)="profileinfo()">
-              <ion-icon name="ios-person-outline" item-start></ion-icon>
-              Profile Info
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>
-                  </svg>
-              </ion-icon>
-            </ion-item>
-            <ion-item (click)="dietInfo()">
-              <ion-icon item-start>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                    <g id="cutlery" transform="translate(0 -11.586)">
-                      <rect id="Rectangle_138842" data-name="Rectangle 138842"  transform="translate(0 11.586)" fill="none"/>
-                      <path id="Path_8517" data-name="Path 8517" d="M361.3,40.785a1.437,1.437,0,0,0-2.032,0l-14.9,14.895a1.437,1.437,0,0,0,2.032,2.032l14.9-14.895A1.437,1.437,0,0,0,361.3,40.785Z" transform="translate(-290.208 -22.594)"/>
-                      <path id="Path_8518" data-name="Path 8518" d="M387.224,66.3a1.437,1.437,0,0,0-2.032,0L370.3,81.195a1.437,1.437,0,0,0,2.032,2.032l14.9-14.9A1.436,1.436,0,0,0,387.224,66.3Z" transform="translate(-312.083 -44.122)"/>
-                      <path id="Path_8519" data-name="Path 8519" d="M84,116.458l18.49-18.49a1.437,1.437,0,0,0-2.032-2.032l-18.49,18.49a7.629,7.629,0,0,1-8.667,1.488,1.436,1.436,0,0,0-1.694.343l-6.283,7.079-.008.008-.007.009L38.154,153.944l-.02.024c-.09.105-.174.2-.26.283a4.6,4.6,0,1,1-6.5-6.5c.083-.084.176-.168.282-.258l.024-.02L48.655,132.4a1.437,1.437,0,1,0-1.907-2.149L29.783,145.31c-.162.138-.307.272-.443.408A7.471,7.471,0,0,0,39.9,156.284c.138-.138.272-.283.409-.444l20.693-23.313L81.7,155.84c.137.161.271.306.408.443a7.471,7.471,0,0,0,10.567-10.565c-.137-.138-.283-.272-.443-.409L68.419,124.176l4.659-5.249A10.51,10.51,0,0,0,84,116.458Zm6.335,31.011.024.02c.105.09.2.174.283.26a4.6,4.6,0,1,1-6.5,6.5c-.085-.085-.17-.177-.259-.282l-.02-.024L62.927,130.363l3.584-4.038Z" transform="translate(-22.909 -69.127)"/>
-                      <path id="Path_8520" data-name="Path 8520" d="M66.778,14.007a1.437,1.437,0,0,0-2.032,0L46.256,32.5a10.509,10.509,0,0,0-2.47,10.921l-5.69,5.05-5.468-4.854a14.449,14.449,0,0,0-2.691-16.807c-4.456-4.456-9.617-7.592-14.533-8.829-5.132-1.292-9.531-.429-12.39,2.429S-.706,27.666.586,32.8c1.238,4.915,4.373,10.077,8.83,14.532a14.448,14.448,0,0,0,16.807,2.691l5.415,6.1a1.437,1.437,0,0,0,2.028.121L46.458,44.889A1.437,1.437,0,0,0,46.8,43.2a7.627,7.627,0,0,1,1.488-8.667l18.49-18.49A1.437,1.437,0,0,0,66.778,14.007ZM32.833,53.141,27.6,47.249a1.436,1.436,0,0,0-1.828-.269A11.59,11.59,0,0,1,11.446,45.3C7.352,41.2,4.484,36.516,3.371,32.1c-1.035-4.112-.44-7.542,1.675-9.657s5.545-2.71,9.656-1.674c4.42,1.113,9.109,3.98,13.2,8.075a11.59,11.59,0,0,1,1.682,14.329A1.437,1.437,0,0,0,29.856,45l6.076,5.393Z" transform="translate(0)"/>
-                    </g>
-                  </svg>
-                  
-
-              </ion-icon>
-              Nutrition
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#375fc6"/>
-                  </svg>
-              </ion-icon>
-            </ion-item>
-
-            <ion-item>
-              <ion-icon name="ios-person-outline" item-start></ion-icon>
-              <ion-label class="subcate" >Active physical job</ion-label>
-            <ion-select class="six8" [interfaceOptions]="selectOptions3" [(ngModel)]="noOfWorkDays" name="weightunit" (ngModelChange)="onChangeWorkDays(noOfWorkDays)" item-end>
+    <ion-list>
+        <ion-item (click)="profileinfo()">
+          <ion-icon slot="start">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.726 66">
+              <path id="Path_8948" data-name="Path 8948" d="M66.062,40.505a22.687,22.687,0,1,0-28.029,0A30.925,30.925,0,0,0,21.184,66h4.131A26.816,26.816,0,0,1,42.246,43.125a22.468,22.468,0,0,0,19.6,0A26.816,26.816,0,0,1,78.779,66H82.91A30.921,30.921,0,0,0,66.062,40.505Zm-14.015.745A18.563,18.563,0,1,1,70.61,22.687,18.561,18.561,0,0,1,52.047,41.25Z" transform="translate(-21.184)"/>
+            </svg>
+            
+          </ion-icon>
+          Profile Info
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />
+              </svg>
+          </ion-icon>
+        </ion-item>
+        <ion-item (click)="dietInfo()">
+          <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                <g id="cutlery" transform="translate(0 -11.586)">
+                  <rect id="Rectangle_138842" data-name="Rectangle 138842"  transform="translate(0 11.586)" fill="none"/>
+                  <path id="Path_8517" data-name="Path 8517" d="M361.3,40.785a1.437,1.437,0,0,0-2.032,0l-14.9,14.895a1.437,1.437,0,0,0,2.032,2.032l14.9-14.895A1.437,1.437,0,0,0,361.3,40.785Z" transform="translate(-290.208 -22.594)"/>
+                  <path id="Path_8518" data-name="Path 8518" d="M387.224,66.3a1.437,1.437,0,0,0-2.032,0L370.3,81.195a1.437,1.437,0,0,0,2.032,2.032l14.9-14.9A1.436,1.436,0,0,0,387.224,66.3Z" transform="translate(-312.083 -44.122)"/>
+                  <path id="Path_8519" data-name="Path 8519" d="M84,116.458l18.49-18.49a1.437,1.437,0,0,0-2.032-2.032l-18.49,18.49a7.629,7.629,0,0,1-8.667,1.488,1.436,1.436,0,0,0-1.694.343l-6.283,7.079-.008.008-.007.009L38.154,153.944l-.02.024c-.09.105-.174.2-.26.283a4.6,4.6,0,1,1-6.5-6.5c.083-.084.176-.168.282-.258l.024-.02L48.655,132.4a1.437,1.437,0,1,0-1.907-2.149L29.783,145.31c-.162.138-.307.272-.443.408A7.471,7.471,0,0,0,39.9,156.284c.138-.138.272-.283.409-.444l20.693-23.313L81.7,155.84c.137.161.271.306.408.443a7.471,7.471,0,0,0,10.567-10.565c-.137-.138-.283-.272-.443-.409L68.419,124.176l4.659-5.249A10.51,10.51,0,0,0,84,116.458Zm6.335,31.011.024.02c.105.09.2.174.283.26a4.6,4.6,0,1,1-6.5,6.5c-.085-.085-.17-.177-.259-.282l-.02-.024L62.927,130.363l3.584-4.038Z" transform="translate(-22.909 -69.127)"/>
+                  <path id="Path_8520" data-name="Path 8520" d="M66.778,14.007a1.437,1.437,0,0,0-2.032,0L46.256,32.5a10.509,10.509,0,0,0-2.47,10.921l-5.69,5.05-5.468-4.854a14.449,14.449,0,0,0-2.691-16.807c-4.456-4.456-9.617-7.592-14.533-8.829-5.132-1.292-9.531-.429-12.39,2.429S-.706,27.666.586,32.8c1.238,4.915,4.373,10.077,8.83,14.532a14.448,14.448,0,0,0,16.807,2.691l5.415,6.1a1.437,1.437,0,0,0,2.028.121L46.458,44.889A1.437,1.437,0,0,0,46.8,43.2a7.627,7.627,0,0,1,1.488-8.667l18.49-18.49A1.437,1.437,0,0,0,66.778,14.007ZM32.833,53.141,27.6,47.249a1.436,1.436,0,0,0-1.828-.269A11.59,11.59,0,0,1,11.446,45.3C7.352,41.2,4.484,36.516,3.371,32.1c-1.035-4.112-.44-7.542,1.675-9.657s5.545-2.71,9.656-1.674c4.42,1.113,9.109,3.98,13.2,8.075a11.59,11.59,0,0,1,1.682,14.329A1.437,1.437,0,0,0,29.856,45l6.076,5.393Z" transform="translate(0)"/>
+                </g>
+              </svg>
               
-              <ion-select-option value="1">1 day per week</ion-select-option>
-              <ion-select-option value="2">2 days per week</ion-select-option>
-              <ion-select-option value="3">3 days per week</ion-select-option>
-              <ion-select-option value="4">4 days per week </ion-select-option>
-              <ion-select-option value="5">5 days per week</ion-select-option>
-              <ion-select-option value="6">6 days per week</ion-select-option>
-              <ion-select-option value="7">7 days per week</ion-select-option> 
-              <ion-select-option value="0">None</ion-select-option>             
+
+          </ion-icon>
+          Nutrition
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />
+              </svg>
+          </ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon  slot="start">
+            <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 53">
+              <defs>
+                <clipPath id="clip-path">
+                  <rect id="Rectangle_139139" data-name="Rectangle 139139" width="68" height="53"/>
+                </clipPath>
+              </defs>
+              <g id="Group_765" data-name="Group 765" clip-path="url(#clip-path)">
+                <path id="Path_8846" data-name="Path 8846" d="M382.228,140.931a1,1,0,0,0,.7-.286c1.291-1.263,3.913-2.781,5.713-2.781h.215a1.007,1.007,0,0,0,0-2.014h-.215c-.176,0-.351.006-.527.016v-5.057a8.355,8.355,0,0,1,8.327-8.364,1.007,1.007,0,0,0,0-2.014,10.367,10.367,0,0,0-10.333,10.378v5.408a14.575,14.575,0,0,0-4.581,2.984,1.011,1.011,0,0,0-.019,1.424.99.99,0,0,0,.719.307Zm0,0" transform="translate(-329.445 -117.304)"/>
+              </g>
+              <g id="Group_766" data-name="Group 766" clip-path="url(#clip-path)">
+                <path id="Path_8847" data-name="Path 8847" d="M124.254,161.32c-.059.066-6,6.544-13.522,6.859-3.061.127-8.185-2.249-14.825-6.877-4.075-2.84-7.571-5.738-8.845-6.817a18.748,18.748,0,0,0,6.265-7.343,31.588,31.588,0,0,1,13.056,3.136l3.271,1.586a12.111,12.111,0,0,1,2.92,1.984,1,1,0,0,0,1.416-.064,1.01,1.01,0,0,0-.064-1.422,14.156,14.156,0,0,0-3.4-2.311l-.207-.1v-5.165a35.237,35.237,0,0,1,1.1-4.215c.154-.534-.817-1.093-1.348-1.247s-1.754,4.629-1.754,5.464v4.19l-1.061-.513a33.6,33.6,0,0,0-13.116-3.31,18.562,18.562,0,1,0-17.568,12.6,18.384,18.384,0,0,0,8.683-2.169c.966.842,16.915,14.613,25.257,14.613.1,0,.2,0,.3-.006,8.348-.349,14.658-7.226,14.923-7.517a1,1,0,1,0-1.483-1.355ZM60.006,139.1A16.566,16.566,0,1,1,76.572,155.74,16.621,16.621,0,0,1,60.006,139.1Zm0,0" transform="translate(-58 -117.321)"/>
+              </g>
+              <path id="Path_8844" data-name="Path 8844" d="M113.156,156.827a.988.988,0,1,0-1.6,1.16,11.455,11.455,0,1,1-2.575-2.573.988.988,0,1,0,1.159-1.6,13.448,13.448,0,1,0,3.015,3.013Zm0,0" transform="translate(-83.972 -143.018)"/>
+              <path id="Path_8845" data-name="Path 8845" d="M137.95,206.078a5.678,5.678,0,1,0,5.678-5.678,5.686,5.686,0,0,0-5.678,5.678Zm9.381,0a3.7,3.7,0,1,1-3.7-3.7,3.707,3.707,0,0,1,3.7,3.7Zm0,0" transform="translate(-125.104 -184.322)"/>
+            </svg>
+            
+          </ion-icon>
+          <ion-label class="subcate" >Active physical job</ion-label>
+        <ion-select class="six8" [interfaceOptions]="selectOptions3" [(ngModel)]="noOfWorkDays" name="weightunit" (ngModelChange)="onChangeWorkDays(noOfWorkDays)" slot="end">
+          
+          <ion-select-option value="1">1 day per week</ion-select-option>
+          <ion-select-option value="2">2 days per week</ion-select-option>
+          <ion-select-option value="3">3 days per week</ion-select-option>
+          <ion-select-option value="4">4 days per week </ion-select-option>
+          <ion-select-option value="5">5 days per week</ion-select-option>
+          <ion-select-option value="6">6 days per week</ion-select-option>
+          <ion-select-option value="7">7 days per week</ion-select-option> 
+          <ion-select-option value="0">None</ion-select-option>             
+        </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="ios-person-outline" slot="start"></ion-icon>
+            <ion-label class="subcate" >Dietary Goal</ion-label>
+          <ion-select class="six8" [interfaceOptions]="selectOptions" [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeDtGoal(dietMsg)" slot="end">
+            <ion-select-option value="WtL">Weight Loss</ion-select-option>
+            <ion-select-option value="WtM">Weight Maintenance</ion-select-option>
+            <ion-select-option value="WtG">Weight Gain</ion-select-option>
+            
+          </ion-select>
+          </ion-item>
+        <ion-item>
+            <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 68">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_139157" data-name="Rectangle 139157" width="68" height="68"/>
+                  </clipPath>
+                </defs>
+                <g id="Diet_Type" data-name="Diet Type" transform="translate(4827 14903)">
+                  <path id="Path_8944" data-name="Path 8944" d="M95,73.546H92.513a5.276,5.276,0,0,0-1.522.227c-.038.01-.077.019-.113.032a5.261,5.261,0,0,0-1.646.93c.246-2.607,1.536-6.392,6.435-9.285A1.134,1.134,0,0,0,94.514,63.5,14.922,14.922,0,0,0,87.8,71.022c-.061-.2-.125-.387-.195-.566a9.467,9.467,0,0,0-2.72-3.854V47.48a3.4,3.4,0,0,0-3.4-3.4H76.744a3.4,3.4,0,0,0-3.192-2.266H67.484a6.776,6.776,0,0,0-12.79,0h-6.07a3.4,3.4,0,0,0-3.192,2.266H40.69a3.4,3.4,0,0,0-3.4,3.4v54.4a3.4,3.4,0,0,0,3.4,3.4h40.8a3.345,3.345,0,0,0,1.523-.368,13.92,13.92,0,0,0,3.158.368h4.236c8.206,0,14.882-7.116,14.882-15.866V84.505c0-6.04-4.616-10.96-10.288-10.96Zm-9.512-2.278A15.223,15.223,0,0,1,86.121,74c-.113-.048-.214-.113-.328-.15a5.157,5.157,0,0,0-1.739-.3H81.574c-.31,0-.617.021-.921.05-.029-.008-.048-.026-.078-.032-3.751-.751-3.7-5.127-3.558-6.694A18.394,18.394,0,0,1,79.2,66.75h.024a6.686,6.686,0,0,1,6.267,4.523v0ZM73.974,98.479H44.089V50.88h1.343a3.4,3.4,0,0,0,3.192,2.266H73.557a3.4,3.4,0,0,0,3.192-2.266H78.09V64.5c-2.927.1-3.121.919-3.225,1.386-.4,2.332-.2,6.46,2.5,8.639a11.016,11.016,0,0,0-6.077,9.985v4.907a16.467,16.467,0,0,0,2.684,9.067Zm8.647-51V65.215a9.083,9.083,0,0,0-2.266-.622V50.88a2.267,2.267,0,0,0-2.266-2.266H76.955V46.347h4.533a1.132,1.132,0,0,1,1.133,1.133Zm-34-3.4h6.913a.957.957,0,0,0,.113-.024,1.019,1.019,0,0,0,.208-.042.983.983,0,0,0,.208-.086,1.082,1.082,0,0,0,.444-.444.989.989,0,0,0,.088-.208.774.774,0,0,0,.045-.105,4.534,4.534,0,0,1,8.883,0,.781.781,0,0,0,.048.12,1.254,1.254,0,0,0,.064.161,1.117,1.117,0,0,0,.137.2,1.1,1.1,0,0,0,.107.12,1.16,1.16,0,0,0,.221.149.886.886,0,0,0,.542.153h6.913a1.132,1.132,0,0,1,1.133,1.133v4.533a1.133,1.133,0,0,1-1.133,1.133H48.622a1.133,1.133,0,0,1-1.133-1.133V45.214a1.132,1.132,0,0,1,1.133-1.133ZM40.69,103.012a1.133,1.133,0,0,1-1.133-1.133V47.48a1.133,1.133,0,0,1,1.133-1.133h4.533v2.266H44.089a2.267,2.267,0,0,0-2.266,2.266v47.6a2.267,2.267,0,0,0,2.266,2.266H75.774a15.15,15.15,0,0,0,2.768,2.266H40.69Zm62.331-13.6c0,7.5-5.66,13.6-12.615,13.6H86.169c-6.954,0-12.615-6.1-12.615-13.6V84.505c0-4.79,3.6-8.693,8.02-8.693h2.5a2.921,2.921,0,0,1,.951.169,3.392,3.392,0,0,1,2.129,3.24v1.124a1.133,1.133,0,0,0,2.266,0V79.218a3.392,3.392,0,0,1,2.115-3.245l.054-.016a3.118,3.118,0,0,1,.906-.149H95c4.423,0,8.022,3.9,8.022,8.695v4.908Zm0,0" transform="translate(-4864.288 -14940.28)"/>
+                  <rect id="Rectangle_139153" data-name="Rectangle 139153" width="20.015" height="2.971" rx="1.486" transform="translate(-4817.222 -14857.103)" fill="rgba(0,0,0,0)"  stroke-width="1"/>
+                  <rect  class="icostr" id="Rectangle_139154" data-name="Rectangle 139154" width="20.015" height="2.971" rx="1.486" transform="translate(-4817.222 -14850.23)" fill="rgba(0,0,0,0)" stroke-width="1"/>
+                  <rect  class="icostr" id="Rectangle_139155" data-name="Rectangle 139155" width="20.015" height="2.971" rx="1.486" transform="translate(-4817.304 -14863.918)" fill="rgba(0,0,0,0)"  stroke-width="1"/>
+                  <rect  class="icostr" id="Rectangle_139156" data-name="Rectangle 139156" width="10.64" height="2.971" rx="1.486" transform="translate(-4817.334 -14871.094)" fill="rgba(0,0,0,0)" stroke-width="1"/>
+                  <path id="Path_8945" data-name="Path 8945" d="M116.41,96.27h1.13a1.13,1.13,0,1,0,0-2.26h-1.13a1.13,1.13,0,1,0,0,2.26Zm0,0" transform="translate(-4929.811 -14987.97)"/>
+                  <g id="Group_827" data-name="Group 827" transform="translate(-4827 -14903)" clip-path="url(#clip-path)">
+                    <path id="Path_8946" data-name="Path 8946" d="M151.863,96.276H166.6a1.133,1.133,0,0,0,0-2.266H151.863a1.133,1.133,0,0,0,0,2.266Zm0,0" transform="translate(-132.597 -84.943)"/>
+                  </g>
+                  <path id="Path_8947" data-name="Path 8947" d="M282.532,292.6c-.171.056-4.162,1.449-4.162,6.722a1.13,1.13,0,1,0,2.26,0c0-3.586,2.5-4.535,2.628-4.581a1.13,1.13,0,1,0-.725-2.14Zm0,0" transform="translate(-5066.826 -15154.722)"/>
+                  <g  class="icostr" id="Rectangle_139158" data-name="Rectangle 139158" transform="translate(-4817.973 -14881.943)" fill="rgba(0,0,0,0)" stroke-width="1">
+                    <rect width="9.077" height="4.782" rx="2.391" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="8.077" height="3.782" rx="1.891" fill="none"/>
+                  </g>
+                  <g  class="icostr" id="Rectangle_139159" data-name="Rectangle 139159" transform="translate(-4806.973 -14881.943)" fill="rgba(0,0,0,0)"  stroke-width="1">
+                    <rect width="18.078" height="4.782" rx="2.391" stroke="none"/>
+                    <rect x="0.5" y="0.5" width="17.078" height="3.782" rx="1.891" fill="none"/>
+                  </g>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            <ion-label class="subcate"> Diet Type</ion-label>
+          <ion-select class="six8"  [interfaceOptions]="selectOptions2" [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDtType(dietType)" slot="end">
+            <ion-select-option value="DtKeto">Ketogenic</ion-select-option>
+            <ion-select-option value="DtLc">Low Carb</ion-select-option>
+            <ion-select-option value="DtMlc">Moderate Low Carb</ion-select-option>
+            <ion-select-option value="DtMc">Moderate Carb</ion-select-option>
+            <ion-select-option value="DtMhc">Moderate High Carb</ion-select-option>
+            <ion-select-option value="DtHc">High Carb</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item (click)="chngepassword()">
+          <ion-icon name="ios-lock-outline" slot="start"></ion-icon>
+          Password
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+              </svg>               
+            </ion-icon>
+        </ion-item>
+
+        <ion-item (click)="traininglevel()">
+          <ion-icon  slot="start">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.002 59.296">
+              <g id="Training_Level" data-name="Training Level" transform="translate(0 -18.359)">
+                <g id="Group_803" data-name="Group 803" transform="translate(0 18.359)">
+                  <g id="Group_802" data-name="Group 802">
+                    <path id="Path_8940" data-name="Path 8940" d="M62.722,25.88H24.14a8.8,8.8,0,0,0-17.406,0H1.275a1.275,1.275,0,1,0,0,2.549h5.46a8.8,8.8,0,0,0,17.406,0H62.722a1.275,1.275,0,1,0,0-2.549ZM15.437,33.4a6.246,6.246,0,1,1,6.247-6.246A6.253,6.253,0,0,1,15.437,33.4Z" transform="translate(0 -18.359)"/>
+                  </g>
+                </g>
+                <g id="Group_805" data-name="Group 805" transform="translate(0 39.211)">
+                  <g id="Group_804" data-name="Group 804">
+                    <path id="Path_8941" data-name="Path 8941" d="M62.722,193.147H53.079a8.8,8.8,0,0,0-17.406,0H1.275a1.275,1.275,0,1,0,0,2.549h34.4a8.8,8.8,0,0,0,17.406,0h9.643a1.275,1.275,0,1,0,0-2.549Zm-18.346,7.521a6.246,6.246,0,1,1,6.247-6.246A6.253,6.253,0,0,1,44.376,200.668Z" transform="translate(0 -185.626)"/>
+                  </g>
+                </g>
+                <path id="Path_8943" data-name="Path 8943" d="M62.727,360.429,31.9,360.414a8.8,8.8,0,0,0-17.406,0H1.275a1.275,1.275,0,1,0,0,2.549H14.5a8.8,8.8,0,0,0,17.406,0l30.822.015a1.275,1.275,0,1,0,0-2.549ZM23.2,367.935a6.246,6.246,0,1,1,6.247-6.246A6.253,6.253,0,0,1,23.2,367.935Z" transform="translate(0 -292.829)"/>
+              </g>
+            </svg>
+            
+          </ion-icon>
+          Training Level
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+              </svg>               
+            </ion-icon>
+        </ion-item>
+  
+        <ion-item (click)="openTmax()">
+          <ion-icon  slot="start">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 55.001 64">
+              <g id="Training_Maxes" data-name="Training Maxes" transform="translate(4297.768 14741.145)">
+                <path id="Union_27" data-name="Union 27" d="M1.138,64A1.135,1.135,0,0,1,0,62.868V1.133A1.136,1.136,0,0,1,1.138,0h41.34a1.141,1.141,0,0,1,.8.332L54.667,11.656a1.131,1.131,0,0,1,.334.8V62.868A1.136,1.136,0,0,1,53.861,64Zm1.139-2.264H52.724V12.926L42,2.265H2.277ZM9.7,51.338a1.474,1.474,0,0,1,0-2.948h34.7a1.474,1.474,0,0,1,0,2.948Zm.083-10.886a1.474,1.474,0,0,1,0-2.947H44.473a1.474,1.474,0,0,1,0,2.947ZM17.981,29a3.869,3.869,0,0,1-1-2.8,4.258,4.258,0,0,1,1.068-3.051A3.746,3.746,0,0,1,20.9,22.016a3.506,3.506,0,0,1,2.675,1.01,4,4,0,0,1,.956,2.858,4.236,4.236,0,0,1-1.063,3.029,3.715,3.715,0,0,1-2.836,1.128A3.508,3.508,0,0,1,17.981,29Zm1.262-2.911q0,2.061,1.515,2.062T22.283,26a2.545,2.545,0,0,0-.409-1.547,1.277,1.277,0,0,0-1.074-.547Q19.243,23.907,19.243,26.087ZM9.629,29.825l10.012-15.4h2.642L12.25,29.825Zm19.84-.834a1.474,1.474,0,0,1,0-2.948H44.5a1.474,1.474,0,0,1,0,2.948Zm-21.081-7.8a3.869,3.869,0,0,1-1-2.8,4.252,4.252,0,0,1,1.069-3.051A3.742,3.742,0,0,1,11.3,14.207a3.491,3.491,0,0,1,2.669,1.021,4.02,4.02,0,0,1,.961,2.867,4.2,4.2,0,0,1-1.064,3.019,3.731,3.731,0,0,1-2.836,1.118A3.51,3.51,0,0,1,8.388,21.189Zm1.283-2.911q0,2.063,1.493,2.063,1.526,0,1.526-2.148,0-2.1-1.45-2.1Q9.671,16.1,9.671,18.277Zm19.8,1.054a1.473,1.473,0,0,1,0-2.947H44.5a1.473,1.473,0,1,1,0,2.947Z" transform="translate(-4297.768 -14741.145)"/>
+              </g>
+            </svg>
+            
+          </ion-icon>
+          Training Maxes
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+              </svg>               
+            </ion-icon>
+        </ion-item>
+  
+        <ion-item (click)="mysubscription()" *ngIf="plancheck">
+          <ion-icon  slot="start">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48">
+              <g id="Subscription" transform="translate(4146 14522.427)">
+                <g class="icostr" id="Rectangle_139070" data-name="Rectangle 139070" transform="translate(-4146 -14522.427)" fill="rgba(255,255,255,0)"  stroke-width="2">
+                  <rect width="64" height="48" rx="6" stroke="none"/>
+                  <rect x="1" y="1" width="62" height="46" rx="5" fill="none"/>
+                </g>
+                <rect id="Rectangle_139071" data-name="Rectangle 139071" width="64" height="9" transform="translate(-4146 -14513.427)"/>
+                <g  class="icostr" id="Rectangle_139072" data-name="Rectangle 139072" transform="translate(-4102 -14496.427)" fill="rgba(255,255,255,0)"  stroke-width="2">
+                  <rect width="14" height="14" rx="3" stroke="none"/>
+                  <rect x="1" y="1" width="12" height="12" rx="2" fill="none"/>
+                </g>
+                <path id="Union_26" data-name="Union 26" d="M23.488,9a.9.9,0,1,1,0-1.8H31.1a.9.9,0,0,1,0,1.8ZM.9,9a.9.9,0,1,1,0-1.8H19.806a.9.9,0,0,1,0,1.8ZM12.194,1.8a.9.9,0,1,1,0-1.8H31.1a.9.9,0,0,1,0,1.8ZM.9,1.8A.9.9,0,0,1,.9,0H8.512a.9.9,0,0,1,0,1.8Z" transform="translate(-4139 -14493.427)"/>
+              </g>
+            </svg>
+            
+          </ion-icon>
+          Subscription
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+              </svg>               
+            </ion-icon>
+        </ion-item>
+  
+        <ion-item (click)="openPlateWts()">
+          <ion-icon slot="start">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <g id="Set_Weights" data-name="Set Weights" transform="translate(-4.725 -117.997)">
+                <g  class="icostr" id="Ellipse_113" data-name="Ellipse 113" transform="translate(4.725 117.997)" fill="rgba(255,255,255,0)" stroke-width="2">
+                  <circle cx="32" cy="32" r="32" stroke="none"/>
+                  <circle cx="32" cy="32" r="31" fill="none"/>
+                </g>
+                <g  class="icostr" id="Ellipse_114" data-name="Ellipse 114" transform="translate(12.725 125.997)" fill="rgba(255,255,255,0)"stroke-width="2">
+                  <circle cx="24" cy="24" r="24" stroke="none"/>
+                  <circle cx="24" cy="24" r="23" fill="none"/>
+                </g>
+                <circle id="Ellipse_115" data-name="Ellipse 115" cx="8" cy="8" r="8" transform="translate(28.725 141.997)"/>
+              </g>
+            </svg>
+            
+          </ion-icon>
+          Set Weights
+          <ion-icon slot="end">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+              </svg>               
+            </ion-icon>
+        </ion-item> 
+
+          <ion-item>
+            <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.942 47.375">
+                <g id="Set_Weight_Units" data-name="Set Weight Units" transform="translate(1.21 0.564)">
+                  <g id="Group_678" data-name="Group 678" transform="translate(-0.21 -0.001)">
+                    <g id="Group_677" data-name="Group 677" transform="translate(0.234 0)">
+                      <path  class="icostr" id="Union_25" data-name="Union 25" d="M60.861,27.04l-4.381.818ZM0,27.04l4.381.818ZM59.467,21.53l-4.181,1.612ZM1.4,21.53l4.18,1.612ZM57.19,16.362l-3.852,2.355Zm-53.519,0,3.853,2.355ZM54.1,11.69l-3.408,3.028Zm-47.342,0,3.408,3.028ZM50.293,7.656l-2.859,3.608Zm-39.724,0,2.859,3.608ZM45.88,4.384l-2.225,4.08Zm-30.9,0L17.2,8.464ZM41,1.974,39.478,6.4Zm-21.136,0L21.383,6.4ZM35.8.5l-.772,4.639ZM25.065.5l.773,4.639ZM30.431,0V0Z" transform="translate(1.407)" fill="none"  stroke-miterlimit="10" stroke-width="1"/>
+                      <g id="Group_676" data-name="Group 676" transform="translate(21.393 10.089)">
+                        <path id="Path_8657" data-name="Path 8657" d="M208.861,249.1c-1.138-2.442-2.208-4.781-3.309-7.239l-1.634-3.692-1.605-3.706c-.533-1.237-1.1-2.456-1.66-3.681a40.318,40.318,0,0,1-1.479-3.758q-.645-1.92-1.171-3.887a36.13,36.13,0,0,1-.854-4.018l.2-.084a35.316,35.316,0,0,1,2.081,3.5q.943,1.794,1.765,3.638a39.517,39.517,0,0,1,1.457,3.767c.422,1.282.83,2.571,1.275,3.842l1.33,3.819,1.3,3.833c.854,2.56,1.682,5,2.5,7.578Z" transform="translate(-197.15 -219.03)"/>
+                      </g>
+                      <g id="Group_682" data-name="Group 682" transform="translate(0 0.437)">
+                        <path  class="icostr" id="Path_8655" data-name="Path 8655" d="M32.529,167.507c0-17.907,14.146-32.337,31.6-32.337s31.6,14.432,31.6,32.34" transform="translate(-32.024 -135.17)" fill="none" stroke-miterlimit="10" stroke-width="2"/>
+                        <path  class="icostr" id="Path_8656" data-name="Path 8656" d="M145.57,264.662a14.951,14.951,0,1,1,29.9,0" transform="translate(-128.222 -232.277)" fill="none"  stroke-miterlimit="10" stroke-width="2"/>
+                        <path  class="icostr" id="Path_8678" data-name="Path 8678" d="M17.143,0H-.359" transform="translate(46.623 31.374)" fill="none"  stroke-width="2"/>
+                        <line  class="icostr" id="Line_211" data-name="Line 211" x2="17.305" transform="translate(0 31.374)" fill="none" stroke-miterlimit="10" stroke-width="2"/>
+                      </g>
+                      <circle id="Ellipse_127" data-name="Ellipse 127" cx="3.751" cy="3.751" r="3.751" transform="translate(28.132 33.686)"/>
+                    </g>
+                    <text id="KG" transform="translate(7 43.811)" font-size="11" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="-7.321" y="0">KG</tspan></text>
+                    <text id="IB" transform="translate(54.479 43.811)" font-size="11" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="-5.269" y="0">IB</tspan></text>
+                  </g>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            <ion-label class="subcate">Set Weight Units</ion-label>
+            <ion-select [(ngModel)]="weightunit" name="weightunit" (ngModelChange)="onChangeWtUnits(weightunit)" slot="end">
+              <ion-select-option value="kgs">Kg</ion-select-option>
+              <ion-select-option value="lbs">Lb</ion-select-option>
             </ion-select>
-           </ion-item>
-
-            <ion-item>
-                <ion-icon name="ios-person-outline" item-start></ion-icon>
-                <ion-label class="subcate" >Dietary Goal</ion-label>
-              <ion-select class="six8" [interfaceOptions]="selectOptions" [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeDtGoal(dietMsg)" item-end>
-                <ion-select-option value="WtL">Weight Loss</ion-select-option>
-                <ion-select-option value="WtM">Weight Maintenance</ion-select-option>
-                <ion-select-option value="WtG">Weight Gain</ion-select-option>
+          </ion-item>
+    
+          <ion-item>
+            <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.997 60.234">
+                <g id="set_currency_type" transform="translate(-43.139 -66.13)">
+                  <g id="Group_675" data-name="Group 675" transform="translate(43.139 66.13)">
+                    <path id="Path_8649" data-name="Path 8649" d="M106.076,254.972a1.061,1.061,0,0,0,1.061-1.058v-29.7a1.061,1.061,0,0,0-1.058-1.061H44.2a1.061,1.061,0,0,0-1.061,1.058v29.7a1.061,1.061,0,0,0,1.058,1.061h62.032a1.074,1.074,0,0,0,0-2.122H45.262V225.272h59.754v28.639a1.061,1.061,0,0,0,1.058,1.061Z" transform="translate(-43.14 -194.738)"/>
+                    <path id="Path_8650" data-name="Path 8650" d="M62.113,119.324a1.067,1.067,0,0,0-.467.665l-2.475,11.137a1.061,1.061,0,0,0,2.071.459h0l2.243-10.1,48.463,10.9a.992.992,0,0,0,.234.026,1.061,1.061,0,0,0,.23-2.1l-49.5-11.137A1.063,1.063,0,0,0,62.113,119.324Z" transform="translate(-56.669 -107.842)"/>
+                    <path id="Path_8651" data-name="Path 8651" d="M149.043,77.62l2.031-4.064L179.856,85.55a1.063,1.063,0,0,0,.818-1.963l-29.7-12.375a1.065,1.065,0,0,0-1.361.506l-2.475,4.95a1.064,1.064,0,1,0,1.872,1.012c.011-.02.022-.04.031-.062Z" transform="translate(-130.942 -71.13)"/>
+                    <path id="Path_8652" data-name="Path 8652" d="M194.49,277.4a10.89,10.89,0,1,0-10.89-10.89h0A10.9,10.9,0,0,0,194.49,277.4Zm0-19.8a8.91,8.91,0,1,1-8.91,8.91A8.91,8.91,0,0,1,194.49,257.6Z" transform="translate(-161.872 -222.186)"/>
+                    <path id="Path_8653" data-name="Path 8653" d="M82.16,257.272h8.891a1.061,1.061,0,1,0,0-2.122H81.73a1.063,1.063,0,0,0-.742.3l-5.529,5.394a1.32,1.32,0,0,0-.319.866v8.8a1.061,1.061,0,0,0,.277.715l5.027,5.5a1.063,1.063,0,0,0,.783.345h9.824a1.061,1.061,0,0,0,0-2.122H81.7L77.262,270.1v-8.044Z" transform="translate(-70.189 -221.788)"/>
+                    <path id="Path_8654" data-name="Path 8654" d="M328.693,257.272H319.8a1.061,1.061,0,1,1,0-2.122h9.321a1.063,1.063,0,0,1,.742.3l5.529,5.392a1.32,1.32,0,0,1,.319.866v8.8a1.061,1.061,0,0,1-.277.715l-5.027,5.5a1.063,1.063,0,0,1-.783.345H319.8a1.061,1.061,0,1,1,0-2.122h9.354l4.435-4.851v-8.044Z" transform="translate(-276.108 -221.788)"/>
+                  </g>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            <ion-label class="subcate">Set Currency Type</ion-label>
+            <ion-select [(ngModel)]="currencyType" name="currencyType" (ngModelChange)="onChngCtype(currencyType)" slot="end">
+              <ion-select-option value="INR">INR</ion-select-option>
+              <ion-select-option value="USD">USD</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item (click)="changeSoundSettings()">
+              <ion-icon  slot="start">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 66 66">
+                  <g id="sound_disabled" transform="translate(-65.38 -65.131)">
+                    <g id="Group_679" data-name="Group 679" transform="translate(66.38 66.131)">
+                      <path  class="icostr" id="Path_8659" data-name="Path 8659" d="M84.519,153.636a.936.936,0,0,0-1.012.179l-9.633,9.045H67.316a.933.933,0,0,0-.936.93v13.02a.933.933,0,0,0,.936.93h6.56l9.633,9.045a.94.94,0,0,0,.642.255.936.936,0,0,0,.936-.93V154.49A.932.932,0,0,0,84.519,153.636Z" transform="translate(-66.38 -138.297)" fill="rgba(0,0,0,0)"  stroke-width="2"/>
+                      <g id="Path_8660" data-name="Path 8660" transform="translate(-183.562 -166.092)" fill="rgba(255,255,255,0)">
+                        <path  class="icostr" d="M 212.8105926513672 208.0745697021484 C 212.8105773925781 208.0745697021484 212.8105773925781 208.0745697021484 212.8105621337891 208.0745697021484 C 212.6513061523438 208.0745544433594 212.4185638427734 208.0315246582031 212.2140655517578 207.8265838623047 L 209.559814453125 205.17236328125 C 209.3060913085938 204.9178924560547 209.1747283935547 204.4732208251953 209.3958740234375 204.1713256835938 C 210.6941986083984 202.3959350585938 211.3802185058594 200.295166015625 211.3802185058594 198.0955047607422 C 211.3802185058594 195.8957977294922 210.6941986083984 193.7950134277344 209.3963012695313 192.020263671875 C 209.1974029541016 191.7487335205078 209.2694396972656 191.3090209960938 209.5598297119141 191.0186157226563 L 212.2132873535156 188.3651733398438 C 212.4190216064453 188.1594390869141 212.6524658203125 188.1162567138672 212.8120574951172 188.1162567138672 C 213.1021728515625 188.1162567138672 213.3743896484375 188.2530670166016 213.5589141845703 188.4916076660156 C 215.6978302001953 191.2676086425781 216.8290100097656 194.5885009765625 216.8290100097656 198.0937347412109 C 216.8290100097656 201.5991668701172 215.6972351074219 204.9206237792969 213.5560455322266 207.6990356445313 C 213.3721771240234 207.9377899169922 213.1005249023438 208.0745697021484 212.8105926513672 208.0745697021484 Z" />
+                        <path d="M 212.8204956054688 189.1721801757813 L 210.3531799316406 191.6394958496094 C 211.6801910400391 193.5415954589844 212.3802185058594 195.7681274414063 212.3802185058594 198.0955047607422 C 212.3802185058594 200.4223785400391 211.6804656982422 202.6484680175781 210.3531494140625 204.5514678955078 L 212.8187561035156 207.0170745849609 C 214.7884063720703 204.4297943115234 215.8290100097656 201.3462829589844 215.8290100097656 198.0937347412109 C 215.8290100097656 194.8407440185547 214.7886047363281 191.7572631835938 212.8204956054688 189.1721801757813 M 212.8120574951172 187.1162567138672 C 213.3871307373047 187.1162567138672 213.9628295898438 187.3793792724609 214.3498840332031 187.8797607421875 C 216.5302276611328 190.7095336914063 217.8290100097656 194.2532348632813 217.8290100097656 198.0937347412109 C 217.8290100097656 201.9342193603516 216.5302276611328 205.4779510498047 214.3481292724609 208.3094482421875 C 213.9618682861328 208.8110046386719 213.3858337402344 209.0745544433594 212.8105163574219 209.0745544433594 C 212.3405914306641 209.0745544433594 211.8711090087891 208.8986358642578 211.5061798095703 208.5329132080078 L 208.8527221679688 205.8794708251953 C 208.2417449951172 205.2667388916016 208.0776824951172 204.2786712646484 208.5891265869141 203.5804138183594 C 209.7151031494141 202.0407104492188 210.3802185058594 200.1449127197266 210.3802185058594 198.0955047607422 C 210.3802185058594 196.0460662841797 209.7151031494141 194.1502380371094 208.5891265869141 192.6105651855469 C 208.0776672363281 191.9123077392578 208.2400207519531 190.9242248535156 208.8527221679688 190.3115234375 L 211.5061798095703 187.6580657958984 C 211.8721008300781 187.2921447753906 212.3418731689453 187.1162414550781 212.8120574951172 187.1162567138672 Z" stroke="none"/>
+                      </g>
+                      <g id="Path_8661" data-name="Path 8661" transform="translate(-235.701 -115.954)" fill="rgba(255,255,255,0)">
+                        <path  class="icostr" d="M 273.6510009765625 168.4221649169922 C 273.6509704589844 168.4221649169922 273.6509704589844 168.4221649169922 273.6509399414063 168.4221649169922 C 273.4111328125 168.4221496582031 273.1773376464844 168.3262939453125 273.0094299316406 168.1591644287109 L 270.3753051757813 165.5367126464844 C 270.0539855957031 165.2168426513672 270.0551147460938 164.7146148681641 270.3779602050781 164.342529296875 C 274.3294677734375 159.7863922119141 276.5055847167969 153.966796875 276.5055847167969 147.9556274414063 C 276.5055847167969 141.9454956054688 274.3294677734375 136.1265106201172 270.3781127929688 131.5705871582031 C 270.0551147460938 131.1983337402344 270.053955078125 130.6961364746094 270.375244140625 130.3763275146484 L 273.0094909667969 127.7537155151367 C 273.1773376464844 127.5866394042969 273.4111022949219 127.4907913208008 273.6508483886719 127.4907913208008 C 273.7887878417969 127.4907913208008 274.0501098632813 127.5243988037109 274.2503051757813 127.74951171875 C 276.6822509765625 130.4823760986328 278.5829772949219 133.5842895507813 279.8999328613281 136.9694061279297 C 281.26318359375 140.4735565185547 281.9544372558594 144.1704254150391 281.9544067382813 147.9573211669922 C 281.9544067382813 151.7425994873047 281.26318359375 155.4385223388672 279.8999328613281 158.9424438476563 C 278.5829162597656 162.3274993896484 276.6821594238281 165.4298248291016 274.2504577636719 168.1632690429688 C 274.0501708984375 168.3885345458984 273.7889404296875 168.4221649169922 273.6510009765625 168.4221649169922 Z" />
+                        <path  class="icostr" d="M 273.6250305175781 128.5519866943359 L 271.1879272460938 130.9783020019531 C 275.2627868652344 135.7066955566406 277.5055847167969 141.7322692871094 277.5055847167969 147.9556274414063 C 277.5055847167969 154.1796264648438 275.2626037597656 160.2059936523438 271.1879272460938 164.9346618652344 L 273.6250305175781 167.3609466552734 C 275.9190979003906 164.7504119873047 277.7163391113281 161.7969207763672 278.9679870605469 158.5798645019531 C 280.2860717773438 155.1919860839844 280.9544067382813 151.6180572509766 280.9544067382813 147.9573211669922 C 280.9544067382813 144.2949523925781 280.2860717773438 140.7200622558594 278.9679870605469 137.3319549560547 C 277.7164001464844 134.1149139404297 275.9195556640625 131.1622161865234 273.6250305175781 128.5519866943359 M 273.6508483886719 126.4907989501953 C 274.1492919921875 126.4908294677734 274.6434326171875 126.6867370605469 274.9975891113281 127.0850219726563 C 279.9465942382813 132.6463470458984 282.9544372558594 139.9577331542969 282.9544067382813 147.9573364257813 C 282.9544067382813 155.9534759521484 279.9465942382813 163.2648620605469 274.9975891113281 168.8279418945313 C 274.6434020996094 169.2262878417969 274.1494140625 169.4221496582031 273.65087890625 169.4221496582031 C 273.1641540527344 169.4221496582031 272.673095703125 169.2353515625 272.303955078125 168.8678894042969 L 269.6697692871094 166.2453918457031 C 268.9644775390625 165.5432891845703 268.9697265625 164.4396667480469 269.6226501464844 163.6871643066406 C 273.2868347167969 159.4623107910156 275.5055847167969 153.9618072509766 275.5055847167969 147.9556274414063 C 275.5055847167969 141.9493560791016 273.2868347167969 136.4505920410156 269.6226501464844 132.2257995605469 C 268.9697265625 131.4732666015625 268.9644470214844 130.3696746826172 269.6697692871094 129.6675872802734 L 272.303955078125 127.0450439453125 C 272.6731567382813 126.6775360107422 273.1640625 126.4907531738281 273.6508483886719 126.4907989501953 Z" />
+                      </g>
+                      <path  class="icostr" id="Path_8662" data-name="Path 8662" d="M335.336,66.712a1.878,1.878,0,0,0-2.69-.028l-2.638,2.63a1.835,1.835,0,0,0-.03,2.555,38.83,38.83,0,0,1,0,52.524,1.833,1.833,0,0,0,.03,2.555l2.638,2.63a1.878,1.878,0,0,0,2.69-.028,46.225,46.225,0,0,0,0-62.838Z" transform="translate(-283.655 -66.131)" fill="rgba(0,0,0,0)" stroke-width="2"/>
+                    </g>
+                  </g>
+                </svg>
                 
-              </ion-select>
-             </ion-item>
-            <ion-item>
-                <ion-icon name="ios-person-outline" item-start></ion-icon>
-                <ion-label class="subcate"> Diet Type</ion-label>
-              <ion-select class="six8"  [interfaceOptions]="selectOptions2" [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDtType(dietType)" item-end>
-                <ion-select-option value="DtKeto">Ketogenic</ion-select-option>
-                <ion-select-option value="DtLc">Low Carb</ion-select-option>
-                <ion-select-option value="DtMlc">Moderate Low Carb</ion-select-option>
-                <ion-select-option value="DtMc">Moderate Carb</ion-select-option>
-                <ion-select-option value="DtMhc">Moderate High Carb</ion-select-option>
-                <ion-select-option value="DtHc">High Carb</ion-select-option>
-              </ion-select>
-            </ion-item>
-          
-            <ion-item (click)="chngepassword()">
-              <ion-icon name="ios-lock-outline" item-start></ion-icon>
-              Password
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>               
-                </ion-icon>
-            </ion-item>
+              </ion-icon>
+            <ion-label>{{soundText}}</ion-label>
+            <ion-toggle [ngModel]="isSoundOn" (ngModelChange)="changeSound($event)"></ion-toggle>
+          </ion-item>
+      
+          <ion-item (click)="changeVibrateSettings()">
+              <ion-icon  slot="start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 64">
+                  <g id="Vibration_Disabled" data-name="Vibration Disabled" transform="translate(3900.001 13121.656)">
+                    <path  class="icostr" id="Union_29" data-name="Union 29" d="M8.229,31.817V2.012a2.011,2.011,0,1,1,4.023,0V31.817a2.011,2.011,0,0,1-4.023,0ZM0,24.853V8.976a2.012,2.012,0,1,1,4.023,0V24.853a2.012,2.012,0,0,1-4.023,0Z" transform="translate(-3847.252 -13107.028)" fill="none"  stroke-width="2"/>
+                    <path  class="icostr" id="Union_30" data-name="Union 30" d="M8.069,32.035V1.966a1.966,1.966,0,0,1,3.931,0V32.035a1.966,1.966,0,0,1-3.931,0ZM0,25.034V8.966a1.965,1.965,0,1,1,3.93,0V25.034a1.965,1.965,0,1,1-3.93,0Z" transform="translate(-3887 -13073.658) rotate(180)" fill="none" stroke-width="2"/>
+                    <g  class="icostr" id="Rectangle_139097" data-name="Rectangle 139097" transform="translate(-3882.087 -13121.656)" fill="rgba(0,0,0,0)" stroke-width="2">
+                      <rect width="30.117" height="64" rx="3" stroke="none"/>
+                      <rect x="1" y="1" width="28.117" height="62" rx="2" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+                
+              </ion-icon>
+            <ion-label>{{vibrateText}}</ion-label>
+            <ion-toggle [ngModel]="isVibrateOn" (ngModelChange)="changeVibrate($event)"></ion-toggle>
+          </ion-item>
+          <ion-item (click)="openInviteFriend()">
+              <ion-icon slot="start">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 61 64">
+                  <g id="Refer_the_App" data-name="Refer the App" transform="translate(4674.885 14915.271)">
+                    <g id="Group_824" data-name="Group 824" transform="translate(-4661.945 -14902.06)">
+                      <line  class="icostr" id="Line_324" data-name="Line 324" x1="5.135" y1="6.676" transform="translate(7.061)" fill="none" stroke-width="1"/>
+                      <line  class="icostr"  class="icostr" id="Line_328" data-name="Line 328" y1="5.379" x2="5.6" transform="translate(27.542 1.296)" fill="none"stroke-width="1"/>
+                      <line  class="icostr" id="Line_325" data-name="Line 325" x1="9.757" y2="3.723" transform="translate(0 18.487)" fill="none" stroke-width="1"/>
+                      <line  class="icostr" id="Line_326" data-name="Line 326" x1="0.514" y1="12.838" transform="translate(18.616 24.65)" fill="none"  stroke-width="1"/>
+                      <line  class="icostr" id="Line_327" data-name="Line 327" x1="8.217" y1="3.723" transform="translate(27.859 19.514)" fill="none" stroke-width="1"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_135" data-name="Ellipse 135" transform="translate(-4630.885 -14912.271)" fill="rgba(255,255,255,0)" stroke-width="2">
+                      <ellipse cx="7" cy="7.5" rx="7" ry="7.5" stroke="none"/>
+                      <ellipse cx="7" cy="7.5" rx="6" ry="6.5" fill="none"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_136" data-name="Ellipse 136" transform="translate(-4665.885 -14915.271)" fill="rgba(255,255,255,0)" stroke-width="2">
+                      <circle cx="7.5" cy="7.5" r="7.5" stroke="none"/>
+                      <circle cx="7.5" cy="7.5" r="6.5" fill="none"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_137" data-name="Ellipse 137" transform="translate(-4674.885 -14885.271)" fill="rgba(255,255,255,0)" stroke-width="2">
+                      <circle cx="7.5" cy="7.5" r="7.5" stroke="none"/>
+                      <circle cx="7.5" cy="7.5" r="6.5" fill="none"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_138" data-name="Ellipse 138" transform="translate(-4649.885 -14866.271)" fill="rgba(255,255,255,0)" stroke-width="2">
+                      <circle cx="7.5" cy="7.5" r="7.5" stroke="none"/>
+                      <circle cx="7.5" cy="7.5" r="6.5" fill="none"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_139" data-name="Ellipse 139" transform="translate(-4627.885 -14883.271)" fill="rgba(255,255,255,0)" stroke-width="2">
+                      <ellipse cx="7" cy="7.5" rx="7" ry="7.5" stroke="none"/>
+                      <ellipse cx="7" cy="7.5" rx="6" ry="6.5" fill="none"/>
+                    </g>
+                    <g  class="icostr" id="Ellipse_140" data-name="Ellipse 140" transform="translate(-4653.885 -14899.271)" fill="rgba(255,255,255,0)" stroke-width="3">
+                      <ellipse cx="11.5" cy="12" rx="11.5" ry="12" stroke="none"/>
+                      <ellipse cx="11.5" cy="12" rx="10" ry="10.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+                
+              </ion-icon>
+              Refer the App
+              <ion-icon slot="end">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                  <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+                </svg>               
+              </ion-icon>
+          </ion-item>
 
-            <ion-item (click)="traininglevel()">
-              <ion-icon name="ios-man-outline"  item-start></ion-icon>
-              Training Level
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>               
-                </ion-icon>
-            </ion-item>
-      
-            <ion-item (click)="openTmax()">
-              <ion-icon name="ios-clipboard-outline"  item-start></ion-icon>
-              Training Maxes
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>               
-                </ion-icon>
-            </ion-item>
-      
-            <ion-item (click)="mysubscription()" *ngIf="plancheck">
-              <ion-icon name="ios-card-outline"  item-start></ion-icon>
-              Subscription
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>               
-                </ion-icon>
-            </ion-item>
-      
-            <ion-item (click)="openPlateWts()">
-              <ion-icon name="ios-disc-outline" item-start></ion-icon>
-              Set Weights
-              <ion-icon item-end>
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>               
-                </ion-icon>
-            </ion-item> 
+          <ion-item (click)="openfeedback()">
+            <ion-icon  slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_139056" data-name="Rectangle 139056" width="64" height="64" transform="translate(0 -0.455)"/>
+                  </clipPath>
+                </defs>
+                <g id="Feedback" transform="translate(-25.27 -26.045)">
+                  <g id="Group_671" data-name="Group 671" transform="translate(25.27 26.5)">
+                    <g id="Group_670" data-name="Group 670" transform="translate(0)">
+                      <g id="Group_669" data-name="Group 669" clip-path="url(#clip-path)">
+                        <path id="Path_8640" data-name="Path 8640" d="M88.558,36.72a3.075,3.075,0,0,0-1.452-1.911l-.909-.525a3.16,3.16,0,0,0-1.147-4.3h0l-3.614-2.1a3.123,3.123,0,0,0-4.281,1.153s0,0,0,0l-2.935,5.115H30.492A5.237,5.237,0,0,0,25.27,39.4V73.009a5.237,5.237,0,0,0,5.222,5.251h1.045V89.813a1.038,1.038,0,0,0,.648.967.873.873,0,0,0,.4.084,1.045,1.045,0,0,0,.742-.3l12.22-12.3H76.452a5.237,5.237,0,0,0,5.222-5.251V42.16l3.478-6.06.909.525a1.034,1.034,0,0,1,.481.641.994.994,0,0,1-.083.756L82.8,43.83l1.766,1.123,3.676-5.84a3.148,3.148,0,0,0,.314-2.394Zm-9.912,6.511L68.2,61.423,62.77,58.271,73.215,40.079ZM66.717,63,61.15,67.409l1.014-7.068ZM79.586,73.009a3.153,3.153,0,0,1-3.134,3.152H45.116a1.077,1.077,0,0,0-.742.3L33.627,87.283V77.211a1.048,1.048,0,0,0-1.045-1.051h-2.09a3.153,3.153,0,0,1-3.134-3.152V39.4a3.153,3.153,0,0,1,3.134-3.152H73.005L60.44,58.134a1.022,1.022,0,0,0-.126.378l-1.609,11.2a1.044,1.044,0,0,0,1.682.975l8.827-6.994a1.713,1.713,0,0,0,.271-.306l10.1-17.594V73.009Zm4.805-39.776-4.7,8.181-5.432-3.152,4.7-8.181a1.074,1.074,0,0,1,.638-.493,1.049,1.049,0,0,1,.795.105l3.614,2.1a1.053,1.053,0,0,1,.39,1.433s0,0,0,.006Zm0,0" transform="translate(-25.27 -27.319)"/>
+                      </g>
+                    </g>
+                    <rect id="Rectangle_139058" data-name="Rectangle 139058" width="28.974" height="2.09" rx="1.045" transform="translate(6.267 16.87)"/>
+                    <rect id="Rectangle_139059" data-name="Rectangle 139059" width="12.009" height="2.09" rx="1.045" transform="translate(6.267 26.81)"/>
+                    <rect id="Rectangle_139060" data-name="Rectangle 139060" width="22.288" height="2.09" rx="1.045" transform="translate(6.267 31.821)"/>
+                    <rect id="Rectangle_139061" data-name="Rectangle 139061" width="22.288" height="2.09" rx="1.045" transform="translate(6.267 36.833)"/>
+                    <rect id="Rectangle_139062" data-name="Rectangle 139062" width="24.873" height="2.09" rx="1.045" transform="translate(6.267 41.846)"/>
+                  </g>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            Feedback
+            <ion-icon slot="end">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                  <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+                </svg>               
+              </ion-icon>
+          </ion-item>
+    
+          <ion-item (click)="openfaqs()">
+            <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
+                <g id="FAQS" transform="translate(-23.177 -23.301)">
+                  <circle  class="icostr" id="Ellipse_126" data-name="Ellipse 126" cx="32" cy="32" r="32" transform="translate(24.677 24.801)" fill="none" stroke-miterlimit="10" stroke-width="3"/>
+                  <g id="Group_668" data-name="Group 668" transform="translate(42.686 34.589)">
+                    <path id="Path_8639" data-name="Path 8639" d="M151.7,107.657a13.276,13.276,0,0,1,4.353-9.195,14.192,14.192,0,0,1,9.76-3.4q6.268,0,10.131,3.342a10.762,10.762,0,0,1,3.863,8.512,11.37,11.37,0,0,1-1.322,5.408,19.963,19.963,0,0,1-4.976,5.527q-3.654,3.03-4.486,4.828a15.441,15.441,0,0,0-.832,5.987h-5.229q0-5.526,1.278-8.1a18.459,18.459,0,0,1,4.709-5.481,19.231,19.231,0,0,0,4.263-4.472,6.936,6.936,0,0,0,.832-3.312,7.552,7.552,0,0,0-2.257-5.63,8.086,8.086,0,0,0-5.913-2.213q-7.13,0-8.379,8.2H151.7Zm17.113,31.7h-6.09v-6.09h6.09Z" transform="translate(-151.7 -95.06)"/>
+                  </g>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            FAQs
+            <ion-icon slot="end">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                  <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+                </svg>               
+              </ion-icon>
+          </ion-item>
+    
+          <ion-item (click)="openAbout()">
+            <ion-icon slot="start">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
+                <g id="About" transform="translate(-23.5 -22.831)">
+                  <circle  class="icostr" id="Ellipse_125" data-name="Ellipse 125" cx="32" cy="32" r="32" transform="translate(25 24.331)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"/>
+                  <path id="Path_8638" data-name="Path 8638" d="M234.469,118.963a3.064,3.064,0,0,1-6.129,0,3.016,3.016,0,0,1,3.093-3.093A2.937,2.937,0,0,1,234.469,118.963Zm-5.51,34.867V126.612h4.949v27.219Z" transform="translate(-174.964 -78.429)"/>
+                </g>
+              </svg>
+              
+            </ion-icon>
+            About
+            <ion-icon slot="end">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                  <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
+                </svg>               
+              </ion-icon>
+          </ion-item>
 
-              <ion-item>
-                <ion-icon name="ios-speedometer-outline"  item-start></ion-icon>
-                <ion-label class="subcate">Set Weight Units</ion-label>
-                <ion-select [(ngModel)]="weightunit" name="weightunit" (ngModelChange)="onChangeWtUnits(weightunit)" item-end>
-                  <ion-select-option value="kgs">Kg</ion-select-option>
-                  <ion-select-option value="lbs">Lb</ion-select-option>
-                </ion-select>
-              </ion-item>
+          <ion-item (click)="logout()">
+              <ion-icon slot="start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                  <g id="logout" transform="translate(-26 -26)">
+                    <g id="Group_672" data-name="Group 672" transform="translate(26 26)">
+                      <path id="Path_8641" data-name="Path 8641" d="M64.45,86.1H29.873V29.9H64.45V40.666A1.328,1.328,0,0,0,65.773,42H67a1.328,1.328,0,0,0,1.322-1.333V31.333A5.311,5.311,0,0,0,63.033,26H31.29A5.311,5.311,0,0,0,26,31.333V84.666A5.311,5.311,0,0,0,31.29,90H63.033a5.311,5.311,0,0,0,5.29-5.333V75.334A1.328,1.328,0,0,0,67,74H65.773a1.328,1.328,0,0,0-1.322,1.333V86.1Z" transform="translate(-26 -26)"/>
+                      <path id="Path_8642" data-name="Path 8642" d="M178.688,150.839,165,138.293a1.141,1.141,0,0,0-1.911.841v2.281a1.141,1.141,0,0,0,.378.848L171.4,149.4H139.14a1.139,1.139,0,0,0-1.14,1.14v2.281a1.139,1.139,0,0,0,1.14,1.14H171.4l-7.928,7.136a1.139,1.139,0,0,0-.378.848v2.281a1.14,1.14,0,0,0,.682,1.044,1.12,1.12,0,0,0,.459.1,1.147,1.147,0,0,0,.771-.3l13.686-12.546a1.14,1.14,0,0,0,0-1.683Z" transform="translate(-115.059 -119.68)"/>
+                    </g>
+                  </g>
+                </svg>
+                
+              </ion-icon>
+              Logout
+          </ion-item>
+
+    </ion-list>
         
-              <ion-item>
-                <ion-icon name="ios-cash-outline" item-start></ion-icon>
-                <ion-label class="subcate">Set Currency Type</ion-label>
-                <ion-select [(ngModel)]="currencyType" name="currencyType" (ngModelChange)="onChngCtype(currencyType)" item-end>
-                  <ion-select-option value="INR">INR</ion-select-option>
-                  <ion-select-option value="USD">USD</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-item (click)="changeSoundSettings()">
-                  <ion-icon name="ios-volume-up-outline" item-start></ion-icon>
-                <ion-label>{{soundText}}</ion-label>
-                <ion-toggle [ngModel]="isSoundOn" (ngModelChange)="changeSound($event)"></ion-toggle>
-              </ion-item>
-          
-              <ion-item (click)="changeVibrateSettings()">
-                  <ion-icon name="ios-phone-portrait-outline" item-start></ion-icon>
-                <ion-label>{{vibrateText}}</ion-label>
-                <ion-toggle [ngModel]="isVibrateOn" (ngModelChange)="changeVibrate($event)"></ion-toggle>
-              </ion-item>
-              <ion-item (click)="openInviteFriend()">
-                  <ion-icon name="ios-calendar-outline" item-start></ion-icon>
-                  Refer the App
-                  <ion-icon item-end>
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                      <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                    </svg>               
-                  </ion-icon>
-                </ion-item>
-          
-                <ion-item (click)="openfeedback()">
-                  <ion-icon name="ios-paper-plane-outline" item-start></ion-icon>
-                  Feedback
-                  <ion-icon item-end>
-                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                      </svg>               
-                    </ion-icon>
-                </ion-item>
-          
-                <ion-item (click)="openfaqs()">
-                  <ion-icon name="ios-help-circle-outline"  item-start></ion-icon>
-                  FAQs
-                  <ion-icon item-end>
-                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                      </svg>               
-                    </ion-icon>
-                </ion-item>
-          
-                <ion-item (click)="openAbout()">
-                  <ion-icon name="ios-information-circle-outline" item-start></ion-icon>
-                  About
-                  <ion-icon item-end>
-                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                        <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                      </svg>               
-                    </ion-icon>
-                </ion-item>
 
-                <ion-item (click)="logout()">
-                    <ion-icon name="ios-log-out-outline"  item-start></ion-icon>
-                    Logout
-                </ion-item>
-
-          </ion-list>
-        
-    </ion-row>
 
 </ion-content>
 
