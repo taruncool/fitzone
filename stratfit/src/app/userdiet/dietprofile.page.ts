@@ -9,6 +9,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 //import { CalendarModule } from 'ion4-calendar';
 import { DiethistoryPage } from './diethistory/diethistory.page';
 import { AddmealPage } from './addmeal/addmeal.page';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-dietprofile',
@@ -119,6 +120,7 @@ export class DietprofilePage implements OnInit {
   backNav;
 
   prompt;
+  pageType;
 
   constructor(public platform: Platform, 
      public nav: NavController,
@@ -130,8 +132,14 @@ export class DietprofilePage implements OnInit {
      public modalCtrl: ModalController, 
      public http: HttpClient,
      public apiService: ApiService,
-     public alertCtrl:AlertController, 
+     public alertCtrl:AlertController,
+     public router: Router,private route: ActivatedRoute 
      ) {//public calendarCtrl: CalendarModule
+      this.route.queryParams.subscribe(params => {
+        if (this.router.getCurrentNavigation().extras.state) {
+          this.pageType = this.router.getCurrentNavigation().extras.state.page;
+        }
+        });
   }
 
   ngOnInit() {
@@ -185,7 +193,7 @@ export class DietprofilePage implements OnInit {
     if(this.lastname ==='null' || this.lastname ==='' || this.lastname ==='undefined'){
       this.lastname='';
     }
-    //this.backNav = this.navParams.get("page");
+    // this.backNav = this.navParams.get("page");
     // if(this.dob ==='null' || this.dob ==='' || this.dob ==='undefined'){
     //   this.dob='N/A';
     // }else{
@@ -922,18 +930,13 @@ export class DietprofilePage implements OnInit {
 
   public backButtonAction(){
 
-    // if(this.backNav==1){
-      
-      this.nav.navigateForward('/profile');
-
-    // }else{
-
-    //   this.nav.pop();
-      
-    // }
-    
+      if( this.pageType==='settings'){
+        this.nav.navigateForward('tabs/tabs/profile');
+       }else{
+        this.nav.navigateForward('tabs/tabs/dashboard');
+       }
   }
-
+  
   // public openMessanger() {
     // this.intercom.setLauncherVisibility('VISIBLE');
     //this.intercom.displayMessenger();

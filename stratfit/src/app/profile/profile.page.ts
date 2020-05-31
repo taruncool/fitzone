@@ -10,7 +10,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ImagepreviewPage } from './imagepreview/imagepreview.page';
 import { ImageProvider } from '../../providers/image/image';
-
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -91,7 +91,7 @@ export class ProfilePage implements OnInit {
   
   @ViewChild('Content',{static:false}) content: IonContent;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew) {
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
   
     // this.platform.backButton.subscribe(() => {
       
@@ -300,8 +300,13 @@ export class ProfilePage implements OnInit {
 
     if(this.planSet){
 
-      this.navCtrl.navigateForward('/dietprofile');
-
+      // this.navCtrl.navigateForward('/dietprofile');
+      let navigationExtras: NavigationExtras = {
+        state: {
+          "page":"settings"
+        }
+      };
+      this.router.navigate(['dietprofile'], navigationExtras);
     }else{
 
       this.noProgramsAlert();
