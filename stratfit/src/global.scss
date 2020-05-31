@@ -110,13 +110,13 @@ body.sfbred  {
  .exetab .workview .setlist .infild .item .label svg, .inputs svg  {fill: #080C14 !important;}
 
 
- .head .hedfm .title .toolbar-title span, .fitness .gender, .db .workout, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db h1, .exetab .workflow .worktab .scrol div[scrollX] li.active, .summary ion-card ion-item h2, ion-segment ion-segment-button{color: #fff !important;}
+ .head .hedfm .title .toolbar-title span, .fitness .gender, .db .workout, progressbar-popup .pcview .poverlay .pcsuces h1, progressbar-popup .pcview .poverlay .pcsuces h4, .sview .poverlay.nobg .label .prow h6, .db .card, .db h1, .exetab .workflow .worktab .scrol div[scrollX] li.active, .timing .inpgr, .summary ion-card ion-item h2, ion-segment ion-segment-button{color: #fff !important;}
 
  ion-segment ion-segment-button {opacity: 0.4 !important; --indicator-color: none !important;}
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
- .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .profile .list .item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
+ .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .profile .list ion-item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
 
 .execis .exeblk em {color:#000 !important;}
 
@@ -906,12 +906,16 @@ ion-app.ios {
  
   ion-list {width: 100%;         
     ion-item{ font-size: inherit;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid;
-        ion-icon{margin-right: 0 !important; 
-          svg {width:1rem !important; height: 1rem !important;}
+
+        span{margin-right: 15px !important;  float: left;
+          svg {width:20px !important; height: 20px !important;}
         }
-        ion-icon[item-start]{
-          svg {width:2rem !important; height:2rem !important;}
+        span:last-child {margin-right: 0 !important;
+          svg {width:16px !important; height: 16px !important;}
         }
+        // span[slot="start"]{
+        //   svg {width:2rem !important; height:2rem !important;}
+        // }
         ion-select {margin-top:0 !important; margin-bottom: 0 !important; margin-right: 0 !important;}
         ion-select.six8 {max-width:68% !important;}
 

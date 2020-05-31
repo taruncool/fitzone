@@ -55,22 +55,22 @@
     </ion-row> -->
 
     <ion-list>
-        <ion-item (click)="profileinfo()">
-          <ion-icon slot="start">
+        <ion-item class="nobg" (click)="profileinfo()">
+          <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.726 66">
               <path id="Path_8948" data-name="Path 8948" d="M66.062,40.505a22.687,22.687,0,1,0-28.029,0A30.925,30.925,0,0,0,21.184,66h4.131A26.816,26.816,0,0,1,42.246,43.125a22.468,22.468,0,0,0,19.6,0A26.816,26.816,0,0,1,78.779,66H82.91A30.921,30.921,0,0,0,66.062,40.505Zm-14.015.745A18.563,18.563,0,1,1,70.61,22.687,18.561,18.561,0,0,1,52.047,41.25Z" transform="translate(-21.184)"/>
             </svg>
             
-          </ion-icon>
+          </span>
           Profile Info
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />
               </svg>
-          </ion-icon>
+          </span>
         </ion-item>
-        <ion-item (click)="dietInfo()">
-          <ion-icon slot="start">
+        <ion-item class="nobg" (click)="dietInfo()">
+          <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                 <g id="cutlery" transform="translate(0 -11.586)">
                   <rect id="Rectangle_138842" data-name="Rectangle 138842"  transform="translate(0 11.586)" fill="none"/>
@@ -82,16 +82,16 @@
               </svg>
               
 
-          </ion-icon>
+          </span>
           Nutrition
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />
               </svg>
-          </ion-icon>
+          </span>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="nobg">
           <ion-icon  slot="start">
             <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 53">
               <defs>
@@ -109,7 +109,7 @@
               <path id="Path_8845" data-name="Path 8845" d="M137.95,206.078a5.678,5.678,0,1,0,5.678-5.678,5.686,5.686,0,0,0-5.678,5.678Zm9.381,0a3.7,3.7,0,1,1-3.7-3.7,3.707,3.707,0,0,1,3.7,3.7Zm0,0" transform="translate(-125.104 -184.322)"/>
             </svg>
             
-          </ion-icon>
+          </span>
           <ion-label class="subcate" >Active physical job</ion-label>
         <ion-select class="six8" [interfaceOptions]="selectOptions3" [(ngModel)]="noOfWorkDays" name="weightunit" (ngModelChange)="onChangeWorkDays(noOfWorkDays)" slot="end">
           
@@ -124,7 +124,7 @@
         </ion-select>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="nobg">
             <ion-icon name="ios-person-outline" slot="start"></ion-icon>
             <ion-label class="subcate" >Dietary Goal</ion-label>
           <ion-select class="six8" [interfaceOptions]="selectOptions" [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeDtGoal(dietMsg)" slot="end">
@@ -134,8 +134,8 @@
             
           </ion-select>
           </ion-item>
-        <ion-item>
-            <ion-icon slot="start">
+        <ion-item class="nobg">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 68">
                 <defs>
                   <clipPath id="clip-path">
@@ -164,7 +164,7 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             <ion-label class="subcate"> Diet Type</ion-label>
           <ion-select class="six8"  [interfaceOptions]="selectOptions2" [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDtType(dietType)" slot="end">
             <ion-select-option value="DtKeto">Ketogenic</ion-select-option>
@@ -176,18 +176,18 @@
           </ion-select>
         </ion-item>
       
-        <ion-item (click)="chngepassword()">
+        <ion-item class="nobg" (click)="chngepassword()">
           <ion-icon name="ios-lock-outline" slot="start"></ion-icon>
           Password
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
               </svg>               
-            </ion-icon>
+            </span>
         </ion-item>
 
-        <ion-item (click)="traininglevel()">
-          <ion-icon  slot="start">
+        <ion-item class="nobg" (click)="traininglevel()">
+          <span  slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.002 59.296">
               <g id="Training_Level" data-name="Training Level" transform="translate(0 -18.359)">
                 <g id="Group_803" data-name="Group 803" transform="translate(0 18.359)">
@@ -204,34 +204,34 @@
               </g>
             </svg>
             
-          </ion-icon>
+          </span>
           Training Level
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
               </svg>               
-            </ion-icon>
+            </span>
         </ion-item>
   
-        <ion-item (click)="openTmax()">
-          <ion-icon  slot="start">
+        <ion-item class="nobg" (click)="openTmax()">
+          <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 55.001 64">
               <g id="Training_Maxes" data-name="Training Maxes" transform="translate(4297.768 14741.145)">
                 <path id="Union_27" data-name="Union 27" d="M1.138,64A1.135,1.135,0,0,1,0,62.868V1.133A1.136,1.136,0,0,1,1.138,0h41.34a1.141,1.141,0,0,1,.8.332L54.667,11.656a1.131,1.131,0,0,1,.334.8V62.868A1.136,1.136,0,0,1,53.861,64Zm1.139-2.264H52.724V12.926L42,2.265H2.277ZM9.7,51.338a1.474,1.474,0,0,1,0-2.948h34.7a1.474,1.474,0,0,1,0,2.948Zm.083-10.886a1.474,1.474,0,0,1,0-2.947H44.473a1.474,1.474,0,0,1,0,2.947ZM17.981,29a3.869,3.869,0,0,1-1-2.8,4.258,4.258,0,0,1,1.068-3.051A3.746,3.746,0,0,1,20.9,22.016a3.506,3.506,0,0,1,2.675,1.01,4,4,0,0,1,.956,2.858,4.236,4.236,0,0,1-1.063,3.029,3.715,3.715,0,0,1-2.836,1.128A3.508,3.508,0,0,1,17.981,29Zm1.262-2.911q0,2.061,1.515,2.062T22.283,26a2.545,2.545,0,0,0-.409-1.547,1.277,1.277,0,0,0-1.074-.547Q19.243,23.907,19.243,26.087ZM9.629,29.825l10.012-15.4h2.642L12.25,29.825Zm19.84-.834a1.474,1.474,0,0,1,0-2.948H44.5a1.474,1.474,0,0,1,0,2.948Zm-21.081-7.8a3.869,3.869,0,0,1-1-2.8,4.252,4.252,0,0,1,1.069-3.051A3.742,3.742,0,0,1,11.3,14.207a3.491,3.491,0,0,1,2.669,1.021,4.02,4.02,0,0,1,.961,2.867,4.2,4.2,0,0,1-1.064,3.019,3.731,3.731,0,0,1-2.836,1.118A3.51,3.51,0,0,1,8.388,21.189Zm1.283-2.911q0,2.063,1.493,2.063,1.526,0,1.526-2.148,0-2.1-1.45-2.1Q9.671,16.1,9.671,18.277Zm19.8,1.054a1.473,1.473,0,0,1,0-2.947H44.5a1.473,1.473,0,1,1,0,2.947Z" transform="translate(-4297.768 -14741.145)"/>
               </g>
             </svg>
             
-          </ion-icon>
+          </span>
           Training Maxes
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
               </svg>               
-            </ion-icon>
+            </span>
         </ion-item>
   
-        <ion-item (click)="mysubscription()" *ngIf="plancheck">
-          <ion-icon  slot="start">
+        <ion-item class="nobg" (click)="mysubscription()" *ngIf="plancheck">
+          <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48">
               <g id="Subscription" transform="translate(4146 14522.427)">
                 <g class="icostr" id="Rectangle_139070" data-name="Rectangle 139070" transform="translate(-4146 -14522.427)" fill="rgba(255,255,255,0)"  stroke-width="2">
@@ -247,17 +247,17 @@
               </g>
             </svg>
             
-          </ion-icon>
+          </span>
           Subscription
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
               </svg>               
-            </ion-icon>
+            </span>
         </ion-item>
   
-        <ion-item (click)="openPlateWts()">
-          <ion-icon slot="start">
+        <ion-item class="nobg" (click)="openPlateWts()">
+          <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
               <g id="Set_Weights" data-name="Set Weights" transform="translate(-4.725 -117.997)">
                 <g  class="icostr" id="Ellipse_113" data-name="Ellipse 113" transform="translate(4.725 117.997)" fill="rgba(255,255,255,0)" stroke-width="2">
@@ -272,17 +272,17 @@
               </g>
             </svg>
             
-          </ion-icon>
+          </span>
           Set Weights
-          <ion-icon slot="end">
+          <span slot="end">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                 <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
               </svg>               
-            </ion-icon>
+            </span>
         </ion-item> 
 
-          <ion-item>
-            <ion-icon slot="start">
+          <ion-item class="nobg">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.942 47.375">
                 <g id="Set_Weight_Units" data-name="Set Weight Units" transform="translate(1.21 0.564)">
                   <g id="Group_678" data-name="Group 678" transform="translate(-0.21 -0.001)">
@@ -305,7 +305,7 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             <ion-label class="subcate">Set Weight Units</ion-label>
             <ion-select [(ngModel)]="weightunit" name="weightunit" (ngModelChange)="onChangeWtUnits(weightunit)" slot="end">
               <ion-select-option value="kgs">Kg</ion-select-option>
@@ -313,8 +313,8 @@
             </ion-select>
           </ion-item>
     
-          <ion-item>
-            <ion-icon slot="start">
+          <ion-item class="nobg">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.997 60.234">
                 <g id="set_currency_type" transform="translate(-43.139 -66.13)">
                   <g id="Group_675" data-name="Group 675" transform="translate(43.139 66.13)">
@@ -328,15 +328,16 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             <ion-label class="subcate">Set Currency Type</ion-label>
             <ion-select [(ngModel)]="currencyType" name="currencyType" (ngModelChange)="onChngCtype(currencyType)" slot="end">
               <ion-select-option value="INR">INR</ion-select-option>
               <ion-select-option value="USD">USD</ion-select-option>
             </ion-select>
           </ion-item>
-          <ion-item (click)="changeSoundSettings()">
-              <ion-icon  slot="start">
+		  
+          <ion-item class="nobg" (click)="changeSoundSettings()">
+              <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 66 66">
                   <g id="sound_disabled" transform="translate(-65.38 -65.131)">
                     <g id="Group_679" data-name="Group 679" transform="translate(66.38 66.131)">
@@ -354,13 +355,13 @@
                   </g>
                 </svg>
                 
-              </ion-icon>
+              </span>
             <ion-label>{{soundText}}</ion-label>
             <ion-toggle [ngModel]="isSoundOn" (ngModelChange)="changeSound($event)"></ion-toggle>
           </ion-item>
       
-          <ion-item (click)="changeVibrateSettings()">
-              <ion-icon  slot="start">
+          <ion-item class="nobg" (click)="changeVibrateSettings()">
+              <span  slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 64">
                   <g id="Vibration_Disabled" data-name="Vibration Disabled" transform="translate(3900.001 13121.656)">
                     <path  class="icostr" id="Union_29" data-name="Union 29" d="M8.229,31.817V2.012a2.011,2.011,0,1,1,4.023,0V31.817a2.011,2.011,0,0,1-4.023,0ZM0,24.853V8.976a2.012,2.012,0,1,1,4.023,0V24.853a2.012,2.012,0,0,1-4.023,0Z" transform="translate(-3847.252 -13107.028)" fill="none"  stroke-width="2"/>
@@ -372,12 +373,13 @@
                   </g>
                 </svg>
                 
-              </ion-icon>
+              </span>
             <ion-label>{{vibrateText}}</ion-label>
             <ion-toggle [ngModel]="isVibrateOn" (ngModelChange)="changeVibrate($event)"></ion-toggle>
           </ion-item>
-          <ion-item (click)="openInviteFriend()">
-              <ion-icon slot="start">
+		  
+          <ion-item class="nobg" (click)="openInviteFriend()">
+              <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 61 64">
                   <g id="Refer_the_App" data-name="Refer the App" transform="translate(4674.885 14915.271)">
                     <g id="Group_824" data-name="Group 824" transform="translate(-4661.945 -14902.06)">
@@ -414,17 +416,17 @@
                   </g>
                 </svg>
                 
-              </ion-icon>
+              </span>
               Refer the App
-              <ion-icon slot="end">
+              <span slot="end">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                   <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
                 </svg>               
-              </ion-icon>
+              </span>
           </ion-item>
 
-          <ion-item (click)="openfeedback()">
-            <ion-icon  slot="start">
+          <ion-item class="nobg" (click)="openfeedback()">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                 <defs>
                   <clipPath id="clip-path">
@@ -447,17 +449,17 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             Feedback
-            <ion-icon slot="end">
+            <span slot="end">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                   <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
                 </svg>               
-              </ion-icon>
+              </span>
           </ion-item>
     
-          <ion-item (click)="openfaqs()">
-            <ion-icon slot="start">
+          <ion-item class="nobg" (click)="openfaqs()">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
                 <g id="FAQS" transform="translate(-23.177 -23.301)">
                   <circle  class="icostr" id="Ellipse_126" data-name="Ellipse 126" cx="32" cy="32" r="32" transform="translate(24.677 24.801)" fill="none" stroke-miterlimit="10" stroke-width="3"/>
@@ -467,17 +469,17 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             FAQs
-            <ion-icon slot="end">
+            <span slot="end">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                   <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
                 </svg>               
-              </ion-icon>
+              </span>
           </ion-item>
     
-          <ion-item (click)="openAbout()">
-            <ion-icon slot="start">
+          <ion-item class="nobg" (click)="openAbout()">
+            <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
                 <g id="About" transform="translate(-23.5 -22.831)">
                   <circle  class="icostr" id="Ellipse_125" data-name="Ellipse 125" cx="32" cy="32" r="32" transform="translate(25 24.331)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"/>
@@ -485,17 +487,17 @@
                 </g>
               </svg>
               
-            </ion-icon>
+            </span>
             About
-            <ion-icon slot="end">
+            <span slot="end">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
                   <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" />                   
                 </svg>               
-              </ion-icon>
+              </span>
           </ion-item>
 
-          <ion-item (click)="logout()">
-              <ion-icon slot="start">
+          <ion-item class="nobg" (click)="logout()">
+              <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                   <g id="logout" transform="translate(-26 -26)">
                     <g id="Group_672" data-name="Group 672" transform="translate(26 26)">
@@ -505,7 +507,7 @@
                   </g>
                 </svg>
                 
-              </ion-icon>
+              </span>
               Logout
           </ion-item>
 
