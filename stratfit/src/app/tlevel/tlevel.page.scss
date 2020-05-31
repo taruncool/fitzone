@@ -1,92 +1,25 @@
+/* training level css */
+.tlevel{
+    h3 {margin-bottom: 1rem !important; color: #fff; font-size: inherit;}
+
+      .levels{ 
+        h4 {margin-top:-5px !important; margin-bottom: 0 !important; font-weight: normal !important; color: #999; }
+        h4, p {margin-left: 25px;}
+        p{ display: block; font-size: small; }
+
+      .levelopt { width: 100%;padding: 20px !important;  border-radius: 3px; margin-bottom:10px; position: relative; cursor: pointer;}
+      .levelopt.active { box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15); }
+      .levelopt p{margin-bottom: 0; display: none; line-height: inherit !important;}
+      .levelopt:before, .levelopt.active:after {content: ""; position: absolute; left:13px; top:19px;  border-radius: 50%; width: 12px !important; height: 12px !important; border: 1px solid #999 !important; }
+      // .levelopt:after { }
+
+      .levelopt.active p {display: block !important;}
+      .levelopt.active:before { border-width: 3px !important; border-style: solid !important; border-color: #fff !important; }
+      .levelopt.active:after { border-width: 1px!important; border-style: solid !important; left:12px; top:18px; width: 18px !important; height: 18px !important; background: none !important; --background:none !important;}
+
+      .levelopt.active h4{ font-weight: bold !important; display: block; color: #000 !important;  }
+
+      }
+
   
-//     .list, .item {box-shadow: none !important; border-radius: 3px !important;
-//         .label-md {margin: 0 !important;}
-//     }
-       
-
-     
-    
-  
-//         .progress{
-//             height: 1px; margin-bottom: 40px;
-          
-//         }
-    
-       
-    
-//         /* training level css */
-//       .tlevel{ padding-top: 6vh;
-
-//         item-inner {padding-right: 0 !important;}
-//         .label { margin: 0 !important;}
-
-
-
-//           .levels{
-//              h2 {margin-top:0rem !important; }
-//              h2, p {margin-left: 25px;}
-//              p{padding: 15px 0 0 0; display: block; color: #ccc !important;}
-//              .ion-icon {color:#707070 !important;}
-
-//              .levelopt{padding: 6px 15px; border: 1px solid #1D2534 !important; margin-bottom: 10px;color: color($colors, fdark); background: none !important; border-radius: 3px !important; height: 54px !important;}
-//             .levelopt.active{border: 0.6px solid #fff !important;  height: auto !important;
-//                 h2 {margin-top:0px !important; font-weight: 600 !important;}
-//                 .label {margin-top: 10px !important; margin-bottom: 10px !important;}
-//             }
-
-//           }
-
-
-//           .activeOpt ion-icon{
-//               color: color($colors, primary) !important;
-//           }
-//           .item-md ion-icon[item-right], .item-md ion-icon[item-end], .item-ios ion-icon[item-right], .item-ios ion-icon[item-end] {
-//               margin-left: 0;
-//               margin-top: 11px;
-//               margin-bottom: 10px;
-//               position: absolute;
-//               right: 0;
-//               bottom: 0;
-//               top: 0;
-//           }
-//           .item-md ion-icon[item-left],  .item-md ion-icon[item-start] , .item-ios ion-icon[item-left],  .item-ios ion-icon[item-start]{
-//               margin-left: 0;
-//               margin-top: 18px;
-//               margin-bottom: 0px;
-//               position: absolute;
-//               left: 0;
-//               bottom: 0;
-//               top: 0;
-      
-//           }
-//           .selectiondot{
-//               font-size: 1.6rem;
-//               padding: 0 10px;
-//               color: #eee !important;
-//           }
-//           .ios, .md {
-//               page-home {
-//                   button {
-//                       align-items: baseline;
-//                   }
-//               }
-//           }
-          
-      
-//           .list-ios > .item-block:first-child {
-//               border-top: 1px solid #999;
-//           }
-//           .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
-//               border-bottom: 1px solid #999;
-//           }
-//            /* tab responsive */
-//            @media screen and (min-device-width: 767px) and (max-device-width: 1024px){
-              
-//           }
-
-
-//           .list-md .item-block .item-inner {border-bottom: 0 !important;}
-      
-//       }
-//       /* end of training level css */
-
+  }

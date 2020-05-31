@@ -69,7 +69,7 @@ body.sfbred  {
 
   .fabicon ion-fab-button {background: transparent !important;}
   
-  .button, .button.brn, .button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .tlevel .levelopt.active:after,    .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .exetab .workflow .worktab div[scrollX] li.active,  .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon{border-color: #80B419 !important;}
+  .button, .button.brn, .button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .tlevel .levelopt.active:after,    .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .exetab .workflow .worktab div[scrollX] li.active,  .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist ion-col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon{border-color: #80B419 !important;}
   
 
   .exetab .workflow .worktab div[scrollX] li.active:after{border-top-color: #80B419 !important;}
@@ -116,7 +116,7 @@ body.sfbred  {
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
- .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .profile .list ion-item, .faqs .card, .plates .wtop, .summary ion-card, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
+ .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .profile .list ion-item, .faqs .card, .plates .wtop, .summary ion-card, .profile ion-list ion-item, ion-list.summary ion-item, .profinfo ion-item, .diet .dcard .listdis ion-scroll[scrollX] em, .diet .ocard .listdis ion-scroll[scrollX] em{border-color: #1D2534 !important;}
 
 .execis .exeblk em {color:#000 !important;}
 
@@ -126,9 +126,9 @@ body.sfbred  {
 
 
  progressbar-popup .checkmark__circle, .icostr, .diet .cgraph circle-progress svg circle {stroke: #fff !important}
-.diet .cgraph circle-progress svg circle {stroke: #1D2534 !important}
+.diet .cgraph circle-progress svg circle, .inputs ion-item.sbgw .icostr {stroke: #1D2534 !important}
   
- progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab div[scrollX] li, .exetab .workflow .worktab div[scrollX] li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .diet .dcard {background: #1D2534 !important;}
+ progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab div[scrollX] li, .exetab .workflow .worktab div[scrollX] li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .contin .days, .contin .days:after,  .diet .dcard {background: #1D2534 !important;}
 
  .diet .dcard .listdis, .diet .ocard .listdis {background: #0E1523 !important;}
  
@@ -154,7 +154,7 @@ body.sfbred  {
   .button-ios.outline, .button-md.outline, .button-ios.nobg, .button-md.nobg, .social button, .social button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button,  .checkbox-checked { background: none !important;} 
 
   
-  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist .col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon,  .summary ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{border-color: #d60404 !important;}
+  .button-ios, .button-md, .button-ios.brn, .button-md.brn, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist ion-col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon,  .summary ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{border-color: #d60404 !important;}
 
   .faqs .card, .profile .list .item{border: none !important;}
 
@@ -283,16 +283,19 @@ ion-searchbar {
 
 
 
-.inputs {
+.inputs, .profinfo {
   ion-card, ion-item {border-radius: 3px !important; /*background:  #111  !important;*/ margin-bottom: 10px!important; --padding-start: 10px !important; --padding-end:10px !important; --highlight-background:none !important;
       .item-inner {border-bottom: 0 !important; box-shadow: none !important; --padding-end:0px !important;}
       .select-icon {position: absolute; right:2rem;}
       ion-label{overflow: inherit !important; margin-top: -15px;
         svg {width:1.2rem !important; height: 1.2rem !important;}
       }
-      ion-input { color: #000 !important;
+      ion-input, ion-datetime, ion-select {color: #000 !important;}
+      ion-input { 
         .native-input {box-shadow: none !important; padding-top: 4px; padding-left: 0;}
       }
+      ion-datetime, ion-select {padding-left: 0 !important;}
+      ion-select {max-width: 100% !important;}
       // ion-label span {color:#80B419;}
       ion-row.hed {display: block; width: 100%; padding-top:10px; padding-left: 10px; }
       ion-row.hed span{display: block; color:#80B419; font-size: small;}
@@ -305,7 +308,14 @@ ion-searchbar {
     ion-checkbox {margin-right: 15px !important;}
   }
   
-  
+}
+.inputs.profinfo { padding-top: 0 !important;
+  ion-item {border-bottom-width: 1px; border-bottom-style: solid; border-radius: 0 !important;
+    ion-label {
+      svg {fill: #fff !important; opacity: 0.6;}
+    }
+    ion-row.hed p{display: block; margin:5px 0 10px 0 !important;}
+  }
 }
 
 .item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs), .item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h, .native-input[disabled].sc-ion-input-md {opacity: 1 !important;}
@@ -451,8 +461,8 @@ ion-loading {
 .foot { padding:0 ; position: fixed; bottom: 0;  
     
     p {margin:0; font-size:1rem; }
-    .row {position: relative;}
-    .col{padding: 0;}
+    ion-row {position: relative;}
+    ion-col{padding: 0;}
     ion-tab-button  {position: relative;padding:0 10px 10px 10px ;
         svg { width:1.2rem; height:1.2rem; margin:12px auto 0px auto; opacity: 0.4 !important; }
         p {display: none;}
@@ -464,15 +474,15 @@ ion-loading {
     }
 
     .btnrow {display:block;
-        button {float:right; margin: 10px 10px; height: 3.4rem;}
+        ion-button {float:right; margin: 10px 10px;}
     }
 }
 .foot:before {background: none !important; height: 0;}
 
 .ftbnts { padding:0.4rem 0.6rem ;
     // .button-ios, .button-md {height: 3.6rem !important;}
-    .col {padding: 0 5px;}
-    svg{width:2rem; height:2rem; margin-right: 0; margin-bottom: 2px;}
+    ion-col {padding: 0 5px;}
+    svg{width:1rem; height:1rem; margin-right: 0; margin-bottom: 2px;}
 }
 
 
@@ -639,7 +649,6 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
 
     
     .price {margin-top:0 !important; margin-right:0 !important;font-size: 1.6rem; font-family: 'Open Sans', sans-serif !important;}
-    .col {padding: 0 5px;}
     svg {width: 2.2rem; height: 2.2rem;
         .cls-1 {fill: #d60404}
     }
@@ -852,7 +861,7 @@ ion-app.ios {
   h6 { font-size:1.4rem; text-align: center;  display: block; margin-top: 0; margin-bottom: 10px;
     em {display: inline-block; padding-right: 5px; }
   }
-    .col {padding-bottom:5px !important;}
+    ion-col {padding-bottom:5px !important;}
     .exeblk {  overflow: hidden; position: relative;  border-radius: 3px;
         ion-avatar { width:100% !important; border-radius: 0 !important; border: 0 !important; min-height: 160px;  
             img { width:100% !important; min-height:160px; border-radius: 0 !important; object-fit: cover; /*filter: grayscale(100%);*/ }
@@ -871,7 +880,7 @@ ion-app.ios {
       // ion-item {padding: 0 !important; background: none !important;  }
       ion-avatar{width: 5rem !important;height: 5rem !important; border-radius: 3px !important; margin: inherit !important;  border: 0; position:relative;
           img {width:5rem !important; max-height: 5rem; border-radius: 3px !important; border: 0 !important}
-          svg {position: absolute; right: 0; bottom: 0; width:2.4rem; height: 2.4rem; }
+          svg {position: absolute; right: 0; bottom: 0; width:26px; height: 26px; }
       }
       // .label { margin: 8px 8px 8px 0 !important;}
       
@@ -921,11 +930,12 @@ ion-app.ios {
 
         
     }
+    ion-item:last-child span { margin-right: 15px !important;} 
     .item-ios { height: 50px !important;}
     .list-ios>.item-block:first-child {border-top: 0 !important; border-bottom:1px solid #eee !important;}
 
-    .item-inner {margin-left:1rem !important;}
-    .toggle-md .toggle-inner, .toggle-ios .toggle-inner {background:#999 !important; border: 2px solid #fff;}
+    
+    ion-toggle .toggle-inner {background:#999 !important; border: 2px solid #fff;}
     
   }
 
@@ -960,11 +970,14 @@ ion-app.ios {
 
     h2{color: inherit !important; }
     h4 {font-size: small;}
-    .prow {margin-top: 0 !important; width: 100%;}
-    .prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999; min-height:24px !important; max-height: 24px !important; min-width: 24px !important; max-width: 24px !important;} 
-    .prow h6 {display: inline !important; font-size: 1rem !important;}
-    .prow ion-col em{ margin-bottom: 10px; display: block; }
-    .prow ion-col:last-child {bottom:0 !important; position: relative !important; 
+    ion-row.prow {margin-top: 0 !important; width: 100%;}
+    ion-row.prow ion-col{padding: 0 !important;}
+    ion-row.prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; border: 0.5px solid #999; min-height:24px !important; max-height: 24px !important; min-width: 24px !important; max-width: 24px !important;
+      img {width: 24px !important;}
+    } 
+    ion-row.prow h6 {display: inline !important; font-size: 1rem !important;}
+    ion-row.prow ion-col em{ margin-bottom: 5px; display: block; }
+    ion-row.prow ion-col:last-child {bottom:0 !important; position: relative !important; 
         em {display: inline-block !important; margin-bottom: 0 !important; margin-left: 10px;
           svg {width:1rem !important; height: 1rem !important;}
         }
@@ -978,15 +991,15 @@ ion-app.ios {
 
 .programview{  position: relative; left: 0; right: 0;  box-shadow: none !important;
   
-    h2,h3, h4{display: block; margin-top: 0; margin-bottom: 10px; font-size:inherit;  
-      // em {color: #000 !important;}
-    }
+    h2,h3, h4, h5{display: block; margin-top: 0; margin-bottom: 10px; font-size:inherit; }
     // h2 {color: #d60404 !important;}
-    h4 { margin-bottom: 5px;}
+    h4, h5 { margin-bottom: 5px;}
     p{margin-top: 0;  margin-bottom: 1rem;
       h6 {font-size: inherit !important; margin: 0 !important;} /* Data Element */
     }
+    ion-row.proflow {margin-bottom: 1rem;} 
     ion-row.purpose {margin:0 !important;}
+
 }
 
 .pcview{
@@ -1076,7 +1089,7 @@ ion-app.ios {
       }
     }
     .exevalue {color:#000; margin-bottom: 1rem; border-bottom: 1px solid #03060C; min-height:56px !important;
-      .col {text-align: center;
+      ion-col {text-align: center;
         span{ font-weight:600;
           em {font-size: 1.2rem; }
         }
@@ -1102,7 +1115,7 @@ ion-app.ios {
   
 
 
-  .profile h2{margin-bottom: 0 !important;}
+  // .profile h2{margin-bottom: 0 !important;}
 
   .nutrition {
     ion-scroll {min-height: 12rem;
@@ -1112,7 +1125,7 @@ ion-app.ios {
             text tspan:last-child{ fill:#000 !important; font-size:34px; }
           }
         }
-        .col {display:inline-block !important; width: 31%; background: #fff; border-radius: 3px; margin-right:2px; min-height: 120px;
+        ion-col {display:inline-block !important; width: 31%; background: #fff; border-radius: 3px; margin-right:2px; min-height: 120px;
           .titl{
             span{color: #000; font-size: 1.1rem; position: relative; display: block; margin-bottom: 1rem; padding-left: 15px;}
             span:before{ content: ""; position: absolute; top: 3px; bottom: 0; left: 0; right: 0; width: 6px; height: 6px; border-radius: 50%;}
@@ -1207,7 +1220,7 @@ ion-app.ios {
       }
     }
     
-    button {display: block; width: 100%; margin: 0;}
+    ion-button {display: block; width: 100%; margin: 0;}
   }
 
 }
@@ -1237,24 +1250,19 @@ ion-app.ios {
   ion-row.periods ion-select {padding-left: 0 !important; display: inline-block; font-size: small;}  
 
 
+    .days { text-align: center;padding-top: 10px;  margin:0 -10px 15px -10px !important; position: relative;
+      ion-button {border-radius:50%; word-break: break-all; width: 32px; height: 32px !important; padding: 6px !important; margin:0 2px !important; background: none !important; --background: none !important;  border-width: 1px !important; border-color: #666 !important; border-style: solid !important; --padding-start:6px !important; --padding-end:6px !important}
 
-    .days { text-align: center; background:#fff; padding-top: 10px;  margin:0 -10px 15px -10px !important; position: relative;
-      .button {border-radius:50%; background: none !important; width: 4rem; height: 4rem !important; padding: 6px !important; margin:0 2px !important; background: none !important;  border-width: 1px !important; border-color: #666 !important; border-style: solid !important; font-size:1.1rem !important;}
-      .button span{ word-break: break-all; color: #000 !important;}
-
-      .button.active { border-width: 0 !important;}
-      .button.done {border-width:1px !important; }
-      .button.skip { border-width:1px !important;   
-        span {color: #000 !important;}
-      }
-      .button.active, .button.done{
+      ion-button.active { border-width: 0 !important;}
+      ion-button.done, ion-button.skip {border-width:1px !important; }
+      ion-button.active, ion-button.done{
         span {color: #fff !important;}
       }
-      .button:nth-child(7)  { display: none !important; }
-      em {display: block; padding:5px; color:#000; }
+      ion-button:nth-child(7)  { display: none !important; }
+      em {display: block; padding:5px }
 
     }
-    .days:after{content:"";position: absolute;bottom: -10px; margin:0 -1rem; width: 0; height: 0; border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid #fff;}
+    .days:after{content:"";position: absolute;bottom: -10px; margin:0 -1rem; width: 0; height: 0; border-left: 10px solid transparent;border-right: 10px solid transparent;border-top-width: 10px ; border-top-style: solid ;}
 
     .sfmenu{border-bottom: 1px solid #111; margin-bottom: 10px; }
 
@@ -1373,14 +1381,14 @@ ion-app.ios {
 .exesumry { /*--- Analytics Summery Css --- Never changes any thing here*/
   h3 {color: #d60404; font-size:1.6rem !important;}
   h6 {text-align: center;}
-    .col { background:#fff !important; border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
+    ion-col { background:#fff !important; border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
         span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); font-size: 1.6rem; width: 100%; 
             em {  display: block; font-size: 1.2rem; padding-top:5px; line-height: 15px;  }
         }
     }
-    [col-4] {flex:0 0 32.1222% ;}
+    [size="4"] {flex:0 0 32.1222% ;}
     [col-4]:nth-child(3n+1) {margin-left: 0;}
-    .col:first-child{ margin-left: 0;}
+    ion-col:first-child{ margin-left: 0;}
 
 }
 
@@ -1438,10 +1446,10 @@ ion-app.ios {
   .cgraph, .lgraph {padding-top: 0 !important; width:100%;
     span, em {display: block;}
     span { font-size:1rem;}
-    .col {padding:0 5px !important; padding-left: 0px !important}
-    .col:nth-child(4n+1) {padding-left: 0 !important;}
-    .col:first-child{ padding-left: 0 !important; }
-    .col:last-child{ padding-left: 10px !important; padding-right:0 !important; }
+    ion-col {padding:0 5px !important; padding-left: 0px !important}
+    ion-col:nth-child(4n+1) {padding-left: 0 !important;}
+    ion-col:first-child{ padding-left: 0 !important; }
+    ion-col:last-child{ padding-left: 10px !important; padding-right:0 !important; }
   } 
 
   .week { text-align: center; display: block; position: relative;  padding-bottom:0 !important;

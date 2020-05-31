@@ -15,7 +15,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content class="plates" >
 <div class="fulpad">
   <div class="wtop">
     <p>StratFit helps you choose the right weight each time for each set. Share, what weights are available at your gym.</p>
@@ -27,28 +27,28 @@
     <p >Tap on the plate to select</p>
     <ion-list  *ngIf='displayPtWts'>
       <ion-row class="top-cirl">
-        <ion-col size="3">
+        <ion-col >
           <div class="btn-big" (tap)="tapEvent(0)" [ngClass]='{"active":displayPtWts[0].count>0}'>
             <span > <em>{{displayPtWts[0].count}}</em></span>
           </div>
           <div class="displypwt"><span>{{displayPtWts[0].weight}} {{metric}}</span></div>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col >
           <div class="btn-mid" (tap)="tapEvent(1)" [ngClass]='{"active":displayPtWts[1].count>0}'>
             <span > <em>{{displayPtWts[1].count}}</em></span>
           </div>
           <div class="displypwt"><span>{{displayPtWts[1].weight}} {{metric}}</span></div>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col>
             <div class="btn-mid2" (tap)="tapEvent(2)" [ngClass]='{"active":displayPtWts[2].count>0}'>
               <span > <em>{{displayPtWts[2].count}}</em></span>
             </div>
             <div class="displypwt"><span>{{displayPtWts[2].weight}} {{metric}}</span></div>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col >
           <div class="btn-small" (tap)="tapEvent(3)" [ngClass]='{"active":displayPtWts[3].count>0}'>
             <span > <em>{{displayPtWts[3].count}}</em></span>
           </div>
@@ -59,35 +59,35 @@
 
       <ion-row class="bottom-cirl">
 
-          <ion-col size="2">
+          <ion-col>
             <div class="btn-big" (tap)="tapEvent(4)" [ngClass]='{"active":displayPtWts[4].count>0}'>
               <span > <em>{{displayPtWts[4].count}}</em></span>
             </div>
             <div class="displypwt"><span>{{displayPtWts[4].weight}} {{metric}}</span></div>
           </ion-col>
 
-          <ion-col size="2">
+          <ion-col>
             <div class="btn-mid" (tap)="tapEvent(5)" [ngClass]='{"active":displayPtWts[5].count>0}'>
               <span > <em>{{displayPtWts[5].count}}</em></span>
             </div>
             <div class="displypwt"><span>{{displayPtWts[5].weight}} {{metric}}</span></div>
           </ion-col>
 
-          <ion-col size="2">
+          <ion-col>
             <div class="btn-mid2" (tap)="tapEvent(6)" [ngClass]='{"active":displayPtWts[6].count>0}'>
               <span > <em>{{displayPtWts[6].count}}</em></span>
             </div>
             <div class="displypwt"><span>{{displayPtWts[6].weight}} {{metric}}</span></div>
           </ion-col>
 
-          <ion-col size="2">
+          <ion-col>
             <div class="btn-small" (tap)="tapEvent(7)" [ngClass]='{"active":displayPtWts[7].count>0}'>
               <span > <em>{{displayPtWts[7].count}}</em></span>
             </div>
             <div class="displypwt"><span>{{displayPtWts[7].weight}} {{metric}}</span></div>
           </ion-col>
 
-          <ion-col size="2">
+          <ion-col>
               <div class="btn-small" (tap)="tapEvent(8)" [ngClass]='{"active":displayPtWts[8].count>0}'>
                 <span > <em>{{displayPtWts[8].count}}</em></span>
               </div>

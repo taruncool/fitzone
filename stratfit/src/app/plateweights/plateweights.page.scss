@@ -1,0 +1,110 @@
+
+    .plates {
+        .wtop{padding-bottom: 15px; border-bottom-width: 1px; border-bottom-style: solid; display: block;
+            p {text-align: center;}
+        }
+        
+    
+        //Plates block
+        .platewt-block{
+            
+            .top-cirl , .bottom-cirl {position: relative;min-height: 100px; max-height: 100px; margin-bottom:2rem;
+                
+                [size="3"], [size="2"]{
+                    position: relative;
+                    button{
+                    position: absolute; bottom: 30%;
+                    }
+                }
+                // [size="3"]{
+                //     flex: 0 0 20% !important;
+                //     width: 20% !important;
+                //     max-width: 20% !important;
+                // }
+    
+            //plate weights
+            .displypwt{position: absolute;text-align: center;left: 0;right: 0;top: 73%;}
+    
+            }
+            
+    
+            .btn-big, .btn-mid, .btn-mid2, .btn-small{
+                border-radius: 50% !important;height: 75px;width: 75px;position: absolute; left:0; right:0; bottom: 40px;margin: auto;background:#fff;
+                span { display: block; text-align: center; border-radius: 50%; width: 60px; height: 60px; background: #aaa;  position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%);
+                  em {position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); font-weight: bold !important; color: #000 ;}
+                
+                }
+              }
+        
+            .btn-mid{height: 65px !important;width: 65px !important;
+                span {width: 50px !important; height: 50px !important; }
+            }
+        
+            .btn-mid2{height: 55px !important;width: 55px !important;
+                span {width: 40px !important; height: 40px !important; }
+            }
+            .btn-small{height: 45px !important;width: 45px !important;
+                span {width: 25px !important; height: 25px !important; }
+              }
+            
+        }
+        
+        
+        
+        }
+    
+        // .plates .btn-big, .plates .btn-mid, .plates .btn-mid2, .plates .btn-small{ background: #aaa;}
+        // .plates .btn-big span, .plates .btn-mid span, .plates .btn-mid2 span, .plates .btn-small span{ background: #ccc;}
+            
+            // .button-md, .button-ios{
+            // 	background-color: #a5a5a5;
+            // 	color: color($colors, fwhite) !important;
+            // 	box-shadow: none !important;
+            // }
+        
+            //first row
+            
+        
+            //second row
+            // .btn-small1{height: 5rem;width: 5rem;right: 0;left: 0;margin: auto;}
+            // .btn-small2{
+            // 	border-radius: 50% !important;
+            // 	height: 4.5rem;
+            // 	width: 4.5rem;
+            // 	right: 0;
+            // 	left: 0;
+            // 	margin: auto;
+            // }
+            // .btn-small3{
+            // 	border-radius: 50% !important;
+            // 	height: 4rem;
+            // 	width: 4rem;
+            // 	right: 0;
+            // 	left: 0;
+            // 	margin: auto;
+              // }
+              // .btn-small4{
+            // 	border-radius: 50% !important;
+            // 	height: 3.8rem;
+            // 	width: 3.8rem;
+            // 	right: 0;
+            // 	left: 0;
+            // 	margin: auto;
+              // }
+              // .btn-small5{
+            // 	border-radius: 50% !important;
+            // 	height: 3.7rem;
+            // 	width: 3.7rem;
+            // 	right: 0;
+            // 	left: 0;
+            // 	margin: auto;
+              // }
+              
+            //active checkbox
+            // .checkbox-md .checkbox-checked, .checkbox-ios .checkbox-checked{
+            // 		border-color: color($colors, primary) !important;
+            // 		background-color: color($colors, primary) !important;
+            // }
+            
+            
+   

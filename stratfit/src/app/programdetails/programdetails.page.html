@@ -85,18 +85,18 @@
       <p>{{planinfo.planPurpose}}</p>
 
       <ion-row>
-        <ion-col>
-          <h4>Duration</h4>
+        <ion-col class="nopad" >
+          <h5>Duration</h5>
           <p>{{planinfo.duration_weeks}} Weeks</p>
         </ion-col>
 
-        <ion-col>
-          <h4>Days</h4>
+        <ion-col class="nopad" >
+          <h5>Days</h5>
           <p>{{planinfo.num_of_sessions}} per week</p>
         </ion-col>
 
-        <ion-col>
-          <h4>Level</h4>
+        <ion-col class="nopad" >
+          <h5>Level</h5>
           <p>{{planinfo.planType}}</p>
         </ion-col>
       </ion-row>
@@ -130,18 +130,21 @@
       <ion-row class="purpose">
           <p>{{planinfo.plan_goals}}</p>
       </ion-row>
+</div>
+
+</ion-content>
 
 <ion-footer class="foot ">
-  <ion-row class="btnrow">
-      <ion-button [hidden]="planinfo.activestatus" (click)="planSubscription()">
-          <span *ngIf="planinfo.activestatus">Active</span>
-          <span *ngIf="planinfo.fucturestatus">Activated</span>
-          <span *ngIf="!planinfo.activestatus && !planinfo.fucturestatus">Activate</span>
-      </ion-button>  
-      <ion-button [hidden]="!planinfo.activestatus" (click)="dashboardpage()">
+    <ion-row class="btnrow">
+        <ion-button [hidden]="planinfo.activestatus" (click)="planSubscription()">
+            <span *ngIf="planinfo.activestatus">Active</span>
+            <span *ngIf="planinfo.fucturestatus">Activated</span>
+            <span *ngIf="!planinfo.activestatus && !planinfo.fucturestatus">Activate</span>
+        </ion-button>  
+        <ion-button [hidden]="!planinfo.activestatus" (click)="dashboardpage()">
+                
+            <span *ngIf="planinfo.activestatus">Dashboard</span>
               
-          <span *ngIf="planinfo.activestatus">Dashboard</span>
-            
-      </ion-button>  
-  </ion-row>
-</ion-footer>
+        </ion-button>  
+    </ion-row>
+  </ion-footer>
