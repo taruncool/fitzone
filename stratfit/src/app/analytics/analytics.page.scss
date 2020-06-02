@@ -72,11 +72,10 @@ ion-app.ios{
 .icr {width:1.4rem !important; height:1.4rem !important; float: right;}
 
 
-.session {margin:0 -10px 15px -10px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 3.6rem;
-    ion-item, ion-scroll[scrollX]{min-height:36px !important;}
-    ion-label { margin: 0 !important; }
-    ion-scroll[scrollX] .button {margin-bottom:-2px !important; width: 30%;}
-    .scroll-zoom-wrapper {text-align: center;}
+.session {margin-bottom:15px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 38px;
+   .scrol[scrollX]{min-height:36px !important;}
+   .scrol[scrollX] ion-button { width: 30%; padding-bottom: 0 !important; --box-shadow: none;}
+    // .scroll-zoom-wrapper {text-align: center;}
 }
 
 

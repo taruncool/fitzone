@@ -95,7 +95,7 @@
             <h3 class="text-center" *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h3>
             <h3 class="text-center" *ngIf="actionType == 'MainSet'">Workout  </h3>
 
-            <div scrollX="true">
+            <div class="scrol" scrollX="true">
               <ul>
                 <li id="roundid{{round.round_id}}" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> <span>Set {{i+1}}</span></li>     
               </ul>

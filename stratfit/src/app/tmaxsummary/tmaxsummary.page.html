@@ -23,7 +23,7 @@
     <form #tmaxForm="ngForm">
       <ion-list class="summary">
         
-        <ion-item class="tmaxedit" *ngFor='let extra of allExercises; let i = index;'>
+        <ion-item class="tmaxedit nobg" *ngFor='let extra of allExercises; let i = index;'>
           {{extra.exerciseName}}
           <div slot="end">
             <div class="count" id='ex{{extra.id}}'>
