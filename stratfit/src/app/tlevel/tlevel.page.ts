@@ -24,12 +24,13 @@ export class TlevelPage implements OnInit {
       {title:"Advanced",desc:"I have been consistently on a organised barbell lifting program for over 12 months.",expanded: false,value:4},
       {title:"Elite",desc:"I have been consistently on an organised barbell lifting program for multiple years and/or am a competitive Strength athlete.",expanded: false,value:5}
     ];
-  }
-
-  ngOnInit() {
     this.userId = localStorage.getItem('userId');
     this.selectedLevel = (localStorage.getItem('traininglevel')!==undefined)?localStorage.getItem('traininglevel'):'';
     this.getItemFromLevel(this.selectedLevel)
+  }
+
+  ngOnInit() {
+    
   }
   selectFLevel(item){
     if(item.value !== this.selectedLevel){
@@ -73,7 +74,7 @@ export class TlevelPage implements OnInit {
  async continueBtn(){
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      let userInfo = {"id":parseInt(this.userId),"trainingLevel":this.selectedLevel};
+      let userInfo = {"id":this.userId,"userInf":{"trainingLevel":this.selectedLevel}};
       let usertoken = localStorage.getItem('usertoken');
       this.apiService.fitnessprofile(userInfo,usertoken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
@@ -82,7 +83,7 @@ export class TlevelPage implements OnInit {
           if(res.success){
             this.toastmsg(res.message);
             localStorage.setItem('traininglevel',this.selectedLevel);
-            this.modalCtrl.dismiss();
+            this.navCtrl.navigateRoot('/tabs/tabs/profile');
           }else{
             this.loadData.stopLoading();
             this.toastmsg("Unable to process your request. Please try after some time");
@@ -113,7 +114,6 @@ export class TlevelPage implements OnInit {
   }
 
   public backButtonAction(){
-    // this.modalCtrl.dismiss();
     this.navCtrl.navigateRoot('/tabs/tabs/profile'); 
   }
 }

@@ -60,7 +60,7 @@ export class ImagepreviewPage implements OnInit {
 
   }
   public backButtonAction(){
-    this.modalCtrl.dismiss(); 
+    this.navCtrl.navigateForward('/tabs/tabs/profile');
 }
 submitForm(){
        

@@ -104,7 +104,7 @@ export class TmaxpreviewPage implements OnInit {
 
   }
 
-  showMessageAllEx(){
+ async showMessageAllEx(){
 
     console.log(this.exObj);
     
@@ -112,7 +112,7 @@ export class TmaxpreviewPage implements OnInit {
     if(exerciseTmaxKgs <20){
       exerciseTmaxKgs = 20;
     }
-    this.prompt = this.alertCtrl.create({
+    this.prompt = await this.alertCtrl.create({
       // title: 'Tmax change!',
       message:'Do you want to change Tmax of other exercises too?',
       buttons: [

@@ -46,6 +46,7 @@ import { ImageProvider } from 'src/providers/image/image';
 import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';
 import { Crop } from '@ionic-native/crop/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
+import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { Base64 } from '@ionic-native/base64/ngx';
     TimerComponent,
     AddmealPage,
     ImagepreviewPage,
+    TmaxpreviewPage,
   ],
   entryComponents: [
     ProgressloginPage,
@@ -78,6 +80,7 @@ import { Base64 } from '@ionic-native/base64/ngx';
     TimerComponent,
     AddmealPage,
     ImagepreviewPage,
+    TmaxpreviewPage,
   ],
   imports: [
     BrowserModule,

@@ -41,8 +41,14 @@ export class PasswordPage implements OnInit {
                 let res = JSON.parse(userStr);
                 if(res.success){
                     pwddata ='';
-                    this.toastmsg(res.message);
-                    this.modalCtrl.dismiss();
+                    this.toastmsg("Password has been changed successfully. Please login with your credentials");
+                    this.navCtrl.navigateForward('/tabs/tabs/profile');
+
+                    localStorage.setItem('logout','true');
+                    this.loadData.userlogout();
+                    // this.googlePlus.logout()
+                    
+                    this.navCtrl.navigateForward('/login');
                 }else{
                   this.toastmsg(res.message);
                 }
@@ -101,7 +107,6 @@ export class PasswordPage implements OnInit {
     }
   }
   public backButtonAction(){
-      // this.modalCtrl.dismiss();
       this.navCtrl.navigateBack('/tabs/tabs/profile'); 
   }
 

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { global } from "../../app/global";
-import { ActivatedRoute, Router } from '@angular/router';
 import { LoadData } from '../../providers/loaddata';
 import { ApiService } from '../../app/api.service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { TmaxtestingPage } from '../tmaxtesting/tmaxtesting.page';
 
 @Component({
@@ -33,6 +33,12 @@ export class TmaxPage implements OnInit {
     // this.router.navigate(TmaxtestingPage, {
     //     exercise: id
     // });
+    let navigationExtras: NavigationExtras = {
+      state: {
+        "exercise":id
+      }
+    };
+    this.router.navigate(['tmaxtesting'], navigationExtras);
   }
   ngOnInit() {
     this.s3url=global.s3URL;
@@ -88,7 +94,7 @@ export class TmaxPage implements OnInit {
       });
   }
   continueBtn(){
-    this.ga.trackEvent('TmaxCompletion',localStorage.getItem('email'));
+    // this.ga.trackEvent('TmaxCompletion',localStorage.getItem('email'));
     this.sqlStorageNew.query("SELECT * FROM exercises where and tmax=0").then(
       odata => {
         this.loadData.stopLoading();
@@ -103,8 +109,8 @@ export class TmaxPage implements OnInit {
       });
   }
 
-  skipBtn(){
-  this.prompt = this.alertCtrl.create({
+  async skipBtn(){
+  this.prompt = await this.alertCtrl.create({
       message: 'Are you sure you want to skip?',
       buttons: [
         {

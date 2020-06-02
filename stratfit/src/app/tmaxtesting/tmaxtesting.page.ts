@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,NavParams,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { global } from "../../app/global";
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { LoadData } from '../../providers/loaddata';
 import { ApiService } from '../../app/api.service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
@@ -32,10 +32,15 @@ export class TmaxtestingPage implements OnInit {
   tmaxParameter;
   tmaxValues;
 
-  constructor(public navParams: NavParams,private nav: NavController,public router: Router,private apiService: ApiService, private http: HttpClient,private alertCtrl: AlertController, private loadData:LoadData,public toastCtrl: ToastController,private ga: GoogleAnalytics,public SqlStorageNew: SqlStorageNew) {
+  constructor(public navParams: NavParams,private nav: NavController,private route: ActivatedRoute, private router: Router,private apiService: ApiService, private http: HttpClient,private alertCtrl: AlertController, private loadData:LoadData,public toastCtrl: ToastController,private ga: GoogleAnalytics,public SqlStorageNew: SqlStorageNew) {
     this.token = localStorage.getItem('usertoken');
     this.tmaxStatus='yes';
     // this.tab = this.nav.parent;
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.exId = this.router.getCurrentNavigation().extras.state.exercise;
+      }
+    });
   }
   yes(){
     this.tmaxStatus='yes';
@@ -44,7 +49,7 @@ export class TmaxtestingPage implements OnInit {
     this.tmaxStatus='no';
   }
   public getPlans(){
-    this.exId = this.navParams.get('exercise');
+    // this.exId = this.navParams.get('exercise');
     if(!this.exId){
       this.exId=1;
     }
