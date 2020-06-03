@@ -37,8 +37,8 @@
 
 <ion-content class=" analytic">
 
-
-  <ion-row class="fulcard " *ngIf='!noplan' (click)="programView()">
+  <!-- <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()"> -->
+    <ion-row class="pcover" *ngIf='!noplan'>
     <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
   
     <div class="container">
@@ -50,19 +50,6 @@
       </div>
     </div>
   </ion-row>
-
-
-  <!-- <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()">
-    <ion-row class="pcover">
-      <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
-    </ion-row>
-    <ion-item class="poverlay" text-wrap>
-      <em *ngIf="isDuration">{{planInfo.durationWeeks}} Weeks</em>
-        <h2 text-wrap>{{planInfo.planName}}</h2>
-        <h6>{{planInfo.coachName}}</h6>
-        
-    </ion-item>
-  </ion-card>  -->
   <!--END Choosen Program Cart-->
 
 

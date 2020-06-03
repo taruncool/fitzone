@@ -159,7 +159,7 @@ export class LoadData {
       
       var otpdata = {"code":localStorage.getItem('otp'),'email':localStorage.getItem('email')}; 
       
-      this.apiService.validateotp(otpdata).subscribe((response)=>{
+      this.apiService.accountValidateotp(otpdata).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         console.log("validate otp",response);

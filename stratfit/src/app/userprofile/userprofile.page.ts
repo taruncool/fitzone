@@ -31,7 +31,21 @@ export class UserprofilePage implements OnInit {
   heightinc;
   coverImage;
   constructor(public platform: Platform,public nav: NavController, public toastCtrl: ToastController,private loadData: LoadData, public modalCtrl: ModalController) {
-  
+    this.s3Url = global.s3URL;
+    this.avatar = localStorage.getItem('avatar');
+    this.email = localStorage.getItem('email');
+    this.firstname = localStorage.getItem('firstname');
+    this.lastname = localStorage.getItem('lastname');
+    this.gender = localStorage.getItem('gender');
+    this.dob = localStorage.getItem('dob');
+    this.weight = localStorage.getItem('weight');
+    this.height = localStorage.getItem('height');
+    this.heightunit = localStorage.getItem('heightunit');
+    this.weightunit = localStorage.getItem('weightunit');
+    this.tokken = localStorage.getItem('usertoken');
+    this.userId = localStorage.getItem('userId');
+    this.phone = localStorage.getItem('phone');
+    this.coverImage = localStorage.getItem('coverImage');
     
   }
 
@@ -44,21 +58,7 @@ export class UserprofilePage implements OnInit {
    ngOnInit() {
      //this.ga.trackView('profile');
      //this.ga.setAllowIDFACollection(true);
-     this.s3Url = global.s3URL;
-     this.avatar = localStorage.getItem('avatar');
-     this.email = localStorage.getItem('email');
-     this.firstname = localStorage.getItem('firstname');
-     this.lastname = localStorage.getItem('lastname');
-     this.gender = localStorage.getItem('gender');
-     this.dob = localStorage.getItem('dob');
-     this.weight = localStorage.getItem('weight');
-     this.height = localStorage.getItem('height');
-     this.heightunit = localStorage.getItem('heightunit');
-     this.weightunit = localStorage.getItem('weightunit');
-     this.tokken = localStorage.getItem('usertoken');
-     this.userId = localStorage.getItem('userId');
-     this.phone = localStorage.getItem('phone');
-     this.coverImage = localStorage.getItem('coverImage');
+     
      if(this.gender==='1'){
        this.gender='Male';
      }else if(this.gender==='2'){

@@ -59,7 +59,6 @@
     "cordova-wheel-selector-plugin": "^1.1.7",
     "core-js": "^2.5.4",
     "ion2-calendar": "^3.0.0-rc.0",
-    "ion4-calendar": "^3.0.4-beta.17",
     "ionic4-rating": "^1.0.9",
     "moment": "^2.25.3",
     "ng-circle-progress": "^1.5.1",

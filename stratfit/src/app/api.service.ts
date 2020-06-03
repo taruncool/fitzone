@@ -132,7 +132,7 @@ export class ApiService {
          }).pipe (data =>
            data);
   }
-  public validateotp(otpdata){
+  public accountValidateotp(otpdata){
     return this.http.post(global.baseURL + 'subscriber/accountValidateotp/', otpdata, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',

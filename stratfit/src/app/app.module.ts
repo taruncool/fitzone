@@ -18,7 +18,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { WheelSelector } from '@ionic-native/wheel-selector/ngx';
-import { CalendarModule ,CalendarComponentOptions, DayConfig, CalendarResult, CalendarComponent} from "ion2-calendar";
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
@@ -47,6 +46,7 @@ import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';
 import { Crop } from '@ionic-native/crop/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
 import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
+import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
   declarations: [
@@ -90,6 +90,7 @@ import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
     ComponentsModule,
     NoopAnimationsModule,
     IonicRatingModule,
+    CalendarModule,
     IonicModule.forRoot(),
     // NgCircleProgressModule.forRoot({
      
@@ -110,7 +111,6 @@ import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
     Camera,
     File,
     WheelSelector,
-    CalendarModule,
     Insomnia,
     NativeAudio,
     Facebook,
