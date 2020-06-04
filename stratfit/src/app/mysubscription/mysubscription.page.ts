@@ -7,6 +7,7 @@ import { LoadData } from '../../providers/loaddata';
 import {StartdatePage} from '../startdate/startdate.page';
 import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-mysubscription',
@@ -45,11 +46,21 @@ export class MysubscriptionPage implements OnInit {
   futureplanid;
   planState;
   isDuration = true;
+  pageType;
 
-  constructor(public navCtrl: NavController,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform){
+  constructor(public navCtrl: NavController,private streamingMedia: StreamingMedia,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController,public sqlStorageNew:SqlStorageNew, public modalCtrl: ModalController, public platform: Platform,private route: ActivatedRoute, private router: Router){
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.pageType = this.router.getCurrentNavigation().extras.state.frompage;
+      }
+      });
   }
   backButtonAction() {
+    if( this.pageType =='1'){
+      this.navCtrl.navigateBack('/todayworkout');
+     }else{
     this.navCtrl.navigateBack('/tabs/tabs/profile');
+     }
   }
 
   onImageError(plan){

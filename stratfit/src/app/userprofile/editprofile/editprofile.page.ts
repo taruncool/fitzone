@@ -192,7 +192,7 @@ export class EditprofilePage implements OnInit {
    // }
   }
 
-  public tempupdateProfile(){ 
+  async tempupdateProfile(){ 
    if(parseInt(this.weight,10) < 20){
      this.alertmessage = "Weight must be greater than or equal to 20.";
      this.validationAlerts(this.alertmessage);
@@ -249,11 +249,7 @@ export class EditprofilePage implements OnInit {
             }
         }else{
           this.loadData.stopLoading();
-            this.toast = this.toastCtrl.create({
-              message: "Unable to process your request. Please try after some time",
-              duration: 3000
-            });
-            this.toast.present();
+          this.toastmsg("Unable to process your request. Please try after some time"); 
         }
       },(err) =>{
         this.loadData.stopLoading();
@@ -265,7 +261,7 @@ export class EditprofilePage implements OnInit {
       })
     }else{
       this.loadData.stopLoading();
-      this.toast = this.toastCtrl.create({
+      this.toast = await this.toastCtrl.create({
         message: "Please check your internet connectivity and try again",
         duration: 3000
       });
@@ -274,9 +270,17 @@ export class EditprofilePage implements OnInit {
    }
   }
 
-  public validationAlerts(alertMsg){
+  async toastmsg(msg) {
+    let toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
+
+  async validationAlerts(alertMsg){
   
-    this.toast = this.toastCtrl.create({
+    this.toast = await this.toastCtrl.create({
       message: alertMsg,
       duration: 5000
     });
@@ -292,7 +296,7 @@ export class EditprofilePage implements OnInit {
       }  
     });
    await this.countryModal.present();
-    await this.countryModal.onDidDismiss.then((data)=>{
+    await this.countryModal.onDidDismiss().then((data)=>{
       if(data !==undefined){
         this.phcode = data;
         for(var tc=0;tc<this.countrycodes.length;tc++){

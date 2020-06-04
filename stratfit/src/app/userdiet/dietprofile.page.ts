@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { HttpClient } from '@angular/common/http';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
-//import { CalendarModule } from 'ion4-calendar';
+import { CalendarController } from "ion2-calendar/dist";
 import { DiethistoryPage } from './diethistory/diethistory.page';
 import { AddmealPage } from './addmeal/addmeal.page';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
@@ -133,7 +133,8 @@ export class DietprofilePage implements OnInit {
      public http: HttpClient,
      public apiService: ApiService,
      public alertCtrl:AlertController,
-     public router: Router,private route: ActivatedRoute 
+     public router: Router,private route: ActivatedRoute,
+     public calendarCtrl: CalendarController,
      ) {//public calendarCtrl: CalendarModule
       this.route.queryParams.subscribe(params => {
         if (this.router.getCurrentNavigation().extras.state) {
@@ -967,31 +968,31 @@ export class DietprofilePage implements OnInit {
   //     );
   // }
   
-  // public displayCalendar(){
+  public displayCalendar(){
 
-  //   var fromDate;
-  //   var toDate;
-  //   toDate = new Date();
-  //   fromDate = new Date();
-  //   toDate.setDate(toDate.getDate() - 1);
-  //   fromDate.setDate(fromDate.getDate() - 10);
+    var fromDate;
+    var toDate;
+    toDate = new Date();
+    fromDate = new Date();
+    toDate.setDate(toDate.getDate() - 1);
+    fromDate.setDate(fromDate.getDate() - 10);
 
-  //   this.calendarCtrl.openCalendar({
-  //     title:"Select Date",
-  //     from:fromDate,
-  //     to:toDate,      
-  //     weekdays:["S","M", "T", "W", "T", "F", "S"]
-  //   })
-  //   .then( (res:any) => { 
-  //     var date = new Date(res.string);
-  //     var todayMealDateServer = date.getFullYear()+"-"+('0' +(date.getMonth()+1)).slice(-2)+"-"+('0' +(date.getDate())).slice(-2);
-  //     console.log(todayMealDateServer);
-  //     this.loadData.stopLoading();
-  //     //console.log("history date",date)
-  //     this.getMealDataServer(todayMealDateServer,true);
-  //     //var pStartDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +  date.getDate();
+    this.calendarCtrl.openCalendar({
+      title:"Select Date",
+      from:fromDate,
+      to:toDate,      
+      weekdays:["S","M", "T", "W", "T", "F", "S"]
+    })
+    .then( (res:any) => { 
+      var date = new Date(res.string);
+      var todayMealDateServer = date.getFullYear()+"-"+('0' +(date.getMonth()+1)).slice(-2)+"-"+('0' +(date.getDate())).slice(-2);
+      console.log(todayMealDateServer);
+      this.loadData.stopLoading();
+      //console.log("history date",date)
+      this.getMealDataServer(todayMealDateServer,true);
+      //var pStartDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' +  date.getDate();
      
 
-  //    })
-  // }
+     })
+  }
 }

@@ -27,7 +27,7 @@ import { ShowexercisePage } from './showexercise/showexercise.page';
 import { TimerpopupPage } from '../workout/timerpopup/timerpopup.page';
 import { WtcalpopupPage } from '../workout/wtcalpopup/wtcalpopup.page';
 import { InstpopupPage } from '../workout/instpopup/instpopup.page';
-
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-todayworkout',
@@ -302,7 +302,7 @@ restTime = 0;
 
 isWheelSelectorShow = false;
 
-constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone) {
+constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone,public router: Router) {
 
     this.tokken = localStorage.getItem('usertoken');
     localStorage.setItem('workoutLoad', '1');
@@ -2251,9 +2251,13 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
   }
 
   showPlanDetails() {
-
-    this.modalCtrl.create({component:MysubscriptionPage});
-
+    // this.modalCtrl.create({component:MysubscriptionPage});
+    let navigationExtras: NavigationExtras = {
+      state: {
+        "frompage":1,
+      }
+    };
+    this.router.navigate(['mysubscription'], navigationExtras);
   }
 
 

@@ -30,7 +30,20 @@ export class UserprofilePage implements OnInit {
   heightfeet;
   heightinc;
   coverImage;
+  editprofModal;
   constructor(public platform: Platform,public nav: NavController, public toastCtrl: ToastController,private loadData: LoadData, public modalCtrl: ModalController) {
+    
+  }
+
+ 
+  ionViewDidLeave(){
+
+    // this.platform.backButton.unsubscribe();
+ 
+   }
+   ngOnInit() {
+     //this.ga.trackView('profile');
+     //this.ga.setAllowIDFACollection(true);
     this.s3Url = global.s3URL;
     this.avatar = localStorage.getItem('avatar');
     this.email = localStorage.getItem('email');
@@ -46,19 +59,6 @@ export class UserprofilePage implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.phone = localStorage.getItem('phone');
     this.coverImage = localStorage.getItem('coverImage');
-    
-  }
-
- 
-  ionViewDidLeave(){
-
-    // this.platform.backButton.unsubscribe();
- 
-   }
-   ngOnInit() {
-     //this.ga.trackView('profile');
-     //this.ga.setAllowIDFACollection(true);
-     
      if(this.gender==='1'){
        this.gender='Male';
      }else if(this.gender==='2'){
@@ -119,19 +119,18 @@ export class UserprofilePage implements OnInit {
    
    }
    public backButtonAction(){
-    this.modalCtrl.dismiss();
+    // this.modalCtrl.dismiss();
     this.nav.navigateBack('tabs/tabs/profile');
    }
 
-   editprofModal;
+  
    async editProfile(){
      this.editprofModal = await this.modalCtrl.create({ component:EditprofilePage});
 
      await this.editprofModal.present();
-     this.editprofModal.onDidDismiss(data => {
+     this.editprofModal.onDidDismiss().then((data) => {
       this.ngOnInit();
     });
-    
-     
    }
+
 }

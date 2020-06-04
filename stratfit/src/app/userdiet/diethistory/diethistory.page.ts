@@ -335,7 +335,7 @@ export class DiethistoryPage implements OnInit {
       component:ViewmealPage, 
       componentProps:{"isEdit":false,"mealId":mealid,"foodItems": mealDataEdit}
     });
-     viewMealModal.onDidDismiss().then(data => {
+     viewMealModal.onDidDismiss().then((data) => {
        this.ngOnInit();
       // this.getFoodData();
      });
