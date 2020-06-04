@@ -1,30 +1,8 @@
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
  */
-
-/* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
-// @import "~@ionic/angular/css/normalize.css";
-// @import "~@ionic/angular/css/structure.css";
-// @import "~@ionic/angular/css/typography.css";
-// @import '~@ionic/angular/css/display.css';
-
-/* Optional CSS utils that can be commented out */
-// @import "~@ionic/angular/css/padding.css";
-// @import "~@ionic/angular/css/float-elements.css";
-// @import "~@ionic/angular/css/text-alignment.css";
-// @import "~@ionic/angular/css/text-transformation.css";
-// @import "~@ionic/angular/css/flex-utils.css";
-
 
 
 
@@ -69,7 +47,7 @@ body.sfbred  {
 
   .fabicon ion-fab-button {background: transparent !important;}
   
-  ion-buton.button, ion-button.brn, ion-button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .tlevel .levelopt.active:after,    .alert-md [aria-checked=true] .alert-radio-icon, .exetab .workflow .worktab .scrol[scrollX] li.active,  .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori ion-button.active, .session ion-button.active, .contin .days ion-button.done, .exe ion-avatar.active, .exetab .workview .exelist ion-col .done, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button,  .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon{border-color: #80B419 !important;}
+  .button, .button.brn, .button.bgw, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .tlevel .levelopt.active:after,    .alert-md [aria-checked=true] .alert-radio-icon, .exetab .workflow .worktab .scrol[scrollX] li.active,  .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori ion-button.active, .session ion-button.active, .contin .days ion-button.done, .exe ion-avatar.active, .exetab .workview .exelist ion-col .done, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button,  .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon{border-color: #80B419 !important;}
   
 
   .exetab .workflow .worktab .scrol[scrollX] li.active:after{border-top-color: #80B419 !important;}
@@ -636,15 +614,9 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
     h2 { white-space: nowrap; text-overflow: ellipsis; }
     h3, h4, h5, h6, p {color: inherit !important;}
 
-    ion-button {background: none !important; border: 0 !important; margin: 0 !important; color: inherit;
-      svg {width:1.6rem; 
-          .cls-1 {fill: transparent}
-          .cls-2, svg .cls-3 {stroke: #000;}
-      }
-      .active {
-          .cls-1 {fill: #d60404}
-          .cls-2, svg .cls-3 {stroke: none;}
-      }
+    ion-button {border: 0 !important; margin: 0 !important; 
+      svg {width:1.6rem; }
+      .active {}
       
     }
     .off {margin-top:0 !important; margin-right:0 !important;font-size: 1.2rem; font-family: 'Open Sans', sans-serif !important;text-align: right;
@@ -653,10 +625,8 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 3px !important; border-bott
 
     
     .price {margin-top:0 !important; margin-right:0 !important;font-size: 1.6rem; font-family: 'Open Sans', sans-serif !important;}
-    svg {width: 2.2rem; height: 2.2rem;
-        .cls-1 {fill: #d60404}
-    }
-    .active svg {fill:#d60404 !important;}
+    svg {width: 2.2rem; height: 2.2rem;}
+    // .active svg {fill:#d60404 !important;}
          
 
     
@@ -877,12 +847,10 @@ ion-app.ios {
 .coach, .profile, .coachview {
 
     .user { /*width:calc(100% - 0px) !important;*/ padding-bottom: 10px !important;  margin-top: 0 !important; border-radius: 0 !important; box-shadow: none !important;
-      // ion-item {padding: 0 !important; background: none !important;  }
       ion-avatar{width: 5rem !important;height: 5rem !important; border-radius: 3px !important; margin: inherit !important;  border: 0; position:relative;
           img {width:5rem !important; max-height: 5rem; border-radius: 3px !important; border: 0 !important}
           svg {position: absolute; right: 0; bottom: 0; width:26px; height: 26px; }
       }
-      // .label { margin: 8px 8px 8px 0 !important;}
       
       .title {padding-left: 14px; width: 100%;
         h2{ font-weight: normal !important; color: inherit !important;}
@@ -1069,8 +1037,6 @@ ion-app.ios {
   ion-scroll {position: relative !important;
     .scroll-zoom-wrapper {display: flex;}
   }
-  // .user .label {margin-left: 0 !important;}
-  
 
   ion-card, .workout {margin: 0 !important;
     h2, h3, p {margin-top: 0 !important;}
@@ -1113,9 +1079,6 @@ ion-app.ios {
 
   }
   
-
-
-  // .profile h2{margin-bottom: 0 !important;}
 
   .nutrition {
     .scrol {min-height: 12rem;
@@ -1201,17 +1164,13 @@ ion-app.ios {
     }
   }
 }
-.tmax { 
+.tmax { color: #fff;
+  p {color: #fff;}
   .inpgrp {  text-align: left; margin-bottom:30px;
     form { margin-bottom:15px ; }
     ion-item {
-      ion-label {display: inline-block; font-weight:300 !important; margin-top:0 !important; margin-bottom:0 !important; color:#000 !important;
-        // span {color:#000 !important;}
-      }
-      ion-input { border-radius: 3px;  color:#000 !important;
-        .text-input {text-align: right; padding-right:3rem;}
-      }
-
+      span {display: inline-block !important;  margin-bottom:0 !important;}
+      ion-input { color:#000 !important; float: right; width: 10rem; text-align: right; padding-right:2rem;}
     }
     .tmxbrd {border:2px solid #111 !important;background: none !important; margin-bottom:1rem;
       ion-label {color:#000 !important;}
@@ -1220,7 +1179,7 @@ ion-app.ios {
       }
     }
     
-    ion-button {display: block; width: 100%; margin: 0;}
+    ion-button { margin: 0;}
   }
 
 }
@@ -1246,7 +1205,7 @@ ion-app.ios {
 
 /*--****** Analytics ***** General , Meso,Micro, Session & Exercise --*****--- STORE - Program Details,  */
 .contin {width:100%;overflow:visible;transition: all .5s ease-out; 
-  ion-row.periods {border-bottom: 0 !important; margin-bottom: 0 !important;}
+  ion-row.periods {border-bottom: 0 !important;}
   ion-row.periods ion-select {padding-left: 0 !important; font-size: small;}  
   ion-row.periods ion-select:last-child {padding-right: 0 !important;}  
 
@@ -1293,7 +1252,6 @@ ion-app.ios {
       .worktab { margin-bottom: 15px; display: block;  
         
         .scrol[scrollX] {white-space: nowrap;text-align: left !important;  
-          // .scroll-content {border: 0; position: relative !important; min-height: 40px;}
           ul{list-style: none; overflow-x:scroll ; min-height: 44px; text-align: center; }
           li {display:inline-block; padding: 5px 16px; margin-right:4px;opacity: 0.6;  border-radius:3px; position: relative;}
           li.active { border-width:1px !important; border-style:solid !important; opacity: 1;}
@@ -1305,7 +1263,6 @@ ion-app.ios {
       .setdone {width: 100%;  position: relative; text-align: center;
         em { font-size: 1.1rem; display: block; }
         ion-button {width:56px !important; height: 56px !important; border-radius: 50%; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
-          // .button-native {padding: 0 !important; background: none !important;} 
           svg {width:56px !important; height:56px !important;}
         }
         
@@ -1316,9 +1273,7 @@ ion-app.ios {
     .workview {
       h1 {font-size:2rem; display: block;margin-top: 0;}
       h2 { display: block;}
-      // ion-item { margin-bottom: 1rem; border-bottom:1px solid #111; border-radius: 0 !important;
-      //   ion-label { margin: 0;}
-      // }
+    
       .setlist {
         ion-row { border-bottom-width:1px; border-bottom-style:solid;margin-bottom: 1rem;
           ion-col {padding: 0 !important; }
@@ -1379,7 +1334,7 @@ ion-app.ios {
 
 /*--- Analytics Tab View Css --- Never changes any thing here*/
 .exesumry { /*--- Analytics Summery Css --- Never changes any thing here*/
-  h3 {color: #d60404; font-size:1.6rem !important;}
+  h3 {font-size:1.6rem !important;}
   h6 {text-align: center;}
     ion-col { background:#fff !important; border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
         span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); font-size: 1.6rem; width: 100%; 
@@ -1395,12 +1350,13 @@ ion-app.ios {
 
 /*--****** Nutrition ***** Meal , Dishes --*****---   */
 
-.diet {
+.diet { color: #fff; --color:#fff; 
 
   .cgraph { text-align: center;
-    h3 {width: 100%; font-size: 1.4rem; margin-top:0 !important;  }
+    h3 {width: 100%; font-size: small; margin-top:0 !important;  }
     circle-progress {display:block; position: relative;
-      svg {width: 7.5755rem;height: 7.5755rem; margin: auto;
+      svg {width:auto;height:auto; margin: auto;
+        text tspan {margin-bottom: 5px;}
         text tspan:last-child{ fill:#707070 !important; font-size:34px; }
       }
     }
@@ -1422,12 +1378,6 @@ ion-app.ios {
       linearGradient stop {stop-color:#00BFE6 !important ;}
     }
 
-
-
-
-    // .reqcal {
-    //   em {color: #ccc;}
-    // }
   }
 
   .lgraph {
@@ -1445,11 +1395,11 @@ ion-app.ios {
 
   .cgraph, .lgraph {padding-top: 0 !important; width:100%;
     span, em {display: block;}
-    span { font-size:1rem;}
-    ion-col {padding:0 5px !important; padding-left: 0px !important}
+    span { font-size:small;}
+    ion-col { padding-left: 0px !important}
     ion-col:nth-child(4n+1) {padding-left: 0 !important;}
     ion-col:first-child{ padding-left: 0 !important; }
-    ion-col:last-child{ padding-left: 10px !important; padding-right:0 !important; }
+    // ion-col:last-child{ padding-left: 10px !important; padding-right:0 !important; }
   } 
 
   .week { text-align: center; display: block; position: relative;  padding-bottom:0 !important;
@@ -1498,18 +1448,12 @@ ion-app.ios {
 
  
 
-
-  
-
-
-
-
 // *** EDIT ADD / MEAL CARD *** ADD  DISHES *** ////
   .adlist {padding:10px 0 0px 0 !important;
     h4 { margin-bottom: 10px; margin-top: 0 ; width: 100%; font-size:1.2rem; padding-left: 16px; padding-right: 16px;
       span {float: right;  font-size:1.2rem;}
     }
-    .row {width:100%; padding-left:16px; padding-right:16px; border-bottom: 0 !important;}
+    ion-row {width:100%; padding-left:16px; padding-right:16px; border-bottom: 0 !important;}
     .aditems {padding-left:0 !important; padding-right: 0 !important; padding-bottom: 8px ;  display: block; position: relative;
       .scrol[scrollX] {min-height: 30px !important;}
       ion-avatar{margin: 0 5px 0 0 !important;position: relative;min-width:50px !important;min-height:50px !important;border-radius:5px !important;border:0;padding: 0;overflow: hidden; display: inline-block;

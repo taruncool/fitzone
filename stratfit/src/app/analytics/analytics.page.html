@@ -38,7 +38,7 @@
 <ion-content class=" analytic">
 
   <!-- <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()"> -->
-    <ion-row class="pcover" *ngIf='!noplan'>
+    <ion-row class="pcover" *ngIf='!noplan' (click)="programView()">
     <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
   
     <div class="container">

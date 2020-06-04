@@ -1,27 +1,28 @@
-<ion-header class="head ">
-  <!-- <ion-navbar class="hedfm"> -->
-      <ion-title><span>Tmax for</span>{{exercise}}</ion-title>
-    <ion-buttons end >
-      <ion-button icon-only (click)="backButtonAction()">
-          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
-              <g id="close" transform="translate(0 0)">
-                  <path id="Path_119" data-name="Path 119" d="M164.092,159.542a3.925,3.925,0,1,0-5.492,5.609L189.5,195.4a3.925,3.925,0,0,0,5.491-5.61Z" transform="translate(-105.869 -106.215)" />
-                  <path id="Path_120" data-name="Path 120" d="M108.926,114.476a3.925,3.925,0,1,0,5.551-5.551L84.886,79.334a3.925,3.925,0,0,0-5.55,5.55Z" transform="translate(-78.185 -78.185)" />
-                  <path id="Path_121" data-name="Path 121" d="M167.341,79.331a3.913,3.913,0,0,0-5.533,0L79.331,161.807a3.913,3.913,0,0,0,5.534,5.533l82.476-82.476A3.914,3.914,0,0,0,167.341,79.331Z" transform="translate(-78.185 -78.185)"/>
-              </g>
-          </svg>
+<ion-header class=" head">
+  <ion-toolbar class="hedfm"> 
+    <ion-buttons  slot="end" >
+      <ion-button slot="icon-only" (click)="backButtonAction()">
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
+          <g id="close" transform="translate(0 0)">
+              <path id="Path_119" data-name="Path 119" d="M164.092,159.542a3.925,3.925,0,1,0-5.492,5.609L189.5,195.4a3.925,3.925,0,0,0,5.491-5.61Z" transform="translate(-105.869 -106.215)" />
+              <path id="Path_120" data-name="Path 120" d="M108.926,114.476a3.925,3.925,0,1,0,5.551-5.551L84.886,79.334a3.925,3.925,0,0,0-5.55,5.55Z" transform="translate(-78.185 -78.185)" />
+              <path id="Path_121" data-name="Path 121" d="M167.341,79.331a3.913,3.913,0,0,0-5.533,0L79.331,161.807a3.913,3.913,0,0,0,5.534,5.533l82.476-82.476A3.914,3.914,0,0,0,167.341,79.331Z" transform="translate(-78.185 -78.185)"/>
+          </g>
+        </svg>
       </ion-button>
     </ion-buttons>
 
-  <!-- </ion-navbar> -->
+    <ion-title><span>Tmax for</span>{{exercise}}</ion-title>
+  </ion-toolbar> 
+
 </ion-header>
 
 
-<ion-content class="exeinfo tmax">
+<ion-content class=" tmax">
  
 <div class="fulpad ">
 
-   <div class="inpgrp">
+   <ion-list class="inputs inpgrp">
     <!-- <form #exTmaxForm="ngForm">
       <label>Tmax: {{tmax}} {{metric}}</label>
       <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*" 
@@ -36,15 +37,19 @@
         </ion-label>
         <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' readonly></ion-input>
       </ion-item> -->
-      <ion-item > 
-        <ion-label class="posabs">
-            <span>Tmax</span>
-        </ion-label>
-        <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input>
+
+      <ion-item class="sbgw" >
+        <ion-row class="hed" >
+          <span>Tmax</span>
+          <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input>
+        </ion-row>
       </ion-item>
+
+
+
     </form>
-    <ion-button (click)="saveExerciseTmax()" [disabled]="!exTmaxForm.form.valid"> Save</ion-button> 
-  </div>
+    <ion-button expand="full" (click)="saveExerciseTmax()" [disabled]="!exTmaxForm.form.valid"> Save</ion-button> 
+  </ion-list>
 
   <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
   <p>Stratfit has approx estimated your training maxes based on your biometric data and training level.</p>

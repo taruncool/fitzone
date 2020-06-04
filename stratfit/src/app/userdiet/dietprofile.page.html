@@ -1,31 +1,36 @@
-<ion-header class="sbgb head">
-  <ion-toolbar class="hedfm">
-    <ion-buttons ion-start >
-      <ion-button icon-only (click)="backButtonAction()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
-            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
-          </svg>
-      </ion-button>
-    </ion-buttons>
-    <ion-title><span>Your</span>Nutrition</ion-title>
-    <ion-buttons end>
-      <ion-button (click)="displayCalendar()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-             <g id="history" transform="translate(0 -0.315)">
-               <rect id="Rectangle_138845" data-name="Rectangle 138845"  transform="translate(0 0.315)" fill="none"/>
-               <path id="Path_8534" data-name="Path 8534" d="M43.193,3.315A35.89,35.89,0,0,0,7.319,39.088,41.528,41.528,0,0,0,8.607,50.221L3.774,47.4A2.51,2.51,0,1,0,1.245,51.74l11.325,6.6c.024.012.047.016.07.027a2.481,2.481,0,0,0,.375.157,2.68,2.68,0,0,0,.263.085,2.594,2.594,0,0,0,.326.041c.077.007.154.031.232.031.044,0,.085-.015.129-.017s.078.009.121,0c.062-.006.118-.032.179-.042a2.575,2.575,0,0,0,.351-.085,2.461,2.461,0,0,0,.286-.116,2.375,2.375,0,0,0,.3-.169,2.293,2.293,0,0,0,.5-.43,2.294,2.294,0,0,0,.2-.255c.034-.05.078-.086.108-.137s.022-.083.041-.122c.034-.068.086-.128.116-.2l4.505-11.154a2.509,2.509,0,1,0-4.652-1.88L13.7,49.806A37.183,37.183,0,0,1,12.34,39.191,30.854,30.854,0,1,1,43.194,70.044a2.51,2.51,0,1,0,0,5.021,35.875,35.875,0,1,0,0-71.75Z" transform="translate(0 0.735)" />
-               <path id="Path_8535" data-name="Path 8535" d="M37.088,40.039a2.484,2.484,0,0,0,.789.161c.056,0,.111.034.167.034a2.485,2.485,0,0,0,.852-.167,2.209,2.209,0,0,0,.22-.1,2.508,2.508,0,0,0,.577-.382c.039-.034.09-.046.128-.085L55.494,23.823a2.51,2.51,0,0,0-3.55-3.55L37.46,34.756l-13-5.444a2.511,2.511,0,0,0-1.942,4.631l14.554,6.094.015,0Z" transform="translate(5.144 4.713)" />
-             </g>
-           </svg>
-           
-           
-      </ion-button>
-      <ion-button (click)="openMessanger()">Help</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class="diet sbgb">
+
+<ion-header class=" head">
+   <ion-toolbar class="hedfm"> 
+     <ion-buttons  slot="start" >
+       <ion-button slot="icon-only" (click)="backButtonAction()">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+           </svg>
+       </ion-button>
+     </ion-buttons>
+ 
+     <ion-title><span>Your</span>Nutrition</ion-title>
+
+     <ion-buttons slot="end" >
+      <ion-button (click)="displayCalendar()">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+            <g id="history" transform="translate(0 -0.315)">
+              <rect id="Rectangle_138845" data-name="Rectangle 138845"  transform="translate(0 0.315)" fill="none"/>
+              <path id="Path_8534" data-name="Path 8534" d="M43.193,3.315A35.89,35.89,0,0,0,7.319,39.088,41.528,41.528,0,0,0,8.607,50.221L3.774,47.4A2.51,2.51,0,1,0,1.245,51.74l11.325,6.6c.024.012.047.016.07.027a2.481,2.481,0,0,0,.375.157,2.68,2.68,0,0,0,.263.085,2.594,2.594,0,0,0,.326.041c.077.007.154.031.232.031.044,0,.085-.015.129-.017s.078.009.121,0c.062-.006.118-.032.179-.042a2.575,2.575,0,0,0,.351-.085,2.461,2.461,0,0,0,.286-.116,2.375,2.375,0,0,0,.3-.169,2.293,2.293,0,0,0,.5-.43,2.294,2.294,0,0,0,.2-.255c.034-.05.078-.086.108-.137s.022-.083.041-.122c.034-.068.086-.128.116-.2l4.505-11.154a2.509,2.509,0,1,0-4.652-1.88L13.7,49.806A37.183,37.183,0,0,1,12.34,39.191,30.854,30.854,0,1,1,43.194,70.044a2.51,2.51,0,1,0,0,5.021,35.875,35.875,0,1,0,0-71.75Z" transform="translate(0 0.735)" />
+              <path id="Path_8535" data-name="Path 8535" d="M37.088,40.039a2.484,2.484,0,0,0,.789.161c.056,0,.111.034.167.034a2.485,2.485,0,0,0,.852-.167,2.209,2.209,0,0,0,.22-.1,2.508,2.508,0,0,0,.577-.382c.039-.034.09-.046.128-.085L55.494,23.823a2.51,2.51,0,0,0-3.55-3.55L37.46,34.756l-13-5.444a2.511,2.511,0,0,0-1.942,4.631l14.554,6.094.015,0Z" transform="translate(5.144 4.713)" />
+            </g>
+         </svg>
+      </ion-button>
+     <ion-button (click)="openMessanger()">Help</ion-button>
+    </ion-buttons>
+   </ion-toolbar> 
+ 
+ </ion-header>
+
+
+
+<ion-content class="diet">
 
 <!-- <ion-list no-lines>
      
@@ -143,142 +148,133 @@
  <ion-row class="fulpad cgraph" >
    
   <h3>Day Balance</h3>
-    <ion-col class="fat">
-       <!-- <circle-progress [percent]="fatGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40" [unitsFontSize]=" 30" [subtitle]="'Fat'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#999999'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
-  
-  <circle-progress [percent]="fatGmsBalancePercent" 
-       [backgroundStrokeWidth]="0"
-       [backgroundPadding]=" 0"
-       [radius]="100"  
-       [innerStrokeWidth]="10" 
-       [outerStrokeWidth]="10" 
-       [space]=" -10"
-       [outerStrokeGradient]=" true"
-       [titleFontSize]="40" 
-       [units]=" rem" 
-       [showTitle]="true"
-       [showSubtitle]="True"
-       [title]="fatGmsIntake+ ' g'"
-       [subtitle]="'Fat'"
-       [unitsFontSize]=" 30"
-       [subtitleFontSize]="20" 
-       [animation]="true"
-       [animationDuration]="1000"
-       [showUnits]="false"
-       [outerStrokeColor]= "'#999999'"
-       [innerStrokeColor]= "'#1D2534'"
-       [showBackground]="false"
-       [responsive]="true"></circle-progress>
+   <ion-col size="3" class="fat">
+      <circle-progress [percent]="fatGmsBalancePercent" 
+         [backgroundStrokeWidth]="0"
+         [backgroundPadding]=" 0"
+         [radius]="100"  
+         [innerStrokeWidth]="10" 
+         [outerStrokeWidth]="10" 
+         [space]=" -10"
+         [outerStrokeGradient]=" true"
+         [titleFontSize]="40" 
+         [units]=" rem" 
+         [showTitle]="true"
+         [showSubtitle]="True"
+         [title]="fatGmsIntake+ ' g'"
+         [subtitle]="'Fat'"
+         [unitsFontSize]=" 30"
+         [subtitleFontSize]="20" 
+         [animation]="true"
+         [animationDuration]="1000"
+         [showUnits]="false"
+         [outerStrokeColor]= "'#999999'"
+         [innerStrokeColor]= "'#1D2534'"
+         [showBackground]="false"
+         [responsive]="true">
+      </circle-progress>
 
-       <!-- <circle-progress [percent]="fatGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
        <!-- Fat  -->
        <div class="reqcal">
           <em>{{fatGms}} g</em><span>Fat</span>
        </div>
-    </ion-col>
+   </ion-col>
 
-    <ion-col class="protein">
+   <ion-col  size="3" class="protein">
+      <circle-progress [percent]="protienGmsBalancePercent" 
+         [showTitle]="true"
+         [showSubtitle]="True"
+         [title]="protienGmsIntake+ ' g'"
+         [subtitle]="'Pro'"
+         [backgroundStrokeWidth]="0"
+         [backgroundPadding]=" 0"
+         [radius]="100"  
+         [innerStrokeWidth]="10" 
+         [outerStrokeWidth]="10" 
+         [space]=" -10"
+         [outerStrokeGradient]=" true"
+         [titleFontSize]="40"
+         [unitsFontSize]=" 30"
+         [subtitleFontSize]="20" 
+         [animation]="true"
+         [animationDuration]="1000"
+         [showUnits]="false"
+         [outerStrokeColor]= "'#E33849'"
+         [innerStrokeColor]= "'#1D2534'"
+         [showBackground]="false"
+         [responsive]="true">
+      </circle-progress>
 
-       <!-- <circle-progress [percent]="protienGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10"[space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Pro'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E33849'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
-  <circle-progress [percent]="protienGmsBalancePercent" 
-       [showTitle]="true"
-       [showSubtitle]="True"
-       [title]="protienGmsIntake+ ' g'"
-       [subtitle]="'Pro'"
-       [backgroundStrokeWidth]="0"
-       [backgroundPadding]=" 0"
-       [radius]="100"  
-       [innerStrokeWidth]="10" 
-       [outerStrokeWidth]="10" 
-       [space]=" -10"
-       [outerStrokeGradient]=" true"
-       [titleFontSize]="40"
-       [unitsFontSize]=" 30"
-       [subtitleFontSize]="20" 
-       [animation]="true"
-       [animationDuration]="1000"
-       [showUnits]="false"
-       [outerStrokeColor]= "'#E33849'"
-       [innerStrokeColor]= "'#1D2534'"
-       [showBackground]="false"
-       [responsive]="true"></circle-progress>
-
-       <!-- <circle-progress [percent]="protienGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
-
-        <!-- Pro  -->
-        <div class="reqcal">
-            <em>{{protienGms}} g</em><span>Protein</span>
-         </div>
+      <!-- Pro  -->
+      <div class="reqcal">
+         <em>{{protienGms}} g</em><span>Protein</span>
+      </div>
        
-    </ion-col>
+   </ion-col>
 
-    <ion-col class="carbohydrate">
-       <!-- <circle-progress [percent]="carbsGmsBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Carbs'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#E6CF00'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
-    
-    <circle-progress [percent]="carbsGmsBalancePercent" 
-        [showTitle]="true"
-        [showSubtitle]="True"
-        [title]="carbsGmsIntake+' g'"
-        [subtitle]="'Carbs'"
-        [backgroundStrokeWidth]="0"
-        [backgroundPadding]=" 0"
-        [radius]="100"  
-        [innerStrokeWidth]="10" 
-        [outerStrokeWidth]="10"
-        [space]=" -10"
-        [outerStrokeGradient]=" true"
-        [titleFontSize]="40"
-        [unitsFontSize]=" 30"
-        [subtitleFontSize]="20" 
-        [animation]="true"
-        [animationDuration]="1000"
-        [showUnits]="false"
-        [outerStrokeColor]= "'#E6CF00'"
-        [innerStrokeColor]= "'#1D2534'"
-        [showBackground]="false"
-        [responsive]="true"></circle-progress>
-    
-        <!-- <circle-progress [percent]="carbsGmsBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
-        <!-- Carbs  -->
-       <div class="reqcal">
-          <em>{{carbsGms}} g</em><span>Carbohydrate</span>
-       </div>
-    </ion-col>
+   <ion-col  size="3" class="carbohydrate">
+      <circle-progress [percent]="carbsGmsBalancePercent" 
+         [showTitle]="true"
+         [showSubtitle]="True"
+         [title]="carbsGmsIntake+' g'"
+         [subtitle]="'Carbs'"
+         [backgroundStrokeWidth]="0"
+         [backgroundPadding]=" 0"
+         [radius]="100"  
+         [innerStrokeWidth]="10" 
+         [outerStrokeWidth]="10"
+         [space]=" -10"
+         [outerStrokeGradient]=" true"
+         [titleFontSize]="40"
+         [unitsFontSize]=" 30"
+         [subtitleFontSize]="20" 
+         [animation]="true"
+         [animationDuration]="1000"
+         [showUnits]="false"
+         [outerStrokeColor]= "'#E6CF00'"
+         [innerStrokeColor]= "'#1D2534'"
+         [showBackground]="false"
+         [responsive]="true">
+      </circle-progress>
 
-    <ion-col class="calorie">
-       <!-- <circle-progress [percent]="totalCalBalancePercent" [backgroundStrokeWidth]="0"[backgroundPadding]=" 0"[radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10"[outerStrokeGradient]=" true"[titleFontSize]="40"[unitsFontSize]=" 30" [subtitle]="'Cal'" [subtitleFontSize]="30" [animation]="true"[animationDuration]="1000"[showUnits]="true"[outerStrokeColor]= "'#00BFE6'"[innerStrokeColor]= "'#1D2534'"[showBackground]="false"[responsive]="true"></circle-progress> -->
-  <circle-progress 
-       [percent]="totalCalBalancePercent" 
-       [showTitle]="true"
-       [showSubtitle]="True"
-       [title]="calIntake"
-       [subtitle]="'Cal'"
-       [backgroundStrokeWidth]="0"
-       [backgroundPadding]=" 0"
-       [radius]="100"  
-       [innerStrokeWidth]="10" 
-       [outerStrokeWidth]="10" 
-       [space]=" -10"
-       [outerStrokeGradient]=" true"
-       [titleFontSize]="40"
-       [unitsFontSize]=" 30"
-       [subtitleFontSize]="20" 
-       [animation]="true"
-       [animationDuration]="1000"
-       [showUnits]="false"
-       [outerStrokeColor]= "'#00BFE6'"
-       [innerStrokeColor]= "'#1D2534'"
-       [showBackground]="false"
-       [responsive]="true"></circle-progress>
+      <!-- Carbs  -->
+      <div class="reqcal">
+         <em>{{carbsGms}} g</em><span>Carbohydrate</span>
+      </div>
+   </ion-col>
 
-       <!-- <circle-progress [percent]="totalCalBalancePercent" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"[animation]="true"[animationDuration]="300"></circle-progress> -->
+   <ion-col  size="3" class="calorie">
+      <circle-progress 
+         [percent]="totalCalBalancePercent" 
+         [showTitle]="true"
+         [showSubtitle]="True"
+         [title]="calIntake"
+         [subtitle]="'Cal'"
+         [backgroundStrokeWidth]="0"
+         [backgroundPadding]=" 0"
+         [radius]="100"  
+         [innerStrokeWidth]="10" 
+         [outerStrokeWidth]="10" 
+         [space]=" -10"
+         [outerStrokeGradient]=" true"
+         [titleFontSize]="40"
+         [unitsFontSize]=" 30"
+         [subtitleFontSize]="20" 
+         [animation]="true"
+         [animationDuration]="1000"
+         [showUnits]="false"
+         [outerStrokeColor]= "'#00BFE6'"
+         [innerStrokeColor]= "'#1D2534'"
+         [showBackground]="false"
+         [responsive]="true">
+      </circle-progress>
 
-       <!-- Cal  -->
-       <div class="reqcal">
-          <em>{{calPerDay}}</em><span>Calories</span>
-       </div>
-    </ion-col>
- </ion-row>
+      <!-- Cal  -->
+      <div class="reqcal">
+         <em>{{calPerDay}}</em><span>Calories</span>
+      </div>
+   </ion-col>
+</ion-row>
 <!-- <ion-row class=" fulpad week">
   <button ion-button> Mon </button>
   <button ion-button> Tue </button>
@@ -300,14 +296,15 @@
      <ion-item>
         <!-- <em>Breakfast</em> -->
         <h2 >{{meal.mealName}}</h2>
-        <ion-button (click)="editMeal(meal.id)" item-end>
+        <ion-button (click)="editMeal(meal.id)" slot="end">
            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
               <g id="add" transform="translate(-654.5 -785.5)">
                  <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
                  <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
               </g>
            </svg>
-           Edit</ion-button>
+           Edit
+         </ion-button>
      </ion-item>
      <ion-row class="lgraph" >
         <ion-col><em>{{meal.mealfat}} g</em>
@@ -334,14 +331,12 @@
            </div>
            <span>Calories</span>
         </ion-col>
-     </ion-row>
-     <ion-row class="listdis">
-       <div scrollX="true">
-          <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em>
-       </div>
-      
-      <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
-      <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
+      </ion-row>
+      <ion-row class="listdis">
+         <div class="scrol" scrollX="true">
+            <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em>
+         </div>
+
       </ion-row>
   </ion-card> 
 
@@ -424,9 +419,9 @@
 
 </ion-content>
 
-<ion-footer class="foot" text-right>
+<ion-footer class="foot text-right" >
  <ion-row class="btnrow">
-    <ion-button item-end (click)="addMeal()" class=" addmeal">
+    <ion-button slot="end" (click)="addMeal()" class=" addmeal">
        <!-- <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
           <g id="add" transform="translate(-654.5 -785.5)">
              <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
