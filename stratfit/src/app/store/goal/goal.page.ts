@@ -161,8 +161,8 @@ activepurposeid = 0;
       this.activationalert();
     }
      }
-     public activationalert() {
-      this.prompt = this.alertCtrl.create({
+     async activationalert() {
+      this.prompt =await  this.alertCtrl.create({
         message: 'You do not have an active internet connection. Please try again..',
         buttons: [
           {

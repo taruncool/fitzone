@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, NavParams } from '@ionic/angular';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-privacypolicy',
@@ -9,6 +10,7 @@ import { NavController, ModalController, NavParams } from '@ionic/angular';
 export class PrivacypolicyPage implements OnInit {
   privacydataNew:any = [];
   heading;
+  pageType;
   privacydata:any={
                   "privacy":[
                     {
@@ -178,21 +180,32 @@ export class PrivacypolicyPage implements OnInit {
   preData;
   data: Array<{title:string,question: string, details: string, icon: string, showDetails: boolean}> = [];
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams ) {}
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController,public router: Router,private route: ActivatedRoute ) {
+    this.route.queryParams.subscribe(params => {
+        if (this.router.getCurrentNavigation().extras.state) {
+          this.heading = this.router.getCurrentNavigation().extras.state.heading;
+          this.pageType = this.router.getCurrentNavigation().extras.state.frompage;
+        }
+        });
+  }
 
 //   ionViewDidLoad() {
     
 //   }
   backButtonAction() {
     // this.modalCtrl.dismiss();
-    this.navCtrl.navigateBack('/tabs/tabs/profile');
+    if( this.pageType=='1'){
+        this.navCtrl.navigateBack('/signup');
+       }else{
+     this.navCtrl.navigateBack('/tabs/tabs/profile');
+       }
   }
 
   ngOnInit() {
     console.log("heading......",this.heading);
-    let headingmsg = this.navParams.get('heading');
+    // let headingmsg = this.navParams.get('heading');
     //  let headingmsg = this.navParams.data.heading;
-    console.log("heading......",headingmsg);
+    // console.log("heading......",headingmsg);
     this.preData='';
     this.privacydataNew = this.privacydata.privacy;
     for(var j=0; j<this.privacydataNew.length; j++){
@@ -205,7 +218,7 @@ export class PrivacypolicyPage implements OnInit {
         })
     }
 
-    if(headingmsg==='terms'){
+    if(this.heading ==='terms'){
 
         this.heading = "Terms and Conditions"
     }else{

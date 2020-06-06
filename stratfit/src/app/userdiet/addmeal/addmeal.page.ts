@@ -76,7 +76,7 @@ export class AddmealPage implements OnInit {
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService: ApiService, public http: HttpClient, 
     public toastCtrl: ToastController, private loadData: LoadData, public modalCtrl: ModalController, 
-    private ga:GoogleAnalytics, public alertCtrl:AlertController  
+    private ga:GoogleAnalytics 
   ) {
 
       this.token = localStorage.getItem('usertoken');

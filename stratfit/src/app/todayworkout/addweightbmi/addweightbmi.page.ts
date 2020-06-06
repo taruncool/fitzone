@@ -88,7 +88,6 @@ export class AddweightbmiPage implements OnInit {
 	isDietShow = false;	
 
 		constructor(public navCtrl: NavController, 
-			public alertCtrl:AlertController, 
 			public toastCtrl: ToastController,private apiService: ApiService, 
 			private loadData: LoadData, private ga: GoogleAnalytics, 
 		 	public modalCtrl: ModalController, 

@@ -77,7 +77,7 @@ export class TmaxsummaryPage implements OnInit {
   //  // this.backButtonClick();
   // }
 
-  changeTmax(index,ex_id) {
+ async changeTmax(index,ex_id) {
    
     if(this.planSet){
    
@@ -127,7 +127,7 @@ export class TmaxsummaryPage implements OnInit {
       result => {
       
       
-        this.prompt = this.alertCtrl.create({
+        this.prompt =  this.alertCtrl.create({
           // message: 'Tmax change!',
           message:'Do you want to change Tmax of other exercises too?',
           buttons: [

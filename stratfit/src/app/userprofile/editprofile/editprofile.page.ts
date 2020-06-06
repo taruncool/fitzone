@@ -48,7 +48,7 @@ export class EditprofilePage implements OnInit {
   maxyear;
   todayDate;
   toast;
-    constructor(public navCtrl: NavController, public navParams: NavParams,private apiService:ApiService, public http: HttpClient, public toastCtrl: ToastController, private loadData: LoadData, private ga:GoogleAnalytics, public alertCtrl:AlertController, public modalCtrl: ModalController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams,private apiService:ApiService, public http: HttpClient, public toastCtrl: ToastController, private loadData: LoadData, private ga:GoogleAnalytics, public modalCtrl: ModalController) {
     this.email = localStorage.getItem('email');
     this.firstname = localStorage.getItem('firstname');
     this.lastname = localStorage.getItem('lastname');

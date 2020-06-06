@@ -240,8 +240,8 @@ export class SlidesPage implements OnInit {
     this.navCtrl.navigateForward('/privacypolicy');
   }
 
-  public disclaimerid(){
-    this.prompt = this.alertCtrl.create({
+  async disclaimerid(){
+    this.prompt = await this.alertCtrl.create({
       message: 'StratFit strongly recommends that you consult with your physician before beginning any exercise program.if you engage in these exercise or any exercise program,you agree that you do so at your own risk, are voluntarily participating in these activities, assume all risk of injury to yourself, and agree to release and discharge StratFit from any and all claims or causes of action.',
       buttons: ['OK']
     });

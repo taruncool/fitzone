@@ -46,7 +46,7 @@ export class ProgressbarPage implements OnInit {
     private route: ActivatedRoute, private router: Router,
     public modalCtrl: ModalController, 
     private loadData: LoadData,private apiService: ApiService,
-    public alertCtrl: AlertController, public toastCtrl: ToastController, private http: HttpClient, public sqlStorageNew: SqlStorageNew){
+    public toastCtrl: ToastController, private http: HttpClient, public sqlStorageNew: SqlStorageNew){
       
     this.disbaleBackNav=true;
     this.percent = 0;

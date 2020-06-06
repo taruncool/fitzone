@@ -602,8 +602,8 @@ export class DietprofilePage implements OnInit {
 
   }
 
-  noMealsAlert(date){
-    this.prompt = this.alertCtrl.create({
+ async noMealsAlert(date){
+    this.prompt = await this.alertCtrl.create({
       // title: 'No meals',
       message:'No meals added on '+date,
       buttons: [

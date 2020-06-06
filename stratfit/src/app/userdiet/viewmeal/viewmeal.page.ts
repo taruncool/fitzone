@@ -76,7 +76,7 @@ export class ViewmealPage implements OnInit {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, 
     public toastCtrl: ToastController, private loadData: LoadData,private apiService: ApiService, 
-    private ga:GoogleAnalytics, public alertCtrl:AlertController, public modalCtrl: ModalController, 
+    private ga:GoogleAnalytics, public modalCtrl: ModalController, 
     ) {
 
       this.token = localStorage.getItem('usertoken');

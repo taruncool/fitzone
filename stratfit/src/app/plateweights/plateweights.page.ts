@@ -180,7 +180,7 @@ export class PlateweightsPage implements OnInit {
         }else{
           mandatoryMsg='Please check any two plates';
         }
-        this.prompt = this.alertCtrl.create({
+        this.prompt = await this.alertCtrl.create({
           message: mandatoryMsg,
           buttons: ['OK']
         });

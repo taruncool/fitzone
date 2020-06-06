@@ -50,8 +50,8 @@ export class CommunityPage implements OnInit {
       // toast.present();
     }
   }
-  public activationalert() {
-    this.prompt = this.alertCtrl.create({
+  async activationalert() {
+    this.prompt = await this.alertCtrl.create({
       message: 'You do not have an active internet connection. Please try again..',
       buttons: [
         {
@@ -150,8 +150,8 @@ export class CommunityPage implements OnInit {
   //   this.navCtrl.push(GymviewPage,{gymInfo:gymdata});
   // }
 
-  noProgramsAlert(){
-    this.prompt = this.alertCtrl.create({
+ async noProgramsAlert(){
+    this.prompt = await this.alertCtrl.create({
       // message: 'No Subscription yet!',
       message:'Subscribe to Stratfit program from the store to start workout.',
       buttons: [

@@ -210,12 +210,8 @@ export class SignupPage implements OnInit {
                 }
               }else{
                 this.loadData.stopLoading();
-                this.prompt = this.alertCtrl.create({
-                  // message: 'Login Failed',
-                  message: res.json().message,
-                  buttons: ['OK']
-                });
-                this.prompt.present();
+                this.toastmsg(res.message);
+                buttons: ['OK']
               }
             }, (err) => {
               this.loadData.stopLoading();
@@ -421,8 +417,14 @@ export class SignupPage implements OnInit {
       toast.present();
     }
   
-    public Privacyid(){
-     this.navCtrl.navigateForward('/privacypolicy');
+    public Privacyid(msg){
+    //  this.navCtrl.navigateForward('/privacypolicy');
+     let navigationExtras: NavigationExtras = {
+      state: {
+        "heading":msg,"frompage":1,
+      }
+    };
+    this.router.navigate(['privacypolicy'], navigationExtras);
     }
   
     async disclaimerid(){

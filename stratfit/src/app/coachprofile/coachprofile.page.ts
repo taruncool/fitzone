@@ -48,7 +48,7 @@ export class CoachprofilePage implements OnInit {
   }
 
 
-  ngOnInit() {
+async ngOnInit() {
     this.planSet=(localStorage.getItem('planSet') === 'true') ? true : false;
       // this.ga.trackView('coachprofile');
 
@@ -86,11 +86,11 @@ export class CoachprofilePage implements OnInit {
                 this.userCurType = res.luctype;
                 this.programdetails(this.plansdata,this.userCurType);
               }else{
-                this.prompt = this.alertCtrl.create({
-                    message: "Unable to process your request. Please try after some time",
-                    buttons: ['OK']
-                });
-                this.prompt.present();
+                this.toastmsg("Unable to process your request. Please try after some time");
+                buttons: [
+                  {
+                    text: 'Ok',
+                  }]
               }
           },(err) => {
             this.loadData.stopLoading();
@@ -169,12 +169,6 @@ export class CoachprofilePage implements OnInit {
   }
 
   async viewplaninfo(plan){
-    //this.nav.push(ProgramdetailsPage,{plandetails:plan});
-    // let modal = await this.modalCtrl.create({
-    //   component:ProgramdetailsPage,
-    //   componentProps: {"plandetails":plan}
-    // });
-    // modal.present();
     console.log("plan....",plan);
     let navigationExtras: NavigationExtras = {
       state: {

@@ -32,7 +32,7 @@ export class TmaxtestingPage implements OnInit {
   tmaxParameter;
   tmaxValues;
 
-  constructor(public navParams: NavParams,private nav: NavController,private route: ActivatedRoute, private router: Router,private apiService: ApiService, private http: HttpClient,private alertCtrl: AlertController, private loadData:LoadData,public toastCtrl: ToastController,private ga: GoogleAnalytics,public SqlStorageNew: SqlStorageNew) {
+  constructor(public navParams: NavParams,private nav: NavController,private route: ActivatedRoute, private router: Router,private apiService: ApiService, private http: HttpClient,private loadData:LoadData,public toastCtrl: ToastController,private ga: GoogleAnalytics,public SqlStorageNew: SqlStorageNew) {
     this.token = localStorage.getItem('usertoken');
     this.tmaxStatus='yes';
     // this.tab = this.nav.parent;

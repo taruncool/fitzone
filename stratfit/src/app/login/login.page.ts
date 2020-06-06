@@ -143,12 +143,14 @@ async sociallogin(socialtype, accessToken, clientid, code) {
             }
           } else {
             this.loadData.stopLoading();
-            this.prompt = this.alertCtrl.create({
-              // message: 'Login Failed',
-              message: res.message,
-              buttons: ['OK']
-            });
-            this.prompt.present();
+            this.toastmsg(res.message);
+            buttons: ['OK']
+            // this.prompt = this.alertCtrl.create({
+            //   // message: 'Login Failed',
+            //   message: res.message,
+              // buttons: ['OK']
+            // });
+            // this.prompt.present();
           }
         }, (err) => {
           this.loadData.stopLoading();
@@ -242,8 +244,9 @@ async login(user) {
             
           }else if(res.is_active === 0){
             this.loadData.stopLoading();
-            this.prompt = this.alertCtrl.create({
-              message: 'Email id is not verified for this account. Do you want to verify?',
+            this.toastmsg("Email id is not verified for this account. Do you want to verify?");
+            // this.prompt = this.alertCtrl.create({
+            //   message: 'Email id is not verified for this account. Do you want to verify?',
               buttons: [
               {
                 text: 'Cancel',
@@ -258,17 +261,12 @@ async login(user) {
                 }
               }
               ]
-            });
-            this.prompt.present();
+            // });
+            // this.prompt.present();
           }else{
             this.loadData.stopLoading();
             this.toastmsg(res.message);
-            // this.prompt = await this.alertCtrl.create({
-            //   // title: 'Login Failed',
-            //   message: res.message,
-            //   buttons: ['OK']
-            // });
-            // this.prompt.present();
+            buttons: ['OK']
           }
         }, (err) => {
           this.loadData.stopLoading();
@@ -318,6 +316,6 @@ async toastmsg(msg) {
 public forgot_pwd(){
   this.user.email ="";
   this.user.password="";
-  this.nav.navigateForward('/forgotpswd');
+  this.nav.navigateForward('/login/forgotpswd');
 }
 }
