@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { NgCircleProgressModule } from 'ng-circle-progress';
+
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, FormBuilder } from '@angular/forms';
@@ -28,7 +28,6 @@ import { SqlStorageNew } from '../providers/sql-storage-new';
 import { ApiService } from '../app/api.service';
 import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
-import { ProgramdetailsPage } from './programdetails/programdetails.page';
 import { IonicRatingModule } from 'ionic4-rating';
 import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
@@ -47,6 +46,7 @@ import { Crop } from '@ionic-native/crop/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
 import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
 import { CalendarModule } from 'ion2-calendar';
+import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import { CalendarModule } from 'ion2-calendar';
     AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,
+    ExcpreviewPage
   ],
   entryComponents: [
     ProgressloginPage,
@@ -81,6 +82,7 @@ import { CalendarModule } from 'ion2-calendar';
     AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,
+    ExcpreviewPage,
   ],
   imports: [
     BrowserModule,
@@ -92,9 +94,6 @@ import { CalendarModule } from 'ion2-calendar';
     IonicRatingModule,
     CalendarModule,
     IonicModule.forRoot(),
-    // NgCircleProgressModule.forRoot({
-     
-    // }),
      AppRoutingModule
     ],
   providers: [

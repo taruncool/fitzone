@@ -189,23 +189,12 @@ export class PrivacypolicyPage implements OnInit {
         });
   }
 
-//   ionViewDidLoad() {
-    
-//   }
   backButtonAction() {
-    // this.modalCtrl.dismiss();
-    if( this.pageType=='1'){
-        this.navCtrl.navigateBack('/signup');
-       }else{
-     this.navCtrl.navigateBack('/tabs/tabs/profile');
-       }
+    this.navCtrl.navigateBack('/signup');
   }
 
   ngOnInit() {
     console.log("heading......",this.heading);
-    // let headingmsg = this.navParams.get('heading');
-    //  let headingmsg = this.navParams.data.heading;
-    // console.log("heading......",headingmsg);
     this.preData='';
     this.privacydataNew = this.privacydata.privacy;
     for(var j=0; j<this.privacydataNew.length; j++){
