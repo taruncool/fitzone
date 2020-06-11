@@ -156,19 +156,23 @@ export class ProgramdetailsPage implements OnInit {
         this.altAvatar = "assets/images/icon.png";
       }
     });
-    
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+    }
   }
 
   ngOnInit() {
    
     //videoElement.addEventListener('webkitfullscreenchange', this.onFullScreen)
-    let options: StreamingVideoOptions = {
-      successCallback: () => { console.log('Video played') },
-      errorCallback: (e) => { console.log('Error streaming') },
-      orientation: 'landscape',
+    // let options: StreamingVideoOptions = {
+    //   successCallback: () => { console.log('Video played') },
+    //   errorCallback: (e) => { console.log('Error streaming') },
+    //   orientation: 'landscape',
       //shouldAutoClose: true,
       //controls: false
-    };
+    // };
   }
   
   onAvatarError(){
@@ -484,7 +488,7 @@ export class ProgramdetailsPage implements OnInit {
   }
 
   public zeroPlanSubscription(){
-    this.loadData.startLoading();
+    // this.loadData.startLoading();
     this.createUserPlan();
     //this.newpdcplanSubscribe();
   }
@@ -629,13 +633,8 @@ export class ProgramdetailsPage implements OnInit {
                     // this.myVideo.loop = true;
                       
                     },80);
-                    console.log(this.cplan_startdate);
-                    // let planprogressModal = this.modalCtrl.create({
-                    //   Component:ProgressbarPopup,
-                    //   componentProps:{'uplandata':{'plan_id':this.planinfo.id,'planName':this.planinfo.planName,'planPhoto':this.planinfo.planPhoto,'startdate':deviceDate,'defaultOffDay':6,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
-                    // });
-                    // planprogressModal.present();              
-                    this.planProgessModal(deviceDate,event);
+                    console.log(this.cplan_startdate);              
+                    // this.planProgessModal(deviceDate,event);
                     this.loadData.stopLoading();
         },500);
   }
@@ -708,13 +707,7 @@ planprogressModal.present();
                       
                     },80);
                     console.log(this.cplan_startdate);
-                    this.planProgessModal(deviceDate,dayoff)
-                    // let planprogressModal = await this.modalCtrl.create({
-                    //   component:ProgressbarPage,
-                    //   componentProps:{'uplandata':{'plan_id':this.subplaninfo.id,'planName':this.subplaninfo.planName,'planPhoto':this.subplaninfo.planPhoto,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':this.fplan,'exercises':this.planinfo.exercises}}
-                    // });
-                    // planprogressModal.present();
-                  //});
+                    this.planProgessModal(deviceDate,dayoff);
                 }
             }else{
               this.loadData.stopLoading();
