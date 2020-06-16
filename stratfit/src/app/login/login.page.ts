@@ -145,12 +145,6 @@ async sociallogin(socialtype, accessToken, clientid, code) {
             this.loadData.stopLoading();
             this.toastmsg(res.message);
             buttons: ['OK']
-            // this.prompt = this.alertCtrl.create({
-            //   // message: 'Login Failed',
-            //   message: res.message,
-              // buttons: ['OK']
-            // });
-            // this.prompt.present();
           }
         }, (err) => {
           this.loadData.stopLoading();

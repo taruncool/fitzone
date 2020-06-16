@@ -51,7 +51,7 @@ export class TmaxsummaryPage implements OnInit {
   }
   backButtonAction() {
     this.modalCtrl.dismiss();
-    this.navCtrl.navigateBack('tabs/tabs/profile');
+    this.navCtrl.navigateBack('/tabs/tabs/profile');
   }
   backButtonClick() {
     console.log('// Back button function')
@@ -62,20 +62,11 @@ export class TmaxsummaryPage implements OnInit {
     // }else if(this.page_id==2){
 
       //this.navCtrl.push(ProfilePage);
-      this.navCtrl.navigateBack('tabs/tabs//profile');
+      this.navCtrl.navigateBack('/tabs/tabs/profile');
       
     //}
    
   }
-  // ionViewDidLoad() {
-
-    
-  // }
-  
-  // ionViewWillLeave() {
-  //   console.log("Looks like I'm about to leave :(");
-  //  // this.backButtonClick();
-  // }
 
  async changeTmax(index,ex_id) {
    
@@ -125,9 +116,8 @@ export class TmaxsummaryPage implements OnInit {
     ]
     }).then(
       result => {
-      
-      
-        this.prompt =  this.alertCtrl.create({
+    
+        this.prompt = this.alertCtrl.create({
           // message: 'Tmax change!',
           message:'Do you want to change Tmax of other exercises too?',
           buttons: [
@@ -158,15 +148,9 @@ export class TmaxsummaryPage implements OnInit {
       );
     }else{
       this.toastmsg("Please subscribe to a program to edit your Tmax values");
-      // let toast = await this.toastCtrl.create({
-      //   message: "Please subscribe to a program to edit your Tmax values",
-      //   duration: 3000
-      // });
-      // toast.present();
-
     }
     }
-  async  tmaxShowPreview(exObj,excercise,tmax,metric){
+  async tmaxShowPreview(exObj,excercise,tmax,metric){
       console.log(exObj);
     
       let modal = await this.modalCtrl.create({
@@ -174,10 +158,10 @@ export class TmaxsummaryPage implements OnInit {
         componentProps:{ExObj:exObj,ExerciseName:excercise,Tmax:tmax,Metric:metric,FromPage:"summary"}
       });
       modal.present();
-      // modal.onDidDismiss(data=>{
-      //   //this.getSetData();
-      //   this.initialData();
-      // });
+      modal.onDidDismiss().then((data)=>{
+        //this.getSetData();
+        this.initialData();
+      });
     
     }
 editAllTmax(index,ex_id,ex_tmax){
@@ -257,14 +241,6 @@ editAllTmax(index,ex_id,ex_tmax){
     }
    
   }
-//   setTimeout(function(){
-//   for (var pr = 0; pr < this.allExercises.length; pr++) {
-
-//   this.sqlStorage.query("UPDATE exercises SET tmax="+this.allExercises[pr].updatetmax+",updatetmax="+this.allExercises[pr].updatetmax+" WHERE id="+this.allExercises[pr].id);
-//   exercises.push({"tmax":this.allExercises[pr].updatetmax,"updatetmax":this.allExercises[pr].updatetmax,"id":this.allExercises[pr].id,"exerciseName":this.allExercises[pr].exerciseName});
-
-//   }
-//  },2000);
  
   this.updateTmax(exercises);
 }

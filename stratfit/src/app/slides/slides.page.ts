@@ -230,7 +230,7 @@ export class SlidesPage implements OnInit {
             this.navCtrl.navigateRoot('tabs/tabs/store');
           }
         }else{
-          this.navCtrl.navigateRoot('/fitnessinput');
+          this.navCtrl.navigateForward('/fitnessinput');
         }
       }
     }

@@ -93,27 +93,6 @@ export class ProfilePage implements OnInit {
 
   constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
   
-    // this.platform.backButton.subscribe(() => {
-      
-    //   if(navCtrl.getActive().name === 'UserprofilePage'){
-        
-    //     console.log("TEST for profile page");
-    //     this.navCtrl.setRoot(ProfilePage);
-    
-    //   } else if(navCtrl.getActive().name === 'TmaxsummaryPage') {
-
-    //     console.log("TEST for tmax summary");
-    //     this.navCtrl.setRoot(ProfilePage);
-
-    //   }else{
-
-    //     console.log("TEST for normal");
-        
-    //   }
-      
-
-    //});
-  
   }
 
   ngOnInit() {
@@ -464,29 +443,6 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  //file upload
-  // public uploadAvtar(imgtype){
-  //   this.uploadType = imgtype;
-  //   // this.loadData.startLoading();
-  //   var options = {
-  //     quality: 75,
-  //     sourceType: 0,
-  //     destinationType: 0,
-  //     encodingType:1,
-  //     saveToPhotoAlbum: false,
-  //     correctOrientation: true,
-  //     targetWidth:815,
-  //     targetHeight:320
-  //   };
-
-  //   this.camera.getPicture(options).then((imageData) => {
-  //     var base64Image = 'data:image/png;base64,' + imageData;
-  //     this.loadModal(base64Image);
-  //   }, (err) => {
-  //     // this.loadData.stopLoading();
-  //     //alert('Error while selecting image.');
-  //   });
-  // }
   public async loadModal(base64Image){
     if(this.uploadType =='cover'){
       var uploadCover =true;
@@ -508,10 +464,6 @@ export class ProfilePage implements OnInit {
       
     });
    
-    // this.uploadModal.onDidDismiss(data=>{
-    //     this.ionViewDidEnter();
-    // });
-    // await this.uploadModal.present();
   }
 
    /*--- user logout ---*/
@@ -617,10 +569,6 @@ export class ProfilePage implements OnInit {
       // message: 'Upload Picture',
       message: 'From where do you want to choose your item pic?',
       buttons: [
-        // {
-        //   text: 'Cancel',
-        //   handler: data => { }
-        // },
         {
           text: 'Camera ',
           handler: () => {

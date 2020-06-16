@@ -754,7 +754,7 @@ planprogressModal.present();
   }
 
   dashboardpage(){
-    this.navCtrl.navigateForward('/tabs/tabs/dashboard');
+    this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
   }
 
   async openExercise(Exc){

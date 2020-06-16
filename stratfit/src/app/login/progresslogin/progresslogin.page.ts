@@ -94,7 +94,7 @@ export class ProgressloginPage implements OnInit {
             //localStorage.setItem('getpercent','0');
             this.hideloader = true;
             this.modalCtrl.dismiss();
-            this.nav.navigateRoot('/tmax');
+            this.nav.navigateForward('/tmax');
 					}else{
 						localStorage.setItem('generalwarmupcmpl','false');
             //this.loadData.stopLoading();

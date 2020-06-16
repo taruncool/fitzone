@@ -160,7 +160,6 @@ export class TmaxtestingPage implements OnInit {
         this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
             let res = JSON.parse(userStr);
-              // this.loadData.stopLoading();
             if(res.success){
             this.checkTmax();
           }else{

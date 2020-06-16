@@ -348,7 +348,6 @@ heightArrCms= {
   }
 
  async nextStep() {
-
     if ((this.stepIndex + 1) == this.initStepArry.length) {
      
       if(this.noOfWorkDays<0||this.noOfWorkDays>7){
@@ -495,7 +494,7 @@ heightArrCms= {
                 this.showTmaxpopup();
               }, 1000);
             }, 500);
-              
+            this.loadData.stopLoading();
               //this.navCtrl.setRoot(StorePage);
           } else {
            this.loadData.stopLoading();
