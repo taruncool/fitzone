@@ -567,7 +567,7 @@ async updateTmaxServer(exercises){
       this.startLoading();
       let usertoken = localStorage.getItem('usertoken');
       var tmaxdata = {tmaxData:exercises};
-      this.apiService.getmeal(usertoken,tmaxdata).subscribe((response)=>{
+      this.apiService.updateBulkTmaxData(tmaxdata,usertoken).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
             this.stopLoading();

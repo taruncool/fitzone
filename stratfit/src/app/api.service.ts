@@ -123,7 +123,7 @@ export class ApiService {
          }).pipe (data =>
            data);
 }
-  public getmeal(usertoken,mealDateJson){
+  public getmeal(mealDateJson,usertoken){
     return this.http.post(global.baseURL + '/userplan/getmeal/', mealDateJson, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',

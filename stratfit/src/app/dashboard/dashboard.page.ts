@@ -596,7 +596,7 @@ ngOnInit(){
       var mealDateJson = {mealDate:date};
 
       console.log(mealDateJson);
-      this.apiService.getmeal(this.tokken,mealDateJson).subscribe((response)=>{
+      this.apiService.getmeal(mealDateJson,this.tokken).subscribe((response)=>{
         console.log("get meal plan response",response);
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
