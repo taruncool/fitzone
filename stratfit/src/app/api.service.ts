@@ -141,7 +141,7 @@ export class ApiService {
            data);
   }
   public userlogout(token){
-    return this.http.post(global.baseURL + 'subscriber/logout/', {
+    return this.http.post(global.baseURL + 'subscriber/logout/',token, {
        headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': token
