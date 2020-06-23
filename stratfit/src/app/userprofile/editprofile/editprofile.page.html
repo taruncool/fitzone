@@ -7,7 +7,7 @@
           </svg>
       </ion-button>
     </ion-buttons>
-    <ion-title><span>Manage</span>Profile Edit</ion-title>
+    <ion-title><span>Profile</span>Manage</ion-title>
     <ion-buttons  slot="end" >
       <ion-button slot="icon-only" (click)="updateProfile()" [disabled]="!registerForm.form.valid">
         <span>Save</span>
@@ -40,7 +40,7 @@
             
           </ion-label>
           <ion-row class="hed" >
-            <span>Name</span>
+            <span>First Name</span>
             <ion-input type="text" placeholder="Update First Name" pattern=".{3,}" [(ngModel)]="firstname" name='firstname' required></ion-input>
           </ion-row>
         </ion-item>
@@ -152,8 +152,8 @@
             
           </ion-label>
           <ion-row class="hed" >
-            <span>DOB</span>
-            <ion-datetime displayFormat="DD/MMM/YYYY" max="{{maxyear}}"  [(ngModel)]="dob" name="dob"  required></ion-datetime>
+            <span>Date of Birth</span>
+            <ion-datetime displayFormat="DD/MMM/YYYY" max="{{maxyear}}" [(ngModel)]="dob" name="dob"  required></ion-datetime>
           </ion-row>
         </ion-item>
     

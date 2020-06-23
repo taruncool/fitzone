@@ -241,11 +241,12 @@ export class EditprofilePage implements OnInit {
               localStorage.setItem('phonecode',this.phcode);
               this.loadData.stopLoading();
               this.modalCtrl.dismiss();
-              this.toast = this.toastCtrl.create({
-                message: res.message,
-                duration: 3000
-              });
-              this.toast.present();
+              // this.toast = await this.toastCtrl.create({
+              //   message: res.message,
+              //   duration: 3000
+              // });
+              // this.toast.present();
+              this.toastmsg(res.message); 
             }
         }else{
           this.loadData.stopLoading();
