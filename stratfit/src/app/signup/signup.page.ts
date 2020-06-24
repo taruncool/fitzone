@@ -441,7 +441,7 @@ export class SignupPage implements OnInit {
     }
   
     backtowelcome() {
-      this.navCtrl.navigateForward('/slide');
+      this.navCtrl.navigateForward('');
     }
   
 }
