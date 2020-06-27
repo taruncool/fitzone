@@ -167,11 +167,6 @@ export class PlanrenewalPage implements OnInit {
          
           } else{
             this.toastmsg("Please check your internet connectivity and try again");
-            // let toast = await this.toastCtrl.create({
-            //   message: "Please check your internet connectivity and try again",
-            //   duration: 3000
-            // });
-            // toast.present();
           }
             if(this.plandetails.dayOff === 0){
               this.plandetails.dayoff = "Sunday";

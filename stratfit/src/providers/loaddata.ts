@@ -182,13 +182,11 @@ export class LoadData {
   public userlogout(){
     this.token = localStorage.getItem('usertoken');
     this.apiService.userlogout(this.token).subscribe((response)=>{
-      // .toPromise().then(response => {
           localStorage.clear();
           localStorage.setItem('internet','online');
          
           this.clearDataBaseNew();
        });
-  // })
   }
 
   public deletejson(){
