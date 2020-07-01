@@ -31,119 +31,6 @@
 
 
 <ion-content class="diet">
-
-<!-- <ion-list no-lines>
-     
-      <ion-item>
-        <ion-icon name="ios-contacts-outline"  color="primary" item-start></ion-icon>
-        <p>Gender</p>
-        {{gender}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-        <p>Age</p>
-        {{userAge}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
-        <p>Weight</p>
-        {{weight}} {{weightunit}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
-        <p>Height</p>
-        {{heightfeet}}' &nbsp; {{heightinc}}"  &nbsp; ({{height}} Cm)
-      </ion-item>
-      <h1>Diet Program</h1>
-     
-      <ion-item>
-          <ion-icon name="ios-man-outline" color="primary" item-start></ion-icon>
-       <p>Your BMI</p>
-       {{bmi}} Kg/m2
-      </ion-item>
-      <p>BMI less than 18.5 - Underweight</p>
-      <p>BMI 18.5 to 25 - Normal</p>
-      <p>BMI 25 to 30 - Overweight</p>
-      <p>BMI more than 30 - Obese</p>
-      <p><b>{{bmiMsg}}</b></p>
-      <ion-item>
-        <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-       
-        <ion-select [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeWtUnits(dietMsg)" >
-          <ion-option value="WtL">Weight Loss</ion-option>
-          <ion-option value="WtM">Weight Maintenance</ion-option>
-          <ion-option value="WtG">Weight Gain</ion-option>
-          
-        </ion-select>
-       </ion-item>
-       <p>Total Load: <b>{{totalLoad}}</b></p>
-       <p>RMR: <b>{{rmrD}}</b></p>
-       <p>Activity Factor: <b>{{activityFactor}}</b></p>
-       <p>Actual Calories Expended: <b>{{actualCalExp}}</b></p>
-
-       <p>Calories Per Day for diet goal: <b>{{calPerDay}}</b></p>
-    </ion-list> 
-  
-    <p>Actual Calories Expended: <b>{{actualCalExp}}</b></p>
-
-    <p>Calories Per Day for diet goal: <b>{{calPerDay}}</b></p>
-  
-    <p><b>Daily food intake percentage:</b></p>
-    <p>Fat: <b>{{fatPercent * 100}}</b> %</p>
-    <p>Protien: <b>{{protienPercent * 100}}</b> %</p>
-    <p>Carbs: <b>{{carbsPercent * 100}}</b> %</p>
-    <p></p>
-    <p><b>Daily food intake in calories:</b></p>
-    <p>Fat: <b>{{fatCal}}</b> Cal</p>
-    <p>Protien: <b>{{protienCal}}</b>Cal</p>
-    <p>Carbs: <b>{{carbsCal}}</b>Cal</p>
-    <p></p>
-    <p><b>Daily food intake in grams:</b></p>
-    <p>Fat: <b>{{fatGms}}</b>Gms</p>
-    <p>Protien: <b>{{protienGms}}</b>Gms</p>
-    <p>Carbs: <b>{{carbsGms}}</b>Gms</p>
-    <p></p>
-    <p><b>Day Balance:</b></p>
-    <p>Fat: <b>{{fatGmsBalance}}</b> Gms</p>
-    <p>Protien: <b>{{protienGmsBalance}}</b> Gms</p>
-    <p>Carbs: <b>{{carbsGmsBalance}}</b> Gms</p>
-    <p></p>
-    <p>Fat: <b>{{fatCalBalance}}</b> Cal</p>
-    <p>Protien: <b>{{protienCalBalance}}</b> Cal</p>
-    <p>Carbs: <b>{{carbsCalBalance}}</b> Cal</p>
-    <p></p>
-  <ion-item>
-      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-      <p>Add Meal</p>
-      <button ion-button clear (click)="addMeal()">
-        <span>Add</span>
-      </button>
-    
-   </ion-item>
-    <p>{{defFood}}</p>
-      <ion-list>
-        <ion-row *ngFor="let meal of finalFoodDataByDate; let i = index"> 
-          
-          <ion-label color="primary" stacked>{{meal.mealName}}</ion-label>
-          <ion-label color="primary" stacked>{{meal.mealDate}}</ion-label>
-          <ion-label color="primary" stacked>{{meal.mealTime | date : "hh:mm"}}</ion-label>
-          <ion-item *ngFor="let food of meal.mealData">
-           
-            <span>
-              <p>{{food.name}} ({{food.calories}} Cal)</p>
-              <p>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</p>
-            </span>
-            
-             <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
-            <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> 
-          </ion-item>
-          <ion-label color="primary" stacked (click)="editMeal(meal.id)">Edit</ion-label>
-         
-        </ion-row>
-         
-       
-      </ion-list>
-  -->
  
  <ion-row class="fulpad cgraph" >
    
@@ -275,17 +162,6 @@
       </div>
    </ion-col>
 </ion-row>
-<!-- <ion-row class=" fulpad week">
-  <button ion-button> Mon </button>
-  <button ion-button> Tue </button>
-  <button ion-button> Wen </button>
-  <button ion-button class="active"> Thu </button>
-  <button ion-button> Fri </button>
-  <button ion-button> Sat </button>
-  <button ion-button> Sun </button>
-  
-  <em>25 July, 2019</em>
-</ion-row> -->
 
 <div class=" fulpad meallist">
   <div class="nodata" *ngIf="finalFoodDataByDate.length==0">
@@ -340,95 +216,15 @@
       </ion-row>
   </ion-card> 
 
-  <!-- <ion-card class="dcard ocard">
-    <ion-item>
-       <em>Todays</em>
-       <h2 >New Meal</h2>
-       <button ion-button item-end (click)="addMeal()">
-          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
-             <g id="add" transform="translate(-654.5 -785.5)">
-                <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
-                <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
-             </g>
-          </svg>
-          Add Meal</button>
-    </ion-item>
-    <ion-row class="lgraph" >
-       <ion-col><em>0 g</em>
-          <div class="progress">
-             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <span>Fat</span>
-       </ion-col>
-       <ion-col><em>0 g</em>
-          <div class="progress">
-             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <span>Protein</span>
-       </ion-col>
-       <ion-col><em>0 g</em>
-          <div class="progress">
-             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <span>Carbohydrate</span>
-       </ion-col>
-       <ion-col><em>0 g</em>
-          <div class="progress">
-             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <span>Calorie</span>
-       </ion-col>
-    </ion-row>
- </ion-card>  -->
-
 </div>
-
-  
-    <!-- <ion-item>
-      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-     
-      <ion-select [(ngModel)]="dietMsg" name="weightunit" (ngModelChange)="onChangeWtUnits(dietMsg)" >
-        <ion-option value="WtL">Weight Loss</ion-option>
-        <ion-option value="WtM">Weight Maintenance</ion-option>
-        <ion-option value="WtG">Weight Gain</ion-option>
-        
-      </ion-select>
-     </ion-item>
-    <p>Select your diet type</p>
-    <ion-item>
-      <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-    <ion-select [(ngModel)]="dietType" name="diettype" (ngModelChange)="onChangeDietType(dietType)">
-      <ion-option value="DtKeto">Ketogenic</ion-option>
-      <ion-option value="DtLc">Low Carb</ion-option>
-      <ion-option value="DtMlc">Moderate Low Carb</ion-option>
-      <ion-option value="DtMc">Moderate Carb</ion-option>
-      <ion-option value="DtMhc">Moderate High Carb</ion-option>
-      <ion-option value="DtHc">High Carb</ion-option>
-    </ion-select>
-    </ion-item> -->
-    
-   <!-- <ion-item>
-    <ion-icon name="ios-calendar-outline"  color="primary" item-start></ion-icon>
-    
-    <button ion-button clear (click)="viewHistory()">
-      <span>History</span>
-    </button>
-  
-  </ion-item> -->
-  
+ 
+  <ion-footer class="foot" >
+   <ion-row class="btnrow">
+      <ion-button (click)="addMeal()" class=" addmeal">
+         Add Meal
+      </ion-button>
+   </ion-row>
+   </ion-footer>
 
 </ion-content>
 
-<ion-footer class="foot text-right" >
- <ion-row class="btnrow">
-    <ion-button slot="end" (click)="addMeal()" class=" addmeal">
-       <!-- <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
-          <g id="add" transform="translate(-654.5 -785.5)">
-             <path id="Path_8229" data-name="Path 8229" d="M494.087,1656.771h80" transform="translate(162.413 -829.271)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
-             <path id="Path_8230" data-name="Path 8230" d="M0,0H80" transform="translate(696.5 787.5) rotate(90)" fill="none" stroke="#80b419" stroke-linecap="round" stroke-width="4"/>
-          </g>
-       </svg> -->
-       Add Meal
-    </ion-button>
- </ion-row>
- </ion-footer>

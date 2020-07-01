@@ -194,36 +194,8 @@
           <em *ngFor="let food of meal.mealData">{{food.foodcount}} {{food.name}} </em>
        </div>
       
-      <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
-      <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label> -->
       </ion-row>
   </ion-card> 
   </div>
-<!-- <div class="profileview">
-  <ion-card>
-      <ion-list>
-        <ion-row *ngFor="let meal of finalFoodDataByDate; let i = index"> 
-          
-          <ion-label color="primary" stacked>{{meal.mealName}}</ion-label>
-          <ion-label color="primary" stacked>{{meal.mealDate}}</ion-label>
-          <ion-label color="primary" stacked>{{meal.mealTime | date : "hh:mm"}}</ion-label>
-          <ion-label color="primary" stacked>{{meal.mealTime | date : "EEEE"}}</ion-label>
-          <ion-item *ngFor="let food of meal.mealData">
-           
-            <span>
-              <p>{{food.name}} ({{food.calories}} Cal)</p>
-              <p>{{food.fat}}gms {{food.carbs}}gms {{food.protien}}gms</p>
-            </span>
-            
-             <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
-            <ion-label color="primary" stacked>{{fooditem.calories}}</ion-label>
-          </ion-item>
-          <ion-label color="primary" stacked (click)="editMeal(meal.id)">Edit</ion-label>
-         
-          </ion-row>
-         
-       
-        </ion-list>
-  </ion-card>
-</div> -->
+
 </ion-content>

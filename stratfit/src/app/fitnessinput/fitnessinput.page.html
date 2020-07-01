@@ -1,24 +1,7 @@
-<!-- <ion-header class=" head">
-  <ion-navbar class="hedfm">
-    
-    <ion-title *ngIf='!(stepArry.prop=="gender")'><span>Body</span>Measurements</ion-title>
-  
-  </ion-navbar>
-</ion-header> -->
-
 <ion-content  class="fitness">
 
 
   <div *ngIf='stepArry'>
-    <!-- <div *ngIf='initStepArry' class='progress' [ngStyle]="{'width': progressWidth}"></div>
-
-    <ion-card *ngIf='stepArry.prop=="static"'>
-      <ion-card-content class="fitnessmetricheader" class="animated flipInX">
-        <h3 class="steps"> Step {{stepIndex+1}}/{{initStepArry.length}}</h3>
-        <h2 class='static-content'>{{stepArry.question}}</h2>
-      </ion-card-content>
-    </ion-card> -->
-
 
     <div *ngIf='stepArry.prop=="gender"' class="text-center gender">
 
@@ -199,24 +182,8 @@
       </h3>
      
       <ion-row class="levels">
-        <!-- <div class=" sbgw levelopt" [ngClass]="{'active': selectedLevel== (i+1)}" ion-item detail-none  *ngFor='let item of items;let i=index' name="fitlevel" (click)="selectFLevel(item)">
-          
-            <div [ngClass]="{'activeOpt': selectedLevel== (i+1)}">
-              <ion-icon name="ios-radio-button-on" (click)="selectFLevel(item)" 
-              item-left class="selectiondot"></ion-icon>
-            </div>
-            <h2 (click)="selectFLevel(item)">{{item.title}}</h2>
-        
-          
-          <expandable [expandHeight]='itemExpandHeight' [expanded]='item.expanded'>
-            <p>{{item.desc}}</p>
-          </expandable>
-        </div> -->
 
         <div class=" sbgw fulpad active levelopt" [ngClass]="{'active': selectedLevel== (i+1)}" *ngFor='let item of items;let i=index' name="fitlevel" (click)="selectFLevel(item)"> 
-          <!-- <div [ngClass]="{'activeOpt': selectedLevel== (i+1)}">
-             <div name="ios-radio-button-on" (click)="selectFLevel(item)" item-left class="selectiondot"></div>
-          </div> -->
                       
           <h4 (click)="selectFLevel(item)">{{item.title}}</h4>
           <p>{{item.desc}}</p>
@@ -274,13 +241,3 @@
 
 
 </ion-content>
-
-
-<!-- <ion-footer class="foot" *ngIf='initStepArry' >
-<ion-row class="btnrow">
-    <button ion-button (click)='nextStep()'><span *ngIf='(stepIndex+1)!=initStepArry.length'>Next</span><span *ngIf='(stepIndex+1)==initStepArry.length'>Finish</span></button>
-    <button ion-button (click)='prevStep()' *ngIf='stepIndex!=0'><span>Back</span></button>
-   
-
-</ion-row>
-</ion-footer> -->

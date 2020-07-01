@@ -43,11 +43,6 @@ export class CommunityPage implements OnInit {
     }else{
 
       this.activationalert();
-      // let toast = this.toastCtrl.create({
-      //   message: "Please check your internet connectivity and try again",
-      //   duration: 3000
-      // });
-      // toast.present();
     }
   }
   async activationalert() {
@@ -128,12 +123,6 @@ export class CommunityPage implements OnInit {
   
   //redirecting to coachprofile page
   async viewCoachPrf(coachdata){
-  //   this.ga.trackEvent('CoachProfileView',coachdata.coachName,localStorage.getItem('email'));
-  //   let modal = await this.modalCtrl.create({
-  //     component:CoachprofilePage,
-  //     componentProps:{coachInfo:coachdata}
-  //   });
-  //   modal.present();
     let navigationExtras: NavigationExtras = {
       state: {
         "coachInfo":coachdata
@@ -141,15 +130,7 @@ export class CommunityPage implements OnInit {
     };
     this.router.navigate(['coachprofile'], navigationExtras);
   }
-    //this.navCtrl.push(CoachprofilePage,{coachInfo:coachdata});
-  // }
-
-  //redirecting to gym view page
-  // public viewGymPrf(gymdata){
-  //   this.ga.trackEvent('GymProfileView',gymdata.gymName,localStorage.getItem('email'));
-  //   this.navCtrl.push(GymviewPage,{gymInfo:gymdata});
-  // }
-
+   
  async noProgramsAlert(){
     this.prompt = await this.alertCtrl.create({
       // message: 'No Subscription yet!',
