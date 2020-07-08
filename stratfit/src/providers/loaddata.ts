@@ -712,6 +712,19 @@ async updateTmaxServer(exercises){
     return dateF;
   }
 
+  public changeDateFormatiOS(dateFormat,status){
+    var dateF,separator,rsep;
+    rsep = (dateFormat.indexOf("T")!==-1)?"T":" ";
+    separator = (this.platform.is('android')||(status==="db"))?" ":"T";
+    var dateFormatArr = dateFormat.split(rsep);
+    dateFormatArr[1] = (dateFormatArr[1]=== undefined)?"00:00:00":dateFormatArr[1];
+    var dateArr = dateFormatArr[0].split("-");
+    var TimeArr = dateFormatArr[1].split(":");
+    TimeArr[2] = TimeArr[2].replace("Z","");
+    dateF = dateArr[0]+"-"+('0' +dateArr[1]).slice(-2)+"-"+('0' +dateArr[2]).slice(-2)+separator+"00:00:00";
+    return dateF;
+  }
+  
   public dateFormat(reqDate){
     var Month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var retDate = ('0' +(reqDate.getDate())).slice(-2)+"/"+Month[reqDate.getMonth()]+"/"+reqDate.getFullYear();

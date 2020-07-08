@@ -477,7 +477,7 @@ heightArrCms= {
           let res = JSON.parse(userStr);
           var priceMap = res.details;
           if (res.success) {
-            
+            console.log("dob.......",this.dob);
             localStorage.setItem('gender', this.genderinfo);
             localStorage.setItem('dob', this.dob);
             localStorage.setItem('weight', this.weigth);
