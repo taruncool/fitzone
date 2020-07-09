@@ -160,8 +160,6 @@ export class AnalyticsPage implements OnInit {
         var periodCount = -1;
         if(userplanData.res.rows.length>0){
         var planId = userplanData.res.rows.item(0).plan_id;
-        // var startDate = userplanData.res.rows.item(0).startdate;
-        // console.log("start date of plan",startDate);
          console.log("start date of plan",userplanData.res.rows.item(0).plan_id);
         this.sqlStorageNew.query("select plan_id,num_of_mesocycles,period_id,id,periodName,status from planperiod").then(
           periodData => {
@@ -170,8 +168,6 @@ export class AnalyticsPage implements OnInit {
               "period_id":periodData.res.rows.item(p).period_id, "status":periodData.res.rows.item(p).status};
               this.PeriodDataF.push(dataPeriodObj);
             }
-            // console.log("period data",this.PeriodDataF);
-            // console.log("period id",this.PeriodDataF[0].period_id);
             this.currentPeriod = this.PeriodDataF[0].period_id;
             this.sqlStorageNew.query("SELECT * FROM planactions WHERE status = 1 order by action_id desc limit 1").then(
               lastActionData => {
@@ -326,13 +322,10 @@ public getDayData(){
   this.today ="";
   this.currentDisplayDay = this.tempDayData[0].day_id; 
   var todayDate = this.tempDayData[0].date;
-  //this.today  = ('0' +(todayDate.getDate())).slice(-2) + '-' + ('0' +(todayDate.getMonth()+1)).slice(-2) + '-' +todayDate.getFullYear();
-  // this.tempDayData[0].date= this.today;
   setTimeout(() => {
      for(let j = 0; j < this.tempDayData.length; j++) {
       if(this.tempDayData[j].day_id === this.lastdayID) {
         this.currentDisplayDay = this.tempDayData[j].day_id;
-        //var todayDate2 = new Date(this.tempDayData[j].date);
         todayDate = this.tempDayData[j].date;
       }
      }
@@ -623,21 +616,15 @@ public getExerciseSimple(exercise_id,round_id){
 
   // console.log("temp ex data =============", this.tempExeData);
    /*Calculating Tmax */
-  // if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
-  //   this.Tmax = 0;
-  // }else{
-  //   this.Tmax = 0;
+  if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
+    this.Tmax = 0;
+  }else{
+    this.Showtmax = false;
   // var tmaxx = 0;
   //   for(let ia=0; ia < this.tempExeData.length; ia++){
   //   tmaxx =  tmaxx + this.tempExeData[ia].tmax; 
   //   this.Tmax = tmaxx.toFixed();
   //   }
-  // }
-  if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
-    this.Tmax = 0;
-  }else{
-    // this.Tmax = 0;
-    this.Showtmax = false;
   }
 console.log("average tmax",this.Tmax);
   if(this.tempAction[0].status == 1){
