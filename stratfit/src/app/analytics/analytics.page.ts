@@ -97,15 +97,15 @@ export class AnalyticsPage implements OnInit {
     // modal.present();
   }
 
-  ngOnInit(){
+  // ngOnInit(){
 
-  }
+  // }
   onImageError(plan){
     this.planInfo.planPhoto = "assets/images/plan_2.png";
     console.log("plan photo...");
   }
  
-  ionViewDidEnter(){
+  ngOnInit(){
     this.loadData.startLoading();
     this.s3url=global.s3URL;
     this.currentFullPath="0-0-0-0-0"
@@ -251,19 +251,20 @@ export class AnalyticsPage implements OnInit {
               }
             );
   // }, 300); 
-  setTimeout(() => {
+  // setTimeout(() => {
     this.currentPeriodss = [];
+    this.platform.ready().then(() => {
     if(this.PeriodDataF.length > 0){
       for(let i=0;i<this.PeriodDataF.length;i++){
         this.currentPeriodss.push(this.PeriodDataF[i]);
       }
       this.currentPeriod =  this.currentPeriodss[0].period_id;
-      this.platform.ready().then(() => {
+      setTimeout(() => {
       this.onMesoChange(this.currentPeriod);
-    });
+    }, 3500);
   }
-  }, 3500);                      
-             
+  // }, 3500);                      
+});          
   }); 
   }
 });
@@ -397,23 +398,6 @@ public getActivity(session_id){
     }
      this.getRoundActions(this.currentDisplayActivity,this.currentDisplayActivityType);
   }, 300)
-  // if(this.tempActivity[0].Activity_type === "Simple"){ 
-  //   this.activityType = 'simple';
-  //   // console.log("simple activity",this.currentDisplayActivity);
-  //   setTimeout(() => {
-  //      this.tempAction = [];
-  //   this.getRound(this.currentDisplayActivity,this.tempActivity[0].Activity_type);
-  //   }, 300)
-  // }else{
-  //    setTimeout(() => {
-  //     this.activityType = '';
-  //     // console.log("complex activity",this.currentDisplayActivity);
-  //    this.getRound(this.currentDisplayActivity,this.tempActivity[0].Activity_type);
-  //    }, 300)
-  //  }
-  // setTimeout(() => {
-  //   this.getRoundActions(this.currentDisplayActivity,this.currentDisplayActivityType);
-  // }, 300)
  }
 
  public getRoundActions(activity_id,Activity_type){
@@ -520,6 +504,7 @@ public getAction(activity_id,activity_type){
   // console.log("count....",count);
   this.totalweight = (avgweightt/count).toFixed();
   this.Tmax = (tmaxx/count).toFixed();
+  console.log("tmaxx....",this.Tmax);
 
   if(activity_type === "Simple"){
     this.activityType = 'simple';
@@ -613,119 +598,116 @@ public getExerciseSimple(exercise_id,round_id){
       }
     }
   }
-
-  // console.log("temp ex data =============", this.tempExeData);
-   /*Calculating Tmax */
-  if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
-    this.Tmax = 0;
-  }else{
-    this.Showtmax = false;
-  // var tmaxx = 0;
-  //   for(let ia=0; ia < this.tempExeData.length; ia++){
-  //   tmaxx =  tmaxx + this.tempExeData[ia].tmax; 
-  //   this.Tmax = tmaxx.toFixed();
-  //   }
-  }
-console.log("average tmax",this.Tmax);
-  if(this.tempAction[0].status == 1){
-    this.Show = false;
-  }else{
-    this.Show = true;
-  }
- 
-  console.log("tmaxx....",this.Tmax);
-  /*Calculating Tonnage, Work, Calories */
-  this.Tonnage=0;
-  this.Work= 0;
-  var calories = 0;
-  // let UserWeight = this.loadData.convertWeight(localStorage.getItem('weight'),"db");
-  var stressFactor = this.tempExeData[0].stressFactor;
-  var weight = this.loadData.convertWeight(weight,'db');
-  // console.log("stress factor",stressFactor);
-  var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
-  var totalwork = Math.round(stressFactor*9.8*this.totalweight*this.totalreps);
-  calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
-    
-  this.Tonnage = totalTonnage ;
-  this.Work = totalwork ;
-  this.cal = calories;
-  if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
-    this.Show = true;
-  }
-
-  this.loadData.stopLoading();
-  return this.tempExeData;
-}
-
-public getExercise(exercise_id,round_id){
- 
-  if(this.tempExeData.length > 0){
-    const checkExIdExistence = exId => this.tempExeData.some(({id}) => id == exId);
-    console.log(checkExIdExistence(exercise_id));
-      //if(!checkExIdExistence(exercise_id)){
-
-        for(let i=0;i<this.planexerciseData.length;i++){
-
-          if(this.planexerciseData[i].id == exercise_id){
-               console.log("tem ex data", exercise_id);
-               console.log("tem ex data if condition", this.planexerciseData[i].id);
-               //let thisExercise = this.planexerciseData[i];
-               //thisExercise.round_id = round_id;
-               this.tempExeData.push(this.planexerciseData[i]);
-               this.tempExeData[this.tempExeData.length-1].round_id = round_id;
-        
-            }
-
-        }
-        console.log("All round actions", this.tempExeData);
-      //}
+  
+    // console.log("temp ex data =============", this.tempExeData);
+     /*Calculating Tmax */
+    if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
+      this.Tmax = 0;
+    }else{
+      this.Showtmax = false;
+    // var tmaxx = 0;
+    //   for(let ia=0; ia < this.tempExeData.length; ia++){
+    //   tmaxx =  tmaxx + this.tempExeData[ia].tmax; 
+    //   this.Tmax = tmaxx.toFixed();
+    //   }
+    }
+    if(this.tempAction[0].status == 1){
+      this.Show = false;
+    }else{
+      this.Show = true;
+    }
+   
+    // console.log("tmaxx....",this.Tmax);
+    /*Calculating Tonnage, Work, Calories */
+    this.Tonnage=0;
+    this.Work= 0;
+    var calories = 0;
+    // let UserWeight = this.loadData.convertWeight(localStorage.getItem('weight'),"db");
+    var stressFactor = this.tempExeData[0].stressFactor;
+    var weight = this.loadData.convertWeight(weight,'db');
+    // console.log("stress factor",stressFactor);
+    var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
+    var totalwork = Math.round(stressFactor*9.8*this.totalweight*this.totalreps);
+    calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
       
-  }else{ 
-    // console.log("first push");
-    for(let i=0;i<this.planexerciseData.length;i++){
-      if(this.planexerciseData[i].id== exercise_id){
-        this.tempExeData.push(this.planexerciseData[i]);
-        this.tempExeData[0].round_id = round_id;
+    this.Tonnage = totalTonnage ;
+    this.Work = totalwork ;
+    this.cal = calories;
+    if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
+      this.Show = true;
+    }
+  
+    this.loadData.stopLoading();
+    return this.tempExeData;
+  }
+  
+  public getExercise(exercise_id,round_id){
+   
+    if(this.tempExeData.length > 0){
+      const checkExIdExistence = exId => this.tempExeData.some(({id}) => id == exId);
+      console.log(checkExIdExistence(exercise_id));
+        //if(!checkExIdExistence(exercise_id)){
+  
+          for(let i=0;i<this.planexerciseData.length;i++){
+  
+            if(this.planexerciseData[i].id == exercise_id){
+                 console.log("tem ex data", exercise_id);
+                 console.log("tem ex data if condition", this.planexerciseData[i].id);
+                 //let thisExercise = this.planexerciseData[i];
+                 //thisExercise.round_id = round_id;
+                 this.tempExeData.push(this.planexerciseData[i]);
+                 this.tempExeData[this.tempExeData.length-1].round_id = round_id;
+          
+              }
+  
+          }
+          console.log("All round actions", this.tempExeData);
+        //}
+        
+    }else{ 
+      // console.log("first push");
+      for(let i=0;i<this.planexerciseData.length;i++){
+        if(this.planexerciseData[i].id== exercise_id){
+          this.tempExeData.push(this.planexerciseData[i]);
+          this.tempExeData[0].round_id = round_id;
+        }
       }
     }
-  }
-
-  // console.log("temp ex data =============", this.tempExeData);
-   /*Calculating Tmax */
-  if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
-    this.Tmax = 0;
-  }else{
-    this.Tmax = 0;
-  var tmaxx = 0;
-    for(let ia=0; ia < this.tempExeData.length; ia++){
-    tmaxx =  tmaxx + this.tempExeData[ia].tmax; 
-    this.Tmax = tmaxx.toFixed();
-    }
-  }
-  if(this.tempAction[0].status == 1){
-    this.Show = false;
-  }else{
-    this.Show = true;
-  }
- 
-  console.log("tmaxx....",this.Tmax);
-  /*Calculating Tonnage, Work, Calories */
-  this.Tonnage=0;
-  this.Work= 0;
-  var calories = 0;
   
-  var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
-  var totalwork = Math.round(9.8*this.totalweight*this.totalreps);
-  calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
+    // console.log("temp ex data =============", this.tempExeData);
+     /*Calculating Tmax */
+    // if(this.tempAction[0].repsdone == 0 || this.tempAction[0].status == 0){
+    //   this.Tmax = 0;
+    // }else{
+    //   this.Tmax = 0;
+    // var tmaxx = 0;
+    //   for(let ia=0; ia < this.tempExeData.length; ia++){
+    //   tmaxx =  tmaxx + this.tempExeData[ia].tmax; 
+    //   this.Tmax = tmaxx.toFixed();
+    //   }
+    // }
+    if(this.tempAction[0].status == 1){
+      this.Show = false;
+    }else{
+      this.Show = true;
+    }
+  
+    /*Calculating Tonnage, Work, Calories */
+    this.Tonnage=0;
+    this.Work= 0;
+    var calories = 0;
     
-  this.Tonnage = totalTonnage ;
-  this.Work = totalwork ;
-  this.cal = calories;
-  if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
-    this.Show = true;
+    var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
+    var totalwork = Math.round(9.8*this.totalweight*this.totalreps);
+    calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
+      
+    this.Tonnage = totalTonnage ;
+    this.Work = totalwork ;
+    this.cal = calories;
+    if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
+      this.Show = true;
+    }
+    this.loadData.stopLoading();
+    return this.tempExeData;
   }
-  this.loadData.stopLoading();
-  return this.tempExeData;
-}
-
 }
