@@ -128,7 +128,7 @@ export class ProgressbarPage implements OnInit {
 			// this.loadData.startLoading();
 			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
 			let usertoken = localStorage.getItem('usertoken');
-      this.apiService.activateuserplan(data,usertoken).subscribe((response)=>{
+      this.apiService.activatePlan(usertoken,data).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         // this.loadData.stopLoading();

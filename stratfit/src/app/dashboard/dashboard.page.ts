@@ -1506,7 +1506,7 @@ ngOnInit(){
       sessionObj => {
         if(sessionObj.res.rows.length > 0){
           let sessionId = sessionObj.res.rows.item(sessionObj.res.rows.length-1).session_id;
-          // this.opensessionPopup(sessionId,this.currentdayID);
+          this.opensessionPopup(sessionId,this.currentdayID);
         }
         
       });

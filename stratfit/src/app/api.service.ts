@@ -435,15 +435,15 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
-  public activateuserplan(data,usertoken){
-    return this.http.post(global.baseURL + 'userprogram/activateuserplan/',data, {
-      headers: new HttpHeaders({
-       'Content-Type':  'application/json',
-       'Authorization': usertoken
-        })
-        }).pipe (data =>
-          data);
-  }
+  // public activateuserplan(data,usertoken){
+  //   return this.http.post(global.baseURL + 'userprogram/activateuserplan/',data, {
+  //     headers: new HttpHeaders({
+  //      'Content-Type':  'application/json',
+  //      'Authorization': usertoken
+  //       })
+  //       }).pipe (data =>
+  //         data);
+  // }
   public addmeal(mealInfoJson,token){
     return this.http.post(global.baseURL + '/userplan/addmeal/',mealInfoJson, {
       headers: new HttpHeaders({

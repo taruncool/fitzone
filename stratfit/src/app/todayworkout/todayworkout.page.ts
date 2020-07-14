@@ -856,13 +856,13 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       console.log(data);
       let morerepsdone = 0;
       
-      if(data['moreReps'] === ''){
+      if(data.data['moreReps'] === ''){
 
         morerepsdone = 0;
 
       }else{
 
-        morerepsdone = parseInt(data['moreReps']);
+        morerepsdone = parseInt(data.data['moreReps']);
 
       }
       
@@ -1511,8 +1511,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         var complexActionsFrmPop: any[] = [];
         var complexExDetailsFrmPop: any[] = [];
 
-        complexActionsFrmPop = data['complexActionsUpdated'];
-        complexExDetailsFrmPop = data['complexExercises'];
+        complexActionsFrmPop = data.data['complexActionsUpdated'];
+        complexExDetailsFrmPop = data.data['complexExercises'];
         let newTmax = 0;
         for (let ke = 0; ke < complexActionsFrmPop.length; ke++) {
           let repscount = parseInt(complexActionsFrmPop[ke].reps) + parseInt(complexActionsFrmPop[ke].more_reps);
@@ -2084,7 +2084,12 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       componentProps: { ExcDetails: Exc }
     });
     modal.present();
-
+    // let navigationExtras: NavigationExtras = {
+    //   state: {
+    //     "ExcDetails":Exc,"isFrom":1,
+    //   }
+    // };
+    // this.router.navigate(['showexercise'], navigationExtras);
 
   }
 

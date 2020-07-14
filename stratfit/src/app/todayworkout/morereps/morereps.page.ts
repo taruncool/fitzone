@@ -60,40 +60,40 @@ export class MorerepsPage implements OnInit {
     var d = new Date();
     this.today = d.getFullYear()+"-"+('0' +(d.getMonth()+1)).slice(-2)+"-"+('0' +(d.getDate())).slice(-2);
     
-    this.prescribedReps.numbers=[];
-    this.repscount = "";
+    // this.prescribedReps.numbers=[];
+    // this.repscount = "";
   
-    var range = parseInt(this.repsMax,10);
-    for(var rr=1;rr<=range;rr++){
-      this.prescribedReps.numbers.push({description:String(rr)});
-    }
+    // var range = parseInt(this.repsMax,10);
+    // for(var rr=1;rr<=range;rr++){
+    //   this.prescribedReps.numbers.push({description:String(rr)});
+    // }
 
     
   }
 
-  selectANumber() {
+  // selectANumber() {
 
-    this.selector.show({
-      title: "Reps Done",
-      items: [
-        this.prescribedReps.numbers
-      ],
-      defaultItems: [
-        {index:0, value: this.repsdone}
-    ]
-    }).then(
-      result => {
+  //   this.selector.show({
+  //     title: "Reps Done",
+  //     items: [
+  //       this.prescribedReps.numbers
+  //     ],
+  //     defaultItems: [
+  //       {index:0, value: this.repsdone}
+  //   ]
+  //   }).then(
+  //     result => {
 
-        this.pReps = result[0].description;
-        this.repscount = 0;
+  //       this.pReps = result[0].description;
+  //       this.repscount = 0;
 
-        console.log('reps done: ', this.pReps);
-        console.log('reps count:', this.repscount);
+  //       console.log('reps done: ', this.pReps);
+  //       console.log('reps count:', this.repscount);
 
-      },
-      err => console.log('Error: ', err)
-      );
-    }
+  //     },
+  //     err => console.log('Error: ', err)
+  //     );
+  //   }
 
   ngOnInit() {
    
@@ -104,6 +104,7 @@ export class MorerepsPage implements OnInit {
     this.modalCtrl.dismiss(
       {"moreReps": this.repscount}
     );
+    console.log("closereps modal..",this.repscount);
   }
   
  async closeRepsModal() {
@@ -118,5 +119,6 @@ export class MorerepsPage implements OnInit {
         {"moreReps": this.repscount}
       );
    }
+   console.log("closereps modal..",this.repscount);
   }
 }
