@@ -329,7 +329,7 @@ backButtonAction(){
   localStorage.setItem('work','');
   localStorage.setItem('cal','');
   setTimeout(() => {
-this.navCtrl.navigateBack('/dashboard');
+this.navCtrl.navigateRoot('tabs/tabs/dashboard');
   }, 300);
  
 }

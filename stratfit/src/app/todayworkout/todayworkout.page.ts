@@ -311,7 +311,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       "exerciseName": '',
       "intensity": 0,
       "reps": 0,
-      "workweight": 0, "tmax": 0
+      "workweight": 0, "tmax": 0,"ExerciseThumbImage":""
     };
 }
 
@@ -477,7 +477,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
   getPlanInfoNew() {
       
-      // this.loadData.startLoading();
+      this.loadData.startLoading();
       this.zone.run(() => {
       this.internetConn = (localStorage.getItem('internet') === 'online') ? true : false;
       this.initialState = false;
@@ -723,6 +723,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                               console.log("exercise name data", this.exercisesList[pi]);
 
                               this.exDetails = this.exercisesList[pi];
+                              this.exDetails.exImgNew = this.exDetails.ExerciseThumbImage;//'http://stratfit.net/newExThumb/{{exDetails.id}}.jpg"';
+
                               workweight = Math.round(this.exercisesList[pi].tmax * (this.currentAction[0].intensity / 100));
                               if(workweight<10){
                                 workweight = 10;
@@ -736,7 +738,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                                 "exId": this.exercisesList[pi].exId,
                                 "workweight": workweight,
                                 "tmax": (Math.round(this.exercisesList[pi].tmax)).toFixed(),
-                                "maxreps": this.currentAction[0].maxreps
+                                "maxreps": this.currentAction[0].maxreps,
+                                "ExerciseThumbImage":this.exercisesList[pi].ExerciseThumbImage
                               };
 
                               this.pReps = this.currentAction[0].prescribed_reps;
@@ -795,7 +798,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                           this.isActivitySimple = false;
                           this.loadComplexData();
                         }
-                        // this.loadData.stopLoading();
+                        this.loadData.stopLoading();
                       }
                     );
                   });
@@ -995,7 +998,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           } else {
             this.isActivitySimple = false;
             this.loadComplexData();
-            // this.loadData.stopLoading();
+            this.loadData.stopLoading();
           }
         }
       }
@@ -1015,12 +1018,12 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
     console.log("current round index", this.currentRoundIndex + " " + this.planRounds.length);
     if (this.currentRoundIndex == this.planRounds.length) {
-      // this.loadData.stopLoading();
+      this.loadData.stopLoading();
       this.getActivityData();          
       this.isDoneDisabled = false;
 
     } else {
-      // this.loadData.startLoading();
+      this.loadData.startLoading();
       this.currentRoundId = this.planRounds[this.currentRoundIndex].round_id;
       console.log("current action", this.currentRoundId);
       this.restTime = this.planRounds[this.currentRoundIndex].rest_time;
@@ -1119,6 +1122,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                   console.log("exercise name data", this.exercisesList[pi].exerciseName);
 
                   this.exDetails = this.exercisesList[pi];
+                  this.exDetails.exImgNew = this.exDetails.ExerciseThumbImage;//'http://stratfit.net/newExThumb/{{exDetails.id}}.jpg"';
+
                   workweight = Math.round(this.exercisesList[pi].tmax * (this.currentAction[0].intensity / 100));
                   if(workweight<10){
                     workweight = 10;
@@ -1130,7 +1135,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                     "exId": this.exercisesList[pi].id,
                     "workweight": workweight,
                     "tmax": (Math.round(this.exercisesList[pi].tmax)).toFixed(),
-                    "maxreps": this.currentAction[0].maxreps
+                    "maxreps": this.currentAction[0].maxreps,
+                    "ExerciseThumbImage":this.exercisesList[pi].ExerciseThumbImage
                   };
                 }
 
@@ -1153,16 +1159,16 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               console.log("------wor details", workweight);
               console.log("------simple actions", this.simpleActions);
               this.isDoneDisabled = false;
-              // this.loadData.stopLoading();
+              this.loadData.stopLoading();
             }, 400);
           });
           
-        // this.loadData.stopLoading();
+        this.loadData.stopLoading();
       }, 1000);
 
     }
     setTimeout(() => {
-      // this.loadData.stopLoading();
+      this.loadData.stopLoading();
     }, 1000);
 
   }
@@ -1341,15 +1347,26 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                     }, 1000);
                           
                   } else {
-                    this.actionrestpop(1, this.simpleActions);
+                    var resttime = 1;
+                        if (this.restTime == 0) {
+                          resttime = 1;
+                        } else {
+                          resttime = this.restTime;
+                        }
+                    this.actionrestpop(resttime, this.simpleActions);
                   }
                 } else {
-                  this.actionrestpop(1, this.simpleActions);
+                  var resttime = 1;
+                  if (this.restTime == 0) {
+                    resttime = 1;
+                  } else {
+                    resttime = this.restTime;
+                  }
+                  this.actionrestpop(resttime, this.simpleActions);
                 }
               }
             );
           });
-
 
 
 
@@ -1385,7 +1402,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                         
               var elementId = "roundid" + this.currentRoundId;
               const el = document.getElementById(elementId);
-              el.scrollIntoView({ inline: "center" });
+              // el.scrollIntoView({ inline: "center" });
 
               this.getComplexRoundActions();
               console.log("plan rounds complex array", this.planRounds);
@@ -1399,7 +1416,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
   }
 
   getComplexRoundActions() {
-    this.sqlStorageNew.query("select pa.*, ex.exerciseName, ex.tmax, ex.id as exerciseID, ex.exerciseDesc from planactions pa left join exercises ex on pa.exercise_id = ex.id where round_id = " + this.currentRoundId + " and pa.status = 0").then(
+    this.sqlStorageNew.query("select pa.*, ex.exerciseName, ex.tmax, ex.id as exerciseID, ex.exerciseDesc, ex.ExerciseThumbImage from planactions pa left join exercises ex on pa.exercise_id = ex.id where round_id = " + this.currentRoundId + " and pa.status = 0").then(
       planActionsComplex => {
 
         if(planActionsComplex.res.rows.length === 0) {
@@ -1425,6 +1442,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           this.actionType = actionType;
 
           this.complexActions = [];
+          this.exDetailsComplex = [];
 
           for (let li = 0; li < planActionsComplex.res.rows.length; li++) {
               if (planActionsComplex.res.rows.item(li).action_type == actionType) {
@@ -1449,6 +1467,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                       "tmax": (Math.round(planActionsComplex.res.rows.item(li).tmax)).toFixed(),
                       "maxreps": planActionsComplex.res.rows.item(li).maxreps,
                       "action_type": planActionsComplex.res.rows.item(li).action_type,
+                      "ExerciseThumbImage": planActionsComplex.res.rows.item(li).ExerciseThumbImage,
                       "more_reps": 0
                   });
                   this.currentRoundId = planActionsComplex.res.rows.item(li).round_id;
@@ -1471,8 +1490,9 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
           if(this.complexActions.length > 0) {
             this.isDoneDisabled = false;
           }
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           console.log("plan actions complex array", this.complexActions);
+          console.log("plan exercises complex array", this.exDetailsComplex);
         }
       });
   }
@@ -1870,11 +1890,17 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                         } else {
                           resttime = 1;
                         }
-                        this.actionrestpopComplex(1, this.complexActions[cr]);
+                        this.actionrestpopComplex(resttime, this.complexActions[cr]);
                       }
                     } else {
-                      this.actionrestpopComplex(1, this.complexActions[cr]);
-                    }
+                      var resttime = 1;
+                      if (this.restTime == 0) {
+                        resttime = 1;
+                      } else {
+                        resttime = this.restTime;
+                      }
+                    this.actionrestpopComplex(resttime, this.complexActions[cr]);
+                  }
                   }
                 );
               });
@@ -1914,10 +1940,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'excercisename': actionData.exerciseName,
         'excerciseid': actionData.exId,
         'setworkweight': actionData.workweight,
-        'repsdone': this.repscount, "calories": 0, "exFinished": false }
+        'repsdone': this.repscount, "calories": 0, "exFinished": false,
+        'ExerciseThumbImage':actionData.ExerciseThumbImage }
       });
       
-       
+      // this.warmupRestModal.present();
       timermodal.onDidDismiss().then((data: any) => {
          
             console.log('The result: model closed');
@@ -2029,7 +2056,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     this.generalWarmupCompleted = "true";
     localStorage.setItem('generalwarmupcmpl', 'true');
 
-    // this.pageTop.scrollToTop();
+    this.pageTop.scrollToTop();
     //localStorage.setItem('excercisewarmupcmpl','false');
     // localStorage.setItem('excercisewarmupcmpl','false');
     //localStorage.setItem('excercisewarmupcmplcount',"0");
@@ -2163,6 +2190,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       componentProps: {
       'rest': restTime, 'setname': "Action " + actionData.exId,
       'excercisename': actionData.exerciseName,
+      'ExerciseThumbImage':actionData.ExerciseThumbImage,
       'excerciseid': actionData.exId,
       'setworkweight': actionData.workweight,
       'repsdone': this.repscount, "calories": 0, "exFinished": false }
@@ -2422,7 +2450,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               text: 'No',
               handler: workout => {
 
-                // this.loadData.startLoading();
+                this.loadData.startLoading();
                 this.exerciseTmax = this.loadData.convertWeight(parseInt(result[0].description, 10), "db");
                 if (localStorage.getItem('internet') === 'online') {
                   this.updateTmaxData();
@@ -2449,7 +2477,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
     var index = 0;
     var wMetric = (localStorage.getItem('weightunit') === 'lbs') ? " Lb" : " Kg";
     var firstTime = (localStorage.getItem('tmaxfirstTime') === 'true') ? true : false;
-    // this.loadData.startLoading();
+    this.loadData.startLoading();
     this.sqlStorageNew.query("SELECT * FROM exercises ORDER BY exOrder ASC").then(
       sdata => {
         for (var i = 0; i < sdata.res.rows.length; i++) {
@@ -2576,13 +2604,13 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
  async updateTmax(exercises) {
     if (localStorage.getItem('internet') === 'online') {
-      // this.loadData.startLoading();
+      this.loadData.startLoading();
      
       var tmaxdata = { tmaxData: exercises };
       this.apiService.updateBulkTmaxData(tmaxdata,this.token).subscribe((response)=>{
           const userStr = JSON.stringify(response);
           let res = JSON.parse(userStr);
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
           if(res.success){
             this.toastmsg("Tmax updated successfully");
           } else {
@@ -2765,11 +2793,11 @@ backButtonAction() {
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
         setTimeout(() => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
         }, 2000);
       }, (err) => {
         setTimeout(() => {
-          // this.loadData.stopLoading();
+          this.loadData.stopLoading();
         }, 2000);
         if (err.status === 403) {
           //this.restModal.dismiss();
