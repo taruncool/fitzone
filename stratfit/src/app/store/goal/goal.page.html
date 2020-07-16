@@ -55,7 +55,7 @@
   </ion-toolbar> 
 
   <div class=" goalori">
-    <div class="scrol" scrollX="true">
+    <div class="scrol min" scrollX="true">
       <ion-button id="goal0" (click)="filterPurposePrograms(0)" [ngClass]="{'active':activepurposeid==0}">All </ion-button>
       <ion-button id="goal{{purpose.id}}" (click)="filterPurposePrograms(purpose.id)" [ngClass]="{'active':activepurposeid==purpose.id}" *ngFor="let purpose of purposeslist; let i = index"  >{{purpose.name}}</ion-button>
    

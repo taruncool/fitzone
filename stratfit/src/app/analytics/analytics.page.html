@@ -7,8 +7,8 @@
 
 <ion-content class=" analytic">
 
-  <!-- <ion-card class="stcard"  *ngIf='!noplan' (click)="programView()"> -->
-    <ion-row class="pcover" *ngIf='!noplan' (click)="programView()">
+
+  <ion-row class="fulcard " *ngIf='!noplan' (click)="programView()">
     <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
   
     <div class="container">
@@ -74,7 +74,7 @@
         </div> <!-- End Days Block-->
 
         <div class="session">
-          <div class="scrol" scrollX="true">
+          <div class="scrol min" scrollX="true">
             <ion-button id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
           
           </div>
@@ -143,16 +143,19 @@
           </div><!-- End Simple Block-->
 
           <div *ngIf="activityType != 'simple'">
-            <div class="exetab" *ngFor="let round of tempRound; let i = index">
+            <div class="fulpad nopadt exetab" *ngFor="let round of tempRound; let i = index">
              
                <!-- <h1 (onchange)="getRound(round.round_id)">Round {{i+1}}  --> 
 
-                <h1>{{round.round_name}} 
+                <h2>{{round.round_name}} 
+                  <!-- <svg class="icr" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
+                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
+                  </svg>  -->
 
-                </h1>
+                </h2>
               <div class="workview" *ngFor="let exe of round.exes; let i = index">
                 <ion-list class="exelist" *ngIf="exe.round_id == round.round_id">
-                  <h2>{{exe.exerciseName}}</h2>
+                  <h4>{{exe.exerciseName}}</h4>
                   <div *ngFor="let action of tempAction; let i = index">
                       <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
                         <ion-col *ngIf="!workweight">
@@ -203,24 +206,24 @@
           </div><!-- End Complex Block-->
 
           <div class="exesumry" *ngIf="!Show">
-            <h6>Summary</h6>
+            <h4>Summary</h4>
             <ion-row>
-              <ion-col col-4>
+              <ion-col size="4">
                   <span>{{totalreps}}<em>Total Reps</em>  </span>
               </ion-col>
-              <ion-col col-4 *ngIf="!Showtmax">
+              <ion-col  size="4" *ngIf="!Showtmax">
                   <span>{{Tmax}}<em>Est. Tmax </em>  </span>
               </ion-col>
-              <ion-col col-4>
+              <ion-col size="4">
                   <span>{{totalweight}}<em>Avg Weight </em>  </span>
               </ion-col>
-              <ion-col col-4>
+              <ion-col size="4">
                   <span>{{Tonnage}}<em>Tonnage (Tons)</em>  </span>
               </ion-col>
-              <ion-col col-4>
+              <ion-col size="4">
                   <span>{{Work}}<em>Work (Joules)</em>  </span>
               </ion-col>
-              <ion-col col-4>
+              <ion-col size="4">
                   <span>{{cal}}<em>Calories (Cal)</em>  </span>
               </ion-col>
             </ion-row>

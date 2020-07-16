@@ -6,7 +6,7 @@ page-Analytics {
 
 .segment-button {text-align: center !important;}
 .fulcard {  height: 94px !important; min-height:94px !important; max-height: 94px !important;
-    img {height: 94px !important;}
+    img {height: 94px !important;  opacity: 1 !important;}
 }
 .fulcard .container {padding: 14px !important;}
 .fulcard .container .cdbody p {margin: 0 !important;}
@@ -33,7 +33,8 @@ ion-app.ios{
 
 
 .exetab{
-    h1 {margin-top: 0 !important; font-size: 2rem !important; color: #80B419 !important;}
+    h2 {margin-top: 0 !important;color: #80B419 !important;}
+    h3{margin-top: 0 !important;}
     // .accord { background: #19800D;margin: 30px auto; overflow: hidden;padding: 10px; 
     // div {overflow:hidden; cursor: pointer; background: rgba($dark,.5); margin-bottom:15px; width: 100%; 
     //     p {display: none;}
@@ -72,11 +73,7 @@ ion-app.ios{
 .icr {width:1.4rem !important; height:1.4rem !important; float: right;}
 
 
-.session {margin-bottom:15px !important; border-bottom: 2px solid #1D2534; text-align: center; height: 38px;
-   .scrol[scrollX]{min-height:36px !important;}
-   .scrol[scrollX] ion-button { width: 30%; padding-bottom: 0 !important; --box-shadow: none;}
-    // .scroll-zoom-wrapper {text-align: center;}
-}
+
 
 
 

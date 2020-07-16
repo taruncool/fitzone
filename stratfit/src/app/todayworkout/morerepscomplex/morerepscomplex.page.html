@@ -25,18 +25,18 @@
       <!-- <h1 >Recommended<br>More reps</h1> -->
       <div class=" inpgrp" >
 
-        <h4 >Help us make your fitness program more personalized by answering this simple question.</h4>
-        <h5 >How many more reps can you do?</h5>
+        <h3 >Help us make your fitness program more personalized by answering this simple question.</h3>
+        <h3 >How many more reps can you do?</h3>
         <div *ngFor="let action of complexActions;let i = index">
             <!-- <h5 text-center><span>{{setName}}</span>{{exDetailsComplex[i].exerciseName}}</h5> -->
-            <h5 >{{exDetailsComplex[i].exerciseName}}</h5>
+            <h3 >{{exDetailsComplex[i].exerciseName}}</h3>
             <ion-item class="sbgw  admb2" > 
                 <ion-input class="text-center" type="number" name="repscount" [(ngModel)]="action.more_reps" required></ion-input>
             </ion-item>
         </div>
           <!-- <p>*This will increase your Tmax for the next workout</p> -->
           
-          <ion-button (click)='closeRepsModal()'> 
+          <ion-button slot="end" (click)='closeRepsModal()'> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
             <g id="Tick" transform="translate(-455.422 -895.106)">    
                 <path id="Path_199" data-name="Path 199" d="M140.641,46.087a5.868,5.868,0,0,0-8.235,0L74.2,103.861,51.338,81.229a5.868,5.868,0,0,0-8.235,0,5.729,5.729,0,0,0,0,8.153L69.937,115.95a5.715,5.715,0,0,0,4.117,1.687,5.958,5.958,0,0,0,4.117-1.687L140.5,54.24a5.609,5.609,0,0,0,.142-8.153Z" transform="translate(469.481 920.222)" fill="#fff"/>

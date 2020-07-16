@@ -50,13 +50,17 @@
 
 
 
-<ion-toolbar no-border-top no-border-bottom class="sfmenu">
-  <ion-segment class="segment-activated" [(ngModel)]="coachProfile">
-    <ion-segment-button value="programs" >Programs</ion-segment-button>
-    <ion-segment-button value="about" >About</ion-segment-button>
+<div class="sfmenu">
+  <ion-segment  class="segment-activated" [(ngModel)]="coachProfile">
+    <ion-segment-button value="programs" >
+      <ion-label>Programs <!--em>{{recommendedData.length}}</em--></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="About" >
+      <ion-label>About </ion-label>
+    </ion-segment-button>
   </ion-segment>
   
-</ion-toolbar>
+</div>
 
 
 <div [ngSwitch]="coachProfile" >

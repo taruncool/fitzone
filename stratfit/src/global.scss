@@ -43,7 +43,7 @@ body.sfbred  {
     span {color: #fff !important;}
   }
   
-  .button.outline, .button.nobg, .social .button, .social .button:hover, .goalori button, .goalori button.active, .session ion-button, .session ion-button.active, .profile .user, .diet .dcard ion-item .button, .head .hedfm .button,  .checkbox-checked , .db .workout .wrkbtm ion-button, .faqs .dcard{ --background: none !important; background: none !important; --background-checked:none !important;}  
+  .button.outline, .button.nobg, .social .button, .social .button:hover, .goalori ion-button, .goalori ion-button.active, .session ion-button, .session ion-button.active, .profile .user, .diet .dcard ion-item .button, .head .hedfm .button,  .checkbox-checked , .db .workout .wrkbtm ion-button, .faqs .dcard{ --background: none !important; background: none !important; --background-checked:none !important;}  
 
   .fabicon ion-fab-button {background: transparent !important;}
   
@@ -108,7 +108,7 @@ body.sfbred  {
  progressbar-popup .checkmark__circle, .icostr, .diet .cgraph circle-progress svg circle {stroke: #fff !important}
 .diet .cgraph circle-progress svg circle, .inputs ion-item.sbgw .icostr {stroke: #1D2534 !important}
   
- progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab .scrol li, .exetab .workflow .worktab .scrol li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .contin .days,  .diet .dcard {background: #1D2534 !important;}
+ progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab .scrol li, .exetab .workflow .worktab .scrol li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .contin .days,  .diet .dcard, .exesumry ion-col {background: #1D2534 !important;}
 
  .diet .dcard .listdis, .diet .ocard .listdis {background: #0E1523 !important;}
  
@@ -131,7 +131,7 @@ body.sfbred  {
   .button-ios, .button-md, .button-ios.brn, .button-md.brn, .button-ios.bgw, .button-md.bgw, .button-ios.active, .button-md.active, .button.active, .button-ios.activated, .button-md.activated, .button-md:hover:not(.disable-hover){
     span {color: #fff !important;}
   }
-  .button-ios.outline, .button-md.outline, .button-ios.nobg, .button-md.nobg, .social button, .social button:hover, .goalori button, .goalori button.active, .session button, .session button.active, .profile .user, .diet .dcard ion-item .button,  .checkbox-checked { background: none !important;} 
+  .button-ios.outline, .button-md.outline, .button-ios.nobg, .button-md.nobg, .social button, .social button:hover, .goalori ion-button, .goalori ion-button.active, .session ion-button, .session ion-button.active, .profile .user, .diet .dcard ion-item .button,  .checkbox-checked { background: none !important;} 
 
   
   .button-ios, .button-md, .button-ios.brn, .button-md.brn, .social button.gogl, ion-card ion-avatar.active, .inputs ion-checkbox .checkbox-icon, .alert-md [aria-checked=true] .alert-radio-icon, ion-scroll[scrollX] button.active, ion-scroll[scrollX] button.active:after, .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button, .goalori button.active, .session button.active, .contin .days .button.done, .exe ion-avatar.active, .exetab .workview .exelist ion-col svg, .alert-ios .alert-button-group .alert-button, .alert-md .alert-button-group .alert-button, .picker-md .alert-button-group .alert-button, .exetab .workflow .worktab ion-scroll[scrollX] li.active, .head .info svg, .radio-md .radio-checked, .alert-md [aria-checked=true] .alert-checkbox-icon,  .summary ion-icon, .diet .dishes .dishlist .dishview ion-item .title .lgraph em, .diet .dcard ion-item .button span{border-color: #d60404 !important;}
@@ -814,13 +814,18 @@ ion-app.ios {
 }
 
 .goalori, .session {
-  .scrol {
-    ion-button { border-radius: 0;  opacity: 0.7 !important;padding:0 !important;padding-bottom:10px !important; margin:0 7px !important;}
+  .scrol[scrollX] {
+    ion-button { border-radius: 0;  opacity: 0.7 !important;padding:0 !important;padding-bottom:10px !important; margin:0 7px !important;  --box-shadow: none;}
     ion-button:first-child{margin-left:10px !important;}
     ion-button.active {border-width:0 !important; border-bottom-width:2px !important; border-style: solid !important; opacity: 1 !important; }
     ion-button.active:after{ content: none !important;}
     }
    
+}
+
+.session {margin-bottom:16px;border-bottom: 2px solid #1D2534; text-align: center;
+  .scrol[scrollX]{ margin-bottom: -2px !important;}
+  .scrol[scrollX] ion-button { width: 30%; padding-bottom: 0 !important;}
 }
 
 .execis { 
@@ -1006,14 +1011,14 @@ ion-app.ios {
       .sumary {
         h3 {font-size: 1.6rem; text-align: center; display: block; }
         .exe {padding-top:10px !important;
-          img {border: 0 !important;}
+          // img {border: 0 !important;}
           
         }
-        .exesumry {
-          span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); font-size: 1.6rem; width: 100%; 
-            em {  display: block; font-size: 1.2rem; padding-top:5px; line-height: 15px;  }
-          }
-        }
+        // .exesumry {
+        //   span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
+        //     em {  display: block;  padding-top:5px; line-height: 15px;  }
+        //   }
+        // }
       }
       .sbtm-btn {position: relative; padding: 16px 0 0 0; color: #000; 
         span {font-size:1.2rem;}
@@ -1127,9 +1132,9 @@ ion-app.ios {
 
   .analytics{
 
-    ul{
-      li{position: relative; display: block; font-size: 1.2rem; padding-left: 20px; line-height: 24px; overflow: hidden;
-        span{float: right;
+    ul{ width: 100%;
+      li{position: relative; display: block; font-size: 1.2em; padding-left: 20px; line-height: 24px; overflow: hidden;
+        span{float: right; width: auto;
           em{margin-left:5px;}
         }
       }
@@ -1332,15 +1337,16 @@ ion-app.ios {
 /*--- Analytics Tab View Css --- Never changes any thing here*/
 .exesumry { /*--- Analytics Summery Css --- Never changes any thing here*/
   h3 {font-size:1.6rem !important;}
-  h6 {text-align: center;}
-    ion-col { background:#fff !important; border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
-        span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); font-size: 1.6rem; width: 100%; 
-            em {  display: block; font-size: 1.2rem; padding-top:5px; line-height: 15px;  }
+  h4 {text-align: center;}
+    ion-col { border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
+        span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
+            em {  display: block; font-size: 14px; padding-top:5px; line-height: 15px;  }
         }
+        
     }
-    [size="4"] {flex:0 0 32.1222% ;}
-    [col-4]:nth-child(3n+1) {margin-left: 0;}
-    ion-col:first-child{ margin-left: 0;}
+    [size="4"] {flex:0 0 32.1222%  !important;}
+    [size="4"]:nth-child(3n+1) {margin-left: 0;}
+    [size="4"]:first-child{ margin-left: 0;}
 
 }
 

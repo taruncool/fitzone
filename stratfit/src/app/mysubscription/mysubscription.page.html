@@ -32,10 +32,10 @@
           <em *ngIf="isDuration">{{plandetails.duration_weeks}} Weeks</em>
           <h2>{{plandetails.planName}}</h2>
           <ion-row class="prow">
-              <ion-avatar slot="start" > 
+              <ion-avatar slot="start" class="sbgw" > 
                   <img src="{{plandetails.coachPhoto}}" (error)="onAvatarError()" />
               </ion-avatar>
-              <ion-col> <h6>{{plandetails.createdBy}}</h6></ion-col>
+               <h6>{{plandetails.createdBy}}</h6>
           </ion-row>
       </ion-item>
   </ion-card>
@@ -46,12 +46,12 @@
   <ion-row class="mb-2">
     <!-- <ion-col col-6>Price</ion-col>
     <ion-col col-6 [innerHTML]="plandetails.price"></ion-col> -->
-    <ion-col col-6>DayOff</ion-col>
-    <ion-col col-6>{{plandetails.dayoff}}</ion-col>
-    <ion-col col-6>Program Start Date</ion-col>
-    <ion-col col-6>{{plandetails.startdate}}</ion-col>
-    <ion-col col-6>No of subscriptions</ion-col>
-    <ion-col col-6>{{plandetails.totalsubscribers}}</ion-col>
+    <ion-col size="6" >DayOff</ion-col>
+    <ion-col size="6" >{{plandetails.dayoff}}</ion-col>
+    <ion-col size="6" >Program Start Date</ion-col>
+    <ion-col size="6" >{{plandetails.startdate}}</ion-col>
+    <ion-col size="6" >No of subscriptions</ion-col>
+    <ion-col size="6" >{{plandetails.totalsubscribers}}</ion-col>
   
    
   </ion-row>
