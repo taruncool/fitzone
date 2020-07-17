@@ -29,7 +29,7 @@ export class DashboardPage implements OnInit {
   today;
   noplan;
   notActive = true;
-  noPlanActive = false;z
+  noPlanActive = false;
   weeks;
   totalDays;
   planDays;
@@ -233,9 +233,9 @@ export class DashboardPage implements OnInit {
     this.prompt.present();
   }
 ngOnInit(){
-  
+  this.ionViewDidLoad();
 }
-  ionViewDidEnter(){
+ionViewDidLoad(){
     
    
     this.today = Date.now();
@@ -291,16 +291,16 @@ ngOnInit(){
     this.noplan = false;
     this.platform.ready().then(() => {
       this.getTodayInfo();
-      setTimeout(() => {
-      if(this.totalreps == '' || this.totalweight == '' || this.Tonnage == '' || this.cal== '' || this.Work== ''){
-        this.getAnalyticsData();
-        }else{
-          this.dayChange();
-        }
-      },1000);
+      // setTimeout(() => {
+      // if(this.totalreps == '' || this.totalweight == '' || this.Tonnage == '' || this.cal== '' || this.Work== ''){
+      //   this.getAnalyticsData();
+      //   }else{
+      //     this.dayChange();
+      //   }
+      // },1000);
     });
       
-    this.initializeNutrition();
+    // this.initializeNutrition();
   }
 
   initializeNutrition(){

@@ -348,21 +348,24 @@ export class DietprofilePage implements OnInit {
                 localStorage.setItem('nutritionDate',String(date));
                 if(isHistory){
 
-                  let dietHistoryModal = this.modalCtrl.create({component:DiethistoryPage,
-                    componentProps:
-                    {"json":res.meals,
-                    "date":date,
-                    "fatCal":this.fatCal,
-                    "fatGms":this.fatGms,
-                    "protienCal":this.protienCal,
-                    "protienGms":this.protienGms,
-                    "carbsCal":this.carbsCal,
-                    "carbsGms":this.carbsGms,
-                    "calPerDay":this.calPerDay,
-                    "fatPercent":this.fatPercent,
-                    "protienPercent":this.protienPercent,
-                    "carbsPercent":this.carbsPercent}
-                  });               
+                  let meals = res.meals;
+                  this.dietModal(meals,date);
+
+                  // let dietHistoryModal = this.modalCtrl.create({component:DiethistoryPage,
+                  //   componentProps:
+                  //   {"json":res.meals,
+                  //   "date":date,
+                  //   "fatCal":this.fatCal,
+                  //   "fatGms":this.fatGms,
+                  //   "protienCal":this.protienCal,
+                  //   "protienGms":this.protienGms,
+                  //   "carbsCal":this.carbsCal,
+                  //   "carbsGms":this.carbsGms,
+                  //   "calPerDay":this.calPerDay,
+                  //   "fatPercent":this.fatPercent,
+                  //   "protienPercent":this.protienPercent,
+                  //   "carbsPercent":this.carbsPercent}
+                  // });               
 
                     // dietHistoryModal.present();
 
@@ -435,6 +438,23 @@ export class DietprofilePage implements OnInit {
         toast.present();
       }
 
+  }
+  async dietModal(meals,date){
+    let dietHistoryModal = this.modalCtrl.create({component:DiethistoryPage,
+      componentProps:
+      {"json":meals,
+      "date":date,
+      "fatCal":this.fatCal,
+      "fatGms":this.fatGms,
+      "protienCal":this.protienCal,
+      "protienGms":this.protienGms,
+      "carbsCal":this.carbsCal,
+      "carbsGms":this.carbsGms,
+      "calPerDay":this.calPerDay,
+      "fatPercent":this.fatPercent,
+      "protienPercent":this.protienPercent,
+      "carbsPercent":this.carbsPercent}
+    });              
   }
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({

@@ -321,6 +321,7 @@ dietInfo(){
 this.navCtrl.navigateForward('/dietprofile');
 }
 backButtonAction(){
+  console.log("session summary close");
 
   localStorage.setItem('totalreps','');
   // localStorage.setItem('tmax','');

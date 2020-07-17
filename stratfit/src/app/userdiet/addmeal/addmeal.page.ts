@@ -410,7 +410,7 @@ export class AddmealPage implements OnInit {
                 this.toastmsg(res.message);
                 // this.toastmsg("Something went wrong! Please try again");
                 // let currentIndex = this.navCtrl.getActive().index;
-                this.navCtrl.navigateBack('/dietprofile').then(() => {
+                this.navCtrl.navigateBack('/userdiet').then(() => {
                   // this.navCtrl.remove(currentIndex);
                 });
                 this.modalCtrl.dismiss();
@@ -446,14 +446,14 @@ export class AddmealPage implements OnInit {
     toast.present();
   }
 
-  public addFoodItem(){
+  async addFoodItem(){
 
-    this.foodModal = this.modalCtrl.create({
+    this.foodModal = await this.modalCtrl.create({
       component : FilterfoodPage,
       componentProps:{"fooditems": this.selectedFoodItemsFilter }
     });
     this.foodModal.present();
-    this.foodModal.onDidDismiss(data=>{
+    this.foodModal.onDidDismiss().then((data)=>{
       if(data !== undefined){
         console.log(data);
         this.selectedFoodItems = data;

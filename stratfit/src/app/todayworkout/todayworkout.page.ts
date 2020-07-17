@@ -2010,7 +2010,11 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       componentProps: { day_id: this.currentDayId, session_id: sessionId }
     });
     modal.present();
+    modal.onDidDismiss().then((data: any) => {
 
+    // this.backButtonAction();
+
+    });
   }
 
   onSessionChange() {
