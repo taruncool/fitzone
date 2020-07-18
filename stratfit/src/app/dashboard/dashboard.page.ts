@@ -232,10 +232,10 @@ export class DashboardPage implements OnInit {
     });
     this.prompt.present();
   }
+// ngOnInit(){
+//   this.ionViewDidLoad();
+// }
 ngOnInit(){
-  this.ionViewDidLoad();
-}
-ionViewDidLoad(){
     
    
     this.today = Date.now();
@@ -1635,17 +1635,17 @@ public getExercise(exercise_id){
 }
 openTab(page){
   if(page==='store'){
-    this.navCtrl.navigateRoot('store');
+    this.navCtrl.navigateRoot('tabs/tabs/store');
   }else if(page==='community'){
-    this.navCtrl.navigateRoot('community');
+    this.navCtrl.navigateRoot('tabs/tabs/community');
   }else if(page==='workout'){
     this.navCtrl.navigateForward('todayworkout');
   }else if(page==='settings'){
-    this.navCtrl.navigateRoot('profile');
+    this.navCtrl.navigateRoot('tabs/tabs/profile');
   }else if(page==='analytics'){
     if(this.planSetStatus){
 
-      this.navCtrl.navigateRoot('analytics');
+      this.navCtrl.navigateRoot('tabs/tabs/analytics');
 
     }else{
 

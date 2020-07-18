@@ -2741,7 +2741,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
 
 backButtonAction() {
-
+console.log("todays workout back button tag");
     localStorage.setItem('totalreps', '');
     // localStorage.setItem('tmax','');
     localStorage.setItem('totalweight', '');

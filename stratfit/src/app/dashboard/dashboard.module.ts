@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { DashboardPage } from './dashboard.page';
 
@@ -14,6 +15,9 @@ import { DashboardPage } from './dashboard.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    NgCircleProgressModule.forRoot({
+     
+    }),
     DashboardPageRoutingModule
   ],
   declarations: [DashboardPage]

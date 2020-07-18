@@ -401,7 +401,7 @@ export class AddmealPage implements OnInit {
 
     if(localStorage.getItem('internet')==='online'){
       this.loadData.startLoading();
-      this.apiService.updateTmaxData(mealInfoJson,this.token).subscribe((response)=>{
+      this.apiService.addmeal(mealInfoJson,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
           if(res.success){
