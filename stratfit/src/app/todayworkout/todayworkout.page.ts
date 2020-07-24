@@ -146,7 +146,7 @@ exerciseID;
 exIntensity;
 restModal;
 warmupRestModal;
-moreRepsModal;
+// moreRepsModal;
 updatedExData;
 tempExID;
 exChange;
@@ -1524,7 +1524,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'excercisedetails': complexActions,
         'complexActions': complexActions }  
       });
-        
+      morerepsmodal.present(); 
       morerepsmodal.onDidDismiss().then((data: any) => {
         this.isDoneDisabled = false;
         console.log(data);
@@ -1589,7 +1589,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
       });
 
-      await morerepsmodal.present();
+      // await morerepsmodal.present();
 
     } else {
 

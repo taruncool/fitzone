@@ -33,13 +33,13 @@ export class MorerepsPage implements OnInit {
   repscount;
   tmax;
   
-  prescribedReps = {
-    numbers: [
-     { description: "1" },
-      { description: "2" },
-      { description: "3" }
-    ]
-  };
+  // prescribedReps = {
+  //   numbers: [
+  //    { description: "1" },
+  //     { description: "2" },
+  //     { description: "3" }
+  //   ]
+  // };
 
   constructor(public navCtrl: NavController,public platform: Platform,private modalCtrl: ModalController,private selector: WheelSelector,public toastCtrl: ToastController, public loadData: LoadData, public params: NavParams){
 
@@ -61,7 +61,7 @@ export class MorerepsPage implements OnInit {
     this.today = d.getFullYear()+"-"+('0' +(d.getMonth()+1)).slice(-2)+"-"+('0' +(d.getDate())).slice(-2);
     
     // this.prescribedReps.numbers=[];
-    // this.repscount = "";
+    this.repscount = "";
   
     // var range = parseInt(this.repsMax,10);
     // for(var rr=1;rr<=range;rr++){
