@@ -84,8 +84,8 @@
 
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="recommendedData.length != 0" >
         <ion-slide class="fulcard "  *ngFor="let plan of recommendedData; let i = index" (click)="planDetails(plan)">
-            <img src="http://stratfit.net/ProgramImages/program{{plan.id}}.png" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-            <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+          <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
           
           <div class="container">
             <div class="cdbody">

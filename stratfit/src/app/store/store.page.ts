@@ -244,13 +244,13 @@ public loadPrograms(){
     },(err) => {
       this.loadData.stopLoading();
       if(err.status === 403){
-          // this.loadData.forbidden();
+          this.loadData.forbidden();
           this.navCtrl.navigateForward('/login');
           //this.app.getRootNav().setRoot(LoginPage);
       }
     });
 }else{
-  this.loadData.stopLoading();
+  // this.loadData.stopLoading();
   this.activationalert();
 }
 }
