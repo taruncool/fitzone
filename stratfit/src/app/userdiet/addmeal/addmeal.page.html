@@ -34,13 +34,13 @@
      <ion-col class="calorie"><progress-bar [progress]="calDayBalPercent"></progress-bar><div class="reqcal"><em>{{calDayBal}} </em><span>Calorie</span></div></ion-col>
   </ion-row>
            
-  <ion-row class=" fulpad adlist">
+  <ion-row class="  adlist">
      <h4>Add Dishes <span>{{selectedFoodItems.length}} Items</span></h4>
      <ion-row class="aditems">
        <div class="nodata" *ngIf="selectedFoodItems.length==0">
         <p >Please add food items</p>
       </div>
-        <div scrollX="true">
+        <div class="scrol">
        
            <!-- <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
              <img src="assets/images/burger.jpg">  
@@ -63,7 +63,7 @@
              </div>
      </ion-row>
 
-     <ion-row class="lgraph">
+     <ion-row class="lgraph adpad10">
         <ion-col><div class="reqcal"><em>{{mealFatGmss}} g</em><span>Fat</span></div></ion-col>
         <ion-col><div class="reqcal"><em>{{mealProGmss}} g</em><span>Protein</span></div></ion-col>
         <ion-col><div class="reqcal"><em>{{mealCarbsGmss}} g</em><span>Carbohydrate</span></div></ion-col>
@@ -104,7 +104,7 @@
                   <img src="assets/images/burger.jpg">
                 </ion-avatar>
                 <ion-row class="title">
-                  <h3>{{food.name}}</h3>
+                  <h4>{{food.name}}</h4>
                   <ion-row class="lgraph">
                       <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
                       <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>

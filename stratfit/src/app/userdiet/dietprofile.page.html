@@ -169,9 +169,9 @@
   </div>
   
   <ion-card class="dcard" *ngFor="let meal of finalFoodDataByDate; let i = index">
-     <ion-item>
+     <ion-item class="nobg adpadl adpadr">
         <!-- <em>Breakfast</em> -->
-        <h2 >{{meal.mealName}}</h2>
+        <h3 >{{meal.mealName}}</h3>
         <ion-button (click)="editMeal(meal.id)" slot="end">
            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
               <g id="add" transform="translate(-654.5 -785.5)">
@@ -182,7 +182,7 @@
            Edit
          </ion-button>
      </ion-item>
-     <ion-row class="lgraph" >
+     <ion-row class="lgraph adpadl adpadr admb" >
         <ion-col><em>{{meal.mealfat}} g</em>
            <div class="progress">
               <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -218,7 +218,6 @@
 
 </div>
  </ion-content>
- 
   <ion-footer class="foot" >
    <ion-row class="btnrow">
       <ion-button (click)="addMeal()" class=" addmeal">

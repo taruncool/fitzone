@@ -70,7 +70,7 @@
 
 <!-- List Format -->
 <ion-list *ngIf="!isGrid">
-  <ion-item class="nodata nobg" text-center *ngIf="!isGoalsExist">
+  <ion-item class="nodata nobg text-center"  *ngIf="!isGoalsExist">
     <p>No programs to display</p>
   </ion-item>
 
@@ -105,7 +105,7 @@
 
       
     </ion-slide>
-</ion-slides>
+  </ion-slides>
 
 
 
@@ -114,17 +114,18 @@
 </ion-list>
 
 <!-- Grid Format -->
-<ion-list class="row gridview" *ngIf="isGrid">
-  <ion-item class="nodata nobg" text-center *ngIf="purposedata.length==0">
+<div class=" gridview" *ngIf="isGrid">
+
+  <ion-item class="nodata nobg text-center " *ngIf="purposedata.length==0">
     <p>No programs to display</p>
   </ion-item>
 
 
-
+<ion-row>
   <ion-col size="6" *ngFor="let plan of purposedata; let i = index">
     <div class="fulcard nobg" (click)="planDetails(plan)">
       <img *ngIf="plan.planLogo !='' && plan.planLogo !=null" src="{{plan.programPhoto}}" (error)="onImageError(plan)"/>
-          <img *ngIf="plan.planLogo =='' || plan.planLogo ==null" src="assets/images/plan_2.png"/>
+      <img *ngIf="plan.planLogo =='' || plan.planLogo ==null" src="assets/images/plan_2.png"/>
 
       <div class="container">
         <div class="cdbody">
@@ -143,7 +144,8 @@
   
       </div>
   </ion-col>
+</ion-row>
 
-</ion-list>
+</div>
    
 </ion-content>
