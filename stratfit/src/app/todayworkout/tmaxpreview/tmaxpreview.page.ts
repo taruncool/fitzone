@@ -147,7 +147,6 @@ export class TmaxpreviewPage implements OnInit {
       ]
     });
     this.prompt.present();
-
   }
 
   editAllTmax(ex_id,ex_tmax){
@@ -220,6 +219,7 @@ export class TmaxpreviewPage implements OnInit {
           this.navCtrl.navigateForward('/login');
         }
       });
+      this.backButtonAction();
   }
   async toastmsg(msg) {
     let toast = await this.toastCtrl.create({
@@ -264,6 +264,7 @@ export class TmaxpreviewPage implements OnInit {
       });
       toast.present();
     }
+    this.backButtonAction();
   }
   public openTmax(){
     this.modalCtrl.create({component:TmaxsummaryPage});
