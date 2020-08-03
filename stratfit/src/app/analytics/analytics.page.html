@@ -20,7 +20,6 @@
       </div>
     </div>
   </ion-row>
-  <!--END Choosen Program Cart-->
 
 
     <ion-item class=" nobg nodata" *ngIf='noplan'>
@@ -44,20 +43,20 @@
 
 
     <div class="contin" *ngIf='!noplan'>
-        <ion-row class=" fulpad nopadt nopadb periods">
-            <ion-col size="6"  >
+        <ion-row class=" fulpad  nopadb periods">
+            <ion-col >
               <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod-{{i+1}}">
                 <ion-select-option aria-selected="active" *ngFor="let period of currentPeriodss; let i = index" [value]="period.period_id">{{period.periodName}}-{{i+1}}</ion-select-option>
                   
               </ion-select>
             </ion-col>
-            <ion-col size="3">
+            <ion-col>
               <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
                   <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
                   >MicroCycle-{{k+1}}</ion-select-option>
               </ion-select>
           </ion-col>
-            <ion-col size="3">
+            <ion-col>
                 <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle-{{j+1}}">
                   <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
                     >MesoCycle-{{j+1}}</ion-select-option>
@@ -93,8 +92,8 @@
           </div> <!-- End Activity Block-->
 
           <div class="fulpad nopadt exetab" *ngIf="activityType == 'simple'">
-            <div class="workview" *ngFor="let exe of tempExeData; let i = index">
-            <ion-list class="exelist">
+            <div class=" workview" *ngFor="let exe of tempExeData; let i = index">
+            <div class="exelist">
               
                 <h4>{{exe.exerciseName}}</h4>
                   <ion-row  *ngFor="let action of tempAction; let i = index">
@@ -138,75 +137,69 @@
                       </ion-col>
                   </ion-row> 
                 
-              </ion-list>
+                </div>
             </div>
           </div><!-- End Simple Block-->
 
           <div *ngIf="activityType != 'simple'">
             <div class="fulpad nopadt exetab" *ngFor="let round of tempRound; let i = index">
-             
-               <!-- <h1 (onchange)="getRound(round.round_id)">Round {{i+1}}  --> 
 
-                <h2>{{round.round_name}} 
-                  <!-- <svg class="icr" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 78.69 146.753">                     
-                    <path id="Next" d="M69.834,145.235a5.192,5.192,0,0,0,7.338,0,5.192,5.192,0,0,0,0-7.338L12.651,73.377,77.172,8.856a5.189,5.189,0,0,0-7.338-7.338L1.518,69.708a5.192,5.192,0,0,0,0,7.338Z" transform="translate(78.69 146.753) rotate(180)" fill="#ffffff"/>                   
-                  </svg>  -->
-
-                </h2>
+              <h2>{{round.round_name}}  </h2>
               <div class="workview" *ngFor="let exe of round.exes; let i = index">
-                <ion-list class="exelist" *ngIf="exe.round_id == round.round_id">
+                <div class="exelist" *ngIf="exe.round_id == round.round_id">
+
                   <h4>{{exe.exerciseName}}</h4>
                   <div *ngFor="let action of tempAction; let i = index">
-                      <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
-                        <ion-col *ngIf="!workweight">
-                          <span>{{action.workweight}}{{metrics}}</span>
-                          <em>Weight</em>
-                        </ion-col>
-                        <ion-col>
-                            <span>{{action.intensity}}% of</span>
-                            <em>Tmax</em>
-                        </ion-col>
-                        <ion-col *ngIf='action.status == 1'>
-                            <span>{{action.repsdone}}</span>
-                            <em>Reps</em>
-                        </ion-col>
-                        <ion-col *ngIf='action.status == 0'>
-                          <span>{{action.prescribed_reps}}</span>
+                    <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
+                      <ion-col *ngIf="!workweight">
+                        <span>{{action.workweight}}{{metrics}}</span>
+                        <em>Weight</em>
+                      </ion-col>
+                      <ion-col>
+                          <span>{{action.intensity}}% of</span>
+                          <em>Tmax</em>
+                      </ion-col>
+                      <ion-col *ngIf='action.status == 1'>
+                          <span>{{action.repsdone}}</span>
                           <em>Reps</em>
-                        </ion-col>
-                        <ion-col *ngIf='action.status == 1'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-                              <path id="Active-2" data-name="Active" d="M120.063,45.644a4.9,4.9,0,0,0-6.527,0L67.4,88.243,49.278,71.555a4.9,4.9,0,0,0-6.527,0,4.02,4.02,0,0,0,0,6.011L64.02,97.156A4.71,4.71,0,0,0,67.284,98.4a4.914,4.914,0,0,0,3.264-1.244l49.4-45.5A3.941,3.941,0,0,0,120.063,45.644Z" transform="translate(-41.401 -31.4)" fill="#fff"/>
-                            </svg>
-                          <em>Done</em>  
-                        </ion-col>
-                        <ion-col  col-3 *ngIf='action.status==0'>
-                          <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
-                            <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
+                      </ion-col>
+                      <ion-col *ngIf='action.status == 0'>
+                        <span>{{action.prescribed_reps}}</span>
+                        <em>Reps</em>
+                      </ion-col>
+                      <ion-col *ngIf='action.status == 1'>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                            <path id="Active-2" data-name="Active" d="M120.063,45.644a4.9,4.9,0,0,0-6.527,0L67.4,88.243,49.278,71.555a4.9,4.9,0,0,0-6.527,0,4.02,4.02,0,0,0,0,6.011L64.02,97.156A4.71,4.71,0,0,0,67.284,98.4a4.914,4.914,0,0,0,3.264-1.244l49.4-45.5A3.941,3.941,0,0,0,120.063,45.644Z" transform="translate(-41.401 -31.4)" fill="#fff"/>
                           </svg>
-        
-                          <em>Not Done</em>
-                        </ion-col>
-                        <ion-col  col-3 *ngIf='action.status==2'>
-                          <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
-                            <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
-                              <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
-                              <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
-                          </svg>                   
-                          <em>Skipped</em>  
-                        </ion-col>
-                
-                      </ion-row> 
-                    </div>
-                
-                </ion-list>
+                        <em>Done</em>  
+                      </ion-col>
+                      <ion-col  col-3 *ngIf='action.status==0'>
+                        <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                          <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
+                        </svg>
+      
+                        <em>Not Done</em>
+                      </ion-col>
+                      <ion-col  col-3 *ngIf='action.status==2'>
+                        <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+                          <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
+                            <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                            <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                        </svg>                   
+                        <em>Skipped</em>  
+                      </ion-col>
               
-             </div> 
+                    </ion-row> 
+                  </div>
+                
+                  </div>
+              
+              </div> 
             </div>
           </div><!-- End Complex Block-->
 
-          <div class="exesumry" *ngIf="!Show">
-            <h4>Summary</h4>
+          <div class="fulpad nopadt exesumry" *ngIf="!Show">
+            <h3>Summary</h3>
             <ion-row>
               <ion-col size="4">
                   <span>{{totalreps}}<em>Total Reps</em>  </span>

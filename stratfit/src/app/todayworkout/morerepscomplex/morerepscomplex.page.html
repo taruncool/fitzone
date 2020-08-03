@@ -25,11 +25,11 @@
       <!-- <h1 >Recommended<br>More reps</h1> -->
       <div class=" inpgrp" >
 
-        <h3 >Help us make your fitness program more personalized by answering this simple question.</h3>
+        <h4 >Help us make your fitness program more personalized by answering this simple question.</h4>
         <h3 >How many more reps can you do?</h3>
         <div *ngFor="let action of complexActions;let i = index">
             <!-- <h5 text-center><span>{{setName}}</span>{{exDetailsComplex[i].exerciseName}}</h5> -->
-            <h3 >{{exDetailsComplex[i].exerciseName}}</h3>
+            <h4 >{{exDetailsComplex[i].exerciseName}}</h4>
             <ion-item class="sbgw  admb2" > 
                 <ion-input class="text-center" type="number" name="repscount" [(ngModel)]="action.more_reps" required></ion-input>
             </ion-item>

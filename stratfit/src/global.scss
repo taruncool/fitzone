@@ -64,7 +64,7 @@ body.sfbred  {
   
   ion-select-popover ion-item ion-radio{--color-checked:#80B419 !important;}
 
-  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay  {color: #fff !important; --color:#fff !important}
+  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay, .about, .about, .plates  {color: #fff !important; --color:#fff !important}
   
   .checkmark, .meallist .dcard .button svg path {stroke: #80B419 !important;}
  .foot .tab-active svg, .profile .user ion-avatar svg {fill:#80B419 !important;}
@@ -92,18 +92,22 @@ body.sfbred  {
  ion-segment ion-segment-button {opacity: 0.4 !important; --indicator-color: none !important;}
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
+ ion-toggle.toggle-checked{--handle-background-checked: #80B419 !important; --background-checked: #80B419 !important;}
+ ion-toggle.toggle-icon { --handle-background: #1D2534 !important; --background-checked: #1D2534 !important;}
+
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
 
- .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .exetab .workview .exelist ion-row, .profile .list ion-item, .faqs .card, .plates .wtop, .summary ion-card,  .profile ion-list ion-item, ion-list.summary ion-item, .profinfo ion-item, .diet .dcard .listdis .scrol em, .diet .ocard .listdis .scrol em, .faqs .dcard, .plan-ratingcls .button{border-color: #1D2534 !important;}
+ hr, .coach .user, .periods, .genwamup ion-card, .genwamup ion-card .genview, .exe ion-avatar, .exetab .workview .setlist ion-row,  .genwamup p hr, .sview ion-card, .exetab .workview .exelist ion-row, .profile .list ion-item, .faqs .card, .plates .wtop, .summary ion-card,  .profile ion-list ion-item, ion-list.summary ion-item, .profinfo ion-item, .diet .dcard .listdis .scrol em, .diet .ocard .listdis .scrol em, .faqs .dcard, .plan-ratingcls .button{border-color: #1D2534 !important;}
 
  .contin .days:after{border-top-color: #1D2534 !important;}
 
 .execis .exeblk em {color:#000 !important;}
 
  .db .profile .user, .profile .list .item, .faqs .card, ion-alert .alert-wrapper { background: none !important;}  
- .db .workout .loader.probar .progress-outer, .exe ion-avatar.active, page-dietprofile .sbgw, page-addmeal .sbgw, .pcview .pcover::after{background: #080C14 !important;}
+ .db .workout .loader.probar .progress-outer, .exe ion-avatar.active, page-dietprofile .sbgw, page-addmeal .sbgw, .pcview .pcover::after, .db .analytics ul li:before{background: #080C14 !important;}
 
- progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab .scrol li, .exetab .workflow .worktab .scrol li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .contin .days,  .diet .dcard, .exesumry ion-col, .diet .lgraph progress-bar .progress-outer, .diet .adlist .aditems em, .db .nutrition .scrol ion-col, .iconcard, .plan-ratingcls .button {background: #1D2534 !important;}
+ progressbar-popup ion-footer, .sbglb, .db .card, .exetab .workflow .worktab .scrol li, .exetab .workflow .worktab .scrol li.active,  .exetab .workview .setlist .infild .item, ion-avatar, .setsumry .setcal ion-col:first-child ion-avatar, .exe ion-avatar circle, .contin .days,  .diet .dcard, .exesumry ion-col, .diet .lgraph progress-bar .progress-outer, .diet .adlist .aditems em, .db .nutrition .scrol ion-col, .iconcard, .plan-ratingcls .button{background: #1D2534 !important; }
+ 
 
  .diet .dcard .listdis, .diet .ocard .listdis {background: #0E1523 !important;}
 
@@ -776,6 +780,7 @@ ion-app.ios {
 
 .execis { 
   h2 {font-size:1.6rem; margin-top: 0; margin-bottom: 15px;  text-align: center; }
+  h3{font-weight: normal !important;}
   h6 { font-size:1.4rem; text-align: center;  display: block; margin-top: 0; margin-bottom: 10px;
     em {display: inline-block; padding-right: 5px; }
   }
@@ -922,20 +927,17 @@ ion-app.ios {
   .fulcard {background: none !important;}
     .pcover {position: fixed; top:0; bottom: 0; left:0; right: 0; }
     .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0;height: 100vh; opacity: 0.9; }
-    .poverlay  {position: relative !important; padding: 30px 15px !important; text-align: center;   border-radius: 0 !important;
-      
-      .pcsuces { margin-bottom: 2rem;
+    .poverlay  {position: relative !important; padding: 10px 10px 30px 10px !important; text-align: center;   border-radius: 0 !important;
+      h1, h2, h3, h4, h5 { margin-top: 0;}
+
+      .pcsuces { margin-bottom: 1rem;
         h1, h3, h4, h5 {display: block;  color: #fff !important;}
-        h2 {font-size: x-large;}
-        // h3{ font-size: 1.6rem !important;}
-       
-        
-        // h3 {color: #d60404;}
-        .pctitle { margin-bottom: 2rem !important;
-          svg { width: 4rem; height:4rem;}  
+        h2 {font-size: x-large; }
+
+        .pctitle { 
+          svg { width: 4rem; height:4rem; margin-bottom: 1rem;}  
         }
-        
-          
+      
       }
       // .pcname p, .pcdate p{ color: #fff;}
 
@@ -945,15 +947,24 @@ ion-app.ios {
           // ion-avatar {}
         }
       }
-      .pcdate { margin-bottom:2rem;
+      .pcdate { margin-bottom:1rem;
           span, p { font-size:medium; }
       }
 
-      .sumary {
-        h3 {font-size: 1.6rem; text-align: center; display: block; }
-        .exe {padding-top:10px !important;
+      .sumary {margin-bottom: 1rem;
+        h3 {text-align: center; display: block; }
+        .session {margin:0 -10px 0 -10px !important;}
+        .exe {padding-top:10px !important; padding-bottom: 0 !important;
           // img {border: 0 !important;}
           
+        }
+
+        .complxname { margin:10px -10px 0 -10px !important; 
+          .scrol{
+            span {padding:0  15px 10px 15px; position: relative;}
+            span:first-child {margin-left: 15px;}
+            span::before { content: ""; position:absolute !important;left:8px;top:40%;transform:translate(-50%, -50%); width: 5px; height: 5px; background: #80B419; border-radius: 50%;} 
+          }
         }
         // .exesumry {
         //   span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
@@ -971,15 +982,16 @@ ion-app.ios {
 }  /*--End Program View **** Login(Download) **** Session Summary ****  Program Bar  --*/
 
 
-/*--- Goal Oriented ---*/
 
-.db, .goal, .titles  {
-  h1 { font-size:1.2rem; margin-top: 0; 
+/*--- Goal Oriented ---*//*-- Dashboard --*/
+.db, .goal, .adtitle  {
+  h1 { font-size:1.4rem; margin-top: 0; font-weight: normal !important;
     span { width: auto !important; }
     span, a {float:right; font-size:14px; line-height: 32px;}
   }
 }
 
+/*--- Goal Oriented ---*/
 .goal {
   .iconcard{ padding: 10px;
     svg {width:1rem; height: 1rem; margin-bottom: 1rem;}
@@ -1083,19 +1095,21 @@ ion-app.ios {
         
       
     }
-    .nicon svg {width: 40px; height: 40px;float: right;}
+    .nicon {margin-bottom: 10px;
+      svg {width: 40px; height: 40px;float: right;}
+    }
   }
   
 
   .analytics{
 
     ul{ width: 100%;
-      li{position: relative; display: block; font-size: 1.2em; padding-left: 20px; line-height: 24px; overflow: hidden;
+      li{position: relative; display: block; padding-left: 20px; line-height: 24px; overflow: hidden;
         span{float: right; width: auto;
           em{margin-left:5px;}
         }
       }
-      li:before{ content: ""; position: absolute; top: 8px; bottom: 0; left:0; right: 0; width: 6px; height: 6px; border-radius: 50%; border: 1px solid #000;}
+      li:before{ content: ""; position: absolute; top: 8px; bottom: 0; left:0; right: 0; width: 6px; height: 6px; border-radius: 50%; border-width: 1px; border-style: solid;  }
     }
   }
 
@@ -1147,9 +1161,9 @@ ion-app.ios {
 .periods { padding:0 0 10px 0; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; overflow: hidden;
   ion-col {padding: 0; 
     span { text-align: right; padding-right: 15px; display: block; }
-    svg {top:8px; right:-5px; width: 1rem !important; height: 1rem !important;}
+    svg {top:5px; right:-5px; width: 1rem !important; height: 1rem !important;}
   }
-  ion-col:first-child{
+  ion-col:first-child{ flex: 40% !important;
   	.select {padding-left: 0 !important;}
    }
    ion-col:last-child{
@@ -1237,7 +1251,7 @@ ion-app.ios {
         ion-row { border-bottom-width:1px; border-bottom-style:solid;margin-bottom: 1rem;
           ion-col {padding: 0 !important; }
           ion-avatar {position: relative; margin-right: 1rem; border-radius:5px !important; min-width:60px !important; min-height: 100px !important; border:0 !important;
-            img { height:100px !important; border-radius: 0 !important; position: relative; }
+            img { height:100px !important; border-radius: 7px !important; position: relative; }
             .play.min {left:50%;top:50%;transform:translate(-50%, -50%);}
           }
           h4 {margin-top:0;margin-bottom: 5px; font-weight: bold !important; font-size: small !important; }
@@ -1256,7 +1270,7 @@ ion-app.ios {
               .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
           }
           .selarow {
-            svg {float:right; width:14px; height:14px; top:10px !important; right: 0 !important;}
+            svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
           }
         }
 
@@ -1293,9 +1307,9 @@ ion-app.ios {
 
 /*--- Analytics Tab View Css --- Never changes any thing here*/
 .exesumry { /*--- Analytics Summery Css --- Never changes any thing here*/
-  h3 {font-size:1.6rem !important;}
-  h4 {text-align: center;}
-    ion-col { border-radius: 3px; margin-left: 6px; margin-bottom: 6px;  text-align: center;height: 8rem; padding:10px 0;
+  // h3 {font-size:1.6rem !important;}
+  h3 {text-align: center;}
+    ion-col { border-radius: 6px; margin-left: 5px; margin-bottom: 5px;  text-align: center;height: 6rem; padding:10px 0;
         span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
             em {  display: block; font-size: 14px; padding-top:5px; line-height: 15px;  }
         }

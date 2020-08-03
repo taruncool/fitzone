@@ -30,7 +30,7 @@
 
       <!-- <ion-item class="poverlay nobg" >
           
-          <h2>{{plandetails.planName}}</h2>
+          
           <ion-row class="prow">
               <ion-avatar slot="start" class="sbgw" > 
                   
@@ -39,9 +39,12 @@
           </ion-row>
       </ion-item> -->
     <ion-item class="poverlay nobg">
+	      
         <ion-row class="prow">
+		
           <ion-col size="9"> 
             <em *ngIf="isDuration">{{plandetails.duration_weeks}} Weeks</em>
+			<h3>{{plandetails.planName}}</h3>
               <ion-avatar class="sbgw" > 
                 <img src="{{plandetails.coachPhoto}}" (error)="onAvatarError()" />
               </ion-avatar>

@@ -4,8 +4,8 @@
         
     }
     .nobg  { margin-bottom: 3rem;
-        p { margin-bottom:1rem; font-size: medium; }
-        a {display: block;}
+        p { margin-bottom:1rem;  }
+        a {display: block; width: 100%;}
 
     }
   
@@ -20,11 +20,9 @@
 
 
  
-    .socialicons {
-        text-align: center;
+    .socialicons {width: 50%;
         margin: auto;
-      
-        img{  height: 2rem;}
+        img{  width: 40px;}
     }
   
 

@@ -1,30 +1,9 @@
 
 
-//     .pcview .poverlay {padding-top: 15px !important;}
-// .pctitle { margin-bottom:4rem !important;
-//     svg { width: 6rem !important; height:6rem !important;}  
-//     h1 {margin-bottom: 2rem;}
-//     h2 {color:#fff !important;}
-
-// }
 
 
-.exelist { position: relative;
-  .complxname { margin:10px -10px 0 -10px !important; 
-  .scrol{
-    span {padding:0  15px 10px 15px; position: relative;}
-    span:first-child {margin-left: 15px;}
-    span::before { content: ""; position:absolute !important;left:8px;top:40%;transform:translate(-50%, -50%); width: 5px; height: 5px; background: #80B419; border-radius: 50%;} 
-  }
-}
-  
-}
-
-.session {margin:0 -10px 0 -10px !important;}
-
-.sumary {margin-bottom: 1rem;}
-.pcview .poverlay .sumary .exe {padding-bottom: 0 !important;}
-.item-block {align-items: normal !important; min-height: 3.4rem !important;}
+.pcview .poverlay .sumary .exe {}
+// .item-block {align-items: normal !important; min-height: 3.4rem !important;}
 
 
 
@@ -36,10 +15,6 @@
 
 
 .nutrition{ text-align: left;
-    h1 {color:#fff; font-size:1.8rem; margin-top: 0; margin-bottom: 1.4rem; 
-        span {float:right; font-size:1.4rem;}
-        a {float:right; font-size:1.4rem;}
-    }
-    .nicon svg {width:4rem; height: 2rem;float: right;}
+  .nicon svg {width: 40px; height: 40px;float: right;}
 }
 
