@@ -50,12 +50,7 @@
                   
               </ion-select>
             </ion-col>
-            <ion-col>
-              <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
-                  <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
-                  >MicroCycle-{{k+1}}</ion-select-option>
-              </ion-select>
-          </ion-col>
+            
             <ion-col>
                 <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle-{{j+1}}">
                   <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
@@ -63,6 +58,12 @@
 
                 </ion-select>
             </ion-col>
+            <ion-col>
+              <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
+                  <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
+                  >MicroCycle-{{k+1}}</ion-select-option>
+              </ion-select>
+          </ion-col>
         </ion-row> <!--End Period *** General, In-seasion & Specific -->
 
 

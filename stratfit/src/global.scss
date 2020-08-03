@@ -64,7 +64,7 @@ body.sfbred  {
   
   ion-select-popover ion-item ion-radio{--color-checked:#80B419 !important;}
 
-  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay, .about, .about, .plates  {color: #fff !important; --color:#fff !important}
+  ion-header, ion-footer, ion-item, ion-label, ion-card-header, .head .hedfm ion-title, .fabicon, .loader .progress-outer, .loader h3, .social p, .foot .tab-active p, .store, .coach, .coachview, .analytic, .pcview .poverlay, .about, .about, .plates, .invite, .verify   {color: #fff !important; --color:#fff !important}
   
   .checkmark, .meallist .dcard .button svg path {stroke: #80B419 !important;}
  .foot .tab-active svg, .profile .user ion-avatar svg {fill:#80B419 !important;}
@@ -92,8 +92,8 @@ body.sfbred  {
  ion-segment ion-segment-button {opacity: 0.4 !important; --indicator-color: none !important;}
  ion-segment ion-segment-button.segment-button-checked:after{background: #80B419 !important;}
 
- ion-toggle.toggle-checked{--handle-background-checked: #80B419 !important; --background-checked: #80B419 !important;}
- ion-toggle.toggle-icon { --handle-background: #1D2534 !important; --background-checked: #1D2534 !important;}
+//  ion-toggle.toggle-checked{--handle-background-checked: #80B419 !important; --background-checked: #80B419 !important;}
+ ion-toggle { --background: #1D2534 !important; --background-checked: #80B419 !important;--handle-background: #fff !important; --handle-background-checked: #80B419 !important;}
 
  page-programdetails .foot {background-color: rgba(8, 12, 20, 0.9) !important;}
 
@@ -309,10 +309,9 @@ ion-searchbar {
 .item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs), .item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h, .native-input[disabled].sc-ion-input-md {opacity: 1 !important;}
 
 .error {text-align: center; color:#EA4F5F; padding:10px 10px; display: block;}
-.nodata {text-align: center; padding: 0;
-  // ion-label{ white-space: normal !important; margin: 10px !important;}
+.nodata {text-align: center; padding: 0; --padding-start: 10px !important;--padding-end: 10px !important;
   img, svg {width:80px; height: 80px; margin-top:3rem; margin-bottom: 3rem;}
-  p {font-size:x-large;}
+  p {font-size:x-large !important; text-align: center; width: 100%;}
 }
 
 .fabicon {border-radius: 50%; width:60px; height: 60px; box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.2) !important;  right:1rem !important; bottom: 1rem !important; top: unset !important;
@@ -766,7 +765,7 @@ ion-app.ios {
 .goalori, .session {
   .scrol[scrollX] {
     ion-button { border-radius: 0;  opacity: 0.7 !important;padding:0 !important;padding-bottom:6px !important; margin:0 !important;  --box-shadow: none;}
-    ion-button:first-child{margin-left:10px !important;}
+    ion-button:first-child{margin-left:0px !important;}
     ion-button.active {border-width:0 !important; border-bottom-width:2px !important; border-style: solid !important; opacity: 1 !important; }
     ion-button.active:after{ content: none !important;}
     }
