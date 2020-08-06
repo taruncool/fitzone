@@ -22,6 +22,7 @@ export class CommunityPage implements OnInit {
   token;
   prompt;
   planSet;
+  hideMe;
 
   constructor(public navCtrl: NavController,private apiService: ApiService, private http: HttpClient, private loadData: LoadData, public platform: Platform, public toastCtrl: ToastController, public alertCtrl: AlertController, private ga: GoogleAnalytics, public modalCtrl:ModalController,public router: Router) {
     this.community = "coachelists";
@@ -153,4 +154,7 @@ export class CommunityPage implements OnInit {
     this.prompt.present();
   }
 
+  hide() {
+    this.hideMe = true;
+  }
 }

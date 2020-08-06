@@ -170,6 +170,10 @@ const routes: Routes = [
     path: 'progressbar',
     loadChildren: () => import('./todayworkout/progressbar/progressbar.module').then( m => m.ProgressbarPageModule)
   },
+  {
+    path: 'goal',
+    loadChildren: () => import('./goal/goal.module').then( m => m.GoalPageModule)
+  },
 
 ];
 @NgModule({
