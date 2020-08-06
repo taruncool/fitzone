@@ -12,7 +12,7 @@
  </ion-header>
 
  
-<ion-content class="goal" >
+<ion-content class="goal" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()" >
 
   <ion-card class="fulcard nobg" >
     <img src="assets/images/plan_2.png"/>
@@ -390,9 +390,9 @@
    
 </ion-content>
 
-<ion-footer class="foot ">
+<!-- <ion-footer class="foot "> -->
   <ion-row class="btnrow">
       <ion-button (click)="community()">Get Trainers</ion-button>  
   </ion-row>
-</ion-footer>
+<!-- </ion-footer> -->
 

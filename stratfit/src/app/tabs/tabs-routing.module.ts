@@ -11,12 +11,12 @@ const routes: Routes = [
       {
         path: 'store',
         loadChildren: () =>
-          import('../store/store.module').then(m => m.StorePageModule)
+          import('../goal/goal.module').then(m => m.GoalPageModule)
       },
       {
-        path: 'community',
+        path: '/dietprofile',
         loadChildren: () =>
-          import('../community/community.module').then(m => m.CommunityPageModule)
+          import('../userdiet/dietprofile.module').then(m => m.DietprofilePageModule)
       },
       {
         path: 'dashboard',
@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tabs/store',
+        redirectTo: '/tabs/tabs/goal',
         pathMatch: 'full'
       }
      
@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tabs/store',
+    redirectTo: '/tabs/tabs/goal',
     pathMatch: 'full'
   }
 ];

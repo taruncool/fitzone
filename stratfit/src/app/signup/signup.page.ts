@@ -202,7 +202,7 @@ export class SignupPage implements OnInit {
                     // this.checkQueryHit(res);
                   }else{
                     this.loadData.stopLoading();
-                    this.navCtrl.navigateForward('/store');
+                    this.navCtrl.navigateForward('/goal');
                   }
                 }else{
                   this.loadData.stopLoading();
@@ -351,7 +351,7 @@ export class SignupPage implements OnInit {
                     // this.checkQueryHit(res) ;
                   } else {
                     this.loadData.stopLoading();
-                    this.navCtrl.navigateForward('/store');
+                    this.navCtrl.navigateForward('/goal');
                   }
                 } else {
                   this.loadData.stopLoading();

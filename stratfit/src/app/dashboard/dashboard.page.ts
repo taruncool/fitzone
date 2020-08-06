@@ -1635,9 +1635,9 @@ public getExercise(exercise_id){
 }
 openTab(page){
   if(page==='store'){
-    this.navCtrl.navigateRoot('tabs/tabs/store');
-  }else if(page==='community'){
-    this.navCtrl.navigateRoot('tabs/tabs/community');
+    this.navCtrl.navigateRoot('tabs/tabs/goal');
+  }else if(page==='dietprofile'){
+    this.navCtrl.navigateRoot('tabs/tabs/dietprofile');
   }else if(page==='workout'){
     this.navCtrl.navigateForward('todayworkout');
   }else if(page==='settings'){

@@ -179,6 +179,6 @@ async ngOnInit() {
   }
 
   backButtonAction() {
-    this.nav.navigateBack('tabs/tabs/community');
+    this.nav.navigateBack('/community');
   }
 }

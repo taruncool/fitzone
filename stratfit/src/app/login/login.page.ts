@@ -135,7 +135,7 @@ async sociallogin(socialtype, accessToken, clientid, code) {
               } else {
                 this.loadData.getExercisesNew();
                 this.loadData.stopLoading();
-                this.nav.navigateForward('/store');
+                this.nav.navigateForward('/goal');
               }
             } else {
               this.loadData.stopLoading();

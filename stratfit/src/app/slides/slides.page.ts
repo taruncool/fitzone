@@ -204,7 +204,7 @@ export class SlidesPage implements OnInit {
                   this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
                 }else{
                   //this.loadData.stopLoading();
-                  this.navCtrl.navigateRoot('/tabs/tabs/store');
+                  this.navCtrl.navigateRoot('/tabs/tabs/goal');
                 }
               }else{
                 //this.loadData.stopLoading();
@@ -227,7 +227,7 @@ export class SlidesPage implements OnInit {
             this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
           }else{
             localStorage.setItem('redirectPage','store');
-            this.navCtrl.navigateRoot('tabs/tabs/store');
+            this.navCtrl.navigateRoot('tabs/tabs/goal');
           }
         }else{
           this.navCtrl.navigateForward('/fitnessinput');
