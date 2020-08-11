@@ -112,7 +112,7 @@
   <ion-list *ngSwitchCase="'programs'">
     <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true">
       
-      <ion-slide class="fulcard " *ngFor="let plan of plansdata; let i = index" (click)="viewplaninfo(plan)">
+      <ion-slide class="fulcard curv " *ngFor="let plan of plansdata; let i = index" (click)="viewplaninfo(plan)">
         <div *ngIf="plan.planType=='Intermediate'"></div>
             <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
@@ -124,13 +124,13 @@
               <!-- <p>{{plan.createdBy_id__first_name}}</p> -->
             
               <div class="wordslid">
-                <em>Click Here:</em>
+                <em>Click to See</em>
                 <div class="word">
                   <ul class="flip1"> 
-                    <li>Oh My!</li>
-                    <li>Swoosh</li>
-                    <li>Cool</li> 
-                    <li>Awesome</li>  
+                    <li>Video</li>
+                    <li>Programs Details</li>
+                    <li>Purpose</li> 
+                    <li>Exercises</li>  
                   </ul>
                 </div>
               </div>

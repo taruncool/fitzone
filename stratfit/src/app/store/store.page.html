@@ -82,8 +82,8 @@
         <p>No programs to display </p>
       </ion-item>
 
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="recommendedData.length != 0" >
-        <ion-slide class="fulcard "  *ngFor="let plan of recommendedData; let i = index" (click)="planDetails(plan)">
+      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="recommendedData.length != 0" >
+        <ion-slide class="fulcard curv"  *ngFor="let plan of recommendedData; let i = index" (click)="planDetails(plan)">
           <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
           <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
           
@@ -94,13 +94,13 @@
               <p>{{plan.createdBy_id__first_name}}</p>
 
               <div class="wordslid">
-                <em>Click Here:</em>
+                <em>Click to See</em>
                 <div class="word">
                   <ul class="flip1"> 
-                    <li>Oh My!</li>
-                    <li>Swoosh</li>
-                    <li>Cool</li> 
-                    <li>Awesome</li>  
+                    <li>Video</li>
+                    <li>Programs Details</li>
+                    <li>Purpose</li> 
+                    <li>Exercises</li>  
                   </ul>
                 </div>
               </div>
@@ -132,8 +132,8 @@
         <p>No programs to display </p>
       </ion-item>
 
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="beginnerdata.length !=0" >
-        <ion-slide class="fulcard " *ngFor="let plan of beginnerdata; let i = index"  (click)="planDetails(plan)">
+      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="beginnerdata.length !=0" >
+        <ion-slide class="fulcard curv " *ngFor="let plan of beginnerdata; let i = index"  (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Beginner'">
             <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
@@ -146,13 +146,13 @@
                 <p>{{plan.createdBy_id__first_name}}</p>
                
                 <div class="wordslid">
-                  <em>Click Here:</em>
+                  <em>Click to See</em>
                   <div class="word">
                     <ul class="flip1"> 
-                      <li>Oh My!</li>
-                      <li>Swoosh</li>
-                      <li>Cool</li> 
-                      <li>Awesome</li>  
+                      <li>Video</li>
+                      <li>Programs Details</li>
+                      <li>Purpose</li> 
+                      <li>Exercises</li>  
                     </ul>
                   </div>
                 </div>
@@ -178,9 +178,9 @@
         <p>No programs to display</p>
       </ion-item>
 
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="intermediatedata.length !=0" >
+      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="intermediatedata.length !=0" >
       
-        <ion-slide class="fulcard " *ngFor="let plan of intermediatedata; let i = index"  (click)="planDetails(plan)">
+        <ion-slide class="fulcard curv " *ngFor="let plan of intermediatedata; let i = index"  (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Intermediate'">
               <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
               <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
@@ -192,16 +192,17 @@
                 <p>{{plan.createdBy_id__first_name}}</p>
               
                 <div class="wordslid">
-                  <em>Click Here:</em>
+                  <em>Click to See</em>
                   <div class="word">
                     <ul class="flip1"> 
-                      <li>Oh My!</li>
-                      <li>Swoosh</li>
-                      <li>Cool</li> 
-                      <li>Awesome</li>  
+                      <li>Video</li>
+                      <li>Programs Details</li>
+                      <li>Purpose</li> 
+                      <li>Exercises</li>  
                     </ul>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -223,8 +224,8 @@
         <p>No programs to display</p>
       </ion-item>
 
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="advancedata.length !=0"> 
-        <ion-slide class="fulcard"  *ngFor="let plan of advancedata; let i = index" (click)="planDetails(plan)">
+      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="advancedata.length !=0"> 
+        <ion-slide class="fulcard curv"  *ngFor="let plan of advancedata; let i = index" (click)="planDetails(plan)">
           <div *ngIf="plan.planType=='Advanced'">
             <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
             <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
@@ -237,16 +238,17 @@
                 <p>{{plan.createdBy_id__first_name}}</p>
               
                 <div class="wordslid">
-                  <em>Click Here:</em>
+                  <em>Click to See</em>
                   <div class="word">
                     <ul class="flip1"> 
-                      <li>Oh My!</li>
-                      <li>Swoosh</li>
-                      <li>Cool</li> 
-                      <li>Awesome</li>  
+                      <li>Video</li>
+                      <li>Programs Details</li>
+                      <li>Purpose</li> 
+                      <li>Exercises</li>  
                     </ul>
                   </div>
                 </div>
+
               </div>
             </div>
 

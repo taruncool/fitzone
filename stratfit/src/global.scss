@@ -340,12 +340,12 @@ ion-searchbar {
 /*-- Global CSS --*/
 ion-segment { display: -webkit-inline-box; white-space: nowrap; font-size: 0;overflow: auto;box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
     &::-webkit-scrollbar {width: 0;height: 0;display: none;}
-    ion-segment-button  {color:#000 !important; display: inline-block; opacity: 0.6 !important;--padding-end: 0px !important; width:auto !important; border:0 !important; text-align: left;  padding-left: 0 !important; font-size: small; font-weight: normal !important; text-transform: unset !important;}
+    ion-segment-button  {color:#000 !important; display: inline-block; opacity: 0.6 !important;--padding-end: 0px !important; width:auto !important; border:0 !important; text-align: left;  padding-left: 0 !important; font-size: small; font-weight: normal !important; text-transform: unset !important; --background-hover: transparent !important;--background-focused: transparent !important; letter-spacing: normal;}
     ion-segment-button.segment-button-checked{ opacity: 1 !important; font-size: medium !important; background:none !important; line-height: 32px; position: relative; }
     ion-segment-button.segment-button-checked:after {content:""; position: absolute; bottom: 0; left:15px; right: 0; width: 50%; height: 2px; border-radius: 2px;}  
     ion-segment-button:last-child {padding-right:15px !important; }
     ion-segment-button.segment-button-checked button:first-child {padding-left:0 !important;}
-    ion-segment-button {--background-hover: transparent !important;--background-focused: transparent !important;}
+
     
 }
 .sfmenu {padding: 0 !important; max-height: 50px !important;
@@ -444,7 +444,7 @@ ion-loading {outline: none;}
     ion-row {position: relative;}
     ion-col{padding: 0;}
     ion-tab-button  {position: relative;padding:0 10px 10px 10px ;
-        svg { width:1.2rem; height:1.2rem; margin:12px auto 0px auto; opacity: 0.4 !important; }
+        svg { width:1.2rem; height:1.2rem; margin:12px auto 0px auto; opacity: 0.6 !important; }
         p {display: none;}
     }
 
@@ -606,8 +606,9 @@ ion-card, ion-item, .fulcard, .dcard {border-radius: 7px !important; border-bott
 
 
 /*-- Componds --*/
-.toolbar-background-md, .toolbar-background-ios {background: none !important; border: 0;}
-.scroll-content {background: none !important; }
+// .toolbar-background-md, .toolbar-background-ios {background: none !important; border: 0;}
+// .scroll-content {background: none !important; }
+.swiper-pagination {bottom: 20px !important;}
 .sbtm-btn { position: absolute; bottom: 0; left:0;right: 0; padding:0 10px 10px 10px; z-index: 9999 !important;
     .button {margin: 0; }
     .priv {border: 0 !important; background: none !important; position: relative; border-radius: 0 !important; letter-spacing: 5px; margin-top:4rem;} 
@@ -676,14 +677,14 @@ ion-app.ios {
    
   /*--- Full Card scroll---*/
   ion-slides {height: 78vh !important;}
-  .fulcard {swidth:100%;overflow: hidden;  background-attachment: fixed; background-repeat: no-repeat; max-height: 78vh !important; min-height: 78vh !important; height: 78vh !important; align-items:normal !important; position: relative; z-index: 999;   border-radius: 0 !important; background-color: #000 !important;
+  .fulcard {width:100% !important;overflow: hidden;  background-attachment: fixed; background-repeat: no-repeat; max-height: 71vh !important; min-height: 71vh !important; height: 71vh !important; align-items:normal !important; position: relative; z-index: 999;   border-radius: 20px !important; background-color: #1D2534 !important;
     h1, h4, span, em, p {color: #fff !important;}
     // img {transition: 4s;  opacity: 0; transform: scale(1.1); width: 100%; height: 78vh; object-fit: cover;}
-    img {opacity: 0; transform: scale(1.1); width: 100%; height: 78vh; object-fit: cover; transition: 2s ;}
+    img {opacity: 0; transform: scale(1.1); width: 100%; height: 71vh; object-fit: cover; transition: 2s ;}
 
-    .swiper-wrapper, .slide-zoom {height: 78rem !important;}
+    .swiper-wrapper, .slide-zoom {height: 71rem !important;}
 
-    .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding: 1.4rem 1.2rem; bottom: 0;
+    .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding:20px 15px; bottom: 0; left: 0; right: 0;
       .cdbody {color: #000;
         span, em, p { font-weight: 300; display: block; font-size: medium; }
         h1 {font-weight: bold !important; font-size: xx-large; line-height: 2.2rem; margin: 0 !important; margin-bottom:10px !important;} 
@@ -696,8 +697,9 @@ ion-app.ios {
     
 
   }
+  .fulcard.curv{width:94.5vw !important;  margin:10px;}
 
-  .fulcard:before { content:""; position: absolute; left: 0; right: 0; top:0; bottom: 0;  background: linear-gradient(90deg,  rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.25) 100%) !important; z-index: 99;}
+  .fulcard:before { content:""; position: absolute; left: 0; right: 0; top:0; bottom: 0;  background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.15) 100%) !important; z-index: 99;}
   .fulcard.swiper-slide:last-child {
     img {opacity: 1 !important;}
   }
@@ -713,10 +715,10 @@ ion-app.ios {
       em{animation-delay: 0.6s;}
       svg{animation-delay: 0.6s;}
 
-      .wordslid{ position: absolute; bottom: 3rem;
-        em{display: inline-block; position: relative; top: -5px;}
-        .word {overflow: hidden;position: relative;display:inline-block;height: 30px;
-          li {color: #fff;font-size:22px;font-weight: bold;padding: 0 10px; height: 45px;margin-bottom: 45px;display: block;}
+      .wordslid{ position: absolute; bottom: 1rem;
+        em{display: inline-block; position: relative; top: -8px;}
+        .word {overflow: hidden;position: relative;display:inline-block;height: 30px;animation-delay: 0.6s;
+          li {color: #fff;font-size:large;font-weight: bold;padding: 0 10px; height: 45px;margin-bottom: 45px;display: block; }
         }
       .flip1 { animation: flip1 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
       @keyframes flip1 {
