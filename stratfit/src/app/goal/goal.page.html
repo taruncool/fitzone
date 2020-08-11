@@ -34,10 +34,10 @@
   </ion-card>
 
 <!-- Grid Format -->
-<div class=" fulpad nopadb" >
+<div class=" fulpad nopadb" id="goal0" (click)="filterPurposePrograms(0)" [ngClass]="{'active':activepurposeid==0}" >
   <div class="rowlist">
     <h1>Sports </h1>
-    <ion-row class="mglr-5">
+    <ion-row class="mglr-5" id="goal{{purpose.id}}" (click)="filterPurposePrograms(purpose.id)" [ngClass]="{'active':activepurposeid==purpose.id}" *ngFor="let purpose of purposeslist; let i = index"  >{{purpose.name}}>
       <ion-col size="4">
         <div class="iconcard">
           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 110.003 108">
@@ -390,9 +390,9 @@
    
 </ion-content>
 
-<ion-footer class="foot ">
+<!-- <ion-footer class="foot "> -->
   <ion-row class="btnrow">
       <ion-button (click)="community()">Get Trainers</ion-button>  
   </ion-row>
-</ion-footer>
+<!-- </ion-footer> -->
 
