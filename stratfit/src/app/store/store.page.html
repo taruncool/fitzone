@@ -74,11 +74,11 @@
 <div [ngSwitch]="programstype">
 
   <!-- List Format -->
-  <div *ngIf="!isGrid">
+  <div class="fulpad" *ngIf="!isGrid">
 
     <ion-list *ngSwitchCase="'recommended'">
 
-      <ion-item class="nodata nobg" text-center *ngIf="recommendedData.length == 0">
+      <ion-item class="nodata nobg nopad" text-center *ngIf="recommendedData.length == 0">
         <p>No programs to display </p>
       </ion-item>
 
@@ -268,7 +268,6 @@
   <!-- Grid Format -->
   <div class="  gridview" *ngIf="isGrid">
 
-
     <ion-list *ngSwitchCase="'recommended'" >
 
       <ion-item class="nodata nobg" text-center *ngIf="recommendedData.length==0">
@@ -400,7 +399,7 @@
     
   </div>
 
-  </div>
+</div>
 
 
 <ion-fab class="fabicon goalfab">

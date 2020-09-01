@@ -1,4 +1,4 @@
-<ion-header class=" head" *ngIf='!(planComplete || renewPlan)'>
+<ion-header class="sbgg head" *ngIf='!(planComplete || renewPlan)'>
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button slot="icon-only"(click)='backButtonAction()'>
@@ -8,7 +8,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title><span><em *ngIf="!(planInfo.durationWeeks==='null')">{{planInfo.durationWeeks}} Weeks -</em> {{planInfo.planType}}</span>{{planInfo.planName}}</ion-title>
+    <ion-title><!--span><em *ngIf="!(planInfo.durationWeeks==='null')">{{planInfo.durationWeeks}} Weeks -</em> {{planInfo.planType}}</span-->{{planInfo.planName}}</ion-title>
 
     <ion-buttons  slot="end"  >
       <ion-button slot="icon-only" class="info" (click)='showPlanDetails()'>
@@ -31,30 +31,26 @@
 
 
 
-<ion-content class="workout" #pageTopWorkout>
+<ion-content class="sbgry workout" #pageTopWorkout>
   
 
   <!--Today's Session Details-->
-  <div class="fulpad nopadt nopadb " *ngIf='!isRestDay'>
+  <div  *ngIf='!isRestDay'>
   <!-- Plan Complete Workout Section-->
 
     <ion-row class="periods" >
         <ion-col size="6" >{{currentDate | date}}</ion-col>
         <ion-col size="2" class="posrel">
           <span>{{dayName}}</span>
-            <!-- <span>{{planDays[0].day_name}}</span> -->
+            
             <svg xmlns="http://www.w3.org/2000/svg" class="posabs"  viewBox="0 0 20.195 37.752">
-              <path id="Path_8538" data-name="Path 8538" d="M37.366,19.8a1.335,1.335,0,0,1-1.886,0L18.894,3.187,2.276,19.8A1.334,1.334,0,0,1,.39,17.918L17.919.39A1.3,1.3,0,0,1,18.862,0,1.358,1.358,0,0,1,19.8.39L37.333,17.918A1.307,1.307,0,0,1,37.366,19.8Z" transform="translate(20.195) rotate(90)" fill="#80b419"/>
+              <path id="Path_8538" data-name="Path 8538" d="M37.366,19.8a1.335,1.335,0,0,1-1.886,0L18.894,3.187,2.276,19.8A1.334,1.334,0,0,1,.39,17.918L17.919.39A1.3,1.3,0,0,1,18.862,0,1.358,1.358,0,0,1,19.8.39L37.333,17.918A1.307,1.307,0,0,1,37.366,19.8Z" transform="translate(20.195) rotate(90)" />
             </svg>
             
         </ion-col>
         <ion-col size="4" >
           <span>{{activeSessionName}} / {{planSessions.length}}</span>
-          <!-- <ion-select interface="popover" role="combobox" [(ngModel)]="activeSessionId" placeholder="{{activeSessionName}}">
-              
-            <ion-option *ngFor="let session of planSessions; let i = index" [value]="session.session_id">{{session.session_name}}</ion-option>
-          
-          </ion-select> -->
+
       </ion-col>
         
        
@@ -67,6 +63,16 @@
     </div>
 
     <ion-card class="nobg active">
+      <ion-item class="genset">
+        <ion-avatar  slot="start">
+          <img src="assets/images/plan_2.png">
+        </ion-avatar>
+        <div class="gentitl">
+          <h3>Title</h3>
+          <span>3 mins</span>
+        </div>
+        <div class="genreps" slot="end">10 Reps</div>
+      </ion-item>
         
       <ion-item class="genview">
         <video webkit-playsinline playsinline controls controlsList="nodownload" src="http://stratfit.net/newExVideo/warmup.mp4"
@@ -81,6 +87,8 @@
     <ion-button expand="full" (click)='generalWarmupDone()'>Done</ion-button>
   </div>
   </div><!--End General Warmup -->
+
+
     <div [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
     <div class="exe">
       <ion-avatar [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index"  > 
@@ -89,7 +97,7 @@
            
     </div>
 
-    <div class="exetab">
+    <div class="fulpad exetab">
       <div class="workflow" *ngIf="isActivitySimple">
           <ion-row class="worktab">
             <h3 class="text-center" *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h3>
@@ -103,25 +111,27 @@
           </ion-row>  
 
           <div class="workview">
-              <ion-list class="setlist">
-
-                <ion-row class="nobg">
+            <ion-list class="sbsd sbgw setlist active">
+                <h3>Set 1</h3>
+                <ion-row >
                   
-                    <ion-avatar (click)="openExercise(exDetails)">
-                      <img src="{{exDetails.exImgNew}}" (error)="onExImageError(exDetails)">
-                        <div class="play min ">  
-                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 109 109" >
-                                <g id="Play" transform="translate(3 3)">
-                                    <path d="M 56.44305801391602 106.6000900268555 C 84.00550842285156 106.6000900268555 106.3999938964844 84.18628692626953 106.3999938964844 56.60005569458008 C 106.3999938964844 29.01382446289063 84.00550842285156 6.600009441375732 56.44305801391602 6.600009441375732 C 28.88061332702637 6.600009441375732 6.400012969970703 29.01382446289063 6.400012969970703 56.60005569458008 C 6.400012969970703 84.18628692626953 28.88061332702637 106.6000900268555 56.44305801391602 106.6000900268555 M 56.44305801391602 109.6000900268555 C 27.19502830505371 109.6000900268555 3.400013208389282 85.82437896728516 3.400013208389282 56.60005569458008 C 3.400013208389282 27.375732421875 27.19502830505371 3.600009679794312 56.44305801391602 3.600009679794312 C 63.58427429199219 3.600009679794312 70.51654815673828 5.003332614898682 77.04731750488281 7.77100944519043 C 83.35208892822266 10.44290161132813 89.01530456542969 14.26622486114502 93.87967681884766 19.13479423522949 C 98.74387359619141 24.0031795501709 102.563720703125 29.67097854614258 105.2331237792969 35.98073196411133 C 107.9980621337891 42.51633453369141 109.3999938964844 49.45367050170898 109.3999938964844 56.60005569458008 C 109.3999938964844 63.74644088745117 107.9980621337891 70.68377685546875 105.2331237792969 77.21937561035156 C 102.563720703125 83.52912902832031 98.74387359619141 89.19692993164063 93.87967681884766 94.06531524658203 C 89.01530456542969 98.93386840820313 83.35208892822266 102.757209777832 77.04731750488281 105.429084777832 C 70.51654815673828 108.1967620849609 63.58427429199219 109.6000900268555 56.44305801391602 109.6000900268555 Z" stroke="none" fill="none"/>
-                                    <path id="Path_257" data-name="Path 257" d="M0,31.841H40.145L20.078,0Z" transform="translate(70.555 29.921) rotate(90)" fill="#fff" fill-rule="evenodd"/>
-                                </g>
-                            </svg>
-                        
-                        </div>
-                    </ion-avatar>
-                 
+                  <ion-avatar (click)="openExercise(exDetails)">
+                    <img src="{{exDetails.exImgNew}}" (error)="onExImageError(exDetails)">
+                      <div class="play min ">  
+                          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 109 109" >
+                              <g id="Play" transform="translate(3 3)">
+                                  <path d="M 56.44305801391602 106.6000900268555 C 84.00550842285156 106.6000900268555 106.3999938964844 84.18628692626953 106.3999938964844 56.60005569458008 C 106.3999938964844 29.01382446289063 84.00550842285156 6.600009441375732 56.44305801391602 6.600009441375732 C 28.88061332702637 6.600009441375732 6.400012969970703 29.01382446289063 6.400012969970703 56.60005569458008 C 6.400012969970703 84.18628692626953 28.88061332702637 106.6000900268555 56.44305801391602 106.6000900268555 M 56.44305801391602 109.6000900268555 C 27.19502830505371 109.6000900268555 3.400013208389282 85.82437896728516 3.400013208389282 56.60005569458008 C 3.400013208389282 27.375732421875 27.19502830505371 3.600009679794312 56.44305801391602 3.600009679794312 C 63.58427429199219 3.600009679794312 70.51654815673828 5.003332614898682 77.04731750488281 7.77100944519043 C 83.35208892822266 10.44290161132813 89.01530456542969 14.26622486114502 93.87967681884766 19.13479423522949 C 98.74387359619141 24.0031795501709 102.563720703125 29.67097854614258 105.2331237792969 35.98073196411133 C 107.9980621337891 42.51633453369141 109.3999938964844 49.45367050170898 109.3999938964844 56.60005569458008 C 109.3999938964844 63.74644088745117 107.9980621337891 70.68377685546875 105.2331237792969 77.21937561035156 C 102.563720703125 83.52912902832031 98.74387359619141 89.19692993164063 93.87967681884766 94.06531524658203 C 89.01530456542969 98.93386840820313 83.35208892822266 102.757209777832 77.04731750488281 105.429084777832 C 70.51654815673828 108.1967620849609 63.58427429199219 109.6000900268555 56.44305801391602 109.6000900268555 Z" stroke="none" fill="none"/>
+                                  <path id="Path_257" data-name="Path 257" d="M0,31.841H40.145L20.078,0Z" transform="translate(70.555 29.921) rotate(90)" fill="#fff" fill-rule="evenodd"/>
+                              </g>
+                          </svg>
+                      
+                      </div>
+                  </ion-avatar>
                   
-                  <ion-col >
+                    
+                  <ion-col class="posrel" >
+                    <h4>Set 2</h4>
+                    <div class="posabs">{{repscount}} Reps</div>
                     <h4>{{exDetails.exerciseName}}</h4>
                     <ion-row class="infild">
                       <ion-col size="6">
@@ -148,24 +158,47 @@
                       </ion-col>
                     </ion-row>
                   </ion-col>
-                  
+                
                 </ion-row>
 
-               
-
-              </ion-list>
-
-              <div class="setdone">
-                  
+              
+                <div class="setdone">
                   <ion-button [disabled]="isDoneDisabled" (click)="actionComplete(repscount,simpleActions.tmax,simpleActions.intensity,simpleActions.workweight)" > 
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
-                      <g id="Tick" transform="translate(-455.422 -895.106)">    
-                          <path id="Path_199" data-name="Path 199" d="M140.641,46.087a5.868,5.868,0,0,0-8.235,0L74.2,103.861,51.338,81.229a5.868,5.868,0,0,0-8.235,0,5.729,5.729,0,0,0,0,8.153L69.937,115.95a5.715,5.715,0,0,0,4.117,1.687,5.958,5.958,0,0,0,4.117-1.687L140.5,54.24a5.609,5.609,0,0,0,.142-8.153Z" transform="translate(469.481 920.222)" />
-                      </g>
-                      </svg>   
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                      <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" />
+                  </svg>   
                   </ion-button>
+                </div>
+                
+              
+
+            </ion-list>
+
+            <ion-list class="sbsd sbgw setlist ">
+              <ion-row >
+                <ion-avatar (click)="openExercise(exDetails)">
+                  <img src="{{exDetails.exImgNew}}" (error)="onExImageError(exDetails)">
+                    <div class="play min ">  
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 109 109" >
+                            <g id="Play" transform="translate(3 3)">
+                                <path d="M 56.44305801391602 106.6000900268555 C 84.00550842285156 106.6000900268555 106.3999938964844 84.18628692626953 106.3999938964844 56.60005569458008 C 106.3999938964844 29.01382446289063 84.00550842285156 6.600009441375732 56.44305801391602 6.600009441375732 C 28.88061332702637 6.600009441375732 6.400012969970703 29.01382446289063 6.400012969970703 56.60005569458008 C 6.400012969970703 84.18628692626953 28.88061332702637 106.6000900268555 56.44305801391602 106.6000900268555 M 56.44305801391602 109.6000900268555 C 27.19502830505371 109.6000900268555 3.400013208389282 85.82437896728516 3.400013208389282 56.60005569458008 C 3.400013208389282 27.375732421875 27.19502830505371 3.600009679794312 56.44305801391602 3.600009679794312 C 63.58427429199219 3.600009679794312 70.51654815673828 5.003332614898682 77.04731750488281 7.77100944519043 C 83.35208892822266 10.44290161132813 89.01530456542969 14.26622486114502 93.87967681884766 19.13479423522949 C 98.74387359619141 24.0031795501709 102.563720703125 29.67097854614258 105.2331237792969 35.98073196411133 C 107.9980621337891 42.51633453369141 109.3999938964844 49.45367050170898 109.3999938964844 56.60005569458008 C 109.3999938964844 63.74644088745117 107.9980621337891 70.68377685546875 105.2331237792969 77.21937561035156 C 102.563720703125 83.52912902832031 98.74387359619141 89.19692993164063 93.87967681884766 94.06531524658203 C 89.01530456542969 98.93386840820313 83.35208892822266 102.757209777832 77.04731750488281 105.429084777832 C 70.51654815673828 108.1967620849609 63.58427429199219 109.6000900268555 56.44305801391602 109.6000900268555 Z" stroke="none" fill="none"/>
+                                <path id="Path_257" data-name="Path 257" d="M0,31.841H40.145L20.078,0Z" transform="translate(70.555 29.921) rotate(90)" fill="#fff" fill-rule="evenodd"/>
+                            </g>
+                        </svg>
+                    
+                    </div>
+                </ion-avatar>
+                
                   
-              </div>
+                <ion-col class="posrel" >
+                  <h4>Set 2</h4>
+                  <div class="posabs">{{repscount}} Reps</div>
+                  <h4>{{exDetails.exerciseName}}</h4>
+                </ion-col>
+              
+              </ion-row>       
+          </ion-list>
+              
 
           </div>
       </div><!--End Simple Workout -->
@@ -235,14 +268,11 @@
             </ion-list>
 
             <div class="setdone">
-                
-                <ion-button [disabled]="isDoneDisabled" (click)="complexRoundComplete(complexActions)" > 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
-                    <g id="Tick" transform="translate(-455.422 -895.106)">    
-                        <path id="Path_199" data-name="Path 199" d="M140.641,46.087a5.868,5.868,0,0,0-8.235,0L74.2,103.861,51.338,81.229a5.868,5.868,0,0,0-8.235,0,5.729,5.729,0,0,0,0,8.153L69.937,115.95a5.715,5.715,0,0,0,4.117,1.687,5.958,5.958,0,0,0,4.117-1.687L140.5,54.24a5.609,5.609,0,0,0,.142-8.153Z" transform="translate(469.481 920.222)" fill="#fff"/>
-                    </g>
-                    </svg>   
-                </ion-button>
+              <ion-button [disabled]="isDoneDisabled" (click)="complexRoundComplete(complexActions)" > 
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" />
+                </svg>   
+              </ion-button>
                 
             </div>
 
@@ -280,7 +310,7 @@
     
     
   <!--Program Activation-->
-  <div class="fulpad activecover"  text-center  *ngIf='activateFuturePlan'>
+  <div class="fulpad activecover text-center "   *ngIf='activateFuturePlan'>
     <h2 margin-top>Activate your Program</h2>
       <p>Your Personalized Workout program is Ready!</p>
         <h3>Your Program starts from <span>{{pStartDate}} </span></h3>

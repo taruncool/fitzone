@@ -1,14 +1,10 @@
-page-signupverify {
 
-   
+.verify { 
+    svg {height: 4rem;width: 4rem;}
 
-}
-.verify { --color:#fff;
-    svg {height: 4rem;width: 4rem; fill:#707070;}
-    h2 {color: #59800D;}
-    h5 {font-size: 1.4rem;}
+    h5 {font-size:large;}
     .row {margin-bottom:15px !important;}
-    ion-input { padding:10px 5px; margin-left: 1rem;display: inline-block; width:46px; border-radius: 3px; background: #fff !important; color:#000 !important; --padding-start:0 !important;
+    ion-input { padding:10px 5px; margin-left: 10px; margin-bottom:15px;display: inline-block; --padding-start:0 !important; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important; border-style: solid; border-color: #ccc;
         .text-input {margin: 5px !important; padding: 0 !important;text-align: center !important; }
     } 
     ion-input:first-child {margin-left: 0;}

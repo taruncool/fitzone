@@ -63,8 +63,14 @@
         </ion-row>
         <div class="fulpad"  (click)="reqNewOpt()"> Resend OTP</div>
 
-        <ion-button expand="full" *ngIf='firstN && secondN && thirdN && fourthN' class="otpsubmitBtn" (click)="suotpvalidate()">Continue</ion-button>
+        
     </div>
 
     
 </ion-content>
+
+<ion-footer class="foot ">
+  <ion-row class="btnrow">
+    <ion-button expand="block" *ngIf='firstN && secondN && thirdN && fourthN' (click)="suotpvalidate()">Continue</ion-button>
+  </ion-row>
+</ion-footer>
