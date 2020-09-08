@@ -1,4 +1,4 @@
-<ion-header class=" head">
+<ion-header class=" head back">
     <ion-toolbar class="hedfm"> 
       <ion-buttons  slot="start" >
         <ion-button slot="icon-only" (click)="backButtonAction()">
@@ -8,7 +8,7 @@
         </ion-button>
       </ion-buttons>
 
-      <ion-title>{{planinfo.planName}}</ion-title>
+      <!-- <ion-title>{{planinfo.planName}}</ion-title> -->
 
       <ion-buttons  slot="end"  >
         <ion-button slot="icon-only" class="info" (click)="showPlanInfo()">
@@ -29,13 +29,43 @@
 
 
 
-<ion-content class="store sview" >
+<ion-content class="store sview posabs" >
 
-  <ion-card class="nobg" >
-      <ion-row class="pcover rmcov">
-          <!-- <img src={{planinfo.planPhoto}} class="planimg" *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" (click)="playVideo(planinfo.id)">
-          <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" (click)="playVideo(planinfo.id)">
-          <img src="assets/images/plan_2.png" (click)="playVideo(planinfo.id)"> -->
+    <div class="fulview">
+    <div class="fulcard " >
+        <img src="{{planinfo.plancover}}" class="planimg" (error)="onImageError()"  *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" >
+          <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" >
+
+        <div class="play" *ngIf="isShowIcon" (click)="playVideo(planinfo.id)">
+            <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+                <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+            </svg>                                          
+          </div>
+
+        <div class="container">
+          <div class="cdbody">
+            <span>{{planinfo.duration_weeks}} Weeks - {{planinfo.planType}}</span> 
+            <h1>{{planinfo.planName}}</h1>
+            <!-- <p>{{plan.createdBy_id__first_name}}</p> -->
+            <!-- <ion-avatar class="sbgw" > 
+                <img src="{{planinfo.createdBy_id__avatar}}" (error)="onAvatarError()" />
+            </ion-avatar> -->
+            <p>{{planinfo.createdBy_id__first_name}} <em>4.5
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34 34">
+                <path id="Star" d="M17,0l4.25,12.644L34,12.987,23.877,21.144,27.507,34,17,26.4,6.493,34l3.63-12.856L0,12.987l12.75-.343Z" fill="#ffc400"/>
+              </svg>
+              
+            </em></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  <ion-card class="nobg none" >
+      <!-- <ion-row class="pcover rmcov">
+          
           <img src="{{planinfo.plancover}}" class="planimg" (error)="onImageError()"  *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" >
           <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" >
            <div class="play" *ngIf="isShowIcon" (click)="playVideo(planinfo.id)">
@@ -45,20 +75,20 @@
               </svg>                                          
             </div>
           
-      </ion-row>
-      <ion-item class="poverlay nobg">
+      </ion-row> -->
+      <ion-item class="poverlay nobg nopad">
           
           <!-- <h2>{{planinfo.planName}}</h2>-->
           <ion-row class="prow">
-              <ion-col size="9"> 
+              <!-- <ion-col size="9"> 
                   <em>{{planinfo.duration_weeks}} Weeks - {{planinfo.planType}}</em>
                   <ion-avatar class="sbgw" > 
                       <img src="{{planinfo.createdBy_id__avatar}}" (error)="onAvatarError()" />
                   </ion-avatar>
                   <h6>{{planinfo.createdBy_id__first_name}}</h6>
-              </ion-col>
+              </ion-col> -->
               
-              <ion-col class="text-right">
+              <!-- <ion-col class="text-right">
                   <span *ngIf='!planSet && planinfo.price !="Free"'>Free</span>
                   <span [innerHTML]="planinfo.price"></span>
                   <em class="pformonth" *ngIf="planinfo.price !='Free'">/mo</em>
@@ -75,7 +105,7 @@
                         </svg>
                         {{planinfo.planUsers}}
                     </em>
-              </ion-col>
+              </ion-col> -->
           </ion-row>
       </ion-item>
   </ion-card>
@@ -84,7 +114,12 @@
       <h2>Abilities</h2>
       <p>{{planinfo.planPurpose}}</p>
 
-      <ion-row>
+      <ion-row class="prolevl">
+        <ion-col class="nopad" >
+            <h5>Level</h5>
+            <p>{{planinfo.planType}}</p>
+        </ion-col>
+
         <ion-col class="nopad" >
           <h5>Duration</h5>
           <p>{{planinfo.duration_weeks}} Weeks</p>
@@ -96,9 +131,10 @@
         </ion-col>
 
         <ion-col class="nopad" >
-          <h5>Level</h5>
-          <p>{{planinfo.planType}}</p>
-        </ion-col>
+            <h5>Session</h5>
+            <p>{{planinfo.num_of_sessions}} per week</p>
+          </ion-col>
+        
       </ion-row>
       
       
@@ -116,7 +152,7 @@
                               <div class="play min">
                                   <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                       <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
-                                      <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+                                      <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)"  fill-rule="evenodd"/>
                                   </svg>                                          
                               </div>
                           </div>
@@ -140,6 +176,11 @@
             <span *ngIf="planinfo.activestatus">Active</span>
             <span *ngIf="planinfo.fucturestatus">Activated</span>
             <span *ngIf="!planinfo.activestatus && !planinfo.fucturestatus">Activate</span>
+        </ion-button>  
+        <ion-button class="nobg" [hidden]="planSet && planinfo.price">
+            <span *ngIf='!planSet && planinfo.price !="Free"'>Free</span>   
+            <span [innerHTML]="planinfo.price"></span>
+            <em class="pformonth" *ngIf="planinfo.price !='Free'">/mo</em>
         </ion-button>  
         <ion-button [hidden]="!planinfo.activestatus" (click)="dashboardpage()">
                 

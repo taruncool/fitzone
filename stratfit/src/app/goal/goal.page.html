@@ -7,7 +7,7 @@
           </svg>
       </ion-button>
     </ion-buttons>
-    <ion-title><span>Goal Oriented</span> Choose your goal</ion-title>
+    <ion-title>Choose your goal</ion-title>
   </ion-toolbar> 
  </ion-header>
 
@@ -36,7 +36,7 @@
 <!-- Grid Format -->
 <div class=" fulpad nopadb" id="goal0" (click)="filterPurposePrograms(0)" [ngClass]="{'active':activepurposeid==0}" >
   <div class="rowlist">
-    <h1>Sports </h1>
+    <h3>Sports </h3>
     <ion-row class="mglr-5" id="goal{{purpose.id}}" (click)="filterPurposePrograms(purpose.id)" [ngClass]="{'active':activepurposeid==purpose.id}" *ngFor="let purpose of purposeslist; let i = index"  >{{purpose.name}}>
       <ion-col size="4">
         <div class="iconcard">
@@ -209,7 +209,7 @@
   </div>
 
   <div class="rowlist">
-    <h1>Aesthetics </h1>
+    <h3>Aesthetics </h3>
     <ion-row class="mglr-5">
       <ion-col size="4">
         <div class="iconcard">
@@ -298,7 +298,7 @@
   </div>
 
   <div class="rowlist">
-    <h1>Professional </h1>
+    <h3>Professional </h3>
     <ion-row class="mglr-5">
       <ion-col size="4">
         <div class="iconcard">
@@ -392,7 +392,7 @@
 
 <ion-footer class="foot ">
   <ion-row class="btnrow">
-      <ion-button (click)="community()">Get Trainers</ion-button>  
+      <ion-button expand="block" (click)="store()">Let's Go</ion-button>  
   </ion-row>
 </ion-footer>
 

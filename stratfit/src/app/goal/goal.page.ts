@@ -256,8 +256,8 @@ goal;
     this.navCtrl.navigateBack('tabs/tabs/store');
   }
 
-  community() {
-    this.navCtrl.navigateBack('/community');
+  store() {
+    this.navCtrl.navigateBack('/store');
   }
 
 }

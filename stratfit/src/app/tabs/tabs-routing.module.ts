@@ -11,7 +11,8 @@ const routes: Routes = [
       {
         path: 'store',
         loadChildren: () =>
-          import('../goal/goal.module').then(m => m.GoalPageModule)
+          // import('../goal/goal.module').then(m => m.GoalPageModule)
+          import('../store/store.module').then(m => m.StorePageModule)
       },
       {
         path: '/dietprofile',
@@ -34,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tabs/goal',
+        redirectTo: '/tabs/tabs/store',
         pathMatch: 'full'
       }
      
@@ -42,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tabs/goal',
+    redirectTo: '/tabs/tabs/store',
     pathMatch: 'full'
   }
 ];

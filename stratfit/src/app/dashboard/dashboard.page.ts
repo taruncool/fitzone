@@ -1635,7 +1635,7 @@ public getExercise(exercise_id){
 }
 openTab(page){
   if(page==='store'){
-    this.navCtrl.navigateRoot('tabs/tabs/goal');
+    this.navCtrl.navigateRoot('tabs/tabs/store');
   }else if(page==='dietprofile'){
     this.navCtrl.navigateRoot('tabs/tabs/dietprofile');
   }else if(page==='workout'){
