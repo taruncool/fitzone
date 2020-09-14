@@ -42,7 +42,7 @@
     <ion-col>
       <h3>Today's Health</h3>
       <ion-row>
-        <ion-col size="12">
+        <ion-col class="nopad" size="12">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.548 76.551">
             <g id="mission" transform="translate(0 0.002)">
               <path id="Union_59" data-name="Union 59" d="M-6162,21126c-.042,0-.083,0-.124-.006h-57.285a1.6,1.6,0,0,1-1.373-.779,1.612,1.612,0,0,1-.026-1.58l18.479-33.877a1.617,1.617,0,0,1,.186-.342l9.843-18.043v-20.328a1.6,1.6,0,0,1,1.6-1.6h19.135a1.6,1.6,0,0,1,1.474.986,1.593,1.593,0,0,1-.345,1.74l-5.249,5.248,5.249,5.248a1.6,1.6,0,0,1,.345,1.74,1.587,1.587,0,0,1-1.474.986h-17.539v5.975l9.843,18.043a1.574,1.574,0,0,1,.186.342l7.978,14.625,6.075-12.57a1.606,1.606,0,0,1,1.395-.9,1.692,1.692,0,0,1,1.442.822l17.539,31.9a1.587,1.587,0,0,1-.026,1.58,1.6,1.6,0,0,1-1.374.785Zm13.25-3.193-14.75-26.822-5.723,11.842,8.172,14.98Zm-67.971,0h52.033l-16.265-29.822-3.84,3.844a1.611,1.611,0,0,1-1.129.467.744.744,0,0,1-.111-.006,1.583,1.583,0,0,1-1.161-.637l-3.51-4.676-3.51,4.676a1.6,1.6,0,0,1-1.161.637,1.556,1.556,0,0,1-1.241-.461l-3.839-3.844Zm27.294-34.445,3.68,4.908,3.2-3.2-8.16-14.963-8.16,14.963,3.2,3.2,3.685-4.908a1.578,1.578,0,0,1,1.273-.6A1.589,1.589,0,0,1-6189.424,21088.365Zm.318-26.15h13.689l-3.653-3.658a1.6,1.6,0,0,1,0-2.252l3.653-3.66h-13.689Z" transform="translate(6221 -21049.455)" fill="#0163d1"/>
@@ -74,7 +74,7 @@
   </ion-row>
 </div>
 
-<div class="fulpad nobg frame">
+<div class="frame nobg ">
   <div class="adtitle">
     <h1>Summary <span>{{today}}</span></h1>
   </div>
@@ -82,60 +82,166 @@
   <div class="contin">
     <div class="session">
       <div class="scrol min" scrollX="true">
-        <ion-button  Class="active">Session 1</ion-button>
-        <ion-button  Class="">Session 2</ion-button>
+        <ion-button  Class="active nobg ">Session 1</ion-button>
+        <ion-button  Class="nobg ">Session 2</ion-button>
       
       </div>
     </div><!-- End Session Block-->
 
-    <ion-card class="fulpad nomarg sumry" >
-      <ion-row >
-        <ion-col size="6"><h2>Complex</h2> </ion-col>
-        <ion-col size="6">
-          <ion-select interface="popover" role="combobox"  placeholder="Activity">
-            <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
-          </ion-select>
-        </ion-col>
-        
-      </ion-row>
+    <ion-card class="fulpad  sumry" >
+        <ion-row >
+          <ion-col size="6"><h3>Complex</h3> </ion-col>
+          <ion-col class="nopad" size="6">
+            <ion-select interface="popover" role="combobox"  placeholder="Activity">
+              <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
+            </ion-select>
+          </ion-col>
+          
+        </ion-row>
 
-      <ion-row class="session">
-        <div class="scrol min" scrollX="true">
-          <ion-button Class="active" >Bench Press</ion-button>
-        
-        </div>
-      </ion-row>
+        <ion-row>
+          <div class="scrol min" scrollX="true">
+            <ul>
+              <li>Bench Press</li>
+              <li>Powerlifting Squat</li>
+              <li>Deadlift</li>
+            </ul>
+          </div>
+        </ion-row>
 
-      <ion-row class="count">
-        <ion-col size="4">
-            <span>10<em>Reps</em>  </span>
-        </ion-col>
-        <ion-col  size="4" >
-            <span>27kg<em>Est. Tmax </em>  </span>
-        </ion-col>
-        <ion-col size="4">
-          <span>10<em>Tonnage </em>  </span>
-        </ion-col>
-        <ion-col size="4">
-            <span>20kg<em>Avg Weight </em>  </span>
-        </ion-col>
-        <ion-col size="4">
-          <span>1245<em>Calories</em>  </span>
-        </ion-col>
-        <ion-col size="4">
-            <span>549<em>Work </em>  </span>
-        </ion-col>
-        
-      </ion-row>
+        <ion-row class="count">
+          <ion-col size="4">
+              <span>10  </span>
+              <em>Reps</em>
+          </ion-col>
+          <ion-col  size="4" >
+              <span>27kg  </span>
+              <em>Est. Tmax </em>
+          </ion-col>
+          <ion-col size="4">
+            <span>10  </span>
+            <em>Tonnage </em>
+          </ion-col>
+          <ion-col size="4">
+              <span>20kg  </span>
+              <em>Avg Weight </em>
+          </ion-col>
+          <ion-col size="4">
+            <span>1245  </span>
+            <em>Calories</em>
+          </ion-col>
+          <ion-col size="4">
+              <span>549  </span>
+              <em>Work </em>
+          </ion-col>
+          
+        </ion-row>
 
     </ion-card><!-- End Summary Block-->
+    
+    <div class="fulpad adtitle goals">
+      <h3>Goal</h3>
+      <ion-row>
+        <ion-col size="4">
+          <div class="iconcard ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.146 52.717">
+              <g id="Steps_icon" data-name="Steps icon" transform="translate(-0.002 0)">
+                <path id="Union_61" data-name="Union 61" d="M-6235.359,19305.7a4.457,4.457,0,0,1-4.147-4.748l.421-6.2,8.673,3.881-.2,2.922a4.459,4.459,0,0,1-4.443,4.158C-6235.155,19305.717-6235.257,19305.711-6235.359,19305.7Zm-3.2-15.311-2.728-12.834c-1.139-7.859,4.22-10.9,4.22-10.9,4.152-2.857,13.93.4,10.087,18.049l-2.747,9.846Zm-18.228-1.584-.194-2.916,8.683-3.867.412,6.2a4.456,4.456,0,0,1-4.157,4.742c-.1.006-.2.01-.3.01A4.458,4.458,0,0,1-6256.784,19288.807Zm-3.6-16.861c-3.809-17.646,5.979-20.893,10.121-18.023,0,0,5.354,3.047,4.2,10.906l-2.747,12.83-8.837,4.143Z" transform="translate(6261.249 -19253)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Steps</em>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="iconcard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.191 51.926">
+              <g id="Burn" transform="translate(-52.013)">
+                <path id="Path_8565" data-name="Path 8565" d="M9.457,51.8a.7.7,0,0,0,1.1-.588.717.717,0,0,0-.069-.294c-4.314-14.4,2.091-21.343,4.83-23.546A29.049,29.049,0,0,0,20.33,43.946a.709.709,0,0,0,.77.257,23.416,23.416,0,0,0,5.039-2.815,78.986,78.986,0,0,1-1.968,9.626.7.7,0,0,0,1.105.743A30.033,30.033,0,0,0,35.1,36.395c2.344-9.56-4.221-18.9-4.478-19.285a.7.7,0,0,0-1.276.469,24.743,24.743,0,0,1-3.189,13.575,47.888,47.888,0,0,0,.225-11.587C25.3,6.006,12.982.122,12.857.066a.7.7,0,0,0-.995.727c.714,5.57-.586,8.031-4.06,14.607-1.407,2.652-3.146,5.954-5.233,10.365C-4.873,41.506,9.311,51.7,9.457,51.8Z" transform="translate(51.602 0)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Calories Burn</em>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="iconcard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.541 46.525">
+              <g id="Heart_Rate" data-name="Heart Rate" transform="translate(0.469 18.173)">
+                <path id="Subtraction_9" data-name="Subtraction 9" d="M-6907.768,19278.352c-.032,0-.066,0-.1-.006l-.034,0a.008.008,0,0,0,0-.008.311.311,0,0,1-.1-.021l-.011-.006-.014,0c-.007,0-.01,0-.01-.006a.692.692,0,0,1-.116-.057s0-.006-.01-.006a.874.874,0,0,1-.1-.082l-.01,0a.014.014,0,0,0,0-.006h0l-.007,0-19.509-20.055h9.179a1.685,1.685,0,0,0,1.587-1.143l3.367-9.908,6.643,14.975a1.66,1.66,0,0,0,1.48,1h.067a1.652,1.652,0,0,0,1.471-.91l5.588-10.789,3.435,5.932a1.681,1.681,0,0,0,1.447.836h5.9l-19.639,20.061,0,0a.007.007,0,0,0,0,.006.259.259,0,0,1-.058.043l-.006.006-.017.014a.31.31,0,0,0-.026.023l-.042.023a.2.2,0,0,0-.03.016l-.014.006a.089.089,0,0,1-.04.018.68.68,0,0,1-.087.025.1.1,0,0,1-.022.006.026.026,0,0,1-.011,0,.024.024,0,0,1-.011,0A.644.644,0,0,1-6907.768,19278.352Zm2.337-18.492v0l-6.763-15.248a1.671,1.671,0,0,0-1.535-1h-.072a1.68,1.68,0,0,0-1.515,1.146l-3.745,11.018h-10.932a14.745,14.745,0,0,1,.622-19.711,13.747,13.747,0,0,1,4.542-3.131,13.686,13.686,0,0,1,5.405-1.1,13.686,13.686,0,0,1,5.405,1.1,13.747,13.747,0,0,1,4.542,3.131l1.8,1.8,1.756-1.8a13.692,13.692,0,0,1,4.54-3.131,13.679,13.679,0,0,1,5.4-1.1,13.686,13.686,0,0,1,5.406,1.1,13.747,13.747,0,0,1,4.542,3.131,14.736,14.736,0,0,1,.623,19.711h-7.74l-3.837-6.629a1.681,1.681,0,0,0-1.452-.838h-.038a1.672,1.672,0,0,0-1.447.91l-5.51,10.643Z" transform="translate(6933 -19249.998)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Heart Rate</em>
+          </div>
+        </ion-col>
+
+        <ion-col size="4">
+          <div class="iconcard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.734 51.998">
+              <g id="Water_Drop" data-name="Water Drop" transform="translate(-19.533 -4.999)">
+                <path id="Exclusion_1" data-name="Exclusion 1" d="M-6225.1,18928a18.668,18.668,0,0,1-6.964-1.3,16.237,16.237,0,0,1-5.5-3.607,16.256,16.256,0,0,1-3.609-5.5,18.648,18.648,0,0,1-1.3-6.965c0-2.236.842-5.4,2.5-9.416a112.337,112.337,0,0,1,5.516-11.184c3.993-7.205,7.971-13.182,8.138-13.432a1.444,1.444,0,0,1,1.211-.6,1.444,1.444,0,0,1,1.211.6c.845,1.248,4.736,7.246,8.342,13.793a109.8,109.8,0,0,1,5.39,11.006c1.609,3.926,2.425,7.031,2.424,9.232a18.647,18.647,0,0,1-1.3,6.963,16.26,16.26,0,0,1-3.608,5.5,16.237,16.237,0,0,1-5.5,3.607A18.626,18.626,0,0,1-6225.1,18928Zm-10.963-20.83a1.465,1.465,0,0,0-1.463,1.463,12.443,12.443,0,0,0,12.427,12.432,1.465,1.465,0,0,0,1.463-1.463,1.465,1.465,0,0,0-1.463-1.463,9.517,9.517,0,0,1-9.505-9.506A1.462,1.462,0,0,0-6236.063,18907.166Z" transform="translate(6262 -18871)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Water</em>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="iconcard">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 51.971 47.429">
+              <g id="Moon" transform="translate(-44 -2.001)">
+                <path id="Path_8572" data-name="Path 8572" d="M1888.011,1806.791a26.695,26.695,0,1,1-42.208-29.263.578.578,0,0,1,.914.632,25.529,25.529,0,0,0,40.379,28,.578.578,0,0,1,.915.632Z" transform="translate(-1792.07 -1775.396)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Sleep</em>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="iconcard">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 52.006 52.088">
+              <g id="Distance" transform="translate(0.474 24.61)">
+                <path id="Union_62" data-name="Union 62" d="M-6892.392,18903.908a.683.683,0,0,1,.023-1.365h6.879a.686.686,0,0,1-.024,1.371Zm-10.974,0a.683.683,0,0,1,.024-1.365h6.879a.686.686,0,0,1-.023,1.371Zm-10.974,0a.683.683,0,0,1,.024-1.365h6.879a.686.686,0,0,1-.024,1.371Zm-10.973,0a.683.683,0,0,1,.019-1.365h6.884a.686.686,0,0,1-.024,1.371Zm26.245-7.48a.686.686,0,0,1-.683-.684.684.684,0,0,1,.683-.687h16.913a.685.685,0,0,1,.688.688.687.687,0,0,1-.688.684Zm-33.717,0a.687.687,0,0,1-.688-.684.685.685,0,0,1,.688-.687h16.908a.685.685,0,0,1,.688.688.687.687,0,0,1-.688.684Zm10.314-29.168a15.436,15.436,0,0,1,15.433-15.434,15.437,15.437,0,0,1,15.433,15.434c0,8.525-13.668,27.777-15.433,27.777S-6922.47,18875.785-6922.47,18867.26Zm9.228-6.205a8.745,8.745,0,0,0-2.571,6.205,8.745,8.745,0,0,0,2.571,6.205,8.744,8.744,0,0,0,6.206,2.572,8.744,8.744,0,0,0,6.206-2.572,8.766,8.766,0,0,0,2.571-6.205,8.766,8.766,0,0,0-2.571-6.205,8.744,8.744,0,0,0-6.206-2.572A8.744,8.744,0,0,0-6913.243,18861.055Z" transform="translate(6932.998 -18876.436)" fill="#fff"/>
+              </g>
+            </svg>
+            <span>2567</span>
+            <em>Distances</em>
+          </div>
+        </ion-col>
+        
+      </ion-row>
+    </div>
+
+    <ion-card class="fulcard " *ngIf='!noplan' (click)="programView()">
+      <!-- <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)"> -->
+    
+      <div class="container">
+        <div class="cdbody">
+          <span *ngIf="isDuration">{{planInfo.durationWeeks}} Weeks</span>
+          <h1 text-wrap>{{planInfo.planName}}</h1>
+          <p>{{planInfo.coachName}}</p>
+      
+          <div class="posrel">
+            <h2>Workout Details </h2>
+            <div class="play sm">
+              <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                  <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+                  <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+              </svg>                                          
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-card>
+
   </div>
 
 </div>
 
 
 
-  <ion-row class="fulcard " *ngIf='!noplan' (click)="programView()">
+  <!-- <ion-row class="fulcard " *ngIf='!noplan' (click)="programView()">
     <img src="{{planInfo.planPhoto}}" (error)="onImageError(plan)">
   
     <div class="container">
@@ -146,7 +252,7 @@
     
       </div>
     </div>
-  </ion-row>
+  </ion-row> -->
 
 
    <ion-item class=" nobg nodata" *ngIf='noplan'>
@@ -170,7 +276,7 @@
 
 
     <div class="contin" *ngIf='!noplan'>
-        <ion-row class=" fulpad  nopadb periods">
+        <ion-row class=" fulpad  periods">
             <ion-col >
               <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod-{{i+1}}">
                 <ion-select-option aria-selected="active" *ngFor="let period of currentPeriodss; let i = index" [value]="period.period_id">{{period.periodName}}-{{i+1}}</ion-select-option>
@@ -202,14 +308,14 @@
 
         <div class="session">
           <div class="scrol min" scrollX="true">
-            <ion-button id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
+            <ion-button class="nobg" id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
           
           </div>
         </div><!-- End Session Block-->
 
         <div [ngSwitch]="programstype">
             
-          <div class="exe">
+          <!-- <div class="exe none"  >
             <ion-col>
             <ion-avatar *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
                 <span>A{{i+1 }}</span>
@@ -217,14 +323,71 @@
            
             </ion-col>
            
-          </div> <!-- End Activity Block-->
+          </div>  -->
+          <!-- End Activity Block-->
 
-          <div class="fulpad nopadt exetab" *ngIf="activityType == 'simple'">
-            <div class=" workview" *ngFor="let exe of tempExeData; let i = index">
-            <div class="exelist">
+          <ion-card class="fulpad  sumry" >
+            <ion-row >
+              <ion-col size="6"><h3>Complex</h3> </ion-col>
+              <ion-col class="nopad" size="6">
+                <ion-select interface="popover" role="combobox"  placeholder="Activity" *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)">
+                  <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
+                </ion-select>
+              </ion-col>
               
-                <h4>{{exe.exerciseName}}</h4>
-                  <ion-row  *ngFor="let action of tempAction; let i = index">
+            </ion-row>
+    
+            <ion-row>
+              <div class="scrol min" scrollX="true">
+                <ul>
+                  <li>Bench Press</li>
+                  <li>Powerlifting Squat</li>
+                  <li>Deadlift</li>
+                </ul>
+              </div>
+            </ion-row>
+    
+            <ion-row class="count">
+              <ion-col size="4">
+                  <span>{{totalreps}}  </span>
+                  <em>Reps</em>
+              </ion-col>
+              <ion-col  size="4" >
+                  <span>{{Tmax}}  </span>
+                  <em>Est. Tmax </em>
+              </ion-col>
+              <ion-col size="4">
+                <span>{{Tonnage}}  </span>
+                <em>Tonnage </em>
+              </ion-col>
+              <ion-col size="4">
+                  <span>{{totalweight}}  </span>
+                  <em>Avg Weight </em>
+              </ion-col>
+              <ion-col size="4">
+                <span>{{cal}}  </span>
+                <em>Calories</em>
+              </ion-col>
+              <ion-col size="4">
+                  <span>{{Work}}  </span>
+                  <em>Work </em>
+              </ion-col>
+              
+            </ion-row>
+    
+          </ion-card><!-- End Summary Block-->
+
+          <div class=" exetab" *ngIf="activityType == 'simple'">
+            <div class=" workview" *ngFor="let exe of tempExeData; let i = index">
+              <div class="exelist">
+                
+                <div class="fulpad text-center">
+                  <h2>{{exe.exerciseName}}</h2>
+                </div>
+                  
+                <ion-card class="fulpad " *ngFor="let action of tempAction; let i = index">
+
+                  <ion-row  >
                       <!-- <div *ngIf="round.round_id== action.round_id"></div> -->
                     <ion-col *ngIf="!workweight">
                       <span>{{action.workweight}}{{metrics}}</span>
@@ -248,7 +411,7 @@
                         </svg>
                       <em>Done</em>  
                     </ion-col>
-                   <ion-col  col-3 *ngIf='action.status==0'>
+                  <ion-col  col-3 *ngIf='action.status==0'>
                       <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
                         <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
                       </svg>
@@ -264,20 +427,29 @@
                         <em>Skipped</em>  
                       </ion-col>
                   </ion-row> 
-                
-                </div>
+                </ion-card>
+                  
+              </div>
             </div>
           </div><!-- End Simple Block-->
+          
 
           <div *ngIf="activityType != 'simple'">
             <div class="fulpad nopadt exetab" *ngFor="let round of tempRound; let i = index">
 
-              <h2>{{round.round_name}}  </h2>
+              
               <div class="workview" *ngFor="let exe of round.exes; let i = index">
                 <div class="exelist" *ngIf="exe.round_id == round.round_id">
 
-                  <h4>{{exe.exerciseName}}</h4>
-                  <div *ngFor="let action of tempAction; let i = index">
+                  <div class="fulpad text-center">
+                    <h2>{{round.round_name}}  </h2>
+                  </div>
+
+                 
+                  <ion-card class="fulpad " *ngFor="let action of tempAction; let i = index">
+
+                    <h3>{{exe.exerciseName}}</h3>
+
                     <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
                       <ion-col *ngIf="!workweight">
                         <span>{{action.workweight}}{{metrics}}</span>
@@ -301,14 +473,14 @@
                           </svg>
                         <em>Done</em>  
                       </ion-col>
-                      <ion-col  col-3 *ngIf='action.status==0'>
+                      <ion-col  size="3" *ngIf='action.status==0'>
                         <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
                           <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
                         </svg>
       
                         <em>Not Done</em>
                       </ion-col>
-                      <ion-col  col-3 *ngIf='action.status==2'>
+                      <ion-col   size="3" *ngIf='action.status==2'>
                         <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
                           <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
                             <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
@@ -318,7 +490,7 @@
                       </ion-col>
               
                     </ion-row> 
-                  </div>
+                  </ion-card>
                 
                   </div>
               
@@ -326,7 +498,7 @@
             </div>
           </div><!-- End Complex Block-->
 
-          <div class="fulpad nopadt sumry" *ngIf="!Show">
+          <!-- <div class="fulpad nopadt sumry" *ngIf="!Show">
             <h3>Summary</h3>
             <ion-row>
               <ion-col size="4">
@@ -349,8 +521,13 @@
               </ion-col>
             </ion-row>
   
-          </div><!-- End Summary Block-->
-        </div>
+          </div> -->
+          <!-- End Summary Block-->
+
+
+
+              
+      </div>
 
 </div>
 

@@ -1,33 +1,31 @@
-<ion-content class=" sview pcview">
+<ion-content class="pcview">
   <div class="pcover">
       <img src="assets/images/pcview.jpg"  >
      
   </div>
 
   
-  <div class="fulcard poverlay">
-      <div class="pcsuces">
-          <div class="pctitle ">
-              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                </svg>
+    <div class="poverlay">
+        <div class="pctitle ">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
 
 
-                      
-              <h2>Hey, <span>{{firstname}}!</span></h2>
-              <h4>Downloading program, please wait!</h4>
-          </div>
-              <div class="loader" >
-          
-                  <div class="progress-outer">
-                      <div class="progress-inner" [style.width]="percent + '%'">
-                          {{percent}}%
-                      </div>
-                  </div>
-              </div>
-      </div>
-  </div>
+                    
+            <h2>Hey, <span>{{firstname}}!</span></h2>
+            <h3>Downloading program, please wait!</h3>
+        </div>
+        <div class="loader" >
+
+            <div class="progress-outer">
+                <div class="progress-inner" [style.width]="percent + '%'">
+                    {{percent}}%
+                </div>
+            </div>
+        </div>
+    </div>
   
 </ion-content>
 

@@ -137,20 +137,24 @@ svg{width:2rem; height:2rem;fill: #000; }
 
 .adpadt {padding-top: 10px !important;}
 
-.adpadl {padding-left: 10px !important;}
-.adpadr {padding-right: 10px !important;}
+.adpadl {padding-left: 12px !important;}
+.adpadr {padding-right: 12px !important;}
 
+.adbor {border-width: 1px; border-style: solid; border-color: #ccc;}
 .nobor {border: 0 !important; --border-style:none !important}
 .nobr {border-radius: 0 !important;}
 .nobg {--background: none !important; background: none !important; box-shadow: none !important;  }
 
-.fulmarg {margin: 10px !important;}
-.admb {margin-bottom: 10px !important;}
-.admb2 {margin-bottom: 20px !important;}
-.nomarg {margin: 0 !important;}
-.nomargr {margin-right: 0 !important;}
-.mglr-5 {margin-left: -5px !important; margin-right: -5px !important;}
-.fulw{width: calc(100% - 0px) !important;}
+.fulmar {margin: 12px !important;}
+.admb-1 {margin-bottom: 12px !important;}
+.admb-2 {margin-bottom: 20px !important;}
+.admb-n1 {margin-bottom: -10px !important;}
+
+.adm-0 {margin: 0 !important;}
+// .nomb{ margin-bottom: 0 !important;}
+.admr-0 {margin-right: 0 !important;}
+.admlr-n5 {margin-left: -5px !important; margin-right: -5px !important;}
+// .fulw{width: calc(100% - 0px) !important;}
 
 .posrel {position: relative;}
 .posabs {position: absolute;}
@@ -173,7 +177,7 @@ em {font-style: normal;}
 
 
 
-ion-list  {margin-top: 0 !important;}
+ion-list  {margin-top: 0 !important; padding-top: 0; padding-bottom: 0;}
 ion-list:last-child  {margin-bottom: 0 !important;}
 // input:-internal-autofill-selected {background-color:none !important;}
 // input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {box-shadow:0 0 0px 1000px #f2f2f2 inset !important; transition: background-color 5000s ease-in-out 0s !important;}
@@ -189,19 +193,15 @@ ion-searchbar {
 ion-button.button, ion-button.brn, .scrol button.active  {  text-transform: uppercase; margin-top:0; margin-bottom: 0.5rem;
   span {color:#fff !important;}
 }
-ion-button.nobg{border: 0 !important; --box-shadow: none !important; box-shadow: none !important;
+ion-button.nobg{border: 0 !important; --box-shadow: none !important; box-shadow: none !important; color:#000 !important;
   span {color:#000 !important;}
 }
 
 
-.frame {border-radius: 46px;--border-radius:46px; padding-top: 40px;}
-ion-card, ion-item, .fulcard, .dcard, .iconcard, ion-item ion-avatar, ion-searchbar, ion-button, ion-button.button .button-native, .verify ion-input, .execis .exeblk, .workflow .setlist {border-radius: 10px !important; --border-radius: 10px !important;}
-ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !important;}
-
 
 
 .inputs, .profinfo {
-  ion-card, ion-item { margin-bottom: 10px!important; --padding-start: 10px !important; --padding-end:10px !important; --highlight-background:none !important;
+  ion-card, ion-item {margin-inline-start:12px !important; margin-inline-end:12px !important; margin-bottom: 12px!important; --padding-start: 10px !important; --padding-end:10px !important; --highlight-background:none !important; 
     .item-inner {border-bottom: 0 !important; box-shadow: none !important; --padding-end:0px !important;}
     .select-icon {position: absolute; right:2rem;}
     ion-label{overflow: inherit !important; margin-top: -15px;
@@ -224,6 +224,7 @@ ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !im
   ion-item.chetxt  {font-size: small !important;
     ion-checkbox {margin-right: 15px !important;}
   }
+  ion-button {margin-left: 12px !important; margin-right: 12px !important;}
   
 }
 .inputs.profinfo { padding-top: 0 !important;
@@ -262,15 +263,29 @@ ion-segment { display: -webkit-inline-box; white-space: nowrap; font-size: 0;ove
 
 
 ::-webkit-scrollbar{display:none;}
-.scrol { white-space: nowrap;min-height: 60px;overflow: overlay; position: inherit !important;
+.scrol, .unlist { white-space: nowrap;overflow: overlay; position: inherit !important; min-height:60px;
   // .scroll-item {display: inline-block;}
-  ion-button {text-transform: unset !important;margin-right: 4px !important; contain: inherit !important; overflow: visible !important;  margin-top:0 !important; margin-bottom:0 !important; display: inline-block; border:0 !important; }
-  // button.active { background: #111 !important;}
-  ion-button.active:after { content:""; position: absolute; left:0; right:0; bottom: -8px; width: 0; height: 0; border-left: 8px solid transparent;border-right: 8px solid transparent;border-top-width:8px ; border-top-style: solid; margin: auto;}
-  ion-button:first-child {margin-right: 0 !important;}
+  ion-button, ul li {text-transform: unset !important;margin: 0 !important; contain: inherit !important; overflow: visible !important; display: inline-block; border:0 !important; border-radius: 0 !important; position: relative; letter-spacing: normal; }
+  ion-button.active {opacity: 1; font-size: medium;font-weight: 900;}
+  ion-button.active:after { content:""; position: absolute; bottom: -10px; left:15px; right: 0; width: 50%; height: 3px; border-radius: 10px; background: #0163D1 !important;box-shadow: none;}
+  // ion-button:first-child {margin-right: 0 !important;}
   ion-button {--background-hover: transparent !important;--background-focused: transparent !important;}
+
+  ion-button.nobg {
+    span{ color: #000 !important;}
+  }
+
+  ul{ width: 100%;
+    li{padding:8px 15px 8px 30px; font-size: small; font-weight: bold; background: #EFF1F4 !important; border-radius: 25px !important; color: #000; margin-right: 6px !important;}
+    li:before{ content: ""; position: absolute; top: 10px; bottom: 0; left:10px; right: 0; width: 8px; height: 8px; border-radius: 50%; border-width: 2px; border-style: solid; border-color: #0163D1;  }
+  }
 }
-.scrol.min{min-height: 44px !important;}
+.scrol.min{min-height: 46px !important;}
+.scrol.noafter{
+  ion-button.active:after { content: none !important;} 
+}
+.scrol.unlist{min-height: 46px !important;}
+
 
 
 ion-loading {outline: none;}
@@ -306,6 +321,7 @@ ion-modal{
 // -- Start Selection Popup Css -----//
 
 ion-select-popover{
+  ion-radio-group ion-item {box-shadow: none !important; --background:#fff;} 
   ion-item ion-radio {}
   ion-item ion-radio.radio-checked {}
   }
@@ -319,7 +335,7 @@ ion-select-popover{
 
 /*--Aleart Popup and Bottom Popup --*/
 .picker-md, ion-alert  {
-  ion-backdrop { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; }
+  ion-backdrop { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); }
 
   /*for alert msg*/
   .alert-title{font-size: medium;font-weight: 400;}
@@ -327,9 +343,10 @@ ion-select-popover{
       h2 {font-size:x-large !important; position: relative;}
       h3 {margin-top:1rem !important;}
   }
-  .alert-message{text-align: center;padding-bottom: 2rem; color: #fff !important; font-size: x-large;}
+  
   // ------------------------------------------------
-  .alert-wrapper{ min-width: 88% !important; max-width: 88% !important; box-shadow: none !important; border-radius: 10px !important;}
+  .alert-wrapper{ min-width: 88% !important; max-width: 88% !important; box-shadow: none !important; border-radius: 10px !important; background: none !important;}
+    .alert-message{text-align: center;padding-bottom: 2rem; color: #fff !important; font-size: x-large !important;}
 
   /*---Bottom Selection Popup--- */
   .picker-wrapper { background: #fff; border-radius: 25px 25px 0 0; padding-top: 10px;
@@ -366,10 +383,9 @@ ion-select-popover{
 
 
 // Done -- check Mark circle CSS Animation
-.checkmark__circle{stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke: #000;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
+.checkmark__circle{stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke: #fff;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
 .checkmark {border-radius: 50%;display: block;stroke-width: 2;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;}
 .checkmark__check {transform-origin: 50% 50%;stroke-dasharray: 48;stroke-dashoffset: 48;animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
-  
 @keyframes stroke {
   100% {stroke-dashoffset: 0;}
 }
@@ -377,6 +393,30 @@ ion-select-popover{
   0%, 100% {transform: none;}
   50% {transform: scale3d(1.4, 1.4, 1);}
 }
+
+// .asico svg circle {stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;  animation: checkmark-circle 0.6s ease-in-out backwards;}
+// .asico svg polyline {stroke-dasharray:100px, 100px; stroke-dashoffset: 200px; stroke:#fff; animation: checkmark 0.25s ease-in-out 0.7s backwards}
+
+// .asico svg circle#done{ fill:#22AE73;} 
+// .asico svg circle#notdone{ fill:#F44812;} 
+// .asico svg circle#done, .asico svg circle#notdone {animation: circlebg 0.6s ease-in-out 0.7s backwards;} 
+
+// @keyframes checkmark {
+//     0% {stroke-dashoffset: 100px}
+//     100% {stroke-dashoffset: 0px}
+// }
+// @keyframes checkmark-circle {
+//     0% {stroke-dashoffset: 480px }
+//     100% {stroke-dashoffset: 960px}
+// }
+// @keyframes circlebg { 
+//     0% { opacity:0 }
+//     100% {opacity:100}
+// }
+
+
+  
+
 
 
 
@@ -386,12 +426,12 @@ ion-select-popover{
   .toolbar-title-ios {padding-top: 10px !important;}
   
   ion-toolbar.hedfm { --background:none !important;
-    ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%; font-weight: 900; padding-left: 10px; font-size: inherit;
+    ion-title{ display:inline-block; position: relative; top: 0rem; max-width: 85%; font-weight: 900; padding-left: 12px; font-size: inherit;
       span {font-size: small; display: block;  }
     }
     
   }
-  svg {width: 1.2rem;height: 1.2rem;}
+  svg {width:22px;height:22px; margin-top: 4px;}
 }
 .head.back{
   svg{fill:#fff !important}
@@ -436,8 +476,10 @@ ion-tab-bar{border-width: 0 !important;}
   }
 
   .btnrow {display:block;
-    ion-button {float:right; margin: 10px 10px;}
+    ion-button { margin: 10px 10px;}
   }
+
+  .loader h4 {color:#fff;}
 }
 .foot:before {background: none !important; height: 0;}
 
@@ -538,22 +580,28 @@ ion-tab-bar{border-width: 0 !important;}
 
 /*-------- Card ----------*/
 
-.noflex ion-card, .noflex ion-item {display: inherit !important; justify-content: inherit !important; flex: inherit !important;
-  .item-native, .item-inner, .input-wrapper{display: inherit !important; }
-}
+// .noflex ion-card, .noflex ion-item {display: inherit !important; justify-content: inherit !important; flex: inherit !important;
+//   .item-native, .item-inner, .input-wrapper{display: inherit !important; }
+// }
+
+
+.frame {border-radius: 46px;--border-radius:46px; padding-top: 40px;}
+ion-card, ion-item, .fulcard, .dcard, .iconcard, ion-item ion-avatar, ion-searchbar, ion-button, ion-button.button .button-native, .verify ion-input, .execis .exeblk, .workflow .setlist {border-radius: 10px !important; --border-radius: 10px !important;}
+ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !important;}
+
 
 
 ion-item {--padding-start: 10px !important; --padding-end:10px !important; --inner-padding-end:0 !important;--border-width:0 !important;}
-ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;  border-width: 1px; border-style: solid; 
+ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;  border-width: 0; border-style: solid;  color: #000;
 
   ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:48px !important;min-height:48px !important;border-width:0;  background:#f7f7f7 !important; padding: 0;overflow: hidden; display: inline-block;
     ion-img {width:44px !important; height: 44px !important; border:0 !important;position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
     img {width:44px !important; height:auto  !important; border-radius: 0 !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
   }
 
-  .pcover {position: relative; 
+  .pcover {position: relative;  
     img {width:100%; object-fit: cover;}
-    video {width: 100%; height: auto;min-height: 200px; margin-bottom: -3px; vertical-align:bottom !important;}
+    video {width: 100%; height: auto;min-height: 200px;vertical-align:bottom !important; border-radius: 10px;}
     //video[poster] { object-fit:cover;}
   }
   .pcover:after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)) !important; }
@@ -561,7 +609,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
   h2, h3, h4, h5, h6, p { white-space: nowrap; text-overflow: ellipsis; }
 
-  ion-button {margin: 0 !important; 
+  ion-button {
     svg {width:1.6rem; }
   }
   // .off {margin-top:0 !important; margin-right:0 !important;font-size: 1.2rem; font-family: 'Open Sans', sans-serif !important;text-align: right;
@@ -583,7 +631,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
    
   /*--- Full Card scroll---*/
   ion-slides {height: 78vh !important;}
-  .fulcard {width:100% !important;overflow: hidden;max-height: 71vh !important; min-height: 71vh !important; height: 71vh !important; align-items:normal !important; position: relative; z-index: 999; color: #fff;
+  .fulcard {width:100% !important;overflow: hidden;align-items:normal !important; position: relative; z-index: 999; color: #fff;
 
     img {opacity: 0; transform: scale(1.1); width: 100%; height: 71vh; object-fit: cover; transition: 2s ;}
 
@@ -699,18 +747,13 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 .goalori, .session {
   .scrol[scrollX] {
-    ion-button { border-radius: 0;  opacity: 0.7 !important;padding:0 !important;padding-bottom:6px !important; margin:0 !important;  --box-shadow: none;}
-    ion-button:first-child{margin-left:0px !important;}
-    ion-button.active {border-width:0 !important; border-bottom-width:2px !important; border-style: solid !important; opacity: 1 !important; }
-    ion-button.active:after{ content: none !important;}
+    ion-button {  opacity: 0.7 !important;}
+    ion-button.active {opacity: 1 !important; }
     }
    
 }
 
-.session {margin-bottom:16px;
-  .scrol[scrollX]{ margin-bottom: -5px !important;}
-  .scrol[scrollX] ion-button { width: 30%; padding-bottom: 0 !important;}
-}
+
 
 .execis { // Program Deatails Execises Video Grid
   h6 { font-size:1.4rem; text-align: center;  display: block; margin-top: 0; margin-bottom: 10px;
@@ -838,24 +881,24 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     // }
   }
   // Program view
-  .poverlay.nobg { padding: 10px 10px !important;
+  // .poverlay.nobg { padding: 10px 10px !important;
 
-    h2{color: inherit !important; }
-    h4 {font-size: small;}
-    ion-row.prow {margin-top: 0 !important; width: 100%;}
-    ion-row.prow ion-col{padding: 0 !important;}
-    ion-row.prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; min-height:24px !important; max-height: 24px !important; min-width: 24px !important; max-width: 24px !important;
-      img {width: 24px !important; height: 24px !important;}
-    } 
-    ion-row.prow h6 {display: inline !important; font-size: 1rem !important;}
-    ion-row.prow ion-col em{ margin-bottom: 5px; display: block; }
-    ion-row.prow ion-col:last-child {bottom:0 !important; position: relative !important; 
-      em {display: inline-block !important; margin-bottom: 0 !important; margin-left: 10px;
-        svg {width:1rem !important; height: 1rem !important;}
-      }
-      span {display:block; font-size: 1rem !important;  margin-top: -4px; font-weight: bold; }
-    }
-  }
+  //   h2{color: inherit !important; }
+  //   h4 {font-size: small;}
+  //   ion-row.prow {margin-top: 0 !important; width: 100%;}
+  //   ion-row.prow ion-col{padding: 0 !important;}
+  //   ion-row.prow ion-avatar {margin-right:5px !important; float: left; margin-top: 0 !important; min-height:24px !important; max-height: 24px !important; min-width: 24px !important; max-width: 24px !important;
+  //     img {width: 24px !important; height: 24px !important;}
+  //   } 
+  //   ion-row.prow h6 {display: inline !important; font-size: 1rem !important;}
+  //   ion-row.prow ion-col em{ margin-bottom: 5px; display: block; }
+  //   ion-row.prow ion-col:last-child {bottom:0 !important; position: relative !important; 
+  //     em {display: inline-block !important; margin-bottom: 0 !important; margin-left: 10px;
+  //       svg {width:1rem !important; height: 1rem !important;}
+  //     }
+  //     span {display:block; font-size: 1rem !important;  margin-top: -4px; font-weight: bold; }
+  //   }
+  // }
 
 }
 
@@ -878,46 +921,47 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .pcview{
   // .fulcard {background: none !important;}
   .pcover {position: fixed; top:0; bottom: 0; left:0; right: 0; }
-  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0;height: 100vh; opacity: 0.9; }
-  .poverlay  {position: relative !important; padding: 10px 10px 30px 10px !important; text-align: center;   border-radius: 0 !important;
-    h1, h2, h3, h4, h5 { margin-top: 0;}
+  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0;opacity: 0.9; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) ; backdrop-filter: blur(3px); }
+  .poverlay  {position: relative;left:50%;top:50%;transform:translate(-50%, -50%); color: #fff;  padding: 10px 10px 30px 10px !important; text-align: center;   
+    // h1, h2, h3, h4, h5 { margin-top: 0;}
 
-    .pcsuces { margin-bottom: 1rem;
-      h1, h3, h4, h5 {display: block;}
-      h2 {font-size: x-large; }
-
-      .pctitle { 
-        svg { width: 4rem; height:4rem; margin-bottom: 1rem;}  
-      }
-    
+    .pctitle { 
+      svg { width: 4rem; height:4rem; margin-bottom: 1rem; background:#ccc;}  
     }
-    .pcname {
-      .pcexe { width:100%; margin: auto;}
+
+    // .pcsuces { margin-bottom: 1rem;
+    //   h1, h3, h4, h5 {display: block;}
+    //   h2 {font-size: x-large; }
+    // }
+    .pcname { margin-top: 60px;
+      // .pcexe { width:100%; margin: auto;
+      //   ion-avatar{display: inline-block;}
+      // }
     }
     .pcdate { margin-bottom:1rem;
       span, p { font-size:medium; }
     }
 
-    .sumary {margin-bottom: 1rem;
-      h3 {text-align: center; display: block; }
-      .session {margin:0 -10px 0 -10px !important;}
-      .exe {padding-top:10px !important; padding-bottom: 0 !important;
-        // img {border: 0 !important;}
-      }
+    // .sumary {margin-bottom: 1rem;
+    //   h3 {text-align: center; display: block; }
+    //   .session {margin:0 -10px 0 -10px !important;}
+    //   .exe {padding-top:10px !important; padding-bottom: 0 !important;
+      
+    //   }
 
-      .complxname { margin:10px -10px 0 -10px !important; 
-        .scrol{
-          span {padding:0  15px 10px 15px; position: relative;}
-          span:first-child {margin-left: 15px;}
-          span::before { content: ""; position:absolute !important;left:8px;top:40%;transform:translate(-50%, -50%); width: 5px; height: 5px; background: #000; border-radius: 50%;} 
-        }
-      }
-      // .exesumry {
-      //   span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
-      //     em {  display: block;  padding-top:5px; line-height: 15px;  }
-      //   }
-      // }
-    }
+    //   .complxname { margin:10px -10px 0 -10px !important; 
+    //     .scrol{
+    //       span {padding:0  15px 10px 15px; position: relative;}
+    //       span:first-child {margin-left: 15px;}
+    //       span::before { content: ""; position:absolute !important;left:8px;top:40%;transform:translate(-50%, -50%); width: 5px; height: 5px; background: #000; border-radius: 50%;} 
+    //     }
+    //   }
+    //   .exesumry {
+    //     span {display: block; position:absolute;left:50%;top:50%;transform:translate(-50%, -50%); width: 100%; 
+    //       em {  display: block;  padding-top:5px; line-height: 15px;  }
+    //     }
+    //   }
+    // }
     .sbtm-btn {position: relative; padding: 16px 0 0 0;  
       span {font-size:1.2rem;}
     }
@@ -933,46 +977,51 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     span { width: auto !important; }
     span {float:right; font-size:14px; line-height: 32px;}
   }
-  h1{font-size:x-large; font-weight: 900;}
+  h1{font-size:x-large; font-weight: 900; margin-bottom: 20px;}
 }
+.adtitle {padding-left: 10px !important; padding-right: 10px !important;}
 
 
-.goal { // Goal Oriented 
-  .rowlist {margin-bottom: 1rem;
+.goal, .goals { // Goal Oriented 
+  .rowlist {margin-bottom: 1rem;}
     ion-col{padding-top: 0 !important; padding-bottom: 10px !important;}
     // [size="4"] {flex:0 0 33.1222%  !important;}
     // [size="4"]:nth-child(3n+1) {margin-left: 0;}
-    // [size="4"]:first-child{ margin-left: 0;}
-    
-    .iconcard{ padding: 10px; border-radius: 10px; text-align: center; position: relative; transition-duration: .4s;transition: all .4s ease-out;  
-      svg {width:40px; height: 40px; margin: 1rem 0 10px 0;}
-      span {display: block; font-size: small;}
-      .tick {border-radius:0 10px 0 70% !important;}
-      .tick svg {margin: 0 !important; width: 14px !important; height: 14px !important;}
-    }
-    .iconcard:active {transform: scale(.85);}
+    // [size="4"]:first-child{ margin-left: 0;} 
+  
+
+  .iconcard{ padding: 10px; border-radius: 10px; text-align: center; position: relative; transition-duration: .4s;transition: all .4s ease-out;  
+    svg {width:40px; height: 40px; margin: 1rem 0 10px 0;}
+    span {display: block; font-size: small;}
+    .tick {border-radius:0 10px 0 70% !important;}
+    .tick svg {margin: 0 !important; width: 14px !important; height: 14px !important;}
   }
+  .iconcard:active {transform: scale(.85);}
 }
 
 .frame{background: #fff;}
+.frame.nobg{padding-top: 0 !important;}
 
 
 
 .db {// Dashboard 
   // .scrol {position: relative !important;}
-  ion-card, .workout {margin: 0 !important;
+  ion-card, .workout {
     h2, h3, p, h4 {margin-top: 0 !important;}
-    h2, h3, p, h4 {margin-bottom: 10px;}
+    h3 {font-size: large;}
+    span { display: block; margin-bottom: 5px;}
+    // h2, h3, p, h4 {margin-bottom: 10px;}
     // h3, p, span {color:inherit !important; }
-    h2, h3, p, span {width: 100%; display: block;}
+    // h2, h3, p, span {width: 100%; display: block;}
     
+    .pcover {margin-bottom: 10px;}
     .pcover::after {content: none !important;}
 
     .loader.probar {padding: 0 !important; width: 100%; margin-bottom: 10px;
       span { font-size: 1.4rem;
         em {float: right; font-size:1.2rem;}
       }
-      .progress-outer .progress-inner{font-size: 5px !important; }
+      .progress-outer .progress-inner{color: #fff; }
       
     }
     .exevalue { margin-bottom: 1rem; border-style:solid; min-height:56px !important;
@@ -983,19 +1032,19 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
         p {font-size: 1.3rem; margin-bottom: 0;}
       }
     }
-    .wrkbtm { overflow: hidden; width: 100%;
-      // em {font-size: 1.2rem;}
-      ion-button {float: right; background:none !important; margin: 0 !important;--padding-end: 0 !important; height: 32px !important;
-        svg {width:20px; height: 20px;border-radius: 50%; margin-left: 5px;}
+    .wrkbtm {
+      em {font-size: medium; line-height: 32px;}
+      ion-button {background:none !important;--padding-start:10px !important;--padding-end: 10px !important;
+        svg {width:20px; height: 20px;border-radius: 50%; margin-left: 5px; margin-right: -5px;}
       }
-      ion-button:first-child{--padding-start:0 !important ;}
+      // ion-button:first-child{--padding-start:0 !important ;}
     }
 
     /*-- Validation Todays Workout css --*/
     .valid {
-      .wrkbtm {
-        ion-button { float: none !important; }
-      }
+      // .wrkbtm {
+      //   ion-button { float: none !important; }
+      // }
     }
 
   }
@@ -1064,7 +1113,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 /*-- Todays Workout --*/ 
 .workout {  --color: inherit !important; font-size: inherit;
   .titl { text-align: center; margin-bottom:10px;
-    h3 {margin: 0 !important;}
+    // h3 {margin: 0 !important;}
     span {
       em {font-style: normal;}
     } 
@@ -1084,7 +1133,6 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   }
 }
 .tmax { 
-  // p {color: #fff;}
   .inpgrp {  text-align: left; margin-bottom:30px;
     form { margin-bottom:15px ; }
     ion-item {
@@ -1092,7 +1140,6 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
       ion-input {  float: right; width: 10rem; text-align: right; padding-right:2rem;}
     }
     .tmxbrd {border:2px solid #ccc !important;background: none !important; margin-bottom:1rem;
-      // ion-label {color:#000 !important;}
       // ion-input { background: none !important;
       //   .text-input {color:#000 !important;}
       // }
@@ -1104,10 +1151,10 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 }
 
 /*--****** Periods (Date - Days - Session) *****/
-.periods { padding:10px 15px; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; overflow: hidden;
+ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; overflow: hidden; 
   ion-col {padding: 0; 
     span { text-align: right; padding-right: 15px; display: block; }
-    svg {top:5px; right:-5px; width: 1rem !important; height: 1rem !important;}
+    svg {top:2px; right:-5px; width: 1rem !important; height: 1rem !important;}
   }
   ion-col:first-child{ flex: 40% !important;
   	.select {padding-left: 0 !important;}
@@ -1116,165 +1163,148 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   	span {padding-right: 0 !important;}
    }
   
-  ion-select  {max-width:100% !important; padding: 5px; font-weight: 300; }
+  ion-select {padding-left: 0 !important;  font-size: 82%; font-weight: bold;}  
+  ion-select:last-child {padding-right: 0 !important;} 
  
 }
 
 /*--****** Analytics ***** General , Meso,Micro, Session & Exercise --*****--- STORE - Program Details,  */
 .contin {width:100%;overflow:visible;transition: all .5s ease-out; 
-  ion-row.periods {border-bottom: 0 !important;}
-  ion-row.periods ion-select {padding-left: 0 !important; font-size: small;}  
-  ion-row.periods ion-select:last-child {padding-right: 0 !important;}  
+  ion-row.periods{border-bottom: 0 !important;}
+  .days { text-align: center;position: relative; margin-bottom:40px; height: 56px; background: #fff;
+    ion-button { white-space: normal; word-break: break-all; font-size: x-small; font-weight: bold; width: 28px; margin:0 10px !important; background: none !important; --background: none !important; --box-shadow:none !important; --padding-start:0; --padding-end:0;  color: #000; transform: scale(1.2,1.2); transition-duration: .4s;transition: all .4s ease-out;  }
 
-    .days { text-align: center;padding-top: 10px; position: relative; margin-bottom:10px;
-      ion-button {border-radius:50%; --box-shadow:none; word-break: break-all; width: 32px; height: 32px !important; padding: 6px !important; margin:0 2px !important; background: none !important; --background: none !important;  }
+    ion-button:nth-last-letter { font-size: x-large !important;}
+    ion-button.active { width: 36px; height:54px !important; margin-top:-5px !important; padding: 5px; position: relative; background: #000 !important; color: #fff !important; font-size: 13px; transform: scale(1.1,1.1);  transition-duration: .4s;transition: all .4s ease-out;}
+    ion-button.active:after { content: ""; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
 
-      ion-button.active { border-width: 0 !important;}
-      ion-button.done, ion-button.skip {border-width:1px !important; border-color: #EA4F5F !important; }
-      ion-button.active, ion-button.done{
-        // span {color: #fff !important;}
-      }
-      ion-button:nth-child(7)  { display: none !important; }
-      em {display: block; padding:5px }
-
+    ion-button.done, ion-button.skip { color: #EA4F5F !important; }
+    ion-button.active, ion-button.done{
+      // span {color: #fff !important;}
     }
-    // .days:after{content:"";position: absolute;bottom: -10px; margin:0 -1rem; width: 0; height: 0; border-left: 10px solid transparent;border-right: 10px solid transparent;border-top-width: 10px ; border-top-style: solid ;}
+    ion-button:nth-child(7)  { display: none !important; }
+    em {display: block; padding:7px; font-size: small; font-weight: bold;}
 
-    // .sfmenu{border-bottom: 1px solid #111; margin-bottom: 10px; }
+  }
+  // .days:after{content:"";position: absolute;bottom: -10px; margin:0 -1rem; width: 0; height: 0; border-left: 10px solid transparent;border-right: 10px solid transparent;border-top-width: 10px ; border-top-style: solid ;}
 
 }
 
 
 .exe {margin: 0;  padding: 0 0 10px 0; text-align: center; opacity: 0.1;
-    ion-avatar{margin: 0 !important;position: relative;width:2.4rem !important;height:2.4rem !important;border-radius: 50%; padding: 0;overflow: hidden; display: inline-block; margin-left: 6px !important;
-      ion-img {width:2.8rem  !important; height: 2.8rem  !important; border:0 !important;border-radius: 50%; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
-      img {width:2.8rem !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
-      span{ position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); opacity: 0.6;}
-    }
-    ion-avatar.active { border-width:1px !important; border-style: solid !important;  width:2.6rem !important;height:2.6rem !important;
-      span { opacity: 1 !important; font-size:1.2rem;}
-    }
-    ion-avatar:first-child {margin-left:0 !important;}
+    // ion-avatar{margin: 0 !important;position: relative;width:2.4rem !important;height:2.4rem !important;border-radius: 50%; padding: 0;overflow: hidden; display: inline-block; margin-left: 6px !important;
+    //   ion-img {width:2.8rem  !important; height: 2.8rem  !important; border:0 !important;border-radius: 50%; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); } 
+    //   img {width:2.8rem !important; height:auto  !important; object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
+    //   span{ position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); opacity: 0.6;}
+    // }
+    // ion-avatar.active { border-width:1px !important; border-style: solid !important;  width:2.6rem !important;height:2.6rem !important;
+    //   span { opacity: 1 !important; font-size:1.2rem;}
+    // }
+    // ion-avatar:first-child {margin-left:0 !important;}
 
   }/*--- END Workout & Analytics Tabs Css --- Never changes any thing here*/
 
   /*--- Workout Tabs View Css --- Never changes any thing here*/
-.exetab {margin: 0;
 
-    .workflow { 
-      h3 { margin-top:0 !important; margin-bottom: 15px !important;
-        em{float: right;  }
+.workflow { 
+  // .worktab { margin-bottom: 15px; display: block;   opacity: 0.1;}
+}
+
+.workview {
+  // h1 { display: block; font-size: x-large; }
+  h2 { display: block; font-size: large; margin-top:0; margin-bottom: 0;}
+  h3 { margin-top: 0;}
+
+  .setlist {padding-top: 0; padding-bottom: 0;   margin-bottom: 10px;
+    h3{display: none;}
+    ion-row { 
+      ion-col {padding: 0 !important; }
+      ion-avatar {position: relative; margin-right: 12px; min-width:64px !important; min-height: 64px !important; 
+        img { height:64px !important; border-radius: 10px !important; position: relative; }
+        .play.min {left:50%;top:50%;transform:translate(-50%, -50%);}
       }
-      .worktab { margin-bottom: 15px; display: block;   opacity: 0.1;
-        
-        .scrol {white-space: nowrap;text-align: left !important;  
-          ul{list-style: none; overflow-x:scroll ; min-height: 44px; text-align: center; }
-          li {display:inline-block; padding: 5px 16px; margin-right:4px;opacity: 0.6;  border-radius:3px; position: relative;}
-          li.active { border-width:1px !important; border-style:solid !important; opacity: 1;}
-          li.active:after { content:""; position: absolute; left:0; right:0; bottom: -8px; width: 0; height: 0; border-left: 8px solid transparent;border-right: 8px solid transparent; border-top-width: 8px; border-top-style: solid; margin: auto;}
-        }
-        
+      h4 {margin-top:5px;margin-bottom: 5px; font-weight: normal !important; font-size: small !important; }
+      h4:first-child {font-weight: bold !important; }
+      .posabs {right:10px; top: 20px;}
+      .tmaxval {font-size: small;
+        em {float:right; text-align: right; font-weight: bold;}
       }
-      
-      .setdone {display:none !important;width: 100%;  position: relative; text-align: center;
-        em { font-size: 1.1rem; display: block; }
-        ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
-          svg {width:32px !important; height:32px !important; }
-        }
-        
+    }
+    ion-row.infild { display:none;margin-bottom: 0 !important; padding-right: 10px;
+      ion-col{padding-left:10px !important; }
+      ion-col:first-child {padding-left:0px !important; }
+      h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
+      ion-item {  height:40px !important; min-height: 40px !important; margin:auto;margin-bottom: 5px !important;--padding-end: 5px !important;
+          span {display: block;  font-size: small; margin-top: -10px; }
+          svg {position: absolute;top: 5px;right: 0; width: 28px; height:28px;}
           
+          .text-input {padding:0 10px; text-align: center; margin: 10px;}
+          .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
+      }
+      .selarow {
+        svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
       }
     }
 
-    .workview {
-      h1 {font-size:2rem; display: block;margin-top: 0;}
-      h2 { display: block;}
+  }
+  .setlist.active { padding-bottom: 20px; padding-top: 10px;
+    h3 {padding-left: 10px;}
+    h3, .setdone{display: block !important; }
+    h4 {font-size: inherit !important; font-weight: bold !important; margin-top: 0;}
+  
+    ion-avatar { height: 110px !important;
+      img {height:110px !important;}
+    }
+    ion-row {margin-bottom: 20px;}
+    ion-row.infild{display: flex !important; }
+    .posabs, h4:first-child {display: none !important;}
+
     
-      .setlist {padding-top: 0; padding-bottom: 0;   margin-bottom: 10px;
-        h3{display: none;}
-        ion-row { 
-          ion-col {padding: 0 !important; }
-          ion-avatar {position: relative; margin-right: 1rem; min-width:64px !important; min-height: 64px !important; 
-            img { height:64px !important; border-radius: 10px !important; position: relative; }
-            .play.min {left:50%;top:50%;transform:translate(-50%, -50%);}
-          }
-          h4 {margin-top:5px;margin-bottom: 5px; font-weight: normal !important; font-size: small !important; }
-          h4:first-child {font-weight: bold !important; }
-          .posabs {right:10px; top: 20px;}
-          .tmaxval {font-size: small;
-            em {float:right; text-align: right; font-weight: bold;}
-          }
-        }
-        ion-row.infild { display:none;margin-bottom: 0 !important; padding-right: 10px;
-          ion-col{padding-left:10px !important; }
-          ion-col:first-child {padding-left:0px !important; }
-          h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small;}
-          ion-item {  height:40px !important; min-height: 40px !important; margin:auto;margin-bottom: 5px !important;border-radius: 10px !important;--padding-end: 5px !important;
-              span {display: block;  font-size: small; margin-top: -10px; }
-              svg {position: absolute;top: 5px;right: 0; width: 28px; height:28px;}
-              
-              .text-input {padding:0 10px; text-align: center; margin: 10px;}
-              .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
-          }
-          .selarow {
-            svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
-          }
-        }
+  }
 
-      }
-      .setlist.active { padding-bottom: 30px; padding-top: 10px;
-        h3 {padding-left: 10px;}
-        h3, .setdone{display: block !important; }
-        h4 {font-size: inherit !important; font-weight: bold !important; margin-top: 0;}
-      
-        ion-avatar { min-height: 74px !important;
-          img {height: 74px !important;}
-        }
-        ion-row {margin-bottom: 25px;}
-        ion-row.infild{display: flex !important; }
-        .posabs, h4:first-child {display: none !important;}
-
+  .exelist{ margin-bottom: 1rem !important;
+  
+    // h4 { text-align: center;}
+    // ion-row {font-size: large; font-weight: bold; }
+    ion-col {padding:0 0 6px 0 ; 
+        span {display: block; margin-bottom: 5px; font-weight: 900; font-size: initial; }
+        em {display: block; font-weight: normal; }
         
-      }
-
-      .exelist{ margin-bottom: 1rem !important;
-        h4 {  margin-top:0 !important; margin-bottom: 10px !important;}
-        ion-row {  margin-bottom: 3px; border-bottom-width: 1px; border-bottom-style: solid;}
-        ion-col {padding:6px 0 ;
-            span {display: block; }
-            em {display: block; font-size:small; opacity: 0.7; }
-            
-            svg { width: 16px;height: 16px; border-width:1px; border-style:solid;border-radius: 50%;padding: 5px; }
-            .notdone{opacity: 0.4;}
-            .skip{border-color: #EA4F5F !important;}
-        }
-        
-        ion-col:first-child{ margin-left: 0;}
-        ion-col:last-child{ text-align: center; margin-right: -10px;
-          em {margin-top: -5px;}
-        }
-        
-      }
-
-      
+        svg { width: 16px;height: 16px; border-radius: 50%;padding: 5px; margin-top: -3px; margin-bottom: 5px;  }
+        .notdone{background: #727272;}
+        .skip{background: #EA4F5F !important;}
     }
+    
+    ion-col:first-child{ margin-left: 0;}
+    ion-col:last-child{ text-align: center; margin-right: -10px;
+      em {margin-top: -5px;}
+    }
+    
+  }
 
+  
+}
 
-  } /*---END Workout Tabs View Css --- Never changes any thing here*/
+.setdone {display:none !important;width: 100%;  position: relative; text-align: center;
+  em { font-size: 1.1rem; display: block; }
+  ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
+    svg {width:32px !important; height:32px !important; }
+  }   
+}
+
+ /*---END Workout Tabs View Css --- Never changes any thing here*/
 
 
 /*--- Analytics Tab View Css --- Never changes any thing here*/
-.sumry { /*--- Analytics Summery Css --- Never changes any thing here*/
+.sumry {padding-top: 15px !important; margin-top: 0 !important; /*--- Analytics Summery Css --- Never changes any thing here*/
 
-  h2 {margin: 0;}
-  h3 {text-align: center;}
-  ion-col { margin-bottom: 15px; }
-  ion-row.count {
-    ion-col { margin-top: 10px; margin-bottom: 0 !important;   padding-top:15px  !important;
-      span {display: block;  font-size: large; font-weight: bold;
-          em {  display: block; font-size: medium; font-weight: normal !important; padding-top:5px;  }
-      }
-        
+  h2, h3 {margin: 0;}
+
+
+  ion-row.count {padding-bottom: 10px;
+    ion-col { padding-top:15px  !important;
+      span {display: block;  font-size: initial; font-weight: 900; }
+      em {  display: block;  font-weight: normal !important; padding-top:5px;  } 
     }
     // [size="4"] {flex:0 0 32.1222%  !important;}
     // [size="4"]:nth-child(3n+1) {margin-left: 0;}

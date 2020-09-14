@@ -8,14 +8,15 @@
 
 .genwamup {
   ion-card {margin-bottom:10px !important;  
-    ion-item.genset { 
-      ion-avatar { width: 74px !important; height: 74px;
-        img {width: 100% !important; height: 74px !important;object-fit: cover;}
+    ion-item.genset { --inner-border-width:0;
+      ion-avatar { width: 64px !important; height: 64px;
+        img {width: 100% !important; height: 674px !important;object-fit: cover;}
       }
       .gentitl {float: left; 
-        h3, span {display: block; margin: 0; }
+        h3, span {display: block;  font-size: small;}
+        h3 { margin-top: 0; margin-bottom: 10px;  font-size: inherit; }
       }
-      .genreps {margin-right:10px !important;}
+      .genreps {margin-right:10px !important; font-size: small;}
     }
     .genview {display: none; margin:0 !important;
       video {width: 100% !important; vertical-align:bottom !important;}
@@ -26,9 +27,9 @@
     ion-item.genview:last-child{border-radius:0 0 10px 10px !important;}
     .genview {display: block !important;} 
   }
-    p {margin-bottom: 30px !important;
-        // hr {background-color:#1D2534 !important;}
-    }
+    // p {margin-bottom: 30px !important;
+    //     hr {background-color:#1D2534 !important;}
+    // }
 }
 
 

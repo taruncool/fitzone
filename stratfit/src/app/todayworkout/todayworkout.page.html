@@ -62,8 +62,8 @@
       <h3>General Warmup</h3>
     </div>
 
-    <ion-card class="nobg active">
-      <ion-item class="genset">
+    <ion-card class=" active">
+      <ion-item class="genset  nopad nobg">
         <ion-avatar  slot="start">
           <img src="assets/images/plan_2.png">
         </ion-avatar>
@@ -74,28 +74,34 @@
         <div class="genreps" slot="end">10 Reps</div>
       </ion-item>
         
-      <ion-item class="genview">
+      <ion-item class="genview nopad nobg">
         <video webkit-playsinline playsinline controls controlsList="nodownload" src="http://stratfit.net/newExVideo/warmup.mp4"
           poster="assets/images/plan_2.png">
         </video>
       </ion-item>
     </ion-card>
 
-  <p [innerHTML]="genWarmupMsg"></p>
+    <div class="fulpad"><p [innerHTML]="genWarmupMsg"></p></div>
   
-  <div class="setbotm">
-    <ion-button expand="full" (click)='generalWarmupDone()'>Done</ion-button>
-  </div>
+  
+    <div class=" fulpad setbotm">
+      <ion-button expand="block" (click)='generalWarmupDone()'>Done</ion-button>
+    </div>
   </div><!--End General Warmup -->
 
 
     <div [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
-    <div class="exe">
+
+     <div class="fulpad text-center adtitle">
+       <span>Activity 1</span>
+       <h1>Simple Workout</h1>
+     </div> 
+    <!-- <div class="exe">
       <ion-avatar [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index"  > 
           <span>A{{i+1}}</span>
       </ion-avatar>
            
-    </div>
+    </div> -->
 
     <div class="fulpad exetab">
       <div class="workflow" *ngIf="isActivitySimple">
@@ -136,7 +142,7 @@
                     <ion-row class="infild">
                       <ion-col size="6">
                         <h6>Work Weight</h6> 
-                        <ion-item> 
+                        <ion-item class="adbor nobg"> 
                           <span>{{simpleActions.workweight}} Kg </span>
                           <svg id="Tmax-Edit" (click)="tmaxShowPreview(exDetails,exDetails.exerciseName,simpleActions.tmax,'Kg')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                             <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)" fill="#080c14"/>
@@ -148,7 +154,7 @@
                       </ion-col>
                       <ion-col size="6">
                         <h6>Reps</h6>
-                        <ion-item class="selarow" (click)="selectANumber()"> 
+                        <ion-item class="adbor  nobg selarow" (click)="selectANumber()"> 
                           <span >{{repscount}}</span>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
                             <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" />

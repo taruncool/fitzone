@@ -1,12 +1,12 @@
 <ion-header class=" head">
     <ion-toolbar class="hedfm">
-        <ion-title><span>Your Fitness</span>Dashboard</ion-title>
+        <ion-title class="fontxlg">Fitness Dashboard</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="db" >
 
-    <div class="fulpad nopadb profile" (click)="openTab('settings')">
+    <div class="fulpad nopadb profile none" (click)="openTab('settings')">
         <ion-card class=" nobg user" >
             <ion-item>
                 <ion-avatar  slot="start" *ngIf="avatar !='' && avatar !='null' && avatar">
@@ -26,91 +26,28 @@
 
     </div> <!-- End Profile-->
 
-<div class="fulpad nopadb workout">
-  <h1>My Workout <span>{{today | date}}</span></h1>
-
-  <ion-row class="fulpad dcard" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
-      
-          <h3 >{{planInfo.planName}}</h3>
-         
-          <span> {{percentageDays}}%</span>
-          <div class="loader probar" >
+<div class=" workout">
+    <div class="adtitle">
+        <h1>My Workout <span>{{today | date}}</span></h1>
+    </div>
   
-                <div class="progress-outer">
-                    <div class="progress-inner" [style.width]="percentageDays + '%'">
-                        {{percentageDays}}%
-                    </div>
+    <ion-card class="fulpad" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+      
+        <h3 >{{planInfo.planName}}</h3>
+        <span> {{percentageDays}}%</span>
+        <div class="loader probar" >
+
+            <div class="progress-outer">
+                <div class="progress-inner" [style.width]="percentageDays + '%'">
+                    {{percentageDays}}%
                 </div>
             </div>
+        </div>
 
-          <div class="wrkbtm">
-              <em>{{planInfo.coachName}}</em>
-              <ion-button slot="end" (click)="openTab('workout')">
-                  Start 
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
-                      <g id="start" transform="translate(-966 -1035)">
-                          <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
-                          <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
-                      </g>
-                  </svg>
-                    
-              </ion-button>
-          </div>
-      
-  </ion-row>
-
-
-  <ion-row class="fulpad dcard valid"  *ngIf='noplan'>
-    
-          <h3>You are not subscribed to any plan...</h3>
-
-          <div class="wrkbtm">
-              <ion-button (click)="gotoStore()">
-                  Store 
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
-                      <g id="start" transform="translate(-966 -1035)">
-                          <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
-                          <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
-                      </g>
-                  </svg>
-                    
-              </ion-button>
-          </div>
-    
-  </ion-row>
-
-  <ion-row class="fulpad dcard valid"  *ngIf='planComplete'>
-      
-          <h3>Program has been completed.</h3>
-          <p> Please subscribe again or choose new program</p>
-
-          <div class="wrkbtm">
-              <ion-button slot="start" (click)="planRenew()">Subscribe
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
-                      <g id="start" transform="translate(-966 -1035)">
-                          <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
-                          <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
-                      </g>
-                  </svg>
-              </ion-button>
-              <ion-button slot="end" (click)="gotoStore()">Browse Programs 
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
-                      <g id="start" transform="translate(-966 -1035)">
-                          <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
-                          <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
-                      </g>
-                  </svg>
-              </ion-button>
-          </div>
-      
-  </ion-row>
-
-  <ion-row class="fulpad dcard valid"  *ngIf='todaySessionComplete'>
-        <h3 >Session has been completed.</h3>
-        <h4 >Next Workout on {{nextWorkoutDateStr}}</h4>
         <div class="wrkbtm">
-            <ion-button  (click)="sessionSummary()">
-                Today's Summary 
+            <!-- <em>{{planInfo.coachName}}</em> -->
+            <ion-button expand="block" (click)="openTab('workout')">
+                Start 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
                     <g id="start" transform="translate(-966 -1035)">
                         <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
@@ -121,12 +58,137 @@
             </ion-button>
         </div>
       
-  </ion-row>
-  
-  <ion-row class="fulpad dcard valid"  *ngIf='noPlanActive'>
+    </ion-card>
+
+
+    <ion-card class="fulpad valid"   *ngIf='noplan'>
+
+        <h3>You are not subscribed to any plan...</h3>
+
+        <div class="wrkbtm">
+            <ion-button expand="block" (click)="gotoStore()">
+                Store 
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                    <g id="start" transform="translate(-966 -1035)">
+                        <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                        <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                    </g>
+                </svg>
+                
+            </ion-button>
+        </div>
+
+    </ion-card>
+
+    <ion-card class="fulpad valid" *ngIf='planComplete'>
+        
+        <h3>Program has been completed.</h3>
+        <p> Please subscribe again or choose new program</p>
+
+        <div class="wrkbtm">
+            <ion-button expand="block"  (click)="planRenew()">Subscribe
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                    <g id="start" transform="translate(-966 -1035)">
+                        <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                        <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                    </g>
+                </svg>
+            </ion-button>
+            <ion-button expand="block" (click)="gotoStore()">Browse Programs 
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                    <g id="start" transform="translate(-966 -1035)">
+                        <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                        <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                    </g>
+                </svg>
+            </ion-button>
+        </div>
+        
+    </ion-card>
+
+    <ion-card class="fulpad valid"  *ngIf='todaySessionComplete'>
+        <h3 >Session has been completed.</h3>
+        <h4 >Next Workout on {{nextWorkoutDateStr}}</h4>
+        <!-- <div class="wrkbtm">
+            <ion-button expand="block"  (click)="sessionSummary()">
+                Today's Summary 
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                    <g id="start" transform="translate(-966 -1035)">
+                        <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                        <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                    </g>
+                </svg>
+                
+            </ion-button>
+        </div> -->
+        
+    </ion-card>
+
+    <div *ngIf='todaySessionComplete'>
+        <div class="session">
+            <div class="scrol min" scrollX="true">
+            <ion-button  Class="active nobg ">Session 1</ion-button>
+            <ion-button  Class="nobg ">Session 2</ion-button>
+            
+            </div>
+        </div><!-- End Session Block-->
+
+        <ion-card class="fulpad sumry"  >
+            <ion-row >
+                <ion-col size="6"><h3>Complex</h3> </ion-col>
+                <ion-col class="nopad" size="6">
+                <ion-select interface="popover" role="combobox"  placeholder="Activity" >
+                    <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
+                </ion-select>
+                </ion-col>
+                
+            </ion-row>
+
+            <ion-row>
+                <div class="scrol min" scrollX="true">
+                <ul>
+                    <li>Bench Press</li>
+                    <li>Powerlifting Squat</li>
+                    <li>Deadlift</li>
+                </ul>
+                </div>
+            </ion-row>
+
+            <ion-row class="count">
+                <ion-col size="4">
+                    <span>{{totalreps}}  </span>
+                    <em>Reps</em>
+                </ion-col>
+                <ion-col  size="4" >
+                    <span>{{Tmax}}  </span>
+                    <em>Est. Tmax </em>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{Tonnage}}  </span>
+                    <em>Tonnage </em>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{totalweight}}  </span>
+                    <em>Avg Weight </em>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{cal}}  </span>
+                    <em>Calories</em>
+                </ion-col>
+                <ion-col size="4">
+                    <span>{{Work}}  </span>
+                    <em>Work </em>
+                </ion-col>
+                
+            </ion-row>
+
+        </ion-card><!-- End Summary Block-->
+    </div>
+
+    <ion-card class="fulpad valid"  *ngIf='noPlanActive'>
         <h3 >{{planInfo.planName}}</h3>
         <div class="wrkbtm">
-            <ion-button (click)="activatePlan()">
+            <ion-button expand="block" (click)="activatePlan()">
                 Activte Program 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
                     <g id="start" transform="translate(-966 -1035)">
@@ -137,21 +199,21 @@
                 
             </ion-button>
         </div>
-      
-  </ion-row>
+        
+    </ion-card>
 
-  <ion-row class="fulpad dcard valid"  *ngIf='todayRestDay'>
-      
+    <ion-card class="fulpad valid"  *ngIf='todayRestDay'>
+        
         <h3>Rest Day</h3>
         <p>You can do some warmup</p>  
-        <h4 >Next Workout on {{nextWorkoutDateStr}}</h4>                  
+        <h4>Next Workout on {{nextWorkoutDateStr}}</h4>                  
         <ion-row class="pcover">
             <video webkit-playsinline playsinline controls autoplay muted loop controlsList="nodownload" src="http://stratfit.net/newExVideo/warmup.mp4" >
             </video>
             
         </ion-row>
         <div class="wrkbtm" *ngIf="showNextWOBtn">
-            <ion-button (click)="getNextWorkout()">
+            <ion-button expand="block" (click)="getNextWorkout()">
                 Proceed Next Workout 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
                     <g id="start" transform="translate(-966 -1035)">
@@ -162,8 +224,8 @@
                 
             </ion-button>
         </div>
-     
-  </ion-row>
+        
+    </ion-card>
 </div><!-- End My Workout-->
 
 <!-- /* Nutrition Starts */ -->

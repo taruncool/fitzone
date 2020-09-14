@@ -1,19 +1,23 @@
 
+
+
+
+
     .intro {position: absolute;height: 100%;z-index: 999;display: flex;align-items: center;justify-content: center;background:#000; padding:0 2rem;
       img { width:100%; height: 70vh; object-fit: cover;}
     }
-    
+
     
     .swiper-slide .diag {position: relative;z-index:1;width:100%;top: 0;background-size: 100% !important; padding: 0px !important;height:100vh !important;
           video {width: 100%; height: 100% !important; object-fit: cover !important;}
         }
-        .woverlay {background: linear-gradient(rgba(8, 12, 20, 0.0), rgb(0 0 0 / 60%)) !important; background-size: 100% !important;position: absolute; bottom: 0; top: 0; left: 0; right: 0; color: #fff; padding:2rem;}
+        .woverlay {background: #fff !important; background-size: 100% !important;position: absolute; bottom: 0;  left: 0; right: 0; color: #000; padding:20px 20px 60px 20px; min-height: 160px;}
         
-        .logo, .logo-small { margin-bottom:10rem;  margin-top: 5rem; position: relative;
+        .logo, .logo-small {  position: relative;
               img {width: 12% !important; margin: auto;  margin-right: 2rem; }
-              .sst { color: #fff; text-transform:  uppercase;  margin-top: 0; padding-left: 6rem;
-                h1 {color: #fff; font-size: 1.6rem; line-height: 36px; }
-                span{ color: #fff;font-weight: bold; display: block; font-size: 2rem; } 
+              .sst { color: #000; text-transform:  uppercase;  margin-top: 0; padding-left: 6rem;
+                h1 {color: #000; font-size: 1.6rem; line-height: 36px; }
+                span{ color: #000;font-weight: bold; display: block; font-size: 2rem; } 
                 }
                 .mor{padding-right: 13rem !important;}
             }
@@ -23,7 +27,7 @@
             }
         
         .scroll-content {padding-top: 0 !important;}
-        .swiper-pagination-bullet { background: #fff;}
+        .swiper-pagination-bullet { background: #000; opacity: 1 !important;}
      
         .swiper-pagination, .swiper-pagination-bullets{bottom: 20px !important;}
       
