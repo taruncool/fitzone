@@ -333,7 +333,7 @@ ion-loading {outline: none;}
 
 
 ion-modal{ opacity:0.96 !important; --background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); 
-  ion-header ion-toolbar, ion-content, .infild{--background: none !important; color: #fff;}
+  ion-header ion-toolbar, ion-content, .infild{--background: none !important; color: #fff; --color:#fff;}
   // ion-calendar-modal {
   //   h4 {color: #000 !important;}
   //   .toolbar-title { color: #424242 !important;}
@@ -528,10 +528,11 @@ ion-tab-bar{border-width: 0 !important;}
 }
 
 
-.fabicon {border-radius: 50%; width:60px; height: 60px; position: fixed;  right:1rem !important; bottom: 1rem !important; top: unset !important;
+.fabicon, .fabclose {border-radius: 50%; width:60px; height: 60px; position: fixed;  right:1rem !important; bottom: 1rem !important; top: unset !important;
   ion-fab-button {position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); font-weight: bold; text-transform: uppercase;}
   svg{stroke: #fff;}
 }
+.fabclose{transform:translate(-50%, -50%); left:50%;}
 
 .tick, .edit {position: absolute;top: 0; right:0; padding: 6px; 
   svg {width:1rem !important; height: 1rem !important;}
@@ -618,7 +619,7 @@ ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !im
 
 
 
-ion-item {--padding-start: 10px !important; --padding-end:10px !important; --inner-padding-end:0 !important;--border-width:0 !important;}
+ion-item {--padding-start: 10px !important; --padding-end:10px !important; --inner-padding-end:0 !important;--border-width:0 !important; --inner-border-width:0;}
 ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;  border-width: 0; border-style: solid;  color: #000;
 
   ion-avatar{margin: 0 10px 0 0 !important;position: relative;min-width:48px !important;min-height:48px !important;border-width:0;  background:#f7f7f7 !important; padding: 0;overflow: hidden; display: inline-block;
@@ -653,7 +654,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 
 /*-- Store *** Coach *** Coachview *** Analytics *** Profile --*/
-.store, .coachview, .analytic { 
+.store, .analytic, .welcome { 
   ion-list  { padding: 0 !important;}
    
   /*--- Full Card scroll---*/
@@ -1179,6 +1180,12 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 }
 .tmax { 
   p{color: #fff;}
+  .infild {
+    h4 {text-transform: inherit !important;}
+    ion-row ion-col span, ion-row ion-col em {font-size: initial !important;}
+    ion-row ion-col {line-height: 40px;}
+    ion-row ion-col:last-child {padding-right: 10px !important;}
+  }
   // .inpgrp {  text-align: left; margin-bottom:30px;}
     form { margin-bottom:15px ; }
     // ion-item {
@@ -1244,9 +1251,32 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
 
   /*--- Workout Tabs View Css --- Never changes any thing here*/
 
-.workflow { 
-  // .worktab { margin-bottom: 15px; display: block;   opacity: 0.1;}
-}
+  .genwamup {
+    ion-card {margin-bottom:10px !important;  
+      ion-item.genset {
+        ion-avatar { width: 64px !important; height: 64px;
+          img {width: 100% !important; height: 64px !important;object-fit: cover;}
+        }
+        .gentitl {float: left; 
+          h3, span {display: block;  font-size: small;}
+          h3 { margin-top: 0; margin-bottom: 10px;  font-size: inherit; }
+        }
+        .genreps {margin-right:10px !important; font-size: small;}
+      }
+      .genview {display: none; margin:0 !important;
+        video {width: 100% !important; vertical-align:bottom !important;}
+      }
+    }
+    ion-card.active {
+      ion-item.genset:first-child{border-radius: 10px 10px 0 0 !important; }
+      ion-item.genview:last-child{border-radius:0 0 10px 10px !important;}
+      .genview {display: block !important;} 
+    }
+      
+  }
+
+
+.workflow { }
 
 .workview {
   // h1 { display: block; font-size: x-large; }

@@ -57,13 +57,10 @@
             </ion-col>
             
         </ion-row>
-        
-          
-        <ion-button (click)='backButtonAction()'>Skip</ion-button> 
           
       </div>
 
-      <div  *ngIf="exFinished" >
+      <!-- <div  *ngIf="exFinished" >
       <div class="exesumry" *ngFor="let ex of exDetails; let i=index" >
             <h3>Excercise Summary</h3>
             <ion-row >
@@ -131,15 +128,19 @@
             </ion-row>
       
       </div>
-    </div>
+    </div> -->
   </div>
   
+<ion-fab class="fabicon fabclose ">
+   <ion-fab-button (click)='backButtonAction()'>Skip</ion-fab-button>
+</ion-fab>
+
 </ion-content>
 
-
+<!-- 
 <ion-footer class="foot ">
   <ion-row class="btnrow">
       <button ion-button (click)='backButtonAction()'> Skip </button>
      
   </ion-row>
-</ion-footer>
+</ion-footer> -->
