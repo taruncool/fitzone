@@ -673,7 +673,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
                           var elementId = "roundid" + this.currentAction[0].round_id;
                           const el = document.getElementById(elementId);
-                          el.scrollIntoView({ inline: "center" });
+                          //el.scrollIntoView({ inline: "center" });
 
                           this.activeSessionId = this.currentAction[0].session_id;
                           console.log("active session id", this.activeSessionId);
@@ -756,7 +756,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                             for (var rr = 1; rr <= range; rr++) {
                               this.prescribedReps.numbers.push({ description: String(rr) });
                             }
-
+                            console.log("error 2nd");
                             this.defaultRepValue = this.prescribedReps.numbers[this.prescribedReps.numbers.length - 1].description;
                             this.actionType = this.currentAction[0].action_type;
                             console.log("------ex details", this.exDetails);
@@ -1112,7 +1112,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
               var elementId = "roundid" + this.currentAction[0].round_id;
               const el = document.getElementById(elementId);
-              el.scrollIntoView({ inline: "center" });
+              //el.scrollIntoView({ inline: "center" });
 
               for (let pi = 0; pi < this.exercisesList.length; pi++) {
 
@@ -1152,7 +1152,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
               for (var rr = 1; rr <= range; rr++) {
                 this.prescribedReps.numbers.push({ description: String(rr) });
               }
-
+              console.log("error 3rd");
               this.defaultRepValue = this.prescribedReps.numbers[this.prescribedReps.numbers.length - 1].description;
 
               console.log("------ex details", this.exDetails);

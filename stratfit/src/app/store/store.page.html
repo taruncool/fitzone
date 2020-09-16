@@ -1,7 +1,7 @@
 <ion-header class=" head">
   <ion-toolbar class="hedfm"> 
     <!-- <ion-title><span>Store</span>Programs</ion-title> -->
-    <ion-title class="fontxlg">Welcome, Dinson</ion-title>
+    <ion-title class="fontxlg">Welcome, {{name}}</ion-title>
      <ion-buttons  slot="end" >
       <ion-button  slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 76 76">
@@ -77,21 +77,21 @@
 
 
 
-<div [ngSwitch]="programstype">
+<div>
 
   <!-- List Format -->
   <div class="fulpad" *ngIf="isGrid">
 
-    <ion-list *ngSwitchCase="'recommended'">
+    <ion-list >
 
-      <ion-item class="nodata nopad" text-center *ngIf="recommendedData.length == 0">
+      <ion-item class="nodata nopad" text-center *ngIf="plansdata.length == 0">
         <p>No programs to display </p>
       </ion-item>
 
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="recommendedData.length != 0" >
-        <ion-slide class="fulcard curv"  *ngFor="let plan of recommendedData; let i = index" (click)="planDetails(plan)">
-          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-          <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1" effect="slide" pager="false" zoom="true" *ngIf="plansdata.length != 0" >
+        <ion-slide class="fulcard curv"  *ngFor="let plan of plansdata; let i = index" (click)="planDetails(plan)">
+          <img src="{{plan.planLogo}}" (error)="onImageError(plan)" *ngIf="plan.planLogo !='' && plan.planLogo !=null">
+          <img src="assets/images/plan_2.png" *ngIf="plan.planLogo =='' || plan.planLogo ==null">
           
           <div class="container">
             <div class="cdbody">
@@ -131,160 +131,23 @@
       </ion-slides>
 
     </ion-list>
-    
-    <ion-list *ngSwitchCase="'beginner'">
-
-      <ion-item class="nodata nopad" text-center *ngIf="beginnerdata.length==0">
-        <p>No programs to display </p>
-      </ion-item>
-
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="beginnerdata.length !=0" >
-        <ion-slide class="fulcard curv " *ngFor="let plan of beginnerdata; let i = index"  (click)="planDetails(plan)">
-          <div *ngIf="plan.planType=='Beginner'">
-            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-            <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-
-            <div class="container">
-              <div class="cdbody">
-                
-                <span>{{plan.duration_weeks}} Weeks</span>
-                <h1>{{plan.planName}}</h1>
-                <p>{{plan.createdBy_id__first_name}}</p>
-               
-                <div class="wordslid">
-                  <em>Click to See</em>
-                  <div class="word">
-                    <ul class="flip1"> 
-                      <li>Video</li>
-                      <li>Programs Details</li>
-                      <li>Purpose</li> 
-                      <li>Exercises</li>  
-                    </ul>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            
-            <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-              </svg>   
-            </div>
-  
-          </div>
-        </ion-slide>
-      </ion-slides>
-
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'intermediate'" >
-  
-      <ion-item class="nodata nopad" text-center *ngIf="intermediatedata.length==0">
-        <p>No programs to display</p>
-      </ion-item>
-
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="intermediatedata.length !=0" >
-      
-        <ion-slide class="fulcard curv " *ngFor="let plan of intermediatedata; let i = index"  (click)="planDetails(plan)">
-          <div *ngIf="plan.planType=='Intermediate'">
-              <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-              <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-         
-            <div class="container">
-              <div class="cdbody">
-                <span>{{plan.duration_weeks}} Weeks</span>
-                <h1>{{plan.planName}}</h1>
-                <p>{{plan.createdBy_id__first_name}}</p>
-              
-                <div class="wordslid">
-                  <em>Click to See</em>
-                  <div class="word">
-                    <ul class="flip1"> 
-                      <li>Video</li>
-                      <li>Programs Details</li>
-                      <li>Purpose</li> 
-                      <li>Exercises</li>  
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-              </svg>   
-            </div>
-
-          </div>
-        </ion-slide>
-    </ion-slides>
-      
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'advanced'"  >
-  
-      <ion-item class="nodata nopad" text-center *ngIf="advancedata.length==0">
-        <p>No programs to display</p>
-      </ion-item>
-
-      <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1"effect="slide"pager="false" zoom="true" *ngIf="advancedata.length !=0"> 
-        <ion-slide class="fulcard curv"  *ngFor="let plan of advancedata; let i = index" (click)="planDetails(plan)">
-          <div *ngIf="plan.planType=='Advanced'">
-            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-            <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-
-
-            <div class="container">
-              <div class="cdbody">
-                <span>{{plan.duration_weeks}} Weeks</span>
-                <h1>{{plan.planName}}</h1>
-                <p>{{plan.createdBy_id__first_name}}</p>
-              
-                <div class="wordslid">
-                  <em>Click to See</em>
-                  <div class="word">
-                    <ul class="flip1"> 
-                      <li>Video</li>
-                      <li>Programs Details</li>
-                      <li>Purpose</li> 
-                      <li>Exercises</li>  
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-              </svg>   
-            </div>
-          </div>
-        </ion-slide>
-      </ion-slides>
-      
-    </ion-list>
   
   </div>
 
   <!-- Grid Format -->
   <div class="fulpad  gridview" *ngIf="!isGrid">
 
-    <ion-list *ngSwitchCase="'recommended'" >
+    <ion-list >
 
-      <ion-item class="nodata nopad"  *ngIf="recommendedData.length==0">
+      <ion-item class="nodata nopad"  *ngIf="plansdata.length==0">
         <p>No programs to display</p>
       </ion-item>
   
       <ion-row>
-        <ion-col size="6" *ngFor="let plan of recommendedData; let i = index">
+        <ion-col size="6" *ngFor="let plan of plansdata; let i = index">
           <div class="fulcard active" (click)="planDetails(plan)">
-            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-              <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+            <img src="{{plan.planLogo}}" (error)="onImageError(plan)" *ngIf="plan.planLogo !='' && plan.planLogo !=null">
+              <img src="assets/images/plan_2.png" *ngIf="plan.planLogo =='' || plan.planLogo ==null">
 
             <div class="container">
               <div class="cdbody">
@@ -308,108 +171,6 @@
           </div>
         </ion-col>
       </ion-row>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'beginner'"  >
-
-      <ion-item class="nodata nopad"  *ngIf="beginnerdata.length==0">
-        <p>No programs to display</p>
-      </ion-item>
-  
-      <ion-row>
-        <ion-col size="6" *ngFor="let plan of beginnerdata; let i = index">
-          <div class="fulcard" *ngIf="plan.planType=='Beginner'" (click)="planDetails(plan)">
-            <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-            <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-            
-            <div class="container">
-              <div class="cdbody">
-                <h1>{{plan.planName}}</h1>
-                <!-- <p>{{plan.createdBy_id__first_name}}</p> -->
-                <p>{{plan.duration_weeks}} Weeks <em>4.5
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34 34">
-                    <path id="Star" d="M17,0l4.25,12.644L34,12.987,23.877,21.144,27.507,34,17,26.4,6.493,34l3.63-12.856L0,12.987l12.75-.343Z" fill="#ffc400"/>
-                  </svg>
-                </em></p>
-
-              </div>
-            </div>
-
-            <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-              </svg>   
-            </div>
-
-          </div>
-        </ion-col>
-      </ion-row>
-
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'intermediate'"  >
-
-      <ion-item class="nodata nobg" text-center *ngIf="intermediatedata.length==0">
-        <p>No programs to display</p>
-      </ion-item>
-  
-      <ion-row>
-      <ion-col size="6" *ngFor="let plan of intermediatedata; let i = index">
-        <div class="fulcard nobg" *ngIf="plan.planType=='Intermediate'" (click)="planDetails(plan)">
-          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-          <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-
-          <div class="container">
-            <div class="cdbody">
-              <h1>{{plan.planName}}</h1>
-              <p>{{plan.createdBy_id__first_name}}</p>
-              <span>{{plan.duration_weeks}} Weeks</span>
-
-            </div>
-          </div>
-
-          <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-            </svg>   
-          </div>
-      
-          </div>
-      </ion-col>
-    </ion-row>
-
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'advanced'"  >
-
-      <ion-item class="nodata nobg" text-center *ngIf="advancedata.length==0">
-        <p>No programs to display</p>
-      </ion-item>
-      <ion-row>
-      <ion-col size="6" *ngFor="let plan of advancedata; let i = index">
-        <div class="fulcard nobg" *ngIf="plan.planType=='Advanced'" (click)="planDetails(plan)">
-          <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
-          <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
-
-          <div class="container">
-            <div class="cdbody">
-              <h1>{{plan.planName}}</h1>
-              <p>{{plan.createdBy_id__first_name}}</p>
-              <span>{{plan.duration_weeks}} Weeks</span>
-
-            </div>
-          </div>
-         
-          <div class="posabs text-center tick"  *ngIf="plan.activestatus">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
-            </svg>   
-          </div>
-            
-          </div>
-      </ion-col>
-    </ion-row>
-
     </ion-list>
     
   </div>

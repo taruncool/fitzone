@@ -130,8 +130,8 @@ export class ProgressloginPage implements OnInit {
       
       
     }
-    this.percent = 70;
-    localStorage.setItem('getpercent','100');
+    //this.percent = 70;
+    //localStorage.setItem('getpercent','100');
     this.hideloader = true;
   }
   callFunction(){

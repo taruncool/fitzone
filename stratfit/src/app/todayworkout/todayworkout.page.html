@@ -109,16 +109,16 @@
             <h3 class="text-center" *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h3>
             <h3 class="text-center" *ngIf="actionType == 'MainSet'">Workout  </h3>
 
-            <div class="scrol min" scrollX="true">
+            <!--<div class="scrol min" scrollX="true">
               <ul>
                 <li id="roundid{{round.round_id}}" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> <span>Set {{i+1}}</span></li>     
               </ul>
-            </div>
+            </div>-->
           </ion-row>  
 
           <div class="workview">
-            <ion-list class="sbsd sbgw setlist active">
-                <h3>Set 1</h3>
+            <ion-list class="sbsd sbgw setlist" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">
+                <h3>Set {{i+1}}</h3>
                 <ion-row >
                   
                   <ion-avatar (click)="openExercise(exDetails)">
@@ -136,7 +136,7 @@
                   
                     
                   <ion-col class="posrel" >
-                    <h4>Set 2</h4>
+                    <h4>Set {{i+1}}</h4>
                     <div class="posabs">{{repscount}} Reps</div>
                     <h4>{{exDetails.exerciseName}}</h4>
                     <ion-row class="infild">
@@ -180,7 +180,7 @@
 
             </ion-list>
 
-            <ion-list class="sbsd sbgw setlist ">
+            <!--<ion-list class="sbsd sbgw setlist ">
               <ion-row >
                 <ion-avatar (click)="openExercise(exDetails)">
                   <img src="{{exDetails.exImgNew}}" (error)="onExImageError(exDetails)">
@@ -203,7 +203,7 @@
                 </ion-col>
               
               </ion-row>       
-          </ion-list>
+          </ion-list>-->
               
 
           </div>
@@ -214,15 +214,15 @@
           <h3 class="text-center" *ngIf="actionType == 'warmup'">Warmup  <!-- <em >Skip Set</em> --></h3>
           <h3 class="text-center" *ngIf="actionType == 'MainSet'">Workout  </h3>
           
-          <div class="scrol min" scrollX="true">
+          <!--<div class="scrol min" scrollX="true">
             <ul>
               <li class="roundTab" id="roundid{{round.round_id}}" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> <span>Round {{i+1}}</span></li>     
             </ul>
-          </div>
+          </div>-->
         
         </ion-row> 
         <div class="workview">
-            <ion-list class="setlist" >
+            <ion-list class="setlist" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index" >
               <ion-row class="nobg" *ngFor="let action of complexActions; let i = index">
                 
                 <ion-avatar item-start (click)="openExercise(exDetailsComplex[i])">

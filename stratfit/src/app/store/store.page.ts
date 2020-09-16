@@ -32,6 +32,7 @@ export class StorePage implements OnInit {
   userCurType;
   uplanstate;
   prompt;
+  name;
 
   programstype:any;
   programLevel:any;
@@ -93,6 +94,7 @@ segmentChanged(ev: any) {
     
     this.activeplanid = localStorage.getItem('subplanid');
     this.futureplanid = localStorage.getItem('futureplanid');
+    this.name = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
     //this.planStatusCheck();
    
       this.loadPrograms();

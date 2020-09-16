@@ -33,8 +33,8 @@
 
     <div class="fulview">
     <div class="fulcard " >
-        <img src="{{planinfo.plancover}}" class="planimg" (error)="onImageError()"  *ngIf="planinfo.planPhoto !='' && planinfo.planPhoto !=null" >
-          <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planPhoto =='' || planinfo.planPhoto ==null" >
+        <img src="{{planinfo.planLogo}}" class="planimg" (error)="onImageError()"  *ngIf="planinfo.planLogo !='' && planinfo.planLogo !=null" >
+          <img src="assets/images/plan_2.png" class="planimg" *ngIf="planinfo.planLogo =='' || planinfo.planLogo ==null" >
 
         <div class="play" *ngIf="isShowIcon" (click)="playVideo(planinfo.id)">
             <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
