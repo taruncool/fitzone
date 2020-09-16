@@ -8,7 +8,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title><span>Nutrition</span>General Meal</ion-title>
+    <ion-title>General Meal</ion-title>
 
     <ion-buttons slot="end" >
      <ion-button (click)="saveEditMeal()">
@@ -26,13 +26,16 @@
 
 
 <ion-content class="diet ">
-   
-  <ion-row class=" fulpad lgraph">
-     <ion-col class="fat"><progress-bar [progress]="fatDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{fatDayBalGms}} g</em><span>Fat</span></div></ion-col>
-     <ion-col class="protein"><progress-bar [progress]="proDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{proDayBalGms}} g</em><span>Protein</span></div></ion-col>
-     <ion-col class="carbohydrate"><progress-bar [progress]="carbsDayBalGmsPercent"></progress-bar><div class="reqcal"><em>{{carbsDayBalGms}} g</em><span>Carbohydrate</span></div></ion-col>
-     <ion-col class="calorie"><progress-bar [progress]="calDayBalPercent"></progress-bar><div class="reqcal"><em>{{calDayBal}} </em><span>Calorie</span></div></ion-col>
-  </ion-row>
+  
+  <div class="fulpad lgraph">
+    <h3>Day Balance</h3>
+    <ion-row >
+      <ion-col class="fat"><em>{{fatDayBalGms}} g</em><progress-bar [progress]="fatDayBalGmsPercent"></progress-bar><span>Fat</span></ion-col>
+      <ion-col class="protein"><em>{{proDayBalGms}} g</em><progress-bar [progress]="proDayBalGmsPercent"></progress-bar><span>Protein</span></ion-col>
+      <ion-col class="carbohydrate"><em>{{carbsDayBalGms}} g</em><progress-bar [progress]="carbsDayBalGmsPercent"></progress-bar><span>Carbohydrate</span></ion-col>
+      <ion-col class="calorie"><em>{{calDayBal}} </em><progress-bar [progress]="calDayBalPercent"></progress-bar><span>Calorie</span></ion-col>
+    </ion-row>
+  </div>
            
   <ion-row class="  adlist">
      <h4>Add Dishes <span>{{selectedFoodItems.length}} Items</span></h4>
@@ -42,18 +45,25 @@
       </div>
         <div class="scrol">
        
-           <!-- <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
-             <img src="assets/images/burger.jpg">  
-              <ion-icon (click)="removeFullFoodItem(fooditem)">
-                 <svg id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
+           <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
+             <img src="assets/images/workout.png">  
+              <dd (click)="removeFullFoodItem(fooditem)">
+                 <!-- <svg id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
                     <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" />
                     <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" />
                     <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)"/>
-              </svg>
-            </ion-icon>
-           </ion-avatar> -->
+              </svg> -->
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
+                <g id="close" transform="translate(0 0)">
+                    <path id="Path_119" data-name="Path 119" d="M164.092,159.542a3.925,3.925,0,1,0-5.492,5.609L189.5,195.4a3.925,3.925,0,0,0,5.491-5.61Z" transform="translate(-105.869 -106.215)" />
+                    <path id="Path_120" data-name="Path 120" d="M108.926,114.476a3.925,3.925,0,1,0,5.551-5.551L84.886,79.334a3.925,3.925,0,0,0-5.55,5.55Z" transform="translate(-78.185 -78.185)" />
+                    <path id="Path_121" data-name="Path 121" d="M167.341,79.331a3.913,3.913,0,0,0-5.533,0L79.331,161.807a3.913,3.913,0,0,0,5.534,5.533l82.476-82.476A3.914,3.914,0,0,0,167.341,79.331Z" transform="translate(-78.185 -78.185)"/>
+                </g>
+            </svg>
+          </dd>
+           </ion-avatar>
 
-            <em *ngFor="let food of selectedFoodItems">{{food.foodcount}} {{food.name}} </em>
+            <!-- <em *ngFor="let food of selectedFoodItems">{{food.foodcount}} {{food.name}} </em> -->
              
              
              <!-- <ion-label color="primary" stacked>{{fooditem.name}}</ion-label>
@@ -63,11 +73,11 @@
              </div>
      </ion-row>
 
-     <ion-row class="lgraph adpad10">
-        <ion-col><div class="reqcal"><em>{{mealFatGmss}} g</em><span>Fat</span></div></ion-col>
-        <ion-col><div class="reqcal"><em>{{mealProGmss}} g</em><span>Protein</span></div></ion-col>
-        <ion-col><div class="reqcal"><em>{{mealCarbsGmss}} g</em><span>Carbohydrate</span></div></ion-col>
-        <ion-col><div class="reqcal"><em>{{mealCals}}</em><span>Calories</span></div></ion-col>
+     <ion-row class="lgraph fulpad">
+        <ion-col><em>{{mealFatGmss}} g</em><span>Fat</span></ion-col>
+        <ion-col><em>{{mealProGmss}} g</em><span>Protein</span></ion-col>
+        <ion-col><em>{{mealCarbsGmss}} g</em><span>Carbohydrate</span></ion-col>
+        <ion-col><em>{{mealCals}}</em><span>Calories</span></ion-col>
      </ion-row>
 
   </ion-row>
@@ -84,47 +94,53 @@
      </ion-item>
         
   </ion-row> -->
-  <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)"></ion-searchbar>
-       
-  <div class=" dishes">
-    <!-- <ion-toolbar class="sfmenu">
-           <ion-segment class="segment-activated" >
-              <ion-segment-button value="breakfast">Breakfast </ion-segment-button>
-              <ion-segment-button value="lunch">Lunch </ion-segment-button>
-              <ion-segment-button value="dinner">Dinner </ion-segment-button>
-              <ion-segment-button value="snack">Snack </ion-segment-button>
-           </ion-segment>
-        </ion-toolbar> -->
-  
-      <div class=" dishlist">
-          <ion-list class=" dishview sbgw">
-            <p *ngIf="alertmsg">{{alertmsg}}</p>
-            <ion-item class="nobg" *ngFor="let food of temporaryFoodItemsFilter">
-                <ion-avatar item-start>
-                  <img src="assets/images/burger.jpg">
-                </ion-avatar>
-                <ion-row class="title">
-                  <h4>{{food.name}}</h4>
-                  <ion-row class="lgraph">
-                      <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
-                      <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>
-                      <ion-col><em>{{food.carbs}} g</em><span>Carbohydrate</span></ion-col>
-                      <ion-col><em>{{food.calories}} Cal</em><span>Calories</span></ion-col>
-                  </ion-row>
-                </ion-row>
 
-                <div class="add" item-end>
-                  <ion-icon name="remove" (click)="removeFoodItem(food)"></ion-icon>
-                  <em>{{food.foodcount}}</em>
-                  <ion-icon name="add" text-right (click)="addFood(food)" ></ion-icon>
-                </div>
-      
-            </ion-item>
 
-          </ion-list>
-            
-      </div>
-
+<div class="frame dishes">
+  <div class="adtitle">
+    <h1>Breakfast</h1>
   </div>
+  <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)"></ion-searchbar>
+      
   
+  <!-- <ion-toolbar class="sfmenu">
+        <ion-segment class="segment-activated" >
+            <ion-segment-button value="breakfast">Breakfast </ion-segment-button>
+            <ion-segment-button value="lunch">Lunch </ion-segment-button>
+            <ion-segment-button value="dinner">Dinner </ion-segment-button>
+            <ion-segment-button value="snack">Snack </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar> -->
+
+    <div class=" dishlist">
+      <ion-list class=" dishview sbgw">
+        <p *ngIf="alertmsg">{{alertmsg}}</p>
+        <ion-item class="nobg nopad" *ngFor="let food of temporaryFoodItemsFilter">
+            <ion-avatar slot="start">
+              <img src="assets/images/burger.jpg">
+            </ion-avatar>
+            <ion-row class="title">
+              <h4>{{food.name}}</h4>
+              <ion-row class="lgraph">
+                  <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
+                  <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>
+                  <ion-col><em>{{food.carbs}} g</em><span>Carbohydrate</span></ion-col>
+                  <ion-col><em>{{food.calories}} Cal</em><span>Calories</span></ion-col>
+              </ion-row>
+            </ion-row>
+
+            <div class="add" item-end>
+              <ion-icon name="remove" (click)="removeFoodItem(food)"></ion-icon>
+              <em>{{food.foodcount}}</em>
+              <ion-icon name="add" text-right (click)="addFood(food)" ></ion-icon>
+            </div>
+  
+        </ion-item>
+
+      </ion-list>
+          
+    </div>
+
+  
+</div>
 </ion-content> 

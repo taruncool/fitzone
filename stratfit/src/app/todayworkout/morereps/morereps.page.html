@@ -1,7 +1,18 @@
-<ion-header class=" head" >
+<ion-header class=" head back" >
     <ion-toolbar class="hedfm"> 
-        <ion-title><span>{{setName}}</span>{{exerciseName}}</ion-title>
-      <ion-buttons  slot="end" >
+      <ion-buttons  slot="start" >
+        <ion-button slot="icon-only" (click)="closeRepsModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+              <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+            </svg>
+        </ion-button>
+      </ion-buttons>
+
+
+
+
+        <ion-title>More Reps</ion-title>
+      <!-- <ion-buttons  slot="end" >
         <ion-button slot="icon-only" (click)='closeRepsModal()'>
             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
                 <g id="close" transform="translate(0 0)">
@@ -11,36 +22,62 @@
                 </g>
             </svg>
         </ion-button>
-      </ion-buttons>
+      </ion-buttons> -->
   
     </ion-toolbar> 
   
   </ion-header>  
 
 
-<ion-content class=" timing ">
+<ion-content class=" tmax ">
  
-  <div class="fulpad tmax text-center" >
-      <!-- <h1 >Recommended<br>More reps</h1> -->
-      <div class=" inpgrp " >
+  <div class="fulpad  " >
 
-        <h4>Help us make your fitness program more personalized by answering this simple question.</h4>
-        <h3>How many more reps can you do?</h3>
-          <ion-item class="sbgw" > 
-              <ion-input type="number" minlength="1" maxlength="2" name="repscount" [(ngModel)]="repscount" placeholder="0" required></ion-input>
-          </ion-item>
-          <!-- <p>*This will increase your Tmax for the next workout</p> -->
-          
-          <ion-button (click)='closeRepsModal()'> 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
-                <g id="Tick" transform="translate(-455.422 -895.106)">    
-                    <path id="Path_199" data-name="Path 199" d="M140.641,46.087a5.868,5.868,0,0,0-8.235,0L74.2,103.861,51.338,81.229a5.868,5.868,0,0,0-8.235,0,5.729,5.729,0,0,0,0,8.153L69.937,115.95a5.715,5.715,0,0,0,4.117,1.687,5.958,5.958,0,0,0,4.117-1.687L140.5,54.24a5.609,5.609,0,0,0,.142-8.153Z" transform="translate(469.481 920.222)" fill="#fff"/>
-                </g>
-                </svg>   
-            </ion-button>
+    <h1>{{setName}}</h1>
+    <h4>Help us make your fitness program more personalized by answering this simple question.</h4>
 
-      </div>
+    <div class="infild  ">
+      <h4>{{exerciseName}}</h4>
+      <ion-item class="sbgw " >
+        <ion-row>
+          <ion-col ><em>Work Weight</em></ion-col>
+          <ion-col ><span>60kg</span></ion-col>
+        </ion-row>
+        </ion-item >
+    </div>
+
+    <div class="infild  ">
+      <ion-item class="sbgw " >
+        <ion-row>
+          <ion-col ><em>Tmax</em></ion-col>
+          <ion-col ><span>60kg</span></ion-col>
+        </ion-row>
+        </ion-item >
+    </div>
+
+    
   </div>
-  
+  <div class="fulpad  " >
+
+    <div class="infild  ">
+      <h4>How many more reps can you do?</h4>
+      <ion-item class="sbgw " >
+        <ion-row>
+          <ion-col ><em>More Reps</em></ion-col>
+          <ion-col > <ion-input type="number" minlength="1" maxlength="2" name="repscount" [(ngModel)]="repscount" placeholder="0" required></ion-input></ion-col>
+        </ion-row>
+        </ion-item >
+    </div>
+
+   
+   
+    <ion-button (click)='closeRepsModal()'> 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
+      <g id="Tick" transform="translate(-455.422 -895.106)">    
+          <path id="Path_199" data-name="Path 199" d="M140.641,46.087a5.868,5.868,0,0,0-8.235,0L74.2,103.861,51.338,81.229a5.868,5.868,0,0,0-8.235,0,5.729,5.729,0,0,0,0,8.153L69.937,115.95a5.715,5.715,0,0,0,4.117,1.687,5.958,5.958,0,0,0,4.117-1.687L140.5,54.24a5.609,5.609,0,0,0,.142-8.153Z" transform="translate(469.481 920.222)" fill="#fff"/>
+      </g>
+      </svg>   
+  </ion-button>
+    </div>
 </ion-content>
 

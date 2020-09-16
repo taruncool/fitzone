@@ -29,31 +29,28 @@
             svg {width:50vw; height: 92vh;}
         }
         .bmleft { width:70vw; 
-          .infild { margin-bottom:10px !important;
-              h4{ text-transform: uppercase;  display: block; text-align: left !important; margin-top: 0; margin-bottom: 10px;}
-              ion-item { margin-bottom: 0 !important; height: 44px !important; 
-                // ion-label {margin-top:0; margin-bottom: 0;}
-                // svg { width:1.4rem; height: 1.4rem; fill: #000 !important;}
-                // ion-datetime { width: 80%;}
-              }
+          // .infild { margin-bottom:10px !important;
+          //     h4{ text-transform: uppercase;  display: block; text-align: left !important; margin-top: 0; margin-bottom: 10px;}
+          //     ion-item { margin-bottom: 0 !important; height: 44px !important; 
+          //     }
               
-              ion-row{width: 100%;
-                ion-col { padding-right:10px !important; padding-left:10px !important; padding-top: 0 !important;
-                    ion-input, ion-datetime { 
-                      .native-input {opacity: 1 !important;}
-                    } 
-                    ion-datetime {--padding-start:0 !important ;}
-                    .last {
-                      ion-input {width: 50% !important; float: left !important;}
-                      // ion-input.last {border-left: 1px solid #ddd !important;}  
-                    }
-                  }
-                  .text-input[disabled] {opacity: 1 !important; text-align: center !important;  margin: 5px 8px !important; }
-                  ion-col:last-child {width:34% !important; max-width: 34% !important; padding-right: 0 !important; text-transform: capitalize;
-                      ion-select {max-width: 100% !important;width: 100%; padding-left: 0 !important;} 
-                  }
-              }
-          }
+          //     ion-row{width: 100%;
+          //       ion-col { padding-right:10px !important; padding-left:10px !important; padding-top: 0 !important;
+          //           ion-input, ion-datetime { 
+          //             .native-input {opacity: 1 !important;}
+          //           } 
+          //           ion-datetime {--padding-start:0 !important ;}
+          //           .last {
+          //             ion-input {width: 50% !important; float: left !important;}
+                      
+          //           }
+          //         }
+          //         .text-input[disabled] {opacity: 1 !important; text-align: center !important;  margin: 5px 8px !important; }
+          //         ion-col:last-child {width:34% !important; max-width: 34% !important; padding-right: 0 !important; text-transform: capitalize;
+          //             ion-select {max-width: 100% !important;width: 100%; padding-left: 0 !important;} 
+          //         }
+          //     }
+          // }
       }
          
     }

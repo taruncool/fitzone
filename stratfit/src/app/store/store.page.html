@@ -89,7 +89,7 @@
       </ion-item>
 
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1" effect="slide" pager="false" zoom="true" *ngIf="plansdata.length != 0" >
-        <ion-slide class="fulcard curv"  *ngFor="let plan of plansdata; let i = index" (click)="planDetails(plan)">
+        <ion-slide class="fulcard "  *ngFor="let plan of plansdata; let i = index" (click)="planDetails(plan)">
           <img src="{{plan.planLogo}}" (error)="onImageError(plan)" *ngIf="plan.planLogo !='' && plan.planLogo !=null">
           <img src="assets/images/plan_2.png" *ngIf="plan.planLogo =='' || plan.planLogo ==null">
           

@@ -15,7 +15,7 @@ const routes: Routes = [
           import('../store/store.module').then(m => m.StorePageModule)
       },
       {
-        path: '/dietprofile',
+        path: 'dietprofile',
         loadChildren: () =>
           import('../userdiet/dietprofile.module').then(m => m.DietprofilePageModule)
       },

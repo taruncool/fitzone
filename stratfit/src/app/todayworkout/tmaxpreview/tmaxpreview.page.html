@@ -1,6 +1,14 @@
-<ion-header class=" head">
+<ion-header class=" head back">
   <ion-toolbar class="hedfm"> 
-    <ion-buttons  slot="end" >
+
+    <ion-buttons  slot="start" >
+      <ion-button slot="icon-only" (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons  slot="end" >
       <ion-button slot="icon-only" (click)="backButtonAction()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
           <g id="close" transform="translate(0 0)">
@@ -10,9 +18,9 @@
           </g>
         </svg>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
 
-    <ion-title><span>Tmax for</span>{{exercise}}</ion-title>
+    <ion-title>Edit Tmax </ion-title>
   </ion-toolbar> 
 
 </ion-header>
@@ -22,7 +30,7 @@
  
 <div class="fulpad ">
 
-   <ion-list class="inputs inpgrp">
+ 
     <!-- <form #exTmaxForm="ngForm">
       <label>Tmax: {{tmax}} {{metric}}</label>
       <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*" 
@@ -38,25 +46,42 @@
         <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' readonly></ion-input>
       </ion-item> -->
 
-      <ion-item class="sbgw" >
+      <div class="infild  ">
+        <h4>{{exercise}}</h4>
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Work Weight</em></ion-col>
+            <ion-col  ><span>60kg</span></ion-col>
+          </ion-row>
+          </ion-item >
+        </div>
+
+        <div class="infild  ">
+          <ion-item class="sbgw " >
+            <ion-row>
+              <ion-col ><em>Tmax</em></ion-col>
+              <ion-col ><ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input></ion-col>
+            </ion-row>
+            </ion-item >
+          </div>
+
+      <!-- <ion-item class="sbgw" >
         <ion-row class="hed" >
           <span>Tmax</span>
           <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input>
         </ion-row>
-      </ion-item>
+      </ion-item> -->
 
 
 
     </form>
-    <ion-button expand="full" (click)="saveExerciseTmax()" [disabled]="!exTmaxForm.form.valid"> Save</ion-button> 
-  </ion-list>
+    <ion-button expand="block" (click)="saveExerciseTmax()" [disabled]="!exTmaxForm.form.valid"> Save</ion-button> 
 
+</div>
+<div class="fulpad">
   <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
   <p>Stratfit has approx estimated your training maxes based on your biometric data and training level.</p>
   <p>Stratfit will auto correct your training maxes during training or you can manually change them at any time.</p>
-
-
-
 </div>
  
 </ion-content>

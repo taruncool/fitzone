@@ -24,12 +24,21 @@
 
     <div class="setsumry" >
         <h3>Summary</h3>
+        <ion-item class="  nopad nobg">
+            <ion-avatar  slot="start">
+              <img src="assets/images/plan_2.png">
+            </ion-avatar>
+            <div class="settitl">
+              <h3>{{exerciseName}}</h3>
+              <span>3 mins</span>
+            </div>
+            <div class="setreps" slot="end">{{setWorkWeight}} {{repsDone}}</div>
+        </ion-item>
+
         <ion-row class="setcal">
             <ion-col>
                 <ion-avatar item-start > 
                     <img src="{{exThumbImg}}" (error)="onExImageError()">
-                        
-                    <!-- <img src="{{s3urlPop}}/exerciseicons/{{excerciseId}}.png"> -->
                 </ion-avatar>
                 <span>{{exerciseName}}</span>
             </ion-col>
@@ -128,11 +137,9 @@
 </ion-content>
 
 
-<!-- <ion-footer class="foot ">
+<ion-footer class="foot ">
   <ion-row class="btnrow">
-      <button ion-button (click)='backButtonAction()'> 
-          Skip  
-      </button>
+      <button ion-button (click)='backButtonAction()'> Skip </button>
      
   </ion-row>
-</ion-footer> -->
+</ion-footer>
