@@ -26,32 +26,32 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
 import { ApiService } from '../app/api.service';
-import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
+//import { ProgressloginPage } from './login/progresslogin/progresslogin.page';
 import { ComponentsModule } from '../components/components.module';
 import { IonicRatingModule } from 'ionic4-rating';
-import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
+/*import { EditprofilePage } from './userprofile/editprofile/editprofile.page';
 import { FiltercountryPage } from './userprofile/filtercountry/filtercountry.page';
 import { PlanpreviewPage } from './programdetails/planpreview/planpreview.page';
 import { TimerpopupPage } from './workout/timerpopup/timerpopup.page';
 import { MorerepsPage } from './todayworkout/morereps/morereps.page';
 import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomplex.page';
 import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
-import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';
+import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';*/
 import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
 import { TimerComponent } from './workout/timer/timer.component';
-import { AddmealPage } from './userdiet/addmeal/addmeal.page';
+//import { AddmealPage } from './userdiet/addmeal/addmeal.page';
 import { ImageProvider } from 'src/providers/image/image';
-import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';
+/*import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';*/
 import { Crop } from '@ionic-native/crop/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
-import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
+//import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
 import { CalendarModule } from 'ion2-calendar';
-import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';
+//import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';*/
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProgressloginPage,
+    /*ProgressloginPage,
     PlanpreviewPage,
     TimerpopupPage,
     MorerepsPage,
@@ -59,16 +59,16 @@ import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';
     SessionsummaryPage,
     EditprofilePage,
     FiltercountryPage,
-    TmaxeditpopupPage,
+    TmaxeditpopupPage,*/
     ProgressbarPage,
     TimerComponent,
-    AddmealPage,
+    /*AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,
-    ExcpreviewPage
+    ExcpreviewPage*/
   ],
   entryComponents: [
-    ProgressloginPage,
+    /*ProgressloginPage,
     PlanpreviewPage,
     TimerpopupPage,
     MorerepsPage,
@@ -76,13 +76,13 @@ import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';
     SessionsummaryPage,
     EditprofilePage,
     FiltercountryPage,
-    TmaxeditpopupPage,
+    TmaxeditpopupPage,*/
     ProgressbarPage,
     TimerComponent,
-    AddmealPage,
+    /*AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,
-    ExcpreviewPage,
+    ExcpreviewPage,*/
   ],
   imports: [
     BrowserModule,

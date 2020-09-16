@@ -5,7 +5,7 @@ import { LoadData } from '../../../providers/loaddata';
 import { HttpClient } from '@angular/common/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { DietprofilePage } from '../dietprofile.page';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from '../../../app/api.service';
 import { FilterfoodPage } from '../filterfood/filterfood.page';
 
 @Component({
@@ -75,8 +75,7 @@ export class ViewmealPage implements OnInit {
   mealCarbsGmss=0;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, 
-    public toastCtrl: ToastController, private loadData: LoadData,private apiService: ApiService, 
-    private ga:GoogleAnalytics, public modalCtrl: ModalController, 
+    public toastCtrl: ToastController, private loadData: LoadData,private apiService: ApiService, public modalCtrl: ModalController, 
     ) {
 
       this.token = localStorage.getItem('usertoken');

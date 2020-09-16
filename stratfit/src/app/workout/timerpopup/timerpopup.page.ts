@@ -13,7 +13,7 @@ import { TimerComponent } from '../timer/timer.component';
   styleUrls: ['./timerpopup.page.scss'],
 })
 export class TimerpopupPage implements OnInit {
-  @ViewChild('timer',{static:false}) timer: TimerComponent;
+  @ViewChild(TimerComponent,{static:false}) timer: TimerComponent;
   myVariableNameHere:any;
   setName:any;
   exerciseName:any;
