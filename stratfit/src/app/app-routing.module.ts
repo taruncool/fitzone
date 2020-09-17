@@ -174,6 +174,11 @@ const routes: Routes = [
     path: 'goal',
     loadChildren: () => import('./goal/goal.module').then( m => m.GoalPageModule)
   },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+
 
 ];
 @NgModule({

@@ -201,7 +201,7 @@ export class SlidesPage implements OnInit {
                  // this.loadData.stopLoading();
                   localStorage.setItem('planSet','true');
     
-                  this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
+                  this.navCtrl.navigateRoot('/tabs/tabs/welcome');
                 }else{
                   //this.loadData.stopLoading();
                   this.navCtrl.navigateRoot('/tabs/tabs/goal');
@@ -224,7 +224,7 @@ export class SlidesPage implements OnInit {
           if(localStorage.getItem('planSet')==='true'){
           
     
-            this.navCtrl.navigateRoot('/tabs/tabs/dashboard');
+            this.navCtrl.navigateRoot('/tabs/tabs/welcome');
           }else{
             localStorage.setItem('redirectPage','store');
             this.navCtrl.navigateRoot('tabs/tabs/goal');

@@ -115,7 +115,7 @@ export class ProgressloginPage implements OnInit {
            
             setTimeout(() => {
               this.modalCtrl.dismiss();
-              this.nav.navigateRoot('/tabs/tabs/dashboard');
+              this.nav.navigateRoot('/tabs/tabs/welcome');
               }, 300);
 					}
 				}

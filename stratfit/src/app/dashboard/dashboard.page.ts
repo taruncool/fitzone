@@ -145,8 +145,15 @@ export class DashboardPage implements OnInit {
   // if(localStorage.getItem('internet')==='online'){
   
   // }
-  backButtonAction() {
-    // this.viewCtrl.dismiss();
+  // backButtonAction() {
+  //   this.viewCtrl.dismiss();
+  // }
+  //public backButtonAction(){
+   // this.modalCtrl.dismiss(); 
+  //}
+  
+   backButtonAction() {
+    this.navCtrl.navigateBack('/tabs/tabs/welcome');
   }
 
   startWorkout(){

@@ -1,5 +1,3 @@
-.foot{ background:none !important;}
-
 
 // .lgraph {padding-top: 16px !important;}
 // .card {box-shadow: none !important; background: none !important;}
@@ -9,6 +7,15 @@
 
 
 
+
+ion-modal{opacity: 1 !important;}
+ion-header ion-button.button span, ion-title{ color: #000 !important;}
+ion-header, ion-content {background: #EFF1F4 !important; color: #000 !important;
+    --color: #000 !important;
+}
+
+.lgraph{margin-bottom: 10px;}
+.diet .dishes .dishlist .dishview ion-item .title .lgraph {margin-bottom: 0 !important;}
 
 
 

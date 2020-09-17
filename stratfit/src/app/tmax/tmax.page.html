@@ -1,13 +1,32 @@
-<ion-header>
+<!-- <ion-header>
 
-  <!--<ion-navbar color="toolbg" hideBackButton='true'>-->
-    <ion-toolbar class="hedfm">
-      <ion-title text-center>Know Your Training Maximum</ion-title>
-    </ion-toolbar>
-  <!--</ion-navbar>-->
+  <ion-navbar color="toolbg" hideBackButton='true'>
+    <ion-title text-center>Know Your Training Maximum</ion-title>
+  </ion-navbar>
     
-</ion-header>
-<ion-content>
+</ion-header> -->
+
+
+<ion-header class=" head" >
+  <ion-toolbar class="hedfm"> 
+    <ion-buttons  slot="start" >
+      <ion-button slot="icon-only" (click)="closeRepsModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+
+      <ion-title>Know Your Training Maximum</ion-title>
+   
+
+  </ion-toolbar> 
+
+</ion-header>  
+
+
+
+<ion-content class="tmax">
   <ion-item class="tmaxheading">
     <h2><strong>WHAT IS Training Maximum &nbsp;?</strong></h2>
     <p>Training Maximum for the exercise (one repetition maximum)</p>

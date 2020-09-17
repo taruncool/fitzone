@@ -29,7 +29,7 @@
 
         ion-row.setcal { margin-bottom: 2rem;
             ion-col { text-align: center;
-                span {display: block; color: #fff; }
+                span {display: block; color: #fff; font-size: x-large; font-weight: bold; margin-bottom: 10px;}
                 em {display: block; color: #fff; }
             }
             ion-col:first-child { min-width: 100%; margin-bottom: 1rem;
