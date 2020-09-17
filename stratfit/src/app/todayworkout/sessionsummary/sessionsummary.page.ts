@@ -318,7 +318,7 @@ localStorage.setItem('work','');
 localStorage.setItem('cal','');
 }
 dietInfo(){
-this.navCtrl.navigateForward('/dietprofile');
+this.navCtrl.navigateForward('tabs/tabs/dietprofile');
 }
 backButtonAction(){
   console.log("session summary close");
@@ -330,7 +330,7 @@ backButtonAction(){
   localStorage.setItem('work','');
   localStorage.setItem('cal','');
   setTimeout(() => {
-this.navCtrl.navigateRoot('tabs/tabs/dashboard');
+this.navCtrl.navigateRoot('tabs/tabs/welcome');
   }, 300);
  
 }

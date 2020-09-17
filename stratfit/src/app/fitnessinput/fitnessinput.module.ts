@@ -8,6 +8,7 @@ import { FitnessinputPageRoutingModule } from './fitnessinput-routing.module';
 
 import { FitnessinputPage } from './fitnessinput.page';
 import { ComponentsModule } from '../../components/components.module';
+import { TmaxeditpopupPage } from '../tmaxeditpopup/tmaxeditpopup.page';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ComponentsModule } from '../../components/components.module';
     ComponentsModule,
     FitnessinputPageRoutingModule
   ],
-  declarations: [FitnessinputPage]
+  declarations: [FitnessinputPage],
+  entryComponents: [TmaxeditpopupPage]
 })
 export class FitnessinputPageModule {}

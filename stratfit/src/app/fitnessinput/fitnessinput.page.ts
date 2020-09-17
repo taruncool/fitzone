@@ -130,7 +130,7 @@ heightArrCms= {
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
   value;
   tmaxPopupModal;
-  constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew) {
+  constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew,public platform: Platform) {
     this.items = [
       { title: "Untrained", desc: "I haven't done any resistance training in over 6 months and have a non-physical job.", expanded: false, value: 1 },
       { title: "Beginner", desc: "I have been consistently doing resistance training for less than 6 months, or I don't train but have a physical job.", expanded: false, value: 2 },
@@ -471,6 +471,16 @@ heightArrCms= {
         this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
       }
       this.loadData.startLoading();
+      var dateF,separator,rsep;
+      rsep = (this.dob.indexOf("T")!==-1)?"T":" ";
+      separator = (this.platform.is('android')||(status==="db"))?" ":"T";
+      var dateFormatArr = this.dob.split(rsep);
+      //dateFormatArr[1] = (dateFormatArr[1]=== undefined)?"00:00:00":dateFormatArr[1];
+      var dateArr = dateFormatArr[0].split("-");
+      var TimeArr = dateFormatArr[1].split(":");
+      TimeArr[2] = TimeArr[2].replace("Z","");
+      dateF = dateArr[0]+"-"+('0' +dateArr[1]).slice(-2)+"-"+('0' +dateArr[2]).slice(-2);
+      this.dob = dateF;
       var userInfo = { "id": parseInt(this.userId), "userInf": { "dob": this.dob, "gender": this.genderinfo, "height": this.cent, "heightM": "cms", "weightM": this.weightMetric, "weight": this.weigth, "trainingLevel": this.selectedLevel } }
       this.apiService.fitnessprofile(userInfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
@@ -708,7 +718,7 @@ heightArrCms= {
     tmaxmodal.onDidDismiss().then((data: any) => {
        
           console.log('The result: model closed');
-          this.navCtrl.navigateForward('/tabs/tabs/store');
+          this.navCtrl.navigateForward('/goal');
         
      });
 

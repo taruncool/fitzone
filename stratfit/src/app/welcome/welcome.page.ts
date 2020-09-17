@@ -27,7 +27,7 @@ export class WelcomePage implements OnInit {
 
 public dietprofile(){
   // this.modalCtrl.dismiss(); 
-  this.navCtrl.navigateForward('/dietprofile');
+  this.navCtrl.navigateForward('tabs/tabs/dietprofile');
 }
 
 public store(){
