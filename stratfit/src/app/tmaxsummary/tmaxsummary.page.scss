@@ -1,6 +1,4 @@
-page-tmaxsummary {
-    
-}
+
 
 
 
@@ -28,14 +26,14 @@ page-tmaxsummary {
 
 ion-list.summary  { width: 100%;
    
-    .tmaxedit { font-size: inherit;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid; color: #fff !important; border-color: #1D2534 !important;
+    .tmaxedit { font-size: inherit;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid; color: #000 !important; 
         
         div[slot="end"]{
-            .count {padding-right: 10px; display: inline-block !important;  color: #fff !important;
-                span {color:#fff !important;}
+            .count {padding-right: 10px; display: inline-block !important;  color: #000 !important;
+                span {color:#000 !important; font-weight: bold;}
                 em {font-size: 14px; }
             }
-            ion-icon {color: #59800D;}
+            ion-icon {color: #000;}
         }
     
         
