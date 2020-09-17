@@ -1,5 +1,5 @@
 <ion-header class=" head">
-    <ion-title><span>Your</span>Training Maxes </ion-title>
+    <ion-title>Training Maxes </ion-title>
     <ion-buttons end>
         <!-- <button ion-button clear class="outline" (click)='gotoHome()'><ion-icon name="body"></ion-icon>Start Workout</button> -->
         <ion-button (click)='closeTmax()'>Next</ion-button>
@@ -8,7 +8,7 @@
   <!-- </ion-navbar> -->
 </ion-header>
 
-<ion-content class="sbgrd exeinfo tmax">
+<ion-content class=" exeinfo tmax">
   <div class="fulpad ">
 
       <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
@@ -16,22 +16,20 @@
       <p>Stratfit will auto correct your training maxed during training or you can maually change their at any time.</p>
       
 </div>
-  <div  class="fulpad">
+  <div class="fulpad">
 
       <strong *ngIf='skipStatus'>Values based on your Fitness Profile</strong>
 
    <ion-grid class="summary">
       <ion-row  *ngFor='let extra of allExercises'>
 
-        <ion-col col-8 align-self-center>
+        <ion-col size="8" align-self-center>
           <h5>{{extra.exerciseName}}</h5>
         </ion-col>
 
         <ion-col align-self-center>
             <!-- (ionInput)='validatenumber(extra.updatetmax)'-->
-          <ion-input type="number" id='ex{{extra.id}}'
-           [disabled]="isEditDisable"
-           [(ngModel)]='extra.tmax' required></ion-input> 
+          <ion-input type="number" id='ex{{extra.id}}' [disabled]="isEditDisable" [(ngModel)]='extra.tmax' required></ion-input> 
          
           <h5>{{wMetric}}</h5>
            
