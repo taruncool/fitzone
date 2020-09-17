@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./password.page.scss'],
 })
 export class PasswordPage implements OnInit {
-  chngpwd=[];
+  chngpwd:any=[];
   token;
   userId;
   public type = 'password';

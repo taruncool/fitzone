@@ -72,7 +72,7 @@ export class DashboardPage implements OnInit {
   date;
 
   totalreps;
-  // Tmax;
+  Tmax;
   totalweight;
   Tonnage;
   Work;
@@ -260,7 +260,7 @@ ngOnInit(){
     
    
     this.totalreps = localStorage.getItem('totalreps');
-    // this.Tmax = localStorage.getItem('tmax');
+    this.Tmax = localStorage.getItem('tmax');
     this.totalweight = localStorage.getItem('totalweight');
     this.Tonnage = localStorage.getItem('tonnage');
     this.Work = localStorage.getItem('work');
@@ -1631,7 +1631,7 @@ public getExercise(exercise_id){
        this.loadData.stopLoading();
     }else{
     localStorage.setItem('totalreps',this.totalreps);
-    // localStorage.setItem('tmax',this.Tmax);
+    localStorage.setItem('tmax',this.Tmax);
     localStorage.setItem('totalweight',this.totalweight);
     localStorage.setItem('tonnage',this.Tonnage);
     localStorage.setItem('work',this.Work);

@@ -4,6 +4,7 @@ import {ITimer} from './itimer';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
+
 @Component({
   selector: 'timer',
   templateUrl: './timer.component.html',

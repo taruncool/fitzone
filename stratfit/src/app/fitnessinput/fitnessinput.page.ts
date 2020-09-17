@@ -16,7 +16,7 @@ import { TmaxeditpopupPage } from '../tmaxeditpopup/tmaxeditpopup.page';
 export class FitnessinputPage implements OnInit {
   items: any = [];
   itemExpandHeight: number = 100;
-  stepArry = [];
+  stepArry: any = [];
   stepIndex;
   initStepArry: any;
   selectedLevel = 1;

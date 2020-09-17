@@ -38,7 +38,7 @@ import { MorerepscomplexPage } from './todayworkout/morerepscomplex/morerepscomp
 import { SessionsummaryPage } from './todayworkout/sessionsummary/sessionsummary.page';
 import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';*/
 import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
-import { TimerComponent } from './workout/timer/timer.component';
+//import { TimerComponent } from './workout/timer/timer.component';
 //import { AddmealPage } from './userdiet/addmeal/addmeal.page';
 import { ImageProvider } from 'src/providers/image/image';
 /*import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';*/
@@ -61,7 +61,7 @@ import { CalendarModule } from 'ion2-calendar';
     FiltercountryPage,
     TmaxeditpopupPage,*/
     ProgressbarPage,
-    TimerComponent,
+    //TimerComponent,
     /*AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,
@@ -78,7 +78,7 @@ import { CalendarModule } from 'ion2-calendar';
     FiltercountryPage,
     TmaxeditpopupPage,*/
     ProgressbarPage,
-    TimerComponent,
+    //TimerComponent,
     /*AddmealPage,
     ImagepreviewPage,
     TmaxpreviewPage,

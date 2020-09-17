@@ -6,6 +6,8 @@ import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
+import { Facebook ,FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ProgressloginPage } from '../login/progresslogin/progresslogin.page';
 
 @Component({
@@ -14,7 +16,7 @@ import { ProgressloginPage } from '../login/progresslogin/progresslogin.page';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  user =[];
+  user:any=[];
   prompt:any;
 	validemail;
 	validpassword;
@@ -31,7 +33,7 @@ export class SignupPage implements OnInit {
 	isTermsChecked = false;
 	Terms_and_Conditions ="terms";
 
-  constructor(private navCtrl: NavController,private apiService:ApiService, private http: HttpClient,public modalCtrl:ModalController, private alertCtrl: AlertController,private router: Router, public toastCtrl: ToastController, private loadData: LoadData, private platform: Platform, private loadingCtrl: LoadingController, public sqlStorageNew: SqlStorageNew) {}
+  constructor(private navCtrl: NavController,private apiService:ApiService, private http: HttpClient,public modalCtrl:ModalController, private alertCtrl: AlertController,private router: Router, public toastCtrl: ToastController, private loadData: LoadData, private platform: Platform, private loadingCtrl: LoadingController, public sqlStorageNew: SqlStorageNew,private googlePlus: GooglePlus, private fb: Facebook) {}
 
   ngOnInit() {
     if(localStorage.getItem('internet')==='online'){
@@ -234,58 +236,58 @@ export class SignupPage implements OnInit {
       toast.present();
     }
   
-  //  async doGoogleLogin(){
-  //     var self = this;
-  //     let nav = this.navCtrl;
-  //       let env = this;
-  //     let loading = await this.loadingCtrl.create({
-  //       message: 'Please wait...'
-  //     });
-  //     loading.present();
-  //     if(this.devicetype === 'android') {
-  //       this.googlePlus.login({
-  //         'scopes': '',
-  //         'webClientId':'542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
-  //         'offline': false
-  //       })
-  //       .then(function (user) {
-  //         loading.dismiss();
-  //         if(user !=='' && user !==null){
-  //           self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
-  //         }
-  //         console.log(user,'==google login response==');
-  //       }, function (error) {
-  //         console.log("google login error--3")
-  //         loading.dismiss();
-  //         self.errorMsg();
-  //       });
-  //     } else {
-  //       this.googlePlus.login({
-  //         'offline': false
-  //       })
-  //       .then(function (user) {
-  //         loading.dismiss();
-  //         if(user !=='' && user !==null){
-  //           self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
-  //         }
-  //         console.log(user,'==google login response==');
-  //       }, function (error) {
-  //         console.log("google login error---4")
-  //         loading.dismiss();
-  //         self.errorMsg();
-  //       });
-  //     }
-  //   }
+   async doGoogleLogin(){
+      var self = this;
+      let nav = this.navCtrl;
+        let env = this;
+      let loading = await this.loadingCtrl.create({
+        message: 'Please wait...'
+      });
+      loading.present();
+      if(this.devicetype === 'android') {
+        this.googlePlus.login({
+          'scopes': '',
+          'webClientId':'542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
+          'offline': false
+        })
+        .then(function (user) {
+          loading.dismiss();
+          if(user !=='' && user !==null){
+            self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+          }
+          console.log(user,'==google login response==');
+        }, function (error) {
+          console.log("google login error--3")
+          loading.dismiss();
+          self.errorMsg();
+        });
+      } else {
+        this.googlePlus.login({
+          'offline': false
+        })
+        .then(function (user) {
+          loading.dismiss();
+          if(user !=='' && user !==null){
+            self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+          }
+          console.log(user,'==google login response==');
+        }, function (error) {
+          console.log("google login error---4")
+          loading.dismiss();
+          self.errorMsg();
+        });
+      }
+    }
   
-  //   public nativeFbLogin(){
-  //     this.fb.login(['public_profile', 'user_friends', 'email'])
-  //     .then((res: FacebookLoginResponse) => 
-  //       this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
-  //     )
-  //     .catch(e => {
-  //       this.errorMsg();
-  //     });
-  //   }
+    public nativeFbLogin(){
+      this.fb.login(['public_profile', 'user_friends', 'email'])
+      .then((res: FacebookLoginResponse) => 
+        this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
+      )
+      .catch(e => {
+        this.errorMsg();
+      });
+    }
     //(socialtype, accessToken, clientid, code)
     async sociallogin(socialtype, accessToken, clientid, code) {
       this.clearData();

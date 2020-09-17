@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { TimerpopupPageRoutingModule } from './timerpopup-routing.module';
 
 import { TimerpopupPage } from './timerpopup.page';
+import { TimerComponent } from '../timer/timer.component';
+
 
 
 @NgModule({
@@ -16,6 +18,6 @@ import { TimerpopupPage } from './timerpopup.page';
     IonicModule,
     TimerpopupPageRoutingModule
   ],
-  declarations: [TimerpopupPage]
+  declarations: [TimerpopupPage, TimerComponent]
 })
 export class TimerpopupPageModule {}

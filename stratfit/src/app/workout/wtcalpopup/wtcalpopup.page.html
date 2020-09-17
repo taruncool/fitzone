@@ -45,8 +45,8 @@
               </ion-col>
           </ion-row>
 
-          <h6 *ngIf='displayclampswt && remainingwrkwt !==NaN && remainingwrkwt<=1' class="errmsg">You may use clamps to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
-          <h6 *ngIf='displayclampswt && remainingwrkwt !==NaN && remainingwrkwt>1' class="errmsg">You need more weight plates to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
+          <h6 *ngIf='displayclampswt && remainingwrkwt<=1' class="errmsg">You may use clamps to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
+          <h6 *ngIf='displayclampswt && remainingwrkwt>1' class="errmsg">You need more weight plates to complete the remaining {{remainingwrkwt}} {{metrics}}</h6>
           <h6 *ngIf='errbarbelmsg' class="errmsg">{{errmsg}}</h6>
 
           <ion-row class="clickBtnrow">

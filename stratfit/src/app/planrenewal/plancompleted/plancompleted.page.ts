@@ -27,6 +27,11 @@ export class PlancompletedPage implements OnInit {
 
   ngOnInit() {
   }
+  openTab(page){
+    if(page==='store'){
+      this.navCtrl.navigateRoot('store');
+    }
+  }
   public backButtonAction(){
     this.modalCtrl.dismiss(); 
 }

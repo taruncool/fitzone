@@ -119,21 +119,21 @@
     <div class="contin" *ngIf='!noplan'>
         <ion-row class=" fulpad  periods">
             <ion-col >
-              <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod-{{i+1}}">
+              <ion-select interface="popover" role="combobox" [(ngModel)]="currentPeriod" (ionChange)="onMesoChange(currentPeriod)" placeholder="currentPeriod">
                 <ion-select-option aria-selected="active" *ngFor="let period of currentPeriodss; let i = index" [value]="period.period_id">{{period.periodName}}-{{i+1}}</ion-select-option>
                   
               </ion-select>
             </ion-col>
             
             <ion-col>
-                <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle-{{j+1}}">
+                <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle">
                   <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
                     >MesoCycle-{{j+1}}</ion-select-option>
 
                 </ion-select>
             </ion-col>
             <ion-col>
-              <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData($event)" placeholder="MicroCycle-{{k+1}}">
+              <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData()" placeholder="MicroCycle">
                   <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
                   >MicroCycle-{{k+1}}</ion-select-option>
               </ion-select>
@@ -154,7 +154,7 @@
           </div>
         </div><!-- End Session Block-->
 
-        <div [ngSwitch]="programstype">
+        <div>
             
           <!-- <div class="exe none"  >
             <ion-col>
