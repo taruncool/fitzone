@@ -109,7 +109,14 @@
 
     <div class="fulpad " [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
       <div class="text-center adtitle">
-        <span>Activity 1</span>
+        <!--<span>Activity 1</span>-->
+        <!--<div class="exe">
+          <ion-avatar [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index"  > 
+              <span [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</span>
+          </ion-avatar>
+              
+        </div>-->
+        <span [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</span>
         <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
         <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
       </div> 

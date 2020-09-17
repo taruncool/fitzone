@@ -8,7 +8,7 @@ import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
-// import { GoalPage } from '../goal/goal.page';
+import { GoalPage } from '../goal/goal.page';
 
 @Component({
   selector: 'app-store',
@@ -130,7 +130,7 @@ segmentChanged(ev: any) {
   },1000);
 }
 goalclick(){
-  this.navCtrl.navigateForward('store/goal');
+  this.navCtrl.navigateForward('/goal');
 }
 
 // newgoalclick(){

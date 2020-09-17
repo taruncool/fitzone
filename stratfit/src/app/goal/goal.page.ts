@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { Headers } from '@angular/http';
 import { ProgramdetailsPage } from '../../app/programdetails/programdetails.page';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { LoadData } from '../../providers/loaddata';
@@ -34,6 +35,8 @@ isNetAlert = false;
 isGoalsExist = true;
 activepurposeid = 0;
 goal;
+  mainGoals: any=[];
+    selectedCats:any=[];
 
   constructor(public platform: Platform,public modalCtrl:ModalController,public router: Router,private apiService:ApiService, public navCtrl: NavController, private alertCtrl: AlertController,public toastCtrl: ToastController,private loadData: LoadData,private http: HttpClient){}
 
@@ -50,8 +53,42 @@ goal;
       this.activeplanid = localStorage.getItem('subplanid');
       this.futureplanid = localStorage.getItem('futureplanid');
       // this.planStatusCheck();
+
+      var headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', localStorage.getItem('usertoken'));
+      this.http.post(global.baseURL + 'utility/getPlanPurposes/',this.filters, { headers: headers })
+          .subscribe(response => {
+
+            console.log(response);
+            //  this.loading=true;
+            var element = JSON.stringify(response);
+            let purposes1 = JSON.parse(element);
+            console.log(purposes1);
+            this.mainGoals=purposes1.goals;
+      });
      
-      this.loadPrograms();
+      //this.loadPrograms();
+  }
+
+  public catSelection(goal){
+    goal.status = (goal.status === true) ? false : true;
+    if (goal.status) {
+      // if (this.selectedCats.length < 14) {
+      //   this.selectedCats.push(this.mainCategories[idx].id);
+      // } else {
+      //   this.mainCategories[idx].status = false;
+      //   let toast = this.toastCtrl.create({
+      //     message: 'Maximum 14 Interest You Can Choose',
+      //     duration: 3000
+      //   });
+      //   toast.present();
+      // }
+      this.selectedCats.push(goal.id);
+    } else {
+      let foundIndex = this.selectedCats.findIndex(x => x === goal.id);
+      this.selectedCats.splice(foundIndex, 1);
+    }
   }
 
   public loadPrograms(){
@@ -257,7 +294,10 @@ goal;
   }
 
   store() {
-    this.navCtrl.navigateBack('/store');
+    //this.navCtrl.navigateBack('/store');
+    setTimeout(() => { 
+      this.navCtrl.navigateBack('/store');
+    },200);
   }
 
 }

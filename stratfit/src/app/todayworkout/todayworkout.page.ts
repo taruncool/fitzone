@@ -2749,7 +2749,7 @@ console.log("todays workout back button tag");
     localStorage.setItem('work', '');
     localStorage.setItem('cal', '');
     setTimeout(() => {
-      this.nav.navigateRoot('tabs/tabs/dashboard');
+      this.nav.navigateRoot('/dashboard');
     }, 200);
   }
 

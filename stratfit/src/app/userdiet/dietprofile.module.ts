@@ -9,6 +9,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { DietprofilePageRoutingModule } from './dietprofile-routing.module';
 
 import { DietprofilePage } from './dietprofile.page';
+import { DiethistoryPage } from './diethistory/diethistory.page';
+import { AddmealPage } from './addmeal/addmeal.page';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { DietprofilePage } from './dietprofile.page';
     
     DietprofilePageRoutingModule
   ],
-  declarations: [DietprofilePage]
+  declarations: [DietprofilePage],
+  entryComponents: [DiethistoryPage, AddmealPage]
 })
 export class DietprofilePageModule {}
