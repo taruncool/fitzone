@@ -158,7 +158,7 @@
           <ion-col size="4" *ngFor="let subgoal2 of subgoal1?.subGoals1" >
             <div class="iconcard"  (click)="catSelection(subgoal2)">
               <input class="mr-2" type="checkbox"  *ngIf="!subgoal1?.subGoals1" [(ngModel)]="subgoal2.selected">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 110.003 108">
+              <svg xmlns="http://www.w3.org/2000/svg"   class="none"  viewBox="0 0 110.003 108">
                 <g id="Food_Ball" data-name="Food Ball" transform="translate(1 1)">
                   <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(-1 -1)" fill="none" stroke="#000" stroke-width="3">
                     <ellipse cx="55.001" cy="54" rx="55.001" ry="54" stroke="none"/>
@@ -192,8 +192,8 @@
         <ion-row class="mglr-5" >
           <ion-col size="4" *ngFor="let subgoal1 of goals.subGoals" >
             <div class="iconcard" (click)="catSelection(subgoal1)">
-              <input class="mr-2" type="checkbox"  *ngIf="!goals.subGoals" [(ngModel)]="subgoal1.selected">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 110.003 108">
+              <input class="mr-2" type="checkbox"   *ngIf="!goals.subGoals" [(ngModel)]="subgoal1.selected">
+              <svg xmlns="http://www.w3.org/2000/svg"   class="none"  viewBox="0 0 110.003 108">
                 <g id="Food_Ball" data-name="Food Ball" transform="translate(1 1)">
                   <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(-1 -1)" fill="none" stroke="#000" stroke-width="3">
                     <ellipse cx="55.001" cy="54" rx="55.001" ry="54" stroke="none"/>
