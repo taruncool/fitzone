@@ -1,4 +1,4 @@
-<ion-header class=" head">
+<ion-header class=" head back">
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button slot="icon-only" (click)="backButtonAction()">
@@ -7,6 +7,7 @@
           </svg>
       </ion-button>
     </ion-buttons>
+    <ion-title>Summary</ion-title>
   
   </ion-toolbar> 
  </ion-header>
@@ -15,54 +16,94 @@
 
 <ion-content class=" pcview">
 
-  <div class="fulcard poverlay">
-    <div class="pcsuces">
-      <div class="pctitle ">
+  <div class=" poverlay">
+    <div class="pctitle ">
 
 
-          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-          </svg>
-                  
-          <h2>Hey, <span>{{firstname}}!</span></h2>
-          <h3> You have done a Good Job</h3>
-          <!-- <h1>All Exercises were Skipped</h1> -->
-      </div>
-    
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+                
+        <h2>Hey, <span>{{firstname}}!</span></h2>
+        <h3> You have done a Good Job</h3>
+        <!-- <h1>All Exercises were Skipped</h1> -->
     </div>
 
-    <!--Summary Section-->
-    <div class="sumary">
-      <div class="execis ">
-          <h3>Summary</h3>
 
-          <div class="session">
-              <div class="scrol min" scrollX="true">
+    <!--Summary Section-->
+    <!-- <div class="sumary"> -->
+
+          <!-- <h3>Summary</h3> -->
+
+          <div class="text-left session">
+            <div class="scrol min" scrollX="true">
               <ion-button id="sessionSeg{{session.session_id}}" *ngFor="let session of tempSessionData; let i = index" [ngClass]="{'active': session.session_id == currentDisplaySes}" (click)="getActivity(session.session_id)">{{session.session_name}} </ion-button>
-              </div>
+            
+            </div>
           </div><!-- End Session Block-->
 
-          <div class="exe">
-            <ion-avatar *ngFor="let activity of tempActivity; let i = index" (click)="getAction(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id == currentactivity_id}"> 
-              <span>A{{i+1 }}</span>
-            </ion-avatar>
-          </div>
-          <!-- <h2>{{exe.exerciseName}}</h2> -->
-          
-      </div>	
+          <ion-card class="fulpad text-left sumry" >
+            <ion-row >
+              <ion-col size="6"><h3>Workout</h3> </ion-col>
+              <ion-col class="nopad" size="6">
+                <ion-select interface="popover" role="combobox"  placeholder="Activity">
+                  <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
+                </ion-select>
+              </ion-col>
+              
+            </ion-row>
+    
+            <ion-row>
+              <div class="scrol min" scrollX="true">
+                <ul>
+                  <li *ngFor="let exe of tempExeData; let i = index">{{exe.exerciseName}}</li>
+                </ul>
+              </div>
+            </ion-row>
+    
+            <ion-row class="count">
+              <ion-col size="4">
+                  <span>{{totalreps}}  </span>
+                  <em>Reps</em>
+              </ion-col>
+              <ion-col  size="4" >
+                  <span>{{Tmax}} </span>
+                  <em>Est. Tmax </em>
+              </ion-col>
+              <ion-col size="4">
+                <span>{{Tonnage}} </span>
+                <em>Tonnage </em>
+              </ion-col>
+              <ion-col size="4">
+                  <span>{{totalweight}} </span>
+                  <em>Avg Weight </em>
+              </ion-col>
+              <ion-col size="4">
+                <span>{{cal}}</span>
+                <em>Calories</em>
+              </ion-col>
+              <ion-col size="4">
+                  <span>{{Work}} </span>
+                  <em>Work </em>
+              </ion-col>
+              
+            </ion-row>
+    
+        </ion-card><!-- End Summary Block-->
+        
       
-      <div class=" complxname">
-        <!-- <span>{{exe.exerciseName}}</span> -->
+      
+      <!-- <div class=" complxname">
         <div class="scrol min" scrollX="true">
           <span *ngFor="let exe of tempExeData; let i = index">{{exe.exerciseName}}</span>              
         </div>
-      </div>
+      </div> -->
           
         
       <div class="exelist" >
         <!-- <h2>{{exe.exerciseName}}</h2> -->
-        <div class="exesumry"   >
+        <!-- <div class="exesumry"   >
           <ion-row>
             <ion-col size="4">
                 <span>{{totalreps}}<em>Total Reps</em>  </span>
@@ -83,10 +124,10 @@
                 <span>{{cal}}<em>Calories (Cal)</em>  </span>
             </ion-col>
           </ion-row>
-        </div>
+        </div> -->
 
       </div>
-    </div>
+    <!-- </div> -->
     <!-- End Summary Section -->
 
      <!-- <div class="nextdat">
@@ -97,7 +138,17 @@
     <!-- /* Nutrition Starts */ -->
     <div class="nutrition adtitle "  >
       <h1>Nutrition </h1>
-      <div class="nicon">
+
+      <ion-row class="lgraph ">
+        <ion-col><em>19.4  g</em><span>Fat</span></ion-col>
+        <ion-col><em>321 g</em><span>Protein</span></ion-col>
+        <ion-col><em>102 g</em><span>Carbohydrate</span></ion-col>
+        <ion-col><em>{{cal}}</em><span>Calories</span></ion-col>
+     </ion-row>
+
+     <ion-button expand="block" (click)="dietInfo()">Add Meal</ion-button>
+
+      <!-- <div class="nicon">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
             <g id="cutlery" transform="translate(0 -11.586)">
@@ -109,7 +160,7 @@
             </g>
           </svg>
           <ion-button class="nomarg" (click)="dietInfo()">Add Meal</ion-button>
-      </div>
+      </div> -->
       
     </div>
     
