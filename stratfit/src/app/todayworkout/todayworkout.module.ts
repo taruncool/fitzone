@@ -16,6 +16,7 @@ import { ProgramdetailsPage } from '../programdetails/programdetails.page';
 import { TmaxsummaryPage } from '../tmaxsummary/tmaxsummary.page';
 import { TmaxpreviewPage } from './tmaxpreview/tmaxpreview.page';
 import { MorerepsPage } from './morereps/morereps.page';
+import { MorerepscomplexPage } from './morerepscomplex/morerepscomplex.page';
 
 @NgModule({
   imports: [
@@ -25,6 +26,6 @@ import { MorerepsPage } from './morereps/morereps.page';
     TodayworkoutPageRoutingModule
   ],
   declarations: [TodayworkoutPage],
-  entryComponents: [TimerpopupPage, SessionsummaryPage, ShowexercisePage, WtcalpopupPage, InstpopupPage, ProgramdetailsPage, TmaxsummaryPage, TmaxpreviewPage, MorerepsPage]
+  entryComponents: [TimerpopupPage, SessionsummaryPage, ShowexercisePage, WtcalpopupPage, InstpopupPage, ProgramdetailsPage, TmaxsummaryPage, TmaxpreviewPage, MorerepsPage, MorerepscomplexPage]
 })
 export class TodayworkoutPageModule {}

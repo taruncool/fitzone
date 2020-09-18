@@ -1331,6 +1331,22 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
       }
     }
 
+    ion-row.infildcmplx { margin-bottom: 0 !important; padding-right: 10px;
+      ion-col{padding-left:10px !important; }
+      ion-col:first-child {padding-left:0px !important; }
+      h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
+      ion-item {  height:40px !important; min-height: 40px !important; margin:auto;margin-bottom: 5px !important;--padding-end: 5px !important;
+          span {display: block;  font-size: small; margin-top: -10px; }
+          svg {position: absolute;top: 5px;right: 0; width: 28px; height:28px;}
+          
+          .text-input {padding:0 10px; text-align: center; margin: 10px;}
+          .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
+      }
+      .selarow {
+        svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
+      }
+    }
+
   }
   .setlist.active { padding-bottom: 20px; padding-top: 10px;
     h3 {padding-left: 10px;}
@@ -1371,6 +1387,12 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
 }
 
 .setdone {display:none !important;width: 100%;  position: relative; text-align: center;
+  em { font-size: 1.1rem; display: block; }
+  ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
+    svg {width:32px !important; height:32px !important; }
+  }   
+}
+.setdonecmplx {display:block !important;width: 100%;  position: relative; text-align: center;
   em { font-size: 1.1rem; display: block; }
   ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
     svg {width:32px !important; height:32px !important; }

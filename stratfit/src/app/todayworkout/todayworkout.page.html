@@ -117,6 +117,9 @@
               
         </div>-->
         <span [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</span>
+        <div class="workview" *ngIf="!isActivitySimple">
+          <div class="special" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">Round {{i}}</div>
+        </div>
         <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
         <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
       </div> 
@@ -214,10 +217,9 @@
       </div><!--End Simple Workout -->
 
       <div class="workview" *ngIf="!isActivitySimple">
-        <div class="special" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">
-        <ion-list class="sbsd sbgw setlist" [ngClass]="{'active': round.round_id == currentRoundId}"  *ngFor="let action of complexActions; let i = index">
-          <h3>Set {{i+1}}</h3>
-          <ion-row >
+        <ion-list class="sbsd sbgw setlist" >
+          <!--<h3>Set {{i+1}}</h3>-->
+          <ion-row  *ngFor="let action of complexActions; let i = index">
             
             <ion-avatar (click)="openExercise(exDetailsComplex[i])">
               <img src="{{action.ExerciseThumbImage}}" (error)="onComplexExImageError(action)">
@@ -233,11 +235,11 @@
             </ion-avatar>
 
             <ion-col class="posrel" >
-              <h4>Set {{i+1}}</h4>
-              <div class="posabs">{{action.reps}} Reps</div>
+              <!--<h4>Set {{i+1}}</h4>-->
+              <!--<div class="posabs">{{action.reps}} Reps</div>-->
               <h4>{{action.exerciseName}}</h4>
 
-              <ion-row class="infild">
+              <ion-row class="infildcmplx">
                 <ion-col size="6">
                   <h6>Work Weight</h6> 
                   <ion-item class="adbor nobg"> 
@@ -269,7 +271,7 @@
           
           </ion-row>
 
-          <div class="setdone">
+          <div class="setdonecmplx">
             <ion-button [disabled]="isDoneDisabled" (click)="complexRoundComplete(complexActions)" > 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
                 <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" />
@@ -279,7 +281,6 @@
           </div>
 
         </ion-list>
-        </div>
 
         
 

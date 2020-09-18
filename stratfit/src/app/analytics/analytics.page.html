@@ -171,8 +171,8 @@
             <ion-row >
               <ion-col size="6"><h3>Summary</h3> </ion-col>
               <!--<ion-col class="nopad" size="6">
-                <ion-select interface="popover" role="combobox"  placeholder="Activity" *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)">
-                  <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
+                <ion-select interface="popover" role="combobox"  placeholder="Activity" >
+                  <ion-select-option   *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> >Activity {{i+1 }} </ion-select-option>
                 </ion-select>
               </ion-col>-->
               
@@ -218,7 +218,7 @@
     
           </ion-card><!-- End Summary Block-->
 
-          <div class="exe none"  >
+          <div class="exe"  >
             <ion-col>
             <ion-avatar *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
                 <span>Activity {{i+1 }}</span>
@@ -296,12 +296,12 @@
                     <h2>{{round.round_name}}  </h2>
                   </div>
 
-                 
-                  <ion-card class="fulpad " *ngFor="let action of tempAction; let i = index">
+                 <div *ngFor="let action of tempAction; let i = index">
+                  <ion-card class="fulpad " *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
 
                     <h3>{{exe.exerciseName}}</h3>
 
-                    <ion-row *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">
+                    <ion-row>
                       <ion-col *ngIf="!workweight">
                         <span>{{action.workweight}}{{metrics}}</span>
                         <em>Weight</em>
@@ -344,7 +344,7 @@
                   </ion-card>
                 
                   </div>
-              
+                </div>
               </div> 
             </div>
           </div><!-- End Complex Block-->
