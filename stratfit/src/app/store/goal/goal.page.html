@@ -7,8 +7,8 @@
           </svg>
       </ion-button>
     </ion-buttons>
-    <ion-title><span>Store</span>Goal Oriented</ion-title>
-     <ion-buttons  slot="end" >
+    <ion-title>Goal Oriented</ion-title>
+     <!-- <ion-buttons  slot="end" >
       <ion-button  slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 76 76">
           <g id="Grid" transform="translate(15313.202 3498)">
@@ -49,24 +49,24 @@
           </g>
         </svg>
       </ion-button>
-     </ion-buttons>
+     </ion-buttons> -->
      
   
   </ion-toolbar> 
 
-  <div class=" goalori">
+  <!-- <div class=" goalori">
     <div class="scrol min" scrollX="true">
       <ion-button id="goal0" (click)="filterPurposePrograms(0)" [ngClass]="{'active':activepurposeid==0}">All </ion-button>
       <ion-button id="goal{{purpose.id}}" (click)="filterPurposePrograms(purpose.id)" [ngClass]="{'active':activepurposeid==purpose.id}" *ngFor="let purpose of purposeslist; let i = index"  >{{purpose.name}}</ion-button>
    
     </div>
-</div>
+</div> -->
 
  
  </ion-header>
  
  
-<ion-content class="store" >
+<ion-content  class="goal">
 
 <!-- List Format -->
 <!--<ion-list *ngIf="!isGrid">
@@ -147,14 +147,14 @@
 </ion-row>
 
 </div>-->
-
+<div class=" fulpad nopadb" >
 <div class="rowlist" *ngFor="let goals of mainGoals">
     <h1>{{goals.GoalName}} </h1>    
     <div *ngFor="let subgoal1 of goals.subGoals">
       <div *ngIf="subgoal1?.subGoals1">
         <h4>{{subgoal1.GoalName}}</h4>
         <!-- <input class="mr-2"  type='checkbox' *ngIf="!subgoal1.subGoals1"  (click)="purposeChecked(subgoal1,$event)" id='goals.subGoals{{subgoal1.id}}' [(ngModel)]="subgoal1.selected"> -->
-        <ion-row class="mglr-5" >
+        <ion-row class="admlr-n5" >
           <ion-col size="4" *ngFor="let subgoal2 of subgoal1?.subGoals1" >
             <div class="iconcard"  (click)="catSelection(subgoal2)">
               <input class="mr-2" type="checkbox"  *ngIf="!subgoal1?.subGoals1" [(ngModel)]="subgoal2.selected">
@@ -189,7 +189,7 @@
       </div>
     </div>
     <div *ngIf="!goals.subGoals?.subGoals1">
-        <ion-row class="mglr-5" >
+        <ion-row class="admlr-n5" >
           <ion-col size="4" *ngFor="let subgoal1 of goals.subGoals" >
             <div class="iconcard" (click)="catSelection(subgoal1)">
               <input class="mr-2" type="checkbox"   *ngIf="!goals.subGoals" [(ngModel)]="subgoal1.selected">
@@ -221,9 +221,9 @@
         </ion-row>
     </div>
   </div>
-   
+</div>
 </ion-content>
-<ion-footer>
+<ion-footer class="foot  ">
   <ion-row class="btnrow">
       <ion-button expand="block" (click)="community()">Get Programs</ion-button>  
   </ion-row>

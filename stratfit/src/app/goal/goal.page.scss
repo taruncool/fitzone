@@ -20,7 +20,7 @@
     //     }
     // }
 
-    ion-footer.foot {background: rgba(8, 12, 20, 0.9) !important;}
+
     .goal .rowlist .iconcard .posabs{display: none;}
     .goal .rowlist .iconcard .tick{display: block !important;}
 
@@ -41,3 +41,5 @@
             .swiper-wrapper, .slide-zoom, img {height: 85vh !important;}
         }
     }
+
+    .foot .btnrow ion-button{ float: none !important;}

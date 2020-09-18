@@ -160,16 +160,16 @@
             <em>today</em>
           </div> <!-- End Week Block-->
 
-          <div class=" fulpad meallist">
+          <div class="meallist">
 
-            <ion-item class="nodata nopad" *ngIf="finalFoodDataByDate.length==0">
+            <ion-item class="nodata sbgw adbor" *ngIf="finalFoodDataByDate.length==0">
                <p>{{mealMsg}}</p>
              </ion-item>
             
-            <ion-card class="dcard" *ngFor="let meal of finalFoodDataByDate; let i = index">
-               <ion-item class="nobg adpadl adpadr">
+            <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index">
+               <div class="dtitle  ">
                   <em>Breakfast</em>
-                  <h3>{{meal.mealName}}</h3>
+                  <h2>{{meal.mealName}}</h2>
                   <div class="posabs text-center edit" (click)="editMeal(meal.id)">
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84">
                         <path id="icons8-edit" d="M77.117,2a8.873,8.873,0,0,0-6.279,2.625L69.354,6.109,81.912,18.663,83.4,17.179A8.9,8.9,0,0,0,77.117,2ZM66.557,9.361a1.836,1.836,0,0,0-1.085.571L6.225,69.221a1.862,1.862,0,0,0-.514.8l-3.653,13.7a1.828,1.828,0,0,0,2.226,2.226l13.7-3.652a1.864,1.864,0,0,0,.8-.514L78.087,22.543a1.836,1.836,0,1,0-2.569-2.625L16.556,78.865l-7.42-7.418L68.1,12.5a1.826,1.826,0,0,0-1.37-3.139Z" transform="translate(-1.999 -2)" fill="#fff"/>
@@ -184,9 +184,11 @@
                      </svg>
                      Edit
                    </ion-button> -->
-               </ion-item>
-               <ion-row class="lgraph adpadl adpadr admb" >
-                  <ion-col><em>{{meal.mealfat}} g</em>
+                  </div>
+               <ion-row class="lgraph admb-2" >
+
+                  <ion-col class="protein">
+                     <em>{{meal.mealfat}} g</em>
                      <!-- <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                      </div> -->
@@ -195,28 +197,38 @@
                      </div>
                      <span>Fat</span>
                   </ion-col>
-                  <ion-col><em>{{meal.mealpro}} g</em>
+
+                  <ion-col class="protein">
+                     <em>{{meal.mealpro}} g</em>
                      <div class="progress-outer">
                         <div class="progress-inner" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
                      <span>Protein</span>
                   </ion-col>
-                  <ion-col><em>{{meal.mealcarb}} g</em>
+
+                  <ion-col class="carbohydrate">
+                     <em>{{meal.mealcarb}} g</em>
                      <div class="progress-outer">
                         <div class="progress-inner" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
                      <span>Carbohydrate</span>
                   </ion-col>
-                  <ion-col><em>{{meal.mealcal}} </em>
+
+                  <ion-col class="calorie">
+                     <em>{{meal.mealcal}} </em>
                      <div class="progress-outer">
                         <div class="progress-inner" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
                      <span>Calories</span>
                   </ion-col>
+
                 </ion-row>
-                <ion-row class="listdis">
+                <ion-row class="listdis admr-n12">
                    <div class="scrol" scrollX="true">
-                      <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em>
+                      <!-- <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em> -->
+                      <ul>
+                         <li *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}}</li>
+                      </ul>
                    </div>
           
                 </ion-row>

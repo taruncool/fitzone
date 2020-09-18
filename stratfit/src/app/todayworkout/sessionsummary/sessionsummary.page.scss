@@ -1,15 +1,11 @@
 .pcview .poverlay {
-  transform: translate(0%, 0%) !important;     left: 0 !important;top: 0 !important; margin-top: 0 !important;
+  transform: translate(0%, 0%) !important;     left: 0 !important;top: 0 !important; margin-top: 0 !important; padding: 0 !important;
 }
 .session{
   .scrol ion-button{color:#fff !important; --background: none !important;}
 }
 
-.sumry {margin-bottom: 30px !important;}
-
-.pcview .poverlay .sumary .exe {}
-// .item-block {align-items: normal !important; min-height: 3.4rem !important;}
-
+.sumry {margin-bottom: 20px !important;}
 
 
 .nextdat { background: #1D2534; padding: 16px; margin: 0 -16px; margin-bottom: 15px;  display: block;
@@ -22,7 +18,7 @@
 .nutrition{ text-align: left;
   // .nicon svg {width: 40px; height: 40px;float: right;}
 
-  .lgraph {padding-top: 0 !important;  margin-bottom: 15px;
+  .lgraph {padding-top: 0 !important;  margin-bottom: 20px;
     span, em {display: block;}
     span { font-size:small;}
     em{font-weight: bold;}

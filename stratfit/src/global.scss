@@ -154,6 +154,9 @@ svg{width:2rem; height:2rem;fill: #000; }
 // .nomb{ margin-bottom: 0 !important;}
 .admr-0 {margin-right: 0 !important;}
 .admlr-n5 {margin-left: -5px !important; margin-right: -5px !important;}
+.admlr-n12 {margin-left: -12px !important; margin-right: -12px !important;}
+.admr-n12 {margin-right: -12px !important;}
+.admb-n12 {margin-bottom: -12px !important;}
 // .fulw{width: calc(100% - 0px) !important;}
 
 .posrel {position: relative;}
@@ -332,7 +335,7 @@ ion-loading {outline: none;}
 }
 
 
-ion-modal{ opacity:0.96 !important; /*--background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); */
+ion-modal{ opacity:0.96 !important; --background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); 
   ion-header ion-toolbar, ion-content, .infild{--background: none !important; color: #fff; --color:#fff;}
   // ion-calendar-modal {
   //   h4 {color: #000 !important;}
@@ -869,7 +872,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   .user { margin-bottom: 0 !important; }
   svg {opacity: 0.9 !important;}
  
-  ion-list {width: 100%;         
+  ion-list {       
     ion-item{ font-size: inherit; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-bottom-width: 1px; border-bottom-style: solid;
       span{margin-right: 15px !important;  float: left;
         svg {width:20px !important; height: 20px !important;}
@@ -1158,7 +1161,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     em {display: block; padding:7px; font-size: small; font-weight: bold;}
   } // *** End Days & Week  *** ////
 
-  .week {background: #EFF1F4; margin-left: 12px; margin-right: 12px;
+  .week {background: #EFF1F4; margin-left: 12px; margin-right: 12px; border-radius: 10px;
     ion-button {width: 34px !important;}
   }
 
@@ -1236,7 +1239,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
   .contin{
     ion-row.periods{border-bottom: 0 !important;}
     .days {
-      ion-button.done, ion-button.skip { color: #EA4F5F !important; }
+      ion-button.skip { color: #EA4F5F !important; }
       ion-button:nth-child(7)  { display: none !important; }
     }
   }
@@ -1450,24 +1453,25 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
   .blanc ion-col.last{margin-top: -40px;}
 
 
-  .meallist { position: relative;}
+  .meallist { position: relative;
+    .progress-outer{background:#EFF1F4 !important;}
+  }
 
-  .dcard, .ocard {  position: relative;
-    ion-item, .lgraph, .listdis { 
+  .dcard, .ocard {  position: relative; border-width: 1px;
+    ion-item, .dtitle, .lgraph, .listdis { 
 
       .button{margin-right:-6px !important; margin-top:-6px !important; --box-shadow:none; font-size: small;
         svg {width:18px !important; height:18px !important;margin-right: 5px; }
       }
       em, h3 { margin:0 !important;}
-      h3 { white-space: normal !important;text-overflow: unset !important;}
+      h2 {margin-top: 10px !important;}
+      h2, h3 { white-space: normal !important;text-overflow: unset !important;}
       // em {font-size:1.2rem; }
     } 
-    .lgraph  { 
-      //.col:first-child{ background: #fc4242;}
-    }
-    .listdis {background: #fff !important; display: block; position: relative;
+  
+    .listdis { display: block; position: relative;
       .scrol {min-height:30px !important;
-        em {display: inline-block;padding: 7px 10px;  }
+        // em {display: inline-block;padding: 7px 10px;  }
       }
     }
     

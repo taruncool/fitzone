@@ -1,6 +1,6 @@
 <ion-header class="head">
   <ion-toolbar class="hedfm">
-    <ion-title><span>Profile</span>Settings</ion-title>
+    <ion-title class="fontxlg">Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,8 +31,8 @@
         </ion-item>
     </ion-card> 
  
-    <ion-list>
-        <ion-item class="nobg" (click)="profileinfo()">
+    <ion-list class="fulpad">
+        <ion-item class=" nopad sbgw" (click)="profileinfo()">
           <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.726 66">
               <path id="Path_8948" data-name="Path 8948" d="M66.062,40.505a22.687,22.687,0,1,0-28.029,0A30.925,30.925,0,0,0,21.184,66h4.131A26.816,26.816,0,0,1,42.246,43.125a22.468,22.468,0,0,0,19.6,0A26.816,26.816,0,0,1,78.779,66H82.91A30.921,30.921,0,0,0,66.062,40.505Zm-14.015.745A18.563,18.563,0,1,1,70.61,22.687,18.561,18.561,0,0,1,52.047,41.25Z" transform="translate(-21.184)"/>
@@ -46,7 +46,7 @@
               </svg>
           </span>
         </ion-item>
-        <ion-item class="nobg" (click)="dietInfo()">
+        <ion-item class=" nopad sbgw" (click)="dietInfo()">
           <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                 <g id="cutlery" transform="translate(0 -11.586)">
@@ -68,7 +68,7 @@
           </span>
         </ion-item>
 
-        <ion-item class="nobg">
+        <ion-item class=" nopad sbgw">
           <span slot="start">
             <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 53">
               <defs>
@@ -101,7 +101,7 @@
         </ion-select>
         </ion-item>
 
-        <ion-item class="nobg">
+        <ion-item class=" nopad sbgw">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 404.852 428.593">
                 <g id="Group_658" data-name="Group 658" transform="translate(-1879.999 7120)">
@@ -118,7 +118,7 @@
             
           </ion-select>
           </ion-item>
-        <ion-item class="nobg">
+        <ion-item class=" nopad sbgw">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 68 68">
                 <defs>
@@ -160,7 +160,7 @@
           </ion-select>
         </ion-item>
       
-        <ion-item class="nobg" (click)="chngepassword()">
+        <ion-item class=" nopad sbgw" (click)="chngepassword()">
           <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" >
               <path d="M230.792,354.313l-6.729,60.51c-0.333,3.01,0.635,6.031,2.656,8.292c2.021,2.26,4.917,3.552,7.948,3.552h42.667
@@ -186,7 +186,7 @@
             </span>
         </ion-item>
 
-        <ion-item class="nobg" (click)="traininglevel()">
+        <ion-item class=" nopad sbgw" (click)="traininglevel()">
           <span  slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.002 59.296">
               <g id="Training_Level" data-name="Training Level" transform="translate(0 -18.359)">
@@ -213,7 +213,7 @@
             </span>
         </ion-item>
   
-        <ion-item class="nobg" (click)="openTmax()">
+        <ion-item class=" nopad sbgw" (click)="openTmax()">
           <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 55.001 64">
               <g id="Training_Maxes" data-name="Training Maxes" transform="translate(4297.768 14741.145)">
@@ -230,7 +230,7 @@
             </span>
         </ion-item>
   
-        <ion-item class="nobg" (click)="mysubscription()" *ngIf="plancheck">
+        <ion-item class=" nopad sbgw" (click)="mysubscription()" *ngIf="plancheck">
           <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48">
               <g id="Subscription" transform="translate(4146 14522.427)">
@@ -256,7 +256,7 @@
             </span>
         </ion-item>
   
-        <ion-item class="nobg" (click)="openPlateWts()">
+        <ion-item class=" nopad sbgw" (click)="openPlateWts()">
           <span slot="start">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
               <g id="Set_Weights" data-name="Set Weights" transform="translate(-4.725 -117.997)">
@@ -281,7 +281,7 @@
             </span>
         </ion-item> 
 
-          <ion-item class="nobg">
+          <ion-item class=" nopad sbgw">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.942 47.375">
                 <g id="Set_Weight_Units" data-name="Set Weight Units" transform="translate(1.21 0.564)">
@@ -313,7 +313,7 @@
             </ion-select>
           </ion-item>
     
-          <ion-item class="nobg">
+          <ion-item class=" nopad sbgw">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.997 60.234">
                 <g id="set_currency_type" transform="translate(-43.139 -66.13)">
@@ -336,7 +336,7 @@
             </ion-select>
           </ion-item>
 		  
-          <ion-item class="nobg" (click)="changeSoundSettings()">
+          <ion-item class=" nopad sbgw" (click)="changeSoundSettings()">
               <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 66 66">
                   <g id="sound_disabled" transform="translate(-65.38 -65.131)">
@@ -360,7 +360,7 @@
             <ion-toggle [ngModel]="isSoundOn" (ngModelChange)="changeSound($event)"></ion-toggle>
           </ion-item>
       
-          <ion-item class="nobg" (click)="changeVibrateSettings()">
+          <ion-item class=" nopad sbgw" (click)="changeVibrateSettings()">
               <span  slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 64">
                   <g id="Vibration_Disabled" data-name="Vibration Disabled" transform="translate(3900.001 13121.656)">
@@ -378,7 +378,7 @@
             <ion-toggle [ngModel]="isVibrateOn" (ngModelChange)="changeVibrate($event)"></ion-toggle>
           </ion-item>
 		  
-          <ion-item class="nobg" (click)="openInviteFriend()">
+          <ion-item class=" nopad sbgw" (click)="openInviteFriend()">
               <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 61 64">
                   <g id="Refer_the_App" data-name="Refer the App" transform="translate(4674.885 14915.271)">
@@ -425,7 +425,7 @@
               </span>
           </ion-item>
 
-          <ion-item class="nobg" (click)="openfeedback()">
+          <ion-item class=" nopad sbgw" (click)="openfeedback()">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                 <defs>
@@ -458,7 +458,7 @@
               </span>
           </ion-item>
     
-          <ion-item class="nobg" (click)="openfaqs()">
+          <ion-item class=" nopad sbgw" (click)="openfaqs()">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
                 <g id="FAQS" transform="translate(-23.177 -23.301)">
@@ -478,7 +478,7 @@
               </span>
           </ion-item>
     
-          <ion-item class="nobg" (click)="openAbout()">
+          <ion-item class=" nopad sbgw" (click)="openAbout()">
             <span slot="start">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67">
                 <g id="About" transform="translate(-23.5 -22.831)">
@@ -496,7 +496,7 @@
               </span>
           </ion-item>
 
-          <ion-item class="nobg" (click)="logout()">
+          <ion-item class=" nopad sbgw" (click)="logout()">
               <span slot="start">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                   <g id="logout" transform="translate(-26 -26)">
