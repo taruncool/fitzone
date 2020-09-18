@@ -147,7 +147,8 @@ export class ProgressbarPage implements OnInit {
             localStorage.setItem('tonnage','');
             localStorage.setItem('work','');
             localStorage.setItem('cal','');
-            this.nav.navigateRoot('/tabs/tabs/welcome');
+            this.modalCtrl.dismiss();
+            this.nav.navigateRoot('/dashboard');
             //this.initLoad();
           }).catch(err => {
             console.error('--12--'+JSON.stringify(err));

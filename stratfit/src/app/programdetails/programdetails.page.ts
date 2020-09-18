@@ -777,7 +777,7 @@ planprogressModal.present();
     },800);
     let modal = await this.modalCtrl.create({
       component:ExcpreviewPage,
-      componentProps:{ExcDetails:Exc}
+      componentProps:{ExcDetails:Exc, isFrom:'0'}
     });
     modal.present();
     // modal.onDidDismiss(data=>{

@@ -605,7 +605,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
                       });
                     
-                      this.sqlStorageNew.query("select pr.*, pa.action_type from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
+                      this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
                       roundData => {
 
                         console.log("round data ------", roundData);
@@ -951,7 +951,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
             setTimeout(() => {
 
-              this.sqlStorageNew.query("select pr.*, pa.action_type from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
+              this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
                 roundData => {
 
                   this.planRounds = [];

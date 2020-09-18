@@ -48,7 +48,7 @@ export class SessionsummaryPage implements OnInit {
   // Show = true;
   // Showworkout = true;
 
-  constructor(public navCtrl: NavController,public platform: Platform,public navParams: NavParams,public sqlStorageNew:SqlStorageNew,public loadData: LoadData){}
+  constructor(public navCtrl: NavController,public platform: Platform,public navParams: NavParams,public sqlStorageNew:SqlStorageNew,public loadData: LoadData, public modalCtrl: ModalController){}
   
   ngOnInit() {
     this.ses_id = this.navParams.get("session_id");
@@ -318,7 +318,8 @@ localStorage.setItem('work','');
 localStorage.setItem('cal','');
 }
 dietInfo(){
-this.navCtrl.navigateForward('tabs/tabs/dietprofile');
+  this.modalCtrl.dismiss();
+  this.navCtrl.navigateRoot('/tabs/tabs/dietprofile');
 }
 backButtonAction(){
   console.log("session summary close");
@@ -329,9 +330,8 @@ backButtonAction(){
   localStorage.setItem('tonnage','');
   localStorage.setItem('work','');
   localStorage.setItem('cal','');
-  setTimeout(() => {
-this.navCtrl.navigateRoot('tabs/tabs/welcome');
-  }, 300);
+  this.modalCtrl.dismiss();
+  //this.navCtrl.navigateBack('/tabs/tabs/welcome');
  
 }
 }

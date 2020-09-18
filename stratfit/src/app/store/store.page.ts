@@ -353,12 +353,4 @@ async noProgramsAlert(){
   });
   await this.prompt.present();
 }
-
-
-// backButtonAction() {
-//   this.navCtrl.navigateBack('/store');
-  
-// }
-
-
 }

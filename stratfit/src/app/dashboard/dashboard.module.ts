@@ -8,7 +8,7 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { DashboardPage } from './dashboard.page';
-
+import { SessionsummaryPage } from '../todayworkout/sessionsummary/sessionsummary.page';
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { DashboardPage } from './dashboard.page';
     }),
     DashboardPageRoutingModule
   ],
-  declarations: [DashboardPage]
+  declarations: [DashboardPage],
+  entryComponents: [SessionsummaryPage]
 })
 export class DashboardPageModule {}

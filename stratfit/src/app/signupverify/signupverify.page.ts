@@ -108,6 +108,7 @@ export class SignupverifyPage implements OnInit {
               let res = JSON.parse(userStr);
               if(res.success){
                 this.login(this.user);
+                this.loadData.stopLoading();
               }else{
                  this.loadData.stopLoading();
                 this.toastmsg(res.message);
@@ -174,7 +175,7 @@ export class SignupverifyPage implements OnInit {
 							// this.prompt = await this.alertCtrl.create({
 							// 	// message: 'Login Failed',
 							// 	message: res.message,
-							 	buttons: ['OK']
+							 	//buttons: ['OK']
 							// });
 							// this.prompt.present();
 						}

@@ -22,17 +22,17 @@ export class WelcomePage implements OnInit {
 
   public dashboard(){
     // this.modalCtrl.dismiss(); 
-    this.navCtrl.navigateForward('/dashboard');
+    this.navCtrl.navigateRoot('/dashboard');
 }
 
 public dietprofile(){
   // this.modalCtrl.dismiss(); 
-  this.navCtrl.navigateForward('tabs/tabs/dietprofile');
+  this.navCtrl.navigateRoot('tabs/tabs/dietprofile');
 }
 
 public store(){
   // this.modalCtrl.dismiss(); 
-  this.navCtrl.navigateForward('/store');
+  this.navCtrl.navigateRoot('tabs/tabs/store');
 }
 
 public community(){
@@ -40,9 +40,5 @@ public community(){
   this.navCtrl.navigateForward('/community');
 }
 
-backButtonAction() {
-    this.navCtrl.navigateBack('/store');
-    
-  }
 
 }

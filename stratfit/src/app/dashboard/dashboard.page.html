@@ -92,7 +92,7 @@
     </ion-card>
 
     <ion-card class="fulpad valid" *ngIf='planComplete'>
-        
+        <h3 >{{planInfo.planName}}</h3>
         <h3>Program has been completed.</h3>
         <p> Please subscribe again or choose new program</p>
 
@@ -118,9 +118,10 @@
     </ion-card>
 
     <ion-card class="fulpad valid"  *ngIf='todaySessionComplete'>
+        <h3 >{{planInfo.planName}}</h3>
         <h3 >Session has been completed.</h3>
         <h4 >Next Workout on {{nextWorkoutDateStr}}</h4>
-        <!-- <div class="wrkbtm">
+         <div class="wrkbtm">
             <ion-button expand="block"  (click)="sessionSummary()">
                 Today's Summary 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
@@ -131,48 +132,21 @@
                 </svg>
                 
             </ion-button>
-        </div> -->
+        </div> 
         
     </ion-card>
 
     <div *ngIf='todaySessionComplete'>
-        <div class="session">
-            <div class="scrol min" scrollX="true">
-            <ion-button  Class="active nobg ">Session 1</ion-button>
-            <ion-button  Class="nobg ">Session 2</ion-button>
-            
-            </div>
-        </div><!-- End Session Block-->
 
         <ion-card class="fulpad sumry"  >
             <ion-row >
-                <ion-col size="6"><h3>Complex</h3> </ion-col>
-                <ion-col class="nopad" size="6">
-                <ion-select interface="popover" role="combobox"  placeholder="Activity" >
-                    <ion-select-option  value="Activity - 1 " >Activity - 1 </ion-select-option>
-                </ion-select>
-                </ion-col>
-                
-            </ion-row>
-
-            <ion-row>
-                <div class="scrol min" scrollX="true">
-                <ul>
-                    <li>Bench Press</li>
-                    <li>Powerlifting Squat</li>
-                    <li>Deadlift</li>
-                </ul>
-                </div>
+                <ion-col size="6"><h3>Summary</h3> </ion-col>                
             </ion-row>
 
             <ion-row class="count">
                 <ion-col size="4">
                     <span>{{totalreps}}  </span>
                     <em>Reps</em>
-                </ion-col>
-                <ion-col  size="4" >
-                    <span>{{Tmax}}  </span>
-                    <em>Est. Tmax </em>
                 </ion-col>
                 <ion-col size="4">
                     <span>{{Tonnage}}  </span>
