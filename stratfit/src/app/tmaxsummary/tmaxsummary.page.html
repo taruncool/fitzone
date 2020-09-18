@@ -21,13 +21,14 @@
 
       
     <form #tmaxForm="ngForm">
-      <ion-list class="summary">
+      <ion-list class="summary nobg">
         
-        <ion-item class="tmaxedit sbgw nopad" *ngFor='let extra of allExercises; let i = index;'>
+        <ion-item class="tmaxedit sbgw nopad " *ngFor='let extra of allExercises; let i = index;'>
           <span>{{extra.exerciseName}}</span>
           <div slot="end">
             <div class="count" id='ex{{extra.id}}'>
-              <span>{{extra.tmax}}</span> <em>{{extra.wMetric}}</em>
+              <span>{{extra.tmax}}</span>
+              <em>{{extra.wMetric}}</em>
             </div>
             <ion-icon name="pencil-outline" (click)='tmaxShowPreview(extra,extra.exerciseName,extra.tmax,extra.wMetric)'></ion-icon>    
           </div>

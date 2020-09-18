@@ -53,7 +53,7 @@
               </ion-col>-->
               
             </ion-row>
-            <ion-row >
+            <ion-row class="tbactive">
               <ul>
                   <li *ngFor="let activity of tempActivity; let i = index" (click)="getAction(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id == currentactivity_id}">Activity{{i+1 }}</li>
               </ul>

@@ -1,46 +1,9 @@
 
-    
+    .foot .btnrow ion-button{ float: none !important;}
 
+    // .tmax p {color: #fff !important;}
 
-
-    // .summary  { 
-
-
-
-
-    //    ion-row {border-bottom-width: 1px; border-style: solid;
-    //         h5 {margin:0 !important; font-size: 1.6rem;      display: inline-block; }
-    //         ion-input { background: #fff; width: 60px;display: inline-block;text-align: center;}
-    //         .text-input-md {text-align: center;}
-    //         span {padding-right: 10px; display: inline-block;}
-    //         em {font-size: 1.2rem;}
-    //     }
-    //     .col:first-child {flex:0 0 66.33333% !important; max-width:66.33333% !important;}
-    //     .item-input:last-child { width: 6rem;
-            
-    //     }
-    // }
-
-    .tmax p {color: #fff !important;}
-
-    .summary  { width: 100%;
-
-        .tmaxedit { padding-left: 12px !important; padding-right: 12px !important;  margin: 0 12px; margin-bottom: 8px !important; color: #000 !important; 
-            
-            div[slot="end"]{
-                .count {padding-right: 10px; display: inline-block !important;  color: #000 !important;
-                    span {color:#000 !important; font-weight: bold;}
-                    ion-input { width: 60px; float: left; background: #fff; border-radius: 10px; text-align: center; margin-right: 10px;}
-                    em {line-height: 40px; }
-                }
-                ion-icon {color: #000;}
-            }
-
-            
-        }
-
-
-    }
+    .head ion-toolbar.hedfm ion-title{color: initial !important;}
 
     
 

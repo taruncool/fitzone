@@ -1,4 +1,4 @@
-<ion-header class="sbgry head" *ngIf='!(planComplete || renewPlan)'>
+<ion-header class=" head" *ngIf='!(planComplete || renewPlan)'>
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button slot="icon-only"(click)='backButtonAction()'>
@@ -27,7 +27,7 @@
 
 </ion-header>
 
-<ion-content class="sbgry workout" #pageTopWorkout>
+<ion-content class=" workout" #pageTopWorkout>
   
   <!--Today's Session Details-->
   <div  *ngIf='!isRestDay'>
@@ -117,8 +117,10 @@
               
         </div>-->
         <span [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</span>
-        <div class="workview" *ngIf="!isActivitySimple">
-          <div class="special" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">Round {{i}}</div>
+        <div class="tbactive" *ngIf="!isActivitySimple">
+          <ul>
+            <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i}}</li>
+          </ul>
         </div>
         <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
         <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
@@ -217,9 +219,9 @@
       </div><!--End Simple Workout -->
 
       <div class="workview" *ngIf="!isActivitySimple">
-        <ion-list class="sbsd sbgw setlist" >
+        <ion-list class="sbsd sbgw cmplxactive setlist" >
           <!--<h3>Set {{i+1}}</h3>-->
-          <ion-row  *ngFor="let action of complexActions; let i = index">
+          <ion-row class="admb-2"  *ngFor="let action of complexActions; let i = index">
             
             <ion-avatar (click)="openExercise(exDetailsComplex[i])">
               <img src="{{action.ExerciseThumbImage}}" (error)="onComplexExImageError(action)">

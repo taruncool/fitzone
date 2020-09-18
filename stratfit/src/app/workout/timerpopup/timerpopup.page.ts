@@ -34,8 +34,8 @@ export class TimerpopupPage implements OnInit {
   constructor(public navCtrl: NavController,public platform: Platform, public loadData: LoadData, public params: NavParams,public insomnia: Insomnia, public modalCtrl: ModalController,private nativeAudio: NativeAudio){
 
     this.s3urlPop=global.s3URL;
-    // this.myVariableNameHere = this.params.get('rest');
-    this.myVariableNameHere = 1000
+    this.myVariableNameHere = this.params.get('rest');
+    // this.myVariableNameHere = 1000
     this.setName = this.params.get('setname');
 
     this.exerciseName = this.params.get('excercisename');

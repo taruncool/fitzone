@@ -1,5 +1,5 @@
 
-<ion-header class=" head back">
+<ion-header class=" head sbgry">
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button slot="icon-only" (click)="backButtonAction()">
@@ -11,16 +11,13 @@
 
     <ion-title>Training Maxes </ion-title>
 
-    <ion-buttons  slot="start" >
-      <ion-button slot="icon-only" (click)='closeTmax()'>Next</ion-button>
-      <ion-button slot="icon-only" [hidden]="isEditDisable"  (click)='editTmax()'>Save</ion-button>
-    </ion-buttons>
+   
 
   </ion-toolbar> 
 
 </ion-header>
 
-<ion-content class=" tmax">
+<ion-content class=" tmax sbgry">
   <div class="fulpad ">
 
       <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
@@ -53,7 +50,7 @@
 
     </ion-grid> -->
 
-    <ion-list class="summary">
+    <ion-list class="summary nobg">
         
       <ion-item class="tmaxedit sbgw nopad" *ngFor='let extra of allExercises'>
         <span>{{extra.exerciseName}}</span>
@@ -87,3 +84,10 @@
 </div>-->
 
 </ion-content>
+
+<ion-footer class="foot sbgry ">
+  <ion-row class="btnrow">
+      <ion-button expand="block" (click)='closeTmax()'>Next</ion-button>  
+      <ion-button expand="block" [hidden]="isEditDisable"  (click)='editTmax()'>Save</ion-button>  
+  </ion-row>
+</ion-footer>

@@ -314,6 +314,10 @@ ion-segment { display: -webkit-inline-box; white-space: nowrap; font-size: 0;ove
 }
 .scrol.unlist{min-height: 46px !important;}
 
+.tbactive{margin-bottom: 10px;}
+.tbactive ul li{font-style: medium; padding: 10px; display: inline-block;}
+.tbactive ul li.active{font-style: x-large;  font-weight: bold;}
+
 
 
 ion-loading {outline: none;}
@@ -338,6 +342,7 @@ ion-loading {outline: none;}
 
 ion-modal{ opacity:0.96 !important; --background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); 
   ion-header ion-toolbar, ion-content, .infild{--background: none !important; color: #fff; --color:#fff;}
+  .head svg {fill: #fff !important;}
   // ion-calendar-modal {
   //   h4 {color: #000 !important;}
   //   .toolbar-title { color: #424242 !important;}
@@ -374,7 +379,7 @@ ion-select-popover{
   }
   
   // ------------------------------------------------
-  .alert-wrapper{ min-width: 88% !important; max-width: 88% !important; box-shadow: none !important; border-radius: 10px !important; background: #000 !important;}
+  .alert-wrapper{ min-width: 88% !important; max-width: 88% !important; box-shadow: none !important; border-radius: 10px !important; background: none !important;}
     .alert-message{text-align: center;padding-bottom: 2rem; color: #fff !important; font-size: x-large !important;}
 
   /*---Bottom Selection Popup--- */
@@ -805,8 +810,8 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     em {display: inline-block; padding-right: 5px; }
   }
   
-  ion-col {padding: 0 7px 7px 0 !important;}
-  ion-col:nth-child(2n+2) {padding-right: 0 !important;}
+  // ion-col {padding: 0 7px 7px 0 !important;}
+  // ion-col:nth-child(2n+2) {padding-right: 0 !important;}
   .exeblk {  overflow: hidden; position: relative; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;
     ion-avatar { width:100% !important; border-radius: 0 !important; border: 0 !important; min-height: 225px;  
       img { width:100% !important; min-height:225px; border-radius: 0 !important; object-fit: cover; /*filter: grayscale(100%);*/ }
@@ -1037,7 +1042,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
   .iconcard{ padding: 10px; border-radius: 10px; text-align: center; position: relative; transition-duration: .4s;transition: all .4s ease-out;  
     svg {width:40px; height: 40px; margin: 1rem 0 10px 0;}
-    span {display: block; font-size: small;}
+    span {display: block;}
     .tick {border-radius:0 10px 0 70% !important;}
     .tick svg {margin: 0 !important; width: 14px !important; height: 14px !important;}
   }
@@ -1189,14 +1194,16 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   .card {margin: 0 !important; border-radius: 0 !important;
     video {width: 100% !important; vertical-align:bottom !important;}
   }
-  .title {border-bottom: 1px solid #ddd; padding:8px 10px !important;
+  .title { color: #fff;
     ion-avatar {min-width:44px !important; min-height: 44px !important; height: 44px !important;
       img {width:100% !important;}
     }
+    h3 {}
   }
 }
+
 .tmax { 
-  p{color: #fff;}
+  p{color: initial;}
   .infild {
     h4 {text-transform: inherit !important;}
     ion-row ion-col span, ion-row ion-col em {font-size: initial !important;}
@@ -1217,6 +1224,25 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     
     ion-button { margin: 0;}
   
+
+    .summary {width: 100%; padding-bottom: 60px !important;
+      ion-item  { margin: 12px !important;}
+      .tmaxedit { padding-left: 12px !important; padding-right: 12px !important;  margin: 0 12px; margin-bottom: 8px !important; color: #000 !important; 
+        div[slot="end"]{
+            .count { display: inline-block !important;  color: #000 !important;
+                span {color:#000 !important; font-weight: bold;}
+                ion-input { width: 54px !important; float: left; background: #EFF1F4; border-radius: 10px; text-align: center; margin-right: 10px; font-weight: bold;
+                .native-input {opacity: 1 !important;}
+                }
+                em {line-height: 40px; }
+            }
+            ion-icon {color: #000;}
+          }  
+      }
+    }
+
+
+
 
 }
 
@@ -1305,7 +1331,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     ion-row { 
       ion-col {padding: 0 !important; }
       ion-avatar {position: relative; margin-right: 12px; min-width:64px !important; min-height: 64px !important; 
-        img { height:64px !important; border-radius: 10px !important; position: relative; }
+        img { height:64px ; border-radius: 10px !important; position: relative; }
         .play.min {left:50%;top:50%;transform:translate(-50%, -50%);}
       }
       h4 {margin-top:10px;margin-bottom: 10px; font-weight: normal !important; font-size: small !important; }
@@ -1315,7 +1341,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
         em {float:right; text-align: right; font-weight: bold;}
       }
     }
-    ion-row.infild { display:none;margin-bottom: 0 !important; padding-right: 10px;
+    ion-row.infild, ion-row.infildcmplx { display:none;margin-bottom: 0 !important; padding-right: 10px;
       ion-col{padding-left:10px !important; }
       ion-col:first-child {padding-left:0px !important; }
       h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
@@ -1331,24 +1357,25 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
       }
     }
 
-    ion-row.infildcmplx { margin-bottom: 0 !important; padding-right: 10px;
-      ion-col{padding-left:10px !important; }
-      ion-col:first-child {padding-left:0px !important; }
-      h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
-      ion-item {  height:40px !important; min-height: 40px !important; margin:auto;margin-bottom: 5px !important;--padding-end: 5px !important;
-          span {display: block;  font-size: small; margin-top: -10px; }
-          svg {position: absolute;top: 5px;right: 0; width: 28px; height:28px;}
+    ion-row.infildcmplx { display: flex !important;
+      h4:first-child {display: block !important;}
+      // ion-col{padding-left:10px !important; }
+      // ion-col:first-child {padding-left:0px !important; }
+      // h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
+      // ion-item {  height:40px !important; min-height: 40px !important; margin:auto;margin-bottom: 5px !important;--padding-end: 5px !important;
+      //     span {display: block;  font-size: small; margin-top: -10px; }
+      //     svg {position: absolute;top: 5px;right: 0; width: 28px; height:28px;}
           
-          .text-input {padding:0 10px; text-align: center; margin: 10px;}
-          .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
-      }
-      .selarow {
-        svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
-      }
+      //     .text-input {padding:0 10px; text-align: center; margin: 10px;}
+      //     .select  {max-width: 100% !important;width: 100%; padding-right:16px;  text-align: center; }
+      // }
+      // .selarow {
+      //   svg {float:right; width:14px; height:14px; top:10px !important; right: 6px !important;}
+      // }
     }
 
   }
-  .setlist.active { padding-bottom: 20px; padding-top: 10px;
+  .setlist.active, .cmplxactive { padding-bottom: 20px; padding-top: 10px;
     h3 {padding-left: 10px;}
     h3, .setdone{display: block !important; }
     h4 {font-size: inherit !important; font-weight: bold !important; margin-top: 0;}
@@ -1356,12 +1383,16 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     ion-avatar { height: 110px !important;
       img {height:110px !important;}
     }
-    ion-row {margin-bottom: 20px;}
+    // ion-row {margin-bottom: 20px;}
     ion-row.infild{display: flex !important; }
     .posabs, h4:first-child {display: none !important;}
 
-    
   }
+
+  .cmplxactive {
+    .posabs, h4:first-child {display: none !important;}
+  }
+    
 
   .exelist{ margin-bottom: 1rem !important;
   
@@ -1386,18 +1417,13 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
   
 }
 
-.setdone {display:none !important;width: 100%;  position: relative; text-align: center;
+.setdone, .setdonecmplx  {display:none !important;width: 100%;  position: relative; text-align: center; margin-top: 30px;
   em { font-size: 1.1rem; display: block; }
-  ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
-    svg {width:32px !important; height:32px !important; }
+  ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; margin:0 !important;
+    svg {width:32px !important; height:32px !important; fill:#fff; }
   }   
 }
-.setdonecmplx {display:block !important;width: 100%;  position: relative; text-align: center;
-  em { font-size: 1.1rem; display: block; }
-  ion-button {width:56px !important; height: 56px !important; --border-radius: 50% !important; --padding-start:0 !important;--padding-end:0 !important; --background:none !important;  margin:0 !important;
-    svg {width:32px !important; height:32px !important; }
-  }   
-}
+.setdonecmplx  {display: block !important;}
 
  /*---END Workout Tabs View Css --- Never changes any thing here*/
 

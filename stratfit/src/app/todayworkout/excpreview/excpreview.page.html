@@ -16,7 +16,7 @@
 </ion-header> -->
 
 
-<ion-header class="sbgry head">
+<ion-header class=" head">
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button slot="icon-only"(click)='backButtonAction()'>
@@ -32,11 +32,11 @@
 </ion-header>
 
 
-<ion-content class="exeinfo sbgry">
+<ion-content class="exeinfo ">
   <ion-card class="nobg" >
       <ion-row class="pcover rmcov">
         <img src="{{exinfo.newExImage}}" (error)="onExImageError()" (click)="playVideo(exinfo.exercise_id)" class="planimg"> 
-          <div class="play" (click)="playVideo(exinfo.exercise_id)">
+          <div class="play min" (click)="playVideo(exinfo.exercise_id)">
                 <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                     <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
                     <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
@@ -51,7 +51,7 @@
           <img src="{{exinfo.newExThumbImage}}" (error)="onExThumbImageError()">
       </ion-avatar>
 
-    <h2>{{exinfo.exercise_id__exerciseName}}</h2>
+    <h3>{{exinfo.exercise_id__exerciseName}}</h3>
     <!-- <h6>Back</h6> -->
   </ion-item>
   

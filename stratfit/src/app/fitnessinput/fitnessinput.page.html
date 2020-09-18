@@ -3,7 +3,7 @@
 
   <div *ngIf='stepArry'>
 
-    <div *ngIf='stepArry.prop=="gender"' class="text-center gender">
+    <div *ngIf='stepArry.prop=="gender"' class="fulpad text-center gender">
 
         <h3 *ngIf='stepArry.prop!="static"'><em> Hi, {{userName}}</em><span>Select Your Gender</span></h3>
     
@@ -145,7 +145,7 @@
 
         <div class=" sbgw fulpad active levelopt" [ngClass]="{'active': selectedLevel== (i+1)}" *ngFor='let item of items;let i=index' name="fitlevel" (click)="selectFLevel(item)"> 
                       
-          <h4 (click)="selectFLevel(item)">{{item.title}}</h4>
+          <h2 (click)="selectFLevel(item)">{{item.title}}</h2>
           <p>{{item.desc}}</p>
        </div>
 

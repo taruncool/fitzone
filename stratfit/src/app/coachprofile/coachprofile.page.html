@@ -11,8 +11,8 @@
 
     <ion-title>Coach Details</ion-title>
 
-    <ion-buttons  slot="end" >
-      <ion-button  slot="icon-only" >
+    <!-- <ion-buttons  slot="end" >
+      <ion-button  slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()" >
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 76 76">
           <g id="Grid" transform="translate(15313.202 3498)">
             <g id="Path_8589" data-name="Path 8589" transform="translate(-15309.202 -3494)" fill="none" stroke-linecap="round">
@@ -34,7 +34,7 @@
           </g>
         </svg>
       </ion-button>
-      <ion-button  slot="icon-only" >
+      <ion-button  slot="icon-only" id="list-btn" *ngIf="isGrid" (click)="changeGridView()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 74 64">
           <g id="Publish" transform="translate(-4103.798 -3486)">
             <path id="Path_8583" data-name="Path 8583" d="M0,0H18.581" transform="translate(4141.514 3494)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="4"/>
@@ -52,8 +52,8 @@
           </g>
         </svg>
       </ion-button>
-     </ion-buttons>
-    
+    </ion-buttons>
+     -->
   </ion-toolbar> 
 </ion-header>
 
