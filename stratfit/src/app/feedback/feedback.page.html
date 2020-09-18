@@ -8,14 +8,14 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title><span>Settings</span>Feedback</ion-title>
+    <ion-title>Feedback</ion-title>
   </ion-toolbar> 
 
 </ion-header>
 
 <ion-content>
 
-  <ion-list  class="fulpad inputs ">
+  <ion-list  class=" inputs ">
     <form #feedbackForm="ngForm">
       <ion-item class="sbgw" >
         <ion-row class="hed" >
@@ -25,7 +25,7 @@
       </ion-item>
     </form>
 
-    <ion-button type="submit" (click)="submitFb(feedback)" [disabled]="!feedbackForm.form.valid">Submit</ion-button>
+    <ion-button expand="block" type="submit" (click)="submitFb(feedback)" [disabled]="!feedbackForm.form.valid">Submit</ion-button>
   </ion-list>
 
 </ion-content>

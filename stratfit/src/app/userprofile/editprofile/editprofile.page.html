@@ -7,7 +7,7 @@
           </svg>
       </ion-button>
     </ion-buttons>
-    <ion-title><span>Profile</span>Manage</ion-title>
+    <ion-title>Profile Edit</ion-title>
     <ion-buttons  slot="end" >
       <ion-button slot="icon-only" (click)="updateProfile()" [disabled]="!registerForm.form.valid">
         <span>Save</span>
@@ -20,7 +20,6 @@
 
 <ion-content class="profview">
 
-    <div class="fulpad">
 
       <ion-list class="inputs">
         <form #registerForm="ngForm">
@@ -244,6 +243,5 @@
     </form>
   </ion-list>
 
-</div>
-  
+
 </ion-content>

@@ -59,28 +59,42 @@
   .tlevel{ padding-top: 6vh;
     h3 {margin-bottom: 3rem !important;}
 
-      .levels{ 
-        h4 {margin-top:-5px !important; margin-bottom: 0 !important;  }
-        h4, p {margin-left: 25px;}
-        p{ display: block; font-size: small; }
+      // .levels{ 
+      //   h2 {margin-top:-5px !important; margin-bottom: 0 !important;  }
+      //   h2, p {margin-left: 25px;}
+      //   p{ display: block; font-size: small; }
 
-      // .levelopt{padding: 6px 15px;  margin-bottom: 10px;  border-radius: 3px !important; height: 54px !important;}
-      // .levelopt.active{  height: auto !important;
-      //     h2 {margin-top:0px !important; font-weight: 600 !important;}
-      //     .label {margin-top: 10px !important; margin-bottom: 10px !important;}
+      
+
+      // .levelopt { width: 100%;padding: 20px !important;  border-radius: 3px; margin-bottom:10px; position: relative; cursor: pointer;}
+      // .levelopt.active { box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15); }
+      // .levelopt p{margin-bottom: 0; display: none; line-height: inherit !important;}
+      // .levelopt:before, .levelopt.active:after {content: ""; position: absolute; left:13px; top:19px;  border-radius: 50%; width: 12px !important; height: 12px !important; border: 1px solid #999 !important; }
+    
+
+      // .levelopt.active p {display: block !important;}
+      // .levelopt.active:before { border-width: 3px !important; border-style: solid !important; }
+      // .levelopt.active:after { border-width: 1px!important; border-style: solid !important; left:12px; top:18px; width: 18px !important; height: 18px !important; background: none !important; --background:none !important;}
+
+      // .levelopt.active h2{ font-weight: bold !important; display: block;  }
+
       // }
 
-      .levelopt { width: 100%;padding: 20px !important;  border-radius: 3px; margin-bottom:10px; position: relative; cursor: pointer;}
-      .levelopt.active { box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15); }
+      .levels{ 
+        h2 {margin-top:-5px !important; margin-bottom: 0 !important; font-weight: normal !important;  }
+        h2, p {margin-left: 25px;}
+        p{ display: block; font-size: small; }
+
+      .levelopt { width: 100%;padding: 20px !important;  border-radius:10px; margin-bottom:10px; position: relative; cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08); }
       .levelopt p{margin-bottom: 0; display: none; line-height: inherit !important;}
-      .levelopt:before, .levelopt.active:after {content: ""; position: absolute; left:13px; top:19px;  border-radius: 50%; width: 12px !important; height: 12px !important; border: 1px solid #999 !important; }
+      .levelopt:before, .levelopt.active:after {content: ""; position: absolute; left:13px; top:20px;  border-radius: 50%; width: 12px !important; height: 12px !important; border: 1px solid #999 !important; }
       // .levelopt:after { }
 
       .levelopt.active p {display: block !important;}
-      .levelopt.active:before { border-width: 3px !important; border-style: solid !important; }
+      .levelopt.active:before { border-width: 3px !important; border-style: solid !important; border-color: #fff !important;  background: #0163D1!important;}
       .levelopt.active:after { border-width: 1px!important; border-style: solid !important; left:12px; top:18px; width: 18px !important; height: 18px !important; background: none !important; --background:none !important;}
 
-      .levelopt.active h4{ font-weight: bold !important; display: block;  }
+      .levelopt.active h2{ font-weight: bold !important; display: block; }
 
       }
 

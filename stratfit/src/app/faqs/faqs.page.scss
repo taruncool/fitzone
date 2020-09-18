@@ -1,9 +1,9 @@
 
 
    
- .dcard {margin-bottom: 10px !important; border-bottom-style: solid; border-bottom-width: 1px; color: #fff;
+ .dcard {margin-bottom: 10px !important; border-bottom-style: solid; border-bottom-width: 1px; 
     ion-row { position: relative; 
-        ion-col {padding-right:16px; padding-bottom: 10px;}
+        ion-col {padding-right:16px; }
         span {font-weight: normal !important; }
         .adrop{position: absolute; right: 5px; top: 10px;
             svg {width:18px !important; height:18px !important;}
@@ -25,6 +25,6 @@
 
 }
 
-.dcard p {margin-top: 0 !important;}
+.dcard p {margin-top: 0 !important; white-space: inherit !important;}
 
 

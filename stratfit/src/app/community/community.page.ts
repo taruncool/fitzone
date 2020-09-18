@@ -157,4 +157,9 @@ export class CommunityPage implements OnInit {
   hide() {
     this.hideMe = true;
   }
+
+
+  backButtonAction() {
+    this.navCtrl.navigateBack('/welcome');
+  }
 }

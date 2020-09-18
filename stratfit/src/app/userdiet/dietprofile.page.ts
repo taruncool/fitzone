@@ -1015,4 +1015,11 @@ export class DietprofilePage implements OnInit {
 
      })
   }
+
+
+
+   backButtonAction() {
+   this.nav.navigateBack('/welcome');
+    
+   }
 }

@@ -126,6 +126,7 @@ ion-segment, hr, .coach .user, .periods, .genwamup ion-card, .genwamup ion-card 
 .sblb{border-bottom: 0;}
 
 svg{width:2rem; height:2rem;fill: #000; }
+.icostr {stroke: #000 !important;}
 .sbsd{-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) !important; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important; }
 
 .fulpad {padding: 12px !important;}
@@ -167,7 +168,7 @@ img {width: 100%;}
 
 
 // h1, h2, h3, h4, h5, h6, .toolbar-title-md, .toolbar-title-ios, p, em{font-weight: normal !important;}
-.fontxlg{font-size: x-large !important; font-weight: 900;}
+.fontxlg{font-size: x-large !important; font-weight: 900; color: #000 !important;}
 
 .text-left{text-align: left !important;}
 .text-center{text-align: center !important;}
@@ -229,11 +230,11 @@ ion-button.nobg{border: 0 !important; --box-shadow: none !important; box-shadow:
   
 }
 .inputs.profinfo { padding-top: 0 !important;
-  ion-item {border-bottom-width: 1px; border-bottom-style: solid; border-radius: 0 !important;
+  ion-item {
     ion-label {
-      svg {fill: #fff !important; opacity: 0.6;}
+      // svg {fill: #fff !important; opacity: 0.6;}
     }
-    ion-row.hed p{display: block; margin:5px 0 10px 0 !important;}
+    ion-row.hed p{display: block; margin:10px 0 10px 0 !important;}
   }
 }
 
@@ -368,7 +369,7 @@ ion-select-popover{
   /*for alert msg*/
   .alert-title{font-size: medium;font-weight: 400;}
   .alert-head{text-align: center;padding:0 !important;  text-transform: none; margin-bottom: 2rem;
-      h2 {font-size:x-large !important; position: relative;}
+      h2 {font-size:x-large !important; position: relative; color:#fff;}
       h3 {margin-top:1rem !important;}
   }
   
@@ -391,7 +392,9 @@ ion-select-popover{
     .alert-input{ padding:1.4rem 2rem; margin: 0; border: 0;}
   }
   .alert-button-group{ padding: 0; justify-content:center !important;
-    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase;font-size:medium !important; width: auto; margin: 0 0 0 8px;padding:10px 15px; border-width: 1px; border-style: solid; }
+    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase;font-size:medium !important; width: auto; margin: 0 0 0 8px;padding:10px 15px; border-width: 1px; border-style: solid;
+      span {color: #fff !important;}
+    }
     .alert-button:first-child {margin-left: 0;}
     // .alert-button.activated{background-color: #d60404;}
     .alert-button .button-inner{justify-content:center;font-size: smaller;}
@@ -401,6 +404,8 @@ ion-select-popover{
   .alert-radio-group, .alert-checkbox-group {margin-bottom: 1rem; border:0 !important;
     .alert-radio-button, .alert-checkbox-button {background: #fff !important; border-radius: 10px; display: inline-block;
       .alert-radio-label, .alert-checkbox-label { white-space: initial;}
+      .alert-radio-icon {left:20px !important;}
+      .alert-radio-label {padding-inline-start:30px !important;  }
     }
   }
   /*end for alert msg*/
@@ -544,7 +549,7 @@ ion-tab-bar{border-width: 0 !important;
 }
 .fabclose{transform:translate(-50%, -50%); left:50%;}
 
-.tick, .edit {position: absolute;top: 0; right:0; padding: 6px; 
+.tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  background: linear-gradient(90deg,#329DFB 100%,  #0163D1 100%); border-radius: 0 10px;
   svg {width:1rem !important; height: 1rem !important;}
 }
 
@@ -574,11 +579,11 @@ ion-tab-bar{border-width: 0 !important;
 // } 
 
 .social {margin-top:6vh;
-  .button {padding: 0;  font-size: 0;height:44px !important; width: 44px !important; border-radius: 50%;  border-width: 2px !important;  
+  .button {padding: 0;  font-size: 0;height:46px !important; width: 46px !important; --border-radius: 50% !important;  border-width: 2px !important;  
     svg {fill: #fff !important;}
   }
-  .button.fb{ border-color:#3b5998 !important;}
-  .button.gogl{ border-color:#fc2424 !important;}
+  .button.fb{ --background:#3b5998 !important;}
+  .button.gogl{ --background:#D44638 !important;}
 } /*--End Login / Signup--*/
 
 
@@ -664,18 +669,18 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 
 /*-- Store *** Coach *** Coachview *** Analytics *** Profile --*/
-.store, .analytic, .welcome { 
+.store, .analytic, .coach, .welcome { 
   ion-list  { padding: 0 !important;}
    
   /*--- Full Card scroll---*/
-  ion-slides {height: 78vh !important;}
-  .fulcard {width:100% !important;overflow: hidden;align-items:normal !important; position: relative; z-index: 999; color: #fff;
+  ion-slides {height: 72vh !important;}
+  .fulcard {width:100% !important;overflow: hidden;align-items:normal !important; position: relative; z-index: 999; color: #fff; text-align: left;
 
-    img {opacity: 0; transform: scale(1.1); width: 100%; height: 71vh; object-fit: cover; transition: 2s ;}
+    img {opacity: 0; transform: scale(1.1); width: 100%; height: 72vh; object-fit: cover; transition: 2s ;}
 
-    .swiper-wrapper, .slide-zoom {height: 71rem !important;}
+    .swiper-wrapper, .slide-zoom {height: 72rem !important;}
 
-    .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding:20px 15px; bottom: 0; left: 0; right: 0;
+    .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding:30px 15px; bottom: 0; left: 0; right: 0;
       .cdbody {
         span, em, p { font-weight: 300; display: block; font-size: medium; }
         h1 {font-weight: 900 !important; font-size: xx-large; line-height: 2.2rem; margin: 0 !important; margin-bottom:10px !important;} 
@@ -703,7 +708,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
       svg{animation-delay: 0.6s;}
 
       .wordslid{ position: absolute; bottom: 1rem;
-        em{display: inline-block; position: relative; top: -8px;}
+        em{display: inline-block; position: relative; top: -15px;}
         .word {overflow: hidden;position: relative;display:inline-block;height: 30px;animation-delay: 0.6s;
           li {color: #fff;font-size:large;font-weight: bold;padding: 0 10px; height: 45px;margin-bottom: 45px;display: block; }
         }
@@ -843,12 +848,12 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     }
 
     ion-button { border: 0 !important;  margin: 0 !important;--padding-start:0 !important;--padding-end: 0 !important; letter-spacing: normal; --color:#000 !important;text-transform: none; height: 32px !important;
-      svg {width:20px; height: 20px;border-radius: 50%; margin-left: 5px;}
+      svg {width:20px; height: 20px;border-radius: 50%; margin-left: 5px; background: #000;}
     }
 
     .cardview{  background: #f4f4f4;transition: all .5s ease-in-out;
       h2{margin-top: 0 !important;}
-      p{margin-bottom: 1rem;}
+      p{margin-bottom: 1rem; white-space: normal !important;}
     }
 
   }//End Coach List CSS ----//
@@ -873,7 +878,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   svg {opacity: 0.9 !important;}
  
   ion-list {       
-    ion-item{ font-size: inherit; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-bottom-width: 1px; border-bottom-style: solid;
+    ion-item{ font-size: inherit; margin-bottom:5px;padding-left: 12px !important; padding-right: 12px !important; 
       span{margin-right: 15px !important;  float: left;
         svg {width:20px !important; height: 20px !important;}
       }
@@ -1022,7 +1027,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .adtitle {padding-left: 12px !important; padding-right: 12px !important;}
 
 
-.goal, .goals { // Goal Oriented 
+.goal, .goals { --padding-bottom: 20px !important; // Goal Oriented 
   .rowlist {margin-bottom: 1rem;}
     ion-col{padding-top: 0 !important; padding-bottom: 10px !important;}
     // [size="4"] {flex:0 0 33.1222%  !important;}
@@ -1426,7 +1431,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
 
   }
 
-  .lgraph { padding-top: 10px !important;
+  .lgraph {
     h3{margin-top: 0;}
     // progress-bar {
     //   .progress-outer, .progress-inner  {  border: 0 !important; padding:0; height:6px;  border-radius:6px;}
@@ -1440,7 +1445,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     .calorie .progress-inner{ background:#00BFE6 !important;}
   }
 
-  .cgraph, .lgraph {padding-top: 0 !important; 
+  .cgraph, .lgraph {
     span, em {display: block;}
     span { font-size:small;}
     em{font-weight: bold;}
@@ -1477,7 +1482,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     
   }// End Meal & Global Diet Card count *** Fat *** Protein *** Carbohydrate *** Calorie ////
 
-  .ocard{border: 1px solid #111 !important; background: none !important;
+  .ocard{
     ion-item, .lgraph{
       em, h2 {color:#ccc !important; }
     }

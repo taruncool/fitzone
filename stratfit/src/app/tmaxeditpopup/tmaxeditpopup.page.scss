@@ -25,15 +25,15 @@
 
     .summary  { width: 100%;
 
-        .tmaxedit { font-size: inherit;  font-weight: 300 !important; margin-bottom:3px;padding-left: 15px !important; padding-right: 15px !important; border-radius: 0 !important; box-shadow: none !important; border-bottom-width: 1px; border-bottom-style: solid; color: #fff !important; 
+        .tmaxedit { padding-left: 12px !important; padding-right: 12px !important;  margin: 0 12px; margin-bottom: 8px !important; color: #000 !important; 
             
             div[slot="end"]{
-                .count {display: inline-block !important;  color: #fff !important;
-                    span {color:#fff !important; font-weight: bold;}
-                    ion-input { width: 60px; float: left; background: #fff; color:#000; border-radius: 10px; text-align: center; margin-right: 10px;}
+                .count {padding-right: 10px; display: inline-block !important;  color: #000 !important;
+                    span {color:#000 !important; font-weight: bold;}
+                    ion-input { width: 60px; float: left; background: #fff; border-radius: 10px; text-align: center; margin-right: 10px;}
                     em {line-height: 40px; }
                 }
-                // ion-icon {color: #000;}
+                ion-icon {color: #000;}
             }
 
             

@@ -312,4 +312,16 @@ public forgot_pwd(){
   this.user.password="";
   this.nav.navigateForward('/login/forgotpswd');
 }
+
+
+
+// backButtonAction() {
+//   this.navCtrl.navigateBack('/slide');
+// }
+
+backButtonAction() {
+  this.nav.navigateBack('/slide');
+  
+}
+
 }

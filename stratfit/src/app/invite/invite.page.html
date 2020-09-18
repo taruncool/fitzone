@@ -8,21 +8,21 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title><span>Settings</span>Refer the App</ion-title>
+    <ion-title>Refer the App</ion-title>
   </ion-toolbar> 
 
 </ion-header>
 
 <ion-content class=" invite">
-    <ion-list class="inputs text-center fulpad" >
+    <ion-list class="inputs text-center " >
         
       <div class="refer">
           <img src="assets/images/refer.png">
       </div>
       <h4>Invite your friends with your referral code <br><br> <strong >{{referralCode}}</strong></h4>
-      <form  #inviteForm="ngForm">
+      <form  #inviteForm="ngForm" class="admlr-n12">
 
-        <ion-item class="sbgw" >
+        <ion-item class="sbgw " >
           <ion-label >
             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 31.012 31.012" >
               <g>
@@ -52,7 +52,7 @@
         </ion-item>
 
       </form>
-      <ion-button (click)='sendInvite()' [disabled]="!inviteForm.form.valid || clicked">Invite</ion-button>
+      <ion-button expand="block" (click)='sendInvite()' [disabled]="!inviteForm.form.valid || clicked">Invite</ion-button>
     </ion-list>
 
 </ion-content>

@@ -40,5 +40,9 @@ public community(){
   this.navCtrl.navigateForward('/community');
 }
 
+backButtonAction() {
+    this.navCtrl.navigateBack('/store');
+    
+  }
 
 }
