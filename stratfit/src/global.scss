@@ -1359,7 +1359,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     }
 
     ion-row.infildcmplx { display: flex !important;
-      h4:first-child {display: block !important;}
+      h4:first-child {display: block !important; font-style: inherit!important;}
       // ion-col{padding-left:10px !important; }
       // ion-col:first-child {padding-left:0px !important; }
       // h6{ display: block;margin-top: 0; margin-bottom: 5px; font-size: small; font-weight: normal;}
@@ -1391,7 +1391,7 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
   }
 
   .cmplxactive {
-    .posabs, h4:first-child {display: none !important;}
+   h4:first-child {display: block !important; margin-top: 0; font-style: inherit!important;}
   }
     
 
