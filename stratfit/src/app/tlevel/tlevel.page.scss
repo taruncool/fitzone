@@ -1,11 +1,11 @@
 /* training level css */
 .tlevel{
-    h3 {margin-bottom: 1rem !important; font-size: inherit; }
+    // h3 {margin-bottom: 1rem !important; }
 
       .levels{ 
         h2 {margin-top:-5px !important; margin-bottom: 0 !important; font-weight: normal !important;  }
         h2, p {margin-left: 25px;}
-        p{ display: block; font-size: small; }
+        // p{ display: block;  }
 
       .levelopt { width: 100%;padding: 20px !important;  border-radius:10px; margin-bottom:10px; position: relative; cursor: pointer; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08); }
       .levelopt p{margin-bottom: 0; display: none; line-height: inherit !important;}
@@ -22,3 +22,4 @@
 
   
   }
+  .foot .btnrow ion-button{ float: none !important;}

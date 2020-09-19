@@ -315,8 +315,8 @@ ion-segment { display: -webkit-inline-box; white-space: nowrap; font-size: 0;ove
 .scrol.unlist{min-height: 46px !important;}
 
 .tbactive{margin-bottom: 10px;}
-.tbactive ul li{font-style: medium; padding: 10px; display: inline-block;}
-.tbactive ul li.active{font-style: x-large;  font-weight: bold;}
+.tbactive ul li{font-size: medium; padding: 10px; display: inline-block;}
+.tbactive ul li.active{font-size: x-large;  font-weight: bold;}
 
 
 
@@ -373,8 +373,8 @@ ion-select-popover{
 
   /*for alert msg*/
   .alert-title{font-size: medium;font-weight: 400;}
-  .alert-head{text-align: center;padding:0 !important;  text-transform: none; margin-bottom: 2rem;
-      h2 {font-size:x-large !important; position: relative; color:#fff;}
+  .alert-head{text-align: center !important;padding:0 !important;  text-transform: none; margin-bottom: 2rem;
+      h2 {font-size:x-large !important; position: relative; color:#fff !important;}
       h3 {margin-top:1rem !important;}
   }
   

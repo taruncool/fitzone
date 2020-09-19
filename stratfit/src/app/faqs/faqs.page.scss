@@ -3,15 +3,15 @@
    
  .dcard {margin-bottom: 10px !important; border-bottom-style: solid; border-bottom-width: 1px; 
     ion-row { position: relative; 
-        ion-col {padding-right:16px; }
+        ion-col {padding: 12px 16px; }
         span {font-weight: normal !important; }
-        .adrop{position: absolute; right: 5px; top: 10px;
+        .adrop{position: absolute; right: 12px; top: 10px;
             svg {width:18px !important; height:18px !important;}
         }
     }
     
 
-    .ansview{padding: 10px 10px 20px 25px;
+    .ansview{padding: 10px 15px 20px 25px;
         ul{ padding-left: 8% !important;line-height: 1.6 !important;}
        
         .pad {padding:10px 16px 16px 16px;}
@@ -19,12 +19,10 @@
 
     }
 
-    b {font-weight:300 !important;}
+    b {font-weight:normal !important;}
     // p{margin-top: 0 !important;}
+    p {margin-top: 0 !important; white-space: inherit !important; }
 
 
 }
-
-.dcard p {margin-top: 0 !important; white-space: inherit !important;}
-
 

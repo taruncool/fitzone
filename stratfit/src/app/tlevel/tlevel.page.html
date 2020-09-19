@@ -17,7 +17,7 @@
 
   <div class="fulpad ">
       
-    <h2>Estimate your strength training level and we will estimate your training maxes.</h2>
+    <h3>Estimate your strength training level and we will estimate your training maxes.</h3>
    
     <ion-row class="levels">
       <div class=" sbgw fulpad active levelopt" [ngClass]="{'active': selectedLevel== (i+1)}" *ngFor='let item of items;let i=index' name="fitlevel" (click)="selectFLevel(item)"> 
@@ -35,7 +35,7 @@
 
 <ion-footer class="foot " >
   <ion-row class="btnrow" >
-    <ion-button (click)="continueBtn()" [disabled]='!selectedLevel'>Save</ion-button>
+    <ion-button expand="block" (click)="continueBtn()" [disabled]='!selectedLevel'>Save</ion-button>
   </ion-row>
 </ion-footer>
 

@@ -57,15 +57,96 @@
   </ion-toolbar> 
 </ion-header>
 
-<ion-content class="  coachview ">
+<ion-content class=" coach coachview ">
+
+  <div class="fulview">
+    <div class="fulcard " >
+      <img src={{s3Url}}{{coachData1.avatar}} class="planimg" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
+      <img src="assets/images/plan_2.png" class="planimg" *ngIf="coachData1.avatar =='' || coachData1.avatar ==null" >
+
+      <div class="container">
+        <div class="cdbody">
+          <!-- <span>{{planinfo.duration_weeks}} Weeks - {{planinfo.planType}}</span>  -->
+          <h1>{{coachData1.coachName}}</h1>
+          <p>Fitness Strength Coach<em>4.5
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34 34">
+              <path id="Star" d="M17,0l4.25,12.644L34,12.987,23.877,21.144,27.507,34,17,26.4,6.493,34l3.63-12.856L0,12.987l12.75-.343Z" fill="#ffc400"/>
+            </svg>
+            
+          </em></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="programview">
+    
+    <div class='fulpad nopadb' >
+      <h2>About</h2>
+      <p class=" coachdisc" [innerHTML]="aboutCoach"></p>
+    </div>
+
+
+
+    <!-- Grid Format -->
+    <div class="fulpad  gridview" >
+      <h2>Programs</h2>
+
+
+      <ion-list >
+
+        <ion-item class="nodata nopad"  *ngIf="plansdata.length==0">
+          <p>No programs to display</p>
+        </ion-item>
+
+        <ion-row>
+          <ion-col size="6" *ngFor="let plan of plansdata; let i = index" >
+            <div class="fulcard active" (click)="viewplaninfo(plan)">
+              <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+              <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
+
+              <div class="container">
+                <div class="cdbody">
+                  <span>{{plan.duration_weeks}} Weeks</span>
+                  <h1>{{plan.planName}}</h1>
+                  <!-- <p>{{plan.createdBy_id__first_name}}</p> -->
+                  <p> {{plan.planType}}  <em>4.5
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34 34">
+                      <path id="Star" d="M17,0l4.25,12.644L34,12.987,23.877,21.144,27.507,34,17,26.4,6.493,34l3.63-12.856L0,12.987l12.75-.343Z" fill="#ffc400"/>
+                    </svg>
+                    
+                  </em></p>
+                </div>
+              </div>
+
+              <div class="posabs text-center tick"  *ngIf="plan.activestatus">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
+                </svg>   
+              </div>
+
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+      
+    </div>
+
+  </div>
+
+
+
+
   
-  <ion-card class="nobg user " >
+  <!-- <ion-card class="nobg user " >
     <ion-item >
-      <ion-avatar  slot="start" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
+      <ion-avatar  slot="start" >
         <img src={{s3Url}}{{coachData1.avatar}} >
       </ion-avatar>
     
-      <ion-avatar  slot="start" *ngIf="coachData1.avatar =='' || coachData1.avatar ==null">
+      <ion-avatar  slot="start" >
         <img src="assets/images/icon.png"/>
       </ion-avatar>
     
@@ -81,35 +162,42 @@
               4.7
             </em>
           </ion-col>
-          <!-- <ion-col class="social">
+          <ion-col class="social">
             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20.096 37.589">
               <path id="Path_34" data-name="Path 34" d="M235.287,167.445v-18.82H242.4l1.124-6.237h-8.237v-3.127c0-1.627.611-3.181,3.287-3.181h5.347v-6.225H236.33c-6.383,0-8.125,3.67-8.125,8.756v3.773h-4.38v6.239h4.38v18.82Z" transform="translate(-223.825 -129.856)" fill="#3c5a98"/>
             </svg>
-          </ion-col> -->
+          </ion-col>
         </ion-row>
       
       </div>
     </ion-item>
-</ion-card>  
+</ion-card>   -->
 
 
 
-<div class="sfmenu">
+<!-- <div class="sfmenu">
   <ion-segment  class="segment-activated" [(ngModel)]="coachProfile">
     <ion-segment-button value="programs" >
-      <ion-label>Programs <!--em>{{recommendedData.length}}</em--></ion-label>
+      <ion-label>Programs </ion-label>
     </ion-segment-button>
     <ion-segment-button value="About" >
       <ion-label>About </ion-label>
     </ion-segment-button>
   </ion-segment>
   
-</div>
+</div> -->
+
+<!-- <div class="session">
+  <div class="scrol min" scrollX="true" >
+    <ion-button class="nobg active" >{{session.session_name}} </ion-button>
+  
+  </div>
+</div> -->
 
 
 <div [ngSwitch]="coachProfile" >
 
-  <ion-list *ngSwitchCase="'programs'">
+  <!-- <ion-list *ngSwitchCase="'programs'">
     <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="vertical"slidesPerView="1"effect="slide"pager="false" zoom="true">
       
       <ion-slide class="fulcard curv " *ngFor="let plan of plansdata; let i = index" (click)="viewplaninfo(plan)">
@@ -121,7 +209,7 @@
             <div class="cdbody">
               <span>{{plan.duration_weeks}} Weeks - {{plan.planType}}</span>
               <h1>{{plan.planName}}</h1>
-              <!-- <p>{{plan.createdBy_id__first_name}}</p> -->
+         
             
               <div class="wordslid">
                 <em>Click to See</em>
@@ -148,11 +236,11 @@
   </ion-slides>
 
 
-  </ion-list>
+  </ion-list> -->
 
-  <div class='fulpad ' *ngSwitchCase="'about'">
+  <!-- <div class='fulpad ' *ngSwitchCase="'about'">
       <p class=" coachdisc" [innerHTML]="aboutCoach"></p>
-  </div>
+  </div> -->
 
 </div>
 

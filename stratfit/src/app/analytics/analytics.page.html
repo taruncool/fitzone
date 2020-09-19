@@ -218,13 +218,12 @@
     
           </ion-card><!-- End Summary Block-->
 
-          <div class="exe"  >
-            <ion-col>
-            <ion-avatar *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
-                <span>Activity {{i+1 }}</span>
-            </ion-avatar>
-           
-            </ion-col>
+          <div class="tbactive"  >
+            <ul>
+              <li *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
+                  <span>Activity {{i+1 }}</span>
+              </li>
+            </ul>
            
           </div>
 
