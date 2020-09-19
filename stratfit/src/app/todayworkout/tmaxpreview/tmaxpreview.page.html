@@ -51,7 +51,7 @@
         <ion-item class="sbgw " >
           <ion-row>
             <ion-col ><em>Work Weight</em></ion-col>
-            <ion-col  ><span>60kg</span></ion-col>
+            <ion-col  ><span>{{workweight}}{{metric}}</span></ion-col>
           </ion-row>
           </ion-item >
         </div>
@@ -60,7 +60,7 @@
           <ion-item class="sbgw " >
             <ion-row>
               <ion-col ><em>Tmax</em></ion-col>
-              <ion-col ><ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input></ion-col>
+              <ion-col ><ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required (ionChange)='changeWorkweight()'></ion-input>{{metric}}</ion-col>
             </ion-row>
             </ion-item >
           </div>

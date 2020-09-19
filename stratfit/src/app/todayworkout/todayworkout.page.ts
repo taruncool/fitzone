@@ -2389,12 +2389,12 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
 
 
- async tmaxShowPreview(exObj, excercise, tmax, metric) {
+ async tmaxShowPreview(exObj, excercise, tmax, weight, intensity, metric) {
     console.log(exObj);
 
     let modal = await this.modalCtrl.create({
       component:TmaxpreviewPage,
-      componentProps: { ExObj: exObj, ExerciseName: excercise, Tmax: tmax, Metric: metric, FromPage: "workout" }
+      componentProps: { ExObj: exObj, ExerciseName: excercise, Tmax: tmax, WorkWeight: weight, Intensity: intensity, Metric: metric, FromPage: "workout" }
     });
 
     modal.present();

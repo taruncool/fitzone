@@ -26,6 +26,8 @@ export class TmaxpreviewPage implements OnInit {
   fromPage;
   showTmaxNav = true;
   kgsLbs;
+  workweight;
+  intensity;
   
    
 
@@ -39,7 +41,9 @@ export class TmaxpreviewPage implements OnInit {
         this.exercise = navParams.get("ExerciseName");
 
         this.tmax = navParams.get("Tmax");
+        this.workweight = navParams.get("WorkWeight");
         this.exerciseTmax = navParams.get("Tmax");
+        this.intensity = navParams.get("Intensity");
         this.metric = navParams.get("Metric");
         this.exObj = navParams.get("ExObj");
 
@@ -182,6 +186,10 @@ export class TmaxpreviewPage implements OnInit {
       }
     )   
     
+  }
+
+  changeWorkweight() {
+    this.workweight = this.exerciseTmax * (this.intensity/100);
   }
 
  async updateTmaxData() {

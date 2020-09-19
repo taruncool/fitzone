@@ -331,7 +331,7 @@ backButtonAction(){
   localStorage.setItem('work','');
   localStorage.setItem('cal','');
   this.modalCtrl.dismiss();
-  //this.navCtrl.navigateBack('/tabs/tabs/welcome');
+  this.navCtrl.navigateRoot('/tabs/tabs/welcome');
  
 }
 }
