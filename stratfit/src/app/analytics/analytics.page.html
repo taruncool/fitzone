@@ -218,7 +218,7 @@
     
           </ion-card><!-- End Summary Block-->
 
-          <div class="tbactive"  >
+          <div class="tbactive text-center"  >
             <ul>
               <li *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
                   <span>Activity {{i+1 }}</span>
@@ -285,7 +285,7 @@
           
 
           <div *ngIf="activityType != 'simple'">
-            <div class="fulpad nopadt exetab" *ngFor="let round of tempRound; let i = index">
+            <div class="exetab" *ngFor="let round of tempRound; let i = index">
 
               
               <div class="workview" *ngFor="let exe of round.exes; let i = index">

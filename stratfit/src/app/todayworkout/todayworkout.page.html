@@ -116,7 +116,11 @@
           </ion-avatar>
               
         </div>-->
-        <span [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</span>
+        <div class="tbactive" >
+          <ul>
+            <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
+          </ul>
+        </div>
         <div class="tbactive" *ngIf="!isActivitySimple">
           <ul>
             <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i}}</li>
