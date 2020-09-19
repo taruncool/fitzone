@@ -153,7 +153,9 @@ svg{width:2rem; height:2rem;fill: #000; }
 
 .adm-0 {margin: 0 !important;}
 // .nomb{ margin-bottom: 0 !important;}
+.adml-0 {margin-left: 0 !important;}
 .admr-0 {margin-right: 0 !important;}
+.admlr-n0 {margin-left: 0px !important; margin-right: 0px !important;}
 .admlr-n5 {margin-left: -5px !important; margin-right: -5px !important;}
 .admlr-n12 {margin-left: -12px !important; margin-right: -12px !important;}
 .admr-n12 {margin-right: -12px !important;}
@@ -421,16 +423,35 @@ ion-select-popover{
 
 
 // Done -- check Mark circle CSS Animation
-.checkmark__circle{stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke: #000;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
-.checkmark {border-radius: 50%;display: block;stroke-width: 2;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;}
+// .checkmark__circle{stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke: #000;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
+// .checkmark {border-radius: 50%;display: block;stroke-width: 2;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;}
+// .checkmark__check {transform-origin: 50% 50%;stroke-dasharray: 48;stroke-dashoffset: 48;animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
+// @keyframes stroke {
+//   100% {stroke-dashoffset: 0;}
+// }
+// @keyframes scale {
+//   0%, 100% {transform: none;}
+//   50% {transform: scale3d(1.4, 1.4, 1);}
+// }
+
+.checkmark__circle {stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke:none;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
+.checkmark {border-radius: 50%;display: block;stroke-width: 2;stroke: #000;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;}
 .checkmark__check {transform-origin: 50% 50%;stroke-dasharray: 48;stroke-dashoffset: 48;animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
+
 @keyframes stroke {
-  100% {stroke-dashoffset: 0;}
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 @keyframes scale {
-  0%, 100% {transform: none;}
-  50% {transform: scale3d(1.4, 1.4, 1);}
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.4, 1.4, 1);
+  }
 }
+
 
 // .asico svg circle {stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;  animation: checkmark-circle 0.6s ease-in-out backwards;}
 // .asico svg polyline {stroke-dasharray:100px, 100px; stroke-dashoffset: 200px; stroke:#fff; animation: checkmark 0.25s ease-in-out 0.7s backwards}
@@ -847,8 +868,8 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
       ion-col svg {margin-right: 0px !important; }
       
     }
-    ion-avatar {position: absolute; right: 0; top: 0; margin: 0 !important; min-width: 96px !important; min-height: 134px !important; border-radius: 7px 7px 7px 40px !important;
-      img {width: 86px !important; }
+    ion-avatar {position: absolute; right: 0; top: 0; margin: 0 !important; width: 96px !important; height: 130px !important; border-radius: 7px 7px 7px 40px !important; background: #000 !important; border: 0 !important; box-shadow: none !important;
+      img {width: 100% !important; border-radius:0 !important; }
     
     }
 
@@ -977,7 +998,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     // h1, h2, h3, h4, h5 { margin-top: 0;}
 
     .pctitle { 
-      svg { width: 4rem; height:4rem; margin-bottom: 1rem; background:#ccc;}  
+      svg { width: 4rem; height:4rem; margin-bottom: 1rem; background:#fff; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;}  
     }
 
     // .pcsuces { margin-bottom: 1rem;
@@ -1227,19 +1248,20 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   
 
     .summary {width: 100%; padding-bottom: 60px !important;
-      ion-item  { margin: 12px !important;}
-      .tmaxedit { padding-left: 12px !important; padding-right: 12px !important;  margin: 0 12px; margin-bottom: 8px !important; color: #000 !important; 
-        div[slot="end"]{
-            .count { display: inline-block !important;  color: #000 !important;
-                span {color:#000 !important; font-weight: bold;}
-                ion-input { width: 54px !important; float: left; background: #EFF1F4; border-radius: 10px; text-align: center; margin-right: 10px; font-weight: bold;
-                .native-input {opacity: 1 !important;}
-                }
-                em {line-height: 40px; }
-            }
-            ion-icon {color: #000; margin-left: 12px;}
-          }  
-      }
+      ion-item  { margin: 12px !important;}  
+    }
+
+    .tmaxedit { padding-left: 12px !important; padding-right: 12px !important;  margin: 0 12px ; margin-bottom: 8px !important; color: #000 !important; 
+      div[slot="end"]{
+          .count { display: inline-block !important;  color: #000 !important;
+              span {color:#000 !important; font-weight: bold;}
+              ion-input { width: 54px !important; float: left; background: #EFF1F4; border-radius: 10px; text-align: center; margin-right: 10px; font-weight: bold;
+              .native-input {opacity: 1 !important;}
+              }
+              em {line-height: 40px; }
+          }
+          ion-icon {color: #000; margin-left: 12px;}
+        }  
     }
 
 

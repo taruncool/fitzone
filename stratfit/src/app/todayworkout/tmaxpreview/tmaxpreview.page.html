@@ -28,24 +28,8 @@
 
 <ion-content class=" tmax">
  
-<div class="fulpad ">
-
- 
-    <!-- <form #exTmaxForm="ngForm">
-      <label>Tmax: {{tmax}} {{metric}}</label>
-      <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*" 
-      id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input>
-      
-    </form> -->
-
+  <div class="fulpad ">
     <form #exTmaxForm="ngForm">
-      <!-- <ion-item class="tmxbrd" > 
-        <ion-label class="posabs">
-            <span>Work Weight</span>
-        </ion-label>
-        <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' readonly></ion-input>
-      </ion-item> -->
-
       <div class="infild  ">
         <h4>{{exercise}}</h4>
         <ion-item class="sbgw " >
@@ -56,33 +40,35 @@
           </ion-item >
         </div>
 
-        <div class="infild  ">
+        <!-- <div class="infild  ">
           <ion-item class="sbgw " >
             <ion-row>
               <ion-col ><em>Tmax</em></ion-col>
               <ion-col ><ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required (ionChange)='changeWorkweight()'></ion-input>{{metric}}</ion-col>
             </ion-row>
             </ion-item >
-          </div>
+          </div> -->
 
-      <!-- <ion-item class="sbgw" >
-        <ion-row class="hed" >
-          <span>Tmax</span>
-          <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required></ion-input>
-        </ion-row>
-      </ion-item> -->
-
-
+          <ion-item class="tmaxedit sbgw nopad admlr-n0">
+            <span>Tmax</span>
+            <div slot="end">
+              <div class="count" >
+                <ion-input type="tel" name ='ex{{exercise}}' pattern="[1-9][0-9]*"  id="ex{{exId}}" minlength="2" maxlength="3" [(ngModel)]='exerciseTmax' required (ionChange)='changeWorkweight()'></ion-input> 
+                <em>{{metric}}</em>
+              </div>
+              <!-- <ion-icon name="pencil-outline" (click)='tmaxShowPreview(extra,extra.exerciseName,extra.tmax,extra.wMetric)'></ion-icon>     -->
+            </div>
+          </ion-item>
 
     </form>
     <ion-button expand="block" (click)="saveExerciseTmax()" [disabled]="!exTmaxForm.form.valid"> Save</ion-button> 
 
-</div>
-<div class="fulpad">
-  <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
-  <p>Stratfit has approx estimated your training maxes based on your biometric data and training level.</p>
-  <p>Stratfit will auto correct your training maxes during training or you can manually change them at any time.</p>
-</div>
+  </div>
+  <div class="fulpad">
+    <p>Training Tmax is the maximum weight you could do for 1Rep for an exercise.</p>
+    <p>Stratfit has approx estimated your training maxes based on your biometric data and training level.</p>
+    <p>Stratfit will auto correct your training maxes during training or you can manually change them at any time.</p>
+  </div>
  
 </ion-content>
 
