@@ -14,9 +14,12 @@ import { CommunityPage } from '../community/community.page';
 })
 export class WelcomePage implements OnInit {
 
+  name;
+
   constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
+    this.name = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
   }
 
 
