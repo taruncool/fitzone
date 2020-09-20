@@ -8,6 +8,7 @@ import { ProgramdetailsPageRoutingModule } from './programdetails-routing.module
 
 import { ProgramdetailsPage } from './programdetails.page';
 import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
+import { ShowexercisePage } from '../todayworkout/showexercise/showexercise.page';
 import { ProgressbarPage } from '../todayworkout/Progressbar/progressbar.page';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page';
@@ -20,6 +21,6 @@ import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page'
     ProgramdetailsPageRoutingModule
   ],
   declarations: [ProgramdetailsPage],
-  entryComponents: [ExcpreviewPage, ProgressbarPage, CoachprofilePage, PlanpreviewPage]
+  entryComponents: [ExcpreviewPage, ShowexercisePage, ProgressbarPage, CoachprofilePage, PlanpreviewPage]
 })
 export class ProgramdetailsPageModule {}

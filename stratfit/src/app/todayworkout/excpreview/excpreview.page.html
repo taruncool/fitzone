@@ -26,14 +26,51 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>Exercise</ion-title>
+    <!-- <ion-title>Exercise</ion-title> -->
   </ion-toolbar> 
 
 </ion-header>
 
 
-<ion-content class="exeinfo ">
-  <ion-card class="nobg" >
+<ion-content class="store exeinfo posabs">
+
+  <div class="fulview">
+    <div class="fulcard " >
+      <!-- <img src="{{exinfo.newExImage}}" (error)="onExImageError()"  *ngIf="exinfo.newExImage !='' && exinfo.newExImage !=null" > 
+      <img src="assets/images/plan_2.png" class="planimg" *ngIf="exinfo.newExImage =='' || exinfo.newExImage ==null" > -->
+      <img src="{{exinfo.newExImage}}" (error)="onExImageError()"  > 
+ 
+
+        <div class="play"  (click)="playVideo(exinfo.exercise_id)">
+            <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
+                <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)" fill="#80B419 " fill-rule="evenodd"/>
+            </svg>                                          
+        </div>
+
+        <div class="container">
+          <div class="cdbody">
+            <!-- <span>{{planinfo.duration_weeks}} Weeks - {{planinfo.planType}}</span>  -->
+            <h1>{{exinfo.exercise_id__exerciseName}}</h1>
+            <p>Exercise</p>
+            <!-- <ion-avatar class="sbgw" > 
+                <img src="{{planinfo.createdBy_id__avatar}}" (error)="onAvatarError()" />
+            </ion-avatar> -->
+            <!-- <p>{{planinfo.createdBy_id__first_name}} <em>4.5
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 34 34">
+                <path id="Star" d="M17,0l4.25,12.644L34,12.987,23.877,21.144,27.507,34,17,26.4,6.493,34l3.63-12.856L0,12.987l12.75-.343Z" fill="#ffc400"/>
+              </svg>
+              
+            </em></p> -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  <!-- <ion-card class="nobg" >
       <ion-row class="pcover rmcov">
         <img src="{{exinfo.newExImage}}" (error)="onExImageError()" (click)="playVideo(exinfo.exercise_id)" class="planimg"> 
           <div class="play min" (click)="playVideo(exinfo.exercise_id)">
@@ -52,8 +89,8 @@
       </ion-avatar>
 
     <h3>{{exinfo.exercise_id__exerciseName}}</h3>
-    <!-- <h6>Back</h6> -->
-  </ion-item>
+    <h6>Back</h6>
+  </ion-item> -->
   
   <div class="fulpad programview" >
       <h3>Description: </h3>

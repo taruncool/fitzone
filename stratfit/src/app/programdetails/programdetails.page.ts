@@ -9,6 +9,7 @@ import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page'
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
 import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
+// import { ShowexercisePage } from '../todayworkout/showexercise/showexercise.page';
 import { ProgressbarPage } from '../todayworkout/Progressbar/progressbar.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
