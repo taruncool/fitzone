@@ -150,13 +150,13 @@
       </div>
       <div class="  contin">
          <div class=" week">
-            <ion-button class="active" > Mon</ion-button>
-            <ion-button > Tue </ion-button>
-            <ion-button > Wen </ion-button>
-            <ion-button > Thu </ion-button>
-            <ion-button > Fri </ion-button>
-            <ion-button > Sat </ion-button>
-            <ion-button > Sun </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 1}" > Mon</ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 2}" > Tue </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 3}" > Wen </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 4}" > Thu </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 5}" > Fri </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 6}" > Sat </ion-button>
+            <ion-button [ngClass]="{'active': dayIndex == 0}" > Sun </ion-button>
             <em>today</em>
           </div> <!-- End Week Block-->
 

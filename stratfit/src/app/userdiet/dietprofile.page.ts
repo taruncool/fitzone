@@ -121,6 +121,7 @@ export class DietprofilePage implements OnInit {
 
   prompt;
   pageType;
+  dayIndex;
 
   constructor(public platform: Platform, 
      public nav: NavController,
@@ -187,6 +188,8 @@ export class DietprofilePage implements OnInit {
     }else{
       this.gender='N/A';
     }
+    var d = new Date();
+    this.dayIndex = d.getDay();
 
     if(this.firstname ==='null' || this.firstname ==='' || this.firstname ==='undefined'){
       this.firstname='';

@@ -605,7 +605,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
                       });
                     
-                      this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
+                      this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps, pa.repsdone from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
                       roundData => {
 
                         console.log("round data ------", roundData);
@@ -951,7 +951,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
             setTimeout(() => {
 
-              this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
+              this.sqlStorageNew.query("select pr.*, pa.action_type, pa.prescribed_reps, pa.repsdone from planactions pa left join planround pr on pa.round_id = pr.round_id where pa.activity_id = " + this.currentActivityId).then(
                 roundData => {
 
                   this.planRounds = [];
@@ -1175,14 +1175,17 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
 
 
-  actionComplete(reps, tmax, intensity, workweight) {
+  actionComplete(reps, tmax, intensity, workweight, index) {
     if (!this.isDoneDisabled) {
 
       this.isDoneDisabled = true;
     }
     var repscount = reps;
+    this.planRounds[index].repsdone = repscount;
     if (this.currentAction[0].action_type === 'MainSet') {
       if (this.currentAction[0].prescribed_reps > repscount) {
+        this.planRounds[index].repsdone = repscount;
+        console.log("After Regression", this.planRounds);
         let newTmax = Math.ceil(workweight / ((104.6049 - 3.679689 * repscount + 0.07671682 * Math.pow(repscount, 2) - 0.0008536629 * Math.pow(repscount, 3) + 0.000004574117 * Math.pow(repscount, 4) - 0.00000000932792 * Math.pow(repscount, 5)) / 100));
         console.log("UPDATE exercises SET tmax = " + newTmax + ", updatetmax = " + newTmax + " where id = " + this.currentAction[0].exercise_id);
         this.sqlStorageNew.query("UPDATE exercises SET tmax = " + newTmax + ", updatetmax = " + newTmax + " where id = " + this.currentAction[0].exercise_id).then(udata => {
