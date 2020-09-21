@@ -123,7 +123,7 @@
         </div>
         <div class="tbactive" *ngIf="!isActivitySimple">
           <ul>
-            <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i}}</li>
+            <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i+1}}</li>
           </ul>
         </div>
         <h1 *ngIf="actionType == 'warmup'">Warmup</h1>

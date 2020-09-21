@@ -171,13 +171,13 @@ async doGoogleLogin(){
   if(this.devicetype === 'android') {
     this.googlePlus.login({
       'scopes': '',
-      'webClientId':'542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
+      'webClientId':'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
       'offline': false
     })
     .then(function (user) {
       loading.dismiss();
       if(user !=='' && user !==null){
-        self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+        self.sociallogin('google-oauth2',user.accessToken, '798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
       }
       console.log(user,'==google login response==');
     }, function (error) {
@@ -192,7 +192,7 @@ async doGoogleLogin(){
     .then(function (user) {
       loading.dismiss();
       if(user !=='' && user !==null){
-        self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+        self.sociallogin('google-oauth2',user.accessToken, '798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
       }
       console.log(user,'==google login response==');
     }, function (error) {

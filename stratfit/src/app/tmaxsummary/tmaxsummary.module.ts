@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TmaxsummaryPageRoutingModule } from './tmaxsummary-routing.module';
 
 import { TmaxsummaryPage } from './tmaxsummary.page';
+import { TmaxpreviewPage } from '../todayworkout/tmaxpreview/tmaxpreview.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { TmaxsummaryPage } from './tmaxsummary.page';
     IonicModule,
     TmaxsummaryPageRoutingModule
   ],
-  declarations: [TmaxsummaryPage]
+  declarations: [TmaxsummaryPage],
+  entryComponents: [TmaxpreviewPage]
 })
 export class TmaxsummaryPageModule {}

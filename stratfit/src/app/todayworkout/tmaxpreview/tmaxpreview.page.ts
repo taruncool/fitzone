@@ -189,7 +189,8 @@ export class TmaxpreviewPage implements OnInit {
   }
 
   changeWorkweight() {
-    this.workweight = this.exerciseTmax * (this.intensity/100);
+    var wwt = this.exerciseTmax * (this.intensity/100);
+    this.workweight = Math.round(wwt);
   }
 
  async updateTmaxData() {

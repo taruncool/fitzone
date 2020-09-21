@@ -664,6 +664,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
                         }
                         var workweight = 0;
+                        var updatedTmax = 0;
 
 
                         setTimeout(() => {
@@ -725,7 +726,9 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                               this.exDetails = this.exercisesList[pi];
                               this.exDetails.exImgNew = this.exDetails.ExerciseThumbImage;//'http://stratfit.net/newExThumb/{{exDetails.id}}.jpg"';
 
-                              workweight = Math.round(this.exercisesList[pi].tmax * (this.currentAction[0].intensity / 100));
+                              updatedTmax = this.exercisesList[pi].tmax>=20?(Math.round(this.exercisesList[pi].tmax)):20;
+
+                              workweight = Math.round(updatedTmax * (this.currentAction[0].intensity / 100));
                               if(workweight<10){
                                 workweight = 10;
                               }
@@ -737,7 +740,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                                 "reps": this.currentAction[0].prescribed_reps,
                                 "exId": this.exercisesList[pi].exId,
                                 "workweight": workweight,
-                                "tmax": (Math.round(this.exercisesList[pi].tmax)).toFixed(),
+                                "tmax": this.exercisesList[pi].tmax>=20?(Math.round(this.exercisesList[pi].tmax)).toFixed():20,
                                 "maxreps": this.currentAction[0].maxreps,
                                 "ExerciseThumbImage":this.exercisesList[pi].ExerciseThumbImage
                               };
@@ -1061,6 +1064,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
             }
             var workweight = 0;
+            var updateTmax = 0;
             this.simpleActions = {};
             var actionDetails;
 
@@ -1124,7 +1128,9 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                   this.exDetails = this.exercisesList[pi];
                   this.exDetails.exImgNew = this.exDetails.ExerciseThumbImage;//'http://stratfit.net/newExThumb/{{exDetails.id}}.jpg"';
 
-                  workweight = Math.round(this.exercisesList[pi].tmax * (this.currentAction[0].intensity / 100));
+                  updateTmax = (this.exercisesList[pi].tmax)>=20?(Math.round(this.exercisesList[pi].tmax)):20;
+
+                  workweight = Math.round(updateTmax * (this.currentAction[0].intensity / 100));
                   if(workweight<10){
                     workweight = 10;
                   }
@@ -1134,7 +1140,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                     "reps": this.currentAction[0].prescribed_reps,
                     "exId": this.exercisesList[pi].id,
                     "workweight": workweight,
-                    "tmax": (Math.round(this.exercisesList[pi].tmax)).toFixed(),
+                    "tmax": (this.exercisesList[pi].tmax)>=20?(Math.round(this.exercisesList[pi].tmax)).toFixed():20,
                     "maxreps": this.currentAction[0].maxreps,
                     "ExerciseThumbImage":this.exercisesList[pi].ExerciseThumbImage
                   };

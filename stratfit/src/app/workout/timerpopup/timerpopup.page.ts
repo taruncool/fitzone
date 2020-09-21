@@ -43,6 +43,7 @@ export class TimerpopupPage implements OnInit {
 
     this.repsDone = this.params.get('repsdone');
     this.excerciseId = this.params.get('excerciseid');
+    this.exThumbImg = 'http://stratfit.net/newExThumb/'+this.excerciseId+'.jpg';
 
     this.s3url=global.s3URL;
     this.wMetric = (localStorage.getItem('weightunit')==='lbs')?" Lb":" Kg";

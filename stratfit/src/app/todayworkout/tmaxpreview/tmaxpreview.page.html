@@ -32,7 +32,7 @@
     <form #exTmaxForm="ngForm">
       <div class="infild  ">
         <h4>{{exercise}}</h4>
-        <ion-item class="sbgw " >
+        <ion-item class="sbgw " *ngIf="showTmaxNav" >
           <ion-row>
             <ion-col ><em>Work Weight</em></ion-col>
             <ion-col  ><span>{{workweight}}{{metric}}</span></ion-col>
