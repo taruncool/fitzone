@@ -1073,6 +1073,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 .frame{background: #fff;}
 .frame.nobg{padding-top: 0 !important;}
+.frame.nobg:before{ display: none;}
 
 
 
@@ -1619,8 +1620,9 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
               em { font-weight:normal !important; font-size: small; margin-bottom: 5px;}
             }
           }
-          .add { position: absolute; top:5px; right:10px;  margin: 0 !important;
-            ion-icon {display: inline-block;  width: 20px; flex: 20px; font-size: 1.4rem; text-align: center !important;}
+          .add { position: absolute; top:5px; right:5px;  margin: 0 !important;
+            ion-icon {display: inline-block;  width: 24px; flex: 20px; font-size: 1.4rem; text-align: center !important;}
+            em {position: relative;top: -5px; padding: 0 5px;}
             ion-icon:first-child {color:#ccc !important;}
             input {width: 20px; flex: 20px; margin: auto; text-align: center !important; font-size: 1.3rem;border: 0 !important; padding: 0;}
           }
