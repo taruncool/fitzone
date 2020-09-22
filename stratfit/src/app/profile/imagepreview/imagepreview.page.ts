@@ -24,7 +24,7 @@ export class ImagepreviewPage implements OnInit {
   pictureData;
   private win: any = window;
 
-  constructor(public navCtrl: NavController, public params: NavParams,public imageProvider: ImageProvider,private crop: Crop,private base64: Base64,private apiService:ApiService, private loadData: LoadData, public http: HttpClient,public modalCtrl:ModalController, public toastCtrl: ToastController){
+  constructor(public platform: Platform, public navCtrl: NavController, public params: NavParams,public imageProvider: ImageProvider,private crop: Crop,private base64: Base64,private apiService:ApiService, private loadData: LoadData, public http: HttpClient,public modalCtrl:ModalController, public toastCtrl: ToastController){
       this.base64img = this.params.get('base64img');
       this.uploadtype = this.params.get('uploadtype');
   }
@@ -32,34 +32,63 @@ export class ImagepreviewPage implements OnInit {
 
   ngOnInit() {
     this.token = localStorage.getItem('usertoken');
-    this.crop.crop(this.base64img, {quality: 100})
-      .then(
-        newImage => {
-         this.base64img=newImage;
+    // this.crop.crop(this.base64img, {quality: 100})
+    //   .then(
+    //     newImage => {
+    //      this.base64img=newImage;
         
-    this.displayImage = this.win.Ionic.WebView.convertFileSrc(this.base64img);
-          console.log('new image path is: ' + newImage);
-          let filePath: string = this.base64img;
-            this.base64.encodeFile(filePath).then((base64File: string) => {
-            console.log(base64File);
-            var bstr = base64File.split(',')[1];
-            console.log("After replace------",bstr);
-            this.pictureData =  'data:image/jpeg;base64,' +bstr;
-            }, (err) => {
-            console.log(err);
-            });
+    // this.displayImage = this.win.Ionic.WebView.convertFileSrc(this.base64img);
+    //       console.log('new image path is: ' + newImage);
+    //       let filePath: string = this.base64img;
+    //         this.base64.encodeFile(filePath).then((base64File: string) => {
+    //         console.log(base64File);
+    //         var bstr = base64File.split(',')[1];
+    //         console.log("After replace------",bstr);
+    //         this.pictureData =  'data:image/jpeg;base64,' +bstr;
+    //         }, (err) => {
+    //         console.log(err);
+    //         });
         
              
   
-         },
-        error => {
-          console.error('Error cropping image', error);
+    //      },
+    //     error => {
+    //       console.error('Error cropping image', error);
 
+    //     }
+    //   );
+    if (this.platform.is('ios')) {
+          console.log("I am in ios now");
+          this.base64img = 'data:image/jpeg;base64,' +this.base64img;
+          this.pictureData =  this.base64img;
+          console.log("ios pictureData", this.pictureData);
+          console.log(this.pictureData);
+        } else {
+          this.crop.crop(this.base64img, {quality: 100})
+            .then(
+              newImage => {
+              this.base64img=newImage;
+                console.log('new image path is: ' + newImage);
+                let filePath: string = this.base64img;
+                this.base64.encodeFile(filePath).then((base64File: string) => {
+                console.log(base64File);
+                var bstr = base64File.split(',')[1];
+                console.log("After replace------",bstr);
+                this.pictureData =  'data:image/jpeg;base64,' +bstr;
+                }, (err) => {
+                console.log(err);
+                });
+              },
+              error => {
+                console.error('Error cropping image', error);
+
+              }
+            );
         }
-      );
 
   }
   public backButtonAction(){
+    this.modalCtrl.dismiss();
     this.navCtrl.navigateForward('/tabs/tabs/profile');
 }
 submitForm(){
