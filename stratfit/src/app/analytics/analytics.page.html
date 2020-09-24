@@ -96,7 +96,7 @@
   </ion-row> -->
 
 
-   <ion-item class=" nobg nodata" *ngIf='noplan'>
+   <div class=" nobg nodata" *ngIf='noplan'>
       <!-- <img src="assets/images/no-data.png"> -->
       <svg xmlns="http://www.w3.org/2000/svg" width="161.863"  viewBox="0 0 161.863 134.736">
         <g id="Group_347" data-name="Group 347" transform="translate(-87.75 -97.85)">
@@ -111,7 +111,7 @@
       </svg>
       <!--h4 text-center>You Dont have enough data to show</h4-->
       <p>Analytics can be displayed post workout sessions only. Complete atleast one exercise to see your workout data.</p>
-    </ion-item> <!-- End Analytics with out any data -->
+    </div> <!-- End Analytics with out any data -->
 
 
 
@@ -263,16 +263,16 @@
                     </ion-col>
                   <ion-col  col-3 *ngIf='action.status==0'>
                       <svg class="notdone" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
-                        <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#80b41c"/> 
+                        <path id="Path_8249" data-name="Path 8249" d="M2.5,0h31a2.5,2.5,0,0,1,0,5H2.5a2.5,2.5,0,0,1,0-5Z" transform="translate(22 38)" fill="#fff"/> 
                       </svg>
     
                       <em>Not Done</em>
                       </ion-col>
                       <ion-col  col-3 *ngIf='action.status==2'>
                         <svg class="skip" id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
-                          <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#ea4f5f"/>
-                            <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
-                            <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#ea4f5f"/>
+                          <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" fill="#fff"/>
+                            <path id="Path_120" data-name="Path 120" d="M103.731,108.343a3.262,3.262,0,0,0,4.613-4.613L83.753,79.14a3.262,3.262,0,0,0-4.613,4.612Z" transform="translate(-78.185 -78.185)" fill="#fff"/>
+                            <path id="Path_121" data-name="Path 121" d="M157.17,79.2a3.466,3.466,0,0,0-4.9,0L79.2,152.268a3.466,3.466,0,0,0,4.9,4.9L157.17,84.1A3.467,3.467,0,0,0,157.17,79.2Z" transform="translate(-78.185 -78.185)" fill="#fff"/>
                         </svg>                   
                         <em>Skipped</em>  
                       </ion-col>

@@ -9,7 +9,7 @@ import { ProgramdetailsPageRoutingModule } from './programdetails-routing.module
 import { ProgramdetailsPage } from './programdetails.page';
 import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
 import { ShowexercisePage } from '../todayworkout/showexercise/showexercise.page';
-import { ProgressbarPage } from '../todayworkout/Progressbar/progressbar.page';
+import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 import { PlanpreviewPage } from '../programdetails/planpreview/planpreview.page';
 

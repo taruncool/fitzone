@@ -132,11 +132,11 @@ heightArrCms= {
   tmaxPopupModal;
   constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew,public platform: Platform) {
     this.items = [
-      { title: "Untrained", desc: "I haven't done any resistance training in over 6 months and have a non-physical job.", expanded: false, value: 1 },
-      { title: "Beginner", desc: "I have been consistently doing resistance training for less than 6 months, or I don't train but have a physical job.", expanded: false, value: 2 },
-      { title: "Intermediate", desc: "I have consistently doing resistance training for between 6 and 12 months.", expanded: false, value: 3 },
-      { title: "Advanced", desc: "I have been consistently on a organised barbell lifting program for over 12 months.", expanded: false, value: 4 },
-      { title: "Elite", desc: "I have been consistently on an organised barbell lifting program for multiple years and/or am a competitive Strength athlete.", expanded: false, value: 5 }
+      { title: "Untrained ", desc: "I haven’t done any resistance training for over 6 months and I have a non-physical job.", expanded: false, value: 1 },
+      { title: "Beginner", desc: "I am consistent in my resistance training for less than 6 months, or I have a physical job.", expanded: false, value: 2 },
+      { title: "Intermediate", desc: "I am consistent in my resistance training for the last 6 to 12 months.", expanded: false, value: 3 },
+      { title: "Advanced", desc: "I am consistent in an organized barbell lifting program for over 12 months.", expanded: false, value: 4 },
+      { title: "Elite", desc: "I am consistent in an organized barbell lifting program for multiple years and/ or I am a competitive strength athlete.", expanded: false, value: 5 }
     ];
     this.maleActive = true;
     if (this.maleActive === true) {

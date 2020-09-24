@@ -70,7 +70,7 @@
 
 
 <ion-content class="store" >
-  <ion-searchbar class="fulpad"></ion-searchbar>
+  <ion-searchbar class="fulpad" placeholder="Search for your favorite fitness coaches."></ion-searchbar>
 <div>
 
   <!-- List Format -->
@@ -78,8 +78,13 @@
 
     <ion-list >
 
-      <ion-item class="nodata nopad" text-center *ngIf="plansdata.length == 0">
-        <p>No programs to display </p>
+      <ion-item class="nodata text-center nopad" text-center *ngIf="plansdata.length == 0">
+        <!-- <p>No programs to display </p> -->
+        <div class="loadicon">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" stroke-width="8" fill="none"/>
+          </svg>
+        </div>
       </ion-item>
 
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1" effect="slide" pager="false" zoom="true" *ngIf="plansdata.length != 0" >
@@ -133,8 +138,13 @@
 
     <ion-list >
 
-      <ion-item class="nodata nopad"  *ngIf="plansdata.length==0">
-        <p>No programs to display</p>
+      <ion-item class="nodata nopad  text-center"  *ngIf="plansdata.length==0">
+        <!-- <p>No programs to display </p> -->
+        <div class="loadicon">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" stroke-width="8" fill="none"/>
+          </svg>
+        </div>
       </ion-item>
   
       <ion-row>

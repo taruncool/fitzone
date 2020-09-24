@@ -275,6 +275,11 @@ export class ProfilePage implements OnInit {
   public profileinfo(){
     this.navCtrl.navigateForward('/userprofile');
   }
+
+  public bmicalculator(){
+    this.navCtrl.navigateForward('/bmicalculator');
+  }
+
   public dietInfo(){
 
     if(this.planSet){
