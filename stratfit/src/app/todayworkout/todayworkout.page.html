@@ -107,7 +107,7 @@
     </div> <!--End Cool Down-->
     
 
-    <div class="fulpad " [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
+    <div  [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
       <div class="text-center adtitle">
         <!--<span>Activity 1</span>-->
         <!--<div class="exe">
@@ -117,9 +117,11 @@
               
         </div>-->
         <div class="tbactive" >
-          <ul>
-            <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
-          </ul>
+          <div class="scrol">
+            <ul>
+              <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
+            </ul>
+          </div>
         </div>
         <div class="tbactive" *ngIf="!isActivitySimple">
           <ul>
@@ -130,7 +132,7 @@
         <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
       </div> 
 
-      <div class="workview" *ngIf="isActivitySimple">
+      <div class="fulpad workview" *ngIf="isActivitySimple">
         <ion-list class="sbsd sbgw setlist" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">
             <h3>Set {{i+1}}</h3>
             <ion-row >
@@ -223,7 +225,7 @@
 
       </div><!--End Simple Workout -->
 
-      <div class="workview" *ngIf="!isActivitySimple">
+      <div class="fulpad workview" *ngIf="!isActivitySimple">
         <ion-list class="sbsd sbgw cmplxactive setlist" >
           <!--<h3>Set {{i+1}}</h3>-->
           <ion-row class="admb-2"  *ngFor="let action of complexActions; let i = index">

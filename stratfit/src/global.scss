@@ -320,6 +320,7 @@ ion-segment { display: -webkit-inline-box; white-space: nowrap; font-size: 0;ove
 .scrol.unlist{min-height: 46px !important;}
 
 .tbactive{margin-bottom: 10px;}
+.tbactive .scrol ul li:before{border: 0 !important;}
 .tbactive ul li{font-size: medium; padding: 10px; display: inline-block;}
 .tbactive ul li.active{font-size: x-large;  font-weight: bold;}
 

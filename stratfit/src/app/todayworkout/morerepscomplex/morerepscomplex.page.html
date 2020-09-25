@@ -33,7 +33,7 @@
   <div class="fulpad  " >
 
     <h1>{{setName}}</h1>
-    <h4 >Help us make your fitness program more personalized by answering this simple question.</h4>
+    <!-- <h4 >Help us make your fitness program more personalized by answering this simple question.</h4> -->
 
     <div class="infild  ">
       <!-- <h4>{{exerciseName}}</h4> -->
@@ -58,7 +58,7 @@
   </div>
 
   <div class="fulpad  " >
-
+    <h4>How many more reps possible?</h4>
     <div class="infild" *ngFor="let action of complexActions;let i = index">
       <h4>{{exDetailsComplex[i].exerciseName}}</h4>
       <ion-item class="sbgw " >
@@ -67,6 +67,7 @@
           <ion-input class="text-center" type="number" name="repscount" [(ngModel)]="action.more_reps" required></ion-input>
         </ion-row>
         </ion-item >
+        <p>This helps us regulate your Tmax for improved training experience.</p>
     </div>
 
     <!-- <ion-button slot="end" (click)='closeRepsModal()'> 
