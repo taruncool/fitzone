@@ -957,7 +957,7 @@ export class DietprofilePage implements OnInit {
       if( this.pageType==='settings'){
         this.nav.navigateForward('tabs/tabs/profile');
        }else{
-        this.nav.navigateForward('tabs/tabs/welcome');
+        this.nav.navigateRoot('tabs/tabs/welcome');
        }
   }
   

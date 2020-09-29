@@ -477,8 +477,8 @@ heightArrCms= {
       var dateFormatArr = this.dob.split(rsep);
       //dateFormatArr[1] = (dateFormatArr[1]=== undefined)?"00:00:00":dateFormatArr[1];
       var dateArr = dateFormatArr[0].split("-");
-      var TimeArr = dateFormatArr[1].split(":");
-      TimeArr[2] = TimeArr[2].replace("Z","");
+      // var TimeArr = dateFormatArr[1].split(":");
+      // TimeArr[2] = TimeArr[2].replace("Z","");
       dateF = dateArr[0]+"-"+('0' +dateArr[1]).slice(-2)+"-"+('0' +dateArr[2]).slice(-2);
       this.dob = dateF;
       var userInfo = { "id": parseInt(this.userId), "userInf": { "dob": this.dob, "gender": this.genderinfo, "height": this.cent, "heightM": "cms", "weightM": this.weightMetric, "weight": this.weigth, "trainingLevel": this.selectedLevel } }

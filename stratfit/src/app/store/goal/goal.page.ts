@@ -289,14 +289,14 @@ activepurposeid = 0;
 
   backButtonAction() {
     setTimeout(() => { 
-    this.navCtrl.navigateBack('tabs/tabs/store');
+    this.navCtrl.navigateRoot('tabs/tabs/store');
     },200);
     //this.navCtrl.setRoot(StorePage);
   }
 
   public community() {
     setTimeout(() => { 
-      this.navCtrl.navigateBack('tabs/tabs/store');
+      this.navCtrl.navigateRoot('tabs/tabs/store');
     },200);
   }
   

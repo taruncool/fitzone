@@ -266,6 +266,9 @@ export class AnalyticsPage implements OnInit {
   // }, 3500);                      
 });          
   }); 
+  } else {
+    this.noplan = true;
+    this.loadData.stopLoading();
   }
 });
 }

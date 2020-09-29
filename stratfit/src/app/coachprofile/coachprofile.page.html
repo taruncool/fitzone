@@ -61,7 +61,7 @@
 
   <div class="fulview">
     <div class="fulcard " >
-      <img src={{s3Url}}{{coachData1.avatar}} class="planimg" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
+      <img src={{coachData1.avatar}} class="planimg" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
       <img src="assets/images/plan_2.png" class="planimg" *ngIf="coachData1.avatar =='' || coachData1.avatar ==null" >
 
       <div class="container">
@@ -83,10 +83,10 @@
 
   <div class="programview">
     
-    <div class='fulpad nopadb' >
+    <!-- <div class='fulpad nopadb' >
       <h2>About</h2>
       <p class=" coachdisc" [innerHTML]="aboutCoach"></p>
-    </div>
+    </div> -->
 
 
 
@@ -104,7 +104,7 @@
         <ion-row>
           <ion-col size="6" *ngFor="let plan of plansdata; let i = index" >
             <div class="fulcard active" (click)="viewplaninfo(plan)">
-              <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+              <img src="{{plan.planLogo}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
               <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
               <div class="container">

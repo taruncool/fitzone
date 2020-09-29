@@ -153,7 +153,7 @@ export class DashboardPage implements OnInit {
   //}
   
    backButtonAction() {
-    this.navCtrl.navigateBack('/tabs/tabs/welcome');
+    this.navCtrl.navigateRoot('/tabs/tabs/welcome');
   }
 
   startWorkout(){
@@ -161,7 +161,7 @@ export class DashboardPage implements OnInit {
   }
 
   showMeals(){
-    this.navCtrl.navigateForward('/dietprofile');
+    this.navCtrl.navigateRoot('/tabs/tabs/dietprofile');
   }
 
   gotoStore(){
@@ -1520,7 +1520,7 @@ ngOnInit(){
     console.log("Session Completed");
   }
   dietInfo(){
-   this.navCtrl.navigateForward('/dietprofile');
+   this.navCtrl.navigateRoot('/tabs/tabs/dietprofile');
   } 
   public getActivity(day_id){
       this.tempActivity = [];

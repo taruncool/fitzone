@@ -2,7 +2,7 @@ import { ToastController,Platform, LoadingController } from '@ionic/angular';
 import { Injectable,NgZone } from "@angular/core";
 import { Headers,RequestOptions } from '@angular/http';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+//import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, of, throwError } from 'rxjs';
@@ -14,7 +14,7 @@ export class UploadServiceProvider {
   sizeIssue:boolean;
   apiUrl = global.rootUrl+'/s3Details/s3signature.php';
   FOLDER = 'stratfitmedia/';
-  constructor(public http: HttpClient, private transfer: FileTransfer, private file: File, public loadingController:LoadingController, public ngZone: NgZone, public toastCtrl: ToastController, private sanitizer: DomSanitizer) {
+  constructor(public http: HttpClient, /*private transfer: FileTransfer,*/ private file: File, public loadingController:LoadingController, public ngZone: NgZone, public toastCtrl: ToastController, private sanitizer: DomSanitizer) {
    }
 
   //config S3 params

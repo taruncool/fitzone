@@ -64,6 +64,7 @@ export class ImagepreviewPage implements OnInit {
           console.log("ios pictureData", this.pictureData);
           console.log(this.pictureData);
         } else {
+          this.displayImage = this.win.Ionic.WebView.convertFileSrc(this.base64img);
           this.crop.crop(this.base64img, {quality: 100})
             .then(
               newImage => {

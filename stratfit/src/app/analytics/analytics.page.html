@@ -37,7 +37,7 @@
 
 <ion-content class=" analytic posabs">
 
-<div class=" fulpad skew">
+<div class=" fulpad skew" *ngIf='!noplan'>
   <ion-row class="aintro">
     <ion-col>
       <h3>Today's Health</h3>
@@ -74,7 +74,7 @@
   </ion-row>
 </div>
 
-<div class="frame nobg ">
+<div class="frame nobg " *ngIf='!noplan'>
   <div class="adtitle">
     <h1>Summary <span>{{today}}</span></h1>
   </div>
