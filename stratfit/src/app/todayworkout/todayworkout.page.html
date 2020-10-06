@@ -1,7 +1,7 @@
 <ion-header class=" head" *ngIf='!(planComplete || renewPlan)'>
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
-      <ion-button slot="icon-only"(click)='backButtonAction()'>
+      <ion-button class="nobg" slot="icon-only"(click)='backButtonAction()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
@@ -11,7 +11,7 @@
     <ion-title><!--span><em *ngIf="!(planInfo.durationWeeks==='null')">{{planInfo.durationWeeks}} Weeks -</em> {{planInfo.planType}}</span-->{{planInfo.planName}}</ion-title>
 
     <ion-buttons  slot="end"  >
-      <ion-button slot="icon-only" class="info" (click)='showPlanDetails()'>
+      <ion-button class="nobg info" slot="icon-only"  (click)='showPlanDetails()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60.001" >
                 <g id="Information" transform="translate(-961.535 -2448.597)">
                     <g id="Path_256" data-name="Path 256" transform="translate(958.135 2444.998)" fill="none">
@@ -124,9 +124,11 @@
           </div>
         </div>
         <div class="tbactive" *ngIf="!isActivitySimple">
+            <div class="scrol">
           <ul>
             <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i+1}}</li>
           </ul>
+        </div>
         </div>
         <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
         <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
@@ -159,7 +161,7 @@
                 <ion-row class="infild">
                   <ion-col size="6">
                     <h6>Work Weight</h6> 
-                    <ion-item class="adbor nobg"> 
+                    <ion-item class=" nobg"> 
                       <span>{{simpleActions.workweight}} Kg </span>
                       <svg id="Tmax-Edit" (click)="tmaxShowPreview(exDetails,exDetails.exerciseName,simpleActions.tmax,simpleActions.workweight,simpleActions.intensity,'Kg')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                         <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)" fill="#080c14"/>
@@ -171,7 +173,7 @@
                   </ion-col>
                   <ion-col size="6">
                     <h6>Reps</h6>
-                    <ion-item class="adbor nobg selarow" (click)="selectANumber()"> 
+                    <ion-item class=" nobg selarow" (click)="selectANumber()"> 
                       <span >{{repscount}}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
                         <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" />
@@ -251,7 +253,7 @@
               <ion-row class="infildcmplx">
                 <ion-col size="6">
                   <h6>Work Weight</h6> 
-                  <ion-item class="adbor nobg"> 
+                  <ion-item class=" nobg"> 
                     <span>{{action.workweight}} Kg </span>
                     
                     <svg id="Tmax-Edit" (click)="tmaxShowPreview(exDetailsComplex[i],action.exerciseName,action.tmax,action.workweight,action.intensity,'Kg')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -264,7 +266,7 @@
                 </ion-col>
                 <ion-col size="6">
                   <h6>Reps</h6>
-                  <ion-item class="adbor nobg selarow" (click)="selectANumberComplex(action)"> 
+                  <ion-item class=" nobg selarow" (click)="selectANumberComplex(action)"> 
                     <span >{{action.reps}}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
                       <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" />

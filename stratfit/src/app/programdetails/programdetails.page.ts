@@ -394,21 +394,6 @@ export class ProgramdetailsPage implements OnInit {
       message: 'You have an active workout program. Are you sure you want to activate this program?',
       buttons: [
         {
-          text: 'No',
-          handler:workout =>{
-
-            setTimeout(() => {
-            
-              // this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
-              // this.myVideo.muted=true;
-              // this.myVideo.play();
-             // this.myVideo.loop = true;
-        
-              
-            },80);
-          }
-        },
-        {
           text: 'Yes',
           handler: workout => {
             console.log('Saved clicked');
@@ -421,6 +406,21 @@ export class ProgramdetailsPage implements OnInit {
               this.userCountry = 190;
               this.zeroPlanSubscription();
             }
+          }
+        },
+        {
+          text: 'No',
+          handler:workout =>{
+
+            setTimeout(() => {
+            
+              // this.myVideo = <HTMLVideoElement>document.getElementById('exc-video-' + this.planinfo.id);
+              // this.myVideo.muted=true;
+              // this.myVideo.play();
+             // this.myVideo.loop = true;
+        
+              
+            },80);
           }
         }
       ]

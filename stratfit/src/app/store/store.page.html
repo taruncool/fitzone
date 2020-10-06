@@ -1,9 +1,8 @@
 <ion-header class=" head">
   <ion-toolbar class="hedfm"> 
-    <!-- <ion-title><span>Store</span>Programs</ion-title> -->
     <ion-title class="fontxlg">Welcome, {{name}}</ion-title>
      <ion-buttons  slot="end" >
-      <ion-button  slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()">
+      <ion-button class="nobg" slot="icon-only" id="grid-btn" *ngIf="!isGrid" (click)="changeGridView()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 76 76">
           <g id="Grid" transform="translate(15313.202 3498)">
             <g id="Path_8589" data-name="Path 8589" transform="translate(-15309.202 -3494)" fill="none" stroke-linecap="round">
@@ -25,7 +24,7 @@
           </g>
         </svg>
       </ion-button>
-      <ion-button  slot="icon-only" id="list-btn" *ngIf="isGrid" (click)="changeGridView()">
+      <ion-button class="nobg"  slot="icon-only" id="list-btn" *ngIf="isGrid" (click)="changeGridView()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 74 64">
           <g id="Publish" transform="translate(-4103.798 -3486)">
             <path id="Path_8583" data-name="Path 8583" d="M0,0H18.581" transform="translate(4141.514 3494)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="4"/>
@@ -74,18 +73,22 @@
 <div>
 
   <!-- List Format -->
-  <div class="fulpad" *ngIf="isGrid">
+  <div *ngIf="isGrid">
 
-    <ion-list >
 
-      <ion-item class="nodata text-center nopad" text-center *ngIf="plansdata.length == 0">
+	<ion-card class="nodata nobg text-center nopad" *ngIf="plansdata.length == 0">
         <!-- <p>No programs to display </p> -->
         <div class="loadicon">
           <svg viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="25" stroke-width="8" fill="none"/>
           </svg>
         </div>
-      </ion-item>
+      </ion-card>
+	  
+    <ion-list class="fulpad" >
+      <!--<ion-item class="nodata nopad" text-center *ngIf="plansdata.length == 0">
+        <p>No programs to display </p>
+      </ion-item>-->
 
       <ion-slides loop="false" speed="500" pager="true" spaceBetween="0" direction="horizontal"slidesPerView="1" effect="slide" pager="false" zoom="true" *ngIf="plansdata.length != 0" >
         <ion-slide class="fulcard "  *ngFor="let plan of plansdata; let i = index" (click)="planDetails(plan)">
@@ -119,7 +122,7 @@
             </div>
           </div>
 
-          <div class="posabs text-center tick" *ngIf="plan.activestatus" >
+          <div class="posabs text-center tick nobg" *ngIf="plan.activestatus" >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
                 <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
             </svg>   
@@ -136,17 +139,18 @@
   <!-- Grid Format -->
   <div class="fulpad  gridview" *ngIf="!isGrid">
 
-    <ion-list >
-
-      <ion-item class="nodata nopad  text-center"  *ngIf="plansdata.length==0">
+	<ion-card class="nodata nobg text-center nopad" *ngIf="plansdata.length==0">
         <!-- <p>No programs to display </p> -->
         <div class="loadicon">
           <svg viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="25" stroke-width="8" fill="none"/>
           </svg>
         </div>
-      </ion-item>
-  
+      </ion-card>
+	  
+
+    <ion-list >
+
       <ion-row>
         <ion-col size="6" *ngFor="let plan of plansdata; let i = index">
           <div class="fulcard active" (click)="planDetails(plan)">
@@ -166,7 +170,7 @@
               </div>
             </div>
 
-            <div class="posabs text-center tick"  *ngIf="plan.activestatus">
+            <div class="posabs text-center tick nobg"  *ngIf="plan.activestatus">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
                 <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
               </svg>   

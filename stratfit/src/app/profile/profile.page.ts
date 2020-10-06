@@ -572,7 +572,7 @@ export class ProfilePage implements OnInit {
   async getPhoto() {
     let prompt = await this.alertCtrl.create({
       // message: 'Upload Picture',
-      message: 'From where do you want to choose your item pic?',
+      message: 'Upload Your Profile Image',
       buttons: [
         {
           text: 'Camera ',
@@ -587,7 +587,7 @@ export class ProfilePage implements OnInit {
           }
         },
         {
-          text: 'Choose your photo',
+          text: 'Upload photo',
           handler: () => {
             // Call imageProvider to process, upload, and update user photo.
             this.imageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
@@ -603,6 +603,7 @@ export class ProfilePage implements OnInit {
     });
     prompt.present();
   }
+  
 
   onAvatarError(){
     this.avatar = "assets/images/icon.png";

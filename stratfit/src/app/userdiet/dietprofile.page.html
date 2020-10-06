@@ -3,7 +3,7 @@
 <ion-header class=" head sbgry">
    <ion-toolbar class="hedfm"> 
      <ion-buttons  slot="start" >
-       <ion-button slot="icon-only" (click)="backButtonAction()">
+       <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
              <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
            </svg>
@@ -13,7 +13,7 @@
      <ion-title >Meal Planner</ion-title>
 
      <ion-buttons slot="end" >
-      <ion-button (click)="displayCalendar()">
+      <ion-button class="nobg" (click)="displayCalendar()">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
             <g id="history" transform="translate(0 -0.315)">
               <rect id="Rectangle_138845" data-name="Rectangle 138845"  transform="translate(0 0.315)" fill="none"/>
@@ -23,7 +23,7 @@
          </svg>
       </ion-button>
 
-      <ion-button href="https://wa.me/918801462421?text=Hello%20how%20can%20I%20help%20you">
+      <ion-button class="nobg" href="https://wa.me/918801462421?text=Hello%20how%20can%20I%20help%20you">
          
          <svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 512 512" >
             <path style="fill:#4CAF50;" d="M256.064,0h-0.128l0,0C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104
@@ -180,9 +180,12 @@
 
           <div class="meallist">
 
-            <ion-item class="nodata sbgw adbor" *ngIf="finalFoodDataByDate.length==0">
+            <!-- <ion-item class="nodata sbgw adbor" *ngIf="finalFoodDataByDate.length==0" >
                <p>{{mealMsg}}</p>
-             </ion-item>
+             </ion-item> -->
+             <ion-card class="nodata adbor" *ngIf="finalFoodDataByDate.length==0">
+               <p>{{mealMsg}}</p>
+             </ion-card>
             
             <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index">
                <div class="dtitle  ">
