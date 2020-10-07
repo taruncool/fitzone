@@ -1566,15 +1566,16 @@ ngOnInit(){
       // console.log("reps done",this.tempAction[ia].repsdone);
      
       totalrepss =  totalrepss + this.tempAction[ia].repsdone;
+      this.totalweight += (this.tempAction[ia].workweight * this.tempAction[ia].repsdone);
      
        if(this.tempAction[ia].action_type === "MainSet"){
         count = count + 1;
-        totalweightt = (totalweightt + this.tempAction[ia].workweight);
+        //totalweightt = (totalweightt + this.tempAction[ia].workweight);
       }
       // this.totalweight = (totalweightt/count).toFixed();
   }
   this.totalreps = totalrepss;
-  this.totalweight = (totalweightt/count).toFixed();
+  //this.totalweight = (totalweightt/count).toFixed();
 /*  calculation end */
     if(this.tempActivity[0].Activity_type === "Simple"){
       this.tempExeData = []; 
@@ -1599,10 +1600,11 @@ ngOnInit(){
   }
 public getExercise(exercise_id){
   // console.log("ex data of exercise_id",exercise_id);
-  
+  let excoef = 0;
   for(let i=0;i<this.planexerciseData.length;i++){
     if(this.planexerciseData[i].id== exercise_id){
       this.tempExeData.push(this.planexerciseData[i]);
+      excoef = this.planexerciseData[i].exCoefficient
     }
   }
  
@@ -1613,8 +1615,8 @@ public getExercise(exercise_id){
   var stressFactor = this.tempExeData[0].stressFactor;
   var weight = this.loadData.convertWeight(weight,'db');
     console.log("stress factor",stressFactor);
-  var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
-  var totalwork = Math.round(9.8*this.totalweight*this.totalreps);
+  var totalTonnage = parseFloat(((this.totalweight)/1000).toFixed(2));
+  var totalwork = Math.round(9.8*this.totalweight*excoef);
     // if(this.metrics =='Lb'){
   calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
     // }else{

@@ -229,93 +229,97 @@ for(let ia=0; ia < this.tempAction.length; ia++){
     // console.log("reps done",this.tempAction[ia].repsdone);
    
     totalrepss =  totalrepss + this.tempAction[ia].repsdone; 
+    this.totalweight += (this.tempAction[ia].workweight * this.tempAction[ia].repsdone);
    
   if(this.tempAction[ia].action_type === "MainSet"){
   console.log("main set....")
    count++;
-  totalweightt = (totalweightt + this.tempAction[ia].workweight);
+  //totalweightt = (totalweightt + this.tempAction[ia].workweight);
   tmaxx =  tmaxx + this.tempAction[ia].tmax;
   }
 }
 this.totalreps = totalrepss;
-this.totalweight = (totalweightt/count).toFixed();
+//this.totalweight = (totalweightt/count).toFixed();
 this.Tmax = (tmaxx/count).toFixed();
 
 /*  calculation end */
 }
 public getExercise(exercise_id,Activity_type){
 
-//  console.log("ex data of exercise_id",exercise_id);
-
-if(this.tempExeData.length > 0){
-
-  const checkExIdExistence = exId => this.tempExeData.some(({id}) => id == exId);
-
-  console.log(checkExIdExistence(exercise_id));
+  //  console.log("ex data of exercise_id",exercise_id);
+  let excoef = 0;
+  if(this.tempExeData.length > 0){
   
-    if(!checkExIdExistence(exercise_id)){
-
-      for(let i=0;i<this.planexerciseData.length;i++){
-
-        if(this.planexerciseData[i].id == exercise_id){
-  
-             console.log("tem ex data", exercise_id);
-             console.log("tem ex data if condition", this.planexerciseData[i].id);
-             this.tempExeData.push(this.planexerciseData[i]);
-      
-          }
-
-      }
-
-    }
+    const checkExIdExistence = exId => this.tempExeData.some(({id}) => id == exId);
+    console.log(checkExIdExistence(exercise_id));
     
-}else{
-  // let i = 0;
-  console.log("first push");
-  for(let i=0;i<this.planexerciseData.length;i++){
-    if(this.planexerciseData[i].id== exercise_id){
-      // if(this.tempExeData[i].id != exercise_id){
-      this.tempExeData.push(this.planexerciseData[i]);
-      // i++;
-      // }
+      if(!checkExIdExistence(exercise_id)){
+  
+        for(let i=0;i<this.planexerciseData.length;i++){
+  
+          if(this.planexerciseData[i].id == exercise_id){
+    
+               console.log("tem ex data", exercise_id);
+               console.log("tem ex data if condition", this.planexerciseData[i].id);
+               this.tempExeData.push(this.planexerciseData[i]);
+               excoef = this.planexerciseData[i].exCoefficient;
+               console.log("complex ex coefficient 1", excoef);
+            }
+  
+        }
+  
+      }
+      
+  }else{
+    // let i = 0;
+    console.log("first push");
+    for(let i=0;i<this.planexerciseData.length;i++){
+      if(this.planexerciseData[i].id== exercise_id){
+        // if(this.tempExeData[i].id != exercise_id){
+        this.tempExeData.push(this.planexerciseData[i]);
+        excoef = this.planexerciseData[i].exCoefficient
+        console.log("complex ex coefficient 2", excoef);
+        // i++;
+        // }
+      }
     }
   }
-}
-
-if(Activity_type === "Simple"){
-console.log("simple activity"); 
-this.Showtmax = false;
-this.Tonnage=0;
-this.Work= 0;
-var calories = 0;
-var stressFactor = this.tempExeData[0].stressFactor;
-console.log("stress factor",stressFactor);
-var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
-var totalwork = Math.round(stressFactor*9.8*this.totalweight*this.totalreps);
-calories = Math.round(totalwork * 0.238902957619); 
-this.Tonnage = totalTonnage ;
-this.Work = totalwork ;
-this.cal = calories;
-}else{
-  this.Showtmax = true;
-  this.Tonnage=0;
-  this.Work= 0;
-  var calories = 0;
-  var totalTonnage = parseFloat(((this.totalweight*this.totalreps)/1000).toFixed(2));
-  var totalwork = Math.round(9.8*this.totalweight*this.totalreps);
-  calories = Math.round(totalwork * 0.238902957619); 
-  console.log("total work",totalwork);
-  this.Tonnage = totalTonnage ;
-  this.Work = totalwork ;
-  this.cal = calories;
-}
-console.log("calories",this.cal);
-this.loadData.stopLoading(); 
-localStorage.setItem('totalreps','');
-localStorage.setItem('totalweight','');
-localStorage.setItem('tonnage','');
-localStorage.setItem('work','');
-localStorage.setItem('cal','');
+  
+  if(Activity_type === "Simple"){
+    console.log("simple activity"); 
+    this.Showtmax = false;
+    this.Tonnage=0;
+    this.Work= 0;
+    var calories = 0;
+    var stressFactor = this.tempExeData[0].exCoefficient;
+    console.log("stress factor",stressFactor);
+    var totalTonnage = parseFloat(((this.totalweight)/1000).toFixed(2));
+    var totalwork = Math.round(stressFactor*9.8*this.totalweight);
+    calories = Math.round(totalwork * 0.238902957619); 
+    this.Tonnage = totalTonnage ;
+    this.Work = totalwork ;
+    this.cal = calories;
+  }else{
+    console.log("complex ex coefficient", excoef);
+    this.Showtmax = true;
+    this.Tonnage=0;
+    this.Work= 0;
+    var calories = 0;
+    var totalTonnage = parseFloat(((this.totalweight)/1000).toFixed(2));
+    var totalwork = Math.round(9.8*this.totalweight*excoef);
+    calories = Math.round(totalwork * 0.238902957619); 
+    console.log("total work",totalwork);
+    this.Tonnage = totalTonnage ;
+    this.Work = totalwork ;
+    this.cal = calories;
+  }
+  console.log("calories",this.cal);
+  this.loadData.stopLoading(); 
+  localStorage.setItem('totalreps','');
+  localStorage.setItem('totalweight','');
+  localStorage.setItem('tonnage','');
+  localStorage.setItem('work','');
+  localStorage.setItem('cal','');
 }
 dietInfo(){
   this.modalCtrl.dismiss();
