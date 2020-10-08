@@ -6,9 +6,9 @@
     <div *ngIf='stepArry.prop=="gender"' class="fulpad text-center gender">
 
       <h2>Thanks for signing up!</h2>
-      <p>We will be requiring some general (yet crucial) information from you to personalize your fitness program.  </p>
+      <p>Help us understand you better, this information will be used personalize your fitness program.  </p>
 
-      <h3 *ngIf='stepArry.prop!="static"'><em> Hi, {{userName}}</em><span>Select Your Gender</span></h3>
+      <h3 *ngIf='stepArry.prop!="static"'><span>Select Your Gender</span></h3>
     
         <ion-row   class="animated flipInX">
           <ion-col (click)="gactive(1)">
@@ -65,12 +65,12 @@
             <ion-item class="sbgw " >
               <ion-row>
                   <ion-col *ngIf='heightMetric=="cms"' (click)='selectHeightCms()'>
-                      <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' disabled></ion-input>
+                      <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' readonly></ion-input>
                   </ion-col>
-                  <ion-col *ngIf='heightMetric=="ftin"' (click)='selectHeightFeet()' >
-                    <div class="last" >
-                      <ion-input type="number" name='feet' [(ngModel)]='feet' placeholder="Feet" (input)='getInputData("feet")' disabled></ion-input>
-                      <ion-input  type="number" name='inch' [(ngModel)]='inch' placeholder="Inches" (input)='getInputData("inch")' disabled></ion-input>
+                  <ion-col *ngIf='heightMetric=="ftin"'  >
+                    <div class="last" (click)='selectHeightFeet()'>
+                      <ion-input type="number" name='feet' [(ngModel)]='feet' placeholder="Feet" (input)='getInputData("feet")' readonly></ion-input>
+                      <ion-input  type="number" name='inch' [(ngModel)]='inch' placeholder="Inches" (input)='getInputData("inch")' readonly></ion-input>
                     </div>
                   </ion-col>
                   <ion-col>
@@ -92,10 +92,10 @@
             <ion-row>
             
               <ion-col *ngIf='weightMetric=="kgs"' (click)='selectWeightKgs()'>
-                <ion-input type="number" name='kgs' [(ngModel)]='weigth' (input)='getInputData("kgs")'  placeholder="weight in kgs" disabled></ion-input>                        
+                <ion-input type="number" name='kgs' [(ngModel)]='weigth' (input)='getInputData("kgs")'  placeholder="weight in kgs" readonly></ion-input>                        
               </ion-col>
               <ion-col *ngIf='weightMetric=="lbs"' (click)='selectWeightLbs()'>
-                <ion-input type="number" name='lbs' [(ngModel)]='weigth' (input)='getInputData("lbs")' placeholder="weight in lbs" disabled></ion-input>
+                <ion-input type="number"  name='lbs' [(ngModel)]='weigth' (input)='getInputData("lbs")' placeholder="weight in lbs" readonly></ion-input>
               
               </ion-col>
               <ion-col>
@@ -179,7 +179,7 @@
       
           
           <ion-item class="sbgw text-center ">
-            <ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' required></ion-input>
+            <ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' readonly (click)='selectWorkDays()'></ion-input>
           </ion-item>
           
         </form>

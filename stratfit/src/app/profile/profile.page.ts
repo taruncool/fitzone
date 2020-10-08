@@ -587,7 +587,7 @@ export class ProfilePage implements OnInit {
           }
         },
         {
-          text: 'Upload photo',
+          text: 'Upload',
           handler: () => {
             // Call imageProvider to process, upload, and update user photo.
             this.imageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
@@ -623,7 +623,7 @@ export class ProfilePage implements OnInit {
         //   }
         // },
         {
-          text: 'Choose Program',
+          text: 'Store',
           handler: workout => {
             
             this.navCtrl.navigateRoot('tabs/tabs/store');

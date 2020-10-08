@@ -132,7 +132,7 @@ heightArrCms= {
   tmaxPopupModal;
   constructor(public navCtrl: NavController,private apiService: ApiService, private loadData: LoadData, public modalCtrl: ModalController, public http: HttpClient, public toastCtrl: ToastController,private selector: WheelSelector,public sqlStorageNew: SqlStorageNew,public platform: Platform) {
     this.items = [
-      { title: "Untrained ", desc: "I haven’t done any resistance training for over 6 months and I have a non-physical job.", expanded: false, value: 1 },
+      { title: "Untrained ", desc: "I haven't done any resistance training for over 6 months and I have a non-physical job.", expanded: false, value: 1 },
       { title: "Beginner", desc: "I am consistent in my resistance training for less than 6 months, or I have a physical job.", expanded: false, value: 2 },
       { title: "Intermediate", desc: "I am consistent in my resistance training for the last 6 to 12 months.", expanded: false, value: 3 },
       { title: "Advanced", desc: "I am consistent in an organized barbell lifting program for over 12 months.", expanded: false, value: 4 },

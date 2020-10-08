@@ -17,12 +17,13 @@
 
   <ion-list  class=" inputs ">
     <form #feedbackForm="ngForm">
-      <ion-item class="sbgw" >
-        <ion-row class="hed" >
+      <ion-card class="sbgw nopad" >
+        <!-- <ion-row class="hed" >
           <span>Feedback</span>
-          <ion-textarea placeholder="Your feedback is valuable to us, tell us about your experience with StratFit."  name="feedback" [(ngModel)]="feedback" required></ion-textarea>
-        </ion-row>
-      </ion-item>
+        </ion-row> -->
+        <ion-textarea placeholder="Your feedback is valuable to us, tell us about your experience with StratFit."  name="feedback" [(ngModel)]="feedback" required></ion-textarea>
+
+      </ion-card>
     </form>
 
     <ion-button expand="block" type="submit" (click)="submitFb(feedback)" [disabled]="!feedbackForm.form.valid">Submit</ion-button>

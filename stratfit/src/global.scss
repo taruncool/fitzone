@@ -315,8 +315,8 @@ ion-select-popover{
 .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button{border-radius: 50px;text-transform: uppercase;border-width:1px ; border-style:solid;margin-bottom: 6px;width: 90%;padding: 0 88px;}
 
 /*--Aleart Popup and Bottom Popup --*/
-.picker-md, ion-alert  { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; 
-  ion-backdrop { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); }
+.picker-md, ion-picker, ion-alert  { opacity:0.9 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; 
+  //ion-backdrop { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); }
 
   /*for alert msg*/
   .alert-title{font-size: medium;font-weight: 400;}
@@ -330,7 +330,7 @@ ion-select-popover{
     .alert-message{text-align: center;padding-bottom: 2rem; color: #fff !important; font-size: x-large !important; max-height: calc() !important;}
 
   /*---Bottom Selection Popup--- */
-  .picker-wrapper { background: #fff; border-radius: 25px 25px 0 0; padding-top: 10px;
+  .picker-wrapper { background: #fff; border-radius: 25px 25px 0 0; padding-top: 10px; color: #000; --color:#000 !important;
     .picker-toolbar {justify-content:space-around;  border-bottom: 1px solid #eee;
       .picker-button, .picker-button.activated { padding-left: 3rem; padding-right: 3rem;}
     }
@@ -338,13 +338,14 @@ ion-select-popover{
       .picker-opt {opacity:0.4; height:32px !important;}
       .picker-opt-selected { opacity:1;}
     }  
+    .picker-above-highlight, .picker-below-highlight{background: none !important;}
   }/*---End Bottom Selection Popup--- */
   
   .alert-input-group{padding:0; border-radius: 10px;  background: #fff; margin-bottom: 2rem;
     .alert-input{ padding:1.4rem 2rem; margin: 0; border: 0;}
   }
   .alert-button-group{ padding: 0; justify-content:center !important; text-align: center; display: inline-block !important; padding-inline-start: 0 !important; padding-inline-end: 0 !important;
-    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border: 2px solid #0163D1 !important;
+    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border: 2px solid #0163D1 !important; font-weight: normal !important;
       span {color: #fff !important;justify-content:center !important;}
     }
     .alert-button:first-child {margin-left: 0;}
@@ -663,7 +664,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   .pcover:after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)) !important; }
   .rmcov:after { content:""; position: relative !important; }
 
-  h2, h3, h4, h5, h6{ white-space: nowrap; text-overflow: ellipsis; }
+  h2, h3, h4, h5, h6{ white-space: normal; text-overflow: ellipsis; }
 
   ion-button {
     svg {width:1.6rem; }
@@ -683,7 +684,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 /*-- Store *** Coach *** Coachview *** Analytics *** Profile --*/
 .store, .analytic, .coach, .welcome { 
-  ion-list  { padding: 0 !important;}
+  // ion-list  { padding: 0 !important;}
    
   /*--- Full Card scroll---*/
   ion-slides {height: 72vh !important;}
@@ -825,7 +826,8 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
       img { width:100% !important; min-height:225px; border-radius: 0 !important; object-fit: cover; /*filter: grayscale(100%);*/ }
     }
     em {display: block; background: #fff; padding:10px; left:0; right: 0; bottom: 0; position: absolute; z-index:100; border-radius: 0 0 10px 10px; }
-    .play {top:-35px !important;}
+    //.play {top:-35px !important;}
+    .play {top:24px !important;right: 24px !important; left: initial !important; bottom: initial !important;}
   }
     
 } 
