@@ -315,7 +315,7 @@ ion-select-popover{
 .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button{border-radius: 50px;text-transform: uppercase;border-width:1px ; border-style:solid;margin-bottom: 6px;width: 90%;padding: 0 88px;}
 
 /*--Aleart Popup and Bottom Popup --*/
-.picker-md, ion-picker, ion-alert  { opacity:0.9 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; 
+.picker-md, ion-picker, ion-alert  { background: linear-gradient(rgb(8 12 20 / 94%), rgb(0 0 0 / 94%)) !important; backdrop-filter: blur(3px); 
   //ion-backdrop { opacity:0.96 !important; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) !important; backdrop-filter: blur(3px); }
 
   /*for alert msg*/
@@ -982,7 +982,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .pcview{
   // .fulcard {background: none !important;}
   .pcover {position: fixed; top:0; bottom: 0; left:0; right: 0; }
-  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0;opacity: 0.9; background: linear-gradient(rgba(8, 12, 20, 1), rgba(0, 0, 0, 1)) ; backdrop-filter: blur(3px); }
+  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgb(8 12 20 / 94%), rgb(0 0 0 / 94%)) !important; backdrop-filter: blur(3px);  }
   .poverlay  {position: relative;left:50%;top:50%;transform:translate(-50%, -50%); color: #fff; margin-top: -30px; padding: 10px 10px 30px 10px !important; text-align: center;   
     // h1, h2, h3, h4, h5 { margin-top: 0;}
 

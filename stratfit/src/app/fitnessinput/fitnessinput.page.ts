@@ -40,6 +40,7 @@ export class FitnessinputPage implements OnInit {
   disbaleBackNav=true;
   todayDate;
   maxyear;
+  selectWorkDays;
 
   responseExercises;
   planpdc;
