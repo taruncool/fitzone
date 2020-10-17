@@ -27,8 +27,8 @@
 
 
 
-        ion-row.setcal { margin-bottom: 2rem;
-            ion-col { text-align: center;
+        ion-row.setcal {
+            ion-col { text-align: center; padding: 0 !important;
                 span {display: block; color: #fff; font-size: x-large; font-weight: bold; margin-bottom: 10px;}
                 em {display: block; color: #fff; }
             }
