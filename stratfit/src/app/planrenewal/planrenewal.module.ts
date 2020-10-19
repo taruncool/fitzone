@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { PlanrenewalPageRoutingModule } from './planrenewal-routing.module';
 
 import { PlanrenewalPage } from './planrenewal.page';
+import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
+import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
+import { StartdatePage } from '../startdate/startdate.page';
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { PlanrenewalPage } from './planrenewal.page';
     IonicModule,
     PlanrenewalPageRoutingModule
   ],
-  declarations: [PlanrenewalPage]
+  declarations: [PlanrenewalPage],
+  entryComponents: [GlossaryPage, ProgressbarPage, StartdatePage]
 })
 export class PlanrenewalPageModule {}

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController,ModalController,ToastController,Platform,NavController} from '@ionic/angular';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { LoadData } from '../../providers/loaddata';
 import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
 import { PlanrenewalPage } from '../planrenewal/planrenewal.page';
+import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { SessionsummaryPage } from '../todayworkout/sessionsummary/sessionsummary.page';
 // import { async } from '@angular/core/testing';
 @Component({
@@ -19,6 +20,7 @@ export class DashboardPage implements OnInit {
     public toastCtrl: ToastController,public modalCtrl:ModalController,private http: HttpClient, public navCtrl: NavController,private loadData: LoadData,public router: Router,public route: ActivatedRoute,public sqlStorageNew:SqlStorageNew) {
     this.planInfo = { "id": 0, "coachName": "", "planName": "" };
     this.tokken = localStorage.getItem('usertoken');
+    this.metrics = (localStorage.getItem('weightunit')==='lbs')?" Lb":" Kg";
   }
   tokken;
   prompt;
@@ -77,6 +79,7 @@ export class DashboardPage implements OnInit {
   Tonnage;
   Work;
   cal;
+  avgweight;
   showNutrition:boolean = true;
   planComplete:boolean = false;
   todayRestDay:boolean = false;
@@ -140,6 +143,7 @@ export class DashboardPage implements OnInit {
   upavatar;
   avatar;
   s3Url;
+  exerCoef = 0;
   // coverImage;
 
   // if(localStorage.getItem('internet')==='online'){
@@ -1191,18 +1195,27 @@ ngOnInit(){
             });
           } else {
 
-            this.sqlStorageNew.query("select p.*, u.nextrenewaldate, u.dayOff from userplan u left join plan p on u.plan_id = p.id where u.status = 3").then(
+            this.sqlStorageNew.query("select p.*, u.nextrenewaldate, u.startdate, u.dayOff from userplan u left join plan p on u.plan_id = p.id where u.status = 3").then(
               data => {
 
                
                 if(data.res.rows.length > 0){
                   this.planInfo = { "id": data.res.rows.item(0).id, 
-                  // "planPhoto": data.res.rows.item(0).planPhoto,
+                  "planPhoto": data.res.rows.item(0).planPhoto,
                     "planName": data.res.rows.item(0).planName,
                   //  "coachPhoto":global.s3URL +data.res.rows.item(0).createdByImg,
                     "coachName":data.res.rows.item(0).createdBy,
-                    "durationWeeks":data.res.rows.item(0).duration_weeks};
+                    "durationWeeks":data.res.rows.item(0).duration_weeks,
+                  "startdate":data.res.rows.item(0).startdate,
+                  "dayoff": data.res.rows.item(0).dayOff};
                   this.noPlanActive = true;
+                  let planid = data.res.rows.item(0).id;
+                  this.sqlStorageNew.query("select * from exercises").then(dataEx => {
+                    if(dataEx.res.rows.length === 0) {
+                      this.loadData.checkjson(planid);
+                      this.showprogresspopup(data);
+                    }
+                  })
                 
                 }else{
 
@@ -1221,6 +1234,16 @@ ngOnInit(){
       });
      
     }, 500);
+  }
+
+  async showprogresspopup(resvalue) {
+   
+     let navigationExtras: NavigationExtras = {
+      state: {
+        'uplandata':{'plan_id':this.planInfo.id,'planName':this.planInfo.planName,'planPhoto':this.planInfo.planPhoto,'startdate':this.planInfo.startdate,'defaultOffDay':this.planInfo.dayoff,'firstplan':false,'exercises':[]}
+      }
+    };
+    this.router.navigate(['progressbar'], navigationExtras);
   }
  
   showNextWorkoutDateRestDay(){
@@ -1451,8 +1474,11 @@ ngOnInit(){
           this.sqlStorageNew.query("UPDATE userplan SET status=1,startdate = '" + startDate + "',nextrenewaldate = '" + nextrenewDate + "', dayOff = '" + dayOff +"' WHERE status=3").then(data=>{
              this.loadData.stopLoading();
             localStorage.setItem('generalwarmupcmpl','false');
-            this.navCtrl.navigateForward(this.router.url + '/dashboard/');
+            //this.navCtrl.navigateForward(this.router.url + '/dashboard/');
             //this.initLoad();
+            //this.navCtrl.navigateForward('/dashboard');
+            this.noPlanActive = false;
+            this.ngOnInit();
           }).catch(err => {
             console.error('--12--'+JSON.stringify(err));
           });
@@ -1562,32 +1588,49 @@ ngOnInit(){
     var totalrepss = 0;
     var totalweightt = 0;
     var count = 0;
+    this.Tonnage=0;
+     this.Work= 0;
+     this.cal = 0;
+     var calories = 0;
      for(let ia=0; ia < this.tempAction.length; ia++){
       // console.log("reps done",this.tempAction[ia].repsdone);
      
       totalrepss =  totalrepss + this.tempAction[ia].repsdone;
       this.totalweight += (this.tempAction[ia].workweight * this.tempAction[ia].repsdone);
+      //totalweightt += (this.tempAction[ia].workweight * this.tempAction[ia].repsdone);
+      if(this.tempActivity[0].Activity_type != "Simple"){
+        this.totalweight = (this.tempAction[ia].workweight * this.tempAction[ia].repsdone);
+        this.Tonnage += parseFloat(((this.totalweight)/1000).toFixed(2)) ;
+        this.exerCoef = this.getExerciseCoef(this.tempAction[ia].exercise_id);
+        var totalwork = Math.round(this.exerCoef*9.8*this.totalweight);
+        console.log(this.exerCoef+"*9.8*"+this.totalweight);
+        console.log("=",totalwork)
+        calories = Math.round(totalwork * 0.238902957619); 
+        this.Work = this.Work + totalwork;
+        this.cal = this.cal + calories;
+      }
      
        if(this.tempAction[ia].action_type === "MainSet"){
         count = count + 1;
-        //totalweightt = (totalweightt + this.tempAction[ia].workweight);
+        totalweightt = (totalweightt + this.tempAction[ia].workweight);
       }
       // this.totalweight = (totalweightt/count).toFixed();
   }
   this.totalreps = totalrepss;
-  //this.totalweight = (totalweightt/count).toFixed();
+  this.avgweight = (totalweightt/count).toFixed();
 /*  calculation end */
     if(this.tempActivity[0].Activity_type === "Simple"){
       this.tempExeData = []; 
       // console.log("simple activity");     
       setTimeout(() => {
-        // console.log("inside if get action condition",this.tempAction[0].action_id)
-        this.getExercise(this.tempAction[0].exercise_id);
-    }, 300)
+          // console.log("inside if get action condition",this.tempAction[0].action_id)
+          this.getExercise(this.tempAction[0].exercise_id);
+      }, 300)
 
     }else{
       console.log("complex activity");  
       this.tempExeData = [];
+      //this.cal = 0;
       for(let i=0;i<this.tempAction.length;i++){
       // console.log("inside if condition on getAction method",this.tempAction)
       setTimeout(() => {
@@ -1598,6 +1641,29 @@ ngOnInit(){
       }
     }
   }
+public getExerciseCoef(exercise_id){
+  let excoef = 0;
+  if(this.tempExeData.length > 0){
+    const checkExIdExistence = exId => this.tempExeData.some(({id}) => id == exId);
+    console.log(checkExIdExistence(exercise_id));
+
+        for(let i=0;i<this.planexerciseData.length;i++){
+
+          if(this.planexerciseData[i].id == exercise_id){
+                excoef = this.planexerciseData[i].exCoefficient
+            }
+
+        }        
+  }else{ 
+    // console.log("first push");
+    for(let i=0;i<this.planexerciseData.length;i++){
+      if(this.planexerciseData[i].id== exercise_id){
+        excoef = this.planexerciseData[i].exCoefficient
+      }
+    }
+  }
+  return excoef;
+}
 public getExercise(exercise_id){
   // console.log("ex data of exercise_id",exercise_id);
   let excoef = 0;
@@ -1607,26 +1673,27 @@ public getExercise(exercise_id){
       excoef = this.planexerciseData[i].exCoefficient
     }
   }
- 
-  /*Calculating Tonnage, Work, Calories */
-  this.Tonnage=0;
-  this.Work= 0;
-  var calories = 0;
-  var stressFactor = this.tempExeData[0].stressFactor;
-  var weight = this.loadData.convertWeight(weight,'db');
-    console.log("stress factor",stressFactor);
-  var totalTonnage = parseFloat(((this.totalweight)/1000).toFixed(2));
-  var totalwork = Math.round(9.8*this.totalweight*excoef);
-    // if(this.metrics =='Lb'){
-  calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
-    // }else{
-    //    this.cal=Math.round(totalwork);
-    // }
-  this.Tonnage = totalTonnage ;
-  this.Work = totalwork ;
-  this.cal = calories;
-  console.log("tonnage",this.Tonnage);
-  console.log("tonnage",this.Work);
+   if(this.tempActivity[0].Activity_type === "Simple"){
+    /*Calculating Tonnage, Work, Calories */
+    this.Tonnage=0;
+    this.Work= 0;
+    var calories = 0;
+    var stressFactor = this.planexerciseData[0].exCoefficient;
+    var weight = this.loadData.convertWeight(weight,'db');
+      console.log("stress factor",stressFactor);
+    var totalTonnage = parseFloat(((this.totalweight)/1000).toFixed(2));
+    var totalwork = Math.round(9.8*this.totalweight*excoef);
+      // if(this.metrics =='Lb'){
+    calories = Math.round(totalwork * 0.238902957619); /* converting lbs to kgs for calculations */
+      // }else{
+      //    this.cal=Math.round(totalwork);
+      // }
+    this.Tonnage = totalTonnage ;
+    this.Work = totalwork ;
+    this.cal = calories;
+    console.log("tonnage",this.Tonnage);
+    console.log("tonnage",this.Work);
+   }
     // if(this.totalweight == NaN || this.Tonnage == NaN || this.Work == NaN || this.cal == NaN){
     if(isNaN(this.totalweight || this.Tonnage || this.Work || this.cal)){
       this.notActive = true;

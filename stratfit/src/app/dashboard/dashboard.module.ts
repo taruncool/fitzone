@@ -9,6 +9,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { DashboardPage } from './dashboard.page';
 import { SessionsummaryPage } from '../todayworkout/sessionsummary/sessionsummary.page';
+import { PlanrenewalPage } from '../planrenewal/planrenewal.page';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { SessionsummaryPage } from '../todayworkout/sessionsummary/sessionsummar
     DashboardPageRoutingModule
   ],
   declarations: [DashboardPage],
-  entryComponents: [SessionsummaryPage]
+  entryComponents: [SessionsummaryPage, PlanrenewalPage]
 })
 export class DashboardPageModule {}
