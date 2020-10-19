@@ -81,7 +81,7 @@
 </div>
 
 
-
+<div class="fulpad nopadt">
   <ion-row class="fulcard " *ngIf='!noplan'>
     <img src="{{planInfo.planPhoto}}" (error)="onImageError(planInfo)">
   
@@ -94,7 +94,7 @@
       </div>
     </div>
   </ion-row>
-
+</div>
 
    <div class=" nobg nodata text-center" *ngIf='noplan'>
       <!-- <img src="assets/images/no-data.png"> -->
@@ -168,15 +168,15 @@
           <!-- End Activity Block-->
 
           <ion-card class="fulpad  sumry" *ngIf="!Show" >
-            <ion-row >
+            <!-- <ion-row >
               <ion-col size="6"><h3>Summary</h3> </ion-col>
-              <!--<ion-col class="nopad" size="6">
+              <ion-col class="nopad" size="6">
                 <ion-select interface="popover" role="combobox"  placeholder="Activity" >
                   <ion-select-option   *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> >Activity {{i+1 }} </ion-select-option>
                 </ion-select>
-              </ion-col>-->
+              </ion-col>
               
-            </ion-row>
+            </ion-row> -->
     
             <!--<ion-row>
               <div class="scrol min" scrollX="true">
@@ -195,23 +195,23 @@
               </ion-col>
               <ion-col  size="4" *ngIf="activityType == 'simple'" >
                   <span>{{Tmax}}  </span>
-                  <em>Est. Tmax ({{metrics}}) </em>
+                  <em>Est. Tmax <dl>({{metrics}})</dl> </em>
               </ion-col>
               <ion-col size="4">
                 <span>{{Tonnage}}  </span>
-                <em>Tonnage (tons) </em>
+                <em>Tonnage <dl>(tons)</dl> </em>
               </ion-col>
               <ion-col size="4">
                   <span>{{avgweight}}  </span>
-                  <em>Avg Weight ({{metrics}}) </em>
+                  <em>Avg Weight <dl>({{metrics}})</dl> </em>
               </ion-col>
               <ion-col size="4">
                 <span>{{cal}}  </span>
-                <em>Calories (cal)</em>
+                <em>Calories <dl>(cal)</dl></em>
               </ion-col>
               <ion-col size="4">
                   <span>{{Work}}  </span>
-                  <em>Work (Newton Meters) </em>
+                  <em>Work <dl>(Newton Meters)</dl> </em>
               </ion-col>
               
             </ion-row>

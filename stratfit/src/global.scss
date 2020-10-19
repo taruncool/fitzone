@@ -1468,9 +1468,11 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
 
 
   ion-row.count {padding-bottom: 10px;
-    ion-col { padding-top:15px  !important;
-      span {display: block;  font-size: initial; font-weight: 900; }
-      em {  display: block;  font-weight: normal !important; padding-top:5px;  } 
+    ion-col { padding-top:15px  !important;  padding-left: 0 !important; padding-right: 0 !important;
+      span {display: block;  font-size: large; font-weight: 900; }
+      em {  display: block;  font-weight: normal !important; padding-top:5px; 
+        dl{ padding: 0; margin: 0; font-size: 13px !important;}
+      } 
     }
     // [size="4"] {flex:0 0 32.1222%  !important;}
     // [size="4"]:nth-child(3n+1) {margin-left: 0;}
