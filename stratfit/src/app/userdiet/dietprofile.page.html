@@ -187,7 +187,7 @@
                <p>{{mealMsg}}</p>
              </ion-card>
             
-            <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index" (click)="editMeal(meal.id)">
+            <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index" (click)="editMeal(meal)">
                <div class="dtitle  ">
                   <em>Breakfast</em>
                   <h2>{{meal.mealName}}</h2>

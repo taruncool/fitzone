@@ -25,7 +25,7 @@
 
 
 
-<ion-content class="diet sbgry">
+<ion-content [scrollEvents]="true" class="diet sbgry">
   
   <div class="fulpad lgraph">
     <h3>Day Balance</h3>
@@ -98,9 +98,14 @@
 
 <div class="frame dishes">
   <div class="adtitle">
-    <h1>Breakfast</h1>
+    <ion-select [(ngModel)]="mealName" name="mealName" placeholder="Select your meal">
+      <ion-select-option value="Breakfast">Breakfast</ion-select-option>
+      <ion-select-option value="Lunch">Lunch</ion-select-option>
+      <ion-select-option value="Dinner">Dinner</ion-select-option>
+      <ion-select-option value="Snack">Snack</ion-select-option>
+    </ion-select>
   </div>
-  <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)" (click)="ScrollToTop()"></ion-searchbar>
       
   
   <!-- <ion-toolbar class="sfmenu">

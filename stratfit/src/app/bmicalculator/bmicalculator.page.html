@@ -14,11 +14,10 @@
 
 <ion-content>
 
-  <ion-row class="fulpad">
+  <!--<ion-row class="fulpad">
     <ion-col>
       <div class="infild  ">
         <h4>Target Weight</h4>
-        <!-- <div class="error" >Please enter a valid input</div> -->
         <ion-item class="sbgw " >
           <ion-row>
             <ion-col >
@@ -38,7 +37,6 @@
     <ion-col>
       <div class="infild  ">
         <h4>Days Goal</h4>
-        <!-- <div class="error" >Please enter a valid input</div> -->
         <ion-item class="sbgw " >
           <ion-row>
             <ion-col>
@@ -52,10 +50,10 @@
         </ion-item >
       </div>
     </ion-col>
-  </ion-row>
+  </ion-row>-->
 
   <div class="frame ">
-    <div class="adtitle">
+    <!--<div class="adtitle">
       <h1>Prescription 
 
       <ion-select interface="popover" placeholder="Kg">
@@ -66,47 +64,75 @@
       </h1>
 
       
-    </div>
+    </div>-->
     <div class="  contin">
 
       <div class="fulpad aintro">
         <ion-row>
           <ion-col  size="12">
-            <span>64 kg</span>
+            <span>{{avgweight | number:'1.2-2'}} kg</span>
             Weight
           </ion-col>
-          <ion-col size="6">
-            <span>5.12</span>      
-            Essential Body Fat
+          <ion-col size="12">
+            <ion-row>
+              <ion-col size="4">
+                <span>{{essentialbodyfatpercnt | number:'1.2-2'}}%</span> 
+              </ion-col>  
+              <ion-col size="4">
+                <span>{{essentialbodyfatkg | number:'1.2-2'}} kg</span> 
+              </ion-col>
+              <ion-col size="4">
+                <span>{{essentialbodyfatcal | number:'2.2-2'}} cal</span> 
+              </ion-col>
+            </ion-row> 
+            <ion-row>
+              <ion-col size="12">   
+                Essential Body Fat
+              </ion-col>
+            </ion-row>
           </ion-col>
-          <ion-col size="6">
-            <span>06.60 </span>       
-            Body Fat
+          <ion-col size="12">
+            <ion-row>
+              <ion-col size="4">
+                <span>{{bodyfatpercnt | number:'2.2-2'}}%</span> 
+              </ion-col>  
+              <ion-col size="4">
+                <span>{{bodyfatkg | number:'2.2-2'}} kg</span> 
+              </ion-col>
+              <ion-col size="4">
+                <span>{{bodyfatcal | number:'2.2-2'}} cal</span> 
+              </ion-col> 
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">        
+                Body Fat
+              </ion-col>
+            </ion-row>
           </ion-col>
           <ion-col  size="12">
-            <span>18.11</span>
+            <span>{{avgweight/((avgheight/100)*(avgheight/100)) | number:'2.2-2'}}</span>
             Body Mass Index
           </ion-col>
           <ion-col  size="12">
-            <span>57.40</span>
+            <span>{{avgweight-(avgweight*(((1.39*(avgweight/((avgheight/100)*(avgheight/100))))+(0.16*age)-(10.34*1)-9)/100)) | number:'2.2-2'}}</span>
             Lean Body Mass (Kg)
           </ion-col>
           <ion-col  size="12">
-            <span>1,680.00</span>
+            <span>{{mifflin}}</span>
             Mifflin St Jeor Resting Metabolic Rate
           </ion-col>
           <ion-col  size="12">
-            <span>1,609.88</span>
+            <span>{{(370+(21.6*(avgweight-(avgweight*(((1.39*(avgweight/((avgheight/100)*(avgheight/100))))+(0.16*age)-(10.34*1)-9)/100))))) | number:'2.2-2'}}</span>
             Katch-McArdle Resting Metabolic Rate
           </ion-col>
-          <ion-col  size="12">
+          <!--<ion-col  size="12">
             <span>2,495.31</span>
             Actual Cal. Expended Per Day
           </ion-col>
           <ion-col  size="12">
             <span>-195,504.69</span>
             Daily Calories to consume to Reach Target Weight
-          </ion-col>
+          </ion-col>-->
         </ion-row>
       
       

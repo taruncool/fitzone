@@ -116,6 +116,7 @@ export class DietprofilePage implements OnInit {
   defFood;
   finalFoodData:any=[];
   finalFoodDataByDate:any=[];
+  foodDataToday:any=[];
 
   backNav;
 
@@ -375,10 +376,21 @@ export class DietprofilePage implements OnInit {
                  }else{
                   this.finalFoodDataByDate = [];
                   for(let k =0;k<res.meals.length;k++){
-  
+                    console.log("From the API",res.meals[k].mealJson);
                     var foodList = JSON.parse(res.meals[k].mealJson);
-                      
+                    console.log("From the API after parse",foodList);  
                     this.finalFoodDataByDate.push(
+                      {id:res.meals[k].id,
+                      mealName:foodList.mealName,
+                      mealDate:foodList.mealDate,
+                      mealTime:foodList.mealTime,
+                      mealcal:foodList.mealcal,
+                      mealfat:foodList.mealfat,
+                      mealpro:foodList.mealpro,
+                      mealcarb:foodList.mealcarb,
+                      mealData:foodList.mealData});
+
+                  this.foodDataToday.push(
                       {id:res.meals[k].id,
                       mealName:foodList.mealName,
                       mealDate:foodList.mealDate,
@@ -603,7 +615,7 @@ export class DietprofilePage implements OnInit {
      localStorage.setItem('caloriespercent', this.fatGmsBalancePercent);
     console.log("caloriespercent",this.totalCalBalancePercent);
    
-    
+    console.log("finalfood data after calculate",this.finalFoodDataByDate);
     this.fatGmsIntake = parseFloat(this.roundTo(this.fatGms - this.fatGmsBalance,2));
     this.carbsGmsIntake = parseFloat(this.roundTo(this.carbsGms - this.carbsGmsBalance,2));
     console.log(this.protienGms,this.protienGmsBalance);
@@ -887,21 +899,25 @@ export class DietprofilePage implements OnInit {
 
   }
 
- async editMeal(mealid){
+ async editMeal(meal){
 
+    let mealid = meal.id;
     console.log("meal id",mealid);
     var mealDataEdit =[];
     var mealDetailsEdit:any =[];
-    for(let k =0;k<this.finalFoodDataByDate.length;k++){
+    console.log("before going modal whole log", this.finalFoodDataByDate);
+    console.log("Food data today", meal)
+    for(let k =0;k<this.foodDataToday.length;k++){
 
-      if(this.finalFoodDataByDate[k].id === mealid){
+      if(this.foodDataToday[k].id === mealid){
 
-        mealDataEdit  = this.finalFoodDataByDate[k].mealData;
-        mealDetailsEdit = this.finalFoodDataByDate[k];
+        mealDataEdit  = this.foodDataToday[k].mealData;
+        mealDetailsEdit = this.foodDataToday[k];
         
       }
 
     }
+    console.log("before going modal", mealDataEdit);
 
     //this.nav.push(AddMealPage, {"isEdit":true,"mealId":mealid,"foodItems": mealDataEdit});
     let addMealModal = await this.modalCtrl.create({component:AddmealPage,
