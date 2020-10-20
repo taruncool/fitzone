@@ -1,6 +1,12 @@
 .welcome{
     .fulcard  {background: #080C14 !important;max-height:15rem !important; height: 15rem !important;
-        img {height: auto !important; width:  68%; float: right;}
+        img {height: auto !important; width: 68%; float: right; margin-top: 1rem;}
         svg {margin-bottom: 10px;}
+    }
+    .gridview {
+        ion-col:first-child .fulcard img {width: 90% !important; margin-right: -4rem;}
+        ion-col:nth-child(2) .fulcard img{width: 58% !important; margin-right: -2rem; }
+        ion-col:nth-child(3) .fulcard img{width: 120% !important; margin-right: -2rem; }
+        ion-col:last-child .fulcard img {}
     }
 }

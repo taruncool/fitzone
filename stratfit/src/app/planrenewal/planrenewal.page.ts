@@ -9,6 +9,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
 import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { StartdatePage } from '../startdate/startdate.page';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 
 @Component({
   selector: 'app-planrenewal',
@@ -73,7 +74,7 @@ export class PlanrenewalPage implements OnInit {
   planState;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew) {
+  constructor(public navCtrl: NavController, private streamingMedia: StreamingMedia, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew) {
     this.userCountry = 190;
   }
  async ngOnInit() {
@@ -240,6 +241,20 @@ export class PlanrenewalPage implements OnInit {
       });
       toast.present();
     }
+  }
+
+  playVideo(idplan){
+    
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      //shouldAutoClose: true,
+      //controls: false
+    };
+    
+    this.streamingMedia.playVideo('http://stratfit.net/ProgramVideos/'+this.plandetails.id+'-preview.mp4', options);    
+
   }
 
   async viwPlanStructure(cplan_id){
