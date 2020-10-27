@@ -41,17 +41,17 @@
 
 
 .fulcard { width: auto !important;  z-index: 1;
-    img {height: 94px !important;  opacity: 1 !important;}
+    img {height: 164px !important;  opacity: 1 !important;}
 }
-.fulcard:before {content:inherit !important;}
-.fulcard .container {padding: 12px !important; position: relative !important; }
+// .fulcard:before {content:inherit !important;}
+.fulcard .container {padding: 12px !important; top: auto !important; bottom:0; }
 .fulcard .container .cdbody p {margin: 0 !important;}
 .fulcard .container .cdbody span {margin-bottom: 5px !important;}
-.fulcard .container .cdbody h1 {font-size: x-large  !important;  line-height: normal !important; }
+// .fulcard .container .cdbody h1 {font-size: x-large  !important;  line-height: normal !important; }
 .fulcard .container .cdbody h2 {margin-bottom: 0; }
 .fulcard .container .cdbody .play {left: inherit; right: 20px; }
 
-.fulcard .container, .fulcard .container p, .fulcard .container span, .fulcard .container h1 {color: #000 !important;}
+// .fulcard .container, .fulcard .container p, .fulcard .container span, .fulcard .container h1 {color: #000 !important;}
 
 
 
