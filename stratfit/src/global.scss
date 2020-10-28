@@ -498,7 +498,7 @@ ion-tab-bar{border-width: 0 !important;
  
 /*-- Componds --*/
 
-
+.fulview .fulcard img, .fulview .fulcard .play {position: fixed !important;}
 .error {text-align: center; color:#EA4F5F; padding:10px 10px; display: block;}
 .nodata {text-align: center; padding: 0; --padding-start: 10px !important;--padding-end: 10px !important;
   img, svg {width:80px; height: 80px; margin: auto; margin-top:3rem; margin-bottom: 3rem;}
@@ -647,8 +647,8 @@ ion-tab-bar{border-width: 0 !important;
 
 .frame {position: relative; border-radius: 40px;--border-radius:40px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; padding-top: 40px; padding-bottom: 40px; }
 .frame:before{content:""; position: absolute; left: 0; right: 0; top:18px; width: 85px; height: 4px; margin: auto; background: #ccc; border-radius: 10px; }
-ion-card, ion-item, .fulcard, .dcard, .iconcard, ion-item ion-avatar, ion-searchbar, ion-button, ion-button.button .button-native, .verify ion-input, .execis .exeblk, .workflow .setlist {border-radius: 10px !important; --border-radius: 10px !important;}
-ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !important;}
+ion-card, ion-item, .fulcard, .dcard, .iconcard, ion-item ion-avatar, ion-searchbar, ion-button, ion-button.button .button-native, .verify ion-input, .execis .exeblk, .workflow .setlist, .mealsel {border-radius: 10px !important; --border-radius: 10px !important;}
+ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods, .mealsel {border-color:#ccc !important;}
 
 
 
@@ -772,7 +772,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   /*--- Grid view *** Fulview ---*/
   .gridview, .fulview { 
     .fulcard {height: 14rem !important; max-height: 14rem !important; min-height: 14rem !important; transition-duration: .4s;transition: all .4s ease-out;
-      img {height: 14rem !important; opacity: 1 !important; transform:scale(1) !important; border-radius: 10px ;} 
+      img {height: 14rem !important; opacity: 1 !important; transform:scale(1) !important; border-radius: 10px ; } 
 
       .container {padding: 12px !important; top: auto !important; bottom: 0 !important;
         .cdbody{
@@ -793,9 +793,10 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   .gridview h1{font-size: x-large !important; line-height: 26px !important;}
 
 
-  .fulview{ position: relative; z-index: 0; margin-bottom: 15px;
+  .fulview{ position: relative; z-index: 0; 
     .fulcard {height: 92vh !important; max-height: 92vh !important; border-radius: 0 !important; border-width: 0 !important;
       img {height: 92vh !important;border-radius: 0 !important;}
+      .play {top: -10rem !important;}
       .container{padding:15px !important;padding-bottom: 25px !important;
         h1 {font-size: xx-large !important;}
         span, p {font-size: large !important;}
@@ -968,7 +969,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 }
 
-.programview{  position: relative; left: 0; right: 0;  padding-bottom: 60px !important; 
+.programview{  position: relative; left: 0; right: 0; padding-top: 20px !important;  padding-bottom: 60px !important; 
   
     h2,h3, h4, h5{display: block; margin-top: 0; margin-bottom: 10px; }
     h2 {font-weight: bold !important;}
@@ -1180,14 +1181,14 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 /*-- Analytics --*/
 
-.aintro{
+.aintro{ 
   h3 {margin-top: 0;}
   [size="12"]{margin-bottom: 10px;}
   svg {margin-bottom: 10px; width: 28px; height:28px; fill: #0163D1 !important;}
   span{display: block; font-size: x-large; font-weight: 900; margin-bottom: 5px;}
   em{display: block; font-size:medium; font-weight: 900;}
 
-  .posabs {right:-25vw; top:15vh; bottom: 0;
+  .posabs {right:-22vw; top:0vh; bottom: 0;
       svg {width:44vw !important; height: 80vh !important;}
   }
 }
@@ -1280,7 +1281,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 }
 
 /*--****** Periods (Date - Days - Session) ***** Analytics ***** General , Meso,Micro, Session & Exercise -- *****/
-ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; overflow: hidden; 
+ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1px; border-bottom-style: solid; overflow: hidden; 
   ion-col {padding: 0; 
     span { text-align: right; padding-right: 15px; display: block; }
     svg {top:2px; right:-5px; width: 1rem !important; height: 1rem !important;}
@@ -1292,7 +1293,8 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
   	span {padding-right: 0 !important;}
    }
   
-  ion-select {padding-left: 0 !important;  font-size: 82%; font-weight: bold;}  
+  ion-select {padding-left: 0 !important; font-weight: bold;}  
+  ion-select .select-icon{left: -20% !important;}  
   ion-select:last-child {padding-right: 0 !important;} 
  
 }
@@ -1607,7 +1609,11 @@ ion-row.periods { padding:10px 10px; margin-bottom:10px; border-bottom-width: 1p
     }
     div{border-radius: 10px; border: 1px solid #ccc;}
     .searchbar-input { border-radius:10px !important; padding: 6px 15px 6px 44px !important; }
+    
 
+  }
+  .mealsel{ border-style: solid;
+    .select-placeholder{opacity: 1 !important;}
   }
 
   .dishes { 

@@ -67,63 +67,62 @@
     </div>-->
     <div class="  contin">
 
-      <div class="fulpad aintro">
+      <div class="fulpad aintro posrel">
         <ion-row>
-          <ion-col  size="12">
+          <ion-col  size="12" >
+            <em>Weight</em>
             <span>{{avgweight | number:'1.2-2'}} kg</span>
-            Weight
+            
           </ion-col>
-          <ion-col size="12">
+          <ion-col size="12" >
+            <em>Essential Body Fat</em>
             <ion-row>
-              <ion-col size="4">
+              <ion-col size="5">
                 <span>{{essentialbodyfatpercnt | number:'1.2-2'}}%</span> 
               </ion-col>  
-              <ion-col size="4">
+              <ion-col size="5">
                 <span>{{essentialbodyfatkg | number:'1.2-2'}} kg</span> 
               </ion-col>
-              <ion-col size="4">
+              <ion-col size="8">
                 <span>{{essentialbodyfatcal | number:'2.2-2'}} cal</span> 
               </ion-col>
             </ion-row> 
-            <ion-row>
-              <ion-col size="12">   
-                Essential Body Fat
-              </ion-col>
-            </ion-row>
+            
           </ion-col>
-          <ion-col size="12">
+          <ion-col size="12" >
+            <em>Body Fat</em>
             <ion-row>
-              <ion-col size="4">
+              <ion-col size="5">
                 <span>{{bodyfatpercnt | number:'2.2-2'}}%</span> 
               </ion-col>  
-              <ion-col size="4">
+              <ion-col size="5">
                 <span>{{bodyfatkg | number:'2.2-2'}} kg</span> 
               </ion-col>
-              <ion-col size="4">
+              <ion-col size="8">
                 <span>{{bodyfatcal | number:'2.2-2'}} cal</span> 
               </ion-col> 
             </ion-row>
-            <ion-row>
-              <ion-col size="12">        
-                Body Fat
-              </ion-col>
-            </ion-row>
+            
           </ion-col>
-          <ion-col  size="12">
+          <ion-col  size="12" >
+            <em>Body Mass Index</em>
             <span>{{avgweight/((avgheight/100)*(avgheight/100)) | number:'2.2-2'}}</span>
-            Body Mass Index
+            
           </ion-col>
-          <ion-col  size="12">
+          <ion-col  size="12" >
+            <em>Lean Body Mass (Kg)</em>
             <span>{{avgweight-(avgweight*(((1.39*(avgweight/((avgheight/100)*(avgheight/100))))+(0.16*age)-(10.34*1)-9)/100)) | number:'2.2-2'}}</span>
-            Lean Body Mass (Kg)
+            
           </ion-col>
-          <ion-col  size="12">
+          <ion-col  size="12" >
+            <em>Mifflin St Jeor Resting Metabolic Rate</em>
             <span>{{mifflin}}</span>
-            Mifflin St Jeor Resting Metabolic Rate
+           
           </ion-col>
-          <ion-col  size="12">
+          <ion-col  size="12" >
+            <em>Katch-McArdle Resting Metabolic Rate</em>
             <span>{{(370+(21.6*(avgweight-(avgweight*(((1.39*(avgweight/((avgheight/100)*(avgheight/100))))+(0.16*age)-(10.34*1)-9)/100))))) | number:'2.2-2'}}</span>
-            Katch-McArdle Resting Metabolic Rate
+            
           </ion-col>
           <!--<ion-col  size="12">
             <span>2,495.31</span>

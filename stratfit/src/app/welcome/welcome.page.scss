@@ -5,8 +5,8 @@
     }
     .gridview {
         ion-col:first-child .fulcard img {width: 90% !important; margin-right: -4rem;}
-        ion-col:nth-child(2) .fulcard img{width: 58% !important; margin-right: -2rem; }
-        ion-col:nth-child(3) .fulcard img{width: 120% !important; margin-right: -2rem; }
-        ion-col:last-child .fulcard img {}
+        ion-col:nth-child(2) .fulcard img{width: 58% !important; margin-right: -2rem; margin-top: 0 !important; }
+        ion-col:nth-child(3) .fulcard img{width: 120% !important; margin-right: -6rem; }
+        ion-col:last-child .fulcard img {width: 150% !important; margin-right: -7rem;}
     }
 }
