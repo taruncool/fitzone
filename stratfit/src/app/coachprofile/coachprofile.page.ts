@@ -21,7 +21,7 @@ export class CoachprofilePage implements OnInit {
   coachData1:any = [];
   aboutCoach:any;
   s3Url:string;
-  plansdata:any;
+  plansdata:any = [];
   coachProfile:string;
   currencyCode:any;
   currencyType:any;

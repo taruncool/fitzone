@@ -128,14 +128,14 @@
             <ion-col>
                 <ion-select interface="popover" role="combobox" [(ngModel)]="activeMesoName" (ionChange)="onMicroChange(activeMesoName)" placeholder="MesoCycle">
                   <ion-select-option  *ngFor="let Meso of mesoArrTemp; let j = index"  [value]="Meso.meso_id" 
-                    >MesoCycle-{{j+1}}</ion-select-option>
+                    >Meso-{{j+1}}</ion-select-option>
 
                 </ion-select>
             </ion-col>
             <ion-col>
               <ion-select interface="popover" role="combobox" [(ngModel)]="activeMicroName" (ionChange)="getDayData()" placeholder="MicroCycle">
                   <ion-select-option *ngFor="let Micro of tempMicroDataM; let k = index" [value]="Micro.micro_id" 
-                  >MicroCycle-{{k+1}}</ion-select-option>
+                  >Micro-{{k+1}}</ion-select-option>
               </ion-select>
           </ion-col>
         </ion-row> <!--End Period *** General, In-seasion & Specific -->
@@ -198,7 +198,7 @@
                   <em>Est. Tmax <dl>({{metrics}})</dl> </em>
               </ion-col>
               <ion-col size="4">
-                <span>{{Tonnage}}  </span>
+                <span>{{Tonnage | number:'1.2-2'}}  </span>
                 <em>Tonnage <dl>(tons)</dl> </em>
               </ion-col>
               <ion-col size="4">
