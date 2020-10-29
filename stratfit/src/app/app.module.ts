@@ -40,6 +40,7 @@ import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';*/
 import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
 //import { TimerComponent } from './workout/timer/timer.component';
 //import { AddmealPage } from './userdiet/addmeal/addmeal.page';
+import { DiethistoryPage } from './userdiet/diethistory/diethistory.page';
 import { ImageProvider } from 'src/providers/image/image';
 /*import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';*/
 import { Crop } from '@ionic-native/crop/ngx';
@@ -78,6 +79,7 @@ import { CalendarModule } from 'ion2-calendar';
     FiltercountryPage,
     TmaxeditpopupPage,*/
     ProgressbarPage,
+    DiethistoryPage,
     //TimerComponent,
     /*AddmealPage,
     ImagepreviewPage,

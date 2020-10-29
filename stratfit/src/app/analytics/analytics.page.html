@@ -287,19 +287,14 @@
 
           <div *ngIf="activityType != 'simple'">
             <div class="exetab" *ngFor="let round of tempRound; let i = index">
-
+              <div class="fulpad text-center">
+                <h2>{{round.round_name}}  </h2>
+              </div>
               
               <div class="workview" *ngFor="let exe of round.exes; let i = index">
                 <div class="exelist" *ngIf="exe.round_id == round.round_id">
 
-                  <div class="scrol">
-                    <ul>
-                      <li>{{round.round_name}}</li>
-                    </ul>
-                  </div>
-                  <!-- <div class="fulpad text-center">
-                    <h2>{{round.round_name}}  </h2>
-                  </div> -->
+                  
 
                  <div *ngFor="let action of tempAction; let i = index">
                   <ion-card class="fulpad " *ngIf="action.round_id== exe.round_id && action.exercise_id == exe.exID">

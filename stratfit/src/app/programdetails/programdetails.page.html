@@ -136,7 +136,12 @@
             <span *ngIf='!planSet && planinfo.price !="Free"'>Free</span>   
             <span [innerHTML]="planinfo.price"></span>
             <em class="pformonth" *ngIf="planinfo.price !='Free'">/mo</em>
-        </ion-button>  
+        </ion-button> 
+        <ion-button class="nobg" [hidden]="planSet && planinfo.indianPrice === 0"> 
+            <span>&#8377;</span>
+            <span [innerHTML]="planinfo.indianPrice"></span>
+            <em class="pformonth">/mo</em>
+        </ion-button> 
         <ion-button [hidden]="!planinfo.activestatus" (click)="dashboardpage()">
                 
             <span *ngIf="planinfo.activestatus">Dashboard</span>

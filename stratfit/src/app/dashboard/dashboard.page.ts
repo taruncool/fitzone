@@ -1212,7 +1212,10 @@ ngOnInit(){
                   let planid = data.res.rows.item(0).id;
                   this.sqlStorageNew.query("select * from exercises").then(dataEx => {
                     if(dataEx.res.rows.length === 0) {
-                      this.loadData.checkjson(planid);
+                      this.loadData.clearDataBaseNew();
+                      setTimeout(() => {
+                        this.loadData.checkjson(planid);
+                      }, 1000);
                       this.showprogresspopup(data);
                     }
                   })

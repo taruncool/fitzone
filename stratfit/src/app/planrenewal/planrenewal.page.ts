@@ -10,6 +10,9 @@ import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
 import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { StartdatePage } from '../startdate/startdate.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx';
+
+declare var RazorpayCheckout: any;
 
 @Component({
   selector: 'app-planrenewal',
@@ -41,6 +44,7 @@ export class PlanrenewalPage implements OnInit {
   cplan_photo;
   cplan_startdate;
   planDescription:any;
+  razorpayprice = 2;
 
   mysubtabs;
   plandetails:any=[];
@@ -74,7 +78,7 @@ export class PlanrenewalPage implements OnInit {
   planState;
 
 
-  constructor(public navCtrl: NavController, private streamingMedia: StreamingMedia, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew) {
+  constructor(public navCtrl: NavController, private streamingMedia: StreamingMedia, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew, public iap:InAppPurchase) {
     this.userCountry = 190;
   }
  async ngOnInit() {
@@ -447,6 +451,123 @@ export class PlanrenewalPage implements OnInit {
 			});
 			toast.present();
     }
+  }
+
+  appPayment() {
+    var iosPlanID = 'net.stratfit.user.'+this.planData.id+'planid';
+    if(this.userCountry === 88) {
+      iosPlanID = 'net.stratfit.user.'+this.planData.id+'planid.planind';
+    }
+    this.iap
+     .getProducts([iosPlanID]) //just ask for this one element
+     .then((productData) => {
+       console.log("product ID");
+       console.log(productData);
+       if(productData.length > 0) {
+        this.iap
+          .subscribe(productData[0].productId)
+          .then((data) => {
+            //alert('Payment success');
+            this.loadData.stopLoading();
+            this.createTransaction(data.transactionId); //transactionId
+            this.buttonclick = true;
+          })
+          .catch((err) => {
+            console.log(err);
+            this.buttonclick = false;
+            this.loadData.stopLoading();
+          })
+        } else {
+          this.buttonclick = false;
+          this.loadData.stopLoading();
+          alert("This plan is still under process. You can select another plan.");
+        }
+      })
+     .catch((err) => {
+       console.log(err);
+       this.buttonclick = false;
+       this.loadData.stopLoading();
+     });
+  }
+
+
+
+  //razorpay payment
+  pay() {
+    var self = this;
+    this.phone = (this.phone===null || this.phone==="null" || this.phone===undefined)?'':this.phone;
+    var options = {};
+    if(this.displayCurr === "INR") {
+      options = {
+        //description: 'Credits towards consultation',
+        image: this.planData.planPhoto,
+        currency: 'INR',
+        key: 'rzp_test_dntc87UjZscRtT',
+        amount: this.razorpayprice.toString(),
+        name: this.planData.planName,
+        prefill: {
+          email: this.loginuseremail,
+          contact: this.phone,
+          name: this.loginuserfirstname
+        },
+        theme: {
+          color: '#000'
+        },
+        handler: function (response) {
+          self.pay_id = response.razorpay_payment_id;
+          self.createTransaction(self.pay_id);
+        },
+        modal: {
+          ondismiss: function() {
+            alert('dismissed')
+          }
+        }
+      };
+    } else {
+      options = {
+        //description: 'Credits towards consultation',
+        image: this.planData.planPhoto,
+        currency: 'INR',
+        key: 'rzp_live_r63eAWJJlnQ2kk',
+        amount: this.razorpayprice.toString(),
+        display_currency:this.displayCurr,
+        display_amount:this.displayAmnt,
+        name: this.planData.planName,
+        prefill: {
+          email: this.loginuseremail,
+          contact: this.phone,
+          name: this.loginuserfirstname
+        },
+        theme: {
+          color: '#000'
+        },
+        handler: function (response) {
+          self.pay_id = response.razorpay_payment_id;
+          self.createTransaction(self.pay_id);
+        },
+        modal: {
+          ondismiss: function() {
+            alert('dismissed')
+          }
+        }
+      };
+    }
+
+    var successCallback = function(payment_id) {
+      self.createTransaction(payment_id.razorpay_payment_id);
+      self.buttonclick = true;
+    };
+
+    var cancelCallback = function(error) {
+      self.buttonclick = false;
+      alert(error.description);
+    };
+
+    this.platform.ready().then(() => {
+      RazorpayCheckout.on('payment.success', successCallback);
+      RazorpayCheckout.on('payment.cancel', cancelCallback);
+      RazorpayCheckout.open(options);
+    })
   }
 
   public createTransaction(transactionid){
