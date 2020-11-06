@@ -22,6 +22,7 @@ import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx'
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
@@ -119,6 +120,7 @@ import { CalendarModule } from 'ion2-calendar';
     Crop,
     Base64,
     StreamingMedia,
+    InAppPurchase,
     // StreamingVideoOptions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

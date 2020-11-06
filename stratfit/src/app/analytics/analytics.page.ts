@@ -509,7 +509,8 @@ public getAction(activity_id,activity_type){
   }
   console.log("in getaction fn: ", this.totalweight);
   this.totalreps = totalrepss;
-  // console.log("count....",count);
+  console.log("count....",count);
+  console.log("totalWeight", avgweightt);
   //this.totalweight = (avgweightt/count).toFixed();
   this.avgweight = (avgweightt/count).toFixed();
   this.Tmax = (tmaxx/count).toFixed();

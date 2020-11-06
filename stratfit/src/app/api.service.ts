@@ -311,7 +311,8 @@ export class ApiService {
           data);
   }
   public sessionCheck(token){
-    return this.http.post(global.baseURL + 'subscriber/sessionCheck/', {
+    let creds = {};
+    return this.http.post(global.baseURL + 'subscriber/sessionCheck/', creds, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
        'Authorization': token

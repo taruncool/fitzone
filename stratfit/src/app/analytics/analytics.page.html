@@ -193,7 +193,7 @@
                   <span>{{totalreps}}  </span>
                   <em>Reps</em>
               </ion-col>
-              <ion-col  size="4" *ngIf="activityType == 'simple'" >
+              <ion-col  size="4" *ngIf="activityType == 'simple' && Tmax != 'NaN'" >
                   <span>{{Tmax}}  </span>
                   <em>Est. Tmax <dl>({{metrics}})</dl> </em>
               </ion-col>
@@ -201,7 +201,7 @@
                 <span>{{Tonnage | number:'1.2-2'}}  </span>
                 <em>Tonnage <dl>(tons)</dl> </em>
               </ion-col>
-              <ion-col size="4">
+              <ion-col size="4" *ngIf="avgweight != 'NaN'">
                   <span>{{avgweight}}  </span>
                   <em>Avg Weight <dl>({{metrics}})</dl> </em>
               </ion-col>

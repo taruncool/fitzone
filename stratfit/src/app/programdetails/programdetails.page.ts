@@ -13,6 +13,9 @@ import { ExcpreviewPage } from '../todayworkout/excpreview/excpreview.page';
 import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx';
+
+declare var RazorpayCheckout:any;
 
 
 @Component({
@@ -86,7 +89,8 @@ export class ProgramdetailsPage implements OnInit {
   altCover;
   altAvatar;
   isShowIcon = true;
-
+  buttonclick = true;
+  transactionid;
   subplaninfo:any;
   fplan:any;
   userid;
@@ -100,7 +104,8 @@ export class ProgramdetailsPage implements OnInit {
     public toastCtrl: ToastController, private alertCtrl: AlertController,
     private ga: GoogleAnalytics, public modalCtrl: ModalController,
     public sqlStorageNew: SqlStorageNew,
-    private route: ActivatedRoute, private router: Router){
+    private route: ActivatedRoute, private router: Router,
+    public iap:InAppPurchase){
     
     // this.planinfo = navParams.get("plandetails");
     // let videoArr = [62,63,64,65,70,72,73,79,80,81,82,107,108,109];
@@ -392,19 +397,27 @@ export class ProgramdetailsPage implements OnInit {
   async activationalert() {
     this.prompt =  await this.alertCtrl.create({
       message: 'You have an active workout program. Are you sure you want to activate this program?',
+      backdropDismiss: false,
       buttons: [
         {
           text: 'Yes',
           handler: workout => {
-            console.log('Saved clicked');
+            console.log('Saved clicked', this.planinfo.planPrice);
             if(this.planinfo.planPrice === 0){
               this.subplandet = this.planinfo;
               this.userCountry = 190;
-              this.zeroPlanSubscription();
+              this.zeroPlanSubscription();              
             }else{
               this.subplandet = this.planinfo;
               this.userCountry = 190;
-              this.zeroPlanSubscription();
+              this.razorpayprice = this.planinfo.planPrice;
+              if (this.platform.is('ios')) {
+                this.devicetype = "ios";
+              }else if(this.platform.is('android')){
+                this.devicetype = "android";
+              }
+              this.sessionCheck(this.devicetype);
+              //this.zeroPlanSubscription();
             }
           }
         },
@@ -454,7 +467,14 @@ export class ProgramdetailsPage implements OnInit {
         }else{
           this.subplandet = this.planinfo;
           this.userCountry = 190;
-          this.zeroPlanSubscription();
+          //this.zeroPlanSubscription();
+          if (this.platform.is('ios')) {
+            this.devicetype = "ios";
+          }else if(this.platform.is('android')){
+            this.devicetype = "android";
+          }
+          console.log("This is paid plan");
+          this.sessionCheck(this.devicetype);
         }
 
       }
@@ -488,6 +508,228 @@ export class ProgramdetailsPage implements OnInit {
     }
   }
 
+  async sessionCheck(type){
+    if(localStorage.getItem('internet')==='online'){
+      this.buttonclick = true;
+      if(this.platform.is('ios')) {
+        // this.loadData.startLoading();
+      }
+			return new Promise((resolve) => {
+        this.apiService.sessionCheck(this.token).subscribe((response)=>{
+          const userStr = JSON.stringify(response);
+            let res = JSON.parse(userStr);
+            if(res.success){
+            this.userCountry = res.userCountry;
+            this.razorpayprice = this.planinfo.planPrice;
+            console.log("Checking session", this.planinfo);
+            console.log("Checking session", this.razorpayprice);
+            if(type==='apple'){
+              this.appPayment();
+            } else {
+              //this.pay();
+              this.payWithRazorpay();
+            }
+            }else{
+              this.loadData.forbidden();
+              this.navCtrl.navigateForward('/login');
+            }
+          },(err) => {
+            if(err.status === 403){
+              // this.loadData.stopLoading();
+              this.loadData.forbidden();
+              this.navCtrl.navigateForward('/login');
+              //this.app.getRootNav().setRoot(LoginPage);
+            }
+          });
+      });
+    }else{
+      this.buttonclick = false;
+      let toast = await this.toastCtrl.create({
+				message: "Please check your internet connectivity and try again",
+				duration: 3000
+			});
+			toast.present();
+    }
+  }
+
+  appPayment() {
+    var iosPlanID = 'net.stratfit.user.'+this.planinfo.id+'planid';
+    if(this.userCountry === 88) {
+      iosPlanID = 'net.stratfit.user.'+this.planinfo.id+'planid.planind';
+    }
+    this.iap
+     .getProducts([iosPlanID]) //just ask for this one element
+     .then((productData) => {
+       console.log("product ID");
+       console.log(productData);
+       if(productData.length > 0) {
+        this.iap
+          .subscribe(productData[0].productId)
+          .then((data) => {
+            //alert('Payment success');
+            this.loadData.stopLoading();
+            this.createTransaction(data.transactionId); //transactionId
+            this.buttonclick = true;
+          })
+          .catch((err) => {
+            console.log(err);
+            this.buttonclick = false;
+            this.loadData.stopLoading();
+          })
+        } else {
+          this.buttonclick = false;
+          this.loadData.stopLoading();
+          //alert("This plan is still under process. You can select another plan.");
+        }
+      })
+     .catch((err) => {
+       console.log(err);
+       this.buttonclick = false;
+       this.loadData.stopLoading();
+     });
+  }
+
+
+
+  //razorpay payment
+  pay() {
+    console.log("Came to razorpay", this.razorpayprice);
+    var self = this;
+    this.phone = (this.phone===null || this.phone==="null" || this.phone===undefined)?'':this.phone;
+    var options = {};
+    if(this.displayCurr === "INR") {
+      options = {
+        //description: 'Credits towards consultation',
+        image: this.planinfo.planPhoto,
+        currency: 'INR',
+        key: 'rzp_test_dntc87UjZscRtT',
+        amount: this.razorpayprice.toString(),
+        name: this.planinfo.planName,
+        prefill: {
+          email: this.loginuseremail,
+          contact: this.phone,
+          name: this.loginuserfirstname
+        },
+        theme: {
+          color: '#000'
+        },
+        handler: function (response) {
+          self.pay_id = response.razorpay_payment_id;
+          self.createTransaction(self.pay_id);
+        },
+        modal: {
+          ondismiss: function() {
+            alert('dismissed')
+          }
+        }
+      };
+    } else {
+      options = {
+        //description: 'Credits towards consultation',
+        image: this.planinfo.planPhoto,
+        currency: 'INR',
+        key: 'rzp_live_r63eAWJJlnQ2kk',
+        amount: this.razorpayprice.toString(),
+        display_currency:this.displayCurr,
+        display_amount:this.displayAmnt,
+        name: this.planinfo.planName,
+        prefill: {
+          email: this.loginuseremail,
+          contact: this.phone,
+          name: this.loginuserfirstname
+        },
+        theme: {
+          color: '#000'
+        },
+        handler: function (response) {
+          self.pay_id = response.razorpay_payment_id;
+          self.createTransaction(self.pay_id);
+        },
+        modal: {
+          ondismiss: function() {
+            alert('dismissed')
+          }
+        }
+      };
+    }
+
+    var successCallback = function(payment_id) {
+      self.createTransaction(payment_id.razorpay_payment_id);
+      self.buttonclick = true;
+    };
+
+    var cancelCallback = function(error) {
+      self.buttonclick = false;
+      alert(error.description);
+    };
+
+    this.platform.ready().then(() => {
+      //RazorpayCheckout.on('payment.success', successCallback);
+      //RazorpayCheckout.on('payment.cancel', cancelCallback);
+      console.log("Before opening razorpay");
+      RazorpayCheckout.open(options, successCallback, cancelCallback);
+    })
+  }
+
+  payWithRazorpay() {
+    var self = this;
+    var options = {
+      description: 'Credits towards subscription',
+      image: this.planinfo.planPhoto,
+      currency: "INR", // your 3 letter currency code
+      key: "rzp_test_1DP5mmOlF5G5ag", // your Key Id from Razorpay dashboard
+      amount: 100, // Payment amount in smallest denomiation e.g. cents for USD
+      name: this.planinfo.planName,
+      prefill: {
+        email: this.loginuseremail,
+        contact: this.phone,
+        name: this.loginuserfirstname
+      },
+      theme: {
+        color: '#F37254'
+      },
+      modal: {
+        ondismiss: function () {
+          alert('dismissed')
+        }
+      }
+    };
+
+    var successCallback = function (payment_id) {
+      //alert('payment_id: ' + payment_id);
+      self.createTransaction(payment_id);
+    };
+
+    var cancelCallback = function (error) {
+      alert(error.description + ' (Error ' + error.code + ')');
+    };
+
+    RazorpayCheckout.open(options, successCallback, cancelCallback);
+  }
+
+  public createTransaction(transactionid){
+    this.buttonclick = true;
+    // this.loadData.startLoading();
+    this.transactionid = transactionid;
+    //alert('razorpay id 1: ' + transactionid);
+    var creds = {transactionId:transactionid, plan_id:this.planinfo.id, amount:this.planinfo.planPrice,deviceType:this.devicetype};
+    return new Promise((resolve) => {
+      this.apiService.ionicSaveTransactions(creds,this.token).subscribe((response)=>{
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+        //alert('razorpay id: ' + transactionid);
+        this.createUserPlan();
+      },(err) => {
+        if(err.status === 403){
+          // this.loadData.stopLoading();
+          this.loadData.forbidden();
+          this.navCtrl.navigateForward('/login');
+          //this.app.getRootNav().setRoot(LoginPage);
+        }
+      });
+    })
+  }
+
   public zeroPlanSubscription(){
     // this.loadData.startLoading();
     this.createUserPlan();
@@ -497,6 +739,7 @@ export class ProgramdetailsPage implements OnInit {
 	async createUserPlan(){
     if(localStorage.getItem('internet')==='online'){
       var dDate = new Date();
+      //alert('Creating user plan');
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			var data = {'plan_id':this.subplandet.id, 'deviceType':this.devicetype,'deviceDate':deviceDate+' 00:00:00'};
       return new Promise((resolve) =>{

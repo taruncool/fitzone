@@ -211,6 +211,23 @@ export class LoadData {
     });
   }
 
+  public clearPlanDBNew(){
+    return new Promise(resolve => { 
+      this.sqlStorageNew.query("DELETE FROM planlevel");
+      this.sqlStorageNew.query("DELETE FROM planpurpose");
+      this.sqlStorageNew.query("DELETE FROM planmicrocycles");
+      this.sqlStorageNew.query("DELETE FROM plandays");
+      this.sqlStorageNew.query("DELETE FROM planmesocycle");
+      this.sqlStorageNew.query("DELETE FROM plansessions");
+      this.sqlStorageNew.query("DELETE FROM planperiod");
+      this.sqlStorageNew.query("DELETE FROM planactivity");
+      this.sqlStorageNew.query("DELETE FROM planround");
+      this.sqlStorageNew.query("DELETE FROM planactions");
+      this.sqlStorageNew.query("DELETE FROM exercises");
+      this.sqlStorageNew.query("DELETE FROM plateweights");
+    });
+  }
+
   public checkjson(id){
 
     this.programDownloadPercent = 0;
