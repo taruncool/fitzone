@@ -85,8 +85,8 @@
 
     <!--Cool Down-->
     <div class="genwamup  " *ngIf='cooldown && cooldownCompleted == "false"'>
-      <div class="titl">
-        <h3>Cooldown Excercises</h3>
+      <div class="adtitle titl text-center">
+        <h1>Cooldown </h1>
       </div>
 
       <ion-card class=" active" >
@@ -108,7 +108,7 @@
     
 
     <div  [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
-      <div class="text-center adtitle">
+      <div class="text-center adtitle tbactive">
         <!--<span>Activity 1</span>-->
         <!--<div class="exe">
           <ion-avatar [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index"  > 
@@ -116,22 +116,22 @@
           </ion-avatar>
               
         </div>-->
-        <div class="tbactive" >
-          <div class="scrol">
+       
+          <div class="scrol min">
             <ul>
               <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
             </ul>
           </div>
-        </div>
-        <div class="tbactive" *ngIf="!isActivitySimple">
-            <div class="scrol">
+
+        <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
+        <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
+
+        <div class="scrol min" *ngIf="!isActivitySimple">
           <ul>
             <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i+1}}</li>
           </ul>
         </div>
-        </div>
-        <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
-        <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
+
       </div> 
 
       <div class="fulpad workview" *ngIf="isActivitySimple">

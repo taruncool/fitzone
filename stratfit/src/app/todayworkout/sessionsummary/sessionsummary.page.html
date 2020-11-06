@@ -1,4 +1,4 @@
-<ion-header class=" head back">
+<ion-header class=" head sbgry ">
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
@@ -14,7 +14,7 @@
  
 
 
-<ion-content class=" pcview">
+<ion-content class=" pcview sbgry ">
 
   <div class=" poverlay">
     <div class="pctitle ">
@@ -57,11 +57,13 @@
               </ion-col>-->
               
             </ion-row>
-            <ion-row class="tbactive">
-              <ul>
+            <div class="tbactive">
+              <div class="scrol min"  scrollX="true">
+                <ul>
                   <li *ngFor="let activity of tempActivity; let i = index" (click)="getAction(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id == currentactivity_id}">Activity{{i+1 }}</li>
-              </ul>
-            </ion-row>
+                </ul>
+              </div>
+            </div>
     
             <ion-row>
               <div class="scrol min" scrollX="true">

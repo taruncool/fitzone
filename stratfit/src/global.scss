@@ -253,8 +253,8 @@ ion-button.nobg{color:#000 !important;
 
 .tbactive{margin-bottom: 10px;}
 .tbactive .scrol ul li:before{border: 0 !important;}
-.tbactive ul li{font-size: medium; padding: 10px; display: inline-block;}
-.tbactive ul li.active{font-size: x-large;  font-weight: bold;}
+.tbactive ul li{font-size: medium; padding: 10px; display: inline-block; color: #000; opacity: 0.2; font-weight: normal; background: none !important;}
+.tbactive ul li.active{font-size: x-large;  font-weight: 900; opacity: 1 !important;}
 
 
 
@@ -812,7 +812,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 .goalori, .session {
   .scrol[scrollX] {
-    ion-button {  opacity: 0.7 !important;}
+    ion-button {  opacity: 0.7 !important; box-shadow: none !important;--box-shadow:none !important;}
     ion-button.active {opacity: 1 !important; }
     }
    
@@ -1213,13 +1213,17 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 /*-- Todays Workout --*/ 
 .workout {  --color: inherit !important; font-size: inherit;
-  .titl { text-align: center; margin-bottom:10px;
-    // h3 {margin: 0 !important;}
+  .titl {  margin-bottom:10px;
+    h1 {font-size: xx-large !important;}
     span {
       em {font-style: normal;}
     } 
   } 
   
+  .adtitle {padding:0 !important;
+    h1  {margin-bottom:auto !important; font-size:xxx-large !important; opacity: 0.2;}
+  }
+  .tbactive {margin-bottom: 0 !important;}
   
 }
 
@@ -1413,7 +1417,7 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
   .setlist.active, .cmplxactive { padding-bottom: 20px; padding-top: 10px;
     h3 {padding-left: 10px;}
     h3, .setdone{display: block !important; }
-    h4 {font-size: inherit !important; font-weight: bold !important; margin-top: 0;}
+    h4 {font-size: initial  !important; font-weight: bold !important; margin-top: 0;}
   
     ion-avatar { height: 110px !important;
       img {height:110px !important;}

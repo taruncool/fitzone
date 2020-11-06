@@ -154,7 +154,7 @@
           </div>
         </div><!-- End Session Block-->
 
-        <div>
+        <div class="workout">
             
           <!-- <div class="exe none"  >
             <ion-col>
@@ -218,14 +218,16 @@
     
           </ion-card><!-- End Summary Block-->
 
-          <div class="tbactive text-center"  >
-            <div class="scrol">
+          <div class="adtitle tbactive text-center "  >
+            <div class="scrol min">
               <ul>
                 <li *ngFor="let activity of tempActivity; let i = index" (click)="getRoundActions(activity.activity_id,activity.Activity_type)" [ngClass]="{'active': activity.activity_id==currentDisplayActivity}"> 
                     <span>Activity {{i+1 }}</span>
                 </li>
               </ul>
             </div>
+            <h1>Workout</h1>
+
           </div>
 
           <div class=" exetab" *ngIf="activityType == 'simple'">
@@ -287,10 +289,19 @@
 
           <div *ngIf="activityType != 'simple'">
             <div class="exetab" *ngFor="let round of tempRound; let i = index">
-              <div class="fulpad text-center">
-                <h2>{{round.round_name}}  </h2>
+
+              <div class="tbactive text-center"  >
+                <div class="scro min">
+                  <ul>
+                    <li>{{round.round_name}}</li>
+                  </ul>
+                </div>
               </div>
-              
+
+                  <!-- <div class="fulpad text-center">
+                    <h2>{{round.round_name}}  </h2>
+                  </div> -->
+				  
               <div class="workview" *ngFor="let exe of round.exes; let i = index">
                 <div class="exelist" *ngIf="exe.round_id == round.round_id">
 
