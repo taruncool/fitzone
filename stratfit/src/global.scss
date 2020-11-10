@@ -181,7 +181,7 @@ ion-button.nobg{color:#000 !important;
 }
 
 // Signup BMI **** Tmax Edit Popup ****////
-.infild { margin-bottom:10px !important;
+.infild, .setin { margin-bottom:10px !important;
   h2, h4{   display: block; text-align: left !important; margin-top: 0; margin-bottom: 10px;}
   h4 {text-transform: uppercase;}
   ion-item { margin-bottom: 0 !important; height: 46px !important; }
@@ -204,6 +204,17 @@ ion-button.nobg{color:#000 !important;
           ion-select {max-width: 100% !important;width: 100%; padding-left: 0 !important;} 
       }
   }
+
+}
+
+.setin.mblast { margin-bottom: 2rem !important;}
+.setin {
+  ion-item {margin-bottom: 12px !important; height: auto !important;
+  ion-col em {padding:12px 0 !important; font-size: initial !important;}
+  ion-col ion-input, ion-datetime {padding-top: 12px !important;}
+  ion-datetime{text-align: center !important;}
+  }
+  ion-textarea {min-height: 120px !important; }
 }
 
 
@@ -1051,7 +1062,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .adtitle {padding-left: 12px !important; padding-right: 12px !important;}
 
 
-.goal, .goals { --padding-bottom: 20px !important; // Goal Oriented 
+.goal, .goals, .setick { --padding-bottom: 20px !important; // Goal Oriented 
   .rowlist {margin-bottom: 1rem;}
     ion-col{padding-top: 0 !important; padding-bottom: 10px !important;}
     // [size="4"] {flex:0 0 33.1222%  !important;}
@@ -1063,7 +1074,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     svg {width:40px; height: 40px; margin: 1rem 0 10px 0;}
     span {display: block;}
     .tick {border-radius:0 10px 0 70% !important;}
-    .tick svg {margin: 0 !important; width: 14px !important; height: 14px !important;}
+    .tick svg {margin: 0 !important; width: 14px !important; height: 14px !important; fill: #fff !important;}
   }
   .iconcard:active {transform: scale(.85);}
 }
@@ -1221,7 +1232,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   } 
   
   .adtitle {padding:0 !important;
-    h1  {margin-bottom:auto !important; font-size:xxx-large !important; opacity: 0.2;}
+    h1  {margin-bottom:auto !important; font-size:xx-large !important; opacity: 0.2;}
   }
   .tbactive {margin-bottom: 0 !important;}
   

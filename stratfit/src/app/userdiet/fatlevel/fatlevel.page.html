@@ -1,0 +1,262 @@
+<ion-header class=" head" >
+  <ion-toolbar class="hedfm"> 
+    <ion-buttons  slot="start" >
+      <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
+            <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
+          </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Fat Level</ion-title>
+    
+  </ion-toolbar> 
+</ion-header> 
+
+<ion-content>
+
+
+  <div class="fulpad setick">
+    <div class="adtitle">
+      <h1>Fat Level</h1>
+    </div>
+    <ion-row class="admlr-n5" >
+      <ion-col size="4" >
+        <div class="sbsd iconcard text-left" >
+          
+         
+          <span>Thin</span>    
+  
+          <div class="posabs text-center tick" >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+            </svg>   
+          </div>
+      
+        </div>
+      </ion-col>
+  
+      <ion-col size="4" >
+        <div class="sbsd iconcard text-left" >
+         
+         
+          <span>Slim</span>    
+  
+          <div class="posabs text-center tick" >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+            </svg>   
+          </div>
+      
+        </div>
+      </ion-col>
+
+      <ion-col size="4" >
+        <div class="sbsd iconcard text-left" >
+          
+         
+          <span>Fat</span>    
+  
+          <div class="posabs text-center tick" >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+            </svg>   
+          </div>
+      
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+  </div>
+
+
+
+  <div class="fulpad  ">
+    
+  
+    <div class="adtitle">
+      <h1>Weekdays
+        <ion-select class="custom-options">
+          <ion-select-option value="Monday to Friday">Monday to Friday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Tuesday to Saturday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Wensday to Sunday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Thusday to Monday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Friday to Tuesday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Saturday to Wensday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Sunday to Thusday</ion-select-option>
+        </ion-select>
+      </h1>
+      
+    </div>
+    <div class="infild  setin mblast">  
+      <ion-item class="sbgw " >
+        <ion-row>
+          <ion-col ><em>Wake Up</em></ion-col>
+          <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+        </ion-row>
+        </ion-item >
+
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Workout</em></ion-col>
+            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+          </ion-row>
+        </ion-item >
+
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Office Work</em></ion-col>
+            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+          </ion-row>
+        </ion-item >
+
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Bed</em></ion-col>
+            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+          </ion-row>
+        </ion-item >
+    </div>
+
+    <div class="adtitle">
+      <h1>Weekdays
+
+        <ion-select class="custom-options">
+          <ion-select-option value="Monday to Friday">Monday to Friday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Tuesday to Saturday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Wensday to Sunday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Thusday to Monday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Friday to Tuesday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Saturday to Wensday</ion-select-option>
+          <ion-select-option value="Monday to Friday">Sunday to Thusday</ion-select-option>
+        </ion-select>
+      </h1>
+      
+    </div>
+    <div class="infild setin mblast">   
+      <ion-item class="sbgw " >
+        <ion-row>
+          <ion-col ><em>Wake Up</em></ion-col>
+          <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+        </ion-row>
+        </ion-item >
+
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Workout</em></ion-col>
+            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+          </ion-row>
+        </ion-item >
+
+        <ion-item class="sbgw " >
+          <ion-row>
+            <ion-col ><em>Bed</em></ion-col>
+            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
+          </ion-row>
+        </ion-item >
+    </div>
+
+    <div class="setick">
+      <div class="adtitle">
+        <h1>Habits</h1>
+      </div>
+
+      <h3>Social</h3>
+      <ion-row class="admlr-n5" >
+        <ion-col size="6" >
+          <div class="sbsd iconcard text-left" >        
+            <span>Alcohol –Nil</span>    
+    
+            <div class="posabs text-center tick" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+              </svg>   
+            </div>
+        
+          </div>
+        </ion-col>
+    
+        <ion-col size="6" >
+          <div class="sbsd iconcard  text-left" >
+          
+            <span>Smoking –Nil</span>    
+    
+            <div class="posabs text-center tick" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+              </svg>   
+            </div>
+        
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <h3>Food</h3>
+      <ion-row class="admlr-n5" >
+        <ion-col size="6" >
+          <div class="sbsd iconcard  text-left" >
+            
+          
+            <span>Vegetarian </span>    
+    
+            <div class="posabs text-center tick" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+              </svg>   
+            </div>
+        
+          </div>
+        </ion-col>
+    
+        <ion-col size="6" >
+          <div class="sbsd iconcard  text-left" >
+            
+          
+            <span>Non-vegetarian</span>    
+    
+            <div class="posabs text-center tick" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+              </svg>   
+            </div>
+        
+          </div>
+        </ion-col>
+
+        <ion-col size="6" >
+          <div class="sbsd iconcard  text-left" >
+            
+          
+            <span>Vegan</span>    
+    
+            <div class="posabs text-center tick" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
+                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
+              </svg>   
+            </div>
+        
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </div>
+    
+    <div class="infild  setin mblast">  
+      <h3>Food Dislikes</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Enter more information here..."></ion-textarea>
+      </ion-item >
+
+  </div>
+
+</div>
+
+
+<div class="sbtm-btn" >
+ 
+  <ion-button expand="block" (click)='nextStep()'><span>Next</span></ion-button>
+</div>
+
+ 
+</ion-content>

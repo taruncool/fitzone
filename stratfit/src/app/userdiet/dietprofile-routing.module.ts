@@ -7,7 +7,18 @@ const routes: Routes = [
   {
     path: '',
     component: DietprofilePage
-  }
+  },
+  {
+    path: 'fatlevel',
+    loadChildren: () => import('./fatlevel/fatlevel.module').then( m => m.FatlevelPageModule)
+  },
+  {
+    path: 'mealtimings',
+    loadChildren: () => import('./mealtimings/mealtimings.module').then( m => m.MealtimingsPageModule)
+  },
+
+  
+
 ];
 
 @NgModule({

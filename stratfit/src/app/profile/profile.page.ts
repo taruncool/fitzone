@@ -91,7 +91,7 @@ export class ProfilePage implements OnInit {
   
   @ViewChild('Content',{static:false}) content: IonContent;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
+  constructor(public navCtrl: NavController, public nav: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
   
   }
 
@@ -274,6 +274,10 @@ export class ProfilePage implements OnInit {
 
   public profileinfo(){
     this.navCtrl.navigateForward('/userprofile');
+  }
+
+  public fatlevel(){
+    this.nav.navigateForward('././fatlevel');
   }
 
   public bmicalculator(){

@@ -183,6 +183,8 @@ const routes: Routes = [
     loadChildren: () => import('./bmicalculator/bmicalculator.module').then( m => m.BmicalculatorPageModule)
   },
 
+ 
+
 
 ];
 @NgModule({
