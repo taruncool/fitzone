@@ -247,8 +247,12 @@ export class SignupverifyPage implements OnInit {
 		toast.present();
 	}
 
-  backButtonAction() {
-    this.modalCtrl.dismiss();
+  // backButtonAction() {
+  //   this.modalCtrl.dismiss();
+  // }
+
+  public backButtonAction(){
+    this.modalCtrl.dismiss(); 
   }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-<ion-header class=" head sbgry">
+<ion-header class=" head sbgry" (click)="dishes()">
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
       <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
@@ -17,7 +17,7 @@
      </ion-button>
     
    </ion-buttons> -->
-    <ion-buttons slot="end" >
+    <!-- <ion-buttons slot="end" >
      <ion-button class="nobg" >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.097 58.097">
         <path id="Search_Icon" data-name="Search Icon" d="M35.836,35.836a20.992,20.992,0,1,1,6.149-14.844,20.927,20.927,0,0,1-6.149,14.844L54.1,54.1Z" transform="translate(2 2)" fill="rgba(255,255,255,0)" stroke="#0163d1" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
@@ -25,18 +25,19 @@
       
      </ion-button>
     
-   </ion-buttons>
+   </ion-buttons> -->
   </ion-toolbar> 
-
+  <ion-searchbar class="fulpad search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)" (click)="mealsList()"></ion-searchbar>
 </ion-header>
 
 
 
 
 
-<ion-content [scrollEvents]="true" class="diet sbgry">
+<ion-content [scrollEvents]="true" class="diet sbgry" >
   
-  <div class="fulpad lgraph">
+
+  <div class="fulpad lgraph" id="daybalance" *ngIf="addedmealslist">
     <h3>Day Balance</h3>
     <ion-row >
       <ion-col class="fat"><em>{{fatDayBalGms}} g</em><progress-bar [progress]="fatDayBalGmsPercent"></progress-bar><span>Fat</span></ion-col>
@@ -46,7 +47,7 @@
     </ion-row>
   </div>
            
-  <ion-row class="  adlist">
+  <ion-row id="addedlist" class="  adlist"  *ngIf="addedmealslist">
      <h4>Add Dishes <span>{{selectedFoodItems.length}} Items</span></h4>
      <ion-row class="aditems">
        <div class="nodata" *ngIf="selectedFoodItems.length==0">
@@ -105,8 +106,8 @@
   </ion-row> -->
 
 
-<div class="frame dishes">
-  <div class="adtitle">
+<div class="frame dishes" (click)="dishes()">
+  <div class="adtitle" >
     <!--h1>Breakfast</h1-->
 	<ion-select class="fulpad mealsel" [(ngModel)]="mealName" name="mealName" placeholder="Select your meal">
       <ion-select-option value="Breakfast">Breakfast</ion-select-option>
@@ -115,7 +116,7 @@
       <ion-select-option value="Snack">Snack</ion-select-option>
     </ion-select>
   </div>
-  <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)" (click)="ScrollToTop()"></ion-searchbar>
+  <!-- <ion-searchbar class="fulpad  search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)" (click)="ScrollToTop()"></ion-searchbar> -->
       
   
   <!-- <ion-toolbar class="sfmenu">

@@ -54,7 +54,7 @@ ion-content, ion-toolbar{--color: #000 !important; }
 /* Styles Guide */
 .sbgb, .sbdrk  {--background: #000  !important; }
 .sbgw, ion-card, .fulcard, .dcard, .iconcard {--background: #fff  !important; background: #fff !important; }
-.sbgry { background: #EFF1F4  !important;}
+.sbgry { background: #EFF1F4  !important; color:#000 !important; --color:#000 !important;}
 
 // .sbgbt {background: #f2f2f2 !important;}
 
@@ -659,7 +659,7 @@ ion-tab-bar{border-width: 0 !important;
 .frame {position: relative; border-radius: 40px;--border-radius:40px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; padding-top: 40px; padding-bottom: 40px; }
 .frame:before{content:""; position: absolute; left: 0; right: 0; top:18px; width: 85px; height: 4px; margin: auto; background: #ccc; border-radius: 10px; }
 ion-card, ion-item, .fulcard, .dcard, .iconcard, ion-item ion-avatar, ion-searchbar, ion-button, ion-button.button .button-native, .verify ion-input, .execis .exeblk, .workflow .setlist, .mealsel {border-radius: 10px !important; --border-radius: 10px !important;}
-ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods, .mealsel {border-color:#ccc !important;}
+ion-card, ion-item, .fulcard, .dcard, .iconcard, .periods {border-color:#ccc !important;}
 
 
 
@@ -1627,7 +1627,7 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
     
 
   }
-  .mealsel{ border-style: solid;
+  .mealsel{ font-size: 24px;font-weight: 900;
     .select-placeholder{opacity: 1 !important;}
   }
 
@@ -1640,7 +1640,7 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
     // }
 
     .dishlist { 
-      .dishview {
+      .dishview { padding-top: 0 !important;
         ion-item {position: relative; border-width: 1px; border-style:solid; border-color: #ccc !important; margin: 12px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;
           ion-avatar{ position: relative;min-width:50px !important;min-height:86px !important;padding: 0;overflow: hidden;  margin-right: 0 !important;
             img {width:50px !important; height:86px  !important;  object-fit: cover; position:absolute !important;left:50%;top:50%;transform:translate(-50%, -50%); }
