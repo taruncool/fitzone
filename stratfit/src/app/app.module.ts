@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -95,6 +96,7 @@ import { CalendarModule } from 'ion2-calendar';
     ComponentsModule,
     NoopAnimationsModule,
     IonicRatingModule,
+    NgxSliderModule,
     CalendarModule,
     IonicModule.forRoot(),
      AppRoutingModule

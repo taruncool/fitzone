@@ -277,7 +277,7 @@ export class ProfilePage implements OnInit {
   }
 
   public fatlevel(){
-    this.nav.navigateForward('././fatlevel');
+    this.nav.navigateForward('/dietprofile/fatlevel');
   }
 
   public bmicalculator(){

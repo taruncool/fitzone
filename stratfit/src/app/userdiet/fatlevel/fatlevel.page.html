@@ -16,52 +16,53 @@
 
 
   <div class="fulpad setick">
-    <div class="adtitle">
-      <h1>Fat Level</h1>
-    </div>
     <ion-row class="admlr-n5" >
-      <ion-col size="4" >
+      <ion-col size="6" >
         <div class="sbsd iconcard text-left" >
-          
-         
-          <span>Thin</span>    
-  
+          <span>Age</span>    
           <div class="posabs text-center tick" >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-            </svg>   
+              {{age}} Years
           </div>
-      
         </div>
       </ion-col>
-  
-      <ion-col size="4" >
+      <ion-col size="6" >
         <div class="sbsd iconcard text-left" >
-         
-         
-          <span>Slim</span>    
-  
+          <span>Gender</span>    
           <div class="posabs text-center tick" >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-            </svg>   
+              {{genderTxt}}
           </div>
-      
         </div>
       </ion-col>
-
-      <ion-col size="4" >
+      <ion-col size="6" >
         <div class="sbsd iconcard text-left" >
-          
-         
+          <span>Height</span>    
+          <div class="posabs text-center tick" >
+              {{avgheight}} cms
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6" >
+        <div class="sbsd iconcard text-left" >
+          <span>Weight</span>    
+          <div class="posabs text-center tick" >
+              {{avgweight}} Kgs
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6" >
+        <div class="sbsd iconcard text-left" >
+          <span>BMI</span>    
+          <div class="posabs text-center tick" >
+              {{avgweight/((avgheight/100)*(avgheight/100)) | number:'2.2-2'}}
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6" >
+        <div class="sbsd iconcard text-left" >
           <span>Fat</span>    
-  
           <div class="posabs text-center tick" >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-              <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-            </svg>   
+              {{bodyfatpercnt}}%
           </div>
-      
         </div>
       </ion-col>
 
@@ -72,88 +73,57 @@
 
 
   <div class="fulpad  ">
+
+    <div class="infild  setin mblast">  
+      <h3>Occupation</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Occupation" [(ngModel)]="ninfo.occupation"></ion-textarea>
+      </ion-item >
+    </div>
     
   
     <div class="adtitle">
-      <h1>Weekdays
-        <ion-select class="custom-options">
-          <ion-select-option value="Monday to Friday">Monday to Friday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Tuesday to Saturday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Wensday to Sunday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Thusday to Monday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Friday to Tuesday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Saturday to Wensday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Sunday to Thusday</ion-select-option>
-        </ion-select>
-      </h1>
-      
+      <h1>Weekdays Monday to Friday</h1>      
     </div>
     <div class="infild  setin mblast">  
-      <ion-item class="sbgw " >
-        <ion-row>
-          <ion-col ><em>Wake Up</em></ion-col>
-          <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-        </ion-row>
-        </ion-item >
-
-        <ion-item class="sbgw " >
-          <ion-row>
-            <ion-col ><em>Workout</em></ion-col>
-            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-          </ion-row>
-        </ion-item >
-
-        <ion-item class="sbgw " >
-          <ion-row>
-            <ion-col ><em>Office Work</em></ion-col>
-            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-          </ion-row>
-        </ion-item >
-
-        <ion-item class="sbgw " >
-          <ion-row>
-            <ion-col ><em>Bed</em></ion-col>
-            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-          </ion-row>
-        </ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Wake Up" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_wakeup"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Bed Time" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_bedtime"></ion-datetime></ion-item >
     </div>
 
     <div class="adtitle">
-      <h1>Weekdays
-
-        <ion-select class="custom-options">
-          <ion-select-option value="Monday to Friday">Monday to Friday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Tuesday to Saturday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Wensday to Sunday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Thusday to Monday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Friday to Tuesday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Saturday to Wensday</ion-select-option>
-          <ion-select-option value="Monday to Friday">Sunday to Thusday</ion-select-option>
-        </ion-select>
-      </h1>
-      
+      <h1>Weekends Saturday & Sunday</h1>     
     </div>
-    <div class="infild setin mblast">   
-      <ion-item class="sbgw " >
-        <ion-row>
-          <ion-col ><em>Wake Up</em></ion-col>
-          <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-        </ion-row>
-        </ion-item >
+    <div class="infild  setin mblast">  
+      <ion-item class="sbgw " ><ion-datetime placeholder="Wake Up" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_wakeup"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Bed Time" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_bedtime"></ion-datetime></ion-item >
+    </div>
 
-        <ion-item class="sbgw " >
-          <ion-row>
-            <ion-col ><em>Workout</em></ion-col>
-            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-          </ion-row>
-        </ion-item >
+    <div class="adtitle">
+      <h1>Work Timings</h1>     
+    </div>
+    <div class="infild  setin mblast">  
+      <ion-item class="sbgw " ><ion-datetime placeholder="From" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_from"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="To" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_to"></ion-datetime></ion-item >
+    </div>
 
-        <ion-item class="sbgw " >
-          <ion-row>
-            <ion-col ><em>Bed</em></ion-col>
-            <ion-col > <ion-datetime displayFormat="h:mm a"></ion-datetime></ion-col>
-          </ion-row>
-        </ion-item >
+    <div class="adtitle">
+      <h1>Weekdays Monday to Friday</h1>      
+    </div>
+    <div class="infild  setin mblast">  
+      <ion-item class="sbgw " ><ion-datetime placeholder="On waking up" displayFormat="hh-mm-A" [(ngModel)]="ninfo.On_waking_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food On waking up" [(ngModel)]="ninfo.On_waking_up"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Breakfast" displayFormat="hh-mm-A" [(ngModel)]="ninfo.BreakFast_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food On Breakfast" [(ngModel)]="ninfo.BreakFast"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Mid-morning" displayFormat="hh-mm-A" [(ngModel)]="ninfo.Mid_morn_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food on Mid-morning" [(ngModel)]="ninfo.Mid_morning"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Lunch" displayFormat="hh-mm-A" [(ngModel)]="ninfo.Lunch_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food on Lunch" [(ngModel)]="ninfo.Lunch"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Evening snack" displayFormat="hh-mm-A" [(ngModel)]="ninfo.Evening_snack_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food on Evening snack" [(ngModel)]="ninfo.Evening_snack"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Dinner" displayFormat="hh-mm-A" [(ngModel)]="ninfo.Dinner_time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food on Dinner" [(ngModel)]="ninfo.Dinner"></ion-textarea></ion-item >
+      <ion-item class="sbgw " ><ion-datetime placeholder="Bed time" displayFormat="hh-mm-A" [(ngModel)]="ninfo.Bed_Time"></ion-datetime></ion-item >
+      <ion-item class="sbgw " ><ion-textarea placeholder="Food on Bed time" [(ngModel)]="ninfo.Bed_Time_Food"></ion-textarea></ion-item >
     </div>
 
     <div class="setick">
@@ -165,12 +135,10 @@
       <ion-row class="admlr-n5" >
         <ion-col size="6" >
           <div class="sbsd iconcard text-left" >        
-            <span>Alcohol –Nil</span>    
+            <span>Alcohol</span>    
     
             <div class="posabs text-center tick" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-              </svg>   
+              <ion-toggle [(ngModel)]="ninfo.Socail_habits_alcohol"></ion-toggle>   
             </div>
         
           </div>
@@ -179,12 +147,10 @@
         <ion-col size="6" >
           <div class="sbsd iconcard  text-left" >
           
-            <span>Smoking –Nil</span>    
+            <span>Smoking</span>    
     
             <div class="posabs text-center tick" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-              </svg>   
+              <ion-toggle [(ngModel)]="ninfo.Socail_habits_Smoking" ></ion-toggle>  
             </div>
         
           </div>
@@ -194,68 +160,80 @@
 
       <h3>Food</h3>
       <ion-row class="admlr-n5" >
-        <ion-col size="6" >
+        <ion-col >
           <div class="sbsd iconcard  text-left" >
-            
-          
-            <span>Vegetarian </span>    
-    
-            <div class="posabs text-center tick" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-              </svg>   
-            </div>
-        
+            <ion-select [(ngModel)]="ninfo.Food_habits" name="foodHabit"  slot="end">
+              <ion-select-option value="Vegetarian">Vegetarian</ion-select-option>
+              <ion-select-option value="Non-vegetarian">Non-vegetarian</ion-select-option>
+              <ion-select-option value="Vegan">Vegan</ion-select-option>
+            </ion-select>        
           </div>
         </ion-col>
-    
-        <ion-col size="6" >
-          <div class="sbsd iconcard  text-left" >
-            
-          
-            <span>Non-vegetarian</span>    
-    
-            <div class="posabs text-center tick" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-              </svg>   
-            </div>
-        
-          </div>
-        </ion-col>
-
-        <ion-col size="6" >
-          <div class="sbsd iconcard  text-left" >
-            
-          
-            <span>Vegan</span>    
-    
-            <div class="posabs text-center tick" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill=""/>
-              </svg>   
-            </div>
-        
-          </div>
-        </ion-col>
-
       </ion-row>
+    </div>
+
+    <div class="infild  setin mblast">  
+      <h3>Water intake in a day</h3>
+      <ion-item class="sbgw " >
+        <ngx-slider [(value)]="value" [options]="options" [(ngModel)]="ninfo.water_intake_perday"></ngx-slider>
+      </ion-item >
     </div>
     
     <div class="infild  setin mblast">  
       <h3>Food Dislikes</h3>
       <ion-item class="sbgw " >
-        <ion-textarea placeholder="Enter more information here..."></ion-textarea>
+        <ion-textarea placeholder="Food Dislikes" [(ngModel)]="ninfo.Food_Dislikes"></ion-textarea>
       </ion-item >
-
-  </div>
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Allergies</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Allergies" [(ngModel)]="ninfo.Allergies"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Signs & Symptoms</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Signs & Symptoms" [(ngModel)]="ninfo.Signs_And_Symptoms"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast" *ngIf="gender != 1">  
+      <h3>Menstrual cycle</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Menstrual cycle" [(ngModel)]="ninfo.Menstrual_cycle"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Family History</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Family History" [(ngModel)]="ninfo.Family_History"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Medical conditions</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Medical conditions" [(ngModel)]="ninfo.Medical_conditions"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Medications</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Medications" [(ngModel)]="ninfo.Medications"></ion-textarea>
+      </ion-item >
+    </div>
+    <div class="infild  setin mblast">  
+      <h3>Dietary recall</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Dietary recall" [(ngModel)]="ninfo.Dietary_recall"></ion-textarea>
+      </ion-item >
+    </div>
 
 </div>
 
 
 <div class="sbtm-btn" >
  
-  <ion-button expand="block" (click)='nextStep()'><span>Next</span></ion-button>
+  <ion-button expand="block" (click)='nextStep()'><span>Save</span></ion-button>
 </div>
 
  

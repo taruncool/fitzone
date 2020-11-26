@@ -35,14 +35,14 @@
 
         <ion-item>
             <ion-label>Please choose your off day</ion-label>
-            <ion-select placeholder="Select One">
-            <ion-select-option value="0">Sunday</ion-select-option>
-            <ion-select-option value="1">Monday</ion-select-option>
-            <ion-select-option value="2">Tuesday</ion-select-option>
-            <ion-select-option value="3">Wednesday</ion-select-option>
-            <ion-select-option value="4">Thursday</ion-select-option>
-            <ion-select-option value="5">Friday</ion-select-option>
-            <ion-select-option value="6">Saturday</ion-select-option>
+            <ion-select  [(ngModel)]="dayOff" placeholder="Select One" name="dayOff">
+                <ion-select-option value="0">Sunday</ion-select-option>
+                <ion-select-option value="1">Monday</ion-select-option>
+                <ion-select-option value="2">Tuesday</ion-select-option>
+                <ion-select-option value="3">Wednesday</ion-select-option>
+                <ion-select-option value="4">Thursday</ion-select-option>
+                <ion-select-option value="5">Friday</ion-select-option>
+                <ion-select-option value="6">Saturday</ion-select-option>
             </ion-select>
         </ion-item>
       

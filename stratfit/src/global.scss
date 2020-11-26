@@ -54,7 +54,7 @@ ion-content, ion-toolbar{--color: #000 !important; }
 /* Styles Guide */
 .sbgb, .sbdrk  {--background: #000  !important; }
 .sbgw, ion-card, .fulcard, .dcard, .iconcard {--background: #fff  !important; background: #fff !important; }
-.sbgry { background: #EFF1F4  !important;}
+.sbgry { background: #EFF1F4  !important; --color:#000 !important; color: #000 !important;}
 
 // .sbgbt {background: #f2f2f2 !important;}
 

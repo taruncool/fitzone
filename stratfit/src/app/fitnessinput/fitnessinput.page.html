@@ -162,7 +162,7 @@
     <div class=" fulpad stmax" *ngIf='stepArry.prop=="workoutdays"'>
 
       <h3>
-        <ion-button class="nobg" slot="icon-only"(click)='prevStep()'>
+        <ion-button class="nobg" slot="icon-only" (click)='prevStep()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
@@ -170,7 +170,7 @@
       <em>Physical Activity Level</em>
       </h3>
 
-      <div class="fulpad text-center">
+      <div class=" text-left">
         
         <form #exTmaxForm="ngForm">
 		      <!-- <h2>Do you have active physical job?</h2> -->
@@ -179,7 +179,16 @@
       
           
           <ion-item class="sbgw text-center ">
-            <ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' readonly (click)='selectWorkDays()'></ion-input>
+            <!--<ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' readonly (click)='selectWorkDays()'></ion-input>-->
+            <ion-select  [(ngModel)]="noOfWorkDays" placeholder="Select number of days" name="dayOff">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+                <ion-select-option value="3">3</ion-select-option>
+                <ion-select-option value="4">4</ion-select-option>
+                <ion-select-option value="5">5</ion-select-option>
+                <ion-select-option value="6">6</ion-select-option>
+                <ion-select-option value="7">7</ion-select-option>
+            </ion-select>
           </ion-item>
           
         </form>

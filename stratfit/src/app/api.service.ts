@@ -194,6 +194,15 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
+  public creatHealthInfo(data,token){
+    return this.http.post(global.baseURL + 'Nutrition/dietInfo/',data, {
+      headers: new HttpHeaders({
+       'Content-Type':  'application/json',
+       'Authorization': token
+        })
+        }).pipe (data =>
+          data);
+  }
   public newextypedetailspdc(token){
     return this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', {
        headers: new HttpHeaders({

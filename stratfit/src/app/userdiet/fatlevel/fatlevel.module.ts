@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,6 +14,7 @@ import { FatlevelPage } from './fatlevel.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    NgxSliderModule,
     FatlevelPageRoutingModule
   ],
   declarations: [FatlevelPage]

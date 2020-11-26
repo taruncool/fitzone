@@ -40,6 +40,7 @@ export class ProgressbarPage implements OnInit {
   todydate;
   progressPage;
   firstname;
+  dayOff;
 
   planprogressModal;
   constructor(public nav:NavController, 
@@ -69,6 +70,8 @@ export class ProgressbarPage implements OnInit {
         /*const momentDate = Moment(dateCon.toISOString());*/
         
         //var sessDate = Moment(dateCon).format("DD-MM-YYYY");
+        var d = new Date();
+        this.dayOff = (d.getDay() - 1) < 0 ? 6:(d.getDay() - 1);
         var sessDate = this.pStartDate;
         this.pStartDate = sessDate;
       }
@@ -126,7 +129,7 @@ export class ProgressbarPage implements OnInit {
       var dDate = new Date();
       var deviceDate = dDate.getFullYear() + '-' + ('0' +((dDate.getMonth() + 1))).slice(-2) + '-' +  ('0' +(dDate.getDate())).slice(-2);
 			// this.loadData.startLoading();
-			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00'};
+			var data = { 'plan_id': this.uplandata.plan_id,'firstPlan':this.uplandata.firstplan ,'deviceDate':deviceDate+' 00:00:00','offDay':this.dayOff};
 			let usertoken = localStorage.getItem('usertoken');
       this.apiService.activatePlan(usertoken,data).subscribe((response)=>{
         const userStr = JSON.stringify(response);
