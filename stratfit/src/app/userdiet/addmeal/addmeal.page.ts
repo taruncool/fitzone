@@ -19,7 +19,7 @@ export class AddmealPage implements OnInit {
   foodModal;
   selectedFoodItems=[];
   defFood;
-
+  addedmealslist=true;
   countrydata;
 	tempcountrydata;
 	countrysearch;
@@ -115,6 +115,7 @@ export class AddmealPage implements OnInit {
   
   }
   ngOnInit() {
+    this.addedmealslist=true;
     this.tokken = localStorage.getItem('usertoken');
    this.isEdit = this.navParams.get("isEdit");
 
@@ -197,8 +198,8 @@ export class AddmealPage implements OnInit {
     
   }
 
-  ScrollToTop() {
-    this.content.scrollToTop(1500);
+  mealsList() {
+    this.addedmealslist=false;
    }
 
   roundTo(n, digits) {
@@ -525,7 +526,9 @@ export class AddmealPage implements OnInit {
   public dismiss(){
     this.modalCtrl.dismiss(); 
   }
-
+  dishes(){
+    this.addedmealslist=true;
+  }
 getItems(ev) {
   this.alertmsg =false;
   var val = ev.target.value;
@@ -537,13 +540,16 @@ getItems(ev) {
   });
     if(this.foodItems.length ===0){
     this.alertmsg =true;
+    this.addedmealslist=true;
     this.alertmsg ="Couldn't find any results";
     }else{
     this.alertmsg =false;
+    this.addedmealslist=false;
     }
   }
   if(val===''){
     this.temporaryFoodItemsFilter = this.foodItems;
+    this.addedmealslist=true;
   }
 }
 
