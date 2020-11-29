@@ -66,6 +66,20 @@ export class FatlevelPage implements OnInit {
       this.bodyfatcal = ((this.avgweight*(((1.39*(this.avgweight/((this.avgheight/100)*(this.avgheight/100))))+(0.16*this.age)-(10.34*0)-9)/100))*1000)*9;
       this.mifflin = (10*this.avgweight)+(6.25*this.avgheight)-(5*this.age)-161;
     }
+    this.apiService.getHealthInfo(this.token).subscribe((response)=>{
+        const userStr = JSON.stringify(response);
+        let res = JSON.parse(userStr);
+        if(res.success){  
+          console.log(res);
+          this.ninfo = res.message[0];
+        }
+      },(err) =>{
+        if(err.status === 403){
+          this.loadData.forbidden();
+          this.navCtrl.navigateForward('/login');
+          //this.app.getRootNav().setRoot(LoginPage);
+        }
+      })
   }
 
   public backButtonAction(){

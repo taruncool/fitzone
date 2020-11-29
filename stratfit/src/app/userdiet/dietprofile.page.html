@@ -187,10 +187,11 @@
                <p>{{mealMsg}}</p>
              </ion-card>
             
-            <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index" (click)="editMeal(meal)">
+            <ion-card class="dcard fulpad adbor" *ngFor="let meal of finalFoodDataByDate; let i = index" >
+              
                <div class="dtitle  ">
                   <h2>{{meal.mealName}}</h2>
-                  <div class="posabs text-center edit" >
+                  <div class="posabs text-center edit" *ngIf="!dietPlanSet" (click)="editMeal(meal)" >
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84">
                         <path id="icons8-edit" d="M77.117,2a8.873,8.873,0,0,0-6.279,2.625L69.354,6.109,81.912,18.663,83.4,17.179A8.9,8.9,0,0,0,77.117,2ZM66.557,9.361a1.836,1.836,0,0,0-1.085.571L6.225,69.221a1.862,1.862,0,0,0-.514.8l-3.653,13.7a1.828,1.828,0,0,0,2.226,2.226l13.7-3.652a1.864,1.864,0,0,0,.8-.514L78.087,22.543a1.836,1.836,0,1,0-2.569-2.625L16.556,78.865l-7.42-7.418L68.1,12.5a1.826,1.826,0,0,0-1.37-3.139Z" transform="translate(-1.999 -2)" fill="#fff"/>
                      </svg>                      
@@ -247,8 +248,17 @@
                    <div class="scrol" scrollX="true">
                       <!-- <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em> -->
                       <ul>
-                         <li *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}}</li>
+                         <li *ngFor="let food of meal.mealData" >
+                           <span *ngIf="!dietPlanSet">{{food.foodcount}} {{food.name}}</span>
+                           <span *ngIf="dietPlanSet">{{food.quanity}} {{food.name}}</span>
+                         </li>
                       </ul>
+                   </div>
+          
+                </ion-row>
+                <ion-row class="listdis admr-n12">
+                   <div >
+                      <ion-fab-button (click)="completeMeal(i)" *ngIf="!meal.completed">Done</ion-fab-button>
                    </div>
           
                 </ion-row>
@@ -315,7 +325,7 @@
 </ion-row> -->
 
 
-<ion-fab class="fabicon ">
+<ion-fab class="fabicon " *ngIf="!dietPlanSet">
    <ion-fab-button (click)="addMeal()">
       <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 84 84">
          <g id="add" transform="translate(-654.5 -785.5)">

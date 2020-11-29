@@ -123,6 +123,9 @@ export class DietprofilePage implements OnInit {
   prompt;
   pageType;
   dayIndex;
+  todayDietPlan;
+  dietPlanSet:Boolean = false;
+  overAllDietPlan = {"email":"anu27@gmail.com","info":[[[{"fatPercent":0,"proteinPercent":0,"carbs":8.95,"name":"Sweet lime (mosambi)","carbPercent":0,"fat":0.21,"id":9,"calories":32,"protein":0.61,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":5,"name":"Raw Mango","carbPercent":0,"fat":0,"id":28,"calories":18,"protein":0,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":1.09,"name":"Green Olives","carbPercent":0,"fat":4.34,"id":32,"calories":41,"protein":0.29,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":3.9,"name":"Rosemary (Dried)","carbPercent":0,"fat":0.9,"id":114,"calories":20,"protein":0.3,"quantity":"1"}]],[[],[{"fatPercent":0,"proteinPercent":0,"carbs":1.29,"name":"Watercress","carbPercent":0,"fat":0.1,"id":102,"calories":11,"protein":2.3,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":4,"name":"Red chilli","carbPercent":0,"fat":0.2,"id":76,"calories":18,"protein":0.8,"quantity":"1"},{"fatPercent":0,"proteinPercent":0,"carbs":3.7,"name":"Arugula","carbPercent":0,"fat":0.7,"id":82,"calories":25,"protein":2.6,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":14,"name":"Artichoke","carbPercent":0,"fat":0.4,"id":83,"calories":64,"protein":3.5,"quantity":"1"}]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]]]};
 
   constructor(public platform: Platform, 
      public nav: NavController,
@@ -191,7 +194,8 @@ export class DietprofilePage implements OnInit {
     }
     var d = new Date();
     this.dayIndex = d.getDay();
-
+    
+    
     if(this.firstname ==='null' || this.firstname ==='' || this.firstname ==='undefined'){
       this.firstname='';
     }
@@ -291,7 +295,37 @@ export class DietprofilePage implements OnInit {
     }
     //this.cent = Math.round(((parseInt(this.feet, 10) * 12) + parseInt(this.inch, 10)) * 2.54);
     console.log("diet typeee",this.dietType);
-      this.getFoodData();
+    this.apiService.getDietPlan(this.tokken).subscribe((response)=>{
+      const userStr = JSON.stringify(response);
+      let res = JSON.parse(userStr);
+      if(res.Diet[0].Food) {
+        this.overAllDietPlan = JSON.parse(res.Diet[0].Food);
+        this.todayDietPlan = this.overAllDietPlan[this.dayIndex];
+      } else {
+        this.todayDietPlan = [];
+      }
+      if(this.todayDietPlan.length > 0) {
+        this.dietPlanSet = true;
+      }
+      if(!this.dietPlanSet) {
+        this.getFoodData();
+      } else {
+        this.getFoodPlan();
+      }
+    },(err) =>{
+      this.loadData.stopLoading();
+
+      setTimeout(() => {
+        this.getTotalLoad();
+        },1000);
+        this.toastmsg("Unable to process your request. Please try again");
+      if(err.status === 403){
+          this.loadData.forbidden();
+          this.nav.navigateForward('/login');
+          //this.app.getRootNav().setRoot(LoginPage);
+      }
+    })
+    
   }
 
   async viewHistory(){
@@ -299,6 +333,47 @@ export class DietprofilePage implements OnInit {
     let dietHistoryModal = await this.modalCtrl.create({component:DiethistoryPage});
     dietHistoryModal.present();
 
+  }
+
+  getFoodPlan() {
+    this.finalFoodDataByDate = [];
+    var today = new Date();
+    var todayMealDate = ('0' +(today.getDate())).slice(-2)+"-"+('0' +(today.getMonth()+1)).slice(-2)+"-"+today.getFullYear();
+    for(let i =0; i < this.todayDietPlan.length; i++) {
+      let totalcal = 0;
+      let totalfat = 0;
+      let totalcarb = 0;
+      let totalpro = 0;
+      for(let j = 0; j < this.todayDietPlan[i].length; j++) {
+        totalcal = totalcal + this.todayDietPlan[i][j].calories;
+        totalfat = totalfat + this.todayDietPlan[i][j].fat;
+        totalcarb = totalcarb + this.todayDietPlan[i][j].carbs;
+        totalpro = totalpro + this.todayDietPlan[i][j].protein;
+      }
+      this.finalFoodDataByDate.push(
+        {
+        mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+        mealDate:todayMealDate,
+        mealTime:'Food Time',
+        mealcal:totalcal,
+        mealfat:totalfat,
+        mealpro:totalpro,
+        mealcarb:totalcarb,
+        completed:false,
+        mealData:this.todayDietPlan[i]});
+    }
+    setTimeout(() => {
+      this.getTotalLoad();
+      },1000);
+
+  }
+
+  completeMeal(dTime) {
+    this.finalFoodDataByDate[dTime].completed = true;
+    console.log("final food data by date",this.finalFoodDataByDate);
+    setTimeout(() => {
+      this.getTotalLoad();
+      },1000);
   }
 
   getFoodData(){
@@ -537,22 +612,45 @@ export class DietprofilePage implements OnInit {
       
       for(let k =0;k<this.finalFoodDataByDate.length;k++){
 
-        for(let l =0;l<this.finalFoodDataByDate[k].mealData.length;l++){
-          
-          this.finalFoodDataByDate[k].mealData[l].calories;
-          
-          this.fatGmsBalance += (this.finalFoodDataByDate[k].mealData[l].fat * this.finalFoodDataByDate[k].mealData[l].foodcount) ;
-          this.carbsGmsBalance += (this.finalFoodDataByDate[k].mealData[l].carbs * this.finalFoodDataByDate[k].mealData[l].foodcount);
-          this.protienGmsBalance += (this.finalFoodDataByDate[k].mealData[l].protien * this.finalFoodDataByDate[k].mealData[l].foodcount);
-          
-          var fatcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].fatPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
-          var carbcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].carbPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
-          var protiencal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].protienPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
-          
-          this.fatCalBalance += (fatcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
-          this.carbsCalBalance += (carbcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
-          this.protienCalBalance += (protiencal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+        if(this.dietPlanSet && this.finalFoodDataByDate[k].completed) {
 
+          for(let l =0;l<this.finalFoodDataByDate[k].mealData.length;l++){
+          
+            this.finalFoodDataByDate[k].mealData[l].calories;
+            
+            this.fatGmsBalance += (this.finalFoodDataByDate[k].mealData[l].fat * this.finalFoodDataByDate[k].mealData[l].foodcount) ;
+            this.carbsGmsBalance += (this.finalFoodDataByDate[k].mealData[l].carbs * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.protienGmsBalance += (this.finalFoodDataByDate[k].mealData[l].protien * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            
+            var fatcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].fatPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            var carbcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].carbPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            var protiencal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].protienPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            
+            this.fatCalBalance += (fatcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.carbsCalBalance += (carbcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.protienCalBalance += (protiencal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+  
+          }
+
+        } else {
+
+          for(let l =0;l<this.finalFoodDataByDate[k].mealData.length;l++){
+            
+            this.finalFoodDataByDate[k].mealData[l].calories;
+            
+            this.fatGmsBalance += (this.finalFoodDataByDate[k].mealData[l].fat * this.finalFoodDataByDate[k].mealData[l].foodcount) ;
+            this.carbsGmsBalance += (this.finalFoodDataByDate[k].mealData[l].carbs * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.protienGmsBalance += (this.finalFoodDataByDate[k].mealData[l].protien * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            
+            var fatcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].fatPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            var carbcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].carbPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            var protiencal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].protienPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
+            
+            this.fatCalBalance += (fatcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.carbsCalBalance += (carbcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.protienCalBalance += (protiencal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+  
+          }
         }
         
       }
