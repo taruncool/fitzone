@@ -47,7 +47,7 @@
       <ion-col size="6" >
         <div class="nobg iconcard text-left" >
           <span>BMI</span>    
-          <em>{{avgweight/((avgheight/100)*(avgheight/100)) | number:'2.2-2'}}</em>
+          <em>{{bmi}}</em>
         </div>
       </ion-col>
       <ion-col size="6" >
@@ -137,8 +137,15 @@
 
 
     </div>
+    
+    <div class="infild  setin mblast">  
+      <h3>24 Hour Dietary recall</h3>
+      <ion-item class="sbgw " >
+        <ion-textarea placeholder="Dietary recall" [(ngModel)]="ninfo.Dietary_recall"></ion-textarea>
+      </ion-item >
+    </div>
 
-    <div class="adtitle">
+    <!--<div class="adtitle">
       <h1>Weekdays Monday to Friday</h1>      
     </div>
     <div class="infild  setin mblast">  
@@ -199,7 +206,7 @@
       </ion-item >
       <ion-item class="sbgw " ><ion-textarea placeholder="Food on Bed time" [(ngModel)]="ninfo.Bed_Time_Food"></ion-textarea></ion-item >
   
-    </div>
+    </div>-->
 
     <div class="setick">
       <div class="adtitle">
@@ -289,12 +296,6 @@
       <h3>Medications</h3>
       <ion-item class="sbgw " >
         <ion-textarea placeholder="Medications" [(ngModel)]="ninfo.Medications"></ion-textarea>
-      </ion-item >
-    </div>
-    <div class="infild  setin mblast">  
-      <h3>Dietary recall</h3>
-      <ion-item class="sbgw " >
-        <ion-textarea placeholder="Dietary recall" [(ngModel)]="ninfo.Dietary_recall"></ion-textarea>
       </ion-item >
     </div>
 

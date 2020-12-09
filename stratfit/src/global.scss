@@ -1210,7 +1210,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     ion-button { white-space: normal; word-break: break-all; font-size: x-small; font-weight: bold; width: 28px; margin:0 10px !important; background: none !important; --background: none !important; --box-shadow:none !important; --padding-start:0; --padding-end:0;  color: #000; transform: scale(1.2,1.2); transition-duration: .4s;transition: all .4s ease-out;  }
 
     ion-button:nth-last-letter { font-size: x-large !important;}
-    ion-button.active { width: 36px; height:54px !important; margin-top:-5px !important; padding: 5px; position: relative; background: #000 !important; --background-activated: #000;--background-focused: #000;--background-hover: #000; color: #fff !important; font-size: 13px; transform: scale(1.1,1.1);  transition-duration: .4s;transition: all .4s ease-out;}
+    ion-button.active { width: 36px; height:54px !important; margin-top:-5px !important; padding: 5px; position: relative; background: #000 !important; --background-activated: #000;--background-focused: #000;--background-hover: #000; color: #fff !important;  transform: scale(1.1,1.1);  transition-duration: .4s;transition: all .4s ease-out;}
     ion-button.active:after { content: ""; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
 
     em {display: block; padding:7px; font-size: small; font-weight: bold;}

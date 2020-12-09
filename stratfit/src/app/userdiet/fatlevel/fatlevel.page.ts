@@ -91,6 +91,8 @@ export class FatlevelPage implements OnInit {
    public nextStep(){
     this.navCtrl.navigateBack('/dietprofile/mealtimings');
     console.log("After Submit diet data", this.ninfo);
+    this.ninfo.bmi = this.bmi;
+    this.ninfo.bodyfatpercnt = this.bodyfatpercnt;
     this.apiService.creatHealthInfo(this.ninfo,this.token).subscribe((response)=>{
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
