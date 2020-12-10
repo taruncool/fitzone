@@ -128,7 +128,7 @@ export class DietprofilePage implements OnInit {
   dietPlanSet:Boolean = false;
   overAllDietPlan = {"email":"anu27@gmail.com","info":[[[{"fatPercent":0,"proteinPercent":0,"carbs":8.95,"name":"Sweet lime (mosambi)","carbPercent":0,"fat":0.21,"id":9,"calories":32,"protein":0.61,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":5,"name":"Raw Mango","carbPercent":0,"fat":0,"id":28,"calories":18,"protein":0,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":1.09,"name":"Green Olives","carbPercent":0,"fat":4.34,"id":32,"calories":41,"protein":0.29,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":3.9,"name":"Rosemary (Dried)","carbPercent":0,"fat":0.9,"id":114,"calories":20,"protein":0.3,"quantity":"1"}]],[[],[{"fatPercent":0,"proteinPercent":0,"carbs":1.29,"name":"Watercress","carbPercent":0,"fat":0.1,"id":102,"calories":11,"protein":2.3,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":4,"name":"Red chilli","carbPercent":0,"fat":0.2,"id":76,"calories":18,"protein":0.8,"quantity":"1"},{"fatPercent":0,"proteinPercent":0,"carbs":3.7,"name":"Arugula","carbPercent":0,"fat":0.7,"id":82,"calories":25,"protein":2.6,"quantity":"1"}],[{"fatPercent":0,"proteinPercent":0,"carbs":14,"name":"Artichoke","carbPercent":0,"fat":0.4,"id":83,"calories":64,"protein":3.5,"quantity":"1"}]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]],[[],[],[],[]]]};
 
-  constructor(public platform: Platform, 
+  constructor(public platform: Platform,  public navCtrl: NavController,
      public nav: NavController,
     
      public sqlStorageNew: SqlStorageNew,   
@@ -1185,5 +1185,10 @@ export class DietprofilePage implements OnInit {
      })
   }
 
+
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
+  }
 
 }

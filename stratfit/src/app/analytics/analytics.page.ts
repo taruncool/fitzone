@@ -766,4 +766,11 @@ public getExercise(exercise_id,round_id){
     }
     return excoef;
   }
+
+
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
+  }
+
 }

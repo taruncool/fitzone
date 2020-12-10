@@ -162,4 +162,8 @@ export class CommunityPage implements OnInit {
   backButtonAction() {
     this.navCtrl.navigateRoot('/tabs/tabs/welcome');
   }
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
+  }
 }

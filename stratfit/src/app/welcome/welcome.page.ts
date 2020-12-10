@@ -43,5 +43,8 @@ public community(){
   this.navCtrl.navigateForward('/community');
 }
 
+public openfeedback(){
+  this.navCtrl.navigateForward('/feedback');
+}
 
 }

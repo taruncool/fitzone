@@ -353,4 +353,11 @@ async noProgramsAlert(){
   });
   await this.prompt.present();
 }
+
+
+
+public openfeedback(){
+  this.navCtrl.navigateForward('/feedback');
+}
+
 }

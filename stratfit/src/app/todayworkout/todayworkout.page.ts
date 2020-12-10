@@ -302,7 +302,7 @@ restTime = 0;
 
 isWheelSelectorShow = false;
 
-constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone,public router: Router) {
+constructor(public platform: Platform, public nav: NavController,private apiService:ApiService,  public navCtrl: NavController, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone,public router: Router) {
 
     this.tokken = localStorage.getItem('usertoken');
     localStorage.setItem('workoutLoad', '1');
@@ -2840,6 +2840,12 @@ console.log("todays workout back button tag");
       componentProps: { 'weight': weight}
      });
     modal.present();
+  }
+
+
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
   }
 
 }
