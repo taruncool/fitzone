@@ -482,6 +482,7 @@ export class ProfilePage implements OnInit {
       //this.timer.pauseTimer();
       this.prompt = await this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
+        backdropDismiss: false,
         buttons: [
           {
             text: 'Yes',
@@ -577,6 +578,7 @@ export class ProfilePage implements OnInit {
     let prompt = await this.alertCtrl.create({
       // message: 'Upload Picture',
       message: 'Upload Your Profile Image',
+      backdropDismiss: false,
       buttons: [
         {
           text: 'Camera ',
@@ -618,6 +620,7 @@ export class ProfilePage implements OnInit {
     this.prompt = await this.alertCtrl.create({
       // title: 'No Subscription yet!',
       message:'Subscribe to Stratfit program from the store to start workout.',
+      backdropDismiss: false,
       buttons: [
         // {
         //   text: 'Create your Workout',
