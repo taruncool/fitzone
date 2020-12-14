@@ -135,6 +135,11 @@ export class TmaxeditpopupPage implements OnInit {
         this.sqlStorageNew.query("SELECT * FROM exercises ORDER BY exerciseName ASC").then(
           sdata => {
             console.log("excercise data",sdata);
+            if(sdata.res.rows.length === 0) {
+              setTimeout(() => {
+                this.ngOnInit();
+              }, 1000);
+            }
             var trainingCoeff;
             for(var i=0;i<sdata.res.rows.length;i++){
               console.log("tmax ex",sdata.res.rows.item(i).tmax);

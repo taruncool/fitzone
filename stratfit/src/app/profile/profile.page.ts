@@ -91,7 +91,7 @@ export class ProfilePage implements OnInit {
   
   @ViewChild('Content',{static:false}) content: IonContent;
 
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
+  constructor(public navCtrl: NavController, public nav: NavController, private googlePlus: GooglePlus, public imageProvider: ImageProvider,public alertCtrl:AlertController, public toastCtrl: ToastController,private apiService:ApiService, private loadData: LoadData, private ga: GoogleAnalytics, public http: HttpClient, public modalCtrl: ModalController, private camera: Camera,public sqlStorageNew : SqlStorageNew,public router: Router) {
   
   }
 
@@ -275,6 +275,15 @@ export class ProfilePage implements OnInit {
   public profileinfo(){
     this.navCtrl.navigateForward('/userprofile');
   }
+
+  public fatlevel(){
+    this.nav.navigateForward('/dietprofile/fatlevel');
+  }
+
+  public bmicalculator(){
+    this.navCtrl.navigateForward('/bmicalculator');
+  }
+
   public dietInfo(){
 
     if(this.planSet){
@@ -567,7 +576,7 @@ export class ProfilePage implements OnInit {
   async getPhoto() {
     let prompt = await this.alertCtrl.create({
       // message: 'Upload Picture',
-      message: 'From where do you want to choose your item pic?',
+      message: 'Upload Your Profile Image',
       buttons: [
         {
           text: 'Camera ',
@@ -582,7 +591,7 @@ export class ProfilePage implements OnInit {
           }
         },
         {
-          text: 'Choose your photo',
+          text: 'Upload',
           handler: () => {
             // Call imageProvider to process, upload, and update user photo.
             this.imageProvider.setProfilePhoto('', this.camera.PictureSourceType.PHOTOLIBRARY).then(data => {
@@ -598,6 +607,7 @@ export class ProfilePage implements OnInit {
     });
     prompt.present();
   }
+  
 
   onAvatarError(){
     this.avatar = "assets/images/icon.png";
@@ -617,7 +627,7 @@ export class ProfilePage implements OnInit {
         //   }
         // },
         {
-          text: 'Choose Program',
+          text: 'Store',
           handler: workout => {
             
             this.navCtrl.navigateRoot('tabs/tabs/store');

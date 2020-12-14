@@ -12,7 +12,7 @@
  </ion-header>
 
  
-<ion-content class="goal"  >
+<ion-content class="goal">
 
   <!--<ion-card class="fulcard nobg" >
     <img src="assets/images/plan_2.png"/>
@@ -150,8 +150,8 @@
         <h4>{{subgoal1.GoalName}}</h4>
         <!-- <input class="mr-2"  type='checkbox' *ngIf="!subgoal1.subGoals1"  (click)="purposeChecked(subgoal1,$event)" id='goals.subGoals{{subgoal1.id}}' [(ngModel)]="subgoal1.selected"> -->
         <ion-row class="admlr-n5" >
-          <ion-col size="4" *ngFor="let subgoal2 of subgoal1?.subGoals1" >
-            <div class="iconcard"  (click)="catSelection(subgoal2)">
+          <ion-col size="6" *ngFor="let subgoal2 of subgoal1?.subGoals1" >
+            <div class="sbsd iconcard"  (click)="catSelection(subgoal2)">
               <input class="mr-2" type="checkbox"  *ngIf="!subgoal1?.subGoals1" [(ngModel)]="subgoal2.selected">
               <svg xmlns="http://www.w3.org/2000/svg" class="none"  viewBox="0 0 110.003 108">
                 <g id="Food_Ball" data-name="Food Ball" transform="translate(1 1)">
@@ -172,7 +172,7 @@
 
               <div class="posabs text-center" [ngClass]="{'tick': subgoal2?.status}" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#000"/>
+                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
                 </svg>   
               </div>
           
@@ -185,8 +185,8 @@
     </div>
     <div *ngIf="!goals.subGoals?.subGoals1">
         <ion-row class="admlr-n5" >
-          <ion-col size="4" *ngFor="let subgoal1 of goals.subGoals" >
-            <div class="iconcard" (click)="catSelection(subgoal1)">
+          <ion-col size="6" *ngFor="let subgoal1 of goals.subGoals" >
+            <div class="sbsd iconcard" (click)="catSelection(subgoal1)">
               <input class="mr-2" type="checkbox"  *ngIf="!goals.subGoals" [(ngModel)]="subgoal1.selected">
               <svg xmlns="http://www.w3.org/2000/svg"   class="none"  viewBox="0 0 110.003 108">
                 <g id="Food_Ball" data-name="Food Ball" transform="translate(1 1)">
@@ -207,7 +207,7 @@
 
               <div class="posabs text-center " [ngClass]="{'tick': subgoal1?.status}" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.535 26.569">
-                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#000"/>
+                  <path id="Tick" d="M79.291,45.012a2.325,2.325,0,0,0-3.144,0L53.922,65.971l-8.727-8.21a2.325,2.325,0,0,0-3.144,0,2.006,2.006,0,0,0,0,2.958L52.3,70.357a2.242,2.242,0,0,0,1.572.612,2.339,2.339,0,0,0,1.572-.612l23.8-22.387A1.966,1.966,0,0,0,79.291,45.012Z" transform="translate(-41.4 -44.4)" fill="#fff"/>
                 </svg>   
               </div>
           

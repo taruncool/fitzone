@@ -15,15 +15,15 @@
 
 
 <ion-content class="faqs">
-<div class="fulpad nopadt">
-  <div class="dcard nobg" *ngFor="let d of data" (click)="toggleDetails(d)">
+    <div class="fulpad ">
+        <div class="dcard sbgw" *ngFor="let d of data" (click)="toggleDetails(d)">
 
     <ion-row>
-      <ion-col size="11"><span><b *ngIf="d.title">{{d.title}}</b></span> <h3>{{d.question}}</h3></ion-col>
+       <ion-col size="11"><span>{{d.title}}</span> <h3>{{d.question}}</h3></ion-col>
         <div class="adrop">
           <!-- <ion-icon color="primary" item-right [name]="d.icon" class="dropicon"></ion-icon> -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
-            <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" fill="#fff"/>
+            <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" fill=""/>
           </svg>
         </div>
 

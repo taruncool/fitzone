@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx'
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadData } from "../providers/loaddata";
 import { SqlStorageNew } from '../providers/sql-storage-new';
@@ -40,6 +42,7 @@ import { TmaxeditpopupPage } from './tmaxeditpopup/tmaxeditpopup.page';*/
 import { ProgressbarPage } from './todayworkout/Progressbar/progressbar.page';
 //import { TimerComponent } from './workout/timer/timer.component';
 //import { AddmealPage } from './userdiet/addmeal/addmeal.page';
+import { DiethistoryPage } from './userdiet/diethistory/diethistory.page';
 import { ImageProvider } from 'src/providers/image/image';
 /*import { ImagepreviewPage } from './profile/imagepreview/imagepreview.page';*/
 import { Crop } from '@ionic-native/crop/ngx';
@@ -78,6 +81,7 @@ import { CalendarModule } from 'ion2-calendar';
     FiltercountryPage,
     TmaxeditpopupPage,*/
     ProgressbarPage,
+    DiethistoryPage,
     //TimerComponent,
     /*AddmealPage,
     ImagepreviewPage,
@@ -92,6 +96,7 @@ import { CalendarModule } from 'ion2-calendar';
     ComponentsModule,
     NoopAnimationsModule,
     IonicRatingModule,
+    NgxSliderModule,
     CalendarModule,
     IonicModule.forRoot(),
      AppRoutingModule
@@ -117,6 +122,7 @@ import { CalendarModule } from 'ion2-calendar';
     Crop,
     Base64,
     StreamingMedia,
+    InAppPurchase,
     // StreamingVideoOptions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

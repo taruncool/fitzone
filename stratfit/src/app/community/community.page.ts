@@ -146,7 +146,7 @@ export class CommunityPage implements OnInit {
         {
           text: 'Choose Program',
           handler: workout => {
-            this.navCtrl.navigateForward('/store');
+            this.navCtrl.navigateRoot('/tabs/tabs/store');
           }
         }
       ]
@@ -160,6 +160,10 @@ export class CommunityPage implements OnInit {
 
 
   backButtonAction() {
-    this.navCtrl.navigateBack('/welcome');
+    this.navCtrl.navigateRoot('/tabs/tabs/welcome');
+  }
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
   }
 }

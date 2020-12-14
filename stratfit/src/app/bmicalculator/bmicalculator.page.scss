@@ -1,0 +1,9 @@
+.infild ion-row ion-col:last-child{max-width: inherit !important;}
+.aintro ion-row {position: relative; z-index: 1;}
+.aintro ion-col {padding: 0 !important;}
+.aintro ion-col[size="12"] {padding: 0 !important; padding-bottom: 1rem !important; margin-bottom: 1rem !important; border-bottom: 2px solid #ddd;} 
+.aintro ion-col[size="8"] {margin-top: 1rem;}
+.aintro em {margin-bottom: 5px !important; font-weight: normal !important;}
+.aintro span {font-size: large !important; margin-bottom: 0 !important; }
+
+.aintro ion-col ion-row ion-col {margin-bottom: 0 !important;}

@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.3",
     "@angular/animations": "^9.0.5",
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
@@ -30,6 +31,7 @@
     "@ionic-native/file-transfer": "^5.22.0",
     "@ionic-native/google-analytics": "^5.22.0",
     "@ionic-native/google-plus": "^5.23.0",
+    "@ionic-native/in-app-purchase": "^5.29.0",
     "@ionic-native/insomnia": "^5.22.0",
     "@ionic-native/native-audio": "^5.22.0",
     "@ionic-native/network": "^5.22.0",
@@ -42,6 +44,7 @@
     "@ionic/angular": "^5.0.7",	
     "aws-sdk": "^2.686.0",
     "com-badrit-base64": "^0.2.0",
+    "com.razorpay.cordova": "git+https://github.com/razorpay/razorpay-cordova.git",
     "cordova-android": "^8.1.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-crop": "^0.4.0",
@@ -49,6 +52,7 @@
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-google-analytics": "^1.9.0",
     "cordova-plugin-googleplus": "^8.4.0",
+    "cordova-plugin-inapppurchase": "^1.2.0",
     "cordova-plugin-insomnia": "^4.3.0",
     "cordova-plugin-nativeaudio": "^3.0.9",
     "cordova-plugin-network-information": "^2.0.2",
@@ -127,7 +131,9 @@
       "cordova-plugin-crop": {},
       "cordova-plugin-streaming-media": {},
       "cordova-plugin-vibration": {},
-      "com-badrit-base64": {}
+      "com-badrit-base64": {},
+      "com.razorpay.cordova": {},
+      "cordova-plugin-inapppurchase": {}
     },
     "platforms": [
       "android"

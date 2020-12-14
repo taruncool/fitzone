@@ -1,7 +1,7 @@
 <ion-header class=" head">
     <ion-toolbar class="hedfm"> 
       <ion-buttons  slot="start" >
-        <ion-button slot="icon-only" (click)="backButtonAction()">
+        <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
               <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
             </svg>
@@ -37,7 +37,7 @@
 
     </div> <!-- End Profile-->
 
-<div class=" workout">
+<div class=" ">
     <div class="adtitle">
         <h1>My Workout <span>{{today | date}}</span></h1>
     </div>
@@ -149,20 +149,20 @@
                     <em>Reps</em>
                 </ion-col>
                 <ion-col size="4">
-                    <span>{{Tonnage}}  </span>
-                    <em>Tonnage </em>
+                    <span>{{Tonnage | number:'1.2-2'}}  </span>
+                    <em>Tonnage <dl>(tons)</dl> </em>
                 </ion-col>
-                <ion-col size="4">
+                <!--<ion-col size="4">
                     <span>{{totalweight}}  </span>
-                    <em>Avg Weight </em>
-                </ion-col>
+                    <em>Avg Weight <dl>({{metrics}})</dl> </em>
+                </ion-col>-->
                 <ion-col size="4">
                     <span>{{cal}}  </span>
-                    <em>Calories</em>
+                    <em>Calories <dl>(cal)</dl></em>
                 </ion-col>
                 <ion-col size="4">
                     <span>{{Work}}  </span>
-                    <em>Work </em>
+                    <em>Work <dl>(Newton Meters)</dl> </em>
                 </ion-col>
                 
             </ion-row>
@@ -174,7 +174,7 @@
         <h3 >{{planInfo.planName}}</h3>
         <div class="wrkbtm">
             <ion-button expand="block" (click)="activatePlan()">
-                Activte Program 
+                Activate Program 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
                     <g id="start" transform="translate(-966 -1035)">
                         <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>

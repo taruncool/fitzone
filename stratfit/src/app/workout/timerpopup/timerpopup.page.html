@@ -1,4 +1,4 @@
-<ion-content class=" timing">
+<ion-content class=" timing text-center">
   <div class="skip">
       <!-- <button ion-button (click)='backButtonAction()'>
           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 90.302 90.302">
@@ -18,7 +18,7 @@
   </ion-fab> -->
 
   <div class="fulpad ">
-    <h2 class="text-center" text-wrap>Recommended Resting Time<br><br>StratFit automatically recommends resting time between exercises to let your body adapt to the stress. You can choose to skip the resting.</h2>
+    <h2 class="text-center" text-wrap>Rest time is highly recommended for relaxing your body before the next set.</h2>
     <timer class="timer text-center" #timer [timeInSeconds]="myVariableNameHere"></timer>
     
 
@@ -129,8 +129,11 @@
       
       </div>
     </div> -->
+
+    <!--h2>Are you sure you want to skip it?</h2-->
   </div>
   
+  <p>Are you sure you want to skip it?</p>
 <ion-fab class="fabicon fabclose ">
    <ion-fab-button (click)='backButtonAction()'>Skip</ion-fab-button>
 </ion-fab>

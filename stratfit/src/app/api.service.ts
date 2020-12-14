@@ -194,6 +194,33 @@ export class ApiService {
         }).pipe (data =>
           data);
   }
+  public creatHealthInfo(data,token){
+    return this.http.post(global.baseURL + 'Nutrition/dietInfo/',data, {
+      headers: new HttpHeaders({
+       'Content-Type':  'application/json',
+       'Authorization': token
+        })
+        }).pipe (data =>
+          data);
+  }
+  public getHealthInfo(token){
+    return this.http.post(global.baseURL + 'Nutrition/getdietdetails/', {}, {
+       headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+       'Authorization': token
+         })
+         }).pipe (data =>
+           data);
+  }
+  public getDietPlan(token){
+    return this.http.post(global.baseURL + 'Nutrition/getdietschedule/ ', {}, {
+       headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+       'Authorization': token
+         })
+         }).pipe (data =>
+           data);
+  }
   public newextypedetailspdc(token){
     return this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', {
        headers: new HttpHeaders({
@@ -311,7 +338,8 @@ export class ApiService {
           data);
   }
   public sessionCheck(token){
-    return this.http.post(global.baseURL + 'subscriber/sessionCheck/', {
+    let creds = {};
+    return this.http.post(global.baseURL + 'subscriber/sessionCheck/', creds, {
       headers: new HttpHeaders({
        'Content-Type':  'application/json',
        'Authorization': token

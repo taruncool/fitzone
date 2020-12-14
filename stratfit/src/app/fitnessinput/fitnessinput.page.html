@@ -5,7 +5,10 @@
 
     <div *ngIf='stepArry.prop=="gender"' class="fulpad text-center gender">
 
-        <h3 *ngIf='stepArry.prop!="static"'><em> Hi, {{userName}}</em><span>Select Your Gender</span></h3>
+      <h2>Thanks for signing up!</h2>
+      <p>Help us understand you better, this information will be used personalize your fitness program.  </p>
+
+      <h3 *ngIf='stepArry.prop!="static"'><span>Select Your Gender</span></h3>
     
         <ion-row   class="animated flipInX">
           <ion-col (click)="gactive(1)">
@@ -62,12 +65,12 @@
             <ion-item class="sbgw " >
               <ion-row>
                   <ion-col *ngIf='heightMetric=="cms"' (click)='selectHeightCms()'>
-                      <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' disabled></ion-input>
+                      <ion-input type="number" name='cent'  placeholder="Centimeters" max='200' [(ngModel)]='cent' (input)='getInputData("centimeters")' readonly></ion-input>
                   </ion-col>
-                  <ion-col *ngIf='heightMetric=="ftin"' (click)='selectHeightFeet()' >
-                    <div class="last" >
-                      <ion-input type="number" name='feet' [(ngModel)]='feet' placeholder="Feet" (input)='getInputData("feet")' disabled></ion-input>
-                      <ion-input  type="number" name='inch' [(ngModel)]='inch' placeholder="Inches" (input)='getInputData("inch")' disabled></ion-input>
+                  <ion-col *ngIf='heightMetric=="ftin"'  >
+                    <div class="last" (click)='selectHeightFeet()'>
+                      <ion-input type="number" name='feet' [(ngModel)]='feet' placeholder="Feet" (input)='getInputData("feet")' readonly></ion-input>
+                      <ion-input  type="number" name='inch' [(ngModel)]='inch' placeholder="Inches" (input)='getInputData("inch")' readonly></ion-input>
                     </div>
                   </ion-col>
                   <ion-col>
@@ -89,10 +92,10 @@
             <ion-row>
             
               <ion-col *ngIf='weightMetric=="kgs"' (click)='selectWeightKgs()'>
-                <ion-input type="number" name='kgs' [(ngModel)]='weigth' (input)='getInputData("kgs")'  placeholder="weight in kgs" disabled></ion-input>                        
+                <ion-input type="number" name='kgs' [(ngModel)]='weigth' (input)='getInputData("kgs")'  placeholder="weight in kgs" readonly></ion-input>                        
               </ion-col>
               <ion-col *ngIf='weightMetric=="lbs"' (click)='selectWeightLbs()'>
-                <ion-input type="number" name='lbs' [(ngModel)]='weigth' (input)='getInputData("lbs")' placeholder="weight in lbs" disabled></ion-input>
+                <ion-input type="number"  name='lbs' [(ngModel)]='weigth' (input)='getInputData("lbs")' placeholder="weight in lbs" readonly></ion-input>
               
               </ion-col>
               <ion-col>
@@ -159,23 +162,33 @@
     <div class=" fulpad stmax" *ngIf='stepArry.prop=="workoutdays"'>
 
       <h3>
-        <ion-button class="nobg" slot="icon-only"(click)='prevStep()'>
+        <ion-button class="nobg" slot="icon-only" (click)='prevStep()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
       </ion-button>
-      <em>Physical Job</em>
+      <em>Physical Activity Level</em>
       </h3>
 
-      <div class="fulpad text-center">
+      <div class=" text-left">
         
         <form #exTmaxForm="ngForm">
-          <h2>Do you have active physical job?</h2>
-          <p >How many days per week do you do physical activities (Atheletic practice, Recreational sports, Physical work, etc)</p>
+		      <!-- <h2>Do you have active physical job?</h2> -->
+          <h2>How many days per week do you indulge in any physical activity, including athletic practices, recreational sports, physical work, etc.? </h2>
+          <!-- <p >How many days per week do you do physical activities (Atheletic practice, Recreational sports, Physical work, etc)</p> -->
       
           
           <ion-item class="sbgw text-center ">
-            <ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' required></ion-input>
+            <!--<ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' readonly (click)='selectWorkDays()'></ion-input>-->
+            <ion-select  [(ngModel)]="noOfWorkDays" placeholder="Select number of days" name="dayOff">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+                <ion-select-option value="3">3</ion-select-option>
+                <ion-select-option value="4">4</ion-select-option>
+                <ion-select-option value="5">5</ion-select-option>
+                <ion-select-option value="6">6</ion-select-option>
+                <ion-select-option value="7">7</ion-select-option>
+            </ion-select>
           </ion-item>
           
         </form>

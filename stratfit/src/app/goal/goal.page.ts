@@ -290,13 +290,13 @@ goal;
     }
 
   backButtonAction() {
-    this.navCtrl.navigateBack('tabs/tabs/store');
+    this.navCtrl.navigateRoot('tabs/tabs/store');
   }
 
   store() {
-    //this.navCtrl.navigateBack('/store');
+    //this.navCtrl.navigateBack('tabs/tabs/store');
     setTimeout(() => { 
-      this.navCtrl.navigateBack('/store');
+      this.navCtrl.navigateRoot('tabs/tabs/store');
     },200);
   }
 

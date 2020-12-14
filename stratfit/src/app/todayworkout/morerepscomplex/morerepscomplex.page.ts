@@ -115,4 +115,14 @@ export class MorerepscomplexPage implements OnInit {
    }
   }
 
+  async skipRepsModal() {
+    for(let i = 0; i < this.complexActions.length; i++) {
+      this.complexActions[i].more_reps = this.complexActions[i].maxmorereps;
+    }
+    this.modalCtrl.dismiss(
+      {"complexActionsUpdated": this.complexActions,
+      "complexExercises": this.exDetailsComplex}
+    );
+  }
+
 }

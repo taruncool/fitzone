@@ -19,15 +19,32 @@
         </div>
                   
                 
-        <h2>Hey, <span>{{firstname}}!</span></h2>
-        <h3>Thank you for activating program!</h3>
+        <!-- <h2>Hey, <span>{{firstname}}</span></h2> -->
+        <!-- <h3> Thank you for the program activation!</h3> -->
+        <h3>Thanks for activating the program</h3>
+        
     </div>
 
       <div class=" pcname">
-        <h4>Let's do the First Workout!</h4>
+        <!-- <h4>Let's do the First Workout!</h4> -->
         <span>{{uplandata.durationWeeks}}</span>
         <h1>{{uplandata.planName}}</h1>
         <p>{{uplandata.coachName}}</p>
+
+        <h3>Are you ready to lift some weights?</h3>
+
+        <ion-item>
+            <ion-label>Please choose your off day</ion-label>
+            <ion-select  [(ngModel)]="dayOff" placeholder="Select One" name="dayOff">
+                <ion-select-option value="0">Sunday</ion-select-option>
+                <ion-select-option value="1">Monday</ion-select-option>
+                <ion-select-option value="2">Tuesday</ion-select-option>
+                <ion-select-option value="3">Wednesday</ion-select-option>
+                <ion-select-option value="4">Thursday</ion-select-option>
+                <ion-select-option value="5">Friday</ion-select-option>
+                <ion-select-option value="6">Saturday</ion-select-option>
+            </ion-select>
+        </ion-item>
       
         <!-- <p>Exercises</p> -->
         <!-- <div class="pcexe">
@@ -39,7 +56,7 @@
     </div>
   
     <div class="pcdate">
-        <p *ngIf="hideloader"> Your Personalized Workout Program is Ready!</p>
+       <!-- <p *ngIf="hideloader"> Your Personalized Workout Program is Ready!</p> -->
         
         <!-- <p *ngIf="hideloader"> Starts on <span>{{showStartDate}}</span></p>  -->
     </div>

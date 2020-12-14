@@ -1,7 +1,7 @@
 <ion-header class=" head" *ngIf='!(planComplete || renewPlan)'>
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
-      <ion-button slot="icon-only"(click)='backButtonAction()'>
+      <ion-button class="nobg" slot="icon-only"(click)='backButtonAction()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
@@ -11,7 +11,7 @@
     <ion-title><!--span><em *ngIf="!(planInfo.durationWeeks==='null')">{{planInfo.durationWeeks}} Weeks -</em> {{planInfo.planType}}</span-->{{planInfo.planName}}</ion-title>
 
     <ion-buttons  slot="end"  >
-      <ion-button slot="icon-only" class="info" (click)='showPlanDetails()'>
+      <ion-button class="nobg info" slot="icon-only"  (click)='showPlanDetails()'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60.001" >
                 <g id="Information" transform="translate(-961.535 -2448.597)">
                     <g id="Path_256" data-name="Path 256" transform="translate(958.135 2444.998)" fill="none">
@@ -21,6 +21,20 @@
                     <path id="Union_4" data-name="Union 4" d="M-4979.315,16966.324a1.738,1.738,0,0,1-1.758-1.76,1.737,1.737,0,0,1,1.758-1.758h4.028v-13.725h-4.028a1.737,1.737,0,0,1-1.758-1.758,1.737,1.737,0,0,1,1.758-1.758h5.744a1.737,1.737,0,0,1,1.758,1.758v15.482h4.033a1.737,1.737,0,0,1,1.758,1.758,1.738,1.738,0,0,1-1.758,1.76Zm.558-26.508a2.825,2.825,0,0,1,2.828-2.826,3.45,3.45,0,0,1,.753.1,2.747,2.747,0,0,1,2.078,2.729,2.83,2.83,0,0,1-2.832,2.832A2.826,2.826,0,0,1-4978.758,16939.816Z" transform="translate(5966.159 -14473.979)" />
                 </g>
             </svg>
+      </ion-button>
+      <ion-button class="nobg"  slot="icon-only" (click)="openfeedback()" >
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 469.334">
+          <g id="feedback" transform="translate(0 -21.333)">
+            <g id="Group_2797" data-name="Group 2797">
+              <g id="Group_2796" data-name="Group 2796">
+                <path id="Path_8820" data-name="Path 8820" d="M117.333,149.333H352A10.667,10.667,0,0,0,352,128H117.333a10.667,10.667,0,0,0,0,21.334Z"/>
+                <path id="Path_8821" data-name="Path 8821" d="M245.333,256h-128a10.667,10.667,0,1,0,0,21.334h128a10.667,10.667,0,1,0,0-21.334Z"/>
+                <path id="Path_8822" data-name="Path 8822" d="M471.167,64c-.618,0-1.217.155-1.833.184V64a42.716,42.716,0,0,0-42.667-42.667h-384A42.716,42.716,0,0,0,0,64V480a10.671,10.671,0,0,0,6.583,9.854,10.541,10.541,0,0,0,4.083.813,10.664,10.664,0,0,0,7.542-3.125L121.75,384H426.667a42.716,42.716,0,0,0,42.667-42.667V164.411l30.708-30.7v-.01A40.828,40.828,0,0,0,471.167,64ZM448,341.333a21.355,21.355,0,0,1-21.333,21.333H117.333a10.66,10.66,0,0,0-7.542,3.125L21.333,454.25V64A21.355,21.355,0,0,1,42.666,42.667h384A21.354,21.354,0,0,1,448,64v7.286a40.123,40.123,0,0,0-5.708,4.672L326.232,192h-208.9a10.667,10.667,0,1,0,0,21.334H309.118l-10.243,51.24a10.668,10.668,0,0,0,10.459,12.76,10.89,10.89,0,0,0,2.083-.208l53.313-10.667a10.6,10.6,0,0,0,5.458-2.917L448,185.742Zm-90.6-95.156-34.458,6.9,6.9-34.5,96.828-96.828,27.587,27.587ZM484.958,118.625,469.333,134.25l-27.589-27.589,15.63-15.63a19.508,19.508,0,0,1,27.584,27.594Z"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+        
       </ion-button>
     </ion-buttons>
   </ion-toolbar> 
@@ -58,7 +72,7 @@
       </div> 
 
       <ion-card class=" active">
-        <ion-item class="genset  nopad nobg">
+        <!-- <ion-item class="genset  nopad nobg">
           <ion-avatar  slot="start">
             <img src="assets/images/plan_2.png">
           </ion-avatar>
@@ -67,7 +81,7 @@
             <span>3 mins</span>
           </div>
           <div class="genreps" slot="end">10 Reps</div>
-        </ion-item>
+        </ion-item> -->
           
         <ion-item class="genview nopad nobg">
           <video webkit-playsinline playsinline controls controlsList="nodownload" src="http://stratfit.net/newExVideo/warmup.mp4"
@@ -85,8 +99,8 @@
 
     <!--Cool Down-->
     <div class="genwamup  " *ngIf='cooldown && cooldownCompleted == "false"'>
-      <div class="titl">
-        <h3>Cooldown Excercises</h3>
+      <div class="adtitle titl text-center">
+        <h1>Cooldown </h1>
       </div>
 
       <ion-card class=" active" >
@@ -107,8 +121,8 @@
     </div> <!--End Cool Down-->
     
 
-    <div class="fulpad " [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
-      <div class="text-center adtitle">
+    <div  [hidden]='(warmup && generalWarmupCompleted=="false") || (cooldown && cooldownCompleted=="false")' >
+      <div class="text-center adtitle tbactive">
         <!--<span>Activity 1</span>-->
         <!--<div class="exe">
           <ion-avatar [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index"  > 
@@ -116,21 +130,25 @@
           </ion-avatar>
               
         </div>-->
-        <div class="tbactive" >
-          <ul>
-            <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
-          </ul>
-        </div>
-        <div class="tbactive" *ngIf="!isActivitySimple">
+       
+          <div class="scrol min">
+            <ul>
+              <li [ngClass]="{'active': activity.activity_id == currentActivityId}" *ngFor="let activity of planActivity; let i = index">Activity {{i+1}}</li>
+            </ul>
+          </div>
+
+        <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
+        <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
+
+        <div class="scrol min" *ngIf="!isActivitySimple">
           <ul>
             <li [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index"> Round {{i+1}}</li>
           </ul>
         </div>
-        <h1 *ngIf="actionType == 'warmup'">Warmup</h1>
-        <h1 *ngIf="actionType == 'MainSet'">Workout</h1>
+
       </div> 
 
-      <div class="workview" *ngIf="isActivitySimple">
+      <div class="fulpad workview" *ngIf="isActivitySimple">
         <ion-list class="sbsd sbgw setlist" [ngClass]="{'active': round.round_id == currentRoundId}" *ngFor="let round of planRounds; let i = index">
             <h3>Set {{i+1}}</h3>
             <ion-row >
@@ -157,7 +175,7 @@
                 <ion-row class="infild">
                   <ion-col size="6">
                     <h6>Work Weight</h6> 
-                    <ion-item class="adbor nobg"> 
+                    <ion-item class=" nobg"> 
                       <span>{{simpleActions.workweight}} Kg </span>
                       <svg id="Tmax-Edit" (click)="tmaxShowPreview(exDetails,exDetails.exerciseName,simpleActions.tmax,simpleActions.workweight,simpleActions.intensity,'Kg')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                         <path id="Path_256" data-name="Path 256" d="M38.428,70.6A32,32,0,1,0,6.4,38.6,32.009,32.009,0,0,0,38.428,70.6Z" transform="translate(-6.4 -6.6)" fill="#080c14"/>
@@ -169,7 +187,7 @@
                   </ion-col>
                   <ion-col size="6">
                     <h6>Reps</h6>
-                    <ion-item class="adbor nobg selarow" (click)="selectANumber()"> 
+                    <ion-item class=" nobg selarow" (click)="selectANumber()"> 
                       <span >{{repscount}}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
                         <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" />
@@ -223,7 +241,7 @@
 
       </div><!--End Simple Workout -->
 
-      <div class="workview" *ngIf="!isActivitySimple">
+      <div class="fulpad workview" *ngIf="!isActivitySimple">
         <ion-list class="sbsd sbgw cmplxactive setlist" >
           <!--<h3>Set {{i+1}}</h3>-->
           <ion-row class="admb-2"  *ngFor="let action of complexActions; let i = index">
@@ -249,7 +267,7 @@
               <ion-row class="infildcmplx">
                 <ion-col size="6">
                   <h6>Work Weight</h6> 
-                  <ion-item class="adbor nobg"> 
+                  <ion-item class=" nobg"> 
                     <span>{{action.workweight}} Kg </span>
                     
                     <svg id="Tmax-Edit" (click)="tmaxShowPreview(exDetailsComplex[i],action.exerciseName,action.tmax,action.workweight,action.intensity,'Kg')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -262,7 +280,7 @@
                 </ion-col>
                 <ion-col size="6">
                   <h6>Reps</h6>
-                  <ion-item class="adbor nobg selarow" (click)="selectANumberComplex(action)"> 
+                  <ion-item class=" nobg selarow" (click)="selectANumberComplex(action)"> 
                     <span >{{action.reps}}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.994 22.999">
                       <path id="Path_282" data-name="Path 282" d="M42.554.444a1.52,1.52,0,0,0-2.148,0L21.518,19.369,2.592.444A1.519,1.519,0,1,0,.444,2.592L20.406,22.555A1.483,1.483,0,0,0,21.481,23a1.546,1.546,0,0,0,1.074-.444L42.517,2.592A1.488,1.488,0,0,0,42.554.444Z" />

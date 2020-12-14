@@ -32,6 +32,7 @@ export class MorerepsPage implements OnInit {
   pReps;
   repscount;
   tmax;
+  maxmorereps;
   
   // prescribedReps = {
   //   numbers: [
@@ -53,6 +54,7 @@ export class MorerepsPage implements OnInit {
     this.repsMax = this.params.get('maxreps');
     this.repsdone = this.params.get('repsdone');
     this.excerciseId = this.params.get('excerciseid');
+    this.maxmorereps = this.params.get('maxmorereps');
     
     this.s3url=global.s3URL;
     
@@ -109,16 +111,25 @@ export class MorerepsPage implements OnInit {
   
  async closeRepsModal() {
    if(this.repscount == '' || this.repscount < 0) {
-     let toast = await this.toastCtrl.create({
-          message: "Please enter number of reps possible",
-          duration: 3000
-        });
-        toast.present();
+    //  let toast = await this.toastCtrl.create({
+    //     message: "Please enter number of reps possible",
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    this.modalCtrl.dismiss(
+      {"moreReps": 0}
+    );
    } else {
       this.modalCtrl.dismiss(
         {"moreReps": this.repscount}
       );
    }
    console.log("closereps modal..",this.repscount);
+  }
+
+  async skipRepsModal() {
+      this.modalCtrl.dismiss(
+        {"moreReps": this.maxmorereps}
+      );
   }
 }

@@ -2,7 +2,7 @@
 
   <ion-toolbar class="hedfm"> 
     <ion-buttons  slot="start" >
-      <ion-button slot="icon-only" (click)="backButtonAction()">
+      <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
             <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
           </svg>
@@ -61,7 +61,7 @@
 
   <div class="fulview">
     <div class="fulcard " >
-      <img src={{s3Url}}{{coachData1.avatar}} class="planimg" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
+      <img src={{coachData1.avatar}} class="planimg" *ngIf="coachData1.avatar !='' && coachData1.avatar !=null">
       <img src="assets/images/plan_2.png" class="planimg" *ngIf="coachData1.avatar =='' || coachData1.avatar ==null" >
 
       <div class="container">
@@ -81,12 +81,12 @@
 
   </div>
 
-  <div class="programview">
+  <div class="sbgry programview">
     
-    <div class='fulpad nopadb' >
+    <!-- <div class='fulpad nopadb' >
       <h2>About</h2>
       <p class=" coachdisc" [innerHTML]="aboutCoach"></p>
-    </div>
+    </div> -->
 
 
 
@@ -104,7 +104,7 @@
         <ion-row>
           <ion-col size="6" *ngFor="let plan of plansdata; let i = index" >
             <div class="fulcard active" (click)="viewplaninfo(plan)">
-              <img src="{{plan.programPhoto}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
+              <img src="{{plan.planLogo}}" (error)="onImageError(plan)" *ngIf="plan.planPhoto !='' && plan.planPhoto !=null">
               <img src="assets/images/plan_2.png" *ngIf="plan.planPhoto =='' || plan.planPhoto ==null">
 
               <div class="container">

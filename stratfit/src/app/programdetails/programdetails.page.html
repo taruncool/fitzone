@@ -1,7 +1,7 @@
 <ion-header class=" head back">
     <ion-toolbar class="hedfm"> 
       <ion-buttons  slot="start" >
-        <ion-button slot="icon-only" (click)="backButtonAction()">
+        <ion-button class="nobg" slot="icon-only" (click)="backButtonAction()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.028 56">
               <path id="Back" d="M60.048,61.921a1.981,1.981,0,0,0,2.8,0,1.981,1.981,0,0,0,0-2.8L38.228,34.5,62.848,9.879a1.98,1.98,0,0,0-2.8-2.8L33.979,33.1a1.981,1.981,0,0,0,0,2.8Z" transform="translate(-33.4 -6.5)"/>
             </svg>
@@ -10,8 +10,8 @@
 
       <!-- <ion-title>{{planinfo.planName}}</ion-title> -->
 
-      <ion-buttons  slot="end"  >
-        <ion-button slot="icon-only" class="info" (click)="showPlanInfo()">
+      <!-- <ion-buttons  slot="end"  >
+        <ion-button slot="icon-only" class="nobg info" (click)="showPlanInfo()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60.001" >
                   <g id="Information" transform="translate(-961.535 -2448.597)">
                       <g id="Path_256" data-name="Path 256" transform="translate(958.135 2444.998)" fill="none">
@@ -22,7 +22,7 @@
                   </g>
               </svg>
         </ion-button>
-      </ion-buttons>
+      </ion-buttons> -->
     </ion-toolbar> 
   
   </ion-header>
@@ -65,7 +65,7 @@
     </div>
  
 
-  <div class="fulpad programview">
+  <div class="fulpad sbgry programview">
       <h2>Abilities</h2>
       <p>{{planinfo.planPurpose}}</p>
 
@@ -104,7 +104,7 @@
                                   <img src="{{Exs.newExImage}}" (error)="onExImageError(Exs)"> 
                               </ion-avatar>
                               <em>{{Exs.exercise_id__exerciseName}}</em>
-                              <div class="play min">
+                              <div class="play sm">
                                   <svg id="Play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                       <path id="Path_256" data-name="Path 256" d="M56.443,106.6A50,50,0,1,0,6.4,56.6,50.014,50.014,0,0,0,56.443,106.6Z" transform="translate(-6.4 -6.6)" fill="none"  />
                                       <path id="Path_257" data-name="Path 257" d="M0,29.143H36.744L18.377,0Z" transform="translate(69.389 31.621) rotate(90)"  fill-rule="evenodd"/>
@@ -129,14 +129,19 @@
     <ion-row class="btnrow">
         <ion-button [hidden]="planinfo.activestatus" (click)="planSubscription()">
             <span *ngIf="planinfo.activestatus">Active</span>
-            <span *ngIf="planinfo.fucturestatus">Activated</span>
+            <span *ngIf="planinfo.fucturestatus">Dashboard</span>
             <span *ngIf="!planinfo.activestatus && !planinfo.fucturestatus">Activate</span>
         </ion-button>  
         <ion-button class="nobg" [hidden]="planSet && planinfo.price">
             <span *ngIf='!planSet && planinfo.price !="Free"'>Free</span>   
             <span [innerHTML]="planinfo.price"></span>
             <em class="pformonth" *ngIf="planinfo.price !='Free'">/mo</em>
-        </ion-button>  
+        </ion-button> 
+        <ion-button class="nobg" [hidden]="planSet && planinfo.indianPrice === 0"> 
+            <span>&#8377;</span>
+            <span [innerHTML]="planinfo.indianPrice"></span>
+            <em class="pformonth">/mo</em>
+        </ion-button> 
         <ion-button [hidden]="!planinfo.activestatus" (click)="dashboardpage()">
                 
             <span *ngIf="planinfo.activestatus">Dashboard</span>

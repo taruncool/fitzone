@@ -302,7 +302,7 @@ restTime = 0;
 
 isWheelSelectorShow = false;
 
-constructor(public platform: Platform, public nav: NavController,private apiService:ApiService, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone,public router: Router) {
+constructor(public platform: Platform, public nav: NavController,private apiService:ApiService,  public navCtrl: NavController, public calendarCtrl: CalendarModule, private selector: WheelSelector, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public sqlStorageNew: SqlStorageNew, private loadData: LoadData, private http: HttpClient, public toastCtrl: ToastController, private alertCtrl: AlertController, private zone: NgZone,public router: Router) {
 
     this.tokken = localStorage.getItem('usertoken');
     localStorage.setItem('workoutLoad', '1');
@@ -841,6 +841,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
       var reps = this.repscount;
       var tmax = this.simpleActions.tmax;
       var maxreps = this.simpleActions.maxreps;
+      var maxmorereps = this.amrap[intensity] - reps;
 
       const morerepsmodal: HTMLIonModalElement =  await this.modalCtrl.create({
         component:MorerepsPage,
@@ -853,7 +854,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         'tmax': tmax,
         'intensity': intensity,
         'repsdone': reps,
-        'maxreps': maxreps }
+        'maxreps': maxreps,
+        'maxmorereps': maxmorereps }
       });
 
      
@@ -1477,7 +1479,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
                       "maxreps": planActionsComplex.res.rows.item(li).maxreps,
                       "action_type": planActionsComplex.res.rows.item(li).action_type,
                       "ExerciseThumbImage": planActionsComplex.res.rows.item(li).ExerciseThumbImage,
-                      "more_reps": 0
+                      "more_reps": 0,
+                      "maxmorereps": (this.amrap[planActionsComplex.res.rows.item(li).intensity] - planActionsComplex.res.rows.item(li).prescribed_reps)
                   });
                   this.currentRoundId = planActionsComplex.res.rows.item(li).round_id;
 
@@ -1624,6 +1627,7 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
 
     var complexMoreRepsArray = [];
     var complexRegRepsArray = [];
+    var maxmorereps = 0;
 
     for (let cr = 0; cr < complexActions.length; cr++) {
 
@@ -1662,6 +1666,8 @@ constructor(public platform: Platform, public nav: NavController,private apiServ
         if (complexActions[cr].prescribed_reps == repscount) {
 
           console.log("inside if condition");
+          // maxmorereps = this.amrap[complexActions[cr].intensity] - repscount;
+          // complexActions[cr].maxmorereps = maxmorereps;
           complexMoreRepsArray.push(complexActions[cr]);
 
         }
@@ -2834,6 +2840,12 @@ console.log("todays workout back button tag");
       componentProps: { 'weight': weight}
      });
     modal.present();
+  }
+
+
+
+  public openfeedback(){
+    this.navCtrl.navigateForward('/feedback');
   }
 
 }
