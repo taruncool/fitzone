@@ -147,7 +147,7 @@
                </ion-col>
 
                <ion-col size="6" class="calorie nobgb  adpadb">
-                  <em class="adpadb">{{calPerDay}}</em>
+                  <em class="adpadb h-20px">{{calPerDay}}</em>
                   <circle-progress [percent]="totalCalBalancePercent" [showTitle]="true" [showSubtitle]="true" [title]="calIntake" [subtitle]="'KCal'" [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100" [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true" [titleFontSize]="40" [unitsFontSize]=" 30" [subtitleFontSize]="20" [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#00BFE6'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
                   </circle-progress>
             
@@ -223,7 +223,7 @@
                      Edit
                    </ion-button> -->
                   </div>
-               <ion-row class="listdis admr-n12">
+               <ion-row class="listdis adpadb admr-n12">
                    <div class="scrol" scrollX="true">
                       <!-- <em *ngFor="let food of meal.mealData" >{{food.foodcount}} {{food.name}} </em> -->
                       <ul>
@@ -235,7 +235,7 @@
                    </div>
           
                 </ion-row>
-               <ion-row class="lgraph admb-2" >
+               <ion-row class="lgraph " >
 
                   <ion-col class="protein">
                      <em>{{meal.mealfat  | number:'2.2-2'}} g</em>
