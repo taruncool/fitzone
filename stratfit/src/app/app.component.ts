@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform, AlertController, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 declare var navigator: any; 
 declare var Connection: any;
@@ -20,6 +21,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public alertCtrl:AlertController,
+    private localNotifications: LocalNotifications,
     modalCtrl: ModalController
     
 
@@ -70,6 +72,41 @@ export class AppComponent {
        this.splashScreen.hide(); 
 	  //firebase push notification starts here
 		//this.pushsetup();
+
+      this.localNotifications.schedule([{
+      id: 1,
+      title: 'Breakfast Time',
+      text: 'Get ready for your breakfast',
+      foreground: true,
+      trigger: {
+        every: {
+          hour: 7,
+          minute: 45
+        }
+      }
+    }, {
+      id: 2,
+      title: 'Lunch Time',
+      text: 'Delicious food is waiting at your lunch plate',
+      foreground: true,
+      trigger: {
+        every: {
+          hour: 12,
+          minute: 45
+        }
+      }
+    },{
+      id: 3,
+      title: 'Dinner Time',
+      text: 'Finish your dinner',
+      foreground: true,
+      trigger: {
+        every: {
+          hour: 19,
+          minute: 45
+        }
+      }
+    }]);
 
    
 

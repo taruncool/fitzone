@@ -699,9 +699,9 @@ export class DietprofilePage implements OnInit {
             var carbcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].carbPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
             var protiencal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].protienPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
             
-            this.fatCalBalance += (fatcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
-            this.carbsCalBalance += (carbcal * this.finalFoodDataByDate[k].mealData[l].foodcount);
-            this.protienCalBalance += (protiencal * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.fatCalBalance += (this.finalFoodDataByDate[k].mealData[l].calories * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.carbsCalBalance += 0;
+            this.protienCalBalance += 0;
   
           }
         }
@@ -760,7 +760,11 @@ export class DietprofilePage implements OnInit {
     console.log(this.protienGms,this.protienGmsBalance);
     this.protienGmsIntake = parseFloat(this.roundTo(this.protienGms - this.protienGmsBalance,2));
 
-    this.calIntake = parseFloat(this.roundTo((this.calPerDay - this.totalCalBalance)/10,2));
+    if(this.dietPlanSet) {
+      this.calIntake = parseFloat(this.roundTo((this.calPerDay - this.totalCalBalance)/10,2));
+    } else {
+      this.calIntake = parseFloat(this.roundTo((this.calPerDay - this.totalCalBalance)/1000,2));
+    }
     this.totalCalBalancePercent = 100 - (((this.calPerDay - (this.calIntake*1000))/this.calPerDay)*100);
 
     console.log("caloriespercent",this.totalCalBalancePercent);

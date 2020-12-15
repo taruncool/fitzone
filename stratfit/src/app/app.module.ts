@@ -50,6 +50,7 @@ import { Base64 } from '@ionic-native/base64/ngx';
 //import { TmaxpreviewPage } from './todayworkout/tmaxpreview/tmaxpreview.page';
 import { CalendarModule } from 'ion2-calendar';
 //import { ExcpreviewPage } from './todayworkout/excpreview/excpreview.page';*/
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { CalendarModule } from 'ion2-calendar';
     Base64,
     StreamingMedia,
     InAppPurchase,
+    LocalNotifications,
     // StreamingVideoOptions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
