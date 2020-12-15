@@ -234,18 +234,21 @@ export class ProfilePage implements OnInit {
     //converting (height)cm to feet,ins
     this.selectOptions = {
       title: 'Dietary Goal',
+      backdropDismiss: false,
       subTitle: 'Help StratFit regulate your daily calorie intake as per your dietary goals, set your dietary goals to get daily calorie recommendations.'
       
     };
 
     this.selectOptions2 = {
       title: 'Diet Type',
+      backdropDismiss: false,
       subTitle: 'Add your meals and we will help you track your daily macronutrient intake accordingly.'
       
     };
 
     this.selectOptions3 = {
       title: 'Do you have active physical job?',
+      backdropDismiss: false,
       subTitle: 'How many days per week do you do physical activities (Atheletic practice, Recreational sports, Physical work, etc)'
       
     };
