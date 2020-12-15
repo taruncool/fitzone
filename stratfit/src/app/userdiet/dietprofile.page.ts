@@ -299,15 +299,17 @@ export class DietprofilePage implements OnInit {
     this.apiService.getDietPlan(this.tokken).subscribe((response)=>{
       const userStr = JSON.stringify(response);
       let res = JSON.parse(userStr);
-      if(res.Diet[0].Food) {
-        this.overAllDietPlan = JSON.parse(res.Diet[0].Food);
-        this.todayDietPlan = this.overAllDietPlan[this.dayIndex];
-      } else {
-        this.todayDietPlan = [];
-      }
-      if(this.todayDietPlan.length > 0) {
-        if(this.todayDietPlan[0].length > 0) {
-          this.dietPlanSet = true;
+      if(res.Diet.length > 0) {
+        if(res.Diet[0].Food) {
+          this.overAllDietPlan = JSON.parse(res.Diet[0].Food);
+          this.todayDietPlan = this.overAllDietPlan[this.dayIndex]['diets'];
+        } else {
+          this.todayDietPlan = [];
+        }
+        if(this.todayDietPlan.length > 0) {
+          if(this.todayDietPlan[0].length > 0) {
+            this.dietPlanSet = true;
+          }
         }
       }
       if(!this.dietPlanSet) {
@@ -334,7 +336,7 @@ export class DietprofilePage implements OnInit {
   }
 
   getDayDietPlan(dind) {
-    this.todayDietPlan = this.overAllDietPlan[dind];
+    this.todayDietPlan = this.overAllDietPlan[dind]['diets'];
     if(this.dayIndex === dind) {
       this.showDoneBtn = true;
     } else {
@@ -691,7 +693,7 @@ export class DietprofilePage implements OnInit {
             
             this.fatGmsBalance += (this.finalFoodDataByDate[k].mealData[l].fat * this.finalFoodDataByDate[k].mealData[l].foodcount) ;
             this.carbsGmsBalance += (this.finalFoodDataByDate[k].mealData[l].carbs * this.finalFoodDataByDate[k].mealData[l].foodcount);
-            this.protienGmsBalance += (this.finalFoodDataByDate[k].mealData[l].protien * this.finalFoodDataByDate[k].mealData[l].foodcount);
+            this.protienGmsBalance += (this.finalFoodDataByDate[k].mealData[l].protein * this.finalFoodDataByDate[k].mealData[l].foodcount);
             
             var fatcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].fatPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
             var carbcal = parseFloat(this.roundTo(((this.finalFoodDataByDate[k].mealData[l].carbPercent * this.finalFoodDataByDate[k].mealData[l].calories)/100),2));
@@ -721,7 +723,7 @@ export class DietprofilePage implements OnInit {
     this.protienGmsBalancePercent = 100 - ((this.protienGmsBalance/this.protienGms)*100);
 
     this.totalCalBalance = this.fatCalBalance + this.carbsCalBalance + this.protienCalBalance;
-    this.totalCalBalancePercent = 100 - ((this.totalCalBalance/this.calPerDay));
+    //this.totalCalBalancePercent = 100 - ((this.totalCalBalance/this.calPerDay));
     
     if(this.fatGmsBalancePercent>100){
       this.fatGmsBalancePercent =100;
@@ -734,10 +736,7 @@ export class DietprofilePage implements OnInit {
     if(this.protienGmsBalancePercent>100){
       this.protienGmsBalancePercent = 100;
     }
-    console.log("caloriespercent",this.totalCalBalancePercent);
-    if(this.totalCalBalancePercent>100){
-      this.totalCalBalancePercent = 100;
-    }
+    
 
    
     if(isNaN(this.fatGmsBalancePercent)){
@@ -752,17 +751,8 @@ export class DietprofilePage implements OnInit {
       this.protienGmsBalancePercent = 0;
     }
    
-    if(isNaN(this.totalCalBalancePercent)){
-      this.totalCalBalancePercent = 0;
-    }
-     localStorage.setItem('fatpercent', this.fatGmsBalancePercent);
-    console.log(localStorage.setItem('fatpercent', this.fatGmsBalancePercent));
-     localStorage.setItem('carbspercent', this.carbsGmsBalancePercent);
-    console.log(localStorage.setItem('carbspercent', this.carbsGmsBalancePercent));
-     localStorage.setItem('protienpercent', this.protienGmsBalancePercent);
-    console.log("protienpercent",this.protienGmsBalancePercent);
-     localStorage.setItem('caloriespercent', this.fatGmsBalancePercent);
-    console.log("caloriespercent",this.totalCalBalancePercent);
+    
+     
    
     console.log("finalfood data after calculate",this.finalFoodDataByDate);
     this.fatGmsIntake = parseFloat(this.roundTo(this.fatGms - this.fatGmsBalance,2));
@@ -771,7 +761,25 @@ export class DietprofilePage implements OnInit {
     this.protienGmsIntake = parseFloat(this.roundTo(this.protienGms - this.protienGmsBalance,2));
 
     this.calIntake = parseFloat(this.roundTo((this.calPerDay - this.totalCalBalance)/10,2));
-    this.totalCalBalancePercent = 100 - (((this.calPerDay - (this.calIntake*1000))/this.calPerDay));
+    this.totalCalBalancePercent = 100 - (((this.calPerDay - (this.calIntake*1000))/this.calPerDay)*100);
+
+    console.log("caloriespercent",this.totalCalBalancePercent);
+    if(this.totalCalBalancePercent>100){
+      this.totalCalBalancePercent = 100;
+    }
+
+    if(isNaN(this.totalCalBalancePercent)){
+      this.totalCalBalancePercent = 0;
+    }
+
+    localStorage.setItem('fatpercent', this.fatGmsBalancePercent);
+    console.log(localStorage.setItem('fatpercent', this.fatGmsBalancePercent));
+     localStorage.setItem('carbspercent', this.carbsGmsBalancePercent);
+    console.log(localStorage.setItem('carbspercent', this.carbsGmsBalancePercent));
+     localStorage.setItem('protienpercent', this.protienGmsBalancePercent);
+    console.log("protienpercent",this.protienGmsBalancePercent);
+     localStorage.setItem('caloriespercent', this.fatGmsBalancePercent);
+    console.log("caloriespercent",this.totalCalBalancePercent);
 
     console.log(this.fatGmsIntake,this.carbsGmsIntake,this.protienGmsIntake,this.calIntake);
 
