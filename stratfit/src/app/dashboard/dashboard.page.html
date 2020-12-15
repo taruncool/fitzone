@@ -41,9 +41,12 @@
     <div class="adtitle">
         <h1>My Workout <span>{{today | date}}</span></h1>
     </div>
+
   
-    <ion-card class="fulpad" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
-      
+  
+    <!-- <ion-card class="fulpad" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+        <img src="{{planInfo.planPhoto}}" (error)="onImageError(planInfo)">
+        
         <h3 >{{planInfo.planName}}</h3>
         <span> {{percentageDays}}%</span>
         <div class="loader probar" >
@@ -56,7 +59,7 @@
         </div>
 
         <div class="wrkbtm">
-            <!-- <em>{{planInfo.coachName}}</em> -->
+          
             <ion-button expand="block" (click)="openTab('workout')">
                 Start 
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
@@ -69,7 +72,50 @@
             </ion-button>
         </div>
       
-    </ion-card>
+    </ion-card> -->
+
+    <div class="fulpad">
+        <div class="fulcard" *ngIf='!noplan && !todayRestDay && !todaySessionComplete && !noPlanActive && !planComplete' (click)="openTab('workout')">
+            <img src="{{planInfo.planPhoto}}" (error)="onImageError(planInfo)">
+
+            <div class="container">
+                <div class="cdbody">
+                    <h1 text-wrap>{{planInfo.planName}}</h1>
+
+                    <span> {{percentageDays}}%</span>
+                    <div class="loader probar" >
+
+                        <div class="progress-outer">
+                            <div class="progress-inner" [style.width]="percentageDays + '%'">
+                                {{percentageDays}}%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrkbtm">
+                    
+                        <ion-button expand="block" (click)="openTab('workout')">
+                            Start 
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                                <g id="start" transform="translate(-966 -1035)">
+                                    <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                                    <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                                </g>
+                            </svg>
+                            
+                        </ion-button>
+                    </div>
+            
+              
+                </div>
+              </div>
+
+
+            
+           
+        </div>
+    </div>
+
 
 
     <ion-card class="fulpad valid"   *ngIf='noplan'>
@@ -136,7 +182,7 @@
         
     </ion-card>
 
-    <div *ngIf='todaySessionComplete'>
+    <!--<div *ngIf='todaySessionComplete'>
 
         <ion-card class="fulpad sumry"  >
             <ion-row >
@@ -156,7 +202,7 @@
                     <span>{{totalweight}}  </span>
                     <em>Avg Weight <dl>({{metrics}})</dl> </em>
                 </ion-col>-->
-                <ion-col size="4">
+                <!--<ion-col size="4">
                     <span>{{cal}}  </span>
                     <em>Calories <dl>(cal)</dl></em>
                 </ion-col>
@@ -168,7 +214,7 @@
             </ion-row>
 
         </ion-card><!-- End Summary Block-->
-    </div>
+    <!--</div>-->
 
     <ion-card class="fulpad valid"  *ngIf='noPlanActive'>
         <h3 >{{planInfo.planName}}</h3>

@@ -27,7 +27,8 @@
     
    </ion-buttons> -->
   </ion-toolbar> 
-  <ion-searchbar class="fulpad search" placeholder="Search Dishes" name="dishes" (ionInput)="getItems($event)" (click)="mealsList()"></ion-searchbar>
+  <ion-searchbar class="fulpad search" placeholder="Search Dishes" name="dishes" [(ngModel)]="dishName" (ionChange)="getItems($event)"></ion-searchbar>
+  <!--<ion-buttons slot="end" ><ion-button class="nobg" slot="icon-only" (click)="getItems()">Search</ion-button></ion-buttons>-->
 </ion-header>
 
 
@@ -37,7 +38,7 @@
 <ion-content [scrollEvents]="true" class="diet sbgry" >
   
 
-  <div class="fulpad lgraph" id="daybalance" *ngIf="addedmealslist">
+  <!--<div class="fulpad lgraph" id="daybalance" *ngIf="addedmealslist">
     <h3>Day Balance</h3>
     <ion-row >
       <ion-col class="fat"><em>{{fatDayBalGms}} g</em><progress-bar [progress]="fatDayBalGmsPercent"></progress-bar><span>Fat</span></ion-col>
@@ -45,7 +46,7 @@
       <ion-col class="carbohydrate"><em>{{carbsDayBalGms}} g</em><progress-bar [progress]="carbsDayBalGmsPercent"></progress-bar><span>Carbohydrate</span></ion-col>
       <ion-col class="calorie"><em>{{calDayBal}} </em><progress-bar [progress]="calDayBalPercent"></progress-bar><span>Calorie</span></ion-col>
     </ion-row>
-  </div>
+  </div>-->
            
   <ion-row id="addedlist" class="  adlist"  *ngIf="addedmealslist">
      <h4>Add Dishes <span>{{selectedFoodItems.length}} Items</span></h4>
@@ -139,7 +140,7 @@
               <h4>{{food.name}}</h4>
               <ion-row class="lgraph">
                   <ion-col><em>{{food.fat}} g</em><span>Fat</span></ion-col>
-                  <ion-col><em>{{food.protien}} g</em><span>Protein</span></ion-col>
+                  <ion-col><em>{{food.protein}} g</em><span>Protein</span></ion-col>
                   <ion-col><em>{{food.carbs}} g</em><span>Carbohydrate</span></ion-col>
                   <ion-col><em>{{food.calories}} Cal</em><span>Calories</span></ion-col>
               </ion-row>

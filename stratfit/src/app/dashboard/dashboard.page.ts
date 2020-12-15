@@ -155,6 +155,16 @@ export class DashboardPage implements OnInit {
   //public backButtonAction(){
    // this.modalCtrl.dismiss(); 
   //}
+
+
+  onImageError(plan){
+    this.planInfo.planPhoto = "assets/images/plan_2.png";
+    console.log("plan photo...");
+  }
+
+
+
+
   
    backButtonAction() {
     this.navCtrl.navigateRoot('/tabs/tabs/welcome');
@@ -928,7 +938,7 @@ ngOnInit(){
           if(data.res.rows.length > 0){
             // this.planInfo="";
             this.planInfo = { "id": data.res.rows.item(0).id, 
-            // "planPhoto": data.res.rows.item(0).planPhoto,
+            "planPhoto": data.res.rows.item(0).planPhoto,
               "planName": data.res.rows.item(0).planName,
             //  "coachPhoto":global.s3URL +data.res.rows.item(0).createdByImg,
               "coachName":data.res.rows.item(0).createdBy,

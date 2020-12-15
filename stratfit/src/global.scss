@@ -120,6 +120,7 @@ ul{margin:0; padding: 0;}
 em {font-style: normal;}
 .none {display: none !important;}
 .block {display: block !important;}
+.error {color: red !important;}
 
 
 
@@ -1206,12 +1207,14 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 }
 
 .contin {overflow:visible;transition: all .5s ease-out; 
-  .days, .week { text-align: center;position: relative; margin-bottom:40px; height: 56px; background: #fff;
-    ion-button { white-space: normal; word-break: break-all; font-size: x-small; font-weight: bold; width: 28px; margin:0 10px !important; background: none !important; --background: none !important; --box-shadow:none !important; --padding-start:0; --padding-end:0;  color: #000; transform: scale(1.2,1.2); transition-duration: .4s;transition: all .4s ease-out;  }
+  .days, .week { text-align: center;position: relative; margin-bottom:40px; /* height: 56px; */background: #fff;
+    ion-button { white-space: normal; word-break: break-all; font-size: x-small; width: 28px; margin:0 10px !important; background: none !important; --background: none !important; --box-shadow:none !important; --padding-start:0; --padding-end:0;  color: #000;  transition-duration: .4s;transition: all .4s ease-out;  }
 
     ion-button:nth-last-letter { font-size: x-large !important;}
-    ion-button.active { width: 36px; height:54px !important; margin-top:-5px !important; padding: 5px; position: relative; background: #000 !important; --background-activated: #000;--background-focused: #000;--background-hover: #000; color: #fff !important;  transform: scale(1.1,1.1);  transition-duration: .4s;transition: all .4s ease-out;}
-    ion-button.active:after { content: ""; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+    // ion-button.active { width: 36px; height:54px !important; margin-top:-5px !important; padding: 5px; position: relative; background: #000 !important; --background-activated: #000;--background-focused: #000;--background-hover: #000; color: #fff !important;  transform: scale(1.1,1.1);  transition-duration: .4s;transition: all .4s ease-out;}
+    // ion-button.active:after { content: ""; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+    ion-button.active { width: 36px; padding: 5px; position: relative; font-size: small; transform: scale(1.2,1.2);  font-weight: bold; transition-duration: .4s;transition: all .4s ease-out; }
+    ion-button.active:after { content: ""; position: absolute; bottom: 2px; left: 0; right: 0;  width: 100%; height: 2px; border-radius:6px; background:#0163d1; }
 
     em {display: block; padding:7px; font-size: small; font-weight: bold;}
   } // *** End Days & Week  *** ////
@@ -1509,8 +1512,8 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
     circle-progress {display:block; position: relative;
       svg {width:auto;height:auto; margin: auto;
         circle {stroke: #fff;}
-        text tspan {margin-bottom: 5px; font-weight: 900;}
-        text tspan:last-child{ fill:#000 !important; font-size:30px; font-weight: bold; }
+        text tspan {margin-bottom: 5px; font-weight:bold;}
+        text tspan:last-child{ fill:#000 !important; font-size:26px;  }
       }
     }
     .fat {
@@ -1628,7 +1631,7 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
     
 
   }
-  .mealsel{ font-size: 24px;font-weight: 900;
+  .mealsel{ font-size: 24px;font-weight: 900; border: 1px solid #ccc;
     .select-placeholder{opacity: 1 !important;}
   }
 

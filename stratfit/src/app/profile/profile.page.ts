@@ -234,18 +234,21 @@ export class ProfilePage implements OnInit {
     //converting (height)cm to feet,ins
     this.selectOptions = {
       title: 'Dietary Goal',
+      backdropDismiss: false,
       subTitle: 'Help StratFit regulate your daily calorie intake as per your dietary goals, set your dietary goals to get daily calorie recommendations.'
       
     };
 
     this.selectOptions2 = {
       title: 'Diet Type',
+      backdropDismiss: false,
       subTitle: 'Add your meals and we will help you track your daily macronutrient intake accordingly.'
       
     };
 
     this.selectOptions3 = {
       title: 'Do you have active physical job?',
+      backdropDismiss: false,
       subTitle: 'How many days per week do you do physical activities (Atheletic practice, Recreational sports, Physical work, etc)'
       
     };
@@ -482,6 +485,7 @@ export class ProfilePage implements OnInit {
       //this.timer.pauseTimer();
       this.prompt = await this.alertCtrl.create({
         message: 'Are you sure you want to logout?',
+        backdropDismiss: false,
         buttons: [
           {
             text: 'Yes',
@@ -577,6 +581,7 @@ export class ProfilePage implements OnInit {
     let prompt = await this.alertCtrl.create({
       // message: 'Upload Picture',
       message: 'Upload Your Profile Image',
+      backdropDismiss: false,
       buttons: [
         {
           text: 'Camera ',
@@ -618,6 +623,7 @@ export class ProfilePage implements OnInit {
     this.prompt = await this.alertCtrl.create({
       // title: 'No Subscription yet!',
       message:'Subscribe to Stratfit program from the store to start workout.',
+      backdropDismiss: false,
       buttons: [
         // {
         //   text: 'Create your Workout',

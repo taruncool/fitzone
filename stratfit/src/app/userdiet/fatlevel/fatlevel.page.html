@@ -47,13 +47,13 @@
       <ion-col size="6" >
         <div class="nobg iconcard text-left" >
           <span>BMI</span>    
-          <em>{{bmi}}</em>
+          <em>{{bmi | number:'2.2-2'}}</em>
         </div>
       </ion-col>
       <ion-col size="6" >
         <div class="nobg iconcard text-left" >
           <span>Fat</span>    
-          <em >{{bodyfatpercnt}}%</em>
+          <em >{{bodyfatpercnt | number:'2.2-2'}}%</em>
         </div>
       </ion-col>
 
@@ -83,14 +83,14 @@
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col ><em>Wake Up</em></ion-col>
-          <ion-col > <ion-datetime placeholder="Wake Up" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_wakeup"></ion-datetime></ion-col>
+          <ion-col > <ion-datetime placeholder="00:00 am" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_wakeup"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
 
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col ><em>Bed Time</em></ion-col>
-          <ion-col > <ion-datetime placeholder="Bed Time" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_bedtime"></ion-datetime></ion-col>
+          <ion-col > <ion-datetime placeholder="00:00 pm" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekday_bedtime"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
     </div>
@@ -103,14 +103,14 @@
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col ><em>Wake Up</em></ion-col>
-          <ion-col ><ion-datetime placeholder="Wake Up" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_wakeup"></ion-datetime></ion-col>
+          <ion-col ><ion-datetime placeholder="00:00 am" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_wakeup"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
 
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col ><em>Bed Time</em></ion-col>
-          <ion-col ><ion-datetime placeholder="Bed Time" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_bedtime"></ion-datetime></ion-col>
+          <ion-col ><ion-datetime placeholder="00:00 pm" displayFormat="hh-mm-A" [(ngModel)]="ninfo.weekend_bedtime"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
 
@@ -124,14 +124,14 @@
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col><em>From</em></ion-col>
-          <ion-col><ion-datetime placeholder="From" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_from"></ion-datetime></ion-col>
+          <ion-col><ion-datetime placeholder="00:00 am" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_from"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
 
       <ion-item class="sbgw " >
         <ion-row>
           <ion-col><em>To</em></ion-col>
-          <ion-col> <ion-datetime placeholder="To" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_to"></ion-datetime></ion-col>
+          <ion-col> <ion-datetime placeholder="00:00 pm" displayFormat="hh-mm-A" [(ngModel)]="ninfo.work_timings_to"></ion-datetime></ion-col>
         </ion-row>
       </ion-item >
 
@@ -141,7 +141,7 @@
     <div class="infild  setin mblast">  
       <h3>24 Hour Dietary recall</h3>
       <ion-item class="sbgw " >
-        <ion-textarea placeholder="Dietary recall" [(ngModel)]="ninfo.Dietary_recall"></ion-textarea>
+        <ion-textarea placeholder="00:00" [(ngModel)]="ninfo.Dietary_recall"></ion-textarea>
       </ion-item >
     </div>
 

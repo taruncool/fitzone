@@ -221,6 +221,15 @@ export class ApiService {
          }).pipe (data =>
            data);
   }
+  public getAllFood(token, data){
+    return this.http.post(global.baseURL + 'Nutrition/fetch_food/ ', data, {
+       headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+       'Authorization': token
+         })
+         }).pipe (data =>
+           data);
+  }
   public newextypedetailspdc(token){
     return this.http.post(global.baseURL + 'userprogram/newextypedetailspdc/', {
        headers: new HttpHeaders({
