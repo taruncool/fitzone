@@ -72,6 +72,7 @@ export class FatlevelPage implements OnInit {
         if(res.success){  
           console.log(res);
           this.ninfo = res.message[0];
+          this.value = this.ninfo.water_intake_perday?this.ninfo.water_intake_perday:3;
         }
       },(err) =>{
         if(err.status === 403){
