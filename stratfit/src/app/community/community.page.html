@@ -38,7 +38,8 @@
       </div>
   
       <ion-card class="sbgw "  *ngFor="let clist of coachlist" >
-        <ion-item class="sbgw" (click)="hide()">
+        <!--<ion-item class="sbgw" (click)="hide()">-->
+          <ion-item class="sbgw">
           <div class="title"  >
             <h3>{{clist.coachName}}</h3>
             <em>Fitness Strength Coach</em>
@@ -60,23 +61,23 @@
                 </em> -->
               </ion-col>
             </ion-row>
-            <ion-button class="nobg" >
-              Know More 
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
-                  <g id="start" transform="translate(-966 -1035)">
-                      <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
-                      <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
-                  </g>
-              </svg>
-                
-          </ion-button>
+            <ion-button class="nobg" (click)="viewCoachPrf(clist)">
+            Programs
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 54 54">
+                <g id="start" transform="translate(-966 -1035)">
+                    <rect id="Rectangle_138887" data-name="Rectangle 138887" transform="translate(966 1035)" fill="#80b419"/>
+                    <path id="Next" d="M12.745,26.506a.948.948,0,0,0,1.339,0,.948.948,0,0,0,0-1.339L2.309,13.392,14.084,1.616A.947.947,0,0,0,12.745.277L.277,12.722a.948.948,0,0,0,0,1.339Z" transform="translate(1000.361 1075.782) rotate(180)" fill="#fff"/>
+                </g>
+            </svg>
+              
+        </ion-button>
           </div>
           <ion-avatar slot="end">
             <img src={{clist.createdBy_id__avatar1}}>
           </ion-avatar>
         </ion-item>
 
-        <div class=" fulpad cardview" *ngIf="hideMe" >
+        <!--<div class=" fulpad cardview" *ngIf="hideMe" >
           <h2>About</h2>
           <p>Daniel McKee is a strength technology entrepreneur who founded StratFit. As a certified and internationally experienced professional, Daniel focuses not only on achieving his own physical fitness and discipline helping others do the same.</p>
         
@@ -90,7 +91,7 @@
             </svg>
               
         </ion-button>
-        </div>
+        </div>-->
    
        </ion-card>
   

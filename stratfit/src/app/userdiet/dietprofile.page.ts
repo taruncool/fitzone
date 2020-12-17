@@ -123,6 +123,7 @@ export class DietprofilePage implements OnInit {
   prompt;
   pageType;
   dayIndex;
+  selectedDayIndex;
   todayDietPlan;
   showDoneBtn: boolean = false;
   dietPlanSet:Boolean = false;
@@ -337,6 +338,7 @@ export class DietprofilePage implements OnInit {
 
   getDayDietPlan(dind) {
     this.todayDietPlan = this.overAllDietPlan[dind]['diets'];
+    this.selectedDayIndex = dind;
     if(this.dayIndex === dind) {
       this.showDoneBtn = true;
     } else {
@@ -357,28 +359,93 @@ export class DietprofilePage implements OnInit {
     this.finalFoodDataByDate = [];
     var today = new Date();
     var todayMealDate = ('0' +(today.getDate())).slice(-2)+"-"+('0' +(today.getMonth()+1)).slice(-2)+"-"+today.getFullYear();
-    for(let i =0; i < this.todayDietPlan.length; i++) {
-      let totalcal = 0;
-      let totalfat = 0;
-      let totalcarb = 0;
-      let totalpro = 0;
-      for(let j = 0; j < this.todayDietPlan[i].length; j++) {
-        totalcal = totalcal + this.todayDietPlan[i][j].calories;
-        totalfat = totalfat + this.todayDietPlan[i][j].fat;
-        totalcarb = totalcarb + this.todayDietPlan[i][j].carbs;
-        totalpro = totalpro + this.todayDietPlan[i][j].protein;
+    if(this.selectedDayIndex === this.dayIndex) {
+      let sessiodata = JSON.parse(localStorage.getItem('todayMealPlan'));
+      console.log("SessionData", sessiodata);
+      if(sessiodata) {
+        console.log("Date compare", sessiodata.date, today);
+        if(sessiodata.date === todayMealDate) {
+          this.finalFoodDataByDate = sessiodata.data;
+  
+        } else {
+          localStorage.removeItem('todayMealPlan');
+          for(let i =0; i < this.todayDietPlan.length; i++) {
+            let totalcal = 0;
+            let totalfat = 0;
+            let totalcarb = 0;
+            let totalpro = 0;
+            for(let j = 0; j < this.todayDietPlan[i].length; j++) {
+              totalcal = totalcal + this.todayDietPlan[i][j].calories;
+              totalfat = totalfat + this.todayDietPlan[i][j].fat;
+              totalcarb = totalcarb + this.todayDietPlan[i][j].carbs;
+              totalpro = totalpro + this.todayDietPlan[i][j].protein;
+            }
+            this.finalFoodDataByDate.push(
+              {
+              mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+              mealDate:todayMealDate,
+              mealTime:'Food Time',
+              mealcal:totalcal,
+              mealfat:totalfat,
+              mealpro:totalpro,
+              mealcarb:totalcarb,
+              completed:false,
+              mealData:this.todayDietPlan[i]});
+          }
+          let todayMealData = {"date":todayMealDate, "data": this.finalFoodDataByDate};
+          localStorage.setItem("todayMealPlan", JSON.stringify(todayMealData));
+        }
+      } else {
+        for(let i =0; i < this.todayDietPlan.length; i++) {
+          let totalcal = 0;
+          let totalfat = 0;
+          let totalcarb = 0;
+          let totalpro = 0;
+          for(let j = 0; j < this.todayDietPlan[i].length; j++) {
+            totalcal = totalcal + this.todayDietPlan[i][j].calories;
+            totalfat = totalfat + this.todayDietPlan[i][j].fat;
+            totalcarb = totalcarb + this.todayDietPlan[i][j].carbs;
+            totalpro = totalpro + this.todayDietPlan[i][j].protein;
+          }
+          this.finalFoodDataByDate.push(
+            {
+            mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+            mealDate:todayMealDate,
+            mealTime:'Food Time',
+            mealcal:totalcal,
+            mealfat:totalfat,
+            mealpro:totalpro,
+            mealcarb:totalcarb,
+            completed:false,
+            mealData:this.todayDietPlan[i]});
+        }
+        let todayMealData = {"date":todayMealDate, "data": this.finalFoodDataByDate};
+        localStorage.setItem("todayMealPlan", JSON.stringify(todayMealData));
       }
-      this.finalFoodDataByDate.push(
-        {
-        mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
-        mealDate:todayMealDate,
-        mealTime:'Food Time',
-        mealcal:totalcal,
-        mealfat:totalfat,
-        mealpro:totalpro,
-        mealcarb:totalcarb,
-        completed:false,
-        mealData:this.todayDietPlan[i]});
+    } else {
+      for(let i =0; i < this.todayDietPlan.length; i++) {
+        let totalcal = 0;
+        let totalfat = 0;
+        let totalcarb = 0;
+        let totalpro = 0;
+        for(let j = 0; j < this.todayDietPlan[i].length; j++) {
+          totalcal = totalcal + this.todayDietPlan[i][j].calories;
+          totalfat = totalfat + this.todayDietPlan[i][j].fat;
+          totalcarb = totalcarb + this.todayDietPlan[i][j].carbs;
+          totalpro = totalpro + this.todayDietPlan[i][j].protein;
+        }
+        this.finalFoodDataByDate.push(
+          {
+          mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+          mealDate:todayMealDate,
+          mealTime:'Food Time',
+          mealcal:totalcal,
+          mealfat:totalfat,
+          mealpro:totalpro,
+          mealcarb:totalcarb,
+          completed:false,
+          mealData:this.todayDietPlan[i]});
+      }
     }
     setTimeout(() => {
       this.getTotalLoad();
@@ -388,6 +455,10 @@ export class DietprofilePage implements OnInit {
 
   completeMeal(dTime) {
     this.finalFoodDataByDate[dTime].completed = true;
+    var today = new Date();
+    var todayMealDate = ('0' +(today.getDate())).slice(-2)+"-"+('0' +(today.getMonth()+1)).slice(-2)+"-"+today.getFullYear();
+    let todayMealData = {"date":todayMealDate, "data": this.finalFoodDataByDate};
+    localStorage.setItem("todayMealPlan", JSON.stringify(todayMealData));
     console.log("final food data by date",this.finalFoodDataByDate);
     setTimeout(() => {
       this.getTotalLoad();
