@@ -252,7 +252,7 @@
     <div class="infild  setin mblast">  
       <h3>Water intake in a day</h3>
       <ion-item class="sbgw fulpad " >
-        <ngx-slider [(value)]="value" [options]="options" [(ngModel)]="ninfo.water_intake_perday"></ngx-slider>
+        <ngx-slider [(value)]="waterVal" [options]="options" (valueChange)="waterChange()"></ngx-slider>
       </ion-item >
     </div>
     

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform,NavController, ModalController } from '@ionic/angular';
+import { Platform,NavController, ModalController, ToastController } from '@ionic/angular';
 import { Options } from '@angular-slider/ngx-slider';
 import { LoadData } from '../../../providers/loaddata';
 import { ApiService } from '../../../app/api.service';
@@ -27,13 +27,13 @@ export class FatlevelPage implements OnInit {
   mifflin;
   bmi;
   ninfo:any={};
-  value: number = 3;
+  waterVal: number = 3;
   options: Options = {
     floor: 0,
     ceil: 8
   };
 
-  constructor(public navCtrl: NavController,private apiService:ApiService, private loadData: LoadData) { }
+  constructor(public navCtrl: NavController,private apiService:ApiService, private loadData: LoadData, public toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.token = localStorage.getItem('usertoken');
@@ -72,7 +72,7 @@ export class FatlevelPage implements OnInit {
         if(res.success){  
           console.log(res);
           this.ninfo = res.message[0];
-          this.value = this.ninfo.water_intake_perday?this.ninfo.water_intake_perday:3;
+          this.waterVal = this.ninfo.water_intake_perday?parseInt(this.ninfo.water_intake_perday):3;
         }
       },(err) =>{
         if(err.status === 403){
@@ -87,6 +87,10 @@ export class FatlevelPage implements OnInit {
     // this.modalCtrl.dismiss();
     this.navCtrl.navigateBack('tabs/tabs/profile');
    }
+    
+  public waterChange() {
+    this.ninfo.water_intake_perday = this.waterVal;
+  }
 
 
    public nextStep(){
@@ -98,6 +102,7 @@ export class FatlevelPage implements OnInit {
         const userStr = JSON.stringify(response);
         let res = JSON.parse(userStr);
         if(res.success){  
+          this.toastmsg("Your data has been saved successfully");
           console.log(res);
         }
       },(err) =>{
@@ -107,6 +112,14 @@ export class FatlevelPage implements OnInit {
           //this.app.getRootNav().setRoot(LoginPage);
         }
       })
+  }
+
+  async toastmsg(msg) {
+    let toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
   }
 
   getAge(dateString) {
