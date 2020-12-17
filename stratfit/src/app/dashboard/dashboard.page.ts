@@ -253,10 +253,10 @@ export class DashboardPage implements OnInit {
     });
     this.prompt.present();
   }
-// ngOnInit(){
+ ngOnInit(){
 //   this.ionViewDidLoad();
-// }
-ngOnInit(){
+ }
+ionViewWillEnter(){
     
    
     this.today = Date.now();
@@ -1491,7 +1491,7 @@ ngOnInit(){
             //this.initLoad();
             //this.navCtrl.navigateForward('/dashboard');
             this.noPlanActive = false;
-            this.ngOnInit();
+            this.ionViewWillEnter();
           }).catch(err => {
             console.error('--12--'+JSON.stringify(err));
           });

@@ -181,13 +181,17 @@
           <ion-item class="sbgw text-center ">
             <!--<ion-input type="tel" name ='ex{{noOfWorkDays}}' pattern="[0-7]" id="ex{{noOfWorkDays}}" maxlength="1" [(ngModel)]='noOfWorkDays' readonly (click)='selectWorkDays()'></ion-input>-->
             <ion-select  [(ngModel)]="noOfWorkDays" placeholder="Select number of days" name="dayOff">
-                <ion-select-option value="1">1</ion-select-option>
-                <ion-select-option value="2">2</ion-select-option>
-                <ion-select-option value="3">3</ion-select-option>
-                <ion-select-option value="4">4</ion-select-option>
-                <ion-select-option value="5">5</ion-select-option>
-                <ion-select-option value="6">6</ion-select-option>
-                <ion-select-option value="7">7</ion-select-option>
+               
+                <ion-select-option value="1">1 day per week</ion-select-option>
+                <ion-select-option value="2">2 days per week</ion-select-option>
+                <ion-select-option value="3">3 days per week</ion-select-option>
+                <ion-select-option value="4">4 days per week </ion-select-option>
+                <ion-select-option value="5">5 days per week</ion-select-option>
+                <ion-select-option value="6">6 days per week</ion-select-option>
+                <ion-select-option value="7">7 days per week</ion-select-option> 
+                <!-- <ion-select-option value="0">None</ion-select-option>    -->
+
+
             </ion-select>
           </ion-item>
           

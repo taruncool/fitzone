@@ -873,7 +873,8 @@ export class DietprofilePage implements OnInit {
  async noMealsAlert(date){
     this.prompt = await this.alertCtrl.create({
       // title: 'No meals',
-      message:'No meals added on '+date,
+      message:'No meals added on' +date,
+      backdropDismiss: false,
       buttons: [
         {
           text: 'Ok',

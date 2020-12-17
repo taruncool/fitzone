@@ -13,7 +13,7 @@
      <ion-title >Meal Planner</ion-title>
 
      <ion-buttons slot="end" >
-      <ion-button class="nobg" (click)="displayCalendar()">
+      <!-- <ion-button class="nobg" (click)="displayCalendar()">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
             <g id="history" transform="translate(0 -0.315)">
               <rect id="Rectangle_138845" data-name="Rectangle 138845"  transform="translate(0 0.315)" fill="none"/>
@@ -21,7 +21,7 @@
               <path id="Path_8535" data-name="Path 8535" d="M37.088,40.039a2.484,2.484,0,0,0,.789.161c.056,0,.111.034.167.034a2.485,2.485,0,0,0,.852-.167,2.209,2.209,0,0,0,.22-.1,2.508,2.508,0,0,0,.577-.382c.039-.034.09-.046.128-.085L55.494,23.823a2.51,2.51,0,0,0-3.55-3.55L37.46,34.756l-13-5.444a2.511,2.511,0,0,0-1.942,4.631l14.554,6.094.015,0Z" transform="translate(5.144 4.713)" />
             </g>
          </svg>
-      </ion-button>
+      </ion-button> -->
 
       <ion-button class="nobg" href="https://wa.me/918801462421?text=Hello%20how%20can%20I%20help%20you">
          
@@ -114,7 +114,7 @@
                   <em class="adpadb">{{fatGms}} g</em>
                   <circle-progress [percent]="fatGmsBalancePercent" 
                   [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true"
-                  [titleFontSize]="40" [showTitle]="true" [showSubtitle]="true" [title]="fatGmsIntake+ ' g'" [subtitle]="'Fat'" [unitsFontSize]=" 30" [subtitleFontSize]="20" 
+                  [titleFontSize]="40" [showTitle]="true" [showSubtitle]="true" [title]="fatGmsIntake+ ' '" [subtitle]="'Fat(g)'" [unitsFontSize]=" 30" [subtitleFontSize]="20" 
                   [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#727272'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
                   </circle-progress>
 
@@ -126,7 +126,7 @@
 
                <ion-col size="6" class="protein admb-2 adpadb">
                   <em class="adpadb">{{protienGms}} g</em>
-                  <circle-progress [percent]="protienGmsBalancePercent" [showTitle]="true" [showSubtitle]="true" [title]="protienGmsIntake+ ' g'" [subtitle]="'Pro'" [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true" [titleFontSize]="40" [unitsFontSize]=" 30" [subtitleFontSize]="20" [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#E33849'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
+                  <circle-progress [percent]="protienGmsBalancePercent" [showTitle]="true" [showSubtitle]="true" [title]="protienGmsIntake+ ' '" [subtitle]="'Pro(g)'" [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100"  [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true" [titleFontSize]="40" [unitsFontSize]=" 30" [subtitleFontSize]="20" [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#E33849'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
                   </circle-progress>
             
                   <!-- Pro  -->
@@ -137,7 +137,7 @@
 
                <ion-col size="6" class="carbohydrate nobgb adpadb">
                   <em class="adpadb">{{carbsGms}} g</em>
-                  <circle-progress [percent]="carbsGmsBalancePercent" [showTitle]="true" [showSubtitle]="true" [title]="carbsGmsIntake+' g'" [subtitle]="'Carbs'" [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100" [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true" [titleFontSize]="40" [unitsFontSize]=" 30" [subtitleFontSize]="20"  [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#E6CF00'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
+                  <circle-progress [percent]="carbsGmsBalancePercent" [showTitle]="true" [showSubtitle]="true" [title]="carbsGmsIntake+' '" [subtitle]="'Carbs(g)'" [backgroundStrokeWidth]="0" [backgroundPadding]=" 0" [radius]="100" [innerStrokeWidth]="10" [outerStrokeWidth]="10" [space]=" -10" [outerStrokeGradient]=" true" [titleFontSize]="40" [unitsFontSize]=" 30" [subtitleFontSize]="20"  [animation]="true" [animationDuration]="1000" [showUnits]="false" [outerStrokeColor]= "'#E6CF00'" [innerStrokeColor]= "'#fff'" [showBackground]="false" [responsive]="true">
                   </circle-progress>
             
                   <!-- Carbs  -->

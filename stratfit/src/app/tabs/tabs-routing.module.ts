@@ -19,10 +19,10 @@ const routes: Routes = [
         loadChildren: () =>
           import('../userdiet/dietprofile.module').then(m => m.DietprofilePageModule)
       },
-      // {
-      //   path: 'dashboard',
-      //   loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
-      // },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
+      },
       {
         path: 'welcome',
         loadChildren: () => import('../welcome/welcome.module').then(m => m.WelcomePageModule)

@@ -298,6 +298,7 @@ heightArrCms= {
           items: [
             this.heightArrFeet.feet,  this.heightArrFeet.inches
           ],
+          theme: "dark",
           defaultItems: [
             {index:0, value: this.defaultHtFeet}
         ]

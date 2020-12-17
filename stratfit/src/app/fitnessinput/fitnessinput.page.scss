@@ -12,16 +12,7 @@
     }
     // .text-input {color: #000 !important;}
 
-    /* Gender Male / Female css */
-    .gender{ padding-top: 60px !important;  
-      h3 {margin-bottom: 4rem;}
-      // ion-row ion-col span{font-weight: 300;}
-       svg {width:28vw !important; height: 50vh !important; margin-bottom: 15px;}
-        .female {width:24vw !important;}
-        span{ display: block;  font-size: inherit;}
-        em {font-size: x-large !important; display: inline-block !important;}
-        .active {font-size:x-large; font-weight: bold; }
-    }
+   
 
     /* Height & Weight css */
     .bmeasur{  position: relative; height: 94vh;
@@ -110,6 +101,7 @@
             input{text-align: center !important;   }
           }
       }
+      ion-select{max-width: 100%; width: 100%;}
     }
 
 

@@ -110,6 +110,8 @@ img {width: 100%;}
 
 // h1, h2, h3, h4, h5, h6, .toolbar-title-md, .toolbar-title-ios, p, em{font-weight: normal !important;}
 .fontxlg{font-size: x-large !important; font-weight: 900; }
+.fontmd{font-size: medium !important;  }
+.fontsm{font-size: small !important;  }
 
 .text-left{text-align: left !important;}
 .text-center{text-align: center !important;}
@@ -132,11 +134,12 @@ ion-list:last-child  {margin-bottom: 0 !important;}
 
 // ion-input.text-input {font-size: 1.4rem; }
 // ion-label, .details {margin:10px 8px 10px 0; }
-ion-searchbar {
+ion-searchbar {--color:#000 !important;
   input{box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1) !important; background: #fff !important;}
   button {display: none !important;}
 }
 
+ion-toggle{--background:#999;}
 
 ion-button.button, ion-button.brn, .scrol button.active  {  text-transform: uppercase; margin-top:0; margin-bottom: 0.5rem;
   span {color:#fff !important;}
@@ -168,7 +171,7 @@ ion-button.nobg{color:#000 !important;
 
   }
   ion-item.chetxt  {font-size: small !important;
-    ion-checkbox {margin-right: 15px !important;}
+    ion-checkbox {margin-right: 15px !important; --background:#fff; box-shadow: 0 2px 4px 0 rgba(0,0,0,.08)!important; border-radius: 50%;}
   }
   ion-button {margin-left: 12px !important; margin-right: 12px !important;}
   
@@ -343,7 +346,7 @@ ion-select-popover{
     .alert-message{text-align: center;padding-bottom: 2rem; color: #fff !important; font-size: x-large !important; max-height: calc() !important;}
 
   /*---Bottom Selection Popup--- */
-  .picker-wrapper { background: #fff; border-radius: 25px 25px 0 0; padding-top: 10px; color: #000; --color:#000 !important;
+  .picker-wrapper { background: #fff;--backgrounbd:#fff; border-radius: 25px 25px 0 0; padding-top: 10px; color: #000; --color:#000 !important;
     .picker-toolbar {justify-content:space-around;  border-bottom: 1px solid #eee;
       .picker-button, .picker-button.activated { padding-left: 3rem; padding-right: 3rem;}
     }
@@ -540,7 +543,7 @@ ion-tab-bar{border-width: 0 !important;
 .fabclose.fabl3{left:30% !important ;}
 .fabclose.fabr3{right:30% !important ; left: inherit !important;}
 
-.tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  background:#0163D1; border-radius: 0 10px; background:#0163D1;
+.tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  background:#0163D1 !important; border-radius: 0 10px 0 20px;  z-index: 99;
   svg {width:1rem !important; height: 1rem !important;}
 }
 
@@ -596,59 +599,6 @@ ion-tab-bar{border-width: 0 !important;
   
 
 
-  /*iOS CSS*/
- 
-  
-
-  ion-app.platform-ios12 ion-content { pointer-events: auto; /*fix scroll lock on iOS 12.2*/ }
-  // .sfmenu.toolbar-ios ion-segment-button {padding-top:10px !important;}
-  // .item-ios {color: inherit;}
-  .header-ios {min-height:auto !important;padding-right: 0 !important; 
-    ion-toolbar.hedfm ion-title{ text-align: left; padding-right: 0 !important;}
-  }
-  // .toolbar-ios ion-title{padding: 0 3px 1px !important;}
-  // .title-ios {height: auto !important; min-height: auto !important;}
-  // .toolbar-ios{padding-left: 0 !important; padding-bottom:10px !important;}
-  // .toolbar-ios ion-segment-button {max-width:33.3333% !important;}
-  // .content-ios {
-    
-  //   .card-ios {
-  //     h2 {font-size: 2rem !important;}
-  //     em {font-size: 1.4rem !important;}
-  //   }
-  //   .list-ios {
-  //     .item {box-shadow: none !important;}
-  //   }
-  //   .list-ios>.item-block:first-child {border:0 !important;}
-  // }
-
-  .media-controls > .controls-bar.top-left {right:10px !important; left: auto !important; top:45px !important}
-  // .footer-ios { padding-bottom: 20px !important;}
-  ion-app.ios {
-    .sbtm-btn { padding-left:12px !important; padding-right:12px !important; padding-bottom: 12px !important;}
-  }
-
-
-  //New IOS CSS
-  .header-ios {}
- .ios{
-  .alert-message.sc-ion-alert-ios {max-height: inherit !important;}
-  .scrol.min{min-height: calc() !important;}
-  .contin .week ion-button{margin-right: 0 !important;}
-  .contin .days ion-button{width:30px !important;}
-  .goals .iconcard {min-height: 115px}
-  [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios{left:-16px !important;}
-  .picker-md .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button{border-top-color: #0163D1 !important; border-right-color: #0163D1 !important}
-  .picker-md .alert-button-group .alert-button:last-child, ion-alert .alert-button-group .alert-button:last-child{}
-
-  .tlevel {height: 94vh;}
-
-  .db .workout .wrkbtm ion-button svg, .db ion-card .wrkbtm ion-button svg{ margin-bottom:-5px !important; }
-  .contin .goals .iconcard{min-height: 115px !important;}
- }
- ion-card.ios{ margin-top: 10px !important; margin-bottom: 10px !important;}
-
-
 
 
 /*-------- Card ----------*/
@@ -684,7 +634,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   h2, h3, h4, h5, h6{ white-space: normal; text-overflow: ellipsis; }
 
   ion-button {
-    svg {width:1.6rem; }
+    svg {width:1.6rem; float: left; position: relative; }
   }
   // .off {margin-top:0 !important; margin-right:0 !important;font-size: 1.2rem; font-family: 'Open Sans', sans-serif !important;text-align: right;
   //     b{font-size: 2rem; font-weight: normal;}
@@ -698,6 +648,21 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 // ion-card.active, .fulcard.active, .dcard.active{transform: scale(.85);}
 
 
+/* --- Login & Sign ---*/
+.fitness { 
+   /* Gender Male / Female css */
+   .gender{ padding-top: 60px !important;  
+    h3 {margin-bottom: 4rem;}
+    // ion-row ion-col span{font-weight: 300;}
+     svg {width:28vw !important; height: 50vh !important; margin-bottom: 15px;}
+      .female {width:24vw !important;}
+      span{ display: block;  font-size: inherit;}
+      em {font-size: x-large !important; display: inline-block !important;}
+      .active {font-size:x-large; font-weight: bold; }
+  }
+}
+
+
 
 
 /*-- Store *** Coach *** Coachview *** Analytics *** Profile --*/
@@ -705,10 +670,10 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
   // ion-list  { padding: 0 !important;}
    
   /*--- Full Card scroll---*/
-  ion-slides {height: 72vh !important;}
-  .fulcard {width:100% !important;overflow: hidden;align-items:normal !important; position: relative; z-index: 999; color: #fff; text-align: left;
+  ion-slides {height: 100vh !important;}
+  .fulcard {width:100% !important;overflow: hidden;align-items:normal !important; position: relative; z-index: 999; color: #fff; text-align: left; background: #222 !important;
 
-    img {opacity: 0; transform: scale(1.1); width: 100%; height: 72vh; object-fit: cover; transition: 2s ;}
+    img {opacity: 0; transform: scale(1.1); width: 100%; height: 100vh; object-fit: cover; transition: 2s ;}
 
     .swiper-wrapper, .slide-zoom {height: 72rem !important;}
 
@@ -802,6 +767,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
     ion-col {padding: 0 7px 7px 0 !important;}
     ion-col:nth-child(2n+2) {padding-right: 0 !important;}
+  .tick {background: none !important;}
   }
   .gridview h1{font-size: x-large !important; line-height: 26px !important;}
 
@@ -932,6 +898,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     .item-ios { height: 50px !important;}
     .list-ios>.item-block:first-child {border-top: 0 !important; border-bottom:1px solid #eee !important;}
 
+    
     ion-toggle input[type="hidden"],  ion-toggle .toggle-icon, ion-toggle .toggle-inner, .toggle-checked .toggle-inner {background:#999 !important; border: 2px solid #fff;}
     
   }
@@ -1673,6 +1640,66 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
 
 
 }
+
+
+
+  /*iOS CSS*/
+ 
+  
+
+  ion-app.platform-ios12 ion-content { pointer-events: auto; /*fix scroll lock on iOS 12.2*/ }
+  // .sfmenu.toolbar-ios ion-segment-button {padding-top:10px !important;}
+  // .item-ios {color: inherit;}
+  .header-ios {min-height:auto !important;padding-right: 0 !important; 
+    ion-toolbar.hedfm ion-title{ text-align: left; padding-right: 0 !important;}
+  }
+  // .toolbar-ios ion-title{padding: 0 3px 1px !important;}
+  // .title-ios {height: auto !important; min-height: auto !important;}
+  // .toolbar-ios{padding-left: 0 !important; padding-bottom:10px !important;}
+  // .toolbar-ios ion-segment-button {max-width:33.3333% !important;}
+  // .content-ios {
+    
+  //   .card-ios {
+  //     h2 {font-size: 2rem !important;}
+  //     em {font-size: 1.4rem !important;}
+  //   }
+  //   .list-ios {
+  //     .item {box-shadow: none !important;}
+  //   }
+  //   .list-ios>.item-block:first-child {border:0 !important;}
+  // }
+
+  .media-controls > .controls-bar.top-left {right:10px !important; left: auto !important; top:45px !important}
+  // .footer-ios { padding-bottom: 20px !important;}
+  ion-app.ios {
+    .sbtm-btn { padding-left:12px !important; padding-right:12px !important; padding-bottom: 12px !important;}
+  }
+
+
+  //New IOS CSS
+  .header-ios {}
+ .ios{
+  .alert-message.sc-ion-alert-ios {max-height: inherit !important;}
+  .scrol.min{min-height: calc() !important;}
+  .contin .week ion-button{margin-right: 0 !important;}
+  .contin .days ion-button{width:30px !important;}
+  .goals .iconcard {min-height: 115px}
+  [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios{left:-16px !important;}
+  .picker-md .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button{border-top-color: #0163D1 !important; border-right-color: #0163D1 !important}
+  .picker-md .alert-button-group .alert-button:last-child, ion-alert .alert-button-group .alert-button:last-child{}
+
+  .tlevel {height: 94vh;}
+
+  .db .workout .wrkbtm ion-button svg, .db ion-card .wrkbtm ion-button svg{ margin-bottom:-5px !important; }
+  .contin .goals .iconcard{min-height: 115px !important;}
+ }
+ ion-card.ios{ margin-top: 10px !important; margin-bottom: 10px !important;}
+
+ .fitness .gender{padding-top: 25px !important;
+  h3{margin-bottom: 1rem !important;}
+}
+
+
 
 
 
