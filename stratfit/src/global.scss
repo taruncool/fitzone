@@ -441,9 +441,14 @@ ion-select-popover{
     
   }
   svg {width:22px;height:22px; margin-top: 4px;}
+
+  
 }
 .head.back{
   svg{fill:#fff !important}
+  ion-button.backbg{ background: #fff !important;width: 32px;margin-left: 8px;height: 32px;border-radius: 50% !important;
+    svg {width: 16px !important; height: 16px !important;margin-left: -3px !important; margin-top: 0 !important; fill: #000 !important;}
+  }
 }
 
 .head .info svg {border-radius: 50%; background: #fff; fill: #000 !important;
@@ -546,6 +551,7 @@ ion-tab-bar{border-width: 0 !important;
 .tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  background:#0163D1 !important; border-radius: 0 10px 0 20px;  z-index: 99;
   svg {width:1rem !important; height: 1rem !important;}
 }
+.tick.bg{background:#3880ff !important;border-radius: 0 10px 0 20px !important; padding: 6px 8px !important;}
 
 .play{ position: absolute; left:0;top:0;bottom: 0; right: 0; z-index:99; /*background: linear-gradient(90deg, rgba(134,226,13,1) 0%, rgba(128,180,25,1) 100%);*/ 
   svg {left:50%;top:50%;transform:translate(-50%, -50%); position: absolute; border-radius: 50%; width: 80px !important; height:80px !important; background: #329DFB;
@@ -675,7 +681,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
     img {opacity: 0; transform: scale(1.1); width: 100%; height: 100vh; object-fit: cover; transition: 2s ;}
 
-    .swiper-wrapper, .slide-zoom {height: 72rem !important;}
+    // .swiper-wrapper, .slide-zoom {height: 72rem !important;}
 
     .container{position: absolute; top:0; transition:.3s ease-in-out; z-index: 888; padding:30px 15px; bottom: 0; left: 0; right: 0;
       .cdbody {
