@@ -57,7 +57,7 @@
         <div class="scrol">
        
            <ion-avatar *ngFor="let fooditem of selectedFoodItems"> 
-             <img src="http://stratfit.net/food/{{fooditem.id}}.jpg">  
+             <img src="https://stratfit.net/food/{{fooditem.id}}.jpg">  
               <dd (click)="removeFullFoodItem(fooditem)">
                  <!-- <svg id="Close_" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 80 80">
                     <path id="Path_119" data-name="Path 119" d="M162.965,159.352a3.262,3.262,0,0,0-4.564,4.661l25.678,25.134a3.262,3.262,0,0,0,4.563-4.662Z" transform="translate(-109.623 -110.079)" />
@@ -134,7 +134,7 @@
         <p *ngIf="alertmsg">{{alertmsg}}</p>
         <ion-item class="nobg nopad" *ngFor="let food of temporaryFoodItemsFilter">
             <ion-avatar slot="start">
-              <img src="http://stratfit.net/food/{{food.id}}.jpg">
+              <img src="https://stratfit.net/food/{{food.id}}.jpg">
             </ion-avatar>
             <ion-row class="title">
               <h4>{{food.name}}</h4>

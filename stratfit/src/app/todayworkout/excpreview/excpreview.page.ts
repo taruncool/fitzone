@@ -55,7 +55,7 @@ playVideo(idplan){
       
     }else if(this.fromPg==='1'){
 
-      this.streamingMedia.playVideo('http://stratfit.net/newExVideo/'+this.exinfo.id+'.mp4', options);    
+      this.streamingMedia.playVideo('https://stratfit.net/newExVideo/'+this.exinfo.id+'.mp4', options);    
 
     }
     

@@ -606,6 +606,11 @@ export class ProfilePage implements OnInit {
               this.imageSet = true;
             });
           }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {
+          }
         }
         
       ]

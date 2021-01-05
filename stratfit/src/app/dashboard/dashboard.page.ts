@@ -1076,7 +1076,8 @@ ionViewWillEnter(){
                                          this.loadData.stopLoading();
                                       } else {
                                         let nextMicroID = nextMicrodata.res.rows.item(0).micro_id;
-                                      
+                                        console.log(planCompletedDay.res.rows.item(0).micro_id)
+                                        console.log(nextMicroID);
                                         this.sqlStorageNew.query("select COUNT(DISTINCT day_id) as totalWDays from planactions where micro_id = " + nextMicroID + " AND status = 0 GROUP BY day_id").then(
                                           workoutLeftObj => {
                                             if(workoutLeftObj.res.rows.length === 0) {
@@ -1091,6 +1092,7 @@ ionViewWillEnter(){
                                               if(daysLeft >= workoutLeftDays ){
                                                 this.sqlStorageNew.query("select * from planactions where micro_id = " + nextMicroID + " AND day_id > " + planCompletedDay.res.rows.item(0).day_id + " AND status = 0").then(
                                                   laodWDataObj => {
+                                                    /*console.log(laodWDataObj.res.rows.item(0).day_id, planCompletedDay.res.rows.item(0).day_id);
                                                     let idDiff = laodWDataObj.res.rows.item(0).day_id - planCompletedDay.res.rows.item(0).day_id;
                                                     if(idDiff > Math.floor(Difference_In_Days)) {
                                                       console.log("Rest Day 5");
@@ -1099,11 +1101,11 @@ ionViewWillEnter(){
                                                       this.currentMicroID = nextMicroID;
                                                       this.showNextWorkoutDateRestDay();
                                                        this.loadData.stopLoading();
-                                                    } else {
+                                                    } else {*/
                                                       let todayDayId = laodWDataObj.res.rows.item(0).day_id;
                                                       localStorage.setItem('todayDayId',todayDayId);
                                                        this.loadData.stopLoading();
-                                                    }
+                                                    //}
                                                 });
                                               } else {
                                                 console.log("Selected Micro ID", nextMicroID);

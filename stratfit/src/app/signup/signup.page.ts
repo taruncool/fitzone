@@ -247,13 +247,13 @@ export class SignupPage implements OnInit {
       if(this.devicetype === 'android') {
         this.googlePlus.login({
           'scopes': '',
-          'webClientId':'542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
+          'webClientId':'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',
           'offline': false
         })
         .then(function (user) {
           loading.dismiss();
           if(user !=='' && user !==null){
-            self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+            self.sociallogin('google-oauth2',user.accessToken, '798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
           }
           console.log(user,'==google login response==');
         }, function (error) {
@@ -268,7 +268,7 @@ export class SignupPage implements OnInit {
         .then(function (user) {
           loading.dismiss();
           if(user !=='' && user !==null){
-            self.sociallogin('google-oauth2',user.accessToken, '542443556715-46gfa0kitll0o47ks64g7blaecuiel4e.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
+            self.sociallogin('google-oauth2',user.accessToken, '798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)//'798608632942-p2un0isrhgcbdaaqtf2pbf68mo4ouk4b.apps.googleusercontent.com',user.serverAuthCode)
           }
           console.log(user,'==google login response==');
         }, function (error) {
@@ -299,70 +299,30 @@ export class SignupPage implements OnInit {
           this.apiService.sociallogin(creds).subscribe((response)=>{
                 const userStr = JSON.stringify(response);
                 let res = JSON.parse(userStr);
-              if (res.success) {
-                localStorage.setItem('isLogged', 'true');
-                localStorage.setItem('usertoken', res.sessiontoken);
-                localStorage.setItem('userId', res.user_id);
-                localStorage.setItem('loggedAs', res.username);
-                localStorage.setItem('email', res.userDetails);
-                localStorage.setItem('firstname', res.first_name);
-                localStorage.setItem('lastname', res.last_name);
-                localStorage.setItem('avatar', res.avatar);
-                localStorage.setItem('coverImage', res.coverImage);
-                localStorage.setItem('orgId', res.orgId);
-                localStorage.setItem('gender', res.profile.gender);
-                localStorage.setItem('dob', res.profile.dob1);
-                localStorage.setItem('weight', res.profile.weight);
-                localStorage.setItem('height', res.profile.height);
-                localStorage.setItem('heightunit', res.profile.heightUnit);
-                localStorage.setItem('weightunit', res.profile.weightUnit);
-                localStorage.setItem('profileSet', res.isProfileSet);
-                localStorage.setItem('planSet', res.isPlanSet);
-                localStorage.setItem('tmaxSet', res.isTmaxSet);
-                localStorage.setItem('phone', res.phone);
-                localStorage.setItem('phonecode', res.phonecode);
-                localStorage.setItem('currencyType', res.currencyType);
-                localStorage.setItem('otp', res.otp);
-                localStorage.setItem('userType', res.userType);
-                localStorage.setItem('traininglevel', res.profile.trainingLevel);
-                localStorage.setItem('categorylevel', 'true');
-                localStorage.setItem('isSoundOn', "false");
-                localStorage.setItem('isVibrateOn', "false");
-                if(res.plans.length !== 0){
-                  for(var k=0; k<res.plans.length; k++){
-                    if(res.plans[k].status===1){
-                      var activePlanId = res.plans[k].plan_id;
-                      localStorage.setItem('subplanid',activePlanId);
+                if (res.success) {
+                  this.loadData.loginSuccess(res);
+                  if (res.isProfileSet) {
+                    // let exerciseList = res.Exercises;
+                    // this.exerciseInsert(exerciseList);
+                    
+                    if (res.isPlanSet) {
+                      this.loadData.clearDataBaseNew();
+                      this.tMaxData = res.tmax;
+                      this.checkQueryHit(res);
+                    } else {
+                      this.loadData.getExercisesNew();
+                      this.loadData.stopLoading();
+                      this.navCtrl.navigateForward('/goal');
                     }
-                    else if(res.plans[k].status===3){
-                      var futureplanId = res.plans[k].plan_id;
-                      localStorage.setItem('futureplanid',futureplanId);
-                    }
-                    else{
-                      var previousplanId = res.plans[k].plan_id;
-                      localStorage.setItem('previousplanid',previousplanId);
-                    }
-  
-                  }	
-                }
-                if (res.isProfileSet) {
-                
-                  if (res.isPlanSet) {
-                    localStorage.setItem('planSet','true');
-                    this.tMaxData = res.tmax;
-                    // this.checkQueryHit(res) ;
                   } else {
                     this.loadData.stopLoading();
-                    this.navCtrl.navigateForward('/goal');
+                    this.navCtrl.navigateForward('/fitnessinput');
                   }
                 } else {
                   this.loadData.stopLoading();
-                  this.navCtrl.navigateForward('/fitnessinput');
+                  this.toastmsg(res.message);
+                  buttons: ['OK']
                 }
-              } else {
-                this.loadData.stopLoading();
-                this.toastmsg(res.message);
-              }
             }, (err) => {
               this.loadData.stopLoading();
               this.errorMsg();
@@ -375,6 +335,21 @@ export class SignupPage implements OnInit {
         });
         toast.present();
       }
+    }
+
+    async checkQueryHit(res){
+
+      this.loadData.checkjson(res.plans[0].plan_id);
+      this.loadData.stopLoading();
+      let loginProgressModal = await this.modalCtrl.create({component:ProgressloginPage,
+        componentProps:{"resvalue":res}
+      });
+    
+      loginProgressModal.present();
+      loginProgressModal.onDidDismiss().then(data=>{
+        
+      });
+     
     }
   
     // async checkQueryHit(res){
