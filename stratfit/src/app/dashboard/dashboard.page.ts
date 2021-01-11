@@ -1255,7 +1255,7 @@ ionViewWillEnter(){
    
      let navigationExtras: NavigationExtras = {
       state: {
-        'uplandata':{'plan_id':this.planInfo.id,'planName':this.planInfo.planName,'planPhoto':this.planInfo.planPhoto,'startdate':this.planInfo.startdate,'defaultOffDay':this.planInfo.dayoff,'firstplan':false,'exercises':[]}
+        'uplandata':{'plan_id':this.planInfo.id,'planName':this.planInfo.planName,'planPhoto':this.planInfo.planPhoto,'startdate':this.planInfo.startdate,'defaultOffDay':this.planInfo.dayoff,'firstplan':false,'exercises':[],'from':'dashboard'}
       }
     };
     this.router.navigate(['progressbar'], navigationExtras);

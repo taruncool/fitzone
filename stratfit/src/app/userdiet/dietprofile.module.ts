@@ -11,6 +11,8 @@ import { DietprofilePageRoutingModule } from './dietprofile-routing.module';
 import { DietprofilePage } from './dietprofile.page';
 import { DiethistoryPage } from './diethistory/diethistory.page';
 import { AddmealPage } from './addmeal/addmeal.page';
+import { FeedbackPage } from '../feedback/feedback.page';
+
 
 @NgModule({
   imports: [
@@ -24,6 +26,6 @@ import { AddmealPage } from './addmeal/addmeal.page';
     DietprofilePageRoutingModule
   ],
   declarations: [DietprofilePage],
-  entryComponents: [DiethistoryPage, AddmealPage]
+  entryComponents: [DiethistoryPage, AddmealPage, FeedbackPage]
 })
 export class DietprofilePageModule {}

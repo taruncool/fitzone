@@ -151,7 +151,11 @@ export class ProgressbarPage implements OnInit {
             localStorage.setItem('work','');
             localStorage.setItem('cal','');
             this.modalCtrl.dismiss();
-            this.nav.navigateRoot('/dashboard');
+            if(this.uplandata.from === 'renew') {
+              this.nav.navigateRoot('/tabs/tabs/welcome');
+            } else {
+              this.nav.navigateRoot('/dashboard');
+            }
             //this.initLoad();
           }).catch(err => {
             console.error('--12--'+JSON.stringify(err));

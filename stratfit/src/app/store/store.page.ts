@@ -9,6 +9,7 @@ import { global } from "../../app/global";
 import { ApiService } from '../../app/api.service';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
 import { GoalPage } from '../goal/goal.page';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @Component({
   selector: 'app-store',
@@ -356,8 +357,12 @@ async noProgramsAlert(){
 
 
 
-public openfeedback(){
-  this.navCtrl.navigateForward('/feedback');
+async openfeedback(){
+  //this.navCtrl.navigateForward('/feedback');
+  let modal = await this.modalCtrl.create({component:FeedbackPage,
+    componentProps: {  }
+  });
+  modal.present();
 }
 
 }

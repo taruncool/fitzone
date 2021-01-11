@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { ImagepreviewPage } from './imagepreview/imagepreview.page';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ImagepreviewPage } from './imagepreview/imagepreview.page';
     ProfilePageRoutingModule
   ],
   declarations: [ProfilePage],
-  entryComponents: [ImagepreviewPage]
+  entryComponents: [ImagepreviewPage, FeedbackPage]
 })
 export class ProfilePageModule {}

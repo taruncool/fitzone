@@ -5,6 +5,7 @@ import {SqlStorageNew} from '../../providers/sql-storage-new';
 import { LoadData } from '../../providers/loaddata';
 import { ApiService } from '../../app/api.service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @Component({
   selector: 'app-analytics',
@@ -804,8 +805,12 @@ public getExercise(exercise_id,round_id){
   }
 
 
-  public openfeedback(){
-    this.navCtrl.navigateForward('/feedback');
+  async openfeedback(){
+    //this.navCtrl.navigateForward('/feedback');
+    let modal = await this.modalCtrl.create({component:FeedbackPage,
+      componentProps: {  }
+    });
+    modal.present();
   }
 
 }

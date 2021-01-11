@@ -10,6 +10,7 @@ import { CalendarController } from "ion2-calendar/dist";
 import { DiethistoryPage } from './diethistory/diethistory.page';
 import { AddmealPage } from './addmeal/addmeal.page';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @Component({
   selector: 'app-dietprofile',
@@ -1271,8 +1272,12 @@ export class DietprofilePage implements OnInit {
 
 
 
-  public openfeedback(){
-    this.navCtrl.navigateForward('/feedback');
+  async openfeedback(){
+    //this.navCtrl.navigateForward('/feedback');
+    let modal = await this.modalCtrl.create({component:FeedbackPage,
+      componentProps: {  }
+    });
+    modal.present();
   }
 
 }

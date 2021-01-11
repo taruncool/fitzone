@@ -11,6 +11,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ImagepreviewPage } from './imagepreview/imagepreview.page';
 import { ImageProvider } from '../../providers/image/image';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 
 @Component({
@@ -339,8 +340,12 @@ export class ProfilePage implements OnInit {
   public openTmax(){
     this.navCtrl.navigateForward('/tmaxsummary');
   }
-  public openfeedback(){
-    this.navCtrl.navigateForward('/feedback');
+  async openfeedback(){
+    //this.navCtrl.navigateForward('/feedback');
+    let modal = await this.modalCtrl.create({component:FeedbackPage,
+      componentProps: {  }
+    });
+    modal.present();
   }
   public openfaqs(){
     this.navCtrl.navigateForward('/faqs');

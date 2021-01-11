@@ -827,7 +827,7 @@ export class ProgramdetailsPage implements OnInit {
    
      let navigationExtras: NavigationExtras = {
       state: {
-        'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}
+        'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises,'from':'programdetails'}
       }
     };
     this.router.navigate(['progressbar'], navigationExtras);

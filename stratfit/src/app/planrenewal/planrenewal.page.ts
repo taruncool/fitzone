@@ -10,6 +10,7 @@ import { GlossaryPage } from '../mysubscription/glossary/glossary.page';
 import { ProgressbarPage } from '../todayworkout/progressbar/progressbar.page';
 import { StartdatePage } from '../startdate/startdate.page';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx';
 
 declare var RazorpayCheckout: any;
@@ -78,7 +79,7 @@ export class PlanrenewalPage implements OnInit {
   planState;
 
 
-  constructor(public navCtrl: NavController, private streamingMedia: StreamingMedia, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew, public iap:InAppPurchase) {
+  constructor(public navCtrl: NavController, private streamingMedia: StreamingMedia, public navParams: NavParams ,private apiService: ApiService, private platform: Platform, private http: HttpClient, private loadData: LoadData, public toastCtrl: ToastController, private ga: GoogleAnalytics, public modalCtrl: ModalController,public sqlStorageNew: SqlStorageNew, public iap:InAppPurchase, private route: ActivatedRoute, private router: Router) {
     this.userCountry = 190;
   }
  async ngOnInit() {
@@ -607,17 +608,8 @@ export class PlanrenewalPage implements OnInit {
             let res = JSON.parse(userStr);
             let planresponse = res;
             if(this.planComplete){
-              this.sqlStorageNew.query("DELETE FROM planmesocycle");
-              this.sqlStorageNew.query("DELETE FROM userplan");
-              this.sqlStorageNew.query("DELETE FROM exercises where accessLevel=2");
-              this.sqlStorageNew.query("DELETE FROM planmicrocycles");
-              this.sqlStorageNew.query("DELETE FROM plansessions");
-              this.sqlStorageNew.query("DELETE FROM exwarmup");
-          		this.sqlStorageNew.query("DELETE FROM plandays");
-          		this.sqlStorageNew.query("DELETE FROM planactivity");
-          		this.sqlStorageNew.query("DELETE FROM planround");
-          		this.sqlStorageNew.query("DELETE FROM planactions");
-              this.sqlStorageNew.query("DELETE FROM planperiod").then(data=>{
+              this.loadData.clearPlanDBNew();
+              this.sqlStorageNew.query("DELETE FROM userplan").then(data=>{
                   this.checkQueryHit(planresponse);
                 }               
               );
@@ -691,15 +683,32 @@ export class PlanrenewalPage implements OnInit {
 
         //this.loadData.checkQuery(false,false,false).then(data=>{
           // this.loadData.stopLoading();
-          let planprogressModal = await this.modalCtrl.create({
-            component: ProgressbarPage,
-            componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':exercisesList}}
-          });
-          planprogressModal.present();
+          // let planprogressModal = await this.modalCtrl.create({
+          //   component: ProgressbarPage,
+          //   componentProps:{'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':exercisesList}}
+          // });
+          // planprogressModal.present();
         //});
+        this.modalCtrl.dismiss();
+        let navigationExtras: NavigationExtras = {
+          state: {
+            'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':exercisesList,'from':'renew'}
+          }
+        };
+        this.router.navigate(['progressbar'], navigationExtras);
       }
     }
   }
+
+  // async showprogresspopup(resvalue) {
+   
+  //    let navigationExtras: NavigationExtras = {
+  //     state: {
+  //       'uplandata':{'plan_id':this.cplan_id,'planName':this.cplan_name,'planPhoto':this.cplan_photo,'startdate':this.cplan_startdate,'defaultOffDay':resvalue.data.dayoff,'firstplan':false,'exercises':this.planinfo.exercises}
+  //     }
+  //   };
+  //   this.router.navigate(['progressbar'], navigationExtras);
+  // }
 
   onPlanImageError(){
     this.plandetails.planPhoto ="assets/images/plan_2.png";

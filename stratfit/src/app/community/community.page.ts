@@ -7,6 +7,7 @@ import { LoadData } from '../../providers/loaddata';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { CoachprofilePage } from '../coachprofile/coachprofile.page';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @Component({
   selector: 'app-community',
@@ -163,7 +164,11 @@ export class CommunityPage implements OnInit {
     this.navCtrl.navigateRoot('/tabs/tabs/welcome');
   }
 
-  public openfeedback(){
-    this.navCtrl.navigateForward('/feedback');
+  async openfeedback(){
+    //this.navCtrl.navigateForward('/feedback');
+    let modal = await this.modalCtrl.create({component:FeedbackPage,
+      componentProps: {  }
+    });
+    modal.present();
   }
 }

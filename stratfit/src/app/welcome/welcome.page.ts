@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController} from '@ionic/angular';
+import { ModalController, NavController} from '@ionic/angular';
 import { DashboardPage } from '../dashboard/dashboard.page';
 import { DietprofilePage } from '../userdiet/dietprofile.page';
 import { StorePage } from '../store/store.page';
 import { CommunityPage } from '../community/community.page';
+import { FeedbackPage } from '../feedback/feedback.page';
 // import { GymsPage } from '../gyms/gyms.page';
 
 
@@ -16,7 +17,7 @@ export class WelcomePage implements OnInit {
 
   name;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, public modalCtrl:ModalController) { }
 
   ngOnInit() {
     this.name = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
@@ -43,8 +44,12 @@ public community(){
   this.navCtrl.navigateForward('/community');
 }
 
-public openfeedback(){
-  this.navCtrl.navigateForward('/feedback');
+async openfeedback(){
+  //this.navCtrl.navigateForward('/feedback');
+  let modal = await this.modalCtrl.create({component:FeedbackPage,
+    componentProps: {  }
+  });
+  modal.present();
 }
 
 }

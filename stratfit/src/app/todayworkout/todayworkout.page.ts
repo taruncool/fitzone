@@ -28,6 +28,7 @@ import { TimerpopupPage } from '../workout/timerpopup/timerpopup.page';
 import { WtcalpopupPage } from '../workout/wtcalpopup/wtcalpopup.page';
 import { InstpopupPage } from '../workout/instpopup/instpopup.page';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { FeedbackPage } from '../feedback/feedback.page';
 
 @Component({
   selector: 'app-todayworkout',
@@ -2844,8 +2845,12 @@ console.log("todays workout back button tag");
 
 
 
-  public openfeedback(){
-    this.navCtrl.navigateForward('/feedback');
+  async openfeedback(){
+    //this.navCtrl.navigateForward('/feedback');
+    let modal = await this.modalCtrl.create({component:FeedbackPage,
+      componentProps: {  }
+    });
+    modal.present();
   }
 
 }
