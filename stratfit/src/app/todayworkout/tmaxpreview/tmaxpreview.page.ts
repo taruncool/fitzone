@@ -118,6 +118,7 @@ export class TmaxpreviewPage implements OnInit {
     }
     this.prompt = await this.alertCtrl.create({
       // title: 'Tmax change!',
+      backdropDismiss: false,
       message:'Do you want to change Tmax of other exercises too?',
       buttons: [
         {
