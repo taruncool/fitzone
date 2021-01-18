@@ -280,13 +280,15 @@ export class SignupPage implements OnInit {
     }
   
     public nativeFbLogin(){
-      this.fb.login(['public_profile', 'user_friends', 'email'])
-      .then((res: FacebookLoginResponse) => 
-        this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
-      )
-      .catch(e => {
-        this.errorMsg();
-      });
+      this.fb.logout().then(() => { 
+        this.fb.login(['public_profile', 'user_friends', 'email'])
+        .then((res: FacebookLoginResponse) => 
+          this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
+        )
+        .catch(e => {
+          this.errorMsg();
+        });
+      }).catch(() => { });
     }
     //(socialtype, accessToken, clientid, code)
     async sociallogin(socialtype, accessToken, clientid, code) {

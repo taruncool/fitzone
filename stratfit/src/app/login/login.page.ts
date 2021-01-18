@@ -103,13 +103,16 @@ clearData(){
 }
 
 public nativeFbLogin(){
-  this.fb.login(['public_profile', 'user_friends', 'email'])
-  .then((res: FacebookLoginResponse) => 
-    this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
-  )
-  .catch(e => {
-    this.errorMsg();
-  });
+  this.fb.logout().then(() => { 
+    this.fb.login(['public_profile', 'user_friends', 'email'])
+    .then((res: FacebookLoginResponse) => 
+      this.sociallogin('facebook', res.authResponse.accessToken, res.authResponse.userID, false)
+    )
+    .catch(e => {
+      console.log('Error logging into Facebook', e);
+      this.errorMsg();
+    });
+  }).catch(() => { });
 }
 
 async sociallogin(socialtype, accessToken, clientid, code) {

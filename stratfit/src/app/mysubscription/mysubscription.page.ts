@@ -231,7 +231,7 @@ export class MysubscriptionPage implements OnInit {
       //controls: false
     };
     
-    this.streamingMedia.playVideo('http://stratfit.net/ProgramVideos/'+this.plandetails.id+'-preview.mp4', options);    
+    this.streamingMedia.playVideo('https://stratfit.net/ProgramVideos/'+this.plandetails.id+'-preview.mp4', options);    
 
   }
 
