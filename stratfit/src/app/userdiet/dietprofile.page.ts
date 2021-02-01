@@ -383,7 +383,7 @@ export class DietprofilePage implements OnInit {
             }
             this.finalFoodDataByDate.push(
               {
-              mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+              mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Mid Morning':(i === 2)? 'Lunch':(i === 3)? 'Snacks':(i === 4)? 'Dinner':'Bed Time'),
               mealDate:todayMealDate,
               mealTime:'Food Time',
               mealcal:totalcal,
@@ -410,7 +410,7 @@ export class DietprofilePage implements OnInit {
           }
           this.finalFoodDataByDate.push(
             {
-            mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+            mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Mid Morning':(i === 2)? 'Lunch':(i === 3)? 'Snacks':(i === 4)? 'Dinner':'Bed Time'),
             mealDate:todayMealDate,
             mealTime:'Food Time',
             mealcal:totalcal,
@@ -437,7 +437,7 @@ export class DietprofilePage implements OnInit {
         }
         this.finalFoodDataByDate.push(
           {
-          mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Lunch':(i === 2)? 'Snacks':'Dinner'),
+          mealName:(i === 0) ? 'Breakfast':((i === 1)? 'Mid Morning':(i === 2)? 'Lunch':(i === 3)? 'Snacks':(i === 4)? 'Dinner':'Bed Time'),
           mealDate:todayMealDate,
           mealTime:'Food Time',
           mealcal:totalcal,
