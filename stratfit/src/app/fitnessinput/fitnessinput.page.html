@@ -6,7 +6,7 @@
     <div *ngIf='stepArry.prop=="gender"' class="fulpad text-center gender">
 
       <h2>Thanks for signing up!</h2>
-      <p>Help us understand you better, this information will be used personalize your fitness program.  </p>
+      <p>With your biometric data StratFit will optimize your training and dieting process.  </p>
 
       <h3 *ngIf='stepArry.prop!="static"'><span>Select Your Gender</span></h3>
     
@@ -174,7 +174,7 @@
         
         <form #exTmaxForm="ngForm">
 		      <!-- <h2>Do you have active physical job?</h2> -->
-          <h2>How many days per week do you indulge in any physical activity, including athletic practices, recreational sports, physical work, etc.? </h2>
+          <h2>How many days per week do you participate in any physical activity other than weight training (this includes serious sports practice, recreational sports activities, physical work, etc.)? </h2>
           <!-- <p >How many days per week do you do physical activities (Atheletic practice, Recreational sports, Physical work, etc)</p> -->
       
           
@@ -212,7 +212,7 @@
 
 <div class="sbtm-btn" *ngIf='initStepArry'>
     <!-- <ion-button class="nobg " (click)='prevStep()' *ngIf='stepIndex!=0'><span>Back</span></ion-button> -->
-    <ion-button expand="block" (click)='nextStep()'><span *ngIf='(stepIndex+1)!=initStepArry.length'>Next</span><span *ngIf='(stepIndex+1)==initStepArry.length'>Finish</span></ion-button>
+    <ion-button expand="block" (click)=' ()'><span *ngIf='(stepIndex+1)!=initStepArry.length'>Next</span><span *ngIf='(stepIndex+1)==initStepArry.length'>Finish</span></ion-button>
 </div>
 
 
