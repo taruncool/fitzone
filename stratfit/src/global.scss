@@ -5,7 +5,7 @@
 
 
 
-body, ion-app.md, ion-app.ios, .content-ios, .content-md{font-family: 'Lato', sans-serif !important;   }
+body, ion-app.md, ion-app.ios, .content-ios, .content-md{font-family: 'Lato', sans-serif !important; --ion-font-family: 'Lato', sans-serif !important; --ion-default-font: 'Lato', sans-serif !important;   }
 body {--ion-background-color: #EFF1F4 !important; background-color: #EFF1F4 !important;}
 
 // ion-content {--ion-background-color: #EFF1F4  !important;}
@@ -28,15 +28,30 @@ ion-content, ion-toolbar{--color: #000 !important; }
 /*-- Red Theme - White / Black Background ------------------------------------------------------*/
 .sfwred, .sfbwred{
 
-  ion-button, .checkbox-icon, ion-fab-button {--background:#D60404 !important; }
-  .tick, .edit, .play svg, .loader .progress-inner, .store .fulcard.active, .coach .fulcard.active, .alert-radio-inner, .scrol ion-button.active:after, .unlist ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levelopt.active:before, .coach ion-button svg {background:#D60404 !important; }
-  .slides-md {--bullet-background-active:#D60404 !important;}
-  .checkbox-icon, [aria-checked=true].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md, [aria-checked=true].sc-ion-alert-ios .alert-radio-icon.sc-ion-alert-ios .scrol ul li:before, .unlist ul li:before{border-color: #D60404 !important;}
+  // ion-button, .checkbox-icon, ion-fab-button {--background:#D60404 !important; }
+  // .tick, .edit, .play svg, .loader .progress-inner, .store .fulcard.active, .coach .fulcard.active, .alert-radio-inner, .scrol ion-button.active:after, .unlist ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levelopt.active:before, .coach ion-button svg {background:#D60404 !important; }
+  // .slides-md {--bullet-background-active:#D60404 !important;}
+  // .checkbox-icon, [aria-checked=true].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md, [aria-checked=true].sc-ion-alert-ios .alert-radio-icon.sc-ion-alert-ios .scrol ul li:before, .unlist ul li:before{border-color: #D60404 !important;}
 
-  a, .tab-selected, .alert-button {color: #D60404 !important;}
+  // a, .tab-selected, .alert-button {color: #D60404 !important;}
 
-  .done svg {stroke: #D60404 !important;}
+  // .done svg {stroke: #D60404 !important;}
+  // .aintro svg{fill: #D60404 !important;}
+
+  a, .loader .progress-inner{color: #d60404 !important;}
+  .done svg, .aintro .icostr {stroke: #D60404 !important;}
   .aintro svg{fill: #D60404 !important;}
+
+  ion-button, .checkbox-icon, ion-fab-button {--background:#D60404 !important; }
+  .loader .progress-inner, .tick, .edit, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before {background:#D60404 !important;}
+  .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#D60404 !important;}
+
+
+
+
+
+
+
 }
 
 
@@ -360,8 +375,8 @@ ion-select-popover{
   .alert-input-group{padding:0; border-radius: 10px;  background: #fff; margin-bottom: 2rem;
     .alert-input{ padding:1.4rem 2rem; margin: 0; border: 0;}
   }
-  .alert-button-group{ padding: 0; justify-content:center !important; text-align: center; display: inline-block !important; padding-inline-start: 0 !important; padding-inline-end: 0 !important;
-    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border: 2px solid #0163D1 !important; font-weight: normal !important;
+  .alert-button-group { padding: 0; justify-content:center !important; text-align: center; display: inline-block !important; padding-inline-start: 0 !important; padding-inline-end: 0 !important;
+    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border-width: 2px; border-style: solid; border-color: #0163D1 !important; font-weight: normal !important;
       span {color: #fff !important;justify-content:center !important;}
     }
     .alert-button:first-child {margin-left: 0;}
@@ -1039,6 +1054,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 
 .goal, .goals, .setick { --padding-bottom: 20px !important; // Goal Oriented 
   .rowlist {margin-bottom: 1rem;}
+  .rowlist:last-child {margin-bottom: 4rem !important;}
     ion-col{padding-top: 0 !important; padding-bottom: 10px !important;}
     // [size="4"] {flex:0 0 33.1222%  !important;}
     // [size="4"]:nth-child(3n+1) {margin-left: 0;}
@@ -1192,7 +1208,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
     em {display: block; padding:7px; font-size: small; font-weight: bold;}
   } // *** End Days & Week  *** ////
 
-  .week {
+  .week {background: #EFF1F4; margin-left: 12px; margin-right: 12px; border-radius: 10px;
     ion-button {width: 34px !important;}
   }
 
