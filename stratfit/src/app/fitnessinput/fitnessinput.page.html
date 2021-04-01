@@ -212,7 +212,7 @@
 
 <div class="sbtm-btn" *ngIf='initStepArry'>
     <!-- <ion-button class="nobg " (click)='prevStep()' *ngIf='stepIndex!=0'><span>Back</span></ion-button> -->
-    <ion-button expand="block" (click)=' ()'><span *ngIf='(stepIndex+1)!=initStepArry.length'>Next</span><span *ngIf='(stepIndex+1)==initStepArry.length'>Finish</span></ion-button>
+    <ion-button expand="block" (click)='nextStep()'><span *ngIf='(stepIndex+1)!=initStepArry.length'>Next</span><span *ngIf='(stepIndex+1)==initStepArry.length'>Finish</span></ion-button>
 </div>
 
 
