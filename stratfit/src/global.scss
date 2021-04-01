@@ -13,17 +13,27 @@ ion-content, ion-toolbar{--color: #000 !important; }
 
 /* --- Theme CSS ---*/
 
-// body.sfbgren {
+// body.sfbblue {
 //   .ion-page{--ion-background-color: #080C14 !important; --ion-color:#fff !important; --color:#fff !important; color: #fff !important; background-color: #080C14 !important;}
 // }
 
 
-/*-- Green Theme - White / Black Background ------------------------------------------------------*/
-.sfwgren, .sfbgren {}
-/*-- End Green With White ------------------*/
+/*-- Blue Theme - White / Black Background ------------------------------------------------------*/
+.sfwblue, .sfbwblue {
 
-.sfbgren {}
-/*-- End Green With Black ------------------*/
+  a, .loader .progress-inner, ion-tab-bar .tab-selected{color: #0163D1 !important;}
+  .done svg, .aintro .icostr {stroke: #0163D1 !important;}
+  .aintro svg{fill: #0163D1 !important;}
+
+  ion-button.button-block, .checkbox-icon, ion-fab-button {--background:#0163D1 !important; }
+  ion-toggle{--background-checked:#094588 !important;  --handle-background-checked:#0163D1 !important }
+  // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
+  .loader .progress-inner, .tick, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#0163D1 !important;}
+  .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#0163D1 !important;}
+
+}
+/*-- End Blue With White ------------------*/
+
 
 /*-- Red Theme - White / Black Background ------------------------------------------------------*/
 .sfwred, .sfbwred{
@@ -38,26 +48,24 @@ ion-content, ion-toolbar{--color: #000 !important; }
   // .done svg {stroke: #D60404 !important;}
   // .aintro svg{fill: #D60404 !important;}
 
-  a, .loader .progress-inner{color: #d60404 !important;}
+  a, .loader .progress-inner, ion-tab-bar .tab-selected{color: #d60404 !important;}
   .done svg, .aintro .icostr {stroke: #D60404 !important;}
   .aintro svg{fill: #D60404 !important;}
 
-  ion-button, .checkbox-icon, ion-fab-button {--background:#D60404 !important; }
-  .loader .progress-inner, .tick, .edit, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before {background:#D60404 !important;}
+  ion-button.button-block, .checkbox-icon, ion-fab-button, .setdone ion-button {--background:#D60404 !important; }
+  ion-toggle{--background-checked:#980909 !important; --handle-background-checked:#D60404 !important; }
+  // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
+  .loader .progress-inner, .tick, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg.done, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#D60404 !important;}
   .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#D60404 !important;}
-
-
-
-
-
 
 
 }
 
 
 
+
 // Theme Color- Button and all ---
-.loader .progress-inner {background:#0163D1 !important ;}
+// .loader .progress-inner {background: inherit;}
 
 
 // ion-header ion-toolbar ion-title{color: #000;}
@@ -132,7 +140,7 @@ img {width: 100%;}
 .text-center{text-align: center !important;}
 .text-right{text-align: right !important;}
 
-a{color: #0163D1;}
+// a{color: #0163D1;}
 ul{margin:0; padding: 0;}
 em {font-style: normal;}
 .none {display: none !important;}
@@ -154,7 +162,8 @@ ion-searchbar {--color:#000 !important;
   button {display: none !important;}
 }
 
-ion-toggle{--background:#999;}
+
+
 
 ion-button.button, ion-button.brn, .scrol button.active  {  text-transform: uppercase; margin-top:0; margin-bottom: 0.5rem;
   span {color:#fff !important;}
@@ -263,7 +272,7 @@ ion-button.nobg{color:#000 !important;
   // .scroll-item {display: inline-block;}
   ion-button, ul li {text-transform: unset !important;margin: 0 !important; contain: inherit !important; overflow: visible !important; display: inline-block; border:0 !important; border-radius: 0 !important; position: relative; letter-spacing: normal; }
   ion-button.active {opacity: 1; font-size: medium;font-weight: 900;}
-  ion-button.active:after { content:""; position: absolute; bottom: -10px; left:15px; right: 0; width: 50%; height: 3px; border-radius: 10px; background: #0163D1 !important;box-shadow: none;}
+  ion-button.active:after { content:""; position: absolute; bottom: -10px; left:15px; right: 0; width: 50%; height: 3px; border-radius: 10px; box-shadow: none;}
   // ion-button:first-child {margin-right: 0 !important;}
   ion-button {--background-hover: transparent !important;--background-focused: transparent !important;}
 
@@ -273,7 +282,7 @@ ion-button.nobg{color:#000 !important;
 
   ul{ width: 100%;
     li{padding:8px 15px 8px 30px; font-size: small; font-weight: bold; background: #EFF1F4 !important; border-radius: 25px !important;  margin-right: 6px !important;}
-    li:before{ content: ""; position: absolute; top: 10px; bottom: 0; left:10px; right: 0; width: 8px; height: 8px; border-radius: 50%; border-width: 2px; border-style: solid; border-color: #0163D1;  }
+    li:before{ content: ""; position: absolute; top: 10px; bottom: 0; left:10px; right: 0; width: 8px; height: 8px; border-radius: 50%; border-width: 2px; border-style: solid;   }
   }
 }
 .scrol.min{min-height: 46px !important;}
@@ -309,7 +318,7 @@ ion-loading {outline: none;}
 }
 
 
-ion-modal{ --background: linear-gradient(rgb(8 12 20 / 90%), rgb(0 0 0 / 90%)) !important; backdrop-filter: blur(3px); 
+ion-modal{ --background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 80%)) !important; backdrop-filter: blur(3px); 
   ion-header ion-toolbar, ion-content, .infild{--background: none !important; color: #fff; --color:#fff !important;}
   ion-header.sbgry ion-toolbar ion-title, ion-content.sbgry{color:#000 !important;--color:#000 !important;}
   ion-header.sbgry svg{fill: #000 !important;}
@@ -376,7 +385,7 @@ ion-select-popover{
     .alert-input{ padding:1.4rem 2rem; margin: 0; border: 0;}
   }
   .alert-button-group { padding: 0; justify-content:center !important; text-align: center; display: inline-block !important; padding-inline-start: 0 !important; padding-inline-end: 0 !important;
-    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border-width: 2px; border-style: solid; border-color: #0163D1 !important; font-weight: normal !important;
+    .alert-button{display: inline-block; border-radius: 10px; text-transform: uppercase; width: 47%; font-size: initial; margin: 0 0 0 10px;padding:10px 15px; border-width: 2px; border-style: solid; font-weight: normal !important;
       span {color: #fff !important;justify-content:center !important;}
     }
     .alert-button:first-child {margin-left: 0;}
@@ -402,7 +411,7 @@ ion-select-popover{
 // Done -- check Mark circle CSS Animation
 
 .done{
-  svg {border-radius: 50%;display: block;stroke-width: 2;stroke: #0163D1;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  svg {border-radius: 50%;display: block;stroke-width: 2;stroke-miterlimit: 10;margin:auto;animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
     circle {stroke-dasharray: 166;stroke-dashoffset: 166;stroke-width:2;stroke-miterlimit:10;stroke:none;fill: none;animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
     path{transform-origin: 50% 50%;stroke-dasharray: 48;stroke-dashoffset: 48;animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
   }
@@ -461,7 +470,7 @@ ion-select-popover{
 }
 .head.back{
   svg{fill:#fff !important}
-  ion-button.backbg{ background: #fff !important;width: 32px;margin-left: 8px;height: 32px;border-radius: 50% !important;
+  ion-button.backbg{ width: 32px;margin-left: 8px;height: 32px; --background:#fff !important; --border-radius:50% !important;
     svg {width: 16px !important; height: 16px !important;margin-left: -3px !important; margin-top: 0 !important; fill: #000 !important;}
   }
 }
@@ -477,8 +486,8 @@ ion-select-popover{
 
 /*-- Footer -Slides Bottom */
 .swiper-pagination{bottom: 20px !important; left: 25% !important; right: 25% !important; width:auto !important ; z-index: 99999 !important;
-  .swiper-pagination-bullet {opacity: 0.9 !important;  }
-  .swiper-pagination-bullet-active {background: #0163D1 !important;}
+  .swwiper-pagination-bullet {opacity: 0.9 !important;  }
+  // .swiper-pagination-bullet-active {background: #0163D1 !important;}
 }
 .sbtm-btn { position: absolute; bottom: 0; left:0;right: 0; padding:0 10px 10px 10px; z-index: 9999 !important;
   .button {margin: 0; }
@@ -563,7 +572,7 @@ ion-tab-bar{border-width: 0 !important;
 .fabclose.fabl3{left:30% !important ;}
 .fabclose.fabr3{right:30% !important ; left: inherit !important;}
 
-.tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  background:#0163D1 !important; border-radius: 0 10px 0 20px;  z-index: 99;
+.tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  border-radius: 0 10px 0 20px;  z-index: 99;
   svg {width:1rem !important; height: 1rem !important;}
 }
 .tick.bg{background:#3880ff !important;border-radius: 0 10px 0 20px !important; padding: 6px 8px !important;}
@@ -989,7 +998,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .pcview{
   // .fulcard {background: none !important;}
   .pcover {position: fixed; top:0; bottom: 0; left:0; right: 0; }
-  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgb(8 12 20 / 90%), rgb(0 0 0 / 90%)) !important; backdrop-filter: blur(3px);  }
+  .pcover::after {content:""; position: absolute;left:0; right: 0; bottom: 0; top: 0; background: linear-gradient(rgb(8 12 20 / 80%), rgb(0 0 0 / 80%)) !important; backdrop-filter: blur(3px);  }
   .poverlay  {position: relative;left:50%;top:50%;transform:translate(-50%, -50%); color: #fff; margin-top: -30px; padding: 10px 10px 30px 10px !important; text-align: center;   
     // h1, h2, h3, h4, h5 { margin-top: 0;}
 
@@ -1186,7 +1195,7 @@ ion-card, ion-item, .fulcard, .dcard {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08
 .aintro{ 
   h3 {margin-top: 0;}
   [size="12"]{margin-bottom: 10px;}
-  svg {margin-bottom: 10px; width: 28px; height:28px; fill: #0163D1 !important;}
+  svg {margin-bottom: 10px; width: 28px; height:28px; }
   span{display: block; font-size: x-large; font-weight: 900; margin-bottom: 5px;}
   em{display: block; font-size:medium; font-weight: 900;}
 
@@ -1445,7 +1454,7 @@ ion-row.periods { padding:12px 12px; margin-bottom:10px; border-bottom-width: 1p
         span {display: block; margin-bottom: 5px; font-weight: 900; font-size: initial; }
         em {display: block; font-weight: normal; }
         
-        svg { width: 16px;height: 16px; border-radius: 50%;padding: 5px; margin-top: -3px; margin-bottom: 5px; background: #0163D1 !important; }
+        svg { width: 16px;height: 16px; border-radius: 50%;padding: 5px; margin-top: -3px; margin-bottom: 5px;  }
         .notdone{background: #aaa !important;}
         .skip{background: #EA4F5F !important;}
     }

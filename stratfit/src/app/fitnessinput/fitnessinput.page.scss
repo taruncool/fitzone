@@ -82,7 +82,7 @@
       // .levelopt:after { }
 
       .levelopt.active p {display: block !important;}
-      .levelopt.active:before { border-width: 3px !important; border-style: solid !important; border-color: #fff !important;  background: #0163D1!important;}
+      .levelopt.active:before { border-width: 3px !important; border-style: solid !important; border-color: #fff !important;  }
       .levelopt.active:after { border-width: 1px!important; border-style: solid !important; left:11px; top:18px; width: 19px !important; height: 19px !important; background: none !important; --background:none !important;}
 
       .levelopt.active h2{ font-weight: bold !important; display: block; }
