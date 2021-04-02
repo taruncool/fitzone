@@ -30,10 +30,10 @@ ion-content, ion-toolbar{--color: #000 !important; }
   .done svg, .aintro .icostr {stroke: #0163D1 !important;}
   .aintro svg{fill: #0163D1 !important;}
 
-  ion-button.button-solid, .checkbox-icon, ion-fab-button {--background:#0163D1 !important; }
+  ion-button.button-solid, .checkbox-icon, ion-fab-button, .setdone ion-button, .loader .progress-inner, ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon, ion-picker .picker-wrapper .picker-toolbar .picker-button, ion-picker .picker-wrapper .picker-columns .picker-opt {--background:#0163D1 !important; }
   ion-toggle{--background-checked:#42A5F5 !important;  --handle-background-checked:#0163D1 !important }
   // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
-  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#0163D1 !important;}
+  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active, .ngx-slider .ngx-slider-pointer  {background:#0163D1 !important;}
   .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#0163D1 !important;}
 
 }
@@ -60,10 +60,10 @@ ion-content, ion-toolbar{--color: #000 !important; }
   .aintro svg{fill: #D60404 !important;}
   .loading-wrapper ion-spinner{--spinner-color: #D60404 !important;}
 
-  ion-button.button-solid, .checkbox-icon, ion-fab-button, .setdone ion-button, .loader .progress-inner, ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon { --ion-color-primary:#D60404 !important; }
+  ion-button.button-solid, .checkbox-icon, ion-fab-button, .setdone ion-button, .loader .progress-inner, ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon, ion-picker .picker-wrapper .picker-toolbar .picker-button, ion-picker .picker-wrapper .picker-columns .picker-opt { --ion-color-primary:#D60404 !important; }
   ion-toggle{--background-checked:#EF5350  !important; --handle-background-checked:#D60404 !important; }
   // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
-  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg.done, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#D60404 !important;}
+  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg.done, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active, .ngx-slider .ngx-slider-pointer  {background:#D60404 !important;}
   .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#D60404 !important;}
   // ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon {--ion-color-primary:#D60404 !important;}
 
@@ -114,7 +114,7 @@ svg{width:2rem; height:2rem;fill: #000; }
 .adbor {border-width: 1px; border-style: solid; border-color: #ccc !important;}
 .nobor {border: 0 !important; --border-style:none !important}
 .nobr {border-radius: 0 !important;}
-.nobg, ion-button.nobg {--background: none !important; background: none !important; box-shadow: none !important;   }
+.nobg, ion-button.nobg, .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {--background: none !important; background: none !important; box-shadow: none !important;   }
 ion-button.nobg { border: 0 !important; --box-shadow:none !important; }
 
 .fulmar {margin: 12px !important;}
