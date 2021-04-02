@@ -2,11 +2,15 @@
 
 @import "~@ionic/angular/css/core.css";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 
-
-body, ion-app.md, ion-app.ios, .content-ios, .content-md{font-family: 'Lato', sans-serif !important; --ion-font-family: 'Lato', sans-serif !important; --ion-default-font: 'Lato', sans-serif !important;   }
-body {--ion-background-color: #EFF1F4 !important; background-color: #EFF1F4 !important;}
+body, ion-app.md, ion-app.ios, .content-ios, .content-md{ 
+  // font-family: 'Bebas Neue', cursive !important; --ion-font-family:'Bebas Neue', cursive !important; --ion-default-font:'Bebas Neue', cursive !important;
+  font-family: 'Lato', sans-serif !important; --ion-font-family:'Lato', sans-serif !important; --ion-default-font:'Lato', sans-serif !important;
+  // font-family: 'Lato', sans-serif !important;   
+}
+body {--ion-background-color: #EFF1F4 !important; background-color: #EFF1F4 !important; }
 
 // ion-content {--ion-background-color: #EFF1F4  !important;}
 ion-content, ion-toolbar{--color: #000 !important; }
@@ -20,15 +24,16 @@ ion-content, ion-toolbar{--color: #000 !important; }
 
 /*-- Blue Theme - White / Black Background ------------------------------------------------------*/
 .sfwblue, .sfbwblue {
+.ion-page, :focus{--color-selected:#0163D1 !important;}
 
   a, .loader .progress-inner, ion-tab-bar .tab-selected{color: #0163D1 !important;}
   .done svg, .aintro .icostr {stroke: #0163D1 !important;}
   .aintro svg{fill: #0163D1 !important;}
 
-  ion-button.button-block, .checkbox-icon, ion-fab-button {--background:#0163D1 !important; }
-  ion-toggle{--background-checked:#094588 !important;  --handle-background-checked:#0163D1 !important }
+  ion-button.button-solid, .checkbox-icon, ion-fab-button {--background:#0163D1 !important; }
+  ion-toggle{--background-checked:#42A5F5 !important;  --handle-background-checked:#0163D1 !important }
   // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
-  .loader .progress-inner, .tick, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#0163D1 !important;}
+  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#0163D1 !important;}
   .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#0163D1 !important;}
 
 }
@@ -48,15 +53,19 @@ ion-content, ion-toolbar{--color: #000 !important; }
   // .done svg {stroke: #D60404 !important;}
   // .aintro svg{fill: #D60404 !important;}
 
+  .ion-page, :focus{--color-selected:#D60404 !important;}
+
   a, .loader .progress-inner, ion-tab-bar .tab-selected{color: #d60404 !important;}
   .done svg, .aintro .icostr {stroke: #D60404 !important;}
   .aintro svg{fill: #D60404 !important;}
+  .loading-wrapper ion-spinner{--spinner-color: #D60404 !important;}
 
-  ion-button.button-block, .checkbox-icon, ion-fab-button, .setdone ion-button {--background:#D60404 !important; }
-  ion-toggle{--background-checked:#980909 !important; --handle-background-checked:#D60404 !important; }
+  ion-button.button-solid, .checkbox-icon, ion-fab-button, .setdone ion-button, .loader .progress-inner, ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon { --ion-color-primary:#D60404 !important; }
+  ion-toggle{--background-checked:#EF5350  !important; --handle-background-checked:#D60404 !important; }
   // ion-button.button-clear, .head.back ion-button.backbg {--background:#fff !important; --border-radius:50% !important }
-  .loader .progress-inner, .tick, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg.done, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#D60404 !important;}
+  .loader .progress-inner, .tick, .tick.bg, .edit, .play svg, .scrol ion-button.active:after, .unlist ion-button.active:after, .swiper-pagination .swiper-pagination-bullet-active, .days ion-button.active:after, .week ion-button.active:after, .workview .exelist ion-col svg.done, .tlevel .levels .levelopt.active:before, .analytic .fulcard.active, .coach .fulcard.active, .store .fulcard.active, .welcome .fulcard.active  {background:#D60404 !important;}
   .unlist ul li:before, .picker-md .alert-button-group .alert-button, ion-picker .alert-button-group .alert-button, ion-alert .alert-button-group .alert-button {border-color:#D60404 !important;}
+  // ion-alert .alert-radio-group .alert-radio-button .alert-radio-icon {--ion-color-primary:#D60404 !important;}
 
 
 }
@@ -486,8 +495,8 @@ ion-select-popover{
 
 /*-- Footer -Slides Bottom */
 .swiper-pagination{bottom: 20px !important; left: 25% !important; right: 25% !important; width:auto !important ; z-index: 99999 !important;
-  .swwiper-pagination-bullet {opacity: 0.9 !important;  }
-  // .swiper-pagination-bullet-active {background: #0163D1 !important;}
+  .swiper-pagination-bullet { --bullet-background:#000 !important; }
+
 }
 .sbtm-btn { position: absolute; bottom: 0; left:0;right: 0; padding:0 10px 10px 10px; z-index: 9999 !important;
   .button {margin: 0; }
@@ -575,7 +584,7 @@ ion-tab-bar{border-width: 0 !important;
 .tick, .edit {position: absolute;top: 0; right:0; padding: 6px;  border-radius: 0 10px 0 20px;  z-index: 99;
   svg {width:1rem !important; height: 1rem !important;}
 }
-.tick.bg{background:#3880ff !important;border-radius: 0 10px 0 20px !important; padding: 6px 8px !important;}
+.tick.bg{border-radius: 0 10px 0 20px !important; padding: 6px 8px !important;}
 
 .play{ position: absolute; left:0;top:0;bottom: 0; right: 0; z-index:99; /*background: linear-gradient(90deg, rgba(134,226,13,1) 0%, rgba(128,180,25,1) 100%);*/ 
   svg {left:50%;top:50%;transform:translate(-50%, -50%); position: absolute; border-radius: 50%; width: 80px !important; height:80px !important; background: #329DFB;
